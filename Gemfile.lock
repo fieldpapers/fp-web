@@ -160,7 +160,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
   byebug
-  coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
