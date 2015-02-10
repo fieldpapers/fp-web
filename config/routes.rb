@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get 'atlases/:id/:page' => 'atlases#show_page', as: :atlas_page
   resources :atlases
 
   # compatibility
-  get 'atlas.php' => 'atlases#show'
-  get 'atlases.php' => 'atlases#index'
+  get 'atlas.php' => 'atlases#show', redirect: true
+  get 'atlases.php' => 'atlases#index', redirect: true
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

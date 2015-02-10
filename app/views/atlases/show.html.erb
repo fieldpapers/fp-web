@@ -1,1 +1,43 @@
-<%= debug @atlas %>
+<%#
+title
+pages
+bbox
+
+Download PDF
+Export as
+GeoJSON
+CSV
+Shapefile
+
+Edit in
+iD
+Potlatch
+
+Activity
+pages + provider + orientation + format
+
+Nearby
+%>
+
+<img src="<%= @atlas.preview_url %>">
+
+<ul>
+  <li><%= @atlas.title %></li>
+  <li><%= @atlas.bbox %></li>
+  <li><%= @atlas.paper_size %></li>
+  <li><%= @atlas.orientation %></li>
+  <li><%= @atlas.layout %></li>
+  <li><%= link_to "Download PDF", @atlas.pdf_url %></li>
+</ul>
+
+<h2>Pages</h2>
+
+<ul>
+<% @atlas.pages.each do |page| %>
+  <li><%= page.page_number %></li>
+  <li><%= page.bbox %></li>
+  <li><%= page.zoom %></li>
+  <li><%= page.provider %></li>
+  <li><img src="<%= page.preview_url %>"></li>
+<% end %>
+</ul>

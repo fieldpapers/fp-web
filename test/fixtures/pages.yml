@@ -1,21 +1,15 @@
 # == Schema Information
 #
-# Table name: atlases
+# Table name: pages
 #
 #  id            :integer
-#  slug          :text             primary key
-#  title         :text
-#  form_id       :text
+#  print_id      :text
+#  page_number   :text
+#  text          :text
 #  bbox          :geometry({:srid= geometry, 0
 #  zoom          :integer
-#  paper_size    :text
-#  orientation   :text
-#  layout        :text
 #  provider      :text
-#  pdf_url       :text
 #  preview_url   :text
-#  geotiff_url   :text
-#  atlas_pages   :text
 #  country_name  :text
 #  country_woeid :integer
 #  region_name   :text
@@ -23,14 +17,8 @@
 #  place_name    :text
 #  place_woeid   :integer
 #  user_id       :text
-#  created_at    :datetime
-#  updated_at    :datetime
+#  created       :datetime
 #  composed      :datetime
-#  progress      :float
-#  private       :boolean
-#  text          :text
-#  cloned        :text
-#  refreshed     :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

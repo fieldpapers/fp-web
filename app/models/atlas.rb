@@ -6,7 +6,7 @@
 #  slug          :text             primary key
 #  title         :text
 #  form_id       :text
-#  bbox          :geometry
+#  bbox          :geometry({:srid= geometry, 0
 #  zoom          :integer
 #  paper_size    :text
 #  orientation   :text
@@ -35,4 +35,11 @@
 
 class Atlas < ActiveRecord::Base
   self.primary_key = "slug"
+  has_many :pages,
+    -> {
+      order "page_number DESC"
+    },
+    dependent: :destroy,
+    inverse_of: :atlas,
+    foreign_key: "print_id"
 end

@@ -6,7 +6,7 @@
 #  slug          :text             primary key
 #  title         :text
 #  form_id       :text
-#  bbox          :geometry
+#  bbox          :geometry({:srid= geometry, 0
 #  zoom          :integer
 #  paper_size    :text
 #  orientation   :text

@@ -95,3 +95,23 @@ create view atlases AS
     refreshed
   FROM remote_prints;
 
+create view pages AS
+  SELECT
+    NULL::integer AS id,
+    print_id,
+    page_number,
+    text,
+    ST_MakeEnvelope(west, south, east, north, 4326) AS bbox,
+    zoom,
+    provider,
+    preview_url,
+    country_name,
+    country_woeid,
+    region_name,
+    region_woeid,
+    place_name,
+    place_woeid,
+    user_id,
+    created,
+    composed
+  FROM remote_pages;
