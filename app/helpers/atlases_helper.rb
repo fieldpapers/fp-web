@@ -1,0 +1,2 @@
+module AtlasesHelper
+end
