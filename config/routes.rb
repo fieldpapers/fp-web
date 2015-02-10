@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :atlases
 
+  # compatibility
+  get 'atlas.php' => 'atlases#show'
+  get 'atlases.php' => 'atlases#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
