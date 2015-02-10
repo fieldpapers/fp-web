@@ -19,7 +19,7 @@
 #   host: 192.168.59.103
 #
 default: &default
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
   pool: 5
 
