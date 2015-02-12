@@ -28,7 +28,7 @@
 #  user_id       :string(8)
 #  created_at    :datetime         default("0000-00-00 00:00:00"), not null
 #  updated_at    :datetime         default("0000-00-00 00:00:00"), not null
-#  composed      :datetime         default("0000-00-00 00:00:00"), not null
+#  composed_at   :datetime         default("0000-00-00 00:00:00"), not null
 #  progress      :float(24)
 #  private       :integer          not null
 #  text          :text(16777215)

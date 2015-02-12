@@ -28,7 +28,7 @@
 #  user_id       :string(8)
 #  created_at    :datetime         default("0000-00-00 00:00:00"), not null
 #  updated_at    :datetime         default("0000-00-00 00:00:00"), not null
-#  composed      :datetime         default("0000-00-00 00:00:00"), not null
+#  composed_at   :datetime         default("0000-00-00 00:00:00"), not null
 #  progress      :float(24)
 #  private       :integer          not null
 #  text          :text(16777215)
@@ -60,8 +60,17 @@ class Atlas < ActiveRecord::Base
     inverse_of: :atlas,
     foreign_key: "print_id"
 
+  has_many :snapshots,
+    -> {
+      order "created_at DESC"
+    },
+    dependent: :destroy,
+    inverse_of: :atlas,
+    foreign_key: "print_id"
+
   # scopes
 
+  # TODO filter out private atlases
   default_scope { order "created_at DESC" }
 
   # instance methods
@@ -72,10 +81,10 @@ class Atlas < ActiveRecord::Base
   end
 
   def creator_name
-    self.creator && self.creator.name || "anonymous"
+    creator && creator.name || "anonymous"
   end
 
   def title
-    @title || "Untitled"
+    read_attribute(:title) || "Untitled"
   end
 end

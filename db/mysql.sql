@@ -27,7 +27,7 @@ create view new_atlases AS
     user_id,
     created AS created_at,
     created AS updated_at,
-    composed,
+    composed AS composed_at,
     progress,
     private,
     text,
@@ -71,3 +71,40 @@ create view new_users AS
     created AS created_at,
     activated
   FROM users;
+
+drop view if exists new_snapshots;
+create view new_snapshots AS
+  SELECT
+    0 AS id,
+    id AS slug,
+    print_id,
+    print_page_number,
+    print_href,
+    min_row,
+    min_column,
+    min_zoom,
+    max_row,
+    max_column,
+    max_zoom,
+    description,
+    is_private,
+    will_edit,
+    has_geotiff,
+    has_geojpeg,
+    has_stickers,
+    base_url,
+    uploaded_file,
+    geojpeg_bounds,
+    decoding_json,
+    country_name,
+    country_woeid,
+    region_name,
+    region_woeid,
+    place_name,
+    place_woeid,
+    user_id,
+    created AS created_at,
+    decoded AS decoded_at,
+    failed,
+    progress
+  FROM scans;
