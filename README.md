@@ -85,3 +85,10 @@ were already installed.
 
 NOTE: If you later decide to use `fig`, you'll need to delete `vendor/bundle`
 first.
+
+### Data
+
+There is not yet a mechanism for bootstrapping a new database. If you have
+a running instance of Field Papers (or access to one), you should point to that
+database (in `config/database.yml`; you'll likely need to change the
+credentials and the database name) and create the views from `db/mysql.sql`.
