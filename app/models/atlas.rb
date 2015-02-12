@@ -52,6 +52,8 @@ class Atlas < ActiveRecord::Base
     inverse_of: :atlas,
     foreign_key: "print_id"
 
+  default_scope { order "created_at DESC" }
+
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]

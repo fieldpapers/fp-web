@@ -1,6 +1,6 @@
 class AtlasesController < ApplicationController
   def index
-    @atlases = Atlas.limit(5).offset(0)
+    @atlases = Atlas.limit(50).offset(0)
   end
 
   def show
