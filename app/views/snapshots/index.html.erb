@@ -1,11 +1,13 @@
 <p><%= link_to "Atlases", atlases_path %> | Snapshots</p>
 
+<% if @snapshots.empty? %>
+<p>No snapshots.</p>
+<% else %>
 <%= paginate @snapshots %>
 
 <ul>
-<% @snapshots.each do |snapshot| %>
-<li><%= link_to snapshot.title, snapshot_path(snapshot) %> <%= snapshot.uploader_name %> <%= time_ago_in_words(snapshot.created_at) %> ago</li>
-<% end %>
+  <%= render partial: "snapshot", collection: @snapshots %>
 </ul>
 
 <%= paginate @snapshots %>
+<% end %>

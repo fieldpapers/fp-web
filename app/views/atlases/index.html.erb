@@ -1,11 +1,13 @@
 <p>Atlases | <%= link_to "Snapshots", snapshots_path %></p>
 
+<% if @atlases.empty? %>
+<p>No atlases.</p>
+<% else %>
 <%= paginate @atlases %>
 
 <ul>
-<% @atlases.each do |atlas| %>
-<li><%= link_to atlas.title, atlas_path(atlas) %> <%= atlas.creator_name %> <%= time_ago_in_words(atlas.created_at) %> ago</li>
-<% end %>
+  <%= render partial: "atlas", collection: @atlases %>
 </ul>
 
 <%= paginate @atlases %>
+<% end %>
