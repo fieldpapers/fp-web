@@ -1,6 +1,6 @@
 class AtlasesController < ApplicationController
   def index
-    @atlases = Atlas.page(params[:page])
+    @atlases = Atlas.includes(:creator).page(params[:page])
   end
 
   def show
