@@ -1,3 +1,4 @@
+drop view if exists new_atlases;
 create view new_atlases AS
   SELECT
     0 AS id,
@@ -34,6 +35,7 @@ create view new_atlases AS
     refreshed
   FROM prints;
 
+drop view if exists new_pages;
 create view new_pages AS
   SELECT
     0 AS id,
@@ -54,6 +56,18 @@ create view new_pages AS
     place_name,
     place_woeid,
     user_id,
-    created,
+    created AS created_at,
     composed
   FROM pages;
+
+drop view if exists new_users;
+create view new_users AS
+  SELECT
+    0 AS id,
+    id AS slug,
+    name,
+    password,
+    email,
+    created AS created_at,
+    activated
+  FROM users;

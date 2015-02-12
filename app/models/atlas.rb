@@ -40,6 +40,10 @@ class Atlas < ActiveRecord::Base
   self.primary_key = "slug"
   self.table_name = "new_atlases"
 
+  belongs_to :creator,
+    class_name: "User",
+    foreign_key: "user_id"
+
   has_many :pages,
     -> {
       order "page_number DESC"
@@ -51,5 +55,13 @@ class Atlas < ActiveRecord::Base
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
+  end
+
+  def creator_name
+    self.creator && self.creator.name || "anonymous"
+  end
+
+  def title
+    @title || "Untitled"
   end
 end

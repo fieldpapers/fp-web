@@ -20,7 +20,7 @@
 #  place_name    :string(128)
 #  place_woeid   :integer
 #  user_id       :string(8)        not null
-#  created       :datetime         default("0000-00-00 00:00:00"), not null
+#  created_at    :datetime         default("0000-00-00 00:00:00"), not null
 #  composed      :datetime         default("0000-00-00 00:00:00"), not null
 #
 
