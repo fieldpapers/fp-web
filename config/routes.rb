@@ -5,8 +5,22 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get 'atlases/:id/:page' => 'atlases#show_page', as: :atlas_page
-  resources :atlases
+  concern :pageable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  resources :atlases, :concerns => :pageable do
+    member do
+      get ':page',
+        action: :show_page,
+        as: :atlas_page,
+        constraints: {
+          id: /(?:(?!page).)+/ # use negative lookaheads to match anything
+                               # *except* page (necessary because concerns
+                               # are prioritized lower)
+        }
+    end
+  end
 
   # compatibility
   get 'atlas.php' => 'atlases#show', redirect: true

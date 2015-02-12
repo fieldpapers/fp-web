@@ -31,6 +31,8 @@ gem 'puma'
 
 gem 'bootstrap-sass', '~> 3.3.3'
 
+gem 'kaminari'
+
 # https://github.com/ctran/annotate_models
 gem 'annotate', '~> 2.6.5'
 

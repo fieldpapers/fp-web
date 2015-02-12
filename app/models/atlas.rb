@@ -37,8 +37,16 @@
 #
 
 class Atlas < ActiveRecord::Base
+  # configuration
+
   self.primary_key = "slug"
   self.table_name = "new_atlases"
+
+  # kaminari (pagination) configuration
+
+  paginates_per 50
+
+  # relations
 
   belongs_to :creator,
     class_name: "User",
@@ -52,7 +60,11 @@ class Atlas < ActiveRecord::Base
     inverse_of: :atlas,
     foreign_key: "print_id"
 
+  # scopes
+
   default_scope { order "created_at DESC" }
+
+  # instance methods
 
   # TODO this show go away if/when migrating to postgres
   def bbox
