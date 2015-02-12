@@ -92,3 +92,8 @@ There is not yet a mechanism for bootstrapping a new database. If you have
 a running instance of Field Papers (or access to one), you should point to that
 database (in `config/database.yml`; you'll likely need to change the
 credentials and the database name) and create the views from `db/mysql.sql`.
+
+After making changes to the views, it's good form to run `bundle exec annotate`
+to update comments on affected models. This will run automatically when Rails
+manages the database, but in the meantime, it needs to be run by hand to keep
+things in sync.
