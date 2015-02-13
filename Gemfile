@@ -31,15 +31,10 @@ gem 'puma'
 
 gem 'bootstrap-sass', '~> 3.3.3'
 
+gem 'annotate', '~> 2.6.5' # model annotation
 gem 'composite_primary_keys', '~> 8.0.0'
 gem 'has_scope' # automatic filter generation
 gem 'kaminari' # pagination
-
-# https://github.com/ctran/annotate_models
-gem 'annotate', '~> 2.6.5'
-
-# https://github.com/rgeo/activerecord-postgis-adapter
-gem 'activerecord-postgis-adapter', '~> 3.0.0.beta1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
