@@ -13,45 +13,13 @@
 
 <div class="container">
 
-  <!-- Static navbar -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="/assets/logo-header.png" alt="Field Papers"></a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Make</a></li>
-          <li><a href="#">Upload</a></li>
-          <li><%= link_to "Watch", atlases_path %></li>
-          <li><a href="#">Extend</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Log in</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-  </nav>
+<%= render partial: "shared/navbar" %>
 
 <%= yield %>
 
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <a href="#"><b>Field Papers</b></a> is built by <a href="http://www.stamen.com">Stamen Design</a>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <a href="#">About the Project</a>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <a href="http://wiki.openstreetmap.org/wiki/Field_Papers" title="Check out the OSM help wiki.">Help</a>
-    <br>
-    <small>Map data <a href="http://www.openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>, <a href="http://maps.stamen.com/toner">Toner</a> by Stamen, <a href="http://www.bing.com/maps/">Bing</a> by Microsoft, or a combination thereof.</small>
-  </div>
-</footer>
+<%= render partial: "shared/footer" %>
 
 </body>
 </html>

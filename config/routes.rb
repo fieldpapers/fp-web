@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   # site root
   root 'home#index'
 
+  get '/advanced' => 'home#advanced', as: :advanced
+
   concern :pageable do
-    get '(page/:page)', action: :index, on: :collection, as: ''
+    get '(page/:page)' => :index, on: :collection, as: ''
   end
 
   resources :atlases, :concerns => :pageable do
