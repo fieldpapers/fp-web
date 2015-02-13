@@ -70,6 +70,7 @@ projects). `bundler` is similarly used to localize gem dependencies.
 brew install rbenv ruby-build
 
 eval "$(rbenv init -)"   # initialize rbenv
+rbenv install $(< .ruby-version) # install the desired ruby version
 
 gem install bundler      # install bundler using rbenv-installed ruby
 
