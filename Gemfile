@@ -32,6 +32,7 @@ gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'composite_primary_keys', '~> 8.0.0'
+gem 'has_scope' # automatic filter generation
 gem 'kaminari' # pagination
 
 # https://github.com/ctran/annotate_models

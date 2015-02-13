@@ -71,9 +71,30 @@ class Atlas < ActiveRecord::Base
   # scopes
 
   default_scope {
-    where("private = 0")
+    includes(:creator)
+      .where("private = 0")
       .order("created_at DESC")
   }
+
+  scope :date,
+    -> date {
+      where("DATE(created_at) = ?", date)
+    }
+
+  scope :month,
+    -> month {
+      where("CONCAT(YEAR(created_at), '-', LPAD(MONTH(created_at), 2, '0')) = ?", month)
+    }
+
+  scope :place,
+    -> place {
+      where("place_woeid = ? OR region_woeid = ? OR country_woeid = ?", place, place, place)
+    }
+
+  scope :user,
+    -> user {
+      where(user_id: user)
+    }
 
   # instance methods
 

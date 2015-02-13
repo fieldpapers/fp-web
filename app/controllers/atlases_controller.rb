@@ -1,6 +1,11 @@
 class AtlasesController < ApplicationController
+  has_scope :date, only: :index
+  has_scope :month, only: :index
+  has_scope :place, only: :index
+  has_scope :user, only: :index
+
   def index
-    @atlases = Atlas.includes(:creator).page(params[:page])
+    @atlases = apply_scopes(Atlas).page(params[:page])
   end
 
   def show

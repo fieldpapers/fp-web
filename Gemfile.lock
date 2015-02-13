@@ -72,6 +72,9 @@ GEM
     execjs (2.3.0)
     globalid (0.3.2)
       activesupport (>= 4.1.0)
+    has_scope (0.6.0)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -179,6 +182,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
   byebug
   composite_primary_keys (~> 8.0.0)
+  has_scope
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
