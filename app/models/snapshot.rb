@@ -50,20 +50,21 @@ class Snapshot < ActiveRecord::Base
 
   belongs_to :uploader,
     class_name: "User",
-    foreign_key: "user_id"
+    foreign_key: :user_id
 
   belongs_to :page,
-    foreign_key: ["print_id", "print_page_number"]
+    foreign_key: [:print_id, :print_page_number]
 
   belongs_to :atlas,
-    foreign_key: "print_id"
+    foreign_key: :print_id
 
   # scopes
 
   default_scope {
     includes([:atlas, :page, :uploader])
-      .where("print_id IS NOT NULL")
-      .order("created_at DESC")
+      .joins(:atlas)
+      .where("#{self.table_name}.print_id IS NOT NULL AND is_private = 'no' AND #{Atlas.table_name}.private = 0")
+      .order("#{self.table_name}.created_at DESC")
   }
 
   # instance methods

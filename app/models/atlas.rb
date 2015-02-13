@@ -70,8 +70,10 @@ class Atlas < ActiveRecord::Base
 
   # scopes
 
-  # TODO filter out private atlases
-  default_scope { order "created_at DESC" }
+  default_scope {
+    where("private = 0")
+      .order("created_at DESC")
+  }
 
   # instance methods
 

@@ -25,7 +25,7 @@
 #
 
 class Page < ActiveRecord::Base
-  self.primary_key = ["print_id", "page_number"]
+  self.primary_keys = :print_id, :page_number
   self.table_name = "new_pages"
 
   belongs_to :atlas,
