@@ -22,7 +22,7 @@
 
 class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'name'
+  # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
   # devise configuration (authentication)
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   # validations
 
-  validates :name,
+  validates :username,
     presence: true,
     uniqueness: {
       case_sensitive: false
