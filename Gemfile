@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use mysql as the database for Active Record
-gem 'mysql2'
-# Use postgres as the database for Active Record
-gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,22 +16,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Puma as the app server
-gem 'puma'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem 'bootstrap-sass', '~> 3.3.3'
+# explicit choices
 
 gem 'annotate', '~> 2.6.5' # model annotation
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'composite_primary_keys', '~> 8.0.0'
 gem 'devise' # authentication
 gem 'has_scope' # automatic filter generation
 gem 'kaminari' # pagination
+gem 'puma' # app server
+gem 'mysql2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
