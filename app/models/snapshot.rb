@@ -1,9 +1,8 @@
 # == Schema Information
 #
-# Table name: new_snapshots
+# Table name: snapshots
 #
-#  id                :integer          default("0"), not null
-#  slug              :string(8)        not null, primary key
+#  id                :string(8)        not null, primary key
 #  print_id          :string(8)
 #  print_page_number :string(5)        not null
 #  print_href        :text(65535)
@@ -30,18 +29,14 @@
 #  place_name        :string(128)
 #  place_woeid       :integer
 #  user_id           :string(8)
-#  created_at        :datetime         default("0000-00-00 00:00:00"), not null
+#  created_at        :datetime         default("CURRENT_TIMESTAMP"), not null
 #  decoded_at        :datetime         default("0000-00-00 00:00:00"), not null
 #  failed            :integer          default("0")
 #  progress          :float(24)
+#  updated_at        :datetime
 #
 
 class Snapshot < ActiveRecord::Base
-  # configuration
-
-  self.primary_key = "slug"
-  self.table_name = "new_snapshots"
-
   # kaminari (pagination) configuration
 
   paginates_per 50
@@ -94,6 +89,6 @@ class Snapshot < ActiveRecord::Base
   end
 
   def uploader_name
-    uploader && uploader.name || "anonymous"
+    uploader && uploader.username || "anonymous"
   end
 end

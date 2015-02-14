@@ -66,19 +66,44 @@ On OS X, you'll want use `rbenv` (and `ruby-build`) in order to isolate the
 version of Ruby used here (and to prevent it from conflicting with other
 projects). `bundler` is similarly used to localize gem dependencies.
 
+[`direnv`](https://github.com/zimbatm/direnv) is a handy way to set
+project-specific environment variables (such as `PATH` or `DATABASE_URL`).
+A default `.envrc` has been provided that adds `bin/` to your `PATH`
+(`$(pwd)/bin`, technically, to prevent abuse) so that bundler binstubs can be
+used. It's opt-in, so you'll need to enable it with `direnv allow .`.
+
 ```bash
-brew install rbenv ruby-build
+brew install rbenv ruby-build direnv
 
-eval "$(rbenv init -)"   # initialize rbenv
+eval "$(rbenv init -)"     # initialize rbenv
+eval "$(direnv hook bash)" # initialize direnv
+rbenv install $(< .ruby-version) # install the desired ruby version
 
-gem install bundler      # install bundler using rbenv-installed ruby
+gem install bundler        # install bundler using rbenv-installed ruby
 
 bundle install --path vendor/bundle # install dependencies
 
-bundle exec rails server # start the app
+direnv allow .             # whitelist the local .envrc
+
+rails server # start the app
 ```
 
 The app will now be running on [localhost:3000](http://localhost:3000/).
+
+You'll probably want to add the following to the end of your `.bash_profile`
+(or equivalent):
+
+```bash
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi`
+eval "$(direnv hook bash)"
+```
+
+When updating, the following should be sufficient to sync your working copy:
+
+```bash
+bundle
+rake db:migrate RAILS_ENV=development
+```
 
 There are probably additional Homebrew dependencies I'm missing because they
 were already installed.
@@ -90,10 +115,13 @@ first.
 
 There is not yet a mechanism for bootstrapping a new database. If you have
 a running instance of Field Papers (or access to one), you should point to that
-database (in `config/database.yml`; you'll likely need to change the
-credentials and the database name) and create the views from `db/mysql.sql`.
+database by setting `DATABASE_URL` (in `.env` or your environment generally);
+you'll likely need to change the credentials and the database name.
 
-After making changes to the views, it's good form to run `bundle exec annotate`
-to update comments on affected models. This will run automatically when Rails
-manages the database, but in the meantime, it needs to be run by hand to keep
-things in sync.
+You'll also need to migrate the database to bring it in sync with what
+ActiveRecord expects (this also means that it will no longer be compatible with
+the PHP version):
+
+```bash
+rake db:migrate RAILS_ENV=development
+```

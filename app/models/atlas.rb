@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: new_atlases
+# Table name: atlases
 #
-#  id            :integer          default("0"), not null
-#  slug          :string(8)        not null, primary key
+#  id            :string(8)        not null, primary key
 #  title         :text(65535)
 #  form_id       :string(8)
-#  west          :float(53)
+#  north         :float(53)
 #  south         :float(53)
 #  east          :float(53)
-#  north         :float(53)
+#  west          :float(53)
 #  zoom          :integer
 #  paper_size    :string(6)        default("letter")
 #  orientation   :string(9)        default("portrait")
@@ -26,22 +25,17 @@
 #  place_name    :string(128)
 #  place_woeid   :integer
 #  user_id       :string(8)
-#  created_at    :datetime         default("0000-00-00 00:00:00"), not null
-#  updated_at    :datetime         default("0000-00-00 00:00:00"), not null
+#  created_at    :datetime         default("CURRENT_TIMESTAMP"), not null
 #  composed_at   :datetime         default("0000-00-00 00:00:00"), not null
 #  progress      :float(24)
 #  private       :integer          not null
 #  text          :text(16777215)
 #  cloned        :string(20)
 #  refreshed     :string(20)
+#  updated_at    :datetime
 #
 
 class Atlas < ActiveRecord::Base
-  # configuration
-
-  self.primary_key = "slug"
-  self.table_name = "new_atlases"
-
   # kaminari (pagination) configuration
 
   paginates_per 50
@@ -104,7 +98,7 @@ class Atlas < ActiveRecord::Base
   end
 
   def creator_name
-    creator && creator.name || "anonymous"
+    creator && creator.username || "anonymous"
   end
 
   def title

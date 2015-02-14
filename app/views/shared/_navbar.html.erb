@@ -33,6 +33,11 @@
                         <div class="desc">with advanced tools</div>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <div class="section"><%= user_signed_in? && link_to("Log out", destroy_user_session_path, method: :delete) || link_to("Log in", new_user_session_path) %></div>
+                    <% unless user_signed_in? %>
+                    <div class="desc"><%= link_to "Sign up", new_user_registration_path %></div>
+                </li>
                 <!--
                 {if $request.authenticated}
                   <li class="nav-item">
@@ -45,8 +50,9 @@
                     </li>
                 {else}
                     <li class="nav-item">
-                        <div class="section"><a href="{$base_dir}/login.php">LOG IN</a></div>
-                        <div class="desc">or <a href="{$base_dir}/registration.php">create an account</a></div>
+                        <div class="section"><%= user_signed_in? && link_to("Log out", destroy_user_session_path, method: :delete) || link_to("Log in", new_user_session_path) %></div>
+                        <% unless user_signed_in? %>
+                        <div class="desc"><%= link_to "Sign up", new_user_registration_path %></div>
                     </li>
                 {/if}
                 -->
@@ -54,3 +60,34 @@
         </div>
     </div>
 </div>
+<!--
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>"><img src="/assets/logo-header.png" alt="Field Papers"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Make</a></li>
+        <li><a href="#">Upload</a></li>
+        <li><%= link_to "Watch", atlases_path %></li>
+        <li><%= link_to "Extend", advanced_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= user_signed_in? && link_to("Log out", destroy_user_session_path, method: :delete) || link_to("Log in", new_user_session_path) %></li>
+        <% unless user_signed_in? %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+    <!--
+  </div><!--/.container-fluid -->
+  <!--
+</nav>
+-->
