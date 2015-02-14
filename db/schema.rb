@@ -92,16 +92,6 @@ ActiveRecord::Schema.define(version: 20150214015451) do
 
   add_index "mbtiles", ["user_id"], name: "user", using: :btree
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "content",   limit: 16777215
-    t.integer  "deleted",   limit: 1,        default: 0
-    t.datetime "created",                                null: false
-    t.datetime "available",                              null: false
-  end
-
-  add_index "messages", ["available"], name: "available", using: :btree
-  add_index "messages", ["deleted"], name: "deleted", using: :btree
-
   create_table "pages", id: false, force: :cascade do |t|
     t.string   "print_id",      limit: 8,     null: false
     t.string   "page_number",   limit: 5,     null: false
@@ -194,6 +184,7 @@ ActiveRecord::Schema.define(version: 20150214015451) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "users_email", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "name", unique: true, using: :btree
 
