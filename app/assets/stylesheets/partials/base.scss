@@ -1,0 +1,13 @@
+// Define global variables here
+
+
+// overide skeleton variables here
+$link-color: #09F;
+$link-visited-color: #339;
+
+// bump up min-width to test in browser
+$bp-larger-than-mobile    : "min-width: 401px" !default;
+
+
+// import skeleton
+@import "vendor/skeleton";

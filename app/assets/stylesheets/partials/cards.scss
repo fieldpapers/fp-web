@@ -1,0 +1,85 @@
+/*
+  Cards
+*/
+
+.cards .four.columns {
+  width: 100%;
+  margin-left: 0;
+
+  @media (#{$bp-larger-than-tablet}) {
+    width: grid-column-width(4);
+    margin-left: $column-margin;
+  }
+}
+
+.cards .four.columns:first-child {
+  margin-left: 0;
+}
+
+  .card {
+    margin-bottom: 20px;
+    text-align: left;
+
+    @media (#{$bp-larger-than-tablet}) {
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  .card-details {
+    display: block;
+    text-align: center;
+
+    @media (#{$bp-larger-than-phablet}) {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    @media (#{$bp-larger-than-tablet}) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+    .card-image {
+      display: block;
+
+      @media (#{$bp-larger-than-phablet}) {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      @media (#{$bp-larger-than-tablet}) {
+          display: block;
+      }
+    }
+
+      .card-image img {
+        border: none;
+        width: 100%;
+        height: auto;
+        max-height: initial;
+
+        @media (#{$bp-larger-than-phablet}) {
+          max-height: 150px;
+          width: auto;
+        }
+
+        @media (#{$bp-larger-than-tablet}) {
+          width: 100%;
+          height: auto;
+          max-height: initial;
+        }
+
+      }
+
+  .card-title {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .card-desc {
+    margin: 0;
+  }

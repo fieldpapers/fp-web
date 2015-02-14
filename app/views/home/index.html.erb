@@ -1,19 +1,29 @@
-<h1>Welcome to Field Papers</h1>
-
 <div class="row">
-  <div class="col-md-4">
-    <img src="/assets/atlases-large.gif">
-    <p><a href="#">Make yourself an atlas</a></p>
-    <p>Print out anywhere in the world.</p>
-  </div>
-  <div class="col-md-4">
-    <img src="/assets/field-large.gif">
-    <p><a href="#">Take it into the field</a></p>
-    <p>Make your notes and observations.</p>
-  </div>
-  <div class="col-md-4">
-    <img src="/assets/snapshots-large.gif">
-    <p><a href="#">Capture your notes</a></p>
-    <p><a href="#">Upload</a> pages you've photographed.</p>
-  </div>
+    <h4 class="twelve columns embolden">Welcomes to Field Papers</h4>
+</div>
+
+<div class="row cards">
+    <div class="four columns card">
+        <a class="card-image" href="#"><img src="<%= asset_path 'atlases-large.gif' %>" alt="Hand-drawn graphic to represent making a Field Papers atlas"></a>
+        <div class="card-details">
+            <h5 class="card-title"><a href="#">Make yourself an atlas</a></h5>
+            <p class="card-desc">Print out anywhere in the world.</p>
+        </div>
+    </div>
+
+    <div class="four columns card">
+        <a class="card-image" href="#"><img src="<%= asset_path 'field-large.gif' %>" alt="Hand-drawn graphic a Field Papers atlas out in the wild"></a>
+        <div class="card-details">
+            <h5 class="card-title"><a href="#">Take it into the field</a></h5>
+            <p class="card-desc">Make your notes and observations.</p>
+        </div>
+    </div>
+
+    <div class="four columns card">
+        <a class="card-image" href="#"><img src="<%= asset_path 'snapshots-large.gif' %>" alt="Hand-drawn graphic to photographing a page in a Field Papers atlas"></a>
+        <div class="card-details">
+            <h5 class="card-title"><a href="#">Capture your notes</a></h5>
+            <p class="card-desc"><b><a href="#">Upload</a></b> pages you've photographed.</p>
+        </div>
+    </div>
 </div>
