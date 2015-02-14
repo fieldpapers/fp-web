@@ -94,6 +94,6 @@ class Snapshot < ActiveRecord::Base
   end
 
   def uploader_name
-    uploader && uploader.name || "anonymous"
+    uploader && uploader.username || "anonymous"
   end
 end

@@ -104,7 +104,7 @@ class Atlas < ActiveRecord::Base
   end
 
   def creator_name
-    creator && creator.name || "anonymous"
+    creator && creator.username || "anonymous"
   end
 
   def title
