@@ -92,15 +92,11 @@ first.
 There is not yet a mechanism for bootstrapping a new database. If you have
 a running instance of Field Papers (or access to one), you should point to that
 database by setting `DATABASE_URL` (in `.env` or your environment generally);
-you'll likely need to change the credentials and the database name) and create
-the views from `db/mysql.sql`.
+you'll likely need to change the credentials and the database name.
 
-After making changes to the views, it's good form to run `bundle exec annotate`
-to update comments on affected models. This will run automatically when Rails
-manages the database, but in the meantime, it needs to be run by hand to keep
-things in sync.
-
-You'll also need to migrate the database:
+You'll also need to migrate the database to bring it in sync with what
+ActiveRecord expects (this also means that it will no longer be compatible with
+the PHP version):
 
 ```bash
 bundle exec rake db:migrate RAILS_ENV=development

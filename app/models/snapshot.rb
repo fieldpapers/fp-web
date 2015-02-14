@@ -37,11 +37,6 @@
 #
 
 class Snapshot < ActiveRecord::Base
-  # configuration
-
-  self.primary_key = "slug"
-  self.table_name = "new_snapshots"
-
   # kaminari (pagination) configuration
 
   paginates_per 50

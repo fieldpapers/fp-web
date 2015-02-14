@@ -37,11 +37,6 @@
 #
 
 class Atlas < ActiveRecord::Base
-  # configuration
-
-  self.primary_key = "slug"
-  self.table_name = "new_atlases"
-
   # kaminari (pagination) configuration
 
   paginates_per 50
