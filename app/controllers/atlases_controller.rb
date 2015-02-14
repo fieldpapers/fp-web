@@ -1,17 +1,19 @@
 class AtlasesController < ApplicationController
-  has_scope :date, only: :index
+  # filters
+  has_scope :date,  only: :index
   has_scope :month, only: :index
   has_scope :place, only: :index
-  has_scope :user, only: :index
+  has_scope :user,  only: :index
 
   def index
     @atlases = apply_scopes(Atlas).page(params[:page])
   end
 
   def show
-    if params[:redirect] and params[:id] =~ /(\w+)\/(.+)/
-      return redirect_to atlas_page_url(id: $1, page: $2)
-    elsif params[:redirect]
+    # redirects for legacy URLs
+    if params[:redirect]
+      return redirect_to atlas_page_url(id: $1, page: $2) if params[:id] =~ /(\w+)\/(.+)/
+
       return redirect_to atlas_url(params[:id])
     end
 
@@ -19,7 +21,10 @@ class AtlasesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.pdf { redirect_to @atlas.pdf_url }
+      format.pdf {
+        # convenience redirect if "pdf" was provided as an extension
+        redirect_to @atlas.pdf_url
+      }
     end
   end
 
