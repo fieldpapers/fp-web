@@ -98,6 +98,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi`
 eval "$(direnv hook bash)"
 ```
 
+When updating, the following should be sufficient to sync your working copy:
+
+```bash
+bundle
+rake db:migrate RAILS_ENV=development
+```
+
 There are probably additional Homebrew dependencies I'm missing because they
 were already installed.
 
