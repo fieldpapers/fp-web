@@ -60,18 +60,6 @@ create view new_pages AS
     composed
   FROM pages;
 
-drop view if exists new_users;
-create view new_users AS
-  SELECT
-    0 AS id,
-    id AS slug,
-    name,
-    password,
-    email,
-    created AS created_at,
-    activated
-  FROM users;
-
 drop view if exists new_snapshots;
 create view new_snapshots AS
   SELECT

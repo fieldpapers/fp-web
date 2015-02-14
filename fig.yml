@@ -9,6 +9,8 @@ web:
   command: bundle exec rails server -p 3000 -b 0.0.0.0
   volumes:
     - .:/app
+  environment:
+    - DATABASE_URL=mysql2://root:fig@db/fieldpapers_development
   ports:
     - "3000:3000"
   links:

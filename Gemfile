@@ -33,6 +33,7 @@ gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'annotate', '~> 2.6.5' # model annotation
 gem 'composite_primary_keys', '~> 8.0.0'
+gem 'devise' # authentication
 gem 'has_scope' # automatic filter generation
 gem 'kaminari' # pagination
 

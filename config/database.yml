@@ -2,15 +2,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: fig
-  # host: db
-  host: 192.168.59.103
-
-# default: &default
-#   adapter: postgis
-#   encoding: unicode
-#   pool: 5
+  url: <%= ENV["DATABASE_URL"] %>
 
 development:
   <<: *default
@@ -21,7 +13,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: app_test
+  database: fieldpapers_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -45,5 +37,4 @@ test:
 production:
   <<: *default
   database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV["DATABASE_URL"] %>

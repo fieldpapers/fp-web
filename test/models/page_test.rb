@@ -3,8 +3,8 @@
 # Table name: new_pages
 #
 #  id            :integer          default("0"), not null
-#  print_id      :string(8)        not null
-#  page_number   :string(5)        not null
+#  print_id      :string(8)        not null, primary key
+#  page_number   :string(5)        not null, primary key
 #  text          :text(65535)
 #  west          :float(53)
 #  south         :float(53)
