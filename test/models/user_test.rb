@@ -3,12 +3,10 @@
 # Table name: users
 #
 #  id                     :string(8)        not null, primary key
-#  name                   :string(32)
-#  password               :string(40)
+#  username               :string(32)
+#  legacy_password        :string(40)
 #  email                  :string(255)
-#  hash                   :string(32)       not null
 #  created                :datetime         default("CURRENT_TIMESTAMP"), not null
-#  activated              :datetime         default("0000-00-00 00:00:00"), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
