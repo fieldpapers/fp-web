@@ -14,8 +14,8 @@
 
 <%= render partial: "shared/navbar" %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<p class="notice<% if notice %> active<% end %>"><%= notice %></p>
+<p class="alert<% if alert %> active<% end %>"><%= alert %></p>
 
 <%= yield %>
 

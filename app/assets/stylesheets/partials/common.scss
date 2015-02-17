@@ -10,3 +10,24 @@ a:visited {
 #footer {
   margin-top: 60px;
 }
+
+
+// alerts & notices
+.alert, .notice {
+  display: none;
+  padding: 10px;
+}
+
+.alert.active , .notice.active { display: block; }
+
+.alert {
+  background-color: #f2dede;
+  border-color: #f2dede;
+  color: #a94442;
+}
+
+.notice {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
