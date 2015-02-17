@@ -2,22 +2,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: vagrant
-  password:
-  # host: db
-  host: 192.168.33.10
-
-# default: &default
-#   adapter: postgis
-#   encoding: unicode
-#   pool: 5
-
   url: <%= ENV["DATABASE_URL"] %>
 
 
 development:
   <<: *default
-  database: fieldpapers
+  database: fieldpapers_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -47,5 +37,5 @@ test:
 #
 production:
   <<: *default
-  database: app_production
+  database: fieldpapers_production
   url: <%= ENV["DATABASE_URL"] %>
