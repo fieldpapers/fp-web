@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214015451) do
+ActiveRecord::Schema.define(version: 20150216203144) do
 
   create_table "atlases", force: :cascade do |t|
     t.text     "title",         limit: 65535
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150214015451) do
     t.string   "pdf_url",       limit: 255
     t.string   "preview_url",   limit: 255
     t.string   "geotiff_url",   limit: 255
-    t.text     "atlas_pages",   limit: 65535
     t.string   "country_name",  limit: 64
     t.integer  "country_woeid", limit: 4
     t.string   "region_name",   limit: 64
@@ -44,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150214015451) do
     t.string   "cloned",        limit: 20
     t.string   "refreshed",     limit: 20
     t.datetime "updated_at"
+    t.integer  "rows",          limit: 4,                              null: false
+    t.integer  "cols",          limit: 4,                              null: false
   end
 
   add_index "atlases", ["private"], name: "prints_private", using: :btree
