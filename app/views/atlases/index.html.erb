@@ -1,5 +1,7 @@
 <p>Atlases | <%= link_to "Snapshots", snapshots_path %></p>
 
+<div id="map" class="map"></div>
+
 <% if @atlases.empty? %>
 <p>No atlases.</p>
 <% else %>
@@ -11,3 +13,11 @@
 
 <%= paginate @atlases %>
 <% end %>
+
+<script type="text/javascript">
+  var atlases = <%= raw(@atlases.to_json) %>
+  window.onload = function() {
+    var boundingBoxes = FP.map.boundingBoxes('map');
+    boundingBoxes.data(atlases);
+  }
+</script>

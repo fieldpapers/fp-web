@@ -1,0 +1,16 @@
+#map {
+  min-height: 300px;
+}
+
+// markers
+.atlas-boundingbox {
+  stroke: #000;
+  stroke-width: 2;
+  stroke-opacity: 1;
+  fill: yellow;
+  fill-opacity: 0.4;
+}
+
+.atlas-boundingbox:hover {
+    fill: steelblue;
+}

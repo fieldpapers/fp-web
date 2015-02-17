@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Field Papers</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,6 +25,9 @@
 </div>
 
 <!-- load Javascript at bottom -->
+<%= javascript_include_tag 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
 </body>
 </html>
