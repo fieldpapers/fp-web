@@ -1,0 +1,81 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map {
+      width: 500px;
+      height: 500px;
+      float: right;
+    }
+
+    .field_with_errors {
+      background-color: red;
+    }
+  </style>
+<% end %>
+
+<h1>Select</h1>
+
+<% if @atlas.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@atlas.errors.count, "error") %> prohibited this atlas from being saved:</h2>
+ 
+    <ul>
+    <% @atlas.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div id="map"></div>
+
+<%= form_for :atlas, url: wizard_path, method: :put do |f| %>
+<%= f.label :zoom %><br>
+<%= f.text_field :zoom %><br>
+<%= f.label :west %><br>
+<%= f.text_field :west %><br>
+<%= f.label :south %><br>
+<%= f.text_field :south %><br>
+<%= f.label :east %><br>
+<%= f.text_field :east %><br>
+<%= f.label :north %><br>
+<%= f.text_field :north %><br>
+<%= f.label :rows %><br>
+<%= f.text_field :rows %><br>
+<%= f.label :cols %><br>
+<%= f.text_field :cols %><br>
+<%= f.label :orientation %><br>
+<%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %><br>
+<%= f.label :provider %><br>
+<%= f.select :provider, options_for_select([["OpenStreetMap", "http://tile.openstreetmap.org/{z}/{x}/{y}.png"], ["Toner", "http://tile.stamen.com/{z}/{x}/{y}.png"]]) %><br>
+<%= f.submit "Next" %>
+<% end %>
+
+<% content_for :foot do %>
+<script>
+var map = L.map("map", {
+  attributionControl: false,
+  scrollWheelZoom: false,
+});
+
+map.setView([<%= params[:lat] %>, <%= params[:lon] %>], <%= params[:zoom] %>);
+
+L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+L.control.scale().addTo(map);
+
+map.on("move", function(evt) {
+  var bounds = evt.target.getBounds();
+
+  $("#atlas_zoom")[0].value = evt.target.getZoom();
+  $("#atlas_west")[0].value = bounds.getWest();
+  $("#atlas_south")[0].value = bounds.getSouth();
+  $("#atlas_east")[0].value = bounds.getEast();
+  $("#atlas_north")[0].value = bounds.getNorth();
+});
+
+// sync up the fields
+map.fire("move");
+</script>
+<% end %>

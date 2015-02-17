@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :compose
   resources :snapshots, :concerns => :pageable
 
   # URL backward-compatibility

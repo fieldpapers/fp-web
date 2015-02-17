@@ -36,9 +36,40 @@
 #
 
 class Atlas < ActiveRecord::Base
+  # virtual fields for layer overlays
+  attr_accessor :utm_grid, :redcross_overlay
+
   # kaminari (pagination) configuration
 
   paginates_per 50
+
+  # generate a random id (since id is not currently auto-increment)
+  after_initialize :init
+
+  # validations
+
+  validates :west, :south, :east, :north, numericality: true
+  validates :zoom, :rows, :cols, numericality: { only_integer: true }
+  validates :provider, presence: true
+  validates :layout, :orientation, :paper_size, presence: true
+
+  # the following properties have default values (from the db), so they'll
+  # successfully validate before they're overridden
+
+  validates :layout, inclusion: {
+    in: ["full-page", "half-page"],
+    message: "%{value} is not a valid layout"
+  }
+
+  validates :orientation, inclusion: {
+    in: ["portrait", "landscape"],
+    message: "%{value} is not a valid orientation"
+  }
+
+  validates :paper_size, inclusion: {
+    in: ["letter", "a3", "a4"], # TODO more paper sizes
+    message: "%{value} is not a supported paper size"
+  }
 
   # relations
 
@@ -99,6 +130,11 @@ class Atlas < ActiveRecord::Base
 
   def creator_name
     creator && creator.username || "anonymous"
+  end
+
+  # TODO remove this once atlases get proper ids
+  def init
+    self.id ||= ('a'..'z').to_a.shuffle[0,8].join
   end
 
   def title
