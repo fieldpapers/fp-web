@@ -1,22 +1,40 @@
+$column-counts: 3;
+
 .map-cards {
   margin-top: 20px;
   list-style: none;
+
+  @media (#{$bp-larger-than-tablet}) {
+    -moz-column-count: $column-counts;
+    -webkit-column-count: $column-counts;
+    column-count: $column-counts;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    column-gap: 1em;
+  }
 }
 
 .map-card {
   display: inline-block;
+  width: 100%;
   margin: 0 0 15px;
-  margin-left: $column-margin !important;
   padding: 15px;
   border: 2px solid #FAFAFA;
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   background: #FEFEFE;
   background-image: linear-gradient(45deg, #FFF, #F9F9F9);
   color: #666;
-
+  vertical-align: top;
   -webkit-column-break-inside: avoid;
      -moz-column-break-inside: avoid;
           column-break-inside: avoid;
+
+
+  @media (#{$bp-larger-than-tablet}) {
+    width: auto;
+  }
+
+
 }
 
 .map-card:first-child,
@@ -32,9 +50,13 @@
     padding: 0;
     margin: 0;
     width:100%;
-    max-width:100%;
-    height: 148px;
+    max-width: 100%;
+    height: auto;
     margin-bottom: 10px;
+
+    @media (#{$bp-larger-than-tablet}) {
+      //height: 148px;
+    }
   }
 
 
