@@ -7,6 +7,7 @@
   <title>Field Papers</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
 
@@ -29,6 +30,8 @@
 
 <!-- load Javascript at bottom -->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<%= yield :foot %>
 
 </body>
 </html>

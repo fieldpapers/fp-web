@@ -1,5 +1,6 @@
 class AtlasesController < ApplicationController
   # filters
+
   has_scope :date,  only: :index
   has_scope :month, only: :index
   has_scope :place, only: :index

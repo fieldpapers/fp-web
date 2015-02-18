@@ -1,0 +1,11 @@
+<h1>Describe</h1>
+
+<%= form_for :atlas, url: wizard_path, method: :put do |f| %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= f.label :text %><br>
+<%= f.text_area :text %><br>
+<%= f.label :private %><br>
+<%= f.check_box :private %><br>
+<%= f.submit "Next" %>
+<% end %>
