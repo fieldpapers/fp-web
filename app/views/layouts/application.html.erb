@@ -6,17 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Field Papers</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
 
 <div class="container">
 
 <%= render partial: "shared/navbar" %>
 
-<p class="notice<% if notice %> active<% end %>"><%= notice %></p>
-<p class="alert<% if alert %> active<% end %>"><%= alert %></p>
+<div class="row">
+  <div class="twelve columns">
+    <p class="notice<% if notice %> active<% end %>"><%= notice %></p>
+    <p class="alert<% if alert %> active<% end %>"><%= alert %></p>
+  </div>
+</div>
 
 <%= yield %>
 
@@ -25,9 +28,7 @@
 </div>
 
 <!-- load Javascript at bottom -->
-<%= javascript_include_tag 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
 
 </body>
 </html>

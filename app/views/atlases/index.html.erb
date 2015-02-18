@@ -1,13 +1,16 @@
-<p>Atlases | <%= link_to "Snapshots", snapshots_path %></p>
-
-<div id="map" class="map"></div>
+<div class="row">
+  <div class="twelve columns map-container">
+    <div id="map" class="map"></div>
+    <p class="inline-linkbar">Atlases | <%= link_to "Snapshots", snapshots_path %></p>
+  </div>
+</div>
 
 <% if @atlases.empty? %>
 <p>No atlases.</p>
 <% else %>
 <%= paginate @atlases %>
 
-<ul>
+<ul class="map-cards row">
   <%= render partial: "atlas", collection: @atlases %>
 </ul>
 
@@ -16,8 +19,4 @@
 
 <script type="text/javascript">
   var atlases = <%= raw(@atlases.to_json) %>
-  window.onload = function() {
-    var boundingBoxes = FP.map.boundingBoxes('map');
-    boundingBoxes.data(atlases);
-  }
 </script>

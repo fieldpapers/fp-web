@@ -1,1 +1,15 @@
-<li><%= link_to atlas.title, atlas_path(atlas) %> <%= atlas.creator_name %> <%= time_ago_in_words(atlas.created_at) %> ago</li>
+<li class="map-card four columns">
+  <%= link_to atlas_path(atlas), {:class=>"map-card-preview"} do %>
+    <%= image_tag atlas.preview_url %>
+  <% end %>
+
+  <div>
+    <%= link_to atlas.title, atlas_path(atlas), {:class=>"map-card-title embolden"} %>
+    <span class="map-card-creator small"><%= atlas.creator_name %></span>
+  </div>
+
+  <div>
+    <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, 'page') %></span>
+    <span class="map-card-created small"><%= time_ago_in_words(atlas.created_at) %> ago</span>
+  </div>
+</li>

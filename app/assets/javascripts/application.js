@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require leaflet
 //= require_directory ./global
 //= require_directory ./fp
 //= require turbolinks

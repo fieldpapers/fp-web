@@ -31,3 +31,18 @@ a:visited {
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
+
+
+//inline-linkbar
+.inline-linkbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 5px 10px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-weight: 800;
+  z-index: 2;
+}
