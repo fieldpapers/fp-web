@@ -5,7 +5,8 @@
 
 .map-card {
   display: inline-block;
-  margin: 0 2px 15px;
+  margin: 0 0 15px;
+  margin-left: $column-margin !important;
   padding: 15px;
   border: 2px solid #FAFAFA;
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
@@ -18,14 +19,22 @@
           column-break-inside: avoid;
 }
 
+.map-card:first-child,
+.map-card:nth-child(3n+1) {
+  margin-left: 0 !important;
+}
+
 .map-card-preview {
   display: block;
 }
 
   .map-card-preview img {
+    padding: 0;
+    margin: 0;
+    width:100%;
+    max-width:100%;
+    height: 148px;
     margin-bottom: 10px;
-    width: 100%;
-    height: auto;
   }
 
 

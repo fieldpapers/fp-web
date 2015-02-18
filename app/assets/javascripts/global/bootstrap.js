@@ -30,6 +30,7 @@
     },
 
     init: function() {
+      console.log("BOOTSTRAP>>>>>")
       var body = document.body,
           controller = body.getAttribute( 'data-controller' ),
           action = body.getAttribute( 'data-action' );
@@ -40,5 +41,7 @@
     }
   };
 
-  window.onload = UTIL.init;
+  $(function() {
+    UTIL.init();
+  });
 })(this);

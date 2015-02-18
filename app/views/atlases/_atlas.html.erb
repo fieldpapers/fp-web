@@ -1,9 +1,13 @@
 <li class="map-card four columns">
   <%= link_to atlas_path(atlas), {:class=>"map-card-preview"} do %>
-    <%= image_tag atlas.preview_url %>
+    <% if defined? atlas.preview_url and atlas.preview_url %>
+      <%= image_tag atlas.preview_url %>
+    <% else %>
+      <%= image_tag 'http://placehold.it/300x300&text=No%20Image' %>
+    <% end %>
   <% end %>
 
-  <div>
+  <div class="no-wrap">
     <%= link_to atlas.title, atlas_path(atlas), {:class=>"map-card-title embolden"} %>
     <span class="map-card-creator small"><%= atlas.creator_name %></span>
   </div>
