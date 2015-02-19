@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns map-container">
     <div id="map" class="map"></div>
-    <p class="inline-linkbar bottom">Atlases | <%= link_to "Snapshots", snapshots_path %></p>
+    <p class="inline-linkbar bottom"><%= number_with_delimiter(@counts) %> Atlases | <%= link_to "Snapshots", snapshots_path %></p>
   </div>
 </div>
 

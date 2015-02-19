@@ -6,6 +6,7 @@ class SnapshotsController < ApplicationController
 
   def index
     @snapshots = apply_scopes(Snapshot).page(params[:page])
+    @counts = apply_scopes(Snapshot).count('id')
   end
 
   def show

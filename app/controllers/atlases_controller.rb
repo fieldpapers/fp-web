@@ -8,6 +8,7 @@ class AtlasesController < ApplicationController
 
   def index
     @atlases = apply_scopes(Atlas).page(params[:page])
+    @counts = apply_scopes(Atlas).count('id')
   end
 
   def show
