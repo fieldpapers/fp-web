@@ -1,6 +1,13 @@
-<h1>Search</h1>
+<div id="compose-search" class="row align-center small-screen">
+  <h2 class="twelve columns">Where in the world is your atlas?</h2>
+  <form action="<%= next_wizard_path %>" class="twelve columns">
+    <div class="row">
+      <div class="twelve columns">
+        <input class="col-width-only five" type="text" name="q" tabindex="1" placeholder="Type in a location" autofocus required>
+        <input type="submit" value="search" tabindex="2">
+      </div>
+    </div>
+  </form>
+</div>
 
-<form action="<%= next_wizard_path %>">
-  <input type="text" name="q">
-  <input type="submit" value="search">
-</form>
+
