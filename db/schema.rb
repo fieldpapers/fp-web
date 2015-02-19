@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216203144) do
+ActiveRecord::Schema.define(version: 20150219233932) do
 
   create_table "atlases", force: :cascade do |t|
     t.text     "title",         limit: 65535
@@ -181,7 +181,6 @@ ActiveRecord::Schema.define(version: 20150216203144) do
     t.string   "username",               limit: 32
     t.string   "legacy_password",        limit: 40
     t.string   "email",                  limit: 255
-    t.datetime "created",                                         null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
@@ -191,6 +190,7 @@ ActiveRecord::Schema.define(version: 20150216203144) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
     t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
