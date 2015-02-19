@@ -1,7 +1,7 @@
 $column-counts: 3;
 
 .map-cards {
-  margin-top: 20px;
+  margin-top: 2rem;
   list-style: none;
 
   @media (#{$bp-larger-than-tablet}) {
@@ -15,7 +15,7 @@ $column-counts: 3;
 }
 
 .map-card {
-  display: inline-block;
+  display: block;
   width: 100%;
   margin: 0 0 15px;
   padding: 15px;
@@ -44,15 +44,22 @@ $column-counts: 3;
 
 .map-card-preview {
   display: block;
+  width: auto;
+  height: auto;
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-decoration: none !important;
+  font-size: 0;
 }
 
   .map-card-preview img {
     padding: 0;
     margin: 0;
-    width:100%;
+    width: 100%;
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    border: 0;
 
     @media (#{$bp-larger-than-tablet}) {
       //height: 148px;

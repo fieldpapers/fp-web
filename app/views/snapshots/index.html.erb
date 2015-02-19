@@ -1,13 +1,26 @@
-<p><%= link_to "Atlases", atlases_path %> | Snapshots</p>
+<div class="row">
+  <div class="twelve columns map-container">
+    <p class="inline-linkbar"><%= link_to "Atlases", atlases_path %> | Snapshots</p>
+  </div>
+</div>
 
-<% if @snapshots.empty? %>
-<p>No snapshots.</p>
-<% else %>
-<%= paginate @snapshots %>
+<div class="row">
+  <div class="twelve columns">
+    <% if @snapshots.empty? %>
+    <p class="alert">No snapshots.</p>
+    <% else %>
+    <%= paginate @snapshots %>
+  </div>
+</div>
 
-<ul>
+<ul class="map-cards row">
   <%= render partial: "snapshot", collection: @snapshots %>
 </ul>
 
-<%= paginate @snapshots %>
+<div class="row">
+  <div class="twelve columns">
+    <%= paginate @snapshots %>
+  </div>
+</div>
+
 <% end %>

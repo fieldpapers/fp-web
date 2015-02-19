@@ -41,14 +41,28 @@ a:visited {
 
 //inline-linkbar
 .inline-linkbar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   margin: 0;
   padding: 5px 10px;
   width: 100%;
   background: #000;
   color: #fff;
   font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.inline-linkbar.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 2;
 }
+
+  .inline-linkbar a {
+    color: #fff !important;
+    text-decoration: underline;
+  }
+  .inline-linkbar a:hover {
+    text-decoration: none;
+  }

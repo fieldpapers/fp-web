@@ -1,1 +1,18 @@
-<li><%= link_to snapshot.title, snapshot_path(snapshot) %> <%= snapshot.uploader_name %> <%= time_ago_in_words(snapshot.created_at) %> ago</li>
+<li class="map-card">
+  <%= link_to snapshot_path(snapshot), {:class=>"map-card-preview"} do %>
+    <% if defined? snapshot.base_url and snapshot.base_url %>
+      <%= image_tag snapshot.base_url %>
+    <% else %>
+      <%= image_tag 'http://placehold.it/300x300&text=No%20Image' %>
+    <% end %>
+  <% end %>
+
+  <div class="no-wrap">
+    <%= link_to snapshot.title, snapshot_path(snapshot), {:class=>"map-card-title embolden"} %>
+    <span class="map-card-creator small"><%= snapshot.uploader_name %></span>
+  </div>
+
+  <div>
+    <span class="map-card-created small"><%= time_ago_in_words(snapshot.created_at) %> ago</span>
+  </div>
+</li>
