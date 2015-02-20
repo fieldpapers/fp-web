@@ -11,50 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220071900) do
+ActiveRecord::Schema.define(version: 20150220074110) do
 
   create_table "atlases", force: :cascade do |t|
-    t.integer  "user_id",             limit: 4
-    t.string   "slug",                limit: 8,                                null: false
-    t.string   "user_slug",           limit: 8
-    t.text     "title",               limit: 4294967295
-    t.text     "text",                limit: 16777215
-    t.float    "west",                limit: 53,                               null: false
-    t.float    "south",               limit: 53,                               null: false
-    t.float    "east",                limit: 53,                               null: false
-    t.float    "north",               limit: 53,                               null: false
-    t.integer  "zoom",                limit: 1
-    t.integer  "rows",                limit: 1,                                null: false
-    t.integer  "cols",                limit: 1,                                null: false
-    t.string   "provider",            limit: 255
-    t.string   "paper_size",          limit: 6,          default: "letter",    null: false
-    t.string   "orientation",         limit: 9,          default: "portrait",  null: false
-    t.string   "layout",              limit: 9,          default: "full-page", null: false
-    t.string   "pdf_url",             limit: 255
-    t.string   "preview_url",         limit: 255
-    t.string   "country_name",        limit: 64
-    t.integer  "country_woeid",       limit: 4
-    t.string   "region_name",         limit: 64
-    t.integer  "region_woeid",        limit: 4
-    t.string   "place_name",          limit: 128
-    t.integer  "place_woeid",         limit: 4
-    t.float    "progress",            limit: 24
-    t.boolean  "private",             limit: 1,          default: false,       null: false
-    t.string   "cloned_from_slug",    limit: 20
-    t.string   "refreshed_from_slug", limit: 20
+    t.integer  "user_id",        limit: 4
+    t.string   "slug",           limit: 8,                                null: false
+    t.text     "title",          limit: 4294967295
+    t.text     "text",           limit: 4294967295
+    t.float    "west",           limit: 53,                               null: false
+    t.float    "south",          limit: 53,                               null: false
+    t.float    "east",           limit: 53,                               null: false
+    t.float    "north",          limit: 53,                               null: false
+    t.integer  "zoom",           limit: 1
+    t.integer  "rows",           limit: 1,                                null: false
+    t.integer  "cols",           limit: 1,                                null: false
+    t.string   "provider",       limit: 255
+    t.string   "paper_size",     limit: 6,          default: "letter",    null: false
+    t.string   "orientation",    limit: 9,          default: "portrait",  null: false
+    t.string   "layout",         limit: 9,          default: "full-page", null: false
+    t.string   "pdf_url",        limit: 255
+    t.string   "preview_url",    limit: 255
+    t.string   "country_name",   limit: 64
+    t.integer  "country_woeid",  limit: 4
+    t.string   "region_name",    limit: 64
+    t.integer  "region_woeid",   limit: 4
+    t.string   "place_name",     limit: 128
+    t.integer  "place_woeid",    limit: 4
+    t.float    "progress",       limit: 24
+    t.boolean  "private",        limit: 1,          default: false,       null: false
+    t.integer  "cloned_from",    limit: 4
+    t.integer  "refreshed_from", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "composed_at"
   end
 
+  add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree
   add_index "atlases", ["private"], name: "private", using: :btree
+  add_index "atlases", ["refreshed_from"], name: "index_atlases_on_refreshed_from", using: :btree
+  add_index "atlases", ["slug"], name: "index_atlases_on_slug", using: :btree
   add_index "atlases", ["slug"], name: "slug", using: :btree
-  add_index "atlases", ["user_slug"], name: "user_slug", using: :btree
+  add_index "atlases", ["user_id"], name: "index_atlases_on_user_id", using: :btree
 
   create_table "mbtiles", force: :cascade do |t|
-    t.string   "slug",           limit: 8,                   null: false
     t.integer  "user_id",        limit: 4,                   null: false
-    t.string   "user_slug",      limit: 8,                   null: false
     t.boolean  "private",        limit: 1,   default: false, null: false
     t.string   "url",            limit: 255
     t.string   "uploaded_file",  limit: 255
@@ -70,12 +70,10 @@ ActiveRecord::Schema.define(version: 20150220071900) do
   add_index "mbtiles", ["user_id"], name: "user_id", using: :btree
 
   create_table "notes", force: :cascade do |t|
-    t.string   "scan_slug",   limit: 8,                 null: false
-    t.string   "user_slug",   limit: 8,                 null: false
-    t.integer  "snapshot_id", limit: 4,                 null: false
+    t.integer  "snapshot_id", limit: 4,                      null: false
     t.integer  "user_id",     limit: 4
-    t.integer  "note_number", limit: 4,     default: 0, null: false
-    t.text     "note",        limit: 65535
+    t.integer  "note_number", limit: 4,          default: 0, null: false
+    t.text     "note",        limit: 4294967295
     t.float    "latitude",    limit: 53
     t.float    "longitude",   limit: 53
     t.text     "geometry",    limit: 65535
@@ -83,10 +81,11 @@ ActiveRecord::Schema.define(version: 20150220071900) do
     t.datetime "updated_at"
   end
 
+  add_index "notes", ["snapshot_id"], name: "index_notes_on_snapshot_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
+
   create_table "pages", force: :cascade do |t|
-    t.integer  "print_id",      limit: 4,     null: false
-    t.string   "print_slug",    limit: 8,     null: false
-    t.string   "user_slug",     limit: 8,     null: false
+    t.integer  "atlas_id",      limit: 4,     null: false
     t.string   "page_number",   limit: 5,     null: false
     t.text     "text",          limit: 65535
     t.float    "west",          limit: 53,    null: false
@@ -106,47 +105,45 @@ ActiveRecord::Schema.define(version: 20150220071900) do
     t.datetime "composed_at"
   end
 
-  add_index "pages", ["print_id"], name: "print_id", using: :btree
+  add_index "pages", ["atlas_id", "page_number"], name: "index_pages_on_atlas_id_and_page_number", using: :btree
+  add_index "pages", ["atlas_id"], name: "print_id", using: :btree
 
   create_table "snapshots", force: :cascade do |t|
-    t.string   "slug",              limit: 8,                          null: false
-    t.integer  "user_id",           limit: 4
-    t.integer  "page_id",           limit: 4
-    t.string   "print_slug",        limit: 8
-    t.string   "user_slug",         limit: 8
-    t.string   "print_page_number", limit: 5,                          null: false
-    t.text     "print_href",        limit: 65535
-    t.float    "min_row",           limit: 24
-    t.float    "max_row",           limit: 24
-    t.float    "min_column",        limit: 24
-    t.float    "max_column",        limit: 24
-    t.integer  "min_zoom",          limit: 4
-    t.integer  "max_zoom",          limit: 4
-    t.text     "description",       limit: 4294967295
-    t.boolean  "private",           limit: 1,          default: false, null: false
-    t.string   "has_geotiff",       limit: 3,          default: "no"
-    t.string   "has_geojpeg",       limit: 3,          default: "no"
-    t.string   "base_url",          limit: 255
-    t.string   "uploaded_file",     limit: 255
-    t.text     "geojpeg_bounds",    limit: 65535
-    t.text     "decoding_json",     limit: 65535
-    t.string   "country_name",      limit: 64
-    t.integer  "country_woeid",     limit: 4
-    t.string   "region_name",       limit: 64
-    t.integer  "region_woeid",      limit: 4
-    t.string   "place_name",        limit: 128
-    t.integer  "place_woeid",       limit: 4
-    t.integer  "failed",            limit: 4,          default: 0
-    t.float    "progress",          limit: 24
+    t.string   "slug",           limit: 8,                          null: false
+    t.integer  "user_id",        limit: 4
+    t.integer  "page_id",        limit: 4
+    t.text     "print_href",     limit: 65535
+    t.float    "min_row",        limit: 24
+    t.float    "max_row",        limit: 24
+    t.float    "min_column",     limit: 24
+    t.float    "max_column",     limit: 24
+    t.integer  "min_zoom",       limit: 4
+    t.integer  "max_zoom",       limit: 4
+    t.text     "description",    limit: 4294967295
+    t.boolean  "private",        limit: 1,          default: false, null: false
+    t.string   "has_geotiff",    limit: 3,          default: "no"
+    t.string   "has_geojpeg",    limit: 3,          default: "no"
+    t.string   "base_url",       limit: 255
+    t.string   "uploaded_file",  limit: 255
+    t.text     "geojpeg_bounds", limit: 65535
+    t.text     "decoding_json",  limit: 65535
+    t.string   "country_name",   limit: 64
+    t.integer  "country_woeid",  limit: 4
+    t.string   "region_name",    limit: 64
+    t.integer  "region_woeid",   limit: 4
+    t.string   "place_name",     limit: 128
+    t.integer  "place_woeid",    limit: 4
+    t.integer  "failed",         limit: 4,          default: 0
+    t.float    "progress",       limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "decoded_at"
   end
 
+  add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", using: :btree
   add_index "snapshots", ["user_id"], name: "user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "slug",                   limit: 8,                null: false
     t.string   "username",               limit: 32
     t.string   "legacy_password",        limit: 40
     t.string   "email",                  limit: 255

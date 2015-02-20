@@ -13,7 +13,7 @@ class AssignIdsToNotes < ActiveRecord::Migration
         -1 AS snapshot_id,
         NULL AS user_id,
         note_number,
-        note,
+        CONVERT(CAST(CONVERT(note USING latin1) AS BINARY) USING utf8) note, -- fix encoding issues
         latitude,
         longitude,
         geometry,

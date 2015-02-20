@@ -34,7 +34,7 @@ class AssignIdsToAtlases < ActiveRecord::Migration
         id AS slug,
         user_id AS user_slug,
         CONVERT(CAST(CONVERT(title USING latin1) AS BINARY) USING utf8) title, -- fix encoding issues
-        text,
+        CONVERT(CAST(CONVERT(text USING latin1) AS BINARY) USING utf8) text, -- fix encoding issues
         west,
         south,
         east,

@@ -2,38 +2,37 @@
 #
 # Table name: atlases
 #
-#  id                  :integer          not null, primary key
-#  user_id             :integer
-#  slug                :string(8)        not null
-#  user_slug           :string(8)
-#  title               :text(4294967295)
-#  text                :text(16777215)
-#  west                :float(53)        not null
-#  south               :float(53)        not null
-#  east                :float(53)        not null
-#  north               :float(53)        not null
-#  zoom                :integer
-#  rows                :integer          not null
-#  cols                :integer          not null
-#  provider            :string(255)
-#  paper_size          :string(6)        default("letter"), not null
-#  orientation         :string(9)        default("portrait"), not null
-#  layout              :string(9)        default("full-page"), not null
-#  pdf_url             :string(255)
-#  preview_url         :string(255)
-#  country_name        :string(64)
-#  country_woeid       :integer
-#  region_name         :string(64)
-#  region_woeid        :integer
-#  place_name          :string(128)
-#  place_woeid         :integer
-#  progress            :float(24)
-#  private             :boolean          default("0"), not null
-#  cloned_from_slug    :string(20)
-#  refreshed_from_slug :string(20)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  composed_at         :datetime
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  slug           :string(8)        not null
+#  title          :text(4294967295)
+#  text           :text(4294967295)
+#  west           :float(53)        not null
+#  south          :float(53)        not null
+#  east           :float(53)        not null
+#  north          :float(53)        not null
+#  zoom           :integer
+#  rows           :integer          not null
+#  cols           :integer          not null
+#  provider       :string(255)
+#  paper_size     :string(6)        default("letter"), not null
+#  orientation    :string(9)        default("portrait"), not null
+#  layout         :string(9)        default("full-page"), not null
+#  pdf_url        :string(255)
+#  preview_url    :string(255)
+#  country_name   :string(64)
+#  country_woeid  :integer
+#  region_name    :string(64)
+#  region_woeid   :integer
+#  place_name     :string(128)
+#  place_woeid    :integer
+#  progress       :float(24)
+#  private        :boolean          default("0"), not null
+#  cloned_from    :integer
+#  refreshed_from :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  composed_at    :datetime
 #
 
 require 'test_helper'
@@ -53,8 +52,7 @@ class AtlasTest < ActiveSupport::TestCase
       east: east,
       north: north,
       zoom: 13,
-      provider: "http://tile.openstreetmap.org/{z}/{x}/{y}.png",
-      composed_at: Time.now # TODO this should default to NULL
+      provider: "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
 
     assert_equal 4, atlas.pages.size
 

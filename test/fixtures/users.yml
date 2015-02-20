@@ -4,7 +4,6 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  slug                   :string(8)        not null
 #  username               :string(32)
 #  legacy_password        :string(40)
 #  email                  :string(255)

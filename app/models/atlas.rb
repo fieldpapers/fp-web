@@ -2,38 +2,37 @@
 #
 # Table name: atlases
 #
-#  id                  :integer          not null, primary key
-#  user_id             :integer
-#  slug                :string(8)        not null
-#  user_slug           :string(8)
-#  title               :text(4294967295)
-#  text                :text(16777215)
-#  west                :float(53)        not null
-#  south               :float(53)        not null
-#  east                :float(53)        not null
-#  north               :float(53)        not null
-#  zoom                :integer
-#  rows                :integer          not null
-#  cols                :integer          not null
-#  provider            :string(255)
-#  paper_size          :string(6)        default("letter"), not null
-#  orientation         :string(9)        default("portrait"), not null
-#  layout              :string(9)        default("full-page"), not null
-#  pdf_url             :string(255)
-#  preview_url         :string(255)
-#  country_name        :string(64)
-#  country_woeid       :integer
-#  region_name         :string(64)
-#  region_woeid        :integer
-#  place_name          :string(128)
-#  place_woeid         :integer
-#  progress            :float(24)
-#  private             :boolean          default("0"), not null
-#  cloned_from_slug    :string(20)
-#  refreshed_from_slug :string(20)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  composed_at         :datetime
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  slug           :string(8)        not null
+#  title          :text(4294967295)
+#  text           :text(4294967295)
+#  west           :float(53)        not null
+#  south          :float(53)        not null
+#  east           :float(53)        not null
+#  north          :float(53)        not null
+#  zoom           :integer
+#  rows           :integer          not null
+#  cols           :integer          not null
+#  provider       :string(255)
+#  paper_size     :string(6)        default("letter"), not null
+#  orientation    :string(9)        default("portrait"), not null
+#  layout         :string(9)        default("full-page"), not null
+#  pdf_url        :string(255)
+#  preview_url    :string(255)
+#  country_name   :string(64)
+#  country_woeid  :integer
+#  region_name    :string(64)
+#  region_woeid   :integer
+#  place_name     :string(128)
+#  place_woeid    :integer
+#  progress       :float(24)
+#  private        :boolean          default("0"), not null
+#  cloned_from    :integer
+#  refreshed_from :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  composed_at    :datetime
 #
 
 class Atlas < ActiveRecord::Base
@@ -87,22 +86,20 @@ class Atlas < ActiveRecord::Base
       order "page_number ASC"
     },
     dependent: :destroy,
-    inverse_of: :atlas,
-    foreign_key: "print_id"
+    inverse_of: :atlas
 
   has_many :snapshots,
     -> {
       order "created_at DESC"
     },
     dependent: :destroy,
-    inverse_of: :atlas,
-    foreign_key: "print_id"
+    inverse_of: :atlas
 
   # scopes
 
   default_scope {
     includes(:creator)
-      .where("private = 0")
+      .where("#{self.table_name}.private = false")
       .order("created_at DESC")
   }
 
@@ -144,8 +141,8 @@ class Atlas < ActiveRecord::Base
 private
 
   def init
-    # TODO set this default in the schema
-    self.private = false if self.private.nil?
+    # TODO remove this after the introduction of friendly_id
+    self.slug ||= ('a'..'z').to_a.shuffle[0,8].join
   end
 
   def create_pages
@@ -157,10 +154,8 @@ private
     rows.times do |y|
       cols.times do |x|
         pages.create! \
-          print_id: id,
+          atlas_id: id,
           page_number: "#{row_names[y]}#{x + 1}",
-          user_id: user_id || "",
-          composed_at: Time.now, # TODO this should default to NULL
           west: west + (x * width),
           south: south + ((cols - y - 1) * height),
           east: east - ((rows - x - 1) * width),
