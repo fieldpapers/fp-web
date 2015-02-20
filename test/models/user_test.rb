@@ -2,11 +2,11 @@
 #
 # Table name: users
 #
-#  id                     :string(8)        not null, primary key
+#  id                     :integer          not null, primary key
+#  slug                   :string(8)        not null
 #  username               :string(32)
 #  legacy_password        :string(40)
 #  email                  :string(255)
-#  created                :datetime         default("CURRENT_TIMESTAMP"), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
@@ -16,6 +16,7 @@
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
 #  updated_at             :datetime
+#  created_at             :datetime
 #
 
 require 'test_helper'

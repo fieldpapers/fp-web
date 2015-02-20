@@ -2,7 +2,8 @@
 #
 # Table name: users
 #
-#  id                     :string(8)        not null, primary key
+#  id                     :integer          not null, primary key
+#  slug                   :string(8)        not null
 #  username               :string(32)
 #  legacy_password        :string(40)
 #  email                  :string(255)
