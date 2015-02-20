@@ -262,6 +262,7 @@ DEPENDENCIES
   mysql2
   puma
   rails (= 4.2.0)
+  rake
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

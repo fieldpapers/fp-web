@@ -50,5 +50,7 @@ group :development, :test do
   gem 'guard-minitest'
 
   gem 'minitest-reporters'
+
+  gem 'rake'
 end
 
