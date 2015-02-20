@@ -2,6 +2,8 @@
 
 ## Development
 
+[![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
+
 ### Using fig
 
 [`fig`](http://www.fig.sh/) is a [Docker](http://www.docker.com/)-based tool for
