@@ -30,6 +30,12 @@ class Page < ActiveRecord::Base
   belongs_to :atlas,
     foreign_key: "print_id"
 
+  # validations
+
+  validates :north, :south, :east, :west, numericality: true
+  validates :zoom, numericality: { only_integer: true }
+  validates :provider, presence: true # TODO this is inherited from the atlas
+
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]

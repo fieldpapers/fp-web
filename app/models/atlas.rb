@@ -43,8 +43,12 @@ class Atlas < ActiveRecord::Base
 
   paginates_per 50
 
+  # callbacks
+
   # generate a random id (since id is not currently auto-increment)
   after_initialize :init
+
+  after_create :create_pages
 
   # validations
 
@@ -79,7 +83,7 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order "page_number DESC"
+      order "page_number ASC"
     },
     dependent: :destroy,
     inverse_of: :atlas,
@@ -132,12 +136,40 @@ class Atlas < ActiveRecord::Base
     creator && creator.username || "anonymous"
   end
 
-  # TODO remove this once atlases get proper ids
-  def init
-    self.id ||= ('a'..'z').to_a.shuffle[0,8].join
-  end
-
   def title
     read_attribute(:title) || "Untitled"
+  end
+
+private
+
+  def init
+    # TODO remove this once atlases get proper ids
+    self.id ||= ('a'..'z').to_a.shuffle[0,8].join
+
+    # TODO set this default in the schema
+    self.private = false if self.private.nil?
+  end
+
+  def create_pages
+    row_names = ("A".."Z").to_a
+
+    width = (east - west) / rows
+    height = (north - south) / cols
+
+    rows.times do |y|
+      cols.times do |x|
+        pages.create! \
+          print_id: id,
+          page_number: "#{row_names[y]}#{x + 1}",
+          user_id: user_id || "",
+          composed_at: Time.now, # TODO this should default to NULL
+          west: west + (x * width),
+          south: south + ((cols - y - 1) * height),
+          east: east - ((rows - x - 1) * width),
+          north: north - (y * height),
+          zoom: zoom,
+          provider: provider
+      end
+    end
   end
 end
