@@ -2,6 +2,8 @@
 
 ## Development
 
+[![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
+
 ### Using fig
 
 [`fig`](http://www.fig.sh/) is a [Docker](http://www.docker.com/)-based tool for
@@ -110,6 +112,19 @@ were already installed.
 
 NOTE: If you later decide to use `fig`, you'll need to delete `vendor/bundle`
 first.
+
+### Running Tests
+
+```bash
+rake
+```
+
+Alternately, you can use [Guard](https://github.com/guard/guard) to
+automatically run tests when related files change:
+
+```bash
+guard
+```
 
 ### Data
 

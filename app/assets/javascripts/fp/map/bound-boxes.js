@@ -13,6 +13,8 @@
 
     var map = L.map(selector, FP.map.options).setView([51.505, -0.09], 13);
 
+    map.attributionControl.setPrefix("");
+
     L.tileLayer("http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png", {
       attribution: 'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
       maxZoom: 18
