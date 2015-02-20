@@ -17,7 +17,6 @@
 #  pdf_url       :string(255)
 #  preview_url   :string(255)
 #  geotiff_url   :string(255)
-#  atlas_pages   :text(65535)
 #  country_name  :string(64)
 #  country_woeid :integer
 #  region_name   :string(64)
@@ -33,6 +32,8 @@
 #  cloned        :string(20)
 #  refreshed     :string(20)
 #  updated_at    :datetime
+#  rows          :integer          not null
+#  cols          :integer          not null
 #
 
 class Atlas < ActiveRecord::Base
