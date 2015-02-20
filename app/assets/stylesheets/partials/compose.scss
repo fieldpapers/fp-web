@@ -1,3 +1,99 @@
 #compose-search {
   margin: 6rem 0;
 }
+
+
+.leaflet-areaselect-shade {
+    position: absolute;
+    background: rgba(0,0,0, 0.4);
+}
+
+.leaflet-areaselect-handle {
+    position: absolute;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    margin-left: -7px;
+    cursor: move;
+}
+
+.leaflet-areaselect-handle.drag-handle,
+.leaflet-areaselect-handle.scale-handle {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    margin-left: -23px;
+}
+
+.leaflet-areaselect-handle.drag-handle {
+    background-image: url('ui/button-move-atlas-off.png');
+
+    &:hover {
+        background-image: url('ui/button-move-atlas-on.png');
+    }
+}
+
+.leaflet-areaselect-handle.scale-handle {
+    background-image: url('ui/button-scale-atlas-off.png');
+
+    &:hover {
+        background-image: url('ui/button-scale-atlas-on.png');
+    }
+}
+
+
+.leaflet-areaselect-handle.page-tool{
+    background: transparent;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.modifier-btn {
+    position: absolute;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 800;
+    cursor: pointer;
+
+    &:hover {
+        background: #000;
+        color: #fff;
+    }
+}
+
+.leaflet-areaselect-handle .add-btn {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    line-height: 20px;
+}
+
+.leaflet-areaselect-handle .subtract-btn {
+    margin-top: -26px;
+    margin-left: -8px;
+}
+
+.leaflet-areaselect-handle.col-modifier .subtract-btn {
+    margin-left: -26px;
+    margin-top: -8px;
+}
+
+.leaflet-areaselect-grid {
+    position: absolute;
+}
+
+.grid-elm-col {
+    position: absolute;
+    width: 1px;
+    background: rgba(255,0,0,0.4);
+    border: 1px solid #000;
+}
