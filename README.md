@@ -111,6 +111,19 @@ were already installed.
 NOTE: If you later decide to use `fig`, you'll need to delete `vendor/bundle`
 first.
 
+### Running Tests
+
+```bash
+rake
+```
+
+Alternately, you can use [Guard](https://github.com/guard/guard) to
+automatically run tests when related files change:
+
+```bash
+guard
+```
+
 ### Data
 
 There is not yet a mechanism for bootstrapping a new database. If you have

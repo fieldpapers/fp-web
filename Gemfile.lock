@@ -39,6 +39,7 @@ GEM
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
+    ansi (1.5.0)
     arel (6.0.0)
     autoprefixer-rails (5.1.5)
       execjs
@@ -54,6 +55,9 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -79,12 +83,35 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    ffi (1.9.6)
+    formatador (0.2.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    guard (2.12.2)
+      formatador (>= 0.2.4)
+      listen (~> 2.7)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-annotate (2.1)
+      annotate (~> 2.4, >= 2.4.0)
+      guard-compat (~> 1.2, >= 1.2.1)
+    guard-bundler (2.1.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+      guard-compat (~> 1.1)
+    guard-compat (1.2.1)
+    guard-minitest (2.4.4)
+      guard-compat (~> 1.2)
+      minitest (>= 3.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    hitimes (1.2.2)
     i18n (0.7.0)
     jbuilder (2.2.7)
       activesupport (>= 3.0.0, < 5)
@@ -98,19 +125,38 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     leaflet-rails (0.7.4)
+    listen (2.8.5)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
+    lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    minitest-reporters (1.0.10)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.10.1)
     multipart-post (2.0.0)
     mysql2 (0.3.18)
+    nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    notiffany (0.0.6)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
@@ -141,9 +187,13 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    ruby-progressbar (1.7.1)
     sass (3.4.12)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -154,6 +204,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shellany (0.0.1)
     slop (3.6.0)
     spring (1.3.2)
     sprockets (2.12.3)
@@ -168,6 +219,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -196,11 +249,16 @@ DEPENDENCIES
   devise
   faraday
   faraday_middleware
+  guard
+  guard-annotate
+  guard-bundler
+  guard-minitest
   has_scope
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
   leaflet-rails
+  minitest-reporters
   mysql2
   puma
   rails (= 4.2.0)
