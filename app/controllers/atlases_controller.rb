@@ -29,8 +29,4 @@ class AtlasesController < ApplicationController
       }
     end
   end
-
-  def show_page
-    @page = Page.find_by_print_id_and_page_number(params[:id], params[:page])
-  end
 end
