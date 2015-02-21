@@ -28,6 +28,7 @@ gem 'faraday' # http client
 gem 'faraday_middleware' # response parsing, etc.
 gem 'friendly_id', '~> 5.1.0' # alphanumeric slugs
 gem 'has_scope' # automatic filter generation
+gem 'http_accept_language'
 gem 'kaminari' # pagination
 gem 'puma' # app server
 gem 'mysql2'

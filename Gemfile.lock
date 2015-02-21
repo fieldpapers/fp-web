@@ -122,6 +122,7 @@ GEM
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
     hitimes (1.2.2)
+    http_accept_language (2.0.5)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.2.7)
@@ -267,6 +268,7 @@ DEPENDENCIES
   guard-livereload (~> 2.4)
   guard-minitest
   has_scope
+  http_accept_language
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
