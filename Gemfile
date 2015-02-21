@@ -48,6 +48,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-annotate'
   gem 'guard-bundler', require: false
+  gem 'guard-livereload', '~> 2.4', require: false
   gem 'guard-minitest'
 
   gem 'minitest-reporters'

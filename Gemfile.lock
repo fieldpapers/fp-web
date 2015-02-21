@@ -77,7 +77,11 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
+    eventmachine (1.0.7)
     execjs (2.3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -106,6 +110,10 @@ GEM
       guard (~> 2.2)
       guard-compat (~> 1.1)
     guard-compat (1.2.1)
+    guard-livereload (2.4.0)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      multi_json (~> 1.8)
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
@@ -114,6 +122,7 @@ GEM
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
     hitimes (1.2.2)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.2.7)
       activesupport (>= 3.0.0, < 5)
@@ -255,6 +264,7 @@ DEPENDENCIES
   guard
   guard-annotate
   guard-bundler
+  guard-livereload (~> 2.4)
   guard-minitest
   has_scope
   jbuilder (~> 2.0)
