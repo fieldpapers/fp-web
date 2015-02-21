@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+type = YAML
+
+[fieldpapers.fp-web-global]
+source_file = config/locales/en.yml
+source_lang = en
+trans.fr = config/locales/fr.yml
+

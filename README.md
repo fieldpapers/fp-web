@@ -126,6 +126,32 @@ automatically run tests when related files change:
 guard
 ```
 
+### Translation and Localization
+
+Install the [Transifex](https://www.transifex.com/) client (`tx`):
+
+```bash
+pip install transifex-client
+```
+
+To see the current translation status:
+
+```bash
+tx status
+```
+
+To pull pending translations:
+
+```bash
+tx pull -a
+```
+
+To initialize a new language:
+
+```bash
+tx set -r fieldpapers.fp-web-global -l es config/locales/es.yml
+```
+
 ### Data
 
 There is not yet a mechanism for bootstrapping a new database. If you have
