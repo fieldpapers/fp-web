@@ -19,7 +19,7 @@ class AtlasesController < ApplicationController
       return redirect_to atlas_url(params[:id])
     end
 
-    @atlas = Atlas.find(params[:id])
+    @atlas = Atlas.friendly.find(params[:id])
 
     respond_to do |format|
       format.html

@@ -12,6 +12,6 @@ class SnapshotsController < ApplicationController
   def show
     return redirect_to snapshot_url(params[:id]) if params[:redirect]
 
-    @snapshot = Snapshot.find(params[:id])
+    @snapshot = Snapshot.friendly.find(params[:id])
   end
 end
