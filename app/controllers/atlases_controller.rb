@@ -19,7 +19,7 @@ class AtlasesController < ApplicationController
       return redirect_to atlas_url(params[:id])
     end
 
-    @atlas = Atlas.find(params[:id])
+    @atlas = Atlas.friendly.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -28,9 +28,5 @@ class AtlasesController < ApplicationController
         redirect_to @atlas.pdf_url
       }
     end
-  end
-
-  def show_page
-    @page = Page.find_by_print_id_and_page_number(params[:id], params[:page])
   end
 end

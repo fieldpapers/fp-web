@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220074110) do
+ActiveRecord::Schema.define(version: 20150221002228) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150220074110) do
   add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree
   add_index "atlases", ["private"], name: "private", using: :btree
   add_index "atlases", ["refreshed_from"], name: "index_atlases_on_refreshed_from", using: :btree
-  add_index "atlases", ["slug"], name: "index_atlases_on_slug", using: :btree
+  add_index "atlases", ["slug"], name: "index_atlases_on_slug", unique: true, using: :btree
   add_index "atlases", ["slug"], name: "slug", using: :btree
   add_index "atlases", ["user_id"], name: "index_atlases_on_user_id", using: :btree
 
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20150220074110) do
     t.datetime "decoded_at"
   end
 
-  add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", using: :btree
+  add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree
   add_index "snapshots", ["user_id"], name: "user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

@@ -35,6 +35,12 @@
 #
 
 class Snapshot < ActiveRecord::Base
+  include FriendlyId
+
+  # friendly_id configuration
+
+  friendly_id :random_id, use: :slugged
+
   # kaminari (pagination) configuration
 
   paginates_per 50
@@ -85,5 +91,17 @@ class Snapshot < ActiveRecord::Base
 
   def uploader_name
     uploader && uploader.username || "anonymous"
+  end
+
+private
+
+  def random_id
+    # use multiple attempts of a lambda for slug candidates
+
+    25.times.map do
+      -> {
+        ('a'..'z').to_a.shuffle[0, 8].join
+      }
+    end
   end
 end

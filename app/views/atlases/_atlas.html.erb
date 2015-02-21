@@ -13,12 +13,7 @@
   </div>
 
   <div>
-    <% if defined? atlas.atlas_pages %>
-      <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, 'page') %></span>
-    <% else %>
-      <span class="map-card-pages small"><%= pluralize(0, 'page') %></span>
-    <% end %>
-
-    <span class="map-card-created small"><%= time_ago_in_words(atlas.created_at) %> ago</span>
+    <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, 'page') %>,</span>
+    <span class="map-card-created small"><%= link_to "#{time_ago_in_words(atlas.created_at)} ago", atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></span>
   </div>
 </li>

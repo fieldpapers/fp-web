@@ -26,7 +26,9 @@ gem 'composite_primary_keys', '~> 8.0.0'
 gem 'devise' # authentication
 gem 'faraday' # http client
 gem 'faraday_middleware' # response parsing, etc.
+gem 'friendly_id', '~> 5.1.0' # alphanumeric slugs
 gem 'has_scope' # automatic filter generation
+gem 'http_accept_language'
 gem 'kaminari' # pagination
 gem 'puma' # app server
 gem 'mysql2'
@@ -47,6 +49,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-annotate'
   gem 'guard-bundler', require: false
+  gem 'guard-livereload', '~> 2.4', require: false
   gem 'guard-minitest'
 
   gem 'minitest-reporters'

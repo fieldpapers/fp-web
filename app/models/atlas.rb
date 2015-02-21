@@ -36,8 +36,14 @@
 #
 
 class Atlas < ActiveRecord::Base
+  include FriendlyId
+
   # virtual fields for layer overlays
   attr_accessor :utm_grid, :redcross_overlay
+
+  # friendly_id configuration
+
+  friendly_id :random_id, use: :slugged
 
   # kaminari (pagination) configuration
 
@@ -45,13 +51,12 @@ class Atlas < ActiveRecord::Base
 
   # callbacks
 
-  # generate a random id (since id is not currently auto-increment)
-  after_initialize :init
 
   after_create :create_pages
 
   # validations
 
+  validates :slug, presence: true
   validates :west, :south, :east, :north, numericality: true
   validates :zoom, :rows, :cols, numericality: { only_integer: true }
   validates :provider, presence: true
@@ -125,6 +130,10 @@ class Atlas < ActiveRecord::Base
 
   # instance methods
 
+  def atlas_pages
+    pages.size
+  end
+
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
@@ -140,9 +149,14 @@ class Atlas < ActiveRecord::Base
 
 private
 
-  def init
-    # TODO remove this after the introduction of friendly_id
-    self.slug ||= ('a'..'z').to_a.shuffle[0,8].join
+  def random_id
+    # use multiple attempts of a lambda for slug candidates
+
+    25.times.map do
+      -> {
+        ('a'..'z').to_a.shuffle[0, 8].join
+      }
+    end
   end
 
   def create_pages
