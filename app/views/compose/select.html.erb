@@ -2,7 +2,6 @@
 
   <style>
     #map {
-      width: 500px;
       height: 500px;
       float: right;
     }
@@ -13,43 +12,43 @@
   </style>
 <% end %>
 
-<h1>Select</h1>
+<%= render partial: "composing_nav" %>
 
-<% if @atlas.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@atlas.errors.count, "error") %> prohibited this atlas from being saved:</h2>
-
-    <ul>
-    <% @atlas.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<div class="row">
+  <div class="twelve columns">
+  <% if @atlas.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atlas.errors.count, "error") %> prohibited this atlas from being saved:</h2>
+      <ul>
+      <% @atlas.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
 
-<div id="map"></div>
+<div class="row">
+  <div class="twelve columns">
+    <%= form_for :atlas, url: wizard_path, method: :put do |f| %>
+    <%= f.text_field :zoom, hidden: true %>
+    <%= f.text_field :west, hidden: true %>
+    <%= f.text_field :south, hidden: true %>
+    <%= f.text_field :east, hidden: true %>
+    <%= f.text_field :north, hidden: true %>
+    <%= f.text_field :rows, hidden: true %>
+    <%= f.text_field :cols, hidden: true %>
+    <%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %>
+    <%= f.select :provider, options_for_select([]) %>
+    <%= f.submit "Next" %>
+    <% end %>
+  </div>
+</div>
 
-<%= form_for :atlas, url: wizard_path, method: :put do |f| %>
-<%= f.label :zoom %><br>
-<%= f.text_field :zoom %><br>
-<%= f.label :west %><br>
-<%= f.text_field :west %><br>
-<%= f.label :south %><br>
-<%= f.text_field :south %><br>
-<%= f.label :east %><br>
-<%= f.text_field :east %><br>
-<%= f.label :north %><br>
-<%= f.text_field :north %><br>
-<%= f.label :rows %><br>
-<%= f.text_field :rows %><br>
-<%= f.label :cols %><br>
-<%= f.text_field :cols %><br>
-<%= f.label :orientation %><br>
-<%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %><br>
-<%= f.label :provider %><br>
-<%= f.select :provider, options_for_select([]) %><br>
-<%= f.submit "Next" %>
-<% end %>
+<div class="row">
+  <div id="map" class="twelve columns"></div>
+</div>
 
 <% content_for :foot do %>
 <script>

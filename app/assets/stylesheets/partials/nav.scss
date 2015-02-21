@@ -49,6 +49,9 @@
     width: auto;
   }
 }
+.nav-item.active a{
+  text-decoration: underline !important;
+}
 
 .nav-item:last-child {
   margin-right: 0;

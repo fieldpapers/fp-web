@@ -17,36 +17,39 @@
 
     L.control.scale().addTo(map);
 
-    map.on("move", function(evt) {
-
-    });
-
-
     var areaSelect = L.areaSelect({width:200, height:300});
     areaSelect.addTo(map);
+
+    // cache some elements
+    var atlasRows = $('#atlas_rows'),
+        atlasCols = $('#atlas_cols'),
+        atlasZoom = $("#atlas_zoom"),
+        atlasWest = $("#atlas_west"),
+        atlasSouth = $("#atlas_south"),
+        atlasEast = $("#atlas_east"),
+        atlasNorth = $("#atlas_north"),
+        atlasProvider = $('#atlas_provider');
 
     areaSelect.on('change', function(e){
       var pages = areaSelect.getPages();
       var bds = areaSelect.getPinnedBounds();
-      $('#atlas_rows').val(pages.rows);
-      $('#atlas_cols').val(pages.cols);
 
-      $("#atlas_zoom")[0].value = map.getZoom();
-      $("#atlas_west")[0].value = bds.getWest();
-      $("#atlas_south")[0].value = bds.getSouth();
-      $("#atlas_east")[0].value = bds.getEast();
-      $("#atlas_north")[0].value = bds.getNorth();
+      atlasRows.val( pages.rows );
+      atlasCols.val( pages.cols );
+      atlasZoom.val( map.getZoom() );
+      atlasWest.val( bds.getWest() );
+      atlasSouth.val( bds.getSouth() );
+      atlasEast.val( bds.getEast() );
+      atlasNorth.val( bds.getNorth() );
     });
 
     // set select options for tile providers
     for (var lyr in Map.options.tileProviders) {
-      $('#atlas_provider').append($('<option>', { value : lyr })
-          .text(Map.options.tileProviders[lyr].label));
+      atlasProvider.append($('<option>', {
+        value: lyr,
+        text: Map.options.tileProviders[lyr].label
+      }));
     }
-
-    // sync up the fields
-    map.fire("move");
-
 
     $('#atlas_orientation').on('change', function(){
       areaSelect.setOrientation(this.value);
@@ -57,6 +60,10 @@
       if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
       tileLayer = L.tileLayer(Map.options.tileProviders[this.value].template.toLowerCase()).addTo(map);
     });
+
+
+    // sync up the fields
+    map.fire("move");
 
     return __;
   };

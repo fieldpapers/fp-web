@@ -1,15 +1,19 @@
-<h1>Layout</h1>
+<%= render partial: "composing_nav" %>
 
-<%= form_for :atlas, url: wizard_path, method: :put do |f| %>
-<%= f.label "Maps Only" %><br>
-<%= f.radio_button :layout, "full-page"  %><br>
-<%= f.label "Maps + Notes (multiple pages)" %><br>
-<%= f.radio_button :layout, "full-page"  %><br>
-<%= f.label "Maps + Notes (same page)" %><br>
-<%= f.radio_button :layout, "half-page"  %><br>
-<%= f.label "UTM Grid" %><br>
-<%= f.check_box :utm_grid %><br>
-<%= f.label "Red Cross overlay" %><br>
-<%= f.check_box :redcross_overlay %><br>
-<%= f.submit "Next" %>
-<% end %>
+<div class="row">
+  <div class="twelve columns">
+    <%= form_for :atlas, url: wizard_path, method: :put do |f| %>
+    <%= f.label "Maps Only" %><br>
+    <%= f.radio_button :layout, "full-page"  %><br>
+    <%= f.label "Maps + Notes (multiple pages)" %><br>
+    <%= f.radio_button :layout, "full-page"  %><br>
+    <%= f.label "Maps + Notes (same page)" %><br>
+    <%= f.radio_button :layout, "half-page"  %><br>
+    <%= f.label "UTM Grid" %><br>
+    <%= f.check_box :utm_grid %><br>
+    <%= f.label "Red Cross overlay" %><br>
+    <%= f.check_box :redcross_overlay %><br>
+    <%= f.submit "Next" %>
+    <% end %>
+  </div>
+</div>

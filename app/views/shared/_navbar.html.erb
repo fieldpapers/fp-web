@@ -9,7 +9,8 @@
         <div class="twelve columns">
             <button id="nav-toggle">Menu</button>
             <ul class="navbar u-cf">
-                <li class="nav-item">
+
+                <li class="nav-item<% if controller_name.to_s() == 'compose' %> active<% end %>">
                     <a href="<%= compose_path(:search) %>">
                         <div class="section">MAKE</div>
                         <div class="desc">an atlas to print</div>
