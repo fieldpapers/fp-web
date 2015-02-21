@@ -130,6 +130,10 @@ class Atlas < ActiveRecord::Base
 
   # instance methods
 
+  def atlas_pages
+    pages.size
+  end
+
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
