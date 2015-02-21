@@ -2,8 +2,8 @@
   "use strict";
 
   var FP = exports.FP || (exports.FP = {});
-  var map = FP.map || (FP.map = {});
-  var compose = map.compose || (FP.map.compose = {});
+  var Map = FP.map || (FP.map = {});
+  var compose = Map.compose || (FP.map.compose = {});
 
 
   compose.select = function(opts) {
@@ -13,14 +13,13 @@
 
     map.setView(opts.initialView[0], opts.initialView[1]);
 
-    L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+    var tileLayer = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
     L.control.scale().addTo(map);
 
     map.on("move", function(evt) {
 
     });
-
 
 
     var areaSelect = L.areaSelect({width:200, height:300});
@@ -39,8 +38,25 @@
       $("#atlas_north")[0].value = bds.getNorth();
     });
 
+    // set select options for tile providers
+    for (var lyr in Map.options.tileProviders) {
+      $('#atlas_provider').append($('<option>', { value : lyr })
+          .text(Map.options.tileProviders[lyr].label));
+    }
+
     // sync up the fields
     map.fire("move");
+
+
+    $('#atlas_orientation').on('change', function(){
+      areaSelect.setOrientation(this.value);
+    });
+
+    $('#atlas_provider').on('change', function(){
+      if (!Map.options.tileProviders[this.value]) return;
+      if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
+      tileLayer = L.tileLayer(Map.options.tileProviders[this.value].template.toLowerCase()).addTo(map);
+    });
 
     return __;
   };
@@ -84,6 +100,21 @@ L.AreaSelect = L.Class.extend({
       this.refs.atlas_aspect_ratio = this.refs.page_aspect_ratio * 1;
       this._width = (150 * this.refs.atlas_aspect_ratio) * this.refs.cols;
       this._height = 150 * this.refs.rows;
+    },
+
+    setOrientation: function(x) {
+      if (this.refs.paper_orientations[x]) {
+        this.refs.page_aspect_ratio = this.refs.paper_orientations[x];
+        this.refs.atlas_aspect_ratio = this.refs.page_aspect_ratio * 1;
+
+        this.dimensions.width = (150 * this.refs.atlas_aspect_ratio) * this.refs.cols;
+        this.dimensions.height = 150 * this.refs.rows;
+
+        this.bounds = this._getBoundsPinToNorthWest();
+        this._render();
+      }
+
+      return this;
     },
 
     addTo: function(map) {
@@ -132,20 +163,22 @@ L.AreaSelect = L.Class.extend({
 
         this._container =   L.DomUtil.create("div", "leaflet-areaselect-container", this.map._controlContainer);
         this._grid =        L.DomUtil.create("div", "leaflet-areaselect-grid", this._container);
+
+        // shade layers
         this._topShade =    L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
         this._bottomShade = L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
         this._leftShade =   L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
         this._rightShade =  L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
 
+        // add/remove cols & rows
         this._setPageTool();
-
-        // drag tool
-        this._dragHandle = L.DomUtil.create("div", "leaflet-areaselect-handle drag-handle", this._container);
 
         // scale tool
         this._scaleHandle = L.DomUtil.create("div", "leaflet-areaselect-handle scale-handle", this._container);
-
         this._setScaleHandler(this._scaleHandle, -1, -1);
+
+        // drag tool
+        this._dragHandle = L.DomUtil.create("div", "leaflet-areaselect-handle drag-handle", this._container);
         var draggable = new L.DraggableAny(this._dragHandle, null, this._getPos, this._setPos, this);
         draggable.enable();
 
@@ -298,7 +331,6 @@ L.AreaSelect = L.Class.extend({
           rows = this.refs.rows,
           gridElm = this._grid;
 
-
       this._grid.innerHTML = "";
       this._grid.style.top = top + "px";
       this._grid.style.left = left + "px";
@@ -307,7 +339,6 @@ L.AreaSelect = L.Class.extend({
 
       var spacingX = 100 / cols,
           spacingY = 100 / rows;
-
 
       function makeElm(x,y,w,h) {
         var div = document.createElement('div');

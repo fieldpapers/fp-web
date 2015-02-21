@@ -47,15 +47,17 @@
 <%= f.label :orientation %><br>
 <%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %><br>
 <%= f.label :provider %><br>
-<%= f.select :provider, options_for_select([["OpenStreetMap", "http://tile.openstreetmap.org/{z}/{x}/{y}.png"], ["Toner", "http://tile.stamen.com/{z}/{x}/{y}.png"]]) %><br>
+<%= f.select :provider, options_for_select([]) %><br>
 <%= f.submit "Next" %>
 <% end %>
 
 <% content_for :foot do %>
 <script>
-  FP.map.compose.select({
-    selector: 'map',
-    initialView: [[<%= params[:lat] %>, <%= params[:lon] %>], <%= params[:zoom] %>]
+  $(function(){
+    FP.map.compose.select({
+      selector: 'map',
+      initialView: [[<%= params[:lat] %>, <%= params[:lon] %>], <%= params[:zoom] %>]
+    });
   });
 </script>
 <% end %>
