@@ -59,7 +59,7 @@
 
 .leaflet-areaselect-shade {
     position: absolute;
-    background: rgba(0,0,0, 0.4);
+    background: rgba(0,0,0, 0.3);
 }
 
 .leaflet-areaselect-handle {
@@ -93,7 +93,8 @@
 .leaflet-areaselect-handle.scale-handle {
     background-image: url('ui/button-scale-atlas-off.png');
 
-    &:hover {
+    &:hover,
+    .scaling & {
         background-image: url('ui/button-scale-atlas-on.png');
     }
 }
@@ -109,13 +110,19 @@
 .modifier-btn {
     position: absolute;
     background: #fff;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     text-align: center;
-    font-size: 14px;
-    line-height: 16px;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1;
     font-weight: 800;
     cursor: pointer;
+    border: 2px solid #000;
+
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
 
     &:hover {
         background: #000;
@@ -123,22 +130,38 @@
     }
 }
 
+.modifier-btn > div {
+    display: block;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
 .leaflet-areaselect-handle .add-btn {
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
-    line-height: 20px;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: -12px;
+    font-size: 19px;
 }
 
 .leaflet-areaselect-handle .subtract-btn {
-    margin-top: -26px;
-    margin-left: -8px;
+    margin-top: -28px;
+    margin-left: -9px;
 }
 
 .leaflet-areaselect-handle.col-modifier .subtract-btn {
-    margin-left: -26px;
-    margin-top: -8px;
+    margin-left: -28px;
+    margin-top: -9px;
+}
+
+.one-col .col-modifier .subtract-btn {
+    display:none;
+}
+.one-row .row-modifier .subtract-btn {
+    display:none;
 }
 
 .leaflet-areaselect-grid {
@@ -148,6 +171,6 @@
 .grid-elm-col {
     position: absolute;
     width: 1px;
-    background: rgba(255,0,0,0.4);
+    background: rgba(255,255,255,0);
     border: 1px solid #000;
 }

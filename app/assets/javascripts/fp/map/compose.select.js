@@ -9,7 +9,7 @@
   compose.select = function(opts) {
     var __ = {};
 
-    var map = L.map(opts.selector, FP.map.options);
+    var map = L.map(opts.selector, L.Util.extend(FP.map.options,{zoomControl: false}));
 
     map.setView(opts.initialView[0], opts.initialView[1]);
 
@@ -19,6 +19,31 @@
 
     var areaSelect = L.areaSelect({width:200, height:300});
     areaSelect.addTo(map);
+
+
+    var zoomControls = new L.Control.ZoomExtras( {
+        position: 'topleft',
+        extras: [{
+            text: '][',
+            title: 'Reset',
+            klass: 'zoom-reset',
+            onClick: function(){
+              var bds = areaSelect.getPinnedBounds();
+              map.fitBounds(bds);
+
+            },
+            onDisabled: function(btn, className) {
+                L.DomUtil.removeClass(btn, className);
+
+                /*
+                if(something) { // disable
+                  L.DomUtil.addClass(btn, className);
+                }
+                */
+            }
+        }],
+        extraMapDisabledEvents: ['moveend']
+    }).addTo(map);
 
     // cache some elements
     var atlasRows = $('#atlas_rows'),
@@ -79,6 +104,8 @@ L.AreaSelect = L.Class.extend({
     options: {
         width: 200,
         height: 300,
+        minHeight: 80,
+        paddingToEdge: 30,
         keepAspectRatio: true,
     },
 
@@ -88,7 +115,6 @@ L.AreaSelect = L.Class.extend({
     refs: {
       paper_orientations: {"landscape": 1.50, "portrait": .75},
       page_aspect_ratio:  null,
-      atlas_aspect_ratio: null,
       page_dimensions: {
         width: 0,
         height: 0
@@ -98,27 +124,35 @@ L.AreaSelect = L.Class.extend({
     },
 
     initialize: function(options) {
-        L.Util.setOptions(this, options);
-        this.refs.page_aspect_ratio = this.refs.paper_orientations["landscape"];
-        this.setSelectorSize();
-    },
-
-    setSelectorSize: function() {
-      this.refs.atlas_aspect_ratio = this.refs.page_aspect_ratio * 1;
-      this._width = (150 * this.refs.atlas_aspect_ratio) * this.refs.cols;
+      L.Util.setOptions(this, options);
+      this.refs.page_aspect_ratio = this.refs.paper_orientations["landscape"];
+      this._width = (150 * this.refs.page_aspect_ratio) * this.refs.cols;
       this._height = 150 * this.refs.rows;
     },
 
     setOrientation: function(x) {
-      if (this.refs.paper_orientations[x]) {
+      if (this.refs.paper_orientations[x] &&
+          this.refs.page_aspect_ratio !== this.refs.paper_orientations[x]) {
+
         this.refs.page_aspect_ratio = this.refs.paper_orientations[x];
-        this.refs.atlas_aspect_ratio = this.refs.page_aspect_ratio * 1;
 
-        this.dimensions.width = (150 * this.refs.atlas_aspect_ratio) * this.refs.cols;
-        this.dimensions.height = 150 * this.refs.rows;
+        var h = this.dimensions.height,
+            w = this.dimensions.width;
 
+        // flop the dimensions
+        this.dimensions.width = h;
+        this.dimensions.height = w;
+
+        // re-calc bounds
         this.bounds = this._getBoundsPinToNorthWest();
         this._render();
+
+        // if the flop is outside the map bounds, contain it.
+        var mapBds = this.map.getBounds();
+        if(!mapBds.contains(this.bounds)) {
+          this.map.fitBounds(this.bounds, {animate: false});
+        }
+
       }
 
       return this;
@@ -237,8 +271,7 @@ L.AreaSelect = L.Class.extend({
     },
 
     _updatePages: function() {
-      this.refs.atlas_aspect_ratio = this.refs.page_aspect_ratio * 1;
-      this.dimensions.width = (this.dimensions.cellHeight * this.refs.atlas_aspect_ratio) * this.refs.cols;
+      this.dimensions.width = (this.dimensions.cellHeight * this.refs.page_aspect_ratio) * this.refs.cols;
       this.dimensions.height = this.dimensions.cellHeight * this.refs.rows;
       this.bounds = this._getBoundsPinToNorthWest();
       this._render();
@@ -246,19 +279,28 @@ L.AreaSelect = L.Class.extend({
     },
 
     _setPageTool: function() {
+
+      function createInnerText(container, text) {
+        var c = L.DomUtil.create("div", "", container);
+        c.innerHTML = text;
+      }
       // row
       this._rowModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool row-modifier", this._container);
       this._addRow = L.DomUtil.create("div", "modifier-btn add-btn", this._rowModifier);
-      this._addRow.innerHTML = "+";
+      //this._addRow.innerHTML = "+";
+      createInnerText(this._addRow, "+");
       this._minusRow = L.DomUtil.create("div", "modifier-btn subtract-btn", this._rowModifier);
-      this._minusRow.innerHTML = "&#8722;";
+      //this._minusRow.innerHTML = "&#8722;";
+      createInnerText(this._minusRow, "&#8722;");
 
       // col
       this._colModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool col-modifier", this._container);
       this._addCol = L.DomUtil.create("div", "modifier-btn add-btn", this._colModifier);
-      this._addCol.innerHTML = "+";
+      //this._addCol.innerHTML = "+";
+      createInnerText(this._addCol, "+");
       this._minusCol = L.DomUtil.create("div", "modifier-btn subtract-btn", this._colModifier);
-      this._minusCol.innerHTML = "&#8722;";
+      //this._minusCol.innerHTML = "&#8722;";
+      createInnerText(this._minusCol, "&#8722;");
 
 
       L.DomEvent.addListener(this._addRow, "click", this._onAddRow, this);
@@ -280,24 +322,31 @@ L.AreaSelect = L.Class.extend({
             var ratio = self.dimensions.width / self.dimensions.height;
             var size = self.map.getSize();
             L.DomUtil.disableTextSelection();
+            L.DomUtil.addClass(self._container, 'scaling');
+
+            var nwPt = self.map.latLngToContainerPoint(self.bounds.getNorthWest());
+            var maxHeightY = size.y - self.map.latLngToContainerPoint(self.bounds.getNorthWest()).y - self.options.paddingToEdge;
+            var maxHeightX = (size.x - self.map.latLngToContainerPoint(self.bounds.getNorthWest()).x - self.options.paddingToEdge) * 1/ratio;
+            var maxHeight = Math.min(maxHeightY, maxHeightX);
 
             function onMouseMove(event) {
                 var width = self.dimensions.width,
                     height = self.dimensions.height;
 
                 if (self.options.keepAspectRatio) {
-                    var maxHeight = (height >= width ? size.y : size.y * (1/ratio) ) - 30;
+                    //var maxHeight = (height >= width ? size.y : size.y * (1/ratio) ) - 30;
                     height += (curY - event.originalEvent.pageY) * 2 * yMod;
-                    height = Math.max(30, height);
+                    height = Math.max(self.options.minHeight, height);
                     height = Math.min(maxHeight, height);
                     width = height * ratio;
+
                 } else {
                     self._width += (curX - event.originalEvent.pageX) * 2 * xMod;
                     self._height += (curY - event.originalEvent.pageY) * 2 * yMod;
-                    self._width = Math.max(30, self._width);
-                    self._height = Math.max(30, self._height);
-                    self._width = Math.min(size.x-30, self._width);
-                    self._height = Math.min(size.y-30, self._height);
+                    self._width = Math.max(self.options.paddingToEdge, self._width);
+                    self._height = Math.max(self.options.paddingToEdge, self._height);
+                    self._width = Math.min(size.x-self.options.paddingToEdge, self._width);
+                    self._height = Math.min(size.y-self.options.paddingToEdge, self._height);
                 }
 
                 self.dimensions.width = width;
@@ -315,6 +364,7 @@ L.AreaSelect = L.Class.extend({
                 L.DomEvent.removeListener(self.map, "mousemove", onMouseMove);
                 L.DomEvent.addListener(handle, "mousedown", onMouseDown);
                 L.DomUtil.enableTextSelection();
+                L.DomUtil.removeClass(self._container, 'scaling');
                 self.fire("change");
             }
 
@@ -337,6 +387,12 @@ L.AreaSelect = L.Class.extend({
       var cols = this.refs.cols,
           rows = this.refs.rows,
           gridElm = this._grid;
+
+      L.DomUtil.removeClass(this._container, "one-row");
+      L.DomUtil.removeClass(this._container, "one-col");
+
+      if (cols === 1) L.DomUtil.addClass(this._container, "one-col");
+      if (rows === 1) L.DomUtil.addClass(this._container, "one-row");
 
       this._grid.innerHTML = "";
       this._grid.style.top = top + "px";
@@ -629,3 +685,79 @@ L.DraggableAny = L.Class.extend({
     this._moving = false;
   }
 });
+
+
+(function(exports){
+    if (!L) return;
+
+    L.Control.ZoomExtras = L.Control.Zoom.extend({
+        options: {
+            position: 'topleft',
+            zoomInText: '+',
+            zoomInTitle: 'Zoom in',
+            zoomOutText: '-',
+            zoomOutTitle: 'Zoom out',
+            extras: [],
+            extraMapDisabledEvents:[]
+        },
+
+        onAdd: function (map) {
+            var zoomName = 'leaflet-control-zoom',
+                container = L.DomUtil.create('div', zoomName + ' leaflet-bar'),
+                that = this;
+
+            this._map = map;
+
+            this._zoomInButton  = this._createButton(
+                    this.options.zoomInText, this.options.zoomInTitle,
+                    zoomName + '-in',  container, this._zoomIn,  this);
+
+            this._zoomOutButton = this._createButton(
+                    this.options.zoomOutText, this.options.zoomOutTitle,
+                    zoomName + '-out', container, this._zoomOut, this);
+
+            this.options.extras.forEach(function(btn) {
+                btn.instance = that._createButton(btn.text, btn.title, btn.klass, container, function() {return btn.onClick.call(that)},  that);
+            });
+
+            this._updateDisabled();
+
+            map.on('zoomend zoomlevelschange', this._updateDisabled, this);
+
+            this.options.extraMapDisabledEvents.forEach(function(evt){
+                map.on(evt, that._updateDisabled, that);
+            });
+
+
+            return container;
+        },
+        onRemove: function (map) {
+            map.off('zoomend zoomlevelschange', this._updateDisabled, this);
+
+            var that = this;
+            this.options.extraMapDisabledEvents.forEach(function(evt){
+                map.off(evt, that._updateDisabled, that);
+            });
+        },
+
+        _updateDisabled: function () {
+            var map = this._map,
+                className = 'leaflet-disabled',
+                that = this;
+
+            L.DomUtil.removeClass(this._zoomInButton, className);
+            L.DomUtil.removeClass(this._zoomOutButton, className);
+
+            if (map._zoom === map.getMinZoom()) {
+                L.DomUtil.addClass(this._zoomOutButton, className);
+            }
+            if (map._zoom === map.getMaxZoom()) {
+                L.DomUtil.addClass(this._zoomInButton, className);
+            }
+
+            this.options.extras.forEach(function(btn) {
+                btn.onDisabled.call(that, btn.instance, className);
+            });
+        }
+    });
+})(window);
