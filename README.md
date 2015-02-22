@@ -1,5 +1,10 @@
 # Field Papers
 
+## Helping
+
+If you'd like to help out (thanks!), checking out [this
+overview](https://github.com/fieldpapers/fieldpapers).
+
 ## Development
 
 [![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
