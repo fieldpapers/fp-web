@@ -159,15 +159,30 @@ tx set -r fieldpapers.fp-web-global -l es config/locales/es.yml
 
 ### Data
 
-There is not yet a mechanism for bootstrapping a new database. If you have
-a running instance of Field Papers (or access to one), you should point to that
-database by setting `DATABASE_URL` (in `.env` or your environment generally);
-you'll likely need to change the credentials and the database name.
-
-You'll also need to migrate the database to bring it in sync with what
-ActiveRecord expects (this also means that it will no longer be compatible with
-the PHP version):
+To bootstrap a database for development or on a new instance, run:
 
 ```bash
-rake db:migrate RAILS_ENV=development
+rake db:create db:schema:load
 ```
+
+By default, it will create a `fieldpapers_development` (and `fieldpapers_test`)
+database on a local MySQL instance. To override this, set `DATABASE_URL` (in
+your environment, either directly or via `.env`), e.g.:
+
+```bash
+DATABASE_URL=mysql2://vagrant@somewhere/fieldpapers_development
+```
+
+To migrate an existing Field Papers database, first back it up. Then, set
+`DATABASE_URL` to point to it and run (with an appropriate `RAILS_ENV` if
+needed):
+
+```bash
+rake db:migrate
+```
+
+This will produce a database schema that is no longer compatible with the PHP
+version. Part of the migration involves cleaning up encoding errors (UTF-8 text
+stored as latin1 in UTF-8 columns)--your database may include some invalid
+characters, causing the migration to fail. To work-around that, identify the
+affected rows and clear their values before retrying the migration.
