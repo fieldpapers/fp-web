@@ -174,3 +174,24 @@
     background: rgba(255,255,255,0);
     border: 1px solid #000;
 }
+
+// layout style
+.radio-cards .inner {
+    display: inline-block;
+}
+.radio-cards .inner * {
+    text-align: left;
+}
+.radio-cards label {
+    font-weight: normal;
+}
+.radio-cards input[type="radio"] {
+    margin-bottom: 0;
+}
+.radio-cards p {
+    margin: 0;
+    font-size: 1.2rem;
+    //margin-left: 23px;
+}
+
+.radio-cards .tc:last-child {padding-left: 5px;}

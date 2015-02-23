@@ -66,3 +66,13 @@ a:visited {
   .inline-linkbar a:hover {
     text-decoration: none;
   }
+
+label > .label-body {
+  vertical-align: middle;
+}
+.form-helper {
+  font-size: 1.2rem;
+  margin-top: -1.2rem;
+  color: #666;
+  margin-left: 5px;
+}

@@ -29,7 +29,7 @@
             klass: 'zoom-reset',
             onClick: function(){
               var bds = areaSelect.getPinnedBounds();
-              map.fitBounds(bds);
+              map.fitBounds(bds, {animate: false});
 
             },
             onDisabled: function(btn, className) {
@@ -42,7 +42,7 @@
                 */
             }
         }],
-        extraMapDisabledEvents: ['moveend']
+        extraMapDisabledEvents: [] // map events that will trigger an onDisabled check
     }).addTo(map);
 
     // cache some elements
@@ -128,6 +128,8 @@ L.AreaSelect = L.Class.extend({
       this.refs.page_aspect_ratio = this.refs.paper_orientations["landscape"];
       this._width = (150 * this.refs.page_aspect_ratio) * this.refs.cols;
       this._height = 150 * this.refs.rows;
+
+      this._limitChangeFire = L.Util.limitExecByInterval( function(){this.fire("change");}, 500, this);
     },
 
     setOrientation: function(x) {
@@ -232,14 +234,16 @@ L.AreaSelect = L.Class.extend({
     },
 
     _getPos: function(ctx) {
-      return ctx.map.latLngToContainerPoint(ctx.nwLocation);
+      return this.map.latLngToContainerPoint(this.nwLocation);
     },
 
-    _setPos: function(elm, pos, delta, ctx){
-      ctx._updateNWPosition(pos);
-      ctx._render();
-      ctx.fire("change");
+    _setPos: function(pos, delta){
+      this._updateNWPosition(pos);
+      this._render();
+      this._limitChangeFire();
     },
+
+    _limitChangeFire: function(){},
 
     _updateNWPosition: function(pos) {
       this.nwPosition = pos;
@@ -605,7 +609,7 @@ L.DraggableAny = L.Class.extend({
     var first = e.touches ? e.touches[0] : e;
 
     this._startPoint = new L.Point(first.clientX, first.clientY);
-    this._startPos = this._newPos = this.getPosition(this._context);
+    this._startPos = this._newPos = this.getPosition.call(this._context);
 
     L.DomEvent
         .on(document, L.Draggable.MOVE[e.type], this._onMove, this)
@@ -631,7 +635,7 @@ L.DraggableAny = L.Class.extend({
       this.fire('dragstart');
 
       this._moved = true;
-      this._startPos = this.getPosition(this._context).subtract(offset);
+      this._startPos = this.getPosition.call(this._context).subtract(offset);
 
       L.DomUtil.addClass(document.body, 'leaflet-dragging');
 
@@ -651,8 +655,7 @@ L.DraggableAny = L.Class.extend({
 
   _updatePosition: function () {
     this.fire('predrag');
-    this.setPosition(this._element, this._newPos, this._offset, this._context);
-    //L.DomUtil.setPosition(this._element, this._newPos);
+    this.setPosition.call(this._context, this._newPos, this._offset);
     this.fire('drag');
   },
 
@@ -687,77 +690,75 @@ L.DraggableAny = L.Class.extend({
 });
 
 
-(function(exports){
-    if (!L) return;
 
-    L.Control.ZoomExtras = L.Control.Zoom.extend({
-        options: {
-            position: 'topleft',
-            zoomInText: '+',
-            zoomInTitle: 'Zoom in',
-            zoomOutText: '-',
-            zoomOutTitle: 'Zoom out',
-            extras: [],
-            extraMapDisabledEvents:[]
-        },
+L.Control.ZoomExtras = L.Control.Zoom.extend({
+    options: {
+        position: 'topleft',
+        zoomInText: '+',
+        zoomInTitle: 'Zoom in',
+        zoomOutText: '-',
+        zoomOutTitle: 'Zoom out',
+        extras: [],
+        extraMapDisabledEvents:[]
+    },
 
-        onAdd: function (map) {
-            var zoomName = 'leaflet-control-zoom',
-                container = L.DomUtil.create('div', zoomName + ' leaflet-bar'),
-                that = this;
+    onAdd: function (map) {
+        var zoomName = 'leaflet-control-zoom',
+            container = L.DomUtil.create('div', zoomName + ' leaflet-bar'),
+            that = this;
 
-            this._map = map;
+        this._map = map;
 
-            this._zoomInButton  = this._createButton(
-                    this.options.zoomInText, this.options.zoomInTitle,
-                    zoomName + '-in',  container, this._zoomIn,  this);
+        this._zoomInButton  = this._createButton(
+                this.options.zoomInText, this.options.zoomInTitle,
+                zoomName + '-in',  container, this._zoomIn,  this);
 
-            this._zoomOutButton = this._createButton(
-                    this.options.zoomOutText, this.options.zoomOutTitle,
-                    zoomName + '-out', container, this._zoomOut, this);
+        this._zoomOutButton = this._createButton(
+                this.options.zoomOutText, this.options.zoomOutTitle,
+                zoomName + '-out', container, this._zoomOut, this);
 
-            this.options.extras.forEach(function(btn) {
-                btn.instance = that._createButton(btn.text, btn.title, btn.klass, container, function() {return btn.onClick.call(that)},  that);
-            });
+        this.options.extras.forEach(function(btn) {
+            btn.instance = that._createButton(btn.text, btn.title, btn.klass, container, function() {return btn.onClick.call(that)},  that);
+        });
 
-            this._updateDisabled();
+        this._updateDisabled();
 
-            map.on('zoomend zoomlevelschange', this._updateDisabled, this);
+        map.on('zoomend zoomlevelschange', this._updateDisabled, this);
 
-            this.options.extraMapDisabledEvents.forEach(function(evt){
-                map.on(evt, that._updateDisabled, that);
-            });
+        this.options.extraMapDisabledEvents.forEach(function(evt){
+            map.on(evt, that._updateDisabled, that);
+        });
 
 
-            return container;
-        },
-        onRemove: function (map) {
-            map.off('zoomend zoomlevelschange', this._updateDisabled, this);
+        return container;
+    },
+    onRemove: function (map) {
+        map.off('zoomend zoomlevelschange', this._updateDisabled, this);
 
-            var that = this;
-            this.options.extraMapDisabledEvents.forEach(function(evt){
-                map.off(evt, that._updateDisabled, that);
-            });
-        },
+        var that = this;
+        this.options.extraMapDisabledEvents.forEach(function(evt){
+            map.off(evt, that._updateDisabled, that);
+        });
+    },
 
-        _updateDisabled: function () {
-            var map = this._map,
-                className = 'leaflet-disabled',
-                that = this;
+    _updateDisabled: function () {
+        var map = this._map,
+            className = 'leaflet-disabled',
+            that = this;
 
-            L.DomUtil.removeClass(this._zoomInButton, className);
-            L.DomUtil.removeClass(this._zoomOutButton, className);
+        L.DomUtil.removeClass(this._zoomInButton, className);
+        L.DomUtil.removeClass(this._zoomOutButton, className);
 
-            if (map._zoom === map.getMinZoom()) {
-                L.DomUtil.addClass(this._zoomOutButton, className);
-            }
-            if (map._zoom === map.getMaxZoom()) {
-                L.DomUtil.addClass(this._zoomInButton, className);
-            }
-
-            this.options.extras.forEach(function(btn) {
-                btn.onDisabled.call(that, btn.instance, className);
-            });
+        if (map._zoom === map.getMinZoom()) {
+            L.DomUtil.addClass(this._zoomOutButton, className);
         }
-    });
-})(window);
+        if (map._zoom === map.getMaxZoom()) {
+            L.DomUtil.addClass(this._zoomInButton, className);
+        }
+
+        this.options.extras.forEach(function(btn) {
+            btn.onDisabled.call(that, btn.instance, className);
+        });
+    }
+});
+

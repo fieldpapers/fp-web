@@ -1,19 +1,73 @@
 <%= render partial: "composing_nav" %>
 
 <div class="row">
-  <div class="twelve columns">
-    <%= form_for :atlas, url: wizard_path, method: :put do |f| %>
-    <%= f.label "Maps Only" %><br>
-    <%= f.radio_button :layout, "full-page"  %><br>
-    <%= f.label "Maps + Notes (multiple pages)" %><br>
-    <%= f.radio_button :layout, "full-page"  %><br>
-    <%= f.label "Maps + Notes (same page)" %><br>
-    <%= f.radio_button :layout, "half-page"  %><br>
-    <%= f.label "UTM Grid" %><br>
-    <%= f.check_box :utm_grid %><br>
-    <%= f.label "Red Cross overlay" %><br>
-    <%= f.check_box :redcross_overlay %><br>
+    <%= form_for :atlas, url: wizard_path, method: :put, html: {class: "twelve columns"} do |f| %>
+
+    <div class="row">
+        <div class="twelve columns">
+            <%= f.label :utm_grid do %>
+              <%= f.check_box :utm_grid %>
+              <span class="label-body">Add a UTM grid overlay to each map? (What's <a href="http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">UTM</a>?)</span>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <%= f.label :redcross_overlay do %>
+              <%= f.check_box :redcross_overlay %>
+              <span class="label-body">Add the Red Cross overlay (for disaster relief efforts)</span>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="row align-center radio-cards">
+        <div class="four columns">
+            <%= f.label :layout, :value=>'map-only' do %>
+                <img src="<%= asset_path 'image-make-maps-only.png' %>">
+                <div class="table align-left">
+                    <div class="tr">
+                        <span class="tc"><%= f.radio_button :layout, "map-only" %></span>
+                        <span class="label-body tc">Maps Only</span>
+                    </div>
+                    <div class="tr">
+                        <span class="tc"></span>
+                        <p class="tc">one per page</p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="four columns">
+            <%= f.label :layout, :value=>'full-page' do %>
+                <img src="<%= asset_path 'image-make-map-notes.png' %>">
+                <div class="table align-left">
+                    <div class="tr">
+                        <span class="tc"><%= f.radio_button :layout, "full-page" %></span>
+                        <span class="label-body tc">Maps + Notes</span>
+                    </div>
+                    <div class="tr">
+                        <span class="tc"></span>
+                        <p class="tc">on their own pages</p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="four columns">
+        <%= f.label :layout, :value=>'half-page' do %>
+            <img src="<%= asset_path 'image-make-maps-notes-2up.png' %>">
+            <div class="table align-left">
+                <div class="tr">
+                    <span class="tc"><%= f.radio_button :layout, "half-page"  %></span>
+                    <span class="label-body tc">Maps + Notes</span>
+                </div>
+                <div class="tr">
+                    <span class="tc"></span>
+                    <p class="tc">on same page</p>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
+
     <%= f.submit "Next" %>
     <% end %>
-  </div>
 </div>

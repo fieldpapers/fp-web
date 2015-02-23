@@ -70,3 +70,8 @@
   .two-thirds.col-width-only   { width: grid-column-width(8);  }
   .one-half.col-width-only     { width: grid-column-width(6);  }
 }
+
+.table {display: table;}
+.align-center .table {margin: 0 auto;}
+.table .tr {display: table-row;}
+.table .tc {display: table-cell;}
