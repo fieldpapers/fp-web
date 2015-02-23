@@ -21,10 +21,18 @@
     areaSelect.addTo(map);
 
 
+    var icon = ['<svg version="1.1"'
+   ,'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"'
+   ,'x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">'
+,'<defs>'
+,'</defs>'
+,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
+,'</svg>'].join(" ");
+
     var zoomControls = new L.Control.ZoomExtras( {
         position: 'topleft',
         extras: [{
-            text: '][',
+            text: icon,
             title: 'Reset',
             klass: 'zoom-reset',
             onClick: function(){
