@@ -5,6 +5,7 @@
             <a href="<%= root_path %>"><img src="/assets/logo-header.png" alt="Field Papers" height="58" width="200"></a>
         </div>
     </div>
+
     <div class="row">
         <div class="twelve columns">
             <button id="nav-toggle">Menu</button>
@@ -22,19 +23,19 @@
                         <div class="desc">pages you've marked</div>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<% if controller_name.to_s() == 'atlases' || controller_name.to_s() == 'snapshots' %> active<% end %>">
                     <a href="<%= atlases_path %>">
                         <div class="section">WATCH</div>
                         <div class="desc">recent activity</div>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<% if controller_name.to_s() == 'home' && action_name.to_s() == 'advanced' %> active<% end %>">
                     <a href="<%= advanced_path %>">
                         <div class="section">EXTEND</div>
                         <div class="desc">with advanced tools</div>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item<% if controller_name.to_s() == 'sessions' %> active<% end %>">
                     <div class="section"><%= user_signed_in? && link_to("LOG OUT", destroy_user_session_path, method: :delete) || link_to("LOG IN", new_user_session_path) %></div>
                     <% unless user_signed_in? %>
                     <div class="desc"><%= link_to "or create an account", new_user_registration_path %></div>
