@@ -42,6 +42,8 @@
   float: none;
   width: 100%;
   line-height: 20px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
 
   @media (#{$bp-larger-than-tablet}) {
     margin-right: 30px;
@@ -49,8 +51,8 @@
     width: auto;
   }
 }
-.nav-item.active a{
-  text-decoration: underline !important;
+.nav-item.active {
+  border-bottom-color: #000;
 }
 
 .nav-item:last-child {
