@@ -28,7 +28,9 @@ class ComposeController < ApplicationController
 
   def update
     # initialize session storage of atlas attributes
-    session[:atlas] ||= {}
+    session[:atlas] ||= {
+      creator: current_user
+    }
 
     @atlas = Atlas.new \
       session[:atlas]
