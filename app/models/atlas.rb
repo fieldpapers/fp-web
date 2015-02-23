@@ -38,6 +38,8 @@
 class Atlas < ActiveRecord::Base
   include FriendlyId
 
+  INDEX_BUFFER_FACTOR = 0.1
+
   # virtual fields for layer overlays
   attr_accessor :utm_grid, :redcross_overlay
 
@@ -160,6 +162,19 @@ private
   end
 
   def create_pages
+    # create index page
+
+    pages.create! \
+      page_number: "i",
+      west: west - west * INDEX_BUFFER_FACTOR,
+      south: south - south * INDEX_BUFFER_FACTOR,
+      east: east + east * INDEX_BUFFER_FACTOR,
+      north: north + north * INDEX_BUFFER_FACTOR,
+      zoom: zoom,
+      provider: provider
+
+    # create individual pages
+
     row_names = ("A".."Z").to_a
 
     width = (east - west) / rows
@@ -168,7 +183,6 @@ private
     rows.times do |y|
       cols.times do |x|
         pages.create! \
-          atlas_id: id,
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
           south: south + ((cols - y - 1) * height),
