@@ -196,7 +196,8 @@ private
       south: south - south * INDEX_BUFFER_FACTOR,
       east: east + east * INDEX_BUFFER_FACTOR,
       north: north + north * INDEX_BUFFER_FACTOR,
-      zoom: zoom,
+      zoom: zoom, # TODO should be calculated from the bounding box; see
+                  #   https://gist.github.com/mojodna/9a4e28ec70e685066c03
       # omit UTM overlays (if present) from the index page
       provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
 
