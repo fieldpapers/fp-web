@@ -89,7 +89,7 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order "page_number ASC"
+      order "FIELD(page_number, 'i') DESC, page_number ASC"
     },
     dependent: :destroy,
     inverse_of: :atlas
