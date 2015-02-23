@@ -2,7 +2,7 @@
 
 ## Helping
 
-If you'd like to help out (thanks!), checking out [this
+If you'd like to help out (thanks!), check out [this
 overview](https://github.com/fieldpapers/fieldpapers).
 
 ## Development
