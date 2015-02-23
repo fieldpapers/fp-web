@@ -28,15 +28,16 @@ class ComposeController < ApplicationController
 
   def update
     # initialize session storage of atlas attributes
-    session[:atlas] ||= {}
+    session[:atlas] ||= {
+      creator: current_user
+    }
 
     @atlas = Atlas.new \
       session[:atlas]
         .merge(atlas_params)
 
-    # for stepwise validation see:
+    # for stepwise validation (not implemented due to reasonable defaults) see:
     #   https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step
-    # step attr (not persisted) makes sense
     if @atlas.valid?
       case step
       when :layout # final step

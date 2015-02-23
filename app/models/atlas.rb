@@ -38,8 +38,9 @@
 class Atlas < ActiveRecord::Base
   include FriendlyId
 
-  # virtual fields for layer overlays
-  attr_accessor :utm_grid, :redcross_overlay
+  INDEX_BUFFER_FACTOR = 0.1
+  OVERLAY_REDCROSS = "http://a.tiles.mapbox.com/v3/americanredcross.HAIYAN_Atlas_Bounds/{Z}/{X}/{Y}.png"
+  OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
 
   # friendly_id configuration
 
@@ -147,6 +148,33 @@ class Atlas < ActiveRecord::Base
     read_attribute(:title) || "Untitled"
   end
 
+  # overlays (TODO generalize this, allowing overlays to be registered on
+  # a system- and user-level (and group?))
+
+  def redcross_overlay?
+    provider.include? OVERLAY_REDCROSS
+  end
+
+  def redcross_overlay=(use_overlay)
+    if use_overlay
+      provider += OVERLAY_REDCROSS unless redcross_overlay?
+    else
+      provider = provider.gsub(OVERLAY_REDCROSS, "")
+    end
+  end
+
+  def utm_grid?
+    provider.include? OVERLAY_UTM
+  end
+
+  def utm_grid=(use_overlay)
+    if use_overlay
+      provider += OVERLAY_UTM unless utm_grid?
+    else
+      provider = provider.gsub(OVERLAY_UTM, "")
+    end
+  end
+
 private
 
   def random_id
@@ -160,6 +188,20 @@ private
   end
 
   def create_pages
+    # create index page
+
+    pages.create! \
+      page_number: "i",
+      west: west - west * INDEX_BUFFER_FACTOR,
+      south: south - south * INDEX_BUFFER_FACTOR,
+      east: east + east * INDEX_BUFFER_FACTOR,
+      north: north + north * INDEX_BUFFER_FACTOR,
+      zoom: zoom,
+      # omit UTM overlays (if present) from the index page
+      provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
+
+    # create individual pages
+
     row_names = ("A".."Z").to_a
 
     width = (east - west) / rows
@@ -168,7 +210,6 @@ private
     rows.times do |y|
       cols.times do |x|
         pages.create! \
-          atlas_id: id,
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
           south: south + ((cols - y - 1) * height),

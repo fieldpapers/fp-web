@@ -38,6 +38,13 @@
 require 'test_helper'
 
 class AtlasTest < ActiveSupport::TestCase
+  def assert_bounds(page, west, south, east, north)
+    assert_equal west, page.west
+    assert_equal south, page.south
+    assert_equal east, page.east
+    assert_equal north, page.north
+  end
+
   test "#create creates associated pages" do
     west = -122.3789
     south = 47.5771
@@ -54,31 +61,24 @@ class AtlasTest < ActiveSupport::TestCase
       zoom: 13,
       provider: "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
 
-    assert_equal 4, atlas.pages.size
+    assert_equal 5, atlas.pages.size
 
     assert_equal "A1", atlas.pages[0].page_number
     assert_equal "A2", atlas.pages[1].page_number
     assert_equal "B1", atlas.pages[2].page_number
     assert_equal "B2", atlas.pages[3].page_number
+    assert_equal "i", atlas.pages[4].page_number
 
-    assert_equal west, atlas.pages[0].west
-    assert_equal (north + south) / 2, atlas.pages[0].south
-    assert_equal (west + east) / 2, atlas.pages[0].east
-    assert_equal north, atlas.pages[0].north
+    assert_bounds atlas.pages[0], west, (north + south) / 2, (west + east) / 2, north
+    assert_bounds atlas.pages[1], (west + east) / 2, (north + south) / 2, east, north
+    assert_bounds atlas.pages[2], west, south, (west + east) / 2, (north + south) / 2
+    assert_bounds atlas.pages[3], (west + east) / 2, south, east, (north + south) / 2
 
-    assert_equal (west + east) / 2, atlas.pages[1].west
-    assert_equal (north + south) / 2, atlas.pages[1].south
-    assert_equal east, atlas.pages[1].east
-    assert_equal north, atlas.pages[1].north
+    buffered_west = west - (west * 0.1)
+    buffered_south = south - (south * 0.1)
+    buffered_east = east + (east * 0.1)
+    buffered_north = north + (north * 0.1)
 
-    assert_equal west, atlas.pages[2].west
-    assert_equal south, atlas.pages[2].south
-    assert_equal (west + east) / 2, atlas.pages[2].east
-    assert_equal (north + south) / 2, atlas.pages[2].north
-
-    assert_equal east, atlas.pages[3].east
-    assert_equal south, atlas.pages[3].south
-    assert_equal (west + east) / 2, atlas.pages[3].west
-    assert_equal (north + south) / 2, atlas.pages[3].north
+    assert_bounds atlas.pages[4], buffered_west, buffered_south, buffered_east, buffered_north
   end
 end
