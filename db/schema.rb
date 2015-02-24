@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223220737) do
+ActiveRecord::Schema.define(version: 20150224193646) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -85,13 +85,12 @@ ActiveRecord::Schema.define(version: 20150223220737) do
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.integer  "atlas_id",      limit: 4,     null: false
-    t.string   "page_number",   limit: 5,     null: false
-    t.text     "text",          limit: 65535
-    t.float    "west",          limit: 53,    null: false
-    t.float    "south",         limit: 53,    null: false
-    t.float    "east",          limit: 53,    null: false
-    t.float    "north",         limit: 53,    null: false
+    t.integer  "atlas_id",      limit: 4,   null: false
+    t.string   "page_number",   limit: 5,   null: false
+    t.float    "west",          limit: 53,  null: false
+    t.float    "south",         limit: 53,  null: false
+    t.float    "east",          limit: 53,  null: false
+    t.float    "north",         limit: 53,  null: false
     t.integer  "zoom",          limit: 1
     t.string   "provider",      limit: 255
     t.string   "preview_url",   limit: 255
