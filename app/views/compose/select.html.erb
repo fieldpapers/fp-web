@@ -53,12 +53,12 @@
 <% content_for :foot do %>
 <script>
 
-  if (typeof FP != "undefined") FP.tileProviders = <%= Providers.layers.to_json.html_safe %>;
-
   $(function(){
     FP.map.compose.select({
       selector: 'map',
-      initialView: [[<%= params[:lat] %>, <%= params[:lon] %>], <%= params[:zoom] %>]
+      initialView: [[<%= params[:lat] %>, <%= params[:lon] %>], <%= params[:zoom] %>],
+      tileProviders: <%= Providers.layers.to_json.html_safe %>,
+      defaultProvider: "<%= Providers.default %>"
     });
   });
 </script>

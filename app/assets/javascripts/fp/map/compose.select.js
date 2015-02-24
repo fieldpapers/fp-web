@@ -6,32 +6,41 @@
   var compose = Map.compose || (FP.map.compose = {});
 
 
-  compose.select = function(opts) {
+  compose.select = function(settings) {
     var __ = {};
 
-    var tileProviders = FP.tileProviders;
+    var tileProviders = settings.tileProviders,
+        defaultProviderLabel = settings.defaultProvider,
+        tileLayer,
+        map,
+        areaSelect,
+        zoomControls;
 
-    var map = L.map(opts.selector, L.Util.extend(FP.map.options,{zoomControl: false}));
+    map = L.map(settings.selector,
+      L.Util.extend(FP.map.options, {
+          zoomControl: false,
+          center: settings.initialView[0],
+          zoom: settings.initialView[1]
+        }
+    ));
 
-    map.setView(opts.initialView[0], opts.initialView[1]);
-
-    var tileLayer = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+    setTileLayer(defaultProviderLabel);
 
     L.control.scale().addTo(map);
 
-    var areaSelect = L.areaSelect({width:200, height:300});
+    areaSelect = L.areaSelect({width:200, height:300});
     areaSelect.addTo(map);
 
+    var icon = [
+        '<svg version="1.1"'
+        ,'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"'
+        ,'x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">'
+        ,'<defs>'
+        ,'</defs>'
+        ,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
+        ,'</svg>'].join(" ");
 
-    var icon = ['<svg version="1.1"'
-   ,'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"'
-   ,'x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">'
-,'<defs>'
-,'</defs>'
-,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
-,'</svg>'].join(" ");
-
-    var zoomControls = new L.Control.ZoomExtras( {
+    zoomControls = new L.Control.ZoomExtras( {
         position: 'topleft',
         extras: [{
             text: icon,
@@ -83,7 +92,8 @@
       for (var lyr in tileProviders) {
         atlasProvider.append($('<option>', {
           value: lyr,
-          text: tileProviders[lyr].label
+          text: tileProviders[lyr].label,
+          selected: (lyr === defaultProviderLabel)
         }));
       }
     }
@@ -93,12 +103,20 @@
     });
 
     $('#atlas_provider').on('change', function(){
-      if (!tileProviders) return;
-      if (!tileProviders[this.value]) return;
-      if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
-      tileLayer = L.tileLayer(tileProviders[this.value].template.toLowerCase()).addTo(map);
+      return setTileLayer(this.value);
     });
 
+    function setTileLayer(label) {
+      if (!tileProviders || !tileProviders.hasOwnProperty(label)) return false;
+
+      if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
+      tileLayer = L.tileLayer(
+        tileProviders[label].template.toLowerCase(),
+        tileProviders[label].options || {})
+      .addTo(map);
+
+      return true;
+    }
 
     // sync up the fields
     map.fire("move");
