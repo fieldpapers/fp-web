@@ -1,4 +1,5 @@
 require "placefinder"
+require "providers"
 
 class ComposeController < ApplicationController
   include Wicked::Wizard

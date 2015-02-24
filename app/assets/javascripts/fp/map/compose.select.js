@@ -9,6 +9,8 @@
   compose.select = function(opts) {
     var __ = {};
 
+    var tileProviders = FP.tileProviders;
+
     var map = L.map(opts.selector, L.Util.extend(FP.map.options,{zoomControl: false}));
 
     map.setView(opts.initialView[0], opts.initialView[1]);
@@ -77,11 +79,13 @@
     });
 
     // set select options for tile providers
-    for (var lyr in Map.options.tileProviders) {
-      atlasProvider.append($('<option>', {
-        value: lyr,
-        text: Map.options.tileProviders[lyr].label
-      }));
+    if (tileProviders) {
+      for (var lyr in tileProviders) {
+        atlasProvider.append($('<option>', {
+          value: lyr,
+          text: tileProviders[lyr].label
+        }));
+      }
     }
 
     $('#atlas_orientation').on('change', function(){
@@ -89,9 +93,10 @@
     });
 
     $('#atlas_provider').on('change', function(){
-      if (!Map.options.tileProviders[this.value]) return;
+      if (!tileProviders) return;
+      if (!tileProviders[this.value]) return;
       if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
-      tileLayer = L.tileLayer(Map.options.tileProviders[this.value].template.toLowerCase()).addTo(map);
+      tileLayer = L.tileLayer(tileProviders[this.value].template.toLowerCase()).addTo(map);
     });
 
 
