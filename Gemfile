@@ -21,6 +21,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # explicit choices
 
 gem 'annotate', '~> 2.6.5' # model annotation
+gem 'aws-sdk-v1', '~> 1'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'composite_primary_keys', '~> 8.0.0'
 gem 'devise' # authentication
@@ -30,7 +31,9 @@ gem 'friendly_id', '~> 5.1.0' # alphanumeric slugs
 gem 'has_scope' # automatic filter generation
 gem 'http_accept_language'
 gem 'kaminari' # pagination
+gem 'paperclip', '~> 4.2.1' # file attachments
 gem 'puma' # app server
+gem 's3_direct_upload' # direct-to-S3 upload helpers
 gem 'mysql2'
 gem 'wicked' # wizard controllers
 
