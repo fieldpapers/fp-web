@@ -1,5 +1,4 @@
 default: &default
-  adapter: mysql2
   encoding: utf8
   pool: 5
   url: <%= ENV["DATABASE_URL"] %>
@@ -7,14 +6,13 @@ default: &default
 
 development:
   <<: *default
-  database: fieldpapers_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: fieldpapers_test
+  url: <%= ENV["TEST_DATABASE_URL"] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -37,5 +35,3 @@ test:
 #
 production:
   <<: *default
-  database: fieldpapers_production
-  url: <%= ENV["DATABASE_URL"] %>
