@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221002228) do
+ActiveRecord::Schema.define(version: 20150223220737) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -109,35 +109,40 @@ ActiveRecord::Schema.define(version: 20150221002228) do
   add_index "pages", ["atlas_id"], name: "print_id", using: :btree
 
   create_table "snapshots", force: :cascade do |t|
-    t.string   "slug",           limit: 8,                          null: false
-    t.integer  "user_id",        limit: 4
-    t.integer  "page_id",        limit: 4
-    t.text     "print_href",     limit: 65535
-    t.float    "min_row",        limit: 24
-    t.float    "max_row",        limit: 24
-    t.float    "min_column",     limit: 24
-    t.float    "max_column",     limit: 24
-    t.integer  "min_zoom",       limit: 4
-    t.integer  "max_zoom",       limit: 4
-    t.text     "description",    limit: 4294967295
-    t.boolean  "private",        limit: 1,          default: false, null: false
-    t.string   "has_geotiff",    limit: 3,          default: "no"
-    t.string   "has_geojpeg",    limit: 3,          default: "no"
-    t.string   "base_url",       limit: 255
-    t.string   "uploaded_file",  limit: 255
-    t.text     "geojpeg_bounds", limit: 65535
-    t.text     "decoding_json",  limit: 65535
-    t.string   "country_name",   limit: 64
-    t.integer  "country_woeid",  limit: 4
-    t.string   "region_name",    limit: 64
-    t.integer  "region_woeid",   limit: 4
-    t.string   "place_name",     limit: 128
-    t.integer  "place_woeid",    limit: 4
-    t.integer  "failed",         limit: 4,          default: 0
-    t.float    "progress",       limit: 24
+    t.string   "slug",               limit: 8,                          null: false
+    t.integer  "user_id",            limit: 4
+    t.integer  "page_id",            limit: 4
+    t.text     "print_href",         limit: 65535
+    t.float    "min_row",            limit: 24
+    t.float    "max_row",            limit: 24
+    t.float    "min_column",         limit: 24
+    t.float    "max_column",         limit: 24
+    t.integer  "min_zoom",           limit: 4
+    t.integer  "max_zoom",           limit: 4
+    t.text     "description",        limit: 4294967295
+    t.boolean  "private",            limit: 1,          default: false, null: false
+    t.string   "has_geotiff",        limit: 3,          default: "no"
+    t.string   "has_geojpeg",        limit: 3,          default: "no"
+    t.string   "base_url",           limit: 255
+    t.string   "uploaded_file",      limit: 255
+    t.text     "geojpeg_bounds",     limit: 65535
+    t.text     "decoding_json",      limit: 65535
+    t.string   "country_name",       limit: 64
+    t.integer  "country_woeid",      limit: 4
+    t.string   "region_name",        limit: 64
+    t.integer  "region_woeid",       limit: 4
+    t.string   "place_name",         limit: 128
+    t.integer  "place_woeid",        limit: 4
+    t.integer  "failed",             limit: 4,          default: 0
+    t.float    "progress",           limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "decoded_at"
+    t.string   "scene_file_name",    limit: 255
+    t.string   "scene_content_type", limit: 255
+    t.integer  "scene_file_size",    limit: 4
+    t.datetime "scene_updated_at"
+    t.string   "s3_scene_url",       limit: 255
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree
