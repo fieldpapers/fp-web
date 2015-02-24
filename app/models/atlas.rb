@@ -194,16 +194,16 @@ private
 
     row_names = ("A".."Z").to_a
 
-    width = (east - west) / rows
-    height = (north - south) / cols
+    width = (east - west) / cols
+    height = (north - south) / rows
 
     rows.times do |y|
       cols.times do |x|
         pages.create! \
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
-          south: south + ((cols - y - 1) * height),
-          east: east - ((rows - x - 1) * width),
+          south: south + ((rows - y - 1) * height),
+          east: east - ((cols - x - 1) * width),
           north: north - (y * height),
           zoom: zoom,
           provider: provider
