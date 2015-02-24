@@ -20,7 +20,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # explicit choices
 
-gem 'annotate', '~> 2.6.5' # model annotation
 gem 'aws-sdk-v1', '~> 1'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'composite_primary_keys', '~> 8.0.0'
@@ -40,6 +39,8 @@ gem 'wicked' # wizard controllers
 #gem 'skeleton2_sass', '0.1.0', path: '/Users/sconnelley/Documents/projects/stamen/skeleton2_sass/'
 
 group :development, :test do
+  gem 'annotate', '~> 2.6.5' # model annotation
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
