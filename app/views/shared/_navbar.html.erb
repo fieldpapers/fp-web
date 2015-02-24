@@ -11,7 +11,7 @@
             <button id="nav-toggle">Menu</button>
             <ul class="navbar u-cf">
 
-                <li class="nav-item<% if controller_name.to_s() == 'compose' %> active<% end %>">
+                <li class="nav-item<%= " active" if ["compose"].include? controller_name %>">
                     <a href="<%= compose_path(:search) %>">
                         <div class="section">MAKE</div>
                         <div class="desc">an atlas to print</div>
@@ -23,19 +23,19 @@
                         <div class="desc">pages you've marked</div>
                     </a>
                 </li>
-                <li class="nav-item<% if controller_name.to_s() == 'atlases' || controller_name.to_s() == 'snapshots' %> active<% end %>">
+                <li class="nav-item<%= " active" if ["atlases", "snapshots"].include? controller_name %>">
                     <a href="<%= atlases_path %>">
                         <div class="section">WATCH</div>
                         <div class="desc">recent activity</div>
                     </a>
                 </li>
-                <li class="nav-item<% if controller_name.to_s() == 'home' && action_name.to_s() == 'advanced' %> active<% end %>">
+                <li class="nav-item<%= " active" if ["advanced"].include? action_name %>">
                     <a href="<%= advanced_path %>">
                         <div class="section">EXTEND</div>
                         <div class="desc">with advanced tools</div>
                     </a>
                 </li>
-                <li class="nav-item<% if controller_name.to_s() == 'sessions' %> active<% end %>">
+                <li class="nav-item<%= " active" if ["sessions"].include? controller_name %>">
                     <div class="section"><%= user_signed_in? && link_to("LOG OUT", destroy_user_session_path, method: :delete) || link_to("LOG IN", new_user_session_path) %></div>
                     <% unless user_signed_in? %>
                     <div class="desc"><%= link_to "or create an account", new_user_registration_path %></div>
