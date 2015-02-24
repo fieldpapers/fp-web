@@ -7,6 +7,6 @@ Paperclip::Attachment.default_options.merge!(
     secret_access_key:  Rails.application.secrets.aws["secret_access_key"],
     bucket:             Rails.application.secrets.aws["s3_bucket_name"]
   },
-  s3_permissions:       :public_read,
+  s3_permissions:       :private,
   s3_protocol:          'https'
 )
