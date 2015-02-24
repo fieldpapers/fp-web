@@ -42,6 +42,10 @@ class Atlas < ActiveRecord::Base
   OVERLAY_REDCROSS = "http://a.tiles.mapbox.com/v3/americanredcross.HAIYAN_Atlas_Bounds/{Z}/{X}/{Y}.png"
   OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
 
+  # virtual attributes
+
+  attr_accessor :redcross_overlay, :utm_grid
+
   # friendly_id configuration
 
   friendly_id :random_id, use: :slugged
@@ -52,8 +56,9 @@ class Atlas < ActiveRecord::Base
 
   # callbacks
 
-
   after_create :create_pages
+  after_create :generate_pdf
+  before_save :handle_overlays
 
   # validations
 
@@ -155,24 +160,8 @@ class Atlas < ActiveRecord::Base
     provider.include? OVERLAY_REDCROSS
   end
 
-  def redcross_overlay=(use_overlay)
-    if use_overlay
-      provider += OVERLAY_REDCROSS unless redcross_overlay?
-    else
-      provider = provider.gsub(OVERLAY_REDCROSS, "")
-    end
-  end
-
   def utm_grid?
     provider.include? OVERLAY_UTM
-  end
-
-  def utm_grid=(use_overlay)
-    if use_overlay
-      provider += OVERLAY_UTM unless utm_grid?
-    else
-      provider = provider.gsub(OVERLAY_UTM, "")
-    end
   end
 
 private
@@ -220,5 +209,23 @@ private
           provider: provider
       end
     end
+  end
+
+  def handle_overlays
+    if redcross_overlay == "1"
+      self.provider += OVERLAY_REDCROSS unless redcross_overlay?
+    else
+      self.provider = self.provider.gsub(OVERLAY_REDCROSS, "")
+    end
+
+    if utm_grid == "1"
+      self.provider += OVERLAY_UTM unless utm_grid?
+    else
+      self.provider = self.provider.gsub(OVERLAY_UTM, "")
+    end
+  end
+
+  def generate_pdf
+    GeneratePdfJob.perform_later(self.slug)
   end
 end
