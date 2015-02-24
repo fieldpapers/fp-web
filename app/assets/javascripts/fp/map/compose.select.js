@@ -28,6 +28,7 @@
 
     L.control.scale().addTo(map);
 
+    // Area selection tool
     areaSelect = L.areaSelect({width:200, height:300});
     areaSelect.addTo(map);
 
@@ -40,6 +41,7 @@
         ,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
         ,'</svg>'].join(" ");
 
+    // Custom zoom control
     zoomControls = new L.Control.ZoomExtras( {
         position: 'topleft',
         extras: [{
@@ -74,6 +76,7 @@
         atlasNorth = $("#atlas_north"),
         atlasProvider = $('#atlas_provider');
 
+    // Form listeners
     areaSelect.on('change', function(e){
       var pages = areaSelect.getPages();
       var bds = areaSelect.getPinnedBounds();
@@ -87,17 +90,6 @@
       atlasNorth.val( bds.getNorth() );
     });
 
-    // set select options for tile providers
-    if (tileProviders) {
-      for (var lyr in tileProviders) {
-        atlasProvider.append($('<option>', {
-          value: lyr,
-          text: tileProviders[lyr].label,
-          selected: (lyr === defaultProviderLabel)
-        }));
-      }
-    }
-
     $('#atlas_orientation').on('change', function(){
       areaSelect.setOrientation(this.value);
     });
@@ -106,6 +98,7 @@
       return setTileLayer(this.value);
     });
 
+    // Set the map tile layer
     function setTileLayer(label) {
       if (!tileProviders || !tileProviders.hasOwnProperty(label)) return false;
 

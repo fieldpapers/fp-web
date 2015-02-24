@@ -6,6 +6,14 @@ class Providers < ActiveRecord::Base
     'openstreetmap'
   end
 
+  def self.options()
+    out = []
+    self.layers.each do |k, v|
+      out.push([v[:label], k.to_s()])
+    end
+    return out
+  end
+
   # For layer options see: http://leafletjs.com/reference.html#tilelayer
   def self.layers
     {

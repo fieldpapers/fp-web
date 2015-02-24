@@ -40,7 +40,7 @@
     <%= f.text_field :rows, hidden: true %>
     <%= f.text_field :cols, hidden: true %>
     <%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %>
-    <%= f.select :provider, options_for_select([]) %>
+    <%= f.select :provider, options_for_select(Providers.options, [Providers.default]) %>
     <%= f.submit "Next" %>
     <% end %>
   </div>
