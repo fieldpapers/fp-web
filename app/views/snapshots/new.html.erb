@@ -1,15 +1,40 @@
-<%= s3_uploader_form id: "s3_uploader",
-  callback_url: snapshots_url,
-  callback_param: "snapshot[s3_scene_url]",
-  expiration: 24.hours.from_now.utc.iso8601,
-  max_file_size: 25.megabytes do %>
-  <%= file_field_tag :file, multiple: true %>
-<% end %>
-<div id="uploads_container"></div>
+<div class="row">
+  <div class="twelve columns">
+    <h2>Upload</h2>
+    <p>Choose an atlas page to upload. We'll work out where it goes (using the QR code).</p>
+  </div>
+  <div class="twelve columns">
+    <%= s3_uploader_form id: "s3_uploader",
+      callback_url: snapshots_url,
+      callback_param: "snapshot[s3_scene_url]",
+      expiration: 24.hours.from_now.utc.iso8601,
+      class: "upload-form",
+      max_file_size: 25.megabytes do %>
+      <%= file_field_tag :file, multiple: true %>
+    <% end %>
+    <div id="uploads_container"></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <h4>Rules</h4>
+    <ul>
+      <li>Make sure the scan/photo/image is at least 200dpi.</li>
+      <li>Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)</li>
+      <li>Don't upload things that aren't Field Papers maps, please.</li>
+    </ul>
+  </div>
+</div>
+
+
 <script id="template-upload" type="text/x-tmpl">
 <div id="upload_{%=o.unique_id%}" class="upload">
+  <button id="upload-close-btn">X</button>
   <h5>{%=o.name%}</h5>
   <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
 </div>
 </script>
+
+
 

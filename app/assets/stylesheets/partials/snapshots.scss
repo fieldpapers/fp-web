@@ -1,0 +1,39 @@
+#uploads_container {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+  top: 0;
+  left: 0;
+}
+
+#uploads_container.active { display: block; }
+
+#uploads_container.error .upload {
+  background-image: url("failed.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 40%;
+}
+
+#uploads_container .upload {
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+}
+
+#uploads_container h5 {
+  text-transform: lowercase;
+}
+
+#upload-close-btn {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
