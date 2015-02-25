@@ -11,36 +11,37 @@
             <button id="nav-toggle">Menu</button>
             <ul class="navbar u-cf">
 
-                <li class="nav-item<%= " active" if ["compose"].include? controller_name %>">
+                <li class="nav-item<%= " active" if ["compose"].include? current_nav_target %>">
                     <a href="<%= compose_path(:search) %>">
                         <div class="section">MAKE</div>
                         <div class="desc">an atlas to print</div>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#">
-                        <div class="section"><%= link_to "UPLOAD", new_snapshot_path %></div>
+                <li class="nav-item <%= " active" if ["upload"].include? current_nav_target %>">
+                    <a href="<%= new_snapshot_path %>">
+                        <div class="section">UPLOAD</div>
                         <div class="desc">pages you've marked</div>
                     </a>
                 </li>
-                <li class="nav-item<%= " active" if ["atlases", "snapshots"].include? controller_name %>">
+                <li class="nav-item<%= " active" if ["watch"].include? current_nav_target %>">
                     <a href="<%= atlases_path %>">
                         <div class="section">WATCH</div>
                         <div class="desc">recent activity</div>
                     </a>
                 </li>
-                <li class="nav-item<%= " active" if ["advanced"].include? action_name %>">
+                <li class="nav-item<%= " active" if ["extend"].include? current_nav_target %>">
                     <a href="<%= advanced_path %>">
                         <div class="section">EXTEND</div>
                         <div class="desc">with advanced tools</div>
                     </a>
                 </li>
-                <li class="nav-item<%= " active" if ["sessions"].include? controller_name %>">
+                <li class="nav-item<%= " active" if ["sessions"].include? current_nav_target %>">
                     <div class="section"><%= user_signed_in? && link_to("LOG OUT", destroy_user_session_path, method: :delete) || link_to("LOG IN", new_user_session_path) %></div>
                     <% unless user_signed_in? %>
                     <div class="desc"><%= link_to "or create an account", new_user_registration_path %></div>
                     <% end %>
                 </li>
+
             </ul>
         </div>
     </div>
