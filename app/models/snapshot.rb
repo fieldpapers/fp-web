@@ -113,7 +113,7 @@ private
 
     25.times.map do
       -> {
-        ('a'..'z').to_a.shuffle[0, 8].join
+        rand(2**256).to_s(36).ljust(8,'a')[0..7]
       }
     end
   end
