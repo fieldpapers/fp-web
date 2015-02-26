@@ -4,91 +4,103 @@ class GeneratePdfJob < ActiveJob::Base
   queue_as :default
 
   def perform(atlas)
-    base_cmd = %w(docker run fieldpapers/paper)
+    filenames = atlas.pages.map(&method(:render_page))
 
-    files = atlas.pages.map do |page|
-      cmd = base_cmd.dup
+    filename = merge_pages(filenames) if atlas.pages.size > 1
+    filename ||= filenames.first
 
-      case page.page_number
-      when "i"
-        cmd << "create_index.py"
-        cmd << "-s" << page.atlas.paper_size
-        cmd << "-l" << page.atlas.layout
-        cmd << "-o" << page.atlas.orientation
-        cmd << "-b" << page.north << page.west << page.south << page.east
-        cmd << "-e" << page.atlas.north << page.atlas.west << page.atlas.south << page.atlas.east
-        cmd << "-z" << page.zoom
-        cmd << "-p" << page.provider
-        cmd << "-c" << page.atlas.cols
-        cmd << "-r" << page.atlas.rows
-        cmd << page.atlas.slug
-      else
-        cmd << "create_page.py"
-        cmd << "-s" << page.atlas.paper_size
-        cmd << "-l" << page.atlas.layout
-        cmd << "-o" << page.atlas.orientation
-        cmd << "-b" << page.north << page.west << page.south << page.east
-        cmd << "-n" << page.page_number
-        cmd << "-z" << page.zoom
-        cmd << "-p" << page.provider
-        cmd << page.atlas.slug
-      end
+    s3 = AWS::S3.new
 
-      # convert all arguments to strings
-      cmd = cmd.map(&:to_s)
+    # upload file to S3
 
-      pipe, status = nil
+    key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
+    bucket = Rails.application.secrets.aws["s3_bucket_name"]
+    s3.buckets[bucket].objects[key].write \
+      file: filename,
+      acl: :public_read,
+      cache_control: "public,max-age=31536000",
+      content_type: "application/pdf"
 
-      begin
-        Timeout.timeout(30) do
-          pipe = IO.popen(cmd)
+    # attach file to Atlas
+    atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+  end
 
-          (pid, status) = Process.wait2(pipe.pid)
-        end
-      rescue Timeout::Error
-        Process.kill 9, pipe.pid
-        Process.wait pipe.pid
+  private
 
-        raise "Timed out waiting to render page #{page.page_number} of #{atlas.slug}"
-      end
+  def merge_pages(filenames)
+    gs = %w(gs -q -sDEVICE=pdfwrite -o -)
 
-      unless status.success?
-        raise "Failed to render page #{page.page_number} of #{atlas.slug}"
-      end
+    gs.concat(filenames)
 
-      output = Tempfile.new(["page", ".pdf"], "tmp/")
+    pdf = IO.popen(gs)
 
-      IO.copy_stream(pipe, output)
+    (pid, status) = Process.wait2(pdf.pid)
 
-      output.path
+    unless status.success?
+      raise "Failed to merge pages"
     end
 
-    if atlas.pages.size > 1
-      gs = %w(gs -q -sDEVICE=pdfwrite -o -)
+    atlas = Tempfile.new(["atlas", ".pdf"], "tmp/")
 
-      gs.concat(files)
+    IO.copy_stream(pdf, atlas)
 
-      pdf = IO.popen(gs)
+    atlas.path
+  end
 
-      (pid, status) = Process.wait2(pdf.pid)
+  def render_page(page)
+    cmd = %w(docker run fieldpapers/paper)
 
-      unless status.success?
-        raise "Failed to merge pages for #{atlas.slug}"
-      end
-
-      atlas = Tempfile.new(["atlas", ".pdf"], "tmp/")
-
-      IO.copy_stream(pdf, atlas)
-
-      # upload file to S3
-      # attach file to Atlas
-
-      puts "atlas: #{atlas.path}"
+    case page.page_number
+    when "i"
+      cmd << "create_index.py"
+      cmd << "-s" << page.atlas.paper_size
+      cmd << "-l" << page.atlas.layout
+      cmd << "-o" << page.atlas.orientation
+      cmd << "-b" << page.north << page.west << page.south << page.east
+      cmd << "-e" << page.atlas.north << page.atlas.west << page.atlas.south << page.atlas.east
+      cmd << "-z" << page.zoom
+      cmd << "-p" << page.provider
+      cmd << "-c" << page.atlas.cols
+      cmd << "-r" << page.atlas.rows
+      cmd << page.atlas.slug
     else
-      # upload file to S3
-      # attach file to Atlas
-
-      puts "atlas: #{files.first}"
+      cmd << "create_page.py"
+      cmd << "-s" << page.atlas.paper_size
+      cmd << "-l" << page.atlas.layout
+      cmd << "-o" << page.atlas.orientation
+      cmd << "-b" << page.north << page.west << page.south << page.east
+      cmd << "-n" << page.page_number
+      cmd << "-z" << page.zoom
+      cmd << "-p" << page.provider
+      cmd << page.atlas.slug
     end
+
+    # convert all arguments to strings
+    cmd = cmd.map(&:to_s)
+
+    pipe, status = nil
+
+    begin
+      Timeout.timeout(30) do
+        pipe = IO.popen(cmd)
+
+        (pid, status) = Process.wait2(pipe.pid)
+      end
+    rescue Timeout::Error
+      Process.kill 9, pipe.pid
+      Process.wait pipe.pid
+
+      raise "Timed out waiting to render page #{page.page_number}"
+    end
+
+    unless status.success?
+      raise "Failed to render page #{page.page_number}"
+    end
+
+    output = Tempfile.new(["page", ".pdf"], "tmp/")
+
+    IO.copy_stream(pipe, output)
+
+    output.path
   end
 end
