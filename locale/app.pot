@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-25 18:16-0800\n"
+"PO-Revision-Date: 2015-02-25 18:16-0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "%{Upload} pages you've photographed."
+msgstr ""
+
+msgid "%{count} Atlas"
+msgid_plural "%{count} Atlases"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Capture your notes"
+msgstr ""
+
+msgid "Make your notes and observations."
+msgstr ""
+
+msgid "Make yourself an atlas"
+msgstr ""
+
+msgid "No atlases."
+msgstr ""
+
+msgid "Print out anywhere in the world."
+msgstr ""
+
+msgid "Snapshots"
+msgstr ""
+
+msgid "Take it into the field"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Welcome to Field Papers"
+msgstr ""
