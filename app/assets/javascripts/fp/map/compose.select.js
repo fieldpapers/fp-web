@@ -95,7 +95,15 @@
     });
 
     $('#atlas_provider').on('change', function(){
-      return setTileLayer(this.value);
+      var template = $(this).val();
+
+      var label = Object.keys(tileProviders).map(function(k) {
+        return [k, tileProviders[k]];
+      }).filter(function(x) {
+        return x[1].template === template;
+      })[0][0];
+
+      return setTileLayer(label);
     });
 
     // Set the map tile layer
