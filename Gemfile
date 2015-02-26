@@ -27,6 +27,7 @@ gem 'devise' # authentication
 gem 'faraday' # http client
 gem 'faraday_middleware' # response parsing, etc.
 gem 'friendly_id', '~> 5.1.0' # alphanumeric slugs
+gem 'gettext_i18n_rails' # gettext-style i18n
 gem 'has_scope' # automatic filter generation
 gem 'http_accept_language'
 gem 'kaminari' # pagination
@@ -50,6 +51,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'gettext', '>= 3.0.2', require: false
   gem 'guard'
   gem 'guard-annotate'
   gem 'guard-bundler', require: false

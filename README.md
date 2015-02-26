@@ -139,11 +139,26 @@ Install the [Transifex](https://www.transifex.com/) client (`tx`):
 pip install transifex-client
 ```
 
+To extract strings from the app (and update pending translations):
+
+```bash
+rake gettext:find
+```
+
 To see the current translation status:
 
 ```bash
 tx status
 ```
+
+To push updated strings:
+
+```bash
+tx push -s
+```
+
+While it's possible to push updated translations, don't; Transifex is the
+source of truth for non-English strings.
 
 To pull pending translations:
 
@@ -154,7 +169,7 @@ tx pull -a
 To initialize a new language:
 
 ```bash
-tx set -r fieldpapers.fp-web-global -l es config/locales/es.yml
+tx set -r fieldpapers.www -l es locale/es/app.po
 ```
 
 ### Data
