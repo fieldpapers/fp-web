@@ -21,14 +21,29 @@
   }
 }
 
+.navbar-container {
+  position: relative;
+}
+
 .navbar {
   display: none;
   list-style: none;
   margin-top: 10px;
   margin-bottom: 0;
 
+  position: absolute;
+  background: white;
+  width: 100%;
+  top: 50px;
+  left: 0;
+  z-index: 1;
+
   @media (#{$bp-larger-than-tablet}) {
+    position: relative;
     display: table;
+    width: auto;
+    top: 0;
+    left: 0;
   }
 }
 

@@ -3,7 +3,7 @@
     common: {
       init: function() {
         // initialize nav
-        FP.nav();
+        //FP.nav();
       }
     },
 
@@ -13,8 +13,7 @@
       },
 
       index: function() {
-        var boundingBoxes = FP.map.boundingBoxes('map');
-        boundingBoxes.data(atlases);
+
       }
     }
   };
@@ -30,7 +29,7 @@
     },
 
     init: function() {
-      console.log("BOOTSTRAP>>>>>")
+      console.log("BOOTSTRAP>>>>>");
       var body = document.body,
           controller = body.getAttribute( 'data-controller' ),
           action = body.getAttribute( 'data-action' );

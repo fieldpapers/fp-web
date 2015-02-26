@@ -17,10 +17,12 @@ $(function() {
 
   $("#s3_uploader").bind("s3_uploads_start", function(e, content) {
     $('#uploads_container').addClass('active');
-    $("#upload-close-btn").on('click', function(){
 
-      $('#uploads_container').removeClass('active').removeClass('error');
+    $("#upload-close-btn").off('click').on('click', function(){
+      $('#uploads_container').removeClass('active');
+      $('#uploads_container').removeClass('error');
     });
+
   });
 
 

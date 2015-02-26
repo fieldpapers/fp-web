@@ -25,6 +25,10 @@
 </div>
 <% end %>
 
-<script type="text/javascript">
-  var atlases = <%= raw(@atlases.to_json) %>
-</script>
+<% content_for :foot do %>
+  <script>
+    $(function(){
+      FP.map.boundingBoxes('map').data(<%= raw(@atlases.to_json) %>);
+    });
+  </script>
+<% end %>

@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row navbar-container">
         <div class="twelve columns">
             <button id="nav-toggle">Menu</button>
             <ul class="navbar u-cf">
@@ -46,3 +46,11 @@
         </div>
     </div>
 </div>
+
+<% content_for :foot do %>
+    <script>
+        $(function(){
+          FP.nav();
+        });
+    </script>
+<% end %>

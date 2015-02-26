@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require leaflet
 //= require s3_direct_upload
-//= require_directory ./global
 //= require_directory ./fp
 //= require turbolinks
 //= require_tree .
