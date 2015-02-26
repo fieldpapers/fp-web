@@ -171,7 +171,7 @@ private
 
     25.times.map do
       -> {
-        ('a'..'z').to_a.shuffle[0, 8].join
+        rand(2**256).to_s(36).ljust(8,'a')[0..7]
       }
     end
   end
@@ -179,16 +179,18 @@ private
   def create_pages
     # create index page
 
-    pages.create! \
-      page_number: "i",
-      west: west - west * INDEX_BUFFER_FACTOR,
-      south: south - south * INDEX_BUFFER_FACTOR,
-      east: east + east * INDEX_BUFFER_FACTOR,
-      north: north + north * INDEX_BUFFER_FACTOR,
-      zoom: zoom, # TODO should be calculated from the bounding box; see
-                  #   https://gist.github.com/mojodna/9a4e28ec70e685066c03
-      # omit UTM overlays (if present) from the index page
-      provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
+    if rows * cols > 1
+      pages.create! \
+        page_number: "i",
+        west: west - west * INDEX_BUFFER_FACTOR,
+        south: south - south * INDEX_BUFFER_FACTOR,
+        east: east + east * INDEX_BUFFER_FACTOR,
+        north: north + north * INDEX_BUFFER_FACTOR,
+        zoom: zoom, # TODO should be calculated from the bounding box; see
+                    #   https://gist.github.com/mojodna/9a4e28ec70e685066c03
+        # omit UTM overlays (if present) from the index page
+        provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
+    end
 
     # create individual pages
 
@@ -226,6 +228,6 @@ private
   end
 
   def generate_pdf
-    GeneratePdfJob.perform_later(self.slug)
+    GeneratePdfJob.perform_later(self)
   end
 end

@@ -7,53 +7,48 @@ class Providers < ActiveRecord::Base
   end
 
   def self.options()
-    out = []
-    self.layers.each do |k, v|
-      out.push([v[:label], k.to_s()])
+    self.layers.map do |k, v|
+      [v[:label], v[:template]]
     end
-    return out
   end
 
   # For layer options see: http://leafletjs.com/reference.html#tilelayer
+  # templates are (currently) expected to be ModestMaps-formatted, which means
+  # capital letters for placeholders
   def self.layers
     {
       'openstreetmap': {
         label: 'OpenStreetMap',
-        template: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        template: 'http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png',
         options: {
-          subdomains: '',
           attribution: ''
         }
       },
       'toner': {
         label: 'Black & White',
-        template: 'http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
+        template: 'http://{S}.tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png',
         options: {
-          subdomains: 'abcd',
           attribution: ''
         }
       },
       'satellite-labels': {
         label: 'Satellite + Labels',
-        template: 'http://tile.stamen.com/boner/{Z}/{X}/{Y}.jpg',
+        template: 'http://{S}.tile.stamen.com/boner/{Z}/{X}/{Y}.jpg',
         options: {
-          subdomains: '',
           attribution: ''
         }
       },
       'satellite-only': {
         label: 'Satellite Only',
-        template: 'http://tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg',
+        template: 'http://{S}.tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg',
         options: {
-          subdomains: '',
           attribution: ''
         }
       },
       'humanitarian': {
         label: 'Humanitarian',
-        template: 'http://a.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png',
+        template: 'http://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png',
         options: {
-          subdomains: '',
           attribution: ''
         }
       },
@@ -61,15 +56,13 @@ class Providers < ActiveRecord::Base
         label: 'Mapbox Satellite',
         template: 'http://api.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png',
         options: {
-          subdomains: '',
           attribution: ''
         }
       },
       'opencyclemap': {
         label: 'OpenCycleMap',
-        template: 'http://tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png',
+        template: 'http://{S}.tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png',
         options: {
-          subdomains: '',
           attribution: ''
         }
       }

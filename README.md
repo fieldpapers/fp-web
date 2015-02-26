@@ -11,6 +11,9 @@ overview](https://github.com/fieldpapers/fieldpapers).
 
 ### Using fig
 
+_NOTE_: this method is not actively being used, so there will be missing
+pieces.
+
 [`fig`](http://www.fig.sh/) is a [Docker](http://www.docker.com/)-based tool for
 orchestrating development environments. Rather than using `foreman` to manage
 multiple processes locally, `fig` runs each component process in a separate
@@ -79,8 +82,15 @@ A default `.envrc` has been provided that adds `bin/` to your `PATH`
 (`$(pwd)/bin`, technically, to prevent abuse) so that bundler binstubs can be
 used. It's opt-in, so you'll need to enable it with `direnv allow .`.
 
+Ghostscript is used to merge atlas pages together into a single PDF, so you'll
+need that (and `boot2docker` generate individual pages) to generate atlases.
+
 ```bash
-brew install rbenv ruby-build direnv
+brew install rbenv ruby-build direnv ghostscript boot2docker
+
+boot2docker init         # create the Docker host if necessary
+boot2docker up           # start the Docker host
+$(boot2docker shellinit) # set the necessary Docker environment vars
 
 eval "$(rbenv init -)"     # initialize rbenv
 eval "$(direnv hook bash)" # initialize direnv
@@ -139,11 +149,26 @@ Install the [Transifex](https://www.transifex.com/) client (`tx`):
 pip install transifex-client
 ```
 
+To extract strings from the app (and update pending translations):
+
+```bash
+rake gettext:find
+```
+
 To see the current translation status:
 
 ```bash
 tx status
 ```
+
+To push updated strings:
+
+```bash
+tx push -s
+```
+
+While it's possible to push updated translations, don't; Transifex is the
+source of truth for non-English strings.
 
 To pull pending translations:
 
@@ -154,7 +179,7 @@ tx pull -a
 To initialize a new language:
 
 ```bash
-tx set -r fieldpapers.fp-web-global -l es config/locales/es.yml
+tx set -r fieldpapers.www -l es locale/es/app.po
 ```
 
 ### Data

@@ -1,29 +1,29 @@
 <div class="row">
-    <h2 class="twelve columns">Welcome to Field Papers</h2>
+    <h2 class="twelve columns"><%= _("Welcome to Field Papers") %></h2>
 </div>
 
 <div class="row cards">
     <div class="four columns card">
         <a class="card-image" href="#"><img src="<%= asset_path 'atlases-large.gif' %>" alt="Hand-drawn graphic to represent making a Field Papers atlas"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#">Make yourself an atlas</a></h5>
-            <p class="card-desc">Print out anywhere in the world.</p>
+            <h5 class="card-title"><a href="#"><%= _("Make yourself an atlas") %></a></h5>
+            <p class="card-desc"><%= _("Print out anywhere in the world.") %></p>
         </div>
     </div>
 
     <div class="four columns card">
         <a class="card-image" href="#"><img src="<%= asset_path 'field-large.gif' %>" alt="Hand-drawn graphic a Field Papers atlas out in the wild"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#">Take it into the field</a></h5>
-            <p class="card-desc">Make your notes and observations.</p>
+            <h5 class="card-title"><a href="#"><%= _("Take it into the field") %></a></h5>
+            <p class="card-desc"><%= _("Make your notes and observations.") %></p>
         </div>
     </div>
 
     <div class="four columns card">
         <a class="card-image" href="#"><img src="<%= asset_path 'snapshots-large.gif' %>" alt="Hand-drawn graphic to photographing a page in a Field Papers atlas"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#">Capture your notes</a></h5>
-            <p class="card-desc"><b><a href="#">Upload</a></b> pages you've photographed.</p>
+            <h5 class="card-title"><a href="#"><%= _("Capture your notes") %></a></h5>
+            <p class="card-desc"><%= _("%{Upload} pages you've photographed.") % {Upload: content_tag(:b, link_to(_("Upload"), "#")) } %></p>
         </div>
     </div>
 </div>

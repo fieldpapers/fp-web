@@ -1,14 +1,14 @@
 <div class="row">
   <div class="twelve columns map-container">
     <div id="map" class="map"></div>
-    <p class="inline-linkbar bottom"><%= number_with_delimiter(@counts) %> Atlases | <%= link_to "Snapshots", snapshots_path %></p>
+    <p class="inline-linkbar bottom"><%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path %></p>
   </div>
 </div>
 
 <div class="row">
   <div class="twelve columns">
     <% if @atlases.empty? %>
-    <p class="alert">No atlases.</p>
+    <p class="alert"><%= _("No atlases.") %></p>
     <% else %>
     <%= paginate @atlases %>
   </div>
