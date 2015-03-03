@@ -1,5 +1,7 @@
 # Field Papers
 
+[![Translation Status](https://www.transifex.com/projects/p/fieldpapers/resource/www/chart/image_png)](https://www.transifex.com/projects/p/fieldpapers/resource/www/)
+
 ## Helping
 
 If you'd like to help out (thanks!), check out [this
@@ -8,8 +10,6 @@ overview](https://github.com/fieldpapers/fieldpapers).
 ## Development
 
 [![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
-
-[![Translation Status](https://www.transifex.com/projects/p/fieldpapers/resource/www/chart/image_png)](https://www.transifex.com/projects/p/fieldpapers/resource/www/)
 
 ### Using fig
 
