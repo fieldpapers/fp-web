@@ -9,6 +9,8 @@ overview](https://github.com/fieldpapers/fieldpapers).
 
 [![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
 
+[![Translation Status](https://www.transifex.com/projects/p/fieldpapers/resource/www/chart/image_png)](https://www.transifex.com/projects/p/fieldpapers/resource/www/)
+
 ### Using fig
 
 _NOTE_: this method is not actively being used, so there will be missing
