@@ -14,6 +14,6 @@
 
   <div>
     <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, 'page') %>,</span>
-    <span class="map-card-created small"><%= link_to "#{time_ago_in_words(atlas.created_at)} ago", atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></span>
+    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></span>
   </div>
 </li>

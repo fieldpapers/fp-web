@@ -7,7 +7,7 @@
         <div class="twelve columns">
             <%= f.label :utm_grid do %>
               <%= f.check_box :utm_grid %>
-              <span class="label-body">Add a <a href="http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system" target="_blank">UTM</a> grid overlay to each map?</span>
+              <span class="label-body"><%= _("Add a %{UTM} grid overlay to each map?") % { UTM: link_to(_("UTM"), "http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system") } %></span>
             <% end %>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="twelve columns">
             <%= f.label :redcross_overlay do %>
               <%= f.check_box :redcross_overlay %>
-              <span class="label-body">Add the Red Cross overlay (for disaster relief efforts)</span>
+              <span class="label-body"><%= _("Add the Red Cross overlay (for disaster relief efforts)?") %></span>
             <% end %>
         </div>
     </div>
@@ -27,11 +27,11 @@
                 <div class="table align-left">
                     <div class="tr">
                         <span class="tc"><%= f.radio_button :layout, "map-only" %></span>
-                        <span class="label-body tc">Maps Only</span>
+                        <span class="label-body tc"><%= _("Maps Only") %></span>
                     </div>
                     <div class="tr">
                         <span class="tc"></span>
-                        <p class="tc">one per page</p>
+                        <p class="tc"><%= _("one per page") %></p>
                     </div>
                 </div>
             <% end %>
@@ -42,11 +42,11 @@
                 <div class="table align-left">
                     <div class="tr">
                         <span class="tc"><%= f.radio_button :layout, "full-page" %></span>
-                        <span class="label-body tc">Maps + Notes</span>
+                        <span class="label-body tc"><%= _("Maps + Notes") %></span>
                     </div>
                     <div class="tr">
                         <span class="tc"></span>
-                        <p class="tc">on their own pages</p>
+                        <p class="tc"><%= _("on their own pages") %></p>
                     </div>
                 </div>
             <% end %>
@@ -57,17 +57,17 @@
             <div class="table align-left">
                 <div class="tr">
                     <span class="tc"><%= f.radio_button :layout, "half-page"  %></span>
-                    <span class="label-body tc">Maps + Notes</span>
+                    <span class="label-body tc"><%= _("Maps + Notes") %></span>
                 </div>
                 <div class="tr">
                     <span class="tc"></span>
-                    <p class="tc">on same page</p>
+                    <p class="tc"><%= _("on same page") %></p>
                 </div>
             </div>
         <% end %>
         </div>
     </div>
 
-    <%= f.submit "Finished!" %>
+    <%= f.submit _("Finished!") %>
     <% end %>
 </div>

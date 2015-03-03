@@ -1,10 +1,10 @@
 <div id="compose-search" class="row align-center small-screen">
-  <h2 class="twelve columns">Where in the world is your atlas?</h2>
+  <h2 class="twelve columns"><%= _("Where in the world is your atlas?") %></h2>
   <form action="<%= next_wizard_path %>" class="twelve columns">
     <div class="row">
       <div class="twelve columns">
-        <input class="col-width-only five" type="text" name="q" tabindex="1" placeholder="Type in a location" autofocus required>
-        <input type="submit" value="search" tabindex="2">
+        <input class="col-width-only five" type="text" name="q" tabindex="1" placeholder="<%= _("Type in a location") %>" autofocus required>
+        <input type="submit" value="<%= _("search") %>" tabindex="2">
       </div>
     </div>
   </form>

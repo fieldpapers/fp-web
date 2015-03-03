@@ -13,6 +13,6 @@
   </div>
 
   <div>
-    <span class="map-card-created small"><%= time_ago_in_words(snapshot.created_at) %> ago</span>
+    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(snapshot.created_at) }, snapshots_path(month: snapshot.created_at.strftime("%Y-%m")) %></span>
   </div>
 </li>
