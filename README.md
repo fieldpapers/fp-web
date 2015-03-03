@@ -179,7 +179,10 @@ tx pull -a
 To initialize a new language:
 
 ```bash
-tx set -r fieldpapers.www -l es locale/es/app.po
+locale=es
+mkdir -p locale/${locale}
+cp locale/en/* locale/${locale}/
+tx set -r fieldpapers.www -l ${locale} locale/${locale}/app.po
 ```
 
 ### Data
