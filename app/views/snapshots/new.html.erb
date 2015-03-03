@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
-    <h2>Upload</h2>
-    <p>Choose an atlas page to upload. We'll work out where it goes (using the QR code).</p>
+    <h2><%= _("Upload") %></h2>
+    <p><%= _("Choose an atlas page to upload. We'll work out where it goes (using the QR code).") %></p>
   </div>
   <div class="twelve columns">
     <%= s3_uploader_form id: "s3_uploader",
@@ -18,11 +18,11 @@
 
 <div class="row">
   <div class="twelve columns">
-    <h4>Rules</h4>
+    <h4><%= _("Rules") %></h4>
     <ul>
-      <li>Make sure the scan/photo/image is at least 200dpi.</li>
-      <li>Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)</li>
-      <li>Don't upload things that aren't Field Papers maps, please.</li>
+      <li><%= _("Make sure the scan/photo/image is at least 200dpi.") %></li>
+      <li><%= _("Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)") %></li>
+      <li><%= _("Don't upload things that aren't Field Papers maps, please.") %></li>
     </ul>
   </div>
 </div>

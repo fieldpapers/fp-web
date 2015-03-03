@@ -4,13 +4,13 @@
     <%= form_for :atlas, url: wizard_path, method: :put, html: {class: "six columns"} do |f| %>
     <div class="row">
     <div class="twelve columns">
-    <%= f.label :title, "Atlas Name" %>
-    <%= f.text_field :title, class:"u-full-width", placeholder: "Unknown" %>
+    <%= f.label :title, _("Atlas Name") %>
+    <%= f.text_field :title, class:"u-full-width", placeholder: _("Untitled") %>
     </div></div>
 
     <div class="row">
     <div class="twelve columns">
-    <%= f.label :text, "Description" %>
+    <%= f.label :text, _("Description") %>
     <%= f.text_area :text, class:"u-full-width" %>
     </div></div>
 
@@ -18,12 +18,12 @@
     <div class="twelve columns">
     <%= f.label :private do %>
       <%= f.check_box :private %>
-      <span class="label-body">Private</span>
+      <span class="label-body"><%= _("Private") %></span>
     <% end %>
-    <p class="form-helper">(That means it's only accessible to you, if you're logged in, or by direct URL.)</p>
+    <p class="form-helper"><%= _("(That means it's only accessible to you, if you're logged in, or by direct URL.)") %></p>
     </div></div>
 
-    <%= f.submit "Next" %>
+    <%= f.submit _("Next") %>
     <% end %>
 </div>
 

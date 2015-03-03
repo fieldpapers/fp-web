@@ -3,30 +3,119 @@
 # This file is distributed under the same license as the app package.
 #
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:52+0000\n"
+"PO-Revision-Date: 2015-02-26 01:44+0000\n"
 "Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/fieldpapers/langua"
-"ge/en/)\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/fieldpapers/langua"
+"ge/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr ""
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] "[%{count} Ȧŧŀȧş ſςϑϰ衋鶱ϵǈ ς衋ϵ]"
-msgstr[1] "[%{count} Ȧŧŀȧşḗş ϐ靐ǲǲ衋ıϰǅ ς靐]"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%{time_period} ago"
+msgstr ""
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr ""
+
+msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
+msgstr ""
+
+msgid "About the Project"
+msgstr ""
+
+msgid "Add a %{UTM} grid overlay to each map?"
+msgstr ""
+
+msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgstr ""
+
+msgid "Atlas Name"
+msgstr ""
+
+msgid "Atlases"
+msgstr ""
+
+msgid "Bing"
+msgstr ""
 
 msgid "Capture your notes"
+msgstr ""
+
+msgid "Check out the OSM help wiki."
+msgstr ""
+
+msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr ""
+
+msgid "Describe"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr ""
+
+msgid "Download PDF"
+msgstr ""
+
+msgid "EXTEND"
+msgstr ""
+
+msgid "Field Papers"
+msgstr ""
+
+msgid "Finished!"
+msgstr ""
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr ""
+
+msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr ""
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr ""
+
+msgid "LOG IN"
+msgstr ""
+
+msgid "LOG OUT"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "MAKE"
+msgstr ""
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr ""
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr ""
 
 msgid "Make your notes and observations."
@@ -35,20 +124,101 @@ msgstr ""
 msgid "Make yourself an atlas"
 msgstr ""
 
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgstr ""
+
+msgid "Mapbox"
+msgstr ""
+
+msgid "Maps + Notes"
+msgstr ""
+
+msgid "Maps Only"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
 msgid "No atlases."
-msgstr "[Ƞǿ ȧŧŀȧşḗş. 靐ǋ ϱſſẛǲϐ衋ǲ]"
+msgstr ""
+
+msgid "No snapshots."
+msgstr ""
 
 msgid "Print out anywhere in the world."
 msgstr ""
 
+msgid "Private"
+msgstr ""
+
+msgid "Rules"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
 msgid "Snapshots"
-msgstr "[Şƞȧƥşħǿŧş ǈ靐ϵςſϖǅΐΐ]"
+msgstr ""
+
+msgid "Stamen Design"
+msgstr ""
 
 msgid "Take it into the field"
+msgstr ""
+
+msgid "Toner"
+msgstr ""
+
+msgid "Type in a location"
+msgstr ""
+
+msgid "UPLOAD"
+msgstr ""
+
+msgid "UTM"
+msgstr ""
+
+msgid "Untitled"
 msgstr ""
 
 msgid "Upload"
 msgstr ""
 
+msgid "WATCH"
+msgstr ""
+
 msgid "Welcome to Field Papers"
-msgstr "[Ẇḗŀƈǿḿḗ ŧǿ Ƒīḗŀḓ Ƥȧƥḗřş 靐ϑϱ衋ſΐϖ ıı]"
+msgstr ""
+
+msgid "Where in the world is your atlas?"
+msgstr ""
+
+msgid "an atlas to print"
+msgstr ""
+
+msgid "on same page"
+msgstr ""
+
+msgid "on their own pages"
+msgstr ""
+
+msgid "one per page"
+msgstr ""
+
+msgid "or create an account"
+msgstr ""
+
+msgid "pages you've marked"
+msgstr ""
+
+msgid "recent activity"
+msgstr ""
+
+msgid "search"
+msgstr ""
+
+msgid "with advanced tools"
+msgstr ""
