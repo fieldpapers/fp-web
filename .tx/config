@@ -5,6 +5,7 @@ type = PO
 [fieldpapers.www]
 source_file = locale/en/app.po
 source_lang = en
+trans.da = locale/da/app.po
 trans.de = locale/de/app.po
 trans.es = locale/es/app.po
 trans.fr = locale/fr/app.po
