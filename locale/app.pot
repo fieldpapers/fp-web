@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-25 18:16-0800\n"
-"PO-Revision-Date: 2015-02-25 18:16-0800\n"
+"POT-Creation-Date: 2015-03-04 09:10-0800\n"
+"PO-Revision-Date: 2015-03-04 09:10-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -98,6 +98,9 @@ msgid "Hand-drawn graphic representing photographing a page in a Field Papers at
 msgstr ""
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "LOG IN"

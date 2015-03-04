@@ -1,7 +1,7 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-# 
+#
 # Translators:
 # Translators:
 msgid ""
@@ -102,6 +102,9 @@ msgid "Hand-drawn graphic representing photographing a page in a Field Papers at
 msgstr ""
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "LOG IN"

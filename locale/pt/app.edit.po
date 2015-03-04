@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:44+0000\n"
+"PO-Revision-Date: 2015-03-03 19:27+0000\n"
 "Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/fieldpapers/lan"
 "guage/pt/)\n"
@@ -98,6 +98,9 @@ msgid "Hand-drawn graphic representing photographing a page in a Field Papers at
 msgstr ""
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "LOG IN"

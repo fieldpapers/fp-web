@@ -4,12 +4,13 @@
 #
 # Translators:
 # Translators:
+# Heimen Stoffels <vistausss@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:44+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"PO-Revision-Date: 2015-03-03 20:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/fieldpapers/language"
 "/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,206 +20,209 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr ""
+msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr ""
+msgstr "%{Upload} pagina's die u gefotografeerd heeft."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} atlas"
+msgstr[1] "%{count} atlassen"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} snapshot"
+msgstr[1] "%{count} snapshots"
 
 msgid "%{time_period} ago"
-msgstr ""
+msgstr "%{time_period} geleden"
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
+msgstr "&copy; OpenStreetMap-bijdragers"
 
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
-msgstr ""
+msgstr "(Dit betekent dat u de enige bent met toegang wanneer u bent ingelogd of via een directe URL.)"
 
 msgid "About the Project"
-msgstr ""
+msgstr "Over het project"
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
+msgstr "Wilt u een %{UTM}-raster-overlay toevoegen aan elke kaart?"
 
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
-msgstr ""
+msgstr "Wilt u de Rode Kruis-overlay toevoegen (voor rampoplossingsdoeleinden)?"
 
 msgid "Atlas Name"
-msgstr ""
+msgstr "Naam van atlas"
 
 msgid "Atlases"
-msgstr ""
+msgstr "Atlassen"
 
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 msgid "Capture your notes"
-msgstr ""
+msgstr "Leg uw notities vast"
 
 msgid "Check out the OSM help wiki."
-msgstr ""
+msgstr "Neem een kijkje op de OSM-hulpwiki."
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
-msgstr ""
+msgstr "Kies een atlaspagina om te uploaden. Wij zullen ervoor zorgen dat hij op de juiste plaats verschijnt (d.m.v. een QR-code)."
 
 msgid "Describe"
-msgstr ""
+msgstr "Omschrijf"
 
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr ""
+msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
 
 msgid "Download PDF"
-msgstr ""
+msgstr "PDF downloaden"
 
 msgid "EXTEND"
-msgstr ""
+msgstr "UITBREIDEN"
 
 msgid "Field Papers"
-msgstr ""
+msgstr "Field Papers"
 
 msgid "Finished!"
-msgstr ""
+msgstr "Voltooid!"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas in het wild creëren"
 
 msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas een fotografische pagina creëren"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas creëren"
+
+msgid "Help"
 msgstr ""
 
 msgid "LOG IN"
-msgstr ""
+msgstr "INLOGGEN"
 
 msgid "LOG OUT"
-msgstr ""
+msgstr "UITLOGGEN"
 
 msgid "Layout"
-msgstr ""
+msgstr "INDELING"
 
 msgid "MAKE"
-msgstr ""
+msgstr "CREËREN"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
+msgstr "Zorg ervoor dat de scan/foto/afbeelding op zijn mist 200 DPI is."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
+msgstr "Zorg ervoor dat u een JPG-, PNG-, TIF- of GIF-bestand upload. (PDF-bestand zullen niet werken.)"
 
 msgid "Make your notes and observations."
-msgstr ""
+msgstr "Creëer notities en observaties."
 
 msgid "Make yourself an atlas"
-msgstr ""
+msgstr "Creëer een atlas voor uzelf"
 
 msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
-msgstr ""
+msgstr "Kaartdata %{OSMCopyright}, %{Toner} van Stamen, %{Bing} van Microsoft, %{Mapbox}, of een combinatie hiervan."
 
 msgid "Mapbox"
-msgstr ""
+msgstr "Atlasdoos"
 
 msgid "Maps + Notes"
-msgstr ""
+msgstr "Kaarten + Notities"
 
 msgid "Maps Only"
-msgstr ""
+msgstr "Alleen kaarten"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "No atlases."
-msgstr ""
+msgstr "Geen atlassen."
 
 msgid "No snapshots."
-msgstr ""
+msgstr "Geen snapshots."
 
 msgid "Print out anywhere in the world."
-msgstr ""
+msgstr "Overal ter wereld afdrukken."
 
 msgid "Private"
-msgstr ""
+msgstr "Privé"
 
 msgid "Rules"
-msgstr ""
+msgstr "Regels"
 
 msgid "Select"
-msgstr ""
+msgstr "Selecteren"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Snapshots"
 
 msgid "Stamen Design"
-msgstr ""
+msgstr "Stamen Design"
 
 msgid "Take it into the field"
-msgstr ""
+msgstr "Neem het mee, de wijde wereld in"
 
 msgid "Toner"
-msgstr ""
+msgstr "Toner"
 
 msgid "Type in a location"
-msgstr ""
+msgstr "Vul een locatie in"
 
 msgid "UPLOAD"
-msgstr ""
+msgstr "UPLOADEN"
 
 msgid "UTM"
-msgstr ""
+msgstr "UTM"
 
 msgid "Untitled"
-msgstr ""
+msgstr "Zonder titel"
 
 msgid "Upload"
-msgstr ""
+msgstr "Uploaden"
 
 msgid "WATCH"
-msgstr ""
+msgstr "BEKIJKEN"
 
 msgid "Welcome to Field Papers"
-msgstr ""
+msgstr "Welkom bij Field Papers"
 
 msgid "Where in the world is your atlas?"
-msgstr ""
+msgstr "Waar op de wereld bevindt zich uw atlas?"
 
 msgid "an atlas to print"
-msgstr ""
+msgstr "een atlas om af te drukken"
 
 msgid "on same page"
-msgstr ""
+msgstr "op dezelfde pagina"
 
 msgid "on their own pages"
-msgstr ""
+msgstr "op hun eigen pagina's"
 
 msgid "one per page"
-msgstr ""
+msgstr "één per pagina"
 
 msgid "or create an account"
-msgstr ""
+msgstr "of creëer een account"
 
 msgid "pages you've marked"
-msgstr ""
+msgstr "pagina's die u heeft gemarkeerd"
 
 msgid "recent activity"
-msgstr ""
+msgstr "recente activiteit"
 
 msgid "search"
-msgstr ""
+msgstr "zoeken"
 
 msgid "with advanced tools"
-msgstr ""
+msgstr "met geavanceerde hulpmiddelen"
