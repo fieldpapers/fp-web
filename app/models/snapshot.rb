@@ -74,12 +74,12 @@ class Snapshot < ActiveRecord::Base
 
   scope :date,
     -> date {
-      where("DATE(created_at) = ?", date)
+      where("DATE(#{self.table_name}.created_at) = ?", date)
     }
 
   scope :month,
     -> month {
-      where("CONCAT(YEAR(created_at), '-', LPAD(MONTH(created_at), 2, '0')) = ?", month)
+      where("CONCAT(YEAR(#{self.table_name}.created_at), '-', LPAD(MONTH(#{self.table_name}.created_at), 2, '0')) = ?", month)
     }
 
   scope :place,
