@@ -7,4 +7,17 @@
     <br>
     <small><%= _("Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof.") % { OSMCopyright: link_to(_("&copy; OpenStreetMap contributors"), "http://www.openstreetmap.org/copyright"), Toner: link_to(_("Toner"), "http://maps.stamen.com/toner/"), Bing: link_to(_("Bing"), "http://www.bing.com/maps/"), Mapbox: link_to(_("Mapbox"), "https://www.mapbox.com") } %></small>
   </div>
+  <div class="twelve columns">
+    <small>
+      <%= link_to_unless I18n.locale == :da, "Dansk", locale: :da %>
+      <%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %>
+      <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+      <%= link_to_unless I18n.locale == :es, "Español", locale: :rs %>
+      <%= link_to_unless I18n.locale == :fr, "Français", locale: :fr %>
+      <%= link_to_unless I18n.locale == :it, "Italiano", locale: :it %>
+      <%= link_to_unless I18n.locale == :ja, "日本語", locale: :ja %>
+      <%= link_to_unless I18n.locale == :nl, "Nederlands", locale: :nl %>
+      <%= link_to_unless I18n.locale == :pt, "Português", locale: :pt %>
+    </small>
+  </div>
 </div>
