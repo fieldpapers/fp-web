@@ -187,6 +187,10 @@ cp locale/en/* locale/${locale}/
 tx set -r fieldpapers.www -l ${locale} locale/${locale}/app.po
 ```
 
+You'll also need to add the new locales to
+`config/initializers/fast_gettext.rb` and to the footer
+(`app/views/shared/_footer.html.erb`).
+
 ### Data
 
 To bootstrap a database for development or on a new instance, run:
