@@ -36,6 +36,7 @@ gem 'paperclip', '~> 4.2.1' # file attachments
 gem 'puma' # app server
 gem 'rails_12factor' # Heroku compatibility
 gem 's3_direct_upload' # direct-to-S3 upload helpers
+gem 'sucker_punch', '~> 1.0' # in-process queue processing
 gem 'mysql2'
 gem 'wicked' # wizard controllers
 
