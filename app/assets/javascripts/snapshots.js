@@ -9,7 +9,14 @@ $(function() {
     }
   );
 
+  $("#s3_uploader").bind("s3_upload_complete", function(e, content) {
+    console.log('Upload complete');
+    console.log(e, content);
+  });
+
   $("#s3_uploader").bind("s3_upload_failed", function(e, content) {
+    console.log('Upload error');
+    console.error(e, content);
     //return alert(content.filename + " failed to upload");
     $('#uploads_container').addClass('error');
     $('#uploads_container h5').text( content.filename + " failed to upload" );
