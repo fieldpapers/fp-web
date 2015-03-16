@@ -4,26 +4,26 @@
 
 <div class="row cards">
     <div class="four columns card">
-        <a class="card-image" href="#"><img src="<%= asset_path 'atlases-large.gif' %>" alt="Hand-drawn graphic to represent making a Field Papers atlas"></a>
+        <a class="card-image" href="<%= compose_path(:search) %>"><img src="<%= asset_path 'atlases-large.gif' %>" alt="<%= _("Hand-drawn graphic to represent making a Field Papers atlas") %>"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#"><%= _("Make yourself an atlas") %></a></h5>
+            <h5 class="card-title"><%= link_to _("Make yourself an atlas"), compose_path(:search) %></h5>
             <p class="card-desc"><%= _("Print out anywhere in the world.") %></p>
         </div>
     </div>
 
     <div class="four columns card">
-        <a class="card-image" href="#"><img src="<%= asset_path 'field-large.gif' %>" alt="Hand-drawn graphic a Field Papers atlas out in the wild"></a>
+        <a class="card-image" href="<%= compose_path(:search) %>"><img src="<%= asset_path 'field-large.gif' %>" alt="<%= _("Hand-drawn graphic representing a Field Papers atlas in the wild") %>"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#"><%= _("Take it into the field") %></a></h5>
+            <h5 class="card-title"><%= link_to _("Take it into the field"), compose_path(:search) %></h5>
             <p class="card-desc"><%= _("Make your notes and observations.") %></p>
         </div>
     </div>
 
     <div class="four columns card">
-        <a class="card-image" href="#"><img src="<%= asset_path 'snapshots-large.gif' %>" alt="Hand-drawn graphic to photographing a page in a Field Papers atlas"></a>
+        <a class="card-image" href="<%= new_snapshot_path %>"><img src="<%= asset_path 'snapshots-large.gif' %>" alt="<%= _("Hand-drawn graphic representing photographing a page in a Field Papers atlas") %>"></a>
         <div class="card-details">
-            <h5 class="card-title"><a href="#"><%= _("Capture your notes") %></a></h5>
-            <p class="card-desc"><%= _("%{Upload} pages you've photographed.") % {Upload: content_tag(:b, link_to(_("Upload"), "#")) } %></p>
+            <h5 class="card-title"><%= link_to _("Capture your notes"), new_snapshot_path %></a></h5>
+            <p class="card-desc"><%= _("%{Upload} pages you've photographed.") % {Upload: content_tag(:b, link_to(_("Upload"), new_snapshot_path)) } %></p>
         </div>
     </div>
 </div>

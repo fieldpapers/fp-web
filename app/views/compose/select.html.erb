@@ -18,7 +18,7 @@
   <div class="twelve columns">
   <% if @atlas.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@atlas.errors.count, "error") %> prohibited this atlas from being saved:</h2>
+      <h2><%= pluralize(@atlas.errors.count, "error") %> prevented this atlas from being saved:</h2>
       <ul>
       <% @atlas.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -41,7 +41,7 @@
     <%= f.text_field :cols, hidden: true %>
     <%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %>
     <%= f.select :provider, options_for_select(Providers.options, [Providers.default]) %>
-    <%= f.submit "Next" %>
+    <%= f.submit _("Next") %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -33,7 +34,9 @@ gem 'http_accept_language'
 gem 'kaminari' # pagination
 gem 'paperclip', '~> 4.2.1' # file attachments
 gem 'puma' # app server
+gem 'rails_12factor' # Heroku compatibility
 gem 's3_direct_upload' # direct-to-S3 upload helpers
+gem 'sucker_punch', '~> 1.0' # in-process queue processing
 gem 'mysql2'
 gem 'wicked' # wizard controllers
 

@@ -1,0 +1,228 @@
+# English translations for app package.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+#
+# Translators:
+# Translators:
+# Heimen Stoffels <vistausss@outlook.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: fieldpapers\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2015-03-03 20:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/fieldpapers/language"
+"/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
+
+msgid "%{Upload} pages you've photographed."
+msgstr "%{Upload} pagina's die u gefotografeerd heeft."
+
+msgid "%{count} Atlas"
+msgid_plural "%{count} Atlases"
+msgstr[0] "%{count} atlas"
+msgstr[1] "%{count} atlassen"
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] "%{count} snapshot"
+msgstr[1] "%{count} snapshots"
+
+msgid "%{time_period} ago"
+msgstr "%{time_period} geleden"
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr "&copy; OpenStreetMap-bijdragers"
+
+msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
+msgstr "(Dit betekent dat u de enige bent met toegang wanneer u bent ingelogd of via een directe URL.)"
+
+msgid "About the Project"
+msgstr "Over het project"
+
+msgid "Add a %{UTM} grid overlay to each map?"
+msgstr "Wilt u een %{UTM}-raster-overlay toevoegen aan elke kaart?"
+
+msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgstr "Wilt u de Rode Kruis-overlay toevoegen (voor rampoplossingsdoeleinden)?"
+
+msgid "Atlas Name"
+msgstr "Naam van atlas"
+
+msgid "Atlases"
+msgstr "Atlassen"
+
+msgid "Bing"
+msgstr "Bing"
+
+msgid "Capture your notes"
+msgstr "Leg uw notities vast"
+
+msgid "Check out the OSM help wiki."
+msgstr "Neem een kijkje op de OSM-hulpwiki."
+
+msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr "Kies een atlaspagina om te uploaden. Wij zullen ervoor zorgen dat hij op de juiste plaats verschijnt (d.m.v. een QR-code)."
+
+msgid "Describe"
+msgstr "Omschrijf"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
+
+msgid "Download PDF"
+msgstr "PDF downloaden"
+
+msgid "EXTEND"
+msgstr "UITBREIDEN"
+
+msgid "Field Papers"
+msgstr "Field Papers"
+
+msgid "Finished!"
+msgstr "Voltooid!"
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas in het wild creëren"
+
+msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas een fotografische pagina creëren"
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas creëren"
+
+msgid "Help"
+msgstr ""
+
+msgid "LOG IN"
+msgstr "INLOGGEN"
+
+msgid "LOG OUT"
+msgstr "UITLOGGEN"
+
+msgid "Layout"
+msgstr "INDELING"
+
+msgid "MAKE"
+msgstr "CREËREN"
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr "Zorg ervoor dat de scan/foto/afbeelding op zijn mist 200 DPI is."
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
+msgstr "Zorg ervoor dat u een JPG-, PNG-, TIF- of GIF-bestand upload. (PDF-bestand zullen niet werken.)"
+
+msgid "Make your notes and observations."
+msgstr "Creëer notities en observaties."
+
+msgid "Make yourself an atlas"
+msgstr "Creëer een atlas voor uzelf"
+
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgstr "Kaartdata %{OSMCopyright}, %{Toner} van Stamen, %{Bing} van Microsoft, %{Mapbox}, of een combinatie hiervan."
+
+msgid "Mapbox"
+msgstr "Atlasdoos"
+
+msgid "Maps + Notes"
+msgstr "Kaarten + Notities"
+
+msgid "Maps Only"
+msgstr "Alleen kaarten"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "No atlases."
+msgstr "Geen atlassen."
+
+msgid "No snapshots."
+msgstr "Geen snapshots."
+
+msgid "Print out anywhere in the world."
+msgstr "Overal ter wereld afdrukken."
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "Rules"
+msgstr "Regels"
+
+msgid "Select"
+msgstr "Selecteren"
+
+msgid "Snapshots"
+msgstr "Snapshots"
+
+msgid "Stamen Design"
+msgstr "Stamen Design"
+
+msgid "Take it into the field"
+msgstr "Neem het mee, de wijde wereld in"
+
+msgid "Toner"
+msgstr "Toner"
+
+msgid "Type in a location"
+msgstr "Vul een locatie in"
+
+msgid "UPLOAD"
+msgstr "UPLOADEN"
+
+msgid "UTM"
+msgstr "UTM"
+
+msgid "Untitled"
+msgstr "Zonder titel"
+
+msgid "Upload"
+msgstr "Uploaden"
+
+msgid "WATCH"
+msgstr "BEKIJKEN"
+
+msgid "Welcome to Field Papers"
+msgstr "Welkom bij Field Papers"
+
+msgid "Where in the world is your atlas?"
+msgstr "Waar op de wereld bevindt zich uw atlas?"
+
+msgid "an atlas to print"
+msgstr "een atlas om af te drukken"
+
+msgid "on same page"
+msgstr "op dezelfde pagina"
+
+msgid "on their own pages"
+msgstr "op hun eigen pagina's"
+
+msgid "one per page"
+msgstr "één per pagina"
+
+msgid "or create an account"
+msgstr "of creëer een account"
+
+msgid "pages you've marked"
+msgstr "pagina's die u heeft gemarkeerd"
+
+msgid "recent activity"
+msgstr "recente activiteit"
+
+msgid "search"
+msgstr "zoeken"
+
+msgid "with advanced tools"
+msgstr "met geavanceerde hulpmiddelen"

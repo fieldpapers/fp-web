@@ -1,5 +1,7 @@
 # Field Papers
 
+[![Translation Status](https://www.transifex.com/projects/p/fieldpapers/resource/www/chart/image_png)](https://www.transifex.com/projects/p/fieldpapers/resource/www/)
+
 ## Helping
 
 If you'd like to help out (thanks!), check out [this
@@ -179,8 +181,15 @@ tx pull -a
 To initialize a new language:
 
 ```bash
-tx set -r fieldpapers.www -l es locale/es/app.po
+locale=es
+mkdir -p locale/${locale}
+cp locale/en/* locale/${locale}/
+tx set -r fieldpapers.www -l ${locale} locale/${locale}/app.po
 ```
+
+You'll also need to add the new locales to
+`config/initializers/fast_gettext.rb` and to the footer
+(`app/views/shared/_footer.html.erb`).
 
 ### Data
 

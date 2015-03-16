@@ -5,6 +5,14 @@ type = PO
 [fieldpapers.www]
 source_file = locale/en/app.po
 source_lang = en
+trans.da = locale/da/app.po
+trans.de = locale/de/app.po
+trans.es = locale/es/app.po
 trans.fr = locale/fr/app.po
+trans.id = locale/id/app.po
+trans.it = locale/it/app.po
 trans.ja = locale/ja/app.po
+trans.nl = locale/nl/app.po
+trans.pt = locale/pt/app.po
+trans.tl = locale/tl/app.po
 

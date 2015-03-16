@@ -3,12 +3,15 @@
 # This file is distributed under the same license as the app package.
 #
 # Translators:
+# Translators:
+# Fabien Giraud <gamma.gts@gmail.com>, 2015
+# severin.menard <severin.menard@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:45+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"PO-Revision-Date: 2015-03-03 21:02+0000\n"
+"Last-Translator: Fabien Giraud <gamma.gts@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/fieldpapers/languag"
 "e/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,37 +20,210 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr "%{FieldPapers} est développé par %{StamenDesign}"
+
 msgid "%{Upload} pages you've photographed."
-msgstr ""
+msgstr "%{Upload} les pages que vous avez photographiées ou scannées"
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} atlas"
+msgstr[1] "%{count} atlas existants"
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] "%{count} Aperçu"
+msgstr[1] "%{count} Aperçus"
+
+msgid "%{time_period} ago"
+msgstr "il y a %{time_period}"
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr "&copy; les contributeurs OpenStreetMap "
+
+msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
+msgstr "(Cela signifie que vous seul en avez l'accès, si vous êtes enregistrés, ou par le lien direct.)"
+
+msgid "About the Project"
+msgstr "À propos du projet"
+
+msgid "Add a %{UTM} grid overlay to each map?"
+msgstr "Ajouter une grille %{UTM} en superposition de chaque carte ?"
+
+msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgstr "Ajouter le calque Croix Rouge (pour l'appuyer les actions suite aux catastrophes) ?"
+
+msgid "Atlas Name"
+msgstr "Nom de l'atlas"
+
+msgid "Atlases"
+msgstr "Atlas"
+
+msgid "Bing"
+msgstr "Bing"
 
 msgid "Capture your notes"
+msgstr "Numérisez vos Field Papers annotés"
+
+msgid "Check out the OSM help wiki."
+msgstr "Consulter le wiki d'aide OSM"
+
+msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr "Choisir une page d'atlas à charger. Nous nous chargerons de la placer correctement (à l'aide du QR code)"
+
+msgid "Describe"
+msgstr "Décrire"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr "Ne chargez pas d'éléments autres que des cartes Field Papers, s'il vous plait."
+
+msgid "Download PDF"
+msgstr "Télécharger le PDF"
+
+msgid "EXTEND"
 msgstr ""
+
+msgid "Field Papers"
+msgstr "Field Papers"
+
+msgid "Finished!"
+msgstr "Terminé !"
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr "Croquis représentant un atlas Field Papers dans la nature"
+
+msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Croquis représentant la photographie d'une page dans un atlas Field Papers"
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr "Croquis pour représenter l'élaboration d'un atlas Field Papers"
+
+msgid "Help"
+msgstr ""
+
+msgid "LOG IN"
+msgstr "CONNEXION"
+
+msgid "LOG OUT"
+msgstr "DÉCONNEXION"
+
+msgid "Layout"
+msgstr "Arrangement"
+
+msgid "MAKE"
+msgstr "FAIRE"
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr "Assurez-vous que le scan / la photo / l'image a une résolution d'au moins 200 ppp."
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
+msgstr "Assurez-vous de charger un fichier JPG, PNG, TIF, ou GIF. (les PDF ne conviennent pas.)"
 
 msgid "Make your notes and observations."
-msgstr ""
+msgstr "Ajoutez vos notes et observations"
 
 msgid "Make yourself an atlas"
-msgstr ""
+msgstr "Fabriquez votre atlas"
+
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgstr "Données cartographiques %{OSMCopyright}, %{Toner} par Stamen, %{Bing} par Microsoft, %{Mapbox}, or une combinaison de l'ensemble."
+
+msgid "Mapbox"
+msgstr "Mapbox"
+
+msgid "Maps + Notes"
+msgstr "Cartes + Notes"
+
+msgid "Maps Only"
+msgstr "Cartes Uniquement"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Next"
+msgstr "Suivant"
 
 msgid "No atlases."
-msgstr ""
+msgstr "Pas d'atlas"
+
+msgid "No snapshots."
+msgstr "Pas d'aperçus."
 
 msgid "Print out anywhere in the world."
-msgstr ""
+msgstr "Imprimez n'importe quel endroit du monde"
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "Rules"
+msgstr "Règles"
+
+msgid "Select"
+msgstr "Sélectionner"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Aperçus"
+
+msgid "Stamen Design"
+msgstr "Stamen Design"
 
 msgid "Take it into the field"
+msgstr "Emmenez-le sur le terrain"
+
+msgid "Toner"
+msgstr "Toner"
+
+msgid "Type in a location"
+msgstr "Indiquez un lieu"
+
+msgid "UPLOAD"
 msgstr ""
 
+msgid "UTM"
+msgstr "UTM"
+
+msgid "Untitled"
+msgstr "Sans-titre"
+
 msgid "Upload"
+msgstr "Transfert"
+
+msgid "WATCH"
 msgstr ""
 
 msgid "Welcome to Field Papers"
-msgstr ""
+msgstr "Bienvenue dans les Field Papers"
+
+msgid "Where in the world is your atlas?"
+msgstr "Où se trouve votre atlas ?"
+
+msgid "an atlas to print"
+msgstr "un atlas à imprimer"
+
+msgid "on same page"
+msgstr "sur la même page"
+
+msgid "on their own pages"
+msgstr "sur leurs propres pages"
+
+msgid "one per page"
+msgstr "un par page"
+
+msgid "or create an account"
+msgstr "ou créez votre compte"
+
+msgid "pages you've marked"
+msgstr "les pages que vous avez sélectionnées"
+
+msgid "recent activity"
+msgstr "activité récente"
+
+msgid "search"
+msgstr "recherche"
+
+msgid "with advanced tools"
+msgstr "avec les outils avancés"

@@ -2,43 +2,43 @@
 <div id="nav">
     <div class="row">
         <div class="logo twelve columns">
-            <a href="<%= root_path %>"><img src="/assets/logo-header.png" alt="Field Papers" height="58" width="200"></a>
+            <a href="<%= root_path %>"><img src="<%= asset_path "logo-header.png" %>" alt="Field Papers" height="58" width="200"></a>
         </div>
     </div>
 
     <div class="row navbar-container">
         <div class="twelve columns">
-            <button id="nav-toggle">Menu</button>
+            <button id="nav-toggle"><%= _("Menu") %></button>
             <ul class="navbar u-cf">
 
                 <li class="nav-item<%= " active" if ["compose"].include? current_nav_target %>">
                     <a href="<%= compose_path(:search) %>">
-                        <div class="section">MAKE</div>
-                        <div class="desc">an atlas to print</div>
+                        <div class="section"><%= _("MAKE") %></div>
+                        <div class="desc"><%= _("an atlas to print") %></div>
                     </a>
                 </li>
                 <li class="nav-item <%= " active" if ["upload"].include? current_nav_target %>">
                     <a href="<%= new_snapshot_path %>">
-                        <div class="section">UPLOAD</div>
-                        <div class="desc">pages you've marked</div>
+                        <div class="section"><%= _("UPLOAD") %></div>
+                        <div class="desc"><%= _("pages you've marked") %></div>
                     </a>
                 </li>
                 <li class="nav-item<%= " active" if ["watch"].include? current_nav_target %>">
                     <a href="<%= atlases_path %>">
-                        <div class="section">WATCH</div>
-                        <div class="desc">recent activity</div>
+                        <div class="section"><%= _("WATCH") %></div>
+                        <div class="desc"><%= _("recent activity") %></div>
                     </a>
                 </li>
                 <li class="nav-item<%= " active" if ["extend"].include? current_nav_target %>">
                     <a href="<%= advanced_path %>">
-                        <div class="section">EXTEND</div>
-                        <div class="desc">with advanced tools</div>
+                        <div class="section"><%= _("EXTEND") %></div>
+                        <div class="desc"><%= _("with advanced tools") %></div>
                     </a>
                 </li>
                 <li class="nav-item<%= " active" if ["sessions"].include? current_nav_target %>">
-                    <div class="section"><%= user_signed_in? && link_to("LOG OUT", destroy_user_session_path, method: :delete) || link_to("LOG IN", new_user_session_path) %></div>
+                    <div class="section"><%= user_signed_in? && link_to(_("LOG OUT"), destroy_user_session_path, method: :delete) || link_to(_("LOG IN"), new_user_session_path) %></div>
                     <% unless user_signed_in? %>
-                    <div class="desc"><%= link_to "or create an account", new_user_registration_path %></div>
+                    <div class="desc"><%= link_to _("or create an account"), new_user_registration_path %></div>
                     <% end %>
                 </li>
 
