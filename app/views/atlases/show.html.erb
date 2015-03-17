@@ -18,31 +18,86 @@ pages + provider + orientation + format
 
 Nearby
 %>
+<div class="row pad-bottom">
+    <div id="locator-map" class="twelve columns"></div>
+    <div class="twelve columns relative">
 
-<img src="<%= @atlas.preview_url %>">
+      <div class="atlas-map-overlay top-left stacked">
+        <h5 class="overlay-item"><%= @atlas.title %></h5>
+        <p class="overlay-item"><%= pluralize(@atlas.pages.length, 'page') %></p>
+      </div>
 
-<ul>
-  <li><%= @atlas.title %></li>
-  <li><%= @atlas.text %></li>
-  <li><%= @atlas.bbox %></li>
-  <li><%= @atlas.paper_size %></li>
-  <li><%= @atlas.orientation %></li>
-  <li><%= @atlas.layout %></li>
-  <li><%= @atlas.rows %></li>
-  <li><%= @atlas.cols %></li>
-  <li><%= @atlas.provider %></li>
-  <li><%= @atlas.layout %></li>
-  <li><%= link_to _("Download PDF"), @atlas.pdf_url %></li>
-</ul>
+      <div class="atlas-map-overlay top-right">
+        <button class="">Refresh</button>
+      </div>
 
-<h2>Pages</h2>
+      <div class="atlas-map-overlay bottom-right">
+        <button class="">Copy this atlas</button>
+        <button class="">Download PDF</button>
+      </div>
 
-<ul>
-<% @atlas.pages.each do |page| %>
-  <li><%= page.page_number %></li>
-  <li><%= page.bbox %></li>
-  <li><%= page.zoom %></li>
-  <li><%= page.provider %></li>
-  <li><img src="<%= page.preview_url %>"></li>
+      <div id="index-map" style="height: 500px;">
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="eight columns atlases-activity">
+      <h4>Activity</h4>
+      <ul>
+        <li>
+          <p>Someone made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@atlas.created_at) }, atlases_path(month: @atlas.created_at.strftime("%Y-%m")) %></p>
+          <p class="details"><%= pluralize(@atlas.pages.length, 'page') %> + <%= @atlas.provider %> + <%= @atlas.orientation %> + <%= @atlas.layout %></p>
+        </li>
+        <% if @atlas.refreshed_from  %>
+          <li>This atlas is a <i>refresh</i> of <%= link_to(@atlas.refreshed_from, atlas_path(@atlas.refreshed_from)) %> </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="four columns">
+      <div class="u-pull-right no-wrap options-list">
+      <h6 class="options-list-title">Export Data</h6>
+      <ul>
+        <li>GeoJSON</li>
+        <li>Plain Text (CSV)</li>
+        <li>ShapeFile</li>
+      </ul>
+
+      <h6 class="options-list-title">Edit in...</h6>
+      <ul>
+        <li>iD</li>
+        <li>Potlatch</li>
+      </ul>
+    </div>
+    </div>
+</div>
+
+<% content_for :foot do %>
+  <script>
+    $(function(){
+      var providers = <%= Providers.layers.to_json.html_safe %>;
+      var defaultProvider = "<%= Providers.default %>";
+      var atlasProvider = "<%= @atlas.pages[0].provider %>";
+      var bbox = <%= @atlas.bbox %>;
+      var pages = <%= @atlas.pages.to_json.html_safe %>;
+
+      FP.map.locator('locator-map', {
+        bbox: bbox,
+        providers: providers,
+        provider: atlasProvider,
+        defaultProvider: defaultProvider,
+        showMarker: true,
+        zoom: 5
+      });
+
+      FP.map.atlas('index-map',{
+        bbox: bbox,
+        providers: providers,
+        provider: atlasProvider,
+        defaultProvider: defaultProvider,
+        pages: pages
+      });
+    });
+  </script>
 <% end %>
-</ul>

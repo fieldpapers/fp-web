@@ -1,3 +1,5 @@
+require "providers"
+
 class AtlasesController < ApplicationController
   # filters
 

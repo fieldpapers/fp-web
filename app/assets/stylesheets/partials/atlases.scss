@@ -1,0 +1,108 @@
+/*
+  All styles under 'atlases' path
+ */
+
+#locator-map {
+  height: 140px;
+}
+
+#locator-map,
+#locator-map + div {
+  border: 1px solid black
+}
+
+#locator-map {
+  border-bottom: 0;
+}
+
+.atlas-map-overlay {
+  position: absolute;
+  z-index: 1;
+  width: auto;
+}
+
+  .atlas-map-overlay.stacked {
+    width: 1px;
+  }
+
+  .atlas-map-overlay.top-left {
+    top: 0;
+    left: 0;
+  }
+
+  .atlas-map-overlay.top-right {
+    top: 0;
+    right: 0;
+  }
+
+  .atlas-map-overlay.bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+
+  .atlas-map-overlay.bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+
+  .atlas-map-overlay .overlay-item {
+    display: inline-block;
+    background: black;
+    padding: 1px 15px;
+    margin: 0;
+    color: white;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .atlas-map-overlay button {
+    padding: 0 15px;
+    margin: 0;
+    background: black;
+    text-transform: none;
+    color: white;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    text-decoration: underline;
+    border-radius: 0;
+    border: 0;
+  }
+
+.atlases-activity li p {
+  margin: 0;
+}
+.atlases-activity .details {
+  color: #aaa;
+  margin-left: 1.5rem;
+}
+
+.leaflet-control-zoom {
+  top: 6.5rem;
+}
+
+.leaflet-pagelayout-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: transparent;
+}
+
+.leaflet-pagelayout-container .page {
+  position: absolute;
+  border: 1px solid black;
+}
+
+.leaflet-pagelayout-container .page-label{
+  display: inline;
+  position: absolute;
+  padding: 2px 4px;
+  left: 50%;
+  top: 50%;
+  background: white;
+  background: rgba(255,255,255,0.7);
+  font-weight: bold;
+  transform: translateX(-50%) translateY(-50%);
+}

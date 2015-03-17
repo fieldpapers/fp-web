@@ -76,3 +76,13 @@ label > .label-body {
   color: #666;
   margin-left: 5px;
 }
+
+.options-list .options-list-title {
+  margin: 0 0 1rem;
+  padding: 0;
+  font-weight: bold;
+}
+.options-list ul {
+  list-style: disc;
+  margin: 0 0 3rem 3rem;
+}

@@ -2,6 +2,10 @@
   Misc classes that provide some sort of minor embellishment
  */
 
+.relative {
+  position: relative;
+}
+
 .embolden {
     font-weight: 800;
 }
@@ -13,6 +17,14 @@
 .align-center.small-screen {
   text-align: left;
 }
+
+.pad-bottom {
+  margin-bottom: 20px;
+}
+.pad-bottom.double {
+  margin-bottom: 40px;
+}
+
 
 @media (#{$bp-larger-than-phablet}) {
   .align-center.small-screen {
@@ -36,7 +48,7 @@
 
 .no-wrap {
   white-space: nowrap;
-  overflow: hidden;
+  /*overflow: hidden; */
 }
 
 .no-select {
