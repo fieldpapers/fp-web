@@ -103,7 +103,7 @@ class Atlas < ActiveRecord::Base
     -> {
       order "#{Snapshot.table_name}.created_at DESC"
     },
-    dependent: :destroy,
+    through: :pages,
     inverse_of: :atlas
 
   # scopes
