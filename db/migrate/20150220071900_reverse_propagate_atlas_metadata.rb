@@ -14,7 +14,7 @@ class ReversePropagateAtlasMetadata < ActiveRecord::Migration
       UPDATE atlas_metadata
       LEFT JOIN atlases ON atlases.slug = atlas_metadata.print_slug
       SET atlases.zoom = atlas_metadata.zoom,
-        atlases.provider = atlas_metadata.zoom
+        atlases.provider = atlas_metadata.provider
     EOQ
   end
 end
