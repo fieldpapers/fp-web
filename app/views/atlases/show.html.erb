@@ -19,7 +19,7 @@ pages + provider + orientation + format
 Nearby
 %>
 <div class="row pad-bottom">
-    <div id="locator-map" class="twelve columns"></div>
+    <div id="atlas-locator-map" class="twelve columns"></div>
     <div class="twelve columns relative">
 
       <div class="atlas-map-overlay top-left stacked">
@@ -36,8 +36,7 @@ Nearby
         <button class="">Download PDF</button>
       </div>
 
-      <div id="index-map" style="height: 500px;">
-      </div>
+      <div id="atlas-map"></div>
     </div>
 </div>
 
@@ -46,7 +45,7 @@ Nearby
       <h4>Activity</h4>
       <ul>
         <li>
-          <p>Someone made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@atlas.created_at) }, atlases_path(month: @atlas.created_at.strftime("%Y-%m")) %></p>
+          <p><%= @atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@atlas.created_at) }, atlases_path(month: @atlas.created_at.strftime("%Y-%m")) %></p>
           <p class="details"><%= pluralize(@atlas.pages.length, 'page') %> + <%= @atlas.provider %> + <%= @atlas.orientation %> + <%= @atlas.layout %></p>
         </li>
         <% if @atlas.refreshed_from  %>
@@ -57,21 +56,22 @@ Nearby
 
     <div class="four columns">
       <div class="u-pull-right no-wrap options-list">
-      <h6 class="options-list-title">Export Data</h6>
-      <ul>
-        <li>GeoJSON</li>
-        <li>Plain Text (CSV)</li>
-        <li>ShapeFile</li>
-      </ul>
+        <h6 class="options-list-title">Export Data</h6>
+        <ul>
+          <li>GeoJSON</li>
+          <li>Plain Text (CSV)</li>
+          <li>ShapeFile</li>
+        </ul>
 
-      <h6 class="options-list-title">Edit in...</h6>
-      <ul>
-        <li>iD</li>
-        <li>Potlatch</li>
-      </ul>
-    </div>
+        <h6 class="options-list-title">Edit in...</h6>
+        <ul>
+          <li>iD</li>
+          <li>Potlatch</li>
+        </ul>
+      </div>
     </div>
 </div>
+
 
 <% content_for :foot do %>
   <script>
@@ -82,7 +82,7 @@ Nearby
       var bbox = <%= @atlas.bbox %>;
       var pages = <%= @atlas.pages.to_json.html_safe %>;
 
-      FP.map.locator('locator-map', {
+      FP.map.locator('atlas-locator-map', {
         bbox: bbox,
         providers: providers,
         provider: atlasProvider,
@@ -91,7 +91,7 @@ Nearby
         zoom: 5
       });
 
-      FP.map.atlas('index-map',{
+      FP.map.atlas('atlas-map',{
         bbox: bbox,
         providers: providers,
         provider: atlasProvider,

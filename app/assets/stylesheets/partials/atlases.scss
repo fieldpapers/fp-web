@@ -2,22 +2,25 @@
   All styles under 'atlases' path
  */
 
-#locator-map {
+#atlas-locator-map {
   height: 140px;
 }
+#atlas-map {
+  height: 500px;
+}
 
-#locator-map,
-#locator-map + div {
+#atlas-locator-map,
+#atlas-map {
   border: 1px solid black
 }
 
-#locator-map {
+#atlas-locator-map {
   border-bottom: 0;
 }
 
 .atlas-map-overlay {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   width: auto;
 }
 
@@ -78,7 +81,7 @@
   margin-left: 1.5rem;
 }
 
-.leaflet-control-zoom {
+#atlas-map .leaflet-control-zoom {
   top: 6.5rem;
 }
 

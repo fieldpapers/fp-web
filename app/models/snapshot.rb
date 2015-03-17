@@ -102,6 +102,21 @@ class Snapshot < ActiveRecord::Base
     "Page #{page.page_number} of #{atlas.title}"
   end
 
+  # takes bounds string and outputs bounds
+  # [west, south, east, north] or []
+  def bbox
+    if geojpeg_bounds
+      bds = geojpeg_bounds.split(',')
+      if bds.length === 4
+        [bds[1].to_f, bds[0].to_f, bds[3].to_f, bds[2].to_f]
+      else
+        []
+      end
+    else
+      []
+    end
+  end
+
   def uploader_name
     uploader && uploader.username || "anonymous"
   end
