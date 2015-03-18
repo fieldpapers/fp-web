@@ -59,7 +59,7 @@ class AtlasTest < ActiveSupport::TestCase
       east: east,
       north: north,
       zoom: 13,
-      provider: "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
+      provider: "http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png"
 
     assert_equal 5, atlas.pages.size
 
