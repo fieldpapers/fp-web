@@ -187,6 +187,7 @@ L.AreaSelect = L.Class.extend({
           this.map.fitBounds(this.bounds, {animate: false});
         }
 
+        this.fire("change");
       }
 
       return this;
