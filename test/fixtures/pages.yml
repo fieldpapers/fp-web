@@ -6,7 +6,6 @@
 #  id            :integer          not null, primary key
 #  atlas_id      :integer          not null
 #  page_number   :string(5)        not null
-#  text          :text(65535)
 #  west          :float(53)        not null
 #  south         :float(53)        not null
 #  east          :float(53)        not null

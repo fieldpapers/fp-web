@@ -25,6 +25,13 @@
 class Page < ActiveRecord::Base
   belongs_to :atlas
 
+  has_many :snapshots,
+    -> {
+      order "#{Snapshot.table_name}.created_at DESC"
+    },
+    dependent: :destroy,
+    inverse_of: :page
+
   # validations
 
   validates :north, :south, :east, :west, numericality: true

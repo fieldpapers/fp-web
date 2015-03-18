@@ -1,7 +1,7 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-#
+# 
 # Translators:
 # Translators:
 # Marco Ferrari <marco.ferrari@me.com>, 2015
@@ -10,10 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-03 21:21+0000\n"
-"Last-Translator: Marco Ferrari <marco.ferrari@me.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/fieldpapers/langua"
-"ge/it/)\n"
+"PO-Revision-Date: 2015-03-04 17:11+0000\n"
+"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/fieldpapers/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,11 +42,9 @@ msgid "&copy; OpenStreetMap contributors"
 msgstr ""
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
-msgstr ""
-"(Questo significa che è accessibile soltanto da, se hai effettuato l'accesso, "
-"o tramite un URL diretto)."
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr "(Questo significa che è accessibile soltanto da, se hai effettuato l'accesso, o tramite un URL diretto)."
 
 msgid "About the Project"
 msgstr "Il progetto"
@@ -74,11 +71,9 @@ msgid "Check out the OSM help wiki."
 msgstr "Dai un occhio all'OSM help wiki."
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
-msgstr ""
-"Scegli una pagina dell'atlante da caricare. Capiremo noi dove andrà posizionat"
-"a (grazie al QR code)."
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "Scegli una pagina dell'atlante da caricare. Capiremo noi dove andrà posizionata (grazie al QR code)."
 
 msgid "Describe"
 msgstr "Descrivi"
@@ -104,10 +99,9 @@ msgstr "Finito!"
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "Disegno a mano libera che mostra un atlante di Field Papers nella natura"
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
-"Disegno a mano libera che illustra l'atto di fotografare una pagina di un atla"
-"nte di Field Papers"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Disegno a mano libera che illustra l'atto di fotografare una pagina di un atlante di Field Papers"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
 msgstr "Disegno a mano libera che mostra la creazione di un atlante di Field Papers"
@@ -128,9 +122,7 @@ msgid "MAKE"
 msgstr "REALIZZA"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
-"Controlla che la scansione/foto/immagine abbia una risoluzione di almeno 200dp"
-"i."
+msgstr "Controlla che la scansione/foto/immagine abbia una risoluzione di almeno 200dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr "Controlla di stare caricando un JPG, PNG, TIF, o GIF (i PDF non funzionano)."
@@ -142,11 +134,9 @@ msgid "Make yourself an atlas"
 msgstr "Creati un atlante"
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
-msgstr ""
-"Dati cartografici %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %"
-"{Mapbox}, o una combinazione di questi."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr "Dati cartografici %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, o una combinazione di questi."
 
 msgid "Mapbox"
 msgstr "Mapbox"

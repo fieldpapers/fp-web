@@ -94,16 +94,16 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order "FIELD(page_number, 'i') DESC, page_number ASC"
+      order "FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC"
     },
     dependent: :destroy,
     inverse_of: :atlas
 
   has_many :snapshots,
     -> {
-      order "created_at DESC"
+      order "#{Snapshot.table_name}.created_at DESC"
     },
-    dependent: :destroy,
+    through: :pages,
     inverse_of: :atlas
 
   # scopes
@@ -126,7 +126,7 @@ class Atlas < ActiveRecord::Base
 
   scope :place,
     -> place {
-      where("place_woeid = ? OR region_woeid = ? OR country_woeid = ?", place, place, place)
+      where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
     }
 
   scope :user,
