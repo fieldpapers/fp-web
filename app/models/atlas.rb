@@ -145,7 +145,7 @@ class Atlas < ActiveRecord::Base
     pages.size
   end
 
-  # TODO this show go away if/when migrating to postgres
+  # TODO this should go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
   end
