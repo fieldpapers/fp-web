@@ -59,7 +59,7 @@ class GeneratePdfJob < ActiveJob::Base
       cmd << "-b" << page.north << page.west << page.south << page.east
       cmd << "-e" << page.atlas.north << page.atlas.west << page.atlas.south << page.atlas.east
       cmd << "-z" << page.zoom
-      cmd << "-p" << page.provider
+      cmd << "-p" << page.provider.gsub(/{s}\./i, "")
       cmd << "-c" << page.atlas.cols
       cmd << "-r" << page.atlas.rows
       cmd << page.atlas.slug
@@ -71,7 +71,7 @@ class GeneratePdfJob < ActiveJob::Base
       cmd << "-b" << page.north << page.west << page.south << page.east
       cmd << "-n" << page.page_number
       cmd << "-z" << page.zoom
-      cmd << "-p" << page.provider
+      cmd << "-p" << page.provider.gsub(/{s}\./i, "")
       cmd << page.atlas.slug
     end
 
