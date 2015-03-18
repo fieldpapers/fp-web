@@ -1,6 +1,6 @@
 # Base maps available for Fieldpapers
 #
-class Providers < ActiveRecord::Base
+class Providers
   # Use layers <key>
   def self.default
     'openstreetmap'

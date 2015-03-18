@@ -34,13 +34,17 @@ gem 'http_accept_language'
 gem 'kaminari' # pagination
 gem 'paperclip', '~> 4.2.1' # file attachments
 gem 'puma' # app server
-gem 'rails_12factor' # Heroku compatibility
 gem 's3_direct_upload' # direct-to-S3 upload helpers
 gem 'sucker_punch', '~> 1.0' # in-process queue processing
 gem 'mysql2'
 gem 'wicked' # wizard controllers
 
 #gem 'skeleton2_sass', '0.1.0', path: '/Users/sconnelley/Documents/projects/stamen/skeleton2_sass/'
+
+group :production do
+  gem 'rails_12factor' # Heroku compatibility
+  gem 'sentry-raven' # exception logging
+end
 
 group :development, :test do
   gem 'annotate', '~> 2.6.5' # model annotation

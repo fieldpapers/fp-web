@@ -28,7 +28,8 @@ class AtlasesController < ApplicationController
       format.html
       format.pdf {
         # convenience redirect if "pdf" was provided as an extension
-        redirect_to @atlas.pdf_url
+        return redirect_to @atlas.pdf_url if @atlas.pdf_url
+        return render status: 404
       }
 
       format.csv do
