@@ -1,4 +1,5 @@
 require "providers"
+require 'csv'
 
 class AtlasesController < ApplicationController
   # filters
@@ -29,6 +30,13 @@ class AtlasesController < ApplicationController
         # convenience redirect if "pdf" was provided as an extension
         redirect_to @atlas.pdf_url
       }
+
+      format.csv do
+        filename = "activity-" + @atlas.slug + ".csv"
+        headers['Content-Disposition'] = "attachment; filename=\""+filename+"\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+
     end
   end
 end

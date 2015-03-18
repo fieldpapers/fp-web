@@ -13,6 +13,10 @@ a:visited {
   text-decoration: underline;
 }
 
+ul {
+  list-style: disc;
+}
+
 #footer {
   margin-top: 60px;
 }
@@ -70,6 +74,7 @@ a:visited {
 label > .label-body {
   vertical-align: middle;
 }
+
 .form-helper {
   font-size: 1.2rem;
   margin-top: -1.2rem;
@@ -77,12 +82,40 @@ label > .label-body {
   margin-left: 5px;
 }
 
+// Plain list
+.plain-list {
+  list-style: none;
+}
+
+// Options list
+.options-list ul {
+  list-style: disc;
+  margin: 0 0 3rem 3rem;
+}
+
 .options-list .options-list-title {
   margin: 0 0 1rem;
   padding: 0;
   font-weight: bold;
 }
-.options-list ul {
-  list-style: disc;
-  margin: 0 0 3rem 3rem;
+
+// thumbnails
+.thumbnail {
+  display: inline-block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+.thumbnail.no-border {
+  border: 0;
+}
+
+.thumbnail a>img,
+.thumbnail>img {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
 }

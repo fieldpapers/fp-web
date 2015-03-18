@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150317220513) do
     t.integer  "scene_file_size",    limit: 4
     t.datetime "scene_updated_at"
     t.string   "s3_scene_url",       limit: 255
+    t.integer  "atlas_id",           limit: 4
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree

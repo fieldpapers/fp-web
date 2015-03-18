@@ -12,6 +12,27 @@ class Providers < ActiveRecord::Base
     end
   end
 
+  # TODO: is there a better way?
+  def self.derive(url)
+    if url.include? 'openstreetmap.org'
+      'openstreetmap'
+    elsif url.include? 'toner-lite'
+      'toner'
+    elsif url.include? 'boner'
+      'satellite-labels'
+    elsif url.include? 'bing-lite'
+      'satellite-only'
+    elsif url.include? 'openstreetmap.fr/hot'
+      'humanitarian'
+    elsif url.include? 'stamen.i808gmk6'
+      'mapbox-satellite'
+    elsif url.include? 'opencyclemap.org'
+      'opencyclemap'
+    else
+      url
+    end
+  end
+
   # For layer options see: http://leafletjs.com/reference.html#tilelayer
   # templates are (currently) expected to be ModestMaps-formatted, which means
   # capital letters for placeholders
@@ -19,6 +40,7 @@ class Providers < ActiveRecord::Base
     {
       'openstreetmap': {
         label: 'OpenStreetMap',
+
         template: 'http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''

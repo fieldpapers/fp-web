@@ -1,7 +1,7 @@
 <li class="map-card">
   <%= link_to snapshot_path(snapshot), {:class=>"map-card-preview"} do %>
     <% if defined? snapshot.base_url and snapshot.base_url %>
-      <%= image_tag snapshot.base_url %>
+      <%= image_tag (snapshot.base_url + "/preview.jpg") %>
     <% else %>
       <%= image_tag 'http://placehold.it/300x300&text=No%20Image' %>
     <% end %>

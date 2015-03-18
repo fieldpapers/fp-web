@@ -145,6 +145,14 @@ class Atlas < ActiveRecord::Base
     [west, south, east, north]
   end
 
+  def latitude
+    north + ((south-north)/2)
+  end
+
+  def longitude
+    west + ((east-west)/2)
+  end
+
   def creator_name
     creator && creator.username || "anonymous"
   end

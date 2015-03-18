@@ -58,7 +58,8 @@
     white-space: nowrap;
   }
 
-  .atlas-map-overlay button {
+  .atlas-map-overlay button,
+  .atlas-map-overlay a.button {
     padding: 0 15px;
     margin: 0;
     background: black;
@@ -71,6 +72,10 @@
     text-decoration: underline;
     border-radius: 0;
     border: 0;
+  }
+  .atlas-map-overlay form {
+    display: inline-block;
+    margin: 0;
   }
 
 .atlases-activity li p {

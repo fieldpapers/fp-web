@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="eight columns atlases-activity">
-    <h5><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.id)) %></h5>
+    <h5><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %></h5>
     <p>Page <%= @snapshot.page.page_number %> of <%= @snapshot.atlas.pages.size %></p>
   </div>
 
@@ -21,7 +21,6 @@
   </div>
 
 </div>
-
 
 <% content_for :foot do %>
   <script>

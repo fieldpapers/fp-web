@@ -1,0 +1,5 @@
+<%# TODO: Need to gather all "activity" %>
+<%# TODO: Add these fields: 'person_href,geometry,atlas_page_href,snapshot_href,note' %>
+<%- headers = ['type', 'href', 'created'] -%>
+<%= CSV.generate_line headers %>
+<%= CSV.generate_line(['atlas', atlas_url(@atlas), @atlas.created_at]) %>
