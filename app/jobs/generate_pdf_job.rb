@@ -78,28 +78,24 @@ class GeneratePdfJob < ActiveJob::Base
     # convert all arguments to strings
     cmd = cmd.map(&:to_s)
 
-    pipe, status = nil
+    pid = nil
+    output = Tempfile.new(["page", ".pdf"], "tmp/")
 
     begin
       Timeout.timeout(30) do
-        pipe = IO.popen(cmd)
-
-        (pid, status) = Process.wait2(pipe.pid)
+        pid = IO.popen(cmd) do |out|
+          IO.copy_stream(out, output)
+        end
       end
     rescue Timeout::Error
-      Process.kill 9, pipe.pid
-      Process.wait pipe.pid
+      Process.kill 9, pid
 
       raise "Timed out waiting to render page #{page.page_number}"
     end
 
-    unless status.success?
+    unless $?.success?
       raise "Failed to render page #{page.page_number}"
     end
-
-    output = Tempfile.new(["page", ".pdf"], "tmp/")
-
-    IO.copy_stream(pipe, output)
 
     output.path
   end
