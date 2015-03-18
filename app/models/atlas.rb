@@ -200,7 +200,7 @@ private
   end
 
   def provider_info
-    Provider.layers.select do |k,v|
+    Providers.layers.select do |k,v|
       v[:template] == provider
     end.values.first
   end
