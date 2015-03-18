@@ -29,7 +29,7 @@ class AtlasesController < ApplicationController
       format.pdf {
         # convenience redirect if "pdf" was provided as an extension
         return redirect_to @atlas.pdf_url if @atlas.pdf_url
-        return render status: 404
+        raise ActionController::RoutingError.new("Not Found")
       }
 
       format.csv do
