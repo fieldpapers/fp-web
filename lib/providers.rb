@@ -40,54 +40,67 @@ class Providers
     {
       'openstreetmap': {
         label: 'OpenStreetMap',
-
         template: 'http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 19,
       },
       'toner': {
         label: 'Black & White',
         template: 'http://{S}.tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 20,
       },
       'satellite-labels': {
         label: 'Satellite + Labels',
         template: 'http://{S}.tile.stamen.com/boner/{Z}/{X}/{Y}.jpg',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 19,
       },
       'satellite-only': {
         label: 'Satellite Only',
         template: 'http://{S}.tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 19,
       },
       'humanitarian': {
         label: 'Humanitarian',
         template: 'http://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 20,
       },
       'mapbox-satellite': {
         label: 'Mapbox Satellite',
-        template: 'http://api.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png',
+        template: 'http://{S}.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''
-        }
+        },
+        minzoom: 0,
+        maxzoom: 19,
       },
       'opencyclemap': {
         label: 'OpenCycleMap',
         template: 'http://{S}.tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png',
         options: {
           attribution: ''
-        }
-      }
+        },
+        minzoom: 0,
+        maxzoom: 20,
+      },
     }
   end
 end

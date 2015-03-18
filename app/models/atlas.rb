@@ -1,4 +1,5 @@
 require "paper"
+require "providers"
 
 # == Schema Information
 #
@@ -198,10 +199,18 @@ private
     Paper.canvas_size(paper_size || "letter", orientation)
   end
 
-  def calculate_zoom(west, east)
-    (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+  def provider_info
+    Provider.layers.select do |k,v|
+      v[:template] == provider
+    end.values.first
+  end
 
-    # TODO clamp zoom according to min/maxZoom from providers.rb
+  def calculate_zoom(west, east)
+    z = (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+    info = provider_info
+
+    # clamp zoom to the available zoom range
+    [info[:minzoom], z, info[:maxzoom]].sort[1]
   end
 
   def create_pages
