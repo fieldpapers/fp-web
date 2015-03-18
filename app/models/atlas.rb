@@ -1,3 +1,5 @@
+require "paper"
+
 # == Schema Information
 #
 # Table name: atlases
@@ -41,6 +43,8 @@ class Atlas < ActiveRecord::Base
   INDEX_BUFFER_FACTOR = 0.1
   OVERLAY_REDCROSS = "http://a.tiles.mapbox.com/v3/americanredcross.HAIYAN_Atlas_Bounds/{Z}/{X}/{Y}.png"
   OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
+  BASE_ZOOM = 22 # zoom level to use for pixel calculations
+  TARGET_RESOLUTION_PPI = 150 # target resolution for printing
 
   # virtual attributes
 
@@ -59,6 +63,7 @@ class Atlas < ActiveRecord::Base
   after_create :create_pages
   after_create :generate_pdf
   before_save :handle_overlays
+  before_save :pick_zoom
 
   # validations
 
@@ -82,7 +87,7 @@ class Atlas < ActiveRecord::Base
   }
 
   validates :paper_size, inclusion: {
-    in: ["letter", "a3", "a4"], # TODO more paper sizes
+    in: ["letter", "a3", "a4"], # TODO more paper sizes (from paper.rb)
     message: "%{value} is not a supported paper size"
   }
 
@@ -184,18 +189,32 @@ private
     end
   end
 
+  def canvas_size
+    # TODO require this as a hidden field
+    Paper.canvas_size(paper_size || "letter", orientation)
+  end
+
+  def calculate_zoom(west, east)
+    (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+
+    # TODO clamp zoom according to min/maxZoom from providers.rb
+  end
+
   def create_pages
     # create index page
 
     if rows * cols > 1
+      left = west - west * INDEX_BUFFER_FACTOR
+      right = east + east * INDEX_BUFFER_FACTOR
+
+
       pages.create! \
         page_number: "i",
-        west: west - west * INDEX_BUFFER_FACTOR,
+        west: left,
         south: south - south * INDEX_BUFFER_FACTOR,
-        east: east + east * INDEX_BUFFER_FACTOR,
+        east: right,
         north: north + north * INDEX_BUFFER_FACTOR,
-        zoom: zoom, # TODO should be calculated from the bounding box; see
-                    #   https://gist.github.com/mojodna/9a4e28ec70e685066c03
+        zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
         provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
     end
@@ -209,13 +228,18 @@ private
 
     rows.times do |y|
       cols.times do |x|
+        left = west + (x * width)
+        right = east - ((cols - x - 1) * width)
+
+        z = (BASE_ZOOM - Math.log2((((right * (2**(BASE_ZOOM + 8))) / 360) - ((left * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+
         pages.create! \
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
           south: south + ((rows - y - 1) * height),
           east: east - ((cols - x - 1) * width),
           north: north - (y * height),
-          zoom: zoom,
+          zoom: calculate_zoom(left, right),
           provider: provider
       end
     end
@@ -233,6 +257,11 @@ private
     else
       self.provider = self.provider.gsub(OVERLAY_UTM, "")
     end
+  end
+
+  # pick an appropriate zoom given the provided bounding box
+  def pick_zoom
+    self.zoom = calculate_zoom(west, east)
   end
 
   def generate_pdf
