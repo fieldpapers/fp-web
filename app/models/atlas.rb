@@ -153,6 +153,10 @@ class Atlas < ActiveRecord::Base
     west + ((east-west)/2)
   end
 
+  def geometry
+    "MULTIPOLYGON(((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f)))" % [west, south, west, north, east, north, east, south, west, south]
+  end
+
   def creator_name
     creator && creator.username || "anonymous"
   end

@@ -121,6 +121,15 @@ class Snapshot < ActiveRecord::Base
     uploader && uploader.username || "anonymous"
   end
 
+  def geometry
+    bds = geojpeg_bounds.split(',')
+    west = bds[1]
+    south = bds[0]
+    east = bds[3]
+    north = bds[2]
+    "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
+  end
+
 private
 
   def random_id

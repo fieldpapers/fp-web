@@ -1,5 +1,10 @@
 <%# TODO: Need to gather all "activity" %>
 <%# TODO: Add these fields: 'person_href,geometry,atlas_page_href,snapshot_href,note' %>
-<%- headers = ['type', 'href', 'created'] -%>
-<%= CSV.generate_line headers %>
-<%= CSV.generate_line(['atlas', atlas_url(@atlas), @atlas.created_at]) %>
+<%= CSV.generate_line(['type', 'href', 'created', 'person_href', 'geometry', 'atlas_page_href', 'snapshot_href', 'note']).html_safe %>
+<%= CSV.generate_line(['atlas', atlas_url(@atlas), @atlas.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'), "", @atlas.geometry, "", "", ""]).html_safe %>
+
+<% if @atlas.snapshots %>
+  <%- @atlas.snapshots.each do |snapshot| -%>
+    <%= CSV.generate_line(['snapshot', snapshot_url(snapshot), snapshot.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'), "", snapshot.geometry, "", "", ""]).html_safe %>
+  <%- end -%>
+<% end %>
