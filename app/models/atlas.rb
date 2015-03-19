@@ -159,8 +159,12 @@ class Atlas < ActiveRecord::Base
     west + ((east-west)/2)
   end
 
-  def geometry
-    "MULTIPOLYGON(((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f)))" % [west, south, west, north, east, north, east, south, west, south]
+  def geometry_string
+    polys = []
+    pages.each do |p|
+      polys.push('((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))' % [west, south, west, north, east, north, east, south, west, south])
+    end
+    return "MULTIPOLYGON(%s)" % polys.join(', ')
   end
 
   def creator_name

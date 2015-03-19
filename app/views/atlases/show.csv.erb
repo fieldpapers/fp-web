@@ -4,7 +4,7 @@
     atlas_url(@atlas),
     @atlas.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
     atlas_person_href(@atlas),
-    @atlas.geometry,
+    @atlas.geometry_string,
     "",
     "",
     ""
@@ -17,7 +17,7 @@
       snapshot_url(snapshot),
       snapshot.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
       snapshot_person_href(snapshot),
-      snapshot.geometry,
+      snapshot.geometry_string,
       atlas_url(@atlas) + "/" + snapshot.page.page_number,
       "",
       ""
