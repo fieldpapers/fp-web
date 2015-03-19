@@ -80,15 +80,15 @@
       <div class="u-pull-right no-wrap options-list">
         <h6 class="options-list-title"><%= _("Export Data") %></h6>
         <ul>
-          <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=json -->
-          <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=csv -->
+          <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
+          <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
           <li><a href="#"><%= _("ShapeFile") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=shp -->
         </ul>
 
         <h6 class="options-list-title"><%= _("Edit in...") %></h6>
         <ul>
-          <li><a href=<%= iDLink @atlas %> target="_blank"><%= _("iD") %></a></li>
-          <li><a href=<%= potlatchLink @atlas %> target="_blank"><%= _("Potlatch") %></a></li>
+          <li><a href=<%= iDLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+          <li><a href=<%= potlatchLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
         </ul>
       </div>
     </div>

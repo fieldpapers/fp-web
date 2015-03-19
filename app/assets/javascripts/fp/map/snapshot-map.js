@@ -26,8 +26,9 @@
   Map.snapshot = function(selector, settings) {
     var __ = {};
     var mapOptions = L.Util.extend({}, locatorMapOptions, FP.map.options);
+    mapOptions.minZoom = settings.min_zoom || 16;
+    mapOptions.maxZoom = settings.max_zoom || 18;
     var bbox = deriveBbox(settings);
-    var zoom = settings.zoom || 8;
 
     var map = L.map(selector, mapOptions);//.setView(bbox.getCenter(), 17);
     if (bbox) map.fitBounds(bbox);
@@ -36,7 +37,7 @@
 
     L.tileLayer(template, {
       attribution: '',
-      maxZoom: 18
+      maxZoom: mapOptions.maxZoom
     }).addTo(map);
 
     return __;

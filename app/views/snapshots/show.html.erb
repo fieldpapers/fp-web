@@ -14,8 +14,8 @@
     <div class="u-pull-right no-wrap options-list">
       <h6 class="options-list-title">Edit in...</h6>
       <ul>
-        <li>iD</li>
-        <li>Potlatch</li>
+        <li><a href=<%= iDLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+        <li><a href=<%= potlatchLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
       </ul>
     </div>
   </div>
@@ -28,7 +28,9 @@
 
       FP.map.snapshot('map',{
         bbox: <%= @snapshot.bbox %>,
-        base_url: "<%= @snapshot.base_url %>"
+        base_url: "<%= @snapshot.base_url %>",
+        min_zoom: <%= @snapshot.min_zoom %>,
+        max_zoom: <%= @snapshot.max_zoom %>,
       });
 
     });

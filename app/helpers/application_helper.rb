@@ -17,13 +17,11 @@ module ApplicationHelper
     return target
   end
 
-  # Requires record with: [slug,zoom,longitude,latitude]
-  def iDLink(obj)
-    "http://www.openstreetmap.us/iD/release/#background=custom:http://fieldpapers.org/files/scans/" + obj.slug + "/{z}/{x}/{y}.jpg&map=" + obj.zoom.to_s + "/" + obj.longitude.to_s + "/" +obj.latitude.to_s
+  def iDLink(slug, zoom, lon, lat)
+    "http://www.openstreetmap.us/iD/release/#background=custom:http://fieldpapers.org/files/scans/" + slug.to_s + "/{z}/{x}/{y}.jpg&map=" + zoom.to_s + "/" + lon.to_s + "/" + lat.to_s
   end
 
-  # Requires record with: [slug,zoom,longitude,latitude]
-  def potlatchLink(obj)
-    "http://www.openstreetmap.org/edit?lat=" + obj.latitude.to_s + "&lon=" + obj.longitude.to_s + "&zoom=" + obj.zoom.to_s + "&tileurl=http://fieldpapers.org/files/scans/" + obj.slug + "/$z/$x/$y.jpg"
+  def potlatchLink(slug, zoom, lon, lat)
+    "http://www.openstreetmap.org/edit?lat=" + lat.to_s + "&lon=" + lon.to_s + "&zoom=" + zoom.to_s + "&tileurl=http://fieldpapers.org/files/scans/" + slug.to_s + "/$z/$x/$y.jpg"
   end
 end
