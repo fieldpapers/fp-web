@@ -42,22 +42,6 @@
       pages: settings.pages
     }).addTo(map);
 
-    if (settings.pages) {
-      var cols = [],
-          rows = [];
-
-      settings.pages.forEach(function(page){
-        var pageNum = page.page_number;
-        if (page.page_number !== 'i') {
-          var parts = page.page_number.split('');
-          if (rows.indexOf(parts[0]) < 0) rows.push(parts[0]);
-          if (cols.indexOf(parts[1]) < 0) cols.push(parts[1]);
-        }
-      });
-
-      console.log(rows, cols);
-    }
-
     return __;
   };
 
@@ -202,8 +186,8 @@ L.PageLayout = L.Class.extend({
       var w = 100 / cols,
           h = 100 / rows;
 
-      for (var i = 0;i< cols;i++) {
-        for (var r = 0;r< rows;r++) {
+      for (var i = 0;i < cols;i++) {
+        for (var r = 0;r < rows;r++) {
           var elm = L.DomUtil.create("div", "page", this._container);
 
           elm.style.width = w + "%";
@@ -211,8 +195,25 @@ L.PageLayout = L.Class.extend({
           elm.style.left = (w * i) + "%";
           elm.style.top = (h * r) + "%";
 
-          if (r !== 0) elm.style.borderTop = 0;
-          if (i !== 0) elm.style.borderLeft = 0;
+          // adjust borders
+          if (r === 0) {
+            L.DomUtil.addClass(elm, 'outer-top');
+          } else {
+            L.DomUtil.addClass(elm, 'no-top');
+          }
+
+          if(r == rows-1) {
+            L.DomUtil.addClass(elm, 'outer-bottom');
+          }
+
+          if (i === 0) {
+            L.DomUtil.addClass(elm, 'outer-left');
+          } else {
+            L.DomUtil.addClass(elm, 'no-left');
+          }
+          if (i == cols-1) {
+            L.DomUtil.addClass(elm, 'outer-right');
+          }
 
           var label = L.DomUtil.create("div", "page-label", elm);
           var labelText = this.rowNames[r] + (i+1);

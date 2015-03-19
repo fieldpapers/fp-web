@@ -442,18 +442,39 @@ L.AreaSelect = L.Class.extend({
 
       function makeElm(x,y,w,h) {
         var div = document.createElement('div');
-        div.className = "grid-elm-col";
+        div.className = "page";
         div.style.left = x + "%";
         div.style.top = y + "%";
         div.style.height = h + "%";
         div.style.width = w + "%";
         gridElm.appendChild(div);
+        return div;
       }
 
       // cols
       for (var i = 0;i< cols;i++) {
         for (var r = 0;r< rows;r++) {
-          makeElm(spacingX * i, spacingY * r, spacingX, spacingY );
+          var elm = makeElm(spacingX * i, spacingY * r, spacingX, spacingY );
+
+          // adjust borders
+          if (r === 0) {
+            L.DomUtil.addClass(elm, 'outer-top');
+          } else {
+            L.DomUtil.addClass(elm, 'no-top');
+          }
+
+          if(r == rows-1) {
+            L.DomUtil.addClass(elm, 'outer-bottom');
+          }
+
+          if (i === 0) {
+            L.DomUtil.addClass(elm, 'outer-left');
+          } else {
+            L.DomUtil.addClass(elm, 'no-left');
+          }
+          if (i == cols-1) {
+            L.DomUtil.addClass(elm, 'outer-right');
+          }
         }
       }
     },
