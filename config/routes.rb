@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/advanced' => 'home#advanced', as: :advanced
+  get '/make-canned-atlas-template' => 'home#make-canned-atlas-template', as: :canned_atlas
 
   concern :pageable do
     get '(page/:page)' => :index, on: :collection, as: ''

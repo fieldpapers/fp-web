@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="eight columns">
+    <h2>Making Canned Atlases</h2>
+
+    <p>It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href="<%= compose_path(:search) %>">Make</a> process.</p>
+    <p>Each setting below can be posted via plain HTML form to <a href="<%= compose_path(:search) %>">fieldpapers.org</a>. <i>All are optional.</i></p>
+
+    <%= form_for :atlas, url: compose_path(:search), method: :put do |f| %>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="atlas_title">Atlas title</label>
+          <%= f.text_field :title, :value=> '', placeholder: _("Atlas title"), size: "40" %>
+        </div>
+
+        <div class="twelve columns">
+          <label for="atlas_text">Atlas text</label>
+          <%= f.text_area :text, :value=> '', placeholder: _("Atlas page content"), rows: "4", cols: "40" %>
+        </div>
+
+        <div class="twelve columns">
+          <label for="atlas_location">Atlas location</label>
+          <p class="form-help">Latitude, longitude, and optional zoom. Use <a href="http://www.getlatlon.com/">getlatlon.com</a> to make new ones.</p>
+          <%= f.text_field :location, :value=> '', placeholder: _("Location and zoom"), size: "40" %>
+          <div class="form-example">
+            <p class="title">Examples:</p>
+            <ul>
+              <li><samp>37.8045, -122.2712 15</samp></li>
+              <li><samp>37.8045 -122.2712, 15</samp></li>
+              <li><samp>37.8045,-122.2712</samp></li>
+              <li><samp>37.8045 -122.2712</samp></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="twelve columns">
+          <label for="atlas_provider">Atlas provider</label>
+          <%= f.text_field :provider, :value=> '', placeholder: _("Tile URL template"), size: "40" %>
+          <div class="form-example">
+            <p class="title">Examples:</p>
+            <ul>
+              <li><samp>http://tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png</samp> (<a href="http://tile.stamen.com/toner-lite/12/656/1582.png">Black &amp; White</a>)</li>
+              <li><samp>http://tile.stamen.com/boner/{Z}/{X}/{Y}.jpg</samp> (<a href="http://tile.stamen.com/boner/12/656/1582.jpg">Satellite + Labels</a>)</li>
+              <li><samp>http://tile.openstreetmap.org/{Z}/{X}/{Y}.png</samp> (<a href="http://tile.openstreetmap.org/12/656/1582.png">OpenStreetMap</a>)</li>
+              <li><samp>http://tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg</samp> (<a href="http://tile.stamen.com/bing-lite/12/656/1582.jpg">Satellite Only</a>)</li>
+            </ul>
+          </div>
+        </div>
+      <p><%= f.button _("Submit") %></p>
+    <% end %>
+  </div>
+</div>

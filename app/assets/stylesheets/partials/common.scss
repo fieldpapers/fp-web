@@ -42,6 +42,34 @@ ul {
   border-color: #faebcc;
 }
 
+// forms
+.form-help {
+  color: #666;
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.form-example .title {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.form-example {
+  margin-top: -1rem;
+}
+.form-example ul{
+  margin-left: 0;
+  list-style: none;
+  width: 1px;
+}
+.form-example li {
+  background: #eee;
+  padding: 1px 10px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 
 //inline-linkbar
 .inline-linkbar {
