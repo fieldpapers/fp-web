@@ -9,40 +9,43 @@
 
       <% if Providers.derive(@atlas.provider) === 'openstreetmap'  %>
       <div class="atlas-map-overlay top-right">
-        <form action="#" accept-charset="utf-8" method="POST">
-          <button type="submit"><%= _("Refresh") %></button>
-          <input type="hidden" name="title" value="<%=h @atlas.title %>">
-          <input type="hidden" name="text" value="<%=h @atlas.text %>">
-          <input type="hidden" name="zoom" value="<%= @atlas.zoom %>">
-          <input type="hidden" name="paper_size" value="<%=h @atlas.paper_size %>">
-          <input type="hidden" name="orientation" value="<%=h @atlas.orientation %>">
-          <input type="hidden" name="provider" value="<%=h @atlas.provider %>">
-          <input type="hidden" name="refreshed_from" value="<%= @atlas.id %>">
-          <% @atlas.pages.each do |page| %>
-            <% if page.page_number != 'i' %>
-            <input type="hidden" name="pages[<%=h page.page_number %>]" value="<%=h page.bbox.join(',') %>">
-            <% end %>
-          <%end %>
-        </form>
+        <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
+          <%= f.hidden_field :north, :value=> @atlas.north %>
+          <%= f.hidden_field :south, :value=> @atlas.south %>
+          <%= f.hidden_field :east, :value=> @atlas.east %>
+          <%= f.hidden_field :west, :value=> @atlas.west %>
+          <%= f.hidden_field :zoom, :value=> @atlas.zoom %>
+          <%= f.hidden_field :rows, :value=> @atlas.get_rows %>
+          <%= f.hidden_field :cols, :value=> @atlas.get_cols %>
+          <%= f.hidden_field :orientation, :value=> @atlas.orientation %>
+          <%= f.hidden_field :provider, :value=> @atlas.provider %>
+          <%= f.hidden_field :title, :value=> @atlas.title %>
+          <%= f.hidden_field :text, :value=> @atlas.text %>
+          <%= f.hidden_field :private, :value=> @atlas.private %>
+          <%= f.hidden_field :refreshed_from, :value=> @atlas.id %>
+          <%= f.button _("Refresh") %>
+        <% end %>
+
       </div>
       <% end %>
 
       <div class="atlas-map-overlay bottom-right">
-        <form action="#" accept-charset="utf-8" method="POST">
-          <button type="submit"><%= _("Copy this atlas") %></button>
-          <input type="hidden" name="title" value="<%=h @atlas.title %>">
-          <input type="hidden" name="text" value="<%=h @atlas.text %>">
-          <input type="hidden" name="zoom" value="<%= @atlas.zoom %>">
-          <input type="hidden" name="paper_size" value="<%=h @atlas.paper_size %>">
-          <input type="hidden" name="orientation" value="<%=h @atlas.orientation %>">
-          <input type="hidden" name="provider" value="<%=h @atlas.provider %>">
-          <input type="hidden" name="cloned_from" value="<%= @atlas.id %>">
-          <% @atlas.pages.each do |page| %>
-            <% if page.page_number != 'i' %>
-            <input type="hidden" name="pages[<%=h page.page_number %>]" value="<%=h page.bbox.join(',') %>">
-            <% end %>
-          <%end %>
-        </form>
+        <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
+          <%= f.hidden_field :north, :value=> @atlas.north %>
+          <%= f.hidden_field :south, :value=> @atlas.south %>
+          <%= f.hidden_field :east, :value=> @atlas.east %>
+          <%= f.hidden_field :west, :value=> @atlas.west %>
+          <%= f.hidden_field :zoom, :value=> @atlas.zoom %>
+          <%= f.hidden_field :rows, :value=> @atlas.get_rows %>
+          <%= f.hidden_field :cols, :value=> @atlas.get_cols %>
+          <%= f.hidden_field :orientation, :value=> @atlas.orientation %>
+          <%= f.hidden_field :provider, :value=> @atlas.provider %>
+          <%= f.hidden_field :title, :value=> @atlas.title %>
+          <%= f.hidden_field :text, :value=> @atlas.text %>
+          <%= f.hidden_field :private, :value=> @atlas.private %>
+          <%= f.hidden_field :cloned_from, :value=> @atlas.id %>
+          <%= f.button _("Copy this atlas") %>
+        <% end %>
 
         <a href="<%= @atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a>
       </div>
@@ -63,7 +66,7 @@
           <li>This atlas is a <i>refresh</i> of <%= link_to(@atlas.refreshed_from, atlas_path(@atlas.refreshed_from)) %> </li>
         <% end %>
         <% if @atlas.cloned_from  %>
-          <li>This atlas is a <i>copy</i> of <%= link_to(@atlas.cloned_from, atlas_path(@atlas.refreshed_from)) %> </li>
+          <li>This atlas is a <i>copy</i> of <%= link_to(@atlas.cloned_from, atlas_path(@atlas.cloned_from)) %> </li>
         <% end %>
         <% if !@atlas.snapshots.empty? %>
           <%= render partial: "atlas_snapshot", collection: @atlas.snapshots %>

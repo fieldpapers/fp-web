@@ -170,6 +170,42 @@ class Atlas < ActiveRecord::Base
     read_attribute(:title) || "Untitled"
   end
 
+  # probably can get rid of this once migrated
+  def get_rows
+    if rows > 0
+      rows
+    else
+      c = Array.new
+      pages.each do |p|
+        if p.page_number != 'i'
+          rowcol = p.page_number.split('')
+          if !c.include?(rowcol[0])
+            c.push(rowcol[0])
+          end
+        end
+      end
+      c.size
+    end
+  end
+
+  # probably can get rid of this once migrated
+  def get_cols
+    if cols > 0
+      cols
+    else
+      c = Array.new
+      pages.each do |p|
+        if p.page_number != 'i'
+          rowcol = p.page_number.split('')
+          if !c.include?(rowcol[1])
+            c.push(rowcol[1])
+          end
+        end
+      end
+      c.size
+    end
+  end
+
   # overlays (TODO generalize this, allowing overlays to be registered on
   # a system- and user-level (and group?))
 
