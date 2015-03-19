@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/advanced' => 'home#advanced', as: :advanced
-  get '/make-canned-atlas-template' => 'home#make-canned-atlas-template', as: :canned_atlas
+  get '/make-canned-atlas-template' => 'home#make-canned-atlas-template', as: :make_canned_atlas
+  get '/make-geojson-atlas-form' => 'home#make-geojson-atlas-form', as: :make_geojson_atlas
+  get '/upload-mbtiles' => 'home#upload-mbtiles', as: :upload_mbtiles
 
   concern :pageable do
     get '(page/:page)' => :index, on: :collection, as: ''
