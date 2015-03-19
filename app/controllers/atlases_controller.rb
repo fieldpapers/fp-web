@@ -38,6 +38,12 @@ class AtlasesController < ApplicationController
         headers['Content-Type'] ||= 'text/csv'
       end
 
+      format.geojson do
+        filename = "activity-" + @atlas.slug + ".geojson"
+        headers['Content-Disposition'] = "attachment; filename=\""+filename+"\""
+        headers['Content-Type'] ||= 'application/geo+json; charset=UTF-8'
+      end
+
     end
   end
 end
