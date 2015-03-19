@@ -7,7 +7,7 @@
         <div class="twelve columns">
             <%= f.label :utm_grid do %>
               <%= f.check_box :utm_grid %>
-              <span class="label-body"><%= _("Add a %{UTM} grid overlay to each map?") % { UTM: link_to(_("UTM"), "http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system") } %></span>
+              <span class="label-body"><%= _("Add a %{UTM} grid overlay to each map?") % { UTM: link_to(_("UTM"), "http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system", target: "_blank") } %></span>
             <% end %>
         </div>
     </div>

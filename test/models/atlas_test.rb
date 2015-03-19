@@ -59,7 +59,7 @@ class AtlasTest < ActiveSupport::TestCase
       east: east,
       north: north,
       zoom: 13,
-      provider: "http://tile.openstreetmap.org/{z}/{x}/{y}.png"
+      provider: "http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png"
 
     assert_equal 5, atlas.pages.size
 
@@ -74,10 +74,10 @@ class AtlasTest < ActiveSupport::TestCase
     assert_bounds atlas.pages[3], west, south, (west + east) / 2, (north + south) / 2
     assert_bounds atlas.pages[4], (west + east) / 2, south, east, (north + south) / 2
 
-    buffered_west = west - (west * 0.1)
-    buffered_south = south - (south * 0.1)
-    buffered_east = east + (east * 0.1)
-    buffered_north = north + (north * 0.1)
+    buffered_west = west - (west * 0.1).abs
+    buffered_south = south - (south * 0.1).abs
+    buffered_east = east + (east * 0.1).abs
+    buffered_north = north + (north * 0.1).abs
 
     assert_bounds atlas.pages[0], buffered_west, buffered_south, buffered_east, buffered_north
   end

@@ -1,4 +1,5 @@
 require "paper"
+require "providers"
 
 # == Schema Information
 #
@@ -234,26 +235,33 @@ private
     Paper.canvas_size(paper_size || "letter", orientation)
   end
 
-  def calculate_zoom(west, east)
-    (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+  def provider_info
+    Providers.layers.select do |k,v|
+      v[:template] == provider
+    end.values.first
+  end
 
-    # TODO clamp zoom according to min/maxZoom from providers.rb
+  def calculate_zoom(west, east)
+    z = (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
+    info = provider_info
+
+    # clamp zoom to the available zoom range
+    [info[:minzoom], z, info[:maxzoom]].sort[1]
   end
 
   def create_pages
     # create index page
 
     if rows * cols > 1
-      left = west - west * INDEX_BUFFER_FACTOR
-      right = east + east * INDEX_BUFFER_FACTOR
-
+      left = west - (west * INDEX_BUFFER_FACTOR).abs
+      right = east + (east * INDEX_BUFFER_FACTOR).abs
 
       pages.create! \
         page_number: "i",
         west: left,
-        south: south - south * INDEX_BUFFER_FACTOR,
+        south: south - (south * INDEX_BUFFER_FACTOR).abs,
         east: right,
-        north: north + north * INDEX_BUFFER_FACTOR,
+        north: north + (north * INDEX_BUFFER_FACTOR).abs,
         zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
         provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
