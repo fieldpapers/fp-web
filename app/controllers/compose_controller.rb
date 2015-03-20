@@ -90,7 +90,7 @@ class ComposeController < ApplicationController
     params.require(:atlas).permit \
       :north, :south, :east, :west, :zoom, :rows, :cols, :orientation, :provider, # from select
       :title, :text, :private, # from describe
-      :layout, :utm_grid, :redcross_overlay, # from layout
+      :layout, :utm_grid, :redcross_overlay, :paper_size, # from layout
       :refreshed_from, :cloned_from
   end
 
