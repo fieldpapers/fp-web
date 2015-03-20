@@ -14,7 +14,7 @@ class ComposeController < ApplicationController
     case step
     when :search
       # we're starting our way through the wizard; clear out anything we know
-      session[:atlas] = nil
+      session[:atlas] = nil unless params[:canned]
     when :select
       if params[:q]
         # #select does double-duty and redirects to the center
@@ -25,6 +25,19 @@ class ComposeController < ApplicationController
     end
 
     render_wizard
+  end
+
+  def create
+    latitude, longitude, zoom = params[:location].split(/,\s*| /).map(&:strip)
+    zoom ||= 12 # arbitrary zoom
+
+    session[:atlas] = params[:atlas].merge({
+      creator: current_user
+    })
+
+    return redirect_to wizard_path(:select, zoom: zoom, lat: latitude, lon: longitude) if latitude && longitude
+
+    redirect_to wizard_path(:search, canned: true)
   end
 
   def update

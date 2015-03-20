@@ -2,10 +2,10 @@
   <div class="twelve columns">
     <h2>Making Canned Atlases</h2>
 
-    <p>It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href="<%= compose_path(:search) %>">Make</a> process.</p>
-    <p>Each setting below can be posted via plain HTML form to <a href="<%= compose_path(:search) %>">fieldpapers.org</a>. <i>All are optional.</i></p>
+    <p>It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href="<%= compose_index_path %>">Make</a> process.</p>
+    <p>Each setting below can be posted via plain HTML form to <a href="<%= compose_index_path %>">fieldpapers.org</a>. <i>All are optional.</i></p>
 
-    <%= form_for :atlas, url: compose_path(:search), method: :put do |f| %>
+    <%= form_for :atlas, url: compose_index_path, method: :post do |f| %>
       <div class="row">
         <div class="twelve columns">
           <label for="atlas_title">Atlas title</label>
@@ -14,13 +14,13 @@
 
         <div class="twelve columns">
           <label for="atlas_text">Atlas text</label>
-          <%= f.text_area :text, :value=> '', placeholder: _("Atlas page content"), rows: "4", cols: "40" %>
+          <%= f.text_area :text, :value=> '', placeholder: _("Atlas description"), rows: "4", cols: "40" %>
         </div>
 
         <div class="twelve columns">
           <label for="atlas_location">Atlas location</label>
-          <p class="form-help">Latitude, longitude, and optional zoom. Use <a href="http://dbsgeo.com/latlon/">http://dbsgeo.com/latlon/</a> to make new ones.</p>
-          <%= f.text_field :location, :value=> '', placeholder: _("Location and zoom"), size: "40" %>
+          <p class="form-help">Latitude, longitude, and optional zoom. Use <a href="http://dbsgeo.com/latlon/">dbsgeo.com/latlon/</a> to make new ones.</p>
+          <%= text_field_tag :location, nil, placeholder: _("Location and zoom"), size: "40" %>
           <div class="form-example">
             <p class="title">Examples:</p>
             <ul>
