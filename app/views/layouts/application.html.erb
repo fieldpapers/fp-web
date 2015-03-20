@@ -14,13 +14,14 @@
 <div class="container">
 
 <%= render partial: "shared/navbar" %>
-
+<% if notice || alert %>
 <div class="row">
   <div class="twelve columns">
     <p class="notice<% if notice %> active<% end %>"><%= notice %></p>
     <p class="alert<% if alert %> active<% end %>"><%= alert %></p>
   </div>
 </div>
+<% end %>
 
 <%= yield %>
 

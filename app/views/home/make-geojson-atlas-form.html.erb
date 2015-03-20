@@ -1,6 +1,63 @@
 <div class="row">
   <div class="eight columns">
     <h2>Making Atlases From GeoJSON</h2>
-    <p>Coming soon...</p>
+    <p>It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways. A GeoJSON file can posted as an attached file to <a href="/compose-atlas.php">fieldpapers.org</a>, named “geojson_file”:</p>
+    <form action="/compose-atlas.php" method="post" enctype="multipart/form-data">
+      <dl>
+        <dt>geojson_file</dt>
+        <dd>
+          <input name="geojson_file" type="file">
+        </dd>
+      </dl>
+      <p><input type="submit"></p>
+    </form>
+    <p>Alternatively, raw GeoJSON content can be posted to <a href="/compose-atlas.php">fieldpapers.org</a> as a form value, named “geojson_data”:</p>
+    <form action="/compose-atlas.php" method="post" enctype="multipart/form-data">
+      <dl>
+        <dt>geojson_data</dt>
+        <dd>
+          <textarea name="geojson_data" rows="8" cols="40">
+          {
+            "properties":
+            {
+              "paper_size": "letter",
+              "orientation": "portrait"
+            },
+            "type": "FeatureCollection",
+            "features":
+            [
+              {
+                "properties":
+                {
+                  "provider": "http:\/\/tile.openstreetmap.org\/{Z}\/{X}\/{Y}.png",
+                  "zoom": 17
+                },
+                "type": "Feature",
+                "geometry":
+                {
+                  "type": "Polygon",
+                  "coordinates": [[ [-122.293647, 37.817211], [-122.293647, 37.801750], [-122.278198, 37.801750], [-122.278198, 37.817211], [-122.293647, 37.817211] ]]
+                }
+              },
+              {
+                "properties":
+                {
+                  "provider": "http:\/\/tile.openstreetmap.org\/{Z}\/{X}\/{Y}.png",
+                  "zoom": 17
+                },
+                "type": "Feature",
+                "geometry":
+                {
+                  "type": "Point",
+                  "coordinates": [-122.281694, 37.822091]
+                }
+              }
+            ]
+          }
+          </textarea>
+        </dd>
+      </dl>
+      <p><input type="submit"></p>
+    </form>
   </div>
 </div>
