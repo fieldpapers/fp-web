@@ -58,6 +58,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    callsite (0.0.11)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     climate_control (0.0.3)
@@ -164,6 +165,10 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -195,6 +200,8 @@ GEM
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -314,6 +321,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   leaflet-rails
+  meta_request
   minitest-reporters
   mysql2
   paperclip (~> 4.2.1)

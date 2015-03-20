@@ -65,6 +65,7 @@ group :development, :test do
   gem 'guard-livereload', '~> 2.4', require: false
   gem 'guard-minitest'
 
+  gem 'meta_request' # to support https://github.com/dejan/rails_panel
   gem 'minitest-reporters'
 
   gem 'rake'
