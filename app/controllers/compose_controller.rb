@@ -4,6 +4,9 @@ require "providers"
 class ComposeController < ApplicationController
   include Wicked::Wizard
 
+  # allow existing forms (w/o CSRF projection) to create canned atlases
+  skip_before_filter :verify_authenticity_token, only: :create
+
   steps :search, :select, :describe, :layout
 
   def show
@@ -28,7 +31,15 @@ class ComposeController < ApplicationController
   end
 
   def create
-    latitude, longitude, zoom = params[:location].split(/,\s*| /).map(&:strip)
+    # convert params into a form that ActiveRecord likes (retaining old input
+    # names)
+    params[:atlas] = {
+      title: params[:atlas_title],
+      text: params[:atlas_text],
+      provider: params[:atlas_provider]
+    }
+
+    latitude, longitude, zoom = params[:atlas_location].split(/,\s*| /).map(&:strip)
     zoom ||= 12 # arbitrary zoom
 
     session[:atlas] = params[:atlas].merge({

@@ -5,22 +5,22 @@
     <p>It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href="<%= compose_index_path %>">Make</a> process.</p>
     <p>Each setting below can be posted via plain HTML form to <a href="<%= compose_index_path %>">fieldpapers.org</a>. <i>All are optional.</i></p>
 
-    <%= form_for :atlas, url: compose_index_path, method: :post do |f| %>
+    <%= form_tag compose_index_path, method: :post do %>
       <div class="row">
         <div class="twelve columns">
           <label for="atlas_title">Atlas title</label>
-          <%= f.text_field :title, :value=> '', placeholder: _("Atlas title"), size: "40" %>
+          <%= text_field_tag :atlas_title, nil, placeholder: _("Atlas title"), size: "40" %>
         </div>
 
         <div class="twelve columns">
           <label for="atlas_text">Atlas text</label>
-          <%= f.text_area :text, :value=> '', placeholder: _("Atlas description"), rows: "4", cols: "40" %>
+          <%= text_area_tag :atlas_text, nil, placeholder: _("Atlas description"), rows: "4", cols: "40" %>
         </div>
 
         <div class="twelve columns">
           <label for="atlas_location">Atlas location</label>
           <p class="form-help">Latitude, longitude, and optional zoom. Use <a href="http://dbsgeo.com/latlon/">dbsgeo.com/latlon/</a> to make new ones.</p>
-          <%= text_field_tag :location, nil, placeholder: _("Location and zoom"), size: "40" %>
+          <%= text_field_tag :atlas_location, nil, placeholder: _("Location and zoom"), size: "40" %>
           <div class="form-example">
             <p class="title">Examples:</p>
             <ul>
@@ -34,7 +34,7 @@
 
         <div class="twelve columns">
           <label for="atlas_provider">Atlas provider</label>
-          <%= f.text_field :provider, :value=> '', placeholder: _("Tile URL template"), size: "40" %>
+          <%= text_field_tag :provider, nil, placeholder: _("Tile URL template"), size: "40" %>
           <div class="form-example">
             <p class="title">Examples:</p>
             <ul>
@@ -45,7 +45,7 @@
             </ul>
           </div>
         </div>
-        <p><%= f.button _("Submit") %></p>
+        <p><%= button_tag _("Submit") %></p>
       </div>
     <% end %>
   </div>
