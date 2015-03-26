@@ -42,6 +42,9 @@
 class Snapshot < ActiveRecord::Base
   include FriendlyId
 
+  # Environment-specific direct upload url verifier screens for malicious posted upload locations.
+  S3_UPLOAD_URL_FORMAT = %r{\Ahttps:\/\/s3\.amazonaws\.com\/#{Rails.application.secrets.aws["s3_bucket_name"]}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
+
   # friendly_id configuration
 
   friendly_id :random_id, use: :slugged
@@ -53,6 +56,14 @@ class Snapshot < ActiveRecord::Base
   # paperclip (attachment) configuration
 
   has_attached_file :scene
+
+  # callbacks
+  after_create :process_scene
+  after_initialize :apply_defaults
+
+  # validations
+
+  validates :s3_scene_url, presence: true, format: { with: S3_UPLOAD_URL_FORMAT }
 
   # relations
 
@@ -138,7 +149,21 @@ class Snapshot < ActiveRecord::Base
     return "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
   end
 
+  # store an unescaped version of the URL that Amazon returns from direct
+  # upload
+  def s3_scene_url=(escaped_url)
+    write_attribute(:s3_scene_url, (CGI.unescape(escaped_url) rescue nil))
+  end
+
 private
+
+  def apply_defaults
+    self.progress ||= 0
+  end
+
+  def process_scene
+    ProcessSceneJob.perform_later(self)
+  end
 
   def random_id
     # use multiple attempts of a lambda for slug candidates
