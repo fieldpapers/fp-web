@@ -93,6 +93,9 @@
     $('#atlas_orientation').on('change', function(){
       areaSelect.setOrientation(this.value);
     });
+    $('#atlas_paper_size').on('change', function(){
+      areaSelect.setPaperSize(this.value);
+    });
 
     $('#atlas_provider').on('change', function(){
       var template = $(this).val();
@@ -134,8 +137,7 @@ L.AreaSelect = L.Class.extend({
     includes: L.Mixin.Events,
 
     options: {
-        width: 200,
-        height: 300,
+        pageHeight: 150,
         minHeight: 80,
         paddingToEdge: 30,
         keepAspectRatio: true,
@@ -145,41 +147,56 @@ L.AreaSelect = L.Class.extend({
     dimensions: {},
 
     refs: {
-      paper_orientations: {"landscape": 1.50, "portrait": .75},
+      paper_aspect_ratios: {
+        letter : {landscape: 1.294, portrait: 0.773, scale: 1},
+        a3: {landscape: 1.414, portrait: 0.707, scale: 1.414},
+        a4: {landscape: 1.414, portrait: 0.707, scale: 1}
+      },
+      toolScale: 1,
+      paperSize: 'letter',
+      pageOrientation: 'landscape',
       page_aspect_ratio:  null,
       page_dimensions: {
         width: 0,
         height: 0
       },
       rows: 1,
-      cols: 1
+      cols: 2
     },
 
     initialize: function(options) {
       L.Util.setOptions(this, options);
-      this.refs.page_aspect_ratio = this.refs.paper_orientations["landscape"];
-      this._width = (150 * this.refs.page_aspect_ratio) * this.refs.cols;
-      this._height = 150 * this.refs.rows;
-
+      this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][this.refs.pageOrientation];
+      this._width = (this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.cols;
+      this._height = this.options.pageHeight * this.refs.rows;
       this._limitChangeFire = L.Util.limitExecByInterval( function(){this.fire("change");}, 500, this);
     },
 
+    setPaperSize: function(x) {
+      if (x === this.refs.paperSize || !this.refs.paper_aspect_ratios[x]) return this;
+      this.refs.paperSize = x;
+      this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][this.refs.pageOrientation];
+
+      this._updateToolDimensions();
+
+      // if the new size is outside the map bounds, contain it.
+      var mapBds = this.map.getBounds();
+      if(!mapBds.contains(this.bounds)) {
+        this.map.fitBounds(this.bounds, {animate: false});
+      }
+
+      this.fire("change");
+      return this;
+    },
+
     setOrientation: function(x) {
-      if (this.refs.paper_orientations[x] &&
-          this.refs.page_aspect_ratio !== this.refs.paper_orientations[x]) {
+      if (this.refs.paper_aspect_ratios[this.refs.paperSize][x] &&
+          this.refs.page_aspect_ratio !== this.refs.paper_aspect_ratios[this.refs.paperSize][x]) {
 
-        this.refs.page_aspect_ratio = this.refs.paper_orientations[x];
+        this.refs.pageOrientation = x;
+        this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][x];
 
-        var h = this.dimensions.height,
-            w = this.dimensions.width;
-
-        // flop the dimensions
-        this.dimensions.width = h;
-        this.dimensions.height = w;
-
-        // re-calc bounds
-        this.bounds = this._getBoundsPinToNorthWest();
-        this._render();
+        this._updateToolDimensions();
 
         // if the flop is outside the map bounds, contain it.
         var mapBds = this.map.getBounds();
@@ -278,12 +295,6 @@ L.AreaSelect = L.Class.extend({
 
     _limitChangeFire: function(){},
 
-    _updateNWPosition: function(pos) {
-      this.nwPosition = pos;
-      this.nwLocation = this.map.containerPointToLatLng(pos);
-      this.bounds = this._getBoundsPinToNorthWest();
-    },
-
     _onAddRow: function(evt) {
       evt.stopPropagation();
       this.refs.rows++;
@@ -308,11 +319,69 @@ L.AreaSelect = L.Class.extend({
     },
 
     _updatePages: function() {
-      this.dimensions.width = (this.dimensions.cellHeight * this.refs.page_aspect_ratio) * this.refs.cols;
-      this.dimensions.height = this.dimensions.cellHeight * this.refs.rows;
+      this._updateToolDimensions();
+      this.fire("change");
+    },
+
+    _calculateInitialPositions: function() {
+      var size = this.map.getSize();
+
+      var topBottomHeight = Math.round((size.y-this._height)/2);
+      var leftRightWidth = Math.round((size.x-this._width)/2);
+      this.nwPosition = new L.Point(leftRightWidth + this.offset.x, topBottomHeight + this.offset.y);
+      this.nwLocation = this.map.containerPointToLatLng(this.nwPosition);
+      this.bounds = this.getBounds();
+    },
+
+    _updateToolDimensions: function() {
+      var scale = this.refs.paper_aspect_ratios[this.refs.paperSize].scale;
+      if (this.refs.pageOrientation === 'portrait') {
+        this.dimensions.width = (this.options.pageHeight * this.refs.toolScale * scale) * this.refs.cols;
+        this.dimensions.height = ((this.options.pageHeight / this.refs.page_aspect_ratio) * this.refs.toolScale * scale) * this.refs.rows;
+      } else {
+        this.dimensions.width = ((this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.toolScale * scale) * this.refs.cols;
+        this.dimensions.height = (this.options.pageHeight * this.refs.toolScale * scale) * this.refs.rows;
+      }
+
+      // re-calc bounds
       this.bounds = this._getBoundsPinToNorthWest();
       this._render();
-      this.fire("change");
+    },
+
+    _setDimensions: function() {
+      this.dimensions.nw = this.map.latLngToContainerPoint(this.bounds.getNorthWest());
+      this.dimensions.ne = this.map.latLngToContainerPoint(this.bounds.getNorthEast());
+      this.dimensions.sw = this.map.latLngToContainerPoint(this.bounds.getSouthWest());
+      this.dimensions.se = this.map.latLngToContainerPoint(this.bounds.getSouthEast());
+      this.dimensions.width = this.dimensions.ne.x - this.dimensions.nw.x;
+      this.dimensions.height = this.dimensions.se.y - this.dimensions.ne.y;
+
+      this.dimensions.cellWidth = this.dimensions.width / this.refs.cols;
+      this.dimensions.cellHeight = this.dimensions.height / this.refs.rows;
+    },
+
+    _getBoundsPinToNorthWest: function() {
+      var size = this.map.getSize();
+      var topRight = new L.Point();
+      var bottomLeft = new L.Point();
+
+      var nwPoint = this.map.latLngToContainerPoint(this.nwLocation);
+
+      topRight.y = nwPoint.y;
+      bottomLeft.y = nwPoint.y + this.dimensions.height;
+      bottomLeft.x = nwPoint.x;
+      topRight.x = nwPoint.x + this.dimensions.width;
+
+      var sw = this.map.containerPointToLatLng(bottomLeft);
+      var ne = this.map.containerPointToLatLng(topRight);
+
+      return new L.LatLngBounds(sw, ne);
+    },
+
+    _updateNWPosition: function(pos) {
+      this.nwPosition = pos;
+      this.nwLocation = this.map.containerPointToLatLng(pos);
+      this.bounds = this._getBoundsPinToNorthWest();
     },
 
     _setPageTool: function() {
@@ -376,6 +445,7 @@ L.AreaSelect = L.Class.extend({
                     height = Math.max(self.options.minHeight, height);
                     height = Math.min(maxHeight, height);
                     width = height * ratio;
+                    self.refs.toolScale = height/self.options.pageHeight;
 
                 } else {
                     self._width += (curX - event.originalEvent.pageX) * 2 * xMod;
@@ -479,46 +549,6 @@ L.AreaSelect = L.Class.extend({
       }
     },
 
-    _calculateInitialPositions: function() {
-      var size = this.map.getSize();
-
-      var topBottomHeight = Math.round((size.y-this._height)/2);
-      var leftRightWidth = Math.round((size.x-this._width)/2);
-      this.nwPosition = new L.Point(leftRightWidth + this.offset.x, topBottomHeight + this.offset.y);
-      this.nwLocation = this.map.containerPointToLatLng(this.nwPosition);
-      this.bounds = this.getBounds();
-    },
-
-    _setDimensions: function() {
-      this.dimensions.nw = this.map.latLngToContainerPoint(this.bounds.getNorthWest());
-      this.dimensions.ne = this.map.latLngToContainerPoint(this.bounds.getNorthEast());
-      this.dimensions.sw = this.map.latLngToContainerPoint(this.bounds.getSouthWest());
-      this.dimensions.se = this.map.latLngToContainerPoint(this.bounds.getSouthEast());
-      this.dimensions.width = this.dimensions.ne.x - this.dimensions.nw.x;
-      this.dimensions.height = this.dimensions.se.y - this.dimensions.ne.y;
-
-      this.dimensions.cellWidth = this.dimensions.width / this.refs.cols;
-      this.dimensions.cellHeight = this.dimensions.height / this.refs.rows;
-    },
-
-    _getBoundsPinToNorthWest: function() {
-      var size = this.map.getSize();
-      var topRight = new L.Point();
-      var bottomLeft = new L.Point();
-
-      var nwPoint = this.map.latLngToContainerPoint(this.nwLocation);
-
-      topRight.y = nwPoint.y;
-      bottomLeft.y = nwPoint.y + this.dimensions.height;
-      bottomLeft.x = nwPoint.x;
-      topRight.x = nwPoint.x + this.dimensions.width;
-
-      var sw = this.map.containerPointToLatLng(bottomLeft);
-      var ne = this.map.containerPointToLatLng(topRight);
-
-      return new L.LatLngBounds(sw, ne);
-    },
-
     _render: function() {
       var size = this.map.getSize();
 
@@ -536,7 +566,7 @@ L.AreaSelect = L.Class.extend({
           height = this.dimensions.height;
 
 
-      function setDimensions(element, dimension) {
+      function setElement(element, dimension) {
           element.style.width = dimension.width + "px";
           element.style.height = dimension.height + "px";
           element.style.top = dimension.top + "px";
@@ -551,28 +581,28 @@ L.AreaSelect = L.Class.extend({
           bottomHeight = size.y - height - nw.y;
 
       // position shades
-      setDimensions(this._topShade, {
+      setElement(this._topShade, {
         width:size.x,
         height:nw.y > 0 ? nw.y : 0,
         top:0,
         left:0
       });
 
-      setDimensions(this._bottomShade, {
+      setElement(this._bottomShade, {
         width:size.x,
         height: bottomHeight > 0 ? bottomHeight : 0,
         bottom:0,
         left:0
       });
 
-      setDimensions(this._leftShade, {
+      setElement(this._leftShade, {
           width: nw.x > 0 ? nw.x : 0,
           height: height,
           top: nw.y,
           left: 0
       });
 
-      setDimensions(this._rightShade, {
+      setElement(this._rightShade, {
           width: rightWidth > 0 ? rightWidth : 0,
           height: height,
           top: nw.y,
@@ -580,11 +610,11 @@ L.AreaSelect = L.Class.extend({
       });
 
       // position handles
-      setDimensions(this._dragHandle, {left:nw.x, top:nw.y });
-      setDimensions(this._scaleHandle, {left:nw.x + width, top:nw.y + height});
+      setElement(this._dragHandle, {left:nw.x, top:nw.y });
+      setElement(this._scaleHandle, {left:nw.x + width, top:nw.y + height});
 
-      setDimensions(this._rowModifier, {left:nw.x + (width / 2), top:nw.y + height});
-      setDimensions(this._colModifier, {left:nw.x + width, top:nw.y + (height/2)});
+      setElement(this._rowModifier, {left:nw.x + (width / 2), top:nw.y + height});
+      setElement(this._colModifier, {left:nw.x + width, top:nw.y + (height/2)});
 
 
     }
