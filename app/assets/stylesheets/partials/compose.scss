@@ -90,19 +90,19 @@
 }
 
 .leaflet-areaselect-handle.drag-handle {
-    background-image: url('ui/button-move-atlas-off.png');
+    background-image: url(asset-path('ui/button-move-atlas-off.png'));
 
     &:hover {
-        background-image: url('ui/button-move-atlas-on.png');
+        background-image: url(asset-path('ui/button-move-atlas-on.png'));
     }
 }
 
 .leaflet-areaselect-handle.scale-handle {
-    background-image: url('ui/button-scale-atlas-off.png');
+    background-image: url(asset-path('ui/button-scale-atlas-off.png'));
 
     &:hover,
     .scaling & {
-        background-image: url('ui/button-scale-atlas-on.png');
+        background-image: url(asset-path('ui/button-scale-atlas-on.png'));
     }
 }
 
