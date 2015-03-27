@@ -222,6 +222,16 @@ class Atlas < ActiveRecord::Base
     provider.include? OVERLAY_UTM
   end
 
+  def get_provider_without_overlay
+    if redcross_overlay?
+      provider.gsub(OVERLAY_REDCROSS, "")
+    elsif utm_grid?
+      provider.gsub(OVERLAY_UTM, "")
+    else
+      provider
+    end
+  end
+
 private
 
   def random_id
@@ -240,8 +250,12 @@ private
   end
 
   def provider_info
+    # derive the key name for provider
+    provider_key = Providers.derive provider
+
     Providers.layers.select do |k,v|
-      v[:template] == provider
+      k.to_s == provider_key
+      #v[:template] == provider
     end.values.first
   end
 
@@ -250,7 +264,11 @@ private
     info = provider_info
 
     # clamp zoom to the available zoom range
-    [info[:minzoom], z, info[:maxzoom]].sort[1]
+    if !info.nil?
+      [info[:minzoom], z, info[:maxzoom]].sort[1]
+    else
+      [0, z, 18].sort[1]
+    end
   end
 
   def create_pages
@@ -297,6 +315,7 @@ private
     end
   end
 
+  # huh?
   def handle_overlays
     if redcross_overlay == "1"
       self.provider += OVERLAY_REDCROSS unless redcross_overlay?

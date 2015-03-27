@@ -97,27 +97,22 @@
 <% content_for :foot do %>
   <script>
     $(function(){
-      var providers = <%= Providers.layers.to_json.html_safe %>;
-      var defaultProvider = "<%= Providers.default %>";
-      var atlasProvider = "<%= @atlas.pages[0].provider %>";
+      var providerObject = <%= Providers.get_layer_from_url(@atlas.get_provider_without_overlay).to_json.html_safe %>;
+      var atlasProvider = "<%= @atlas.get_provider_without_overlay %>";
       var bbox = <%= @atlas.bbox %>;
       var pages = <%= @atlas.pages.to_json.html_safe %>;
 
-
       FP.map.locator('atlas-locator-map', {
         bbox: bbox,
-        providers: providers,
         provider: atlasProvider,
-        defaultProvider: defaultProvider,
         showMarker: true,
         zoom: 5
       });
 
       FP.map.atlas('atlas-map',{
         bbox: bbox,
-        providers: providers,
+        providerSettings: providerObject,
         provider: atlasProvider,
-        defaultProvider: defaultProvider,
         pages: pages
       });
     });

@@ -38,9 +38,18 @@
 
     var map = L.map(selector, mapOptions).setView(center, zoom);
 
+    /* TODO: do we want to show overlays?
+    var providers = FP.map.utils.parseProvider(settings.provider);
+    providers.forEach(function(provider){
+      L.tileLayer(provider.toLowerCase(), {
+        attribution: '',
+        maxZoom: 18
+      }).addTo(map);
+    });
+    */
+
     L.tileLayer(settings.provider.toLowerCase(), {
-      attribution: '',
-      maxZoom: 18
+      attribution: ''
     }).addTo(map);
 
     // show a marker at center

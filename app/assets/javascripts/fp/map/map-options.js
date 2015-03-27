@@ -10,4 +10,15 @@
     attributionControl: false
   };
 
+  var utils = map.utils = {};
+
+  // Break apart a provider string from
+  // an atlas that may contain multiple templates
+  utils.parseProvider = function(str) {
+    var re = /https?:\/\/.+?\.png|https?:\/\/.+?\.jpg/ig;
+    var matches = str.match(re);
+    return matches;
+  };
+
+
 })(this);

@@ -33,6 +33,14 @@ class Providers
     end
   end
 
+  def self.get_layer_from_url(url)
+    layer_key = self.derive(url)
+    obj = self.layers.select do |k,v|
+      k.to_s == layer_key
+    end.values
+
+  end
+
   # For layer options see: http://leafletjs.com/reference.html#tilelayer
   # templates are (currently) expected to be ModestMaps-formatted, which means
   # capital letters for placeholders

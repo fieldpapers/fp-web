@@ -19,6 +19,23 @@
     return null;
   }
 
+  function getMinMaxZooms(settings) {
+    var rsp = [0,18];
+    if (settings.providerSettings && settings.providerSettings.length){
+      if (settings.providerSettings[0].minzoom) rsp[0] = +settings.providerSettings[0].minzoom;
+      if (settings.providerSettings[0].maxzoom) rsp[1] = +settings.providerSettings[0].maxzoom;
+    }
+    return rsp;
+  }
+
+  function getAttribution(settings) {
+    var rsp = '';
+    if (settings.providerSettings && settings.providerSettings.length){
+      if (settings.providerSettings[0].options && settings.providerSettings[0].options.attribution) rsp = settings.providerSettings[0].options.attribution;
+    }
+    return '';
+  }
+
   var locatorMapOptions = {
     attributionControl: false
   };
@@ -28,13 +45,28 @@
     var mapOptions = L.Util.extend({}, locatorMapOptions, FP.map.options);
     var bbox = deriveBbox(settings);
     var zoom = settings.zoom || 8;
+    var zooms = getMinMaxZooms(settings);
+
+    mapOptions.minZoom = zooms[0];
+    mapOptions.maxZoom = zooms[1];
 
     var map = L.map(selector, mapOptions);//.setView(center, zoom);
     if (bbox) map.fitBounds(bbox);
 
+    /* TODO: do we want to show overlays?
+    var providers = FP.map.utils.parseProvider(settings.provider);
+    providers.forEach(function(provider){
+      L.tileLayer(provider.toLowerCase(), {
+        attribution: '',
+        maxZoom: 18
+      }).addTo(map);
+    });
+    */
+
     L.tileLayer(settings.provider.toLowerCase(), {
-      attribution: '',
-      maxZoom: 18
+      attribution: getAttribution(settings),
+      minZoom: zooms[0],
+      maxZoom: zooms[1]
     }).addTo(map);
 
     var layout = L.pageLayout({
