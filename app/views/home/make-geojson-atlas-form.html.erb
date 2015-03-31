@@ -1,23 +1,34 @@
 <div class="row">
   <div class="eight columns">
-    <h2>Making Atlases From GeoJSON</h2>
-    <p>It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways. A GeoJSON file can posted as an attached file to <a href="/compose-atlas.php">fieldpapers.org</a>, named “geojson_file”:</p>
-    <form action="/compose-atlas.php" method="post" enctype="multipart/form-data">
-      <dl>
-        <dt>geojson_file</dt>
-        <dd>
-          <input name="geojson_file" type="file">
-        </dd>
-      </dl>
-      <p><input type="submit"></p>
-    </form>
-    <p>Alternatively, raw GeoJSON content can be posted to <a href="/compose-atlas.php">fieldpapers.org</a> as a form value, named “geojson_data”:</p>
-    <form action="/compose-atlas.php" method="post" enctype="multipart/form-data">
-      <dl>
-        <dt>geojson_data</dt>
-        <dd>
-          <textarea name="geojson_data" rows="8" cols="40">
-          {
+    <h2><%= _("Making Atlases From GeoJSON") %></h2>
+    <p><%= _("It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:") %></p>
+    <ol>
+      <li>
+      <p><%= _("A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:") %></p>
+
+    <%= form_tag compose_index_path, method: :post do %>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="geojson_file"><%= _("Geojson File") %></label>
+          <%= file_field_tag :geojson_file, accept: "application/vnd.geo+json,application/json" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <%= button_tag _("Submit") %>
+        </div>
+      </div>
+    <% end %>
+    </li>
+
+    <li>
+    <p><%= _("Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:") %></p>
+
+    <%= form_tag compose_index_path, method: :post do %>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="geojson_data"><%= _("Geojson Data") %></label>
+          <%= text_area_tag :geojson_data, '{
             "properties":
             {
               "paper_size": "letter",
@@ -53,11 +64,17 @@
                 }
               }
             ]
-          }
-          </textarea>
-        </dd>
-      </dl>
-      <p><input type="submit"></p>
-    </form>
+          }', rows: "10", class: "u-full-width auto-height" %>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <%= button_tag _("Submit") %>
+        </div>
+      </div>
+    <% end %>
+    </li>
+    </ol>
   </div>
 </div>

@@ -1,9 +1,25 @@
 <div class="row">
   <div class="eight columns">
-    <h2>Upload MBTiles</h2>
-    <form enctype="multipart/form-data" action="/mbtiles_uploader.php" method="POST">
-        Upload your file: <input name="uploaded_mbtiles" type="file"><br>
-        <input type="submit" value="Upload">
-    </form>
+    <h2><%= _("Upload MBTiles") %></h2>
+    <p>Coming soon...</p>
+  </div>
+</div>
+
+<!-- Once backend supports this, update form endpoint and use this -->
+<div class="row" style="display:none;">
+  <div class="eight columns">
+    <h2><%= _("Upload MBTiles") %></h2>
+    <%= form_tag compose_index_path, method: :post do %>
+      <div class="row">
+        <div class="twelve columns">
+          <%= file_field_tag :uploaded_mbtiles, type: "file" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <%= button_tag _("Upload") %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
