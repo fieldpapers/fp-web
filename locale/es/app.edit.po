@@ -5,13 +5,14 @@
 # Translators:
 # Translators:
 # Carmen, 2015
+# Eduardo <e@mayorgalinux.com>, 2015
 # Humberto Yances <hyances@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-03 21:31+0000\n"
-"Last-Translator: Carmen\n"
+"PO-Revision-Date: 2015-03-05 23:41+0000\n"
+"Last-Translator: Eduardo <e@mayorgalinux.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/fieldpapers/langua"
 "ge/es/)\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +34,8 @@ msgstr[1] "%{count} Atlas"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} Capturas de pantalla"
+msgstr[1] "%{count} Capturas de pantalla"
 
 msgid "%{time_period} ago"
 msgstr "hace %{time_period}"
@@ -45,8 +46,14 @@ msgstr "&copy; Contribuidores de OpenStreetMap"
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
 msgstr "(Esto significa que es solo accesible por usted, si está logueado, o por URL directa.)"
 
+msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr ""
+
 msgid "About the Project"
-msgstr "Acerca del Proyecto"
+msgstr "Acerca del proyecto"
+
+msgid "Activity"
+msgstr ""
 
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr "¿Superponer una cuadrícula %{UTM} en cada mapa?"
@@ -54,7 +61,28 @@ msgstr "¿Superponer una cuadrícula %{UTM} en cada mapa?"
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr "¿Añadir la capa Cruz Roja (para apoyar la asistencia tras catástrofes)?"
 
+msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr ""
+
 msgid "Atlas Name"
+msgstr "Nombre del Atlas"
+
+#, fuzzy
+msgid "Atlas description"
+msgstr "Descripción"
+
+msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas provider"
+msgstr ""
+
+#, fuzzy
+msgid "Atlas text"
+msgstr "Nombre del Atlas"
+
+#, fuzzy
+msgid "Atlas title"
 msgstr "Nombre del Atlas"
 
 msgid "Atlases"
@@ -70,6 +98,9 @@ msgid "Check out the OSM help wiki."
 msgstr "Chequee la wiki de ayuda de OSM."
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr "Escoja una página del atlas para subir. Nosotros nos encargaremos de dónde irá (usando el código QR)."
+
+msgid "Copy this atlas"
 msgstr ""
 
 msgid "Describe"
@@ -87,22 +118,49 @@ msgstr "Descargue PDF"
 msgid "EXTEND"
 msgstr "AMPLIAR"
 
+msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+
+msgid "Edit in..."
+msgstr ""
+
+msgid "Examples:"
+msgstr ""
+
+msgid "Export Data"
+msgstr ""
+
 msgid "Field Papers"
 msgstr "Field Papers"
 
 msgid "Finished!"
-msgstr "Finalizado!"
+msgstr "¡Finalizado!"
+
+msgid "GeoJSON"
+msgstr ""
+
+msgid "Geojson Data"
+msgstr ""
+
+msgid "Geojson File"
+msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
+msgstr "Gráfico dibujado a mano para representar un atlas de Field Papers en la naturaleza."
 
 msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgstr "Gráfico dibujado a mano que ilustra cómo fotografiar una página en un atlas de Field Papers."
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
+msgstr "Gráfico dibujado a mano para ilustrar cómo se hace un atlas de Field Papers."
 
 msgid "Help"
+msgstr "Ayuda"
+
+msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgstr ""
+
+msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
@@ -111,7 +169,13 @@ msgstr "Conectar"
 msgid "LOG OUT"
 msgstr "Desconectar"
 
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
 msgid "Layout"
+msgstr "Disposición"
+
+msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
@@ -129,8 +193,14 @@ msgstr "Añada sus notas y observaciones."
 msgid "Make yourself an atlas"
 msgstr "Haga usted mismo un altas"
 
-msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgid "Making Atlases From GeoJSON"
 msgstr ""
+
+msgid "Making Canned Atlases"
+msgstr ""
+
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgstr "Datos del mapa %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, o una combinación de estos."
 
 msgid "Mapbox"
 msgstr "Mapbox"
@@ -151,6 +221,12 @@ msgid "No atlases."
 msgstr "Sin atlas."
 
 msgid "No snapshots."
+msgstr "Sin capturas de pantalla."
+
+msgid "Plain Text (CSV)"
+msgstr ""
+
+msgid "Potlatch"
 msgstr ""
 
 msgid "Print out anywhere in the world."
@@ -159,23 +235,35 @@ msgstr "Imprimir cualquier lugar del mundo."
 msgid "Private"
 msgstr "Privado"
 
+msgid "Refresh"
+msgstr ""
+
 msgid "Rules"
 msgstr "Reglas"
 
 msgid "Select"
 msgstr "Seleccionar"
 
-msgid "Snapshots"
+msgid "ShapeFile"
 msgstr ""
 
+msgid "Snapshots"
+msgstr "Capturas de pantalla"
+
 msgid "Stamen Design"
+msgstr "Stamen Design"
+
+msgid "Submit"
 msgstr ""
 
 msgid "Take it into the field"
 msgstr "Llevarlo al terreno"
 
-msgid "Toner"
+msgid "Tile URL template"
 msgstr ""
+
+msgid "Toner"
+msgstr "Tonalizador"
 
 msgid "Type in a location"
 msgstr "Indique un lugar"
@@ -192,6 +280,9 @@ msgstr "Sin título"
 msgid "Upload"
 msgstr "Subir"
 
+msgid "Upload MBTiles"
+msgstr ""
+
 msgid "WATCH"
 msgstr "VER"
 
@@ -203,6 +294,9 @@ msgstr "¿Dónde se encuentra su atlas?"
 
 msgid "an atlas to print"
 msgstr "un atlas para imprimir"
+
+msgid "iD"
+msgstr ""
 
 msgid "on same page"
 msgstr "en la misma página"
@@ -224,6 +318,9 @@ msgstr "actividad reciente"
 
 msgid "search"
 msgstr "buscar"
+
+msgid "snapshot of page %{tp}"
+msgstr ""
 
 msgid "with advanced tools"
 msgstr "con herramientas avanzadas"

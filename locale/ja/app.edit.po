@@ -4,12 +4,13 @@
 #
 # Translators:
 # Translators:
+# yasuto.furukawa <furushare@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 02:19+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"PO-Revision-Date: 2015-03-09 07:09+0000\n"
+"Last-Translator: yasuto.furukawa <furushare@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fieldpapers/langu"
 "age/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -19,55 +20,82 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr ""
+msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています"
 
 msgid "%{Upload} pages you've photographed."
-msgstr ""
+msgstr "写真を撮って %{Upload} "
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} 枚の地図"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} 枚の写真"
 
 msgid "%{time_period} ago"
-msgstr ""
+msgstr "%{time_period} 日前"
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
+msgstr "&copy; OpenStreetMap contributors"
 
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
+msgstr "(ログインしているユーザー、またはこのアドレスを知っている方のみアクセスできます)"
+
+msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
 msgid "About the Project"
+msgstr "このプロジェクトについて"
+
+msgid "Activity"
 msgstr ""
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
+msgstr "%{UTM} グリッドを各マップに表示させますか？"
 
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgstr "災害救助活動のための赤十字国際委員会によるレイヤを重ねますか？"
+
+msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
 
 msgid "Atlas Name"
+msgstr "地図名"
+
+msgid "Atlas description"
 msgstr ""
+
+msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas provider"
+msgstr ""
+
+#, fuzzy
+msgid "Atlas text"
+msgstr "地図名"
+
+#, fuzzy
+msgid "Atlas title"
+msgstr "地図名"
 
 msgid "Atlases"
-msgstr ""
+msgstr "地図"
 
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 msgid "Capture your notes"
-msgstr ""
+msgstr "ノートを撮影"
 
 msgid "Check out the OSM help wiki."
 msgstr ""
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr ""
+
+msgid "Copy this atlas"
 msgstr ""
 
 msgid "Describe"
@@ -85,10 +113,31 @@ msgstr ""
 msgid "EXTEND"
 msgstr ""
 
+msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+
+msgid "Edit in..."
+msgstr ""
+
+msgid "Examples:"
+msgstr ""
+
+msgid "Export Data"
+msgstr ""
+
 msgid "Field Papers"
 msgstr ""
 
 msgid "Finished!"
+msgstr ""
+
+msgid "GeoJSON"
+msgstr ""
+
+msgid "Geojson Data"
+msgstr ""
+
+msgid "Geojson File"
 msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
@@ -103,13 +152,25 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgstr ""
+
+msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgstr ""
+
 msgid "LOG IN"
 msgstr ""
 
 msgid "LOG OUT"
 msgstr ""
 
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
 msgid "Layout"
+msgstr ""
+
+msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
@@ -125,6 +186,12 @@ msgid "Make your notes and observations."
 msgstr ""
 
 msgid "Make yourself an atlas"
+msgstr ""
+
+msgid "Making Atlases From GeoJSON"
+msgstr ""
+
+msgid "Making Canned Atlases"
 msgstr ""
 
 msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
@@ -151,10 +218,19 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
+msgid "Plain Text (CSV)"
+msgstr ""
+
+msgid "Potlatch"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr ""
 
 msgid "Private"
+msgstr ""
+
+msgid "Refresh"
 msgstr ""
 
 msgid "Rules"
@@ -163,13 +239,22 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "ShapeFile"
+msgstr ""
+
 msgid "Snapshots"
 msgstr ""
 
 msgid "Stamen Design"
 msgstr ""
 
+msgid "Submit"
+msgstr ""
+
 msgid "Take it into the field"
+msgstr ""
+
+msgid "Tile URL template"
 msgstr ""
 
 msgid "Toner"
@@ -190,6 +275,9 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
+msgid "Upload MBTiles"
+msgstr ""
+
 msgid "WATCH"
 msgstr ""
 
@@ -200,6 +288,9 @@ msgid "Where in the world is your atlas?"
 msgstr ""
 
 msgid "an atlas to print"
+msgstr ""
+
+msgid "iD"
 msgstr ""
 
 msgid "on same page"
@@ -221,6 +312,9 @@ msgid "recent activity"
 msgstr ""
 
 msgid "search"
+msgstr ""
+
+msgid "snapshot of page %{tp}"
 msgstr ""
 
 msgid "with advanced tools"

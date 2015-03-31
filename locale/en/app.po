@@ -45,7 +45,15 @@ msgid ""
 ".)"
 msgstr ""
 
+msgid ""
+"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+"a>, named “geojson_file”:"
+msgstr ""
+
 msgid "About the Project"
+msgstr ""
+
+msgid "Activity"
 msgstr ""
 
 msgid "Add a %{UTM} grid overlay to each map?"
@@ -54,7 +62,27 @@ msgstr ""
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr ""
 
+msgid ""
+"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+"g</a> as a form value, named “geojson_data”:"
+msgstr ""
+
 msgid "Atlas Name"
+msgstr ""
+
+msgid "Atlas description"
+msgstr ""
+
+msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas provider"
+msgstr ""
+
+msgid "Atlas text"
+msgstr ""
+
+msgid "Atlas title"
 msgstr ""
 
 msgid "Atlases"
@@ -74,6 +102,9 @@ msgid ""
 "e)."
 msgstr ""
 
+msgid "Copy this atlas"
+msgstr ""
+
 msgid "Describe"
 msgstr ""
 
@@ -89,10 +120,33 @@ msgstr ""
 msgid "EXTEND"
 msgstr ""
 
+msgid ""
+"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
+"rs.org</a>. <i>All are optional.</i>"
+msgstr ""
+
+msgid "Edit in..."
+msgstr ""
+
+msgid "Examples:"
+msgstr ""
+
+msgid "Export Data"
+msgstr ""
+
 msgid "Field Papers"
 msgstr ""
 
 msgid "Finished!"
+msgstr ""
+
+msgid "GeoJSON"
+msgstr ""
+
+msgid "Geojson Data"
+msgstr ""
+
+msgid "Geojson File"
 msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
@@ -107,13 +161,32 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details u"
+"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
+"rocess."
+msgstr ""
+
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
+"one of two ways:"
+msgstr ""
+
 msgid "LOG IN"
 msgstr ""
 
 msgid "LOG OUT"
 msgstr ""
 
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+"\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
 msgid "Layout"
+msgstr ""
+
+msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
@@ -129,6 +202,12 @@ msgid "Make your notes and observations."
 msgstr ""
 
 msgid "Make yourself an atlas"
+msgstr ""
+
+msgid "Making Atlases From GeoJSON"
+msgstr ""
+
+msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
@@ -157,10 +236,19 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
+msgid "Plain Text (CSV)"
+msgstr ""
+
+msgid "Potlatch"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr ""
 
 msgid "Private"
+msgstr ""
+
+msgid "Refresh"
 msgstr ""
 
 msgid "Rules"
@@ -169,13 +257,22 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "ShapeFile"
+msgstr ""
+
 msgid "Snapshots"
 msgstr ""
 
 msgid "Stamen Design"
 msgstr ""
 
+msgid "Submit"
+msgstr ""
+
 msgid "Take it into the field"
+msgstr ""
+
+msgid "Tile URL template"
 msgstr ""
 
 msgid "Toner"
@@ -196,6 +293,9 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
+msgid "Upload MBTiles"
+msgstr ""
+
 msgid "WATCH"
 msgstr ""
 
@@ -206,6 +306,9 @@ msgid "Where in the world is your atlas?"
 msgstr ""
 
 msgid "an atlas to print"
+msgstr ""
+
+msgid "iD"
 msgstr ""
 
 msgid "on same page"
@@ -227,6 +330,9 @@ msgid "recent activity"
 msgstr ""
 
 msgid "search"
+msgstr ""
+
+msgid "snapshot of page %{tp}"
 msgstr ""
 
 msgid "with advanced tools"

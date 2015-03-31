@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-03 21:21+0000\n"
-"Last-Translator: Marco Ferrari <marco.ferrari@me.com>\n"
+"PO-Revision-Date: 2015-03-04 17:11+0000\n"
+"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/fieldpapers/langua"
 "ge/it/)\n"
 "MIME-Version: 1.0\n"
@@ -45,8 +45,14 @@ msgstr ""
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
 msgstr "(Questo significa che è accessibile soltanto da, se hai effettuato l'accesso, o tramite un URL diretto)."
 
+msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr ""
+
 msgid "About the Project"
 msgstr "Il progetto"
+
+msgid "Activity"
+msgstr ""
 
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr ""
@@ -54,7 +60,28 @@ msgstr ""
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr ""
 
+msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr ""
+
 msgid "Atlas Name"
+msgstr "Nome dell'Atlante"
+
+#, fuzzy
+msgid "Atlas description"
+msgstr "Descrizione"
+
+msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas provider"
+msgstr ""
+
+#, fuzzy
+msgid "Atlas text"
+msgstr "Nome dell'Atlante"
+
+#, fuzzy
+msgid "Atlas title"
 msgstr "Nome dell'Atlante"
 
 msgid "Atlases"
@@ -72,6 +99,9 @@ msgstr "Dai un occhio all'OSM help wiki."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Scegli una pagina dell'atlante da caricare. Capiremo noi dove andrà posizionata (grazie al QR code)."
 
+msgid "Copy this atlas"
+msgstr ""
+
 msgid "Describe"
 msgstr "Descrivi"
 
@@ -87,11 +117,32 @@ msgstr "Scarica il PDF"
 msgid "EXTEND"
 msgstr "AMPLIA"
 
+msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+
+msgid "Edit in..."
+msgstr ""
+
+msgid "Examples:"
+msgstr ""
+
+msgid "Export Data"
+msgstr ""
+
 msgid "Field Papers"
 msgstr "Field Papers"
 
 msgid "Finished!"
 msgstr "Finito!"
+
+msgid "GeoJSON"
+msgstr ""
+
+msgid "Geojson Data"
+msgstr ""
+
+msgid "Geojson File"
+msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "Disegno a mano libera che mostra un atlante di Field Papers nella natura"
@@ -105,14 +156,26 @@ msgstr "Disegno a mano libera che mostra la creazione di un atlante di Field Pap
 msgid "Help"
 msgstr ""
 
+msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgstr ""
+
+msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgstr ""
+
 msgid "LOG IN"
 msgstr "ACCEDI"
 
 msgid "LOG OUT"
 msgstr "ESCI"
 
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
 msgid "Layout"
 msgstr "Layout"
+
+msgid "Location and zoom"
+msgstr ""
 
 msgid "MAKE"
 msgstr "REALIZZA"
@@ -128,6 +191,12 @@ msgstr "Crea le tue note e osservazioni"
 
 msgid "Make yourself an atlas"
 msgstr "Creati un atlante"
+
+msgid "Making Atlases From GeoJSON"
+msgstr ""
+
+msgid "Making Canned Atlases"
+msgstr ""
 
 msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
 msgstr "Dati cartografici %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, o una combinazione di questi."
@@ -153,11 +222,20 @@ msgstr "Nessun atlante."
 msgid "No snapshots."
 msgstr "Nessuna foto."
 
+msgid "Plain Text (CSV)"
+msgstr ""
+
+msgid "Potlatch"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr "Stampa qualsiasi zona del mondo."
 
 msgid "Private"
 msgstr "Privato"
+
+msgid "Refresh"
+msgstr ""
 
 msgid "Rules"
 msgstr "Regole"
@@ -165,14 +243,23 @@ msgstr "Regole"
 msgid "Select"
 msgstr "Seleziona"
 
+msgid "ShapeFile"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "Istantanee"
 
 msgid "Stamen Design"
 msgstr "Stamen Design"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Take it into the field"
 msgstr "Portalo sul campo"
+
+msgid "Tile URL template"
+msgstr ""
 
 msgid "Toner"
 msgstr "Toner"
@@ -192,6 +279,9 @@ msgstr "Senza titolo"
 msgid "Upload"
 msgstr "Carica"
 
+msgid "Upload MBTiles"
+msgstr ""
+
 msgid "WATCH"
 msgstr "GUARDA"
 
@@ -203,6 +293,9 @@ msgstr "In quale parte del mondo si trova il tuo atlante?"
 
 msgid "an atlas to print"
 msgstr "un atlante da stampare"
+
+msgid "iD"
+msgstr ""
 
 msgid "on same page"
 msgstr "sulla stessa pagina"
@@ -224,6 +317,9 @@ msgstr "attività recenti"
 
 msgid "search"
 msgstr "cerca"
+
+msgid "snapshot of page %{tp}"
+msgstr ""
 
 msgid "with advanced tools"
 msgstr "con strumenti avanzati"
