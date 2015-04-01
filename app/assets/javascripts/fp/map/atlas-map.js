@@ -104,6 +104,7 @@ L.PageLayout = L.Class.extend({
         width: 0,
         height: 0
       },
+      grid: [],
       rows: 1,
       cols: 1
     },
@@ -196,15 +197,41 @@ L.PageLayout = L.Class.extend({
 
     _deriveColRows: function () {
       var cols = [],
-          rows = [];
+          rows = [],
+          self = this;
+
+      this.refs.grid = [];
+
+      // sort pages by page number
+      // filter out the "i" page
+      this.options.pages = this.options.pages.sort(function(a,b){
+        if(a.page_number < b.page_number) return -1;
+        if(a.page_number > b.page_number) return 1;
+        return 0;
+      }).filter(function(page){
+        return page.page_number !== 'i';
+      });
+
+
+      var rowIdx = -1;
+      var colIdx = 0;
 
       this.options.pages.forEach(function(page){
         var pageNum = page.page_number;
-        if (page.page_number !== 'i') {
-          var parts = page.page_number.split('');
-          if (rows.indexOf(parts[0]) < 0) rows.push(parts[0]);
-          if (cols.indexOf(parts[1]) < 0) cols.push(parts[1]);
+        var parts = page.page_number.split('');
+
+        if (rows.indexOf(parts[0]) < 0) {
+          rowIdx++;
+          rows.push(parts[0]);
+          self.refs.grid[rowIdx] = [];
+          colIdx = 0;
         }
+
+        if (cols.indexOf(parts[1]) < 0) cols.push(parts[1]);
+
+        self.refs.grid[rowIdx][colIdx] = page;
+
+        colIdx++;
       });
 
       this.refs.cols = cols.length;
@@ -248,7 +275,7 @@ L.PageLayout = L.Class.extend({
           }
 
           var label = L.DomUtil.create("div", "page-label", elm);
-          var labelText = this.rowNames[r] + (i+1);
+          var labelText = this.refs.grid[r][i].page_number || this.rowNames[r] + (i+1);
           $(label).text(labelText);
 
           this.pageElements.push(elm);

@@ -1,3 +1,4 @@
+require "providers"
 # == Schema Information
 #
 # Table name: pages

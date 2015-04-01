@@ -1,3 +1,104 @@
-<h1>Page</h1>
+<% if !defined? @page.atlas.id %>
+  <p class="alert">No atlas</p>
+<% else %>
+  <div class="row pad-bottom">
+      <div id="atlas-locator-map" class="twelve columns"></div>
+      <div class="twelve columns relative">
 
-<%= debug @page %>
+        <div class="atlas-map-overlay top-left stacked">
+          <h5 class="overlay-item"><%= @page.atlas.title %></h5>
+          <p class="overlay-item"><%= _("One page") %></p>
+        </div>
+
+        <div class="atlas-map-overlay bottom-right">
+          <%= form_for @page.atlas, url: compose_path(:select), method: :put do |f| %>
+            <%= f.hidden_field :north, :value=> @page.atlas.north %>
+            <%= f.hidden_field :south, :value=> @page.atlas.south %>
+            <%= f.hidden_field :east, :value=> @page.atlas.east %>
+            <%= f.hidden_field :west, :value=> @page.atlas.west %>
+            <%= f.hidden_field :zoom, :value=> @page.atlas.zoom %>
+            <%= f.hidden_field :rows, :value=> @page.atlas.get_rows %>
+            <%= f.hidden_field :cols, :value=> @page.atlas.get_cols %>
+            <%= f.hidden_field :orientation, :value=> @page.atlas.orientation %>
+            <%= f.hidden_field :provider, :value=> @page.atlas.provider %>
+            <%= f.hidden_field :title, :value=> @page.atlas.title %>
+            <%= f.hidden_field :text, :value=> @page.atlas.text %>
+            <%= f.hidden_field :private, :value=> @page.atlas.private %>
+            <%= f.hidden_field :cloned_from, :value=> @page.atlas.id %>
+            <%= f.button _("Copy this atlas") %>
+          <% end %>
+
+          <% if @page.atlas.pdf_url %><a href="<%= @page.atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
+        </div>
+
+        <div id="atlas-map"></div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="eight columns atlases-activity">
+        <h4><%= _("Activity") %></h4>
+        <ul class="pad-bottom">
+          <li>
+            <p><%= @page.atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@page.atlas.created_at) }, atlases_path(month: @page.atlas.created_at.strftime("%Y-%m")) %></p>
+            <p class="details"><%= pluralize(@page.atlas.pages.length, 'page') %> + <%= Providers.derive(@page.atlas.provider) %> + <%= @page.atlas.orientation %> + <%= @page.atlas.layout %></p>
+          </li>
+          <% if @page.atlas.refreshed_from  %>
+            <li>This atlas is a <i>refresh</i> of <%= link_to(@page.atlas.refreshed_from, atlas_path(@page.atlas.refreshed_from)) %> </li>
+          <% end %>
+          <% if @page.atlas.cloned_from  %>
+            <li>This atlas is a <i>copy</i> of <%= link_to(@page.atlas.cloned_from, atlas_path(@page.atlas.cloned_from)) %> </li>
+          <% end %>
+          <% if !@page.atlas.snapshots.empty? %>
+            <%= render partial: "atlas_snapshot", collection: @page.atlas.snapshots %>
+          <% end %>
+        </ul>
+
+
+      </div>
+
+      <div class="four columns">
+        <div class="u-pull-right no-wrap options-list">
+          <h6 class="options-list-title"><%= _("Export Data") %></h6>
+          <ul>
+            <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
+            <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
+            <li><a href="#"><%= _("ShapeFile") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=shp -->
+          </ul>
+
+          <h6 class="options-list-title"><%= _("Edit in...") %></h6>
+          <ul>
+            <li><a href=<%= iDLink(@page.atlas.slug, @page.atlas.zoom, @page.atlas.longitude, @page.atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+            <li><a href=<%= potlatchLink(@page.atlas.slug, @page.atlas.zoom, @page.atlas.longitude, @page.atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+
+  <% content_for :foot do %>
+    <script>
+      $(function(){
+        var providerObject = <%= Providers.get_layer_from_url(@page.atlas.get_provider_without_overlay).to_json.html_safe %>;
+        var atlasProvider = "<%= @page.atlas.get_provider_without_overlay %>";
+        var bbox = <%= @page.bbox %>;
+        var pages = [<%= @page.to_json.html_safe %>];
+
+        FP.map.locator('atlas-locator-map', {
+          bbox: bbox,
+          provider: atlasProvider,
+          showMarker: true,
+          zoom: 5
+        });
+
+        FP.map.atlas('atlas-map',{
+          bbox: bbox,
+          providerSettings: providerObject,
+          provider: atlasProvider,
+          pages: pages
+        });
+      });
+    </script>
+  <% end %>
+<% end %>
+
