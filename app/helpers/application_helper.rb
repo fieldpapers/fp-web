@@ -22,6 +22,6 @@ module ApplicationHelper
   end
 
   def potlatchLink(slug, zoom, lon, lat)
-    "http://www.openstreetmap.org/edit?lat=" + lat.to_s + "&lon=" + lon.to_s + "&zoom=" + zoom.to_s + "&tileurl=http://fieldpapers.org/files/scans/" + slug.to_s + "/$z/$x/$y.jpg"
+    "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=http://fieldpapers.org/files/scans/#{slug}/$z/$x/$y.jpg"
   end
 end
