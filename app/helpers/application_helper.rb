@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def iDLink(slug, zoom, lon, lat)
-    "http://www.openstreetmap.us/iD/release/#background=custom:http://fieldpapers.org/files/scans/" + slug.to_s + "/{z}/{x}/{y}.jpg&map=" + zoom.to_s + "/" + lon.to_s + "/" + lat.to_s
+    "http://www.openstreetmap.org/edit#background=custom:http://fieldpapers.org/files/scans/#{slug}/{z}/{x}/{y}.jpg&map=#{zoom}/#{lat}/#{lon}"
   end
 
   def potlatchLink(slug, zoom, lon, lat)
