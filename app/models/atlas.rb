@@ -275,15 +275,17 @@ private
     # create index page
 
     if rows * cols > 1
-      left = west - (west * INDEX_BUFFER_FACTOR).abs
-      right = east + (east * INDEX_BUFFER_FACTOR).abs
+      horiz_padding = ((east - west) * INDEX_BUFFER_FACTOR).abs
+      vert_padding = ((north - south) * INDEX_BUFFER_FACTOR).abs
+      left = west - horiz_padding
+      right = east + horiz_padding
 
       pages.create! \
         page_number: "i",
         west: left,
-        south: south - (south * INDEX_BUFFER_FACTOR).abs,
+        south: south - vert_padding,
         east: right,
-        north: north + (north * INDEX_BUFFER_FACTOR).abs,
+        north: north + vert_padding,
         zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
         provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
