@@ -4,50 +4,74 @@ class GeneratePdfJob < ActiveJob::Base
   queue_as :default
 
   def perform(atlas)
-    filenames = atlas.pages.map(&method(:render_page))
+    begin
+      filenames = atlas.pages.map(&method(:render_page))
 
-    filename = merge_pages(filenames) if atlas.pages.size > 1
-    filename ||= filenames.first
+      filename = merge_pages(filenames) if atlas.pages.size > 1
+      filename ||= filenames.first
 
-    s3 = AWS::S3.new
+      s3 = AWS::S3.new
 
-    # upload file to S3
+      # upload file to S3
 
-    key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
-    bucket = Rails.application.secrets.aws["s3_bucket_name"]
-    s3.buckets[bucket].objects[key].write \
-      file: filename,
-      acl: :public_read,
-      cache_control: "public,max-age=31536000",
-      content_type: "application/pdf"
+      key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
+      bucket = Rails.application.secrets.aws["s3_bucket_name"]
 
-    # attach file to Atlas
-    atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+      logger.debug "Uploading #{filename} to #{bucket}/#{key} for atlas #{atlas.slug}"
+
+      s3.buckets[bucket].objects[key].write \
+        file: filename,
+        acl: :public_read,
+        cache_control: "public,max-age=31536000",
+        content_type: "application/pdf"
+
+      # attach file to Atlas
+      atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+    ensure
+      # clean up our temp files
+      filenames.map do |f|
+        File.unlink(f)
+      end
+
+      # possibly a merged file
+      File.unlink(filename)
+    end
   end
 
   private
 
   def merge_pages(filenames)
-    gs = %w(gs -q -sDEVICE=pdfwrite -o -)
+    cmd = %w(gs -q -sDEVICE=pdfwrite -o -)
 
-    gs.concat(filenames)
+    cmd.concat(filenames)
 
-    pdf = IO.popen(gs)
+    logger.debug "Merging pages using '#{cmd}'"
 
-    (pid, status) = Process.wait2(pdf.pid)
+    output = Tempfile.new(["atlas", ".pdf"], "tmp/")
 
-    unless status.success?
+    begin
+      Timeout.timeout(30) do
+        pid = IO.popen(cmd) do |out|
+          IO.copy_stream(out, output)
+        end
+      end
+    rescue Timeout::Error
+      Process.kill 9, pid
+
+      raise "Timed out waiting to merge pages #{filenames.join(",")}"
+    end
+
+    unless $?.success?
       raise "Failed to merge pages"
     end
 
-    atlas = Tempfile.new(["atlas", ".pdf"], "tmp/")
+    logger.debug "Merged output: #{output.path}"
 
-    IO.copy_stream(pdf, atlas)
-
-    atlas.path
+    output.path
   end
 
   def render_page(page)
+    logger.debug "Rendering #{page.atlas.slug}/#{page.page_number}"
     cmd = %w(docker run fieldpapers/paper)
 
     case page.page_number
@@ -96,6 +120,8 @@ class GeneratePdfJob < ActiveJob::Base
     unless $?.success?
       raise "Failed to render page #{page.page_number}"
     end
+
+    logger.debug "#{page.atlas.slug}/#{page.page_number} rendered to #{output.path}"
 
     output.path
   end
