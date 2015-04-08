@@ -4,25 +4,33 @@ class GeneratePdfJob < ActiveJob::Base
   queue_as :default
 
   def perform(atlas)
-    filenames = atlas.pages.map(&method(:render_page))
+    begin
+      filenames = atlas.pages.map(&method(:render_page))
 
-    filename = merge_pages(filenames) if atlas.pages.size > 1
-    filename ||= filenames.first
+      filename = merge_pages(filenames) if atlas.pages.size > 1
+      filename ||= filenames.first
 
-    s3 = AWS::S3.new
+      s3 = AWS::S3.new
 
-    # upload file to S3
+      # upload file to S3
 
-    key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
-    bucket = Rails.application.secrets.aws["s3_bucket_name"]
-    s3.buckets[bucket].objects[key].write \
-      file: filename,
-      acl: :public_read,
-      cache_control: "public,max-age=31536000",
-      content_type: "application/pdf"
+      key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
+      bucket = Rails.application.secrets.aws["s3_bucket_name"]
+      s3.buckets[bucket].objects[key].write \
+        file: filename,
+        acl: :public_read,
+        cache_control: "public,max-age=31536000",
+        content_type: "application/pdf"
 
-    # attach file to Atlas
-    atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+      # attach file to Atlas
+      atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+    ensure
+      # clean up our temp files
+      filenames.map do |f|
+        File.unlink(f)
+      end if filenames
+      File.unlink(filename) if filename
+    end
   end
 
   private
@@ -43,6 +51,8 @@ class GeneratePdfJob < ActiveJob::Base
     atlas = Tempfile.new(["atlas", ".pdf"], "tmp/")
 
     IO.copy_stream(pdf, atlas)
+
+    atlas.close
 
     atlas.path
   end
@@ -91,6 +101,8 @@ class GeneratePdfJob < ActiveJob::Base
       Process.kill 9, pid
 
       raise "Timed out waiting to render page #{page.page_number}"
+    ensure
+      output.close
     end
 
     unless $?.success?
