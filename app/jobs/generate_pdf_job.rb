@@ -3,6 +3,11 @@ require "timeout"
 class GeneratePdfJob < ActiveJob::Base
   queue_as :default
 
+  # bypass the default scope
+  GlobalID::Locator.use :app do |gid|
+    const_get(gid.model_name).unscoped.find(gid.model_id)
+  end
+
   def perform(atlas)
     begin
       filenames = atlas.pages.map(&method(:render_page))
