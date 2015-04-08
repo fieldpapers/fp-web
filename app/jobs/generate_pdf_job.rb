@@ -52,6 +52,7 @@ class GeneratePdfJob < ActiveJob::Base
 
     logger.debug "Merging pages using '#{cmd}'"
 
+    pid = nil
     output = Tempfile.new(["atlas", ".pdf"], "tmp/")
 
     begin
