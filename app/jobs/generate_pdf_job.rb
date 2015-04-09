@@ -31,7 +31,10 @@ class GeneratePdfJob < ActiveJob::Base
         content_type: "application/pdf"
 
       # attach file to Atlas
-      atlas.update(pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}")
+      atlas.update \
+        pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}",
+        progress: 1,
+        created_at: Time.now
     ensure
       # clean up our temp files
       filenames.map do |f|
