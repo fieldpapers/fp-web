@@ -272,11 +272,21 @@ private
   end
 
   def create_pages
+    width = (east - west) / cols
+    height = (north - south) / rows
+
     # create index page
 
     if rows * cols > 1
       horiz_padding = ((east - west) * INDEX_BUFFER_FACTOR).abs
       vert_padding = ((north - south) * INDEX_BUFFER_FACTOR).abs
+
+      if rows > cols
+        horiz_padding += width * cols / rows
+      elsif cols > rows
+        vert_padding += height * rows / cols
+      end
+
       left = west - horiz_padding
       right = east + horiz_padding
 
@@ -294,9 +304,6 @@ private
     # create individual pages
 
     row_names = ("A".."Z").to_a
-
-    width = (east - west) / cols
-    height = (north - south) / rows
 
     rows.times do |y|
       cols.times do |x|
