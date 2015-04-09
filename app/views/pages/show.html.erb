@@ -6,8 +6,8 @@
       <div class="twelve columns relative">
 
         <div class="atlas-map-overlay top-left stacked">
-          <h5 class="overlay-item"><%= @page.atlas.title %></h5>
-          <p class="overlay-item"><%= _("One page") %></p>
+          <h5 class="overlay-item"> <%= _("From") %> <%=link_to @page.atlas.title, atlas_path(@page.atlas) %></h5>
+          <p class="overlay-item page-number"><%=h @page.page_number %></p>
         </div>
 
         <div class="atlas-map-overlay bottom-right">
@@ -31,7 +31,7 @@
           <% if @page.atlas.pdf_url %><a href="<%= @page.atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
         </div>
 
-        <div id="atlas-map"></div>
+        <div id="atlas-map" class="page-view"></div>
       </div>
   </div>
 
@@ -78,7 +78,6 @@
 
   <% content_for :foot do %>
     <script>
-      FP.isAtlasPageView = true;
       $(function(){
         var providerObject = <%= Providers.get_layer_from_url(@page.atlas.get_provider_without_overlay).to_json.html_safe %>;
         var atlasProvider = "<%= @page.atlas.get_provider_without_overlay %>";
@@ -96,7 +95,8 @@
           bbox: bbox,
           providerSettings: providerObject,
           provider: atlasProvider,
-          pages: pages
+          pages: pages,
+          isPageView: true
         });
       });
     </script>

@@ -41,6 +41,10 @@
   };
 
   Map.atlas = function(selector, settings) {
+
+    // assign pageView flag to global namespace
+    FP.isAtlasPageView = settings.isPageView || false;
+
     var __ = {};
     var mapOptions = L.Util.extend({}, locatorMapOptions, FP.map.options);
     var bbox = deriveBbox(settings);
@@ -291,8 +295,6 @@ L.PageLayout = L.Class.extend({
           $(label).text(labelText);
 
           this.pageElements.push(elm);
-
-
         }
       }
     }

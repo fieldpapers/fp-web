@@ -57,6 +57,14 @@
     width: auto;
     white-space: nowrap;
   }
+    .atlas-map-overlay .overlay-item a {
+      color: #fff !important;
+    }
+
+    .overlay-item.page-number {
+      font-weight: 600;
+      font-size: 34px;
+    }
 
   .atlas-map-overlay button,
   .atlas-map-overlay a.button {
@@ -89,6 +97,12 @@
 #atlas-map .leaflet-control-zoom {
   top: 6.5rem;
 }
+
+#atlas-map.page-view .leaflet-control-zoom {
+  top: 9.5rem;
+}
+
+
 
 .leaflet-pagelayout-container {
     position: absolute;
