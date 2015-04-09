@@ -274,11 +274,25 @@ L.PageLayout = L.Class.extend({
             L.DomUtil.addClass(elm, 'outer-right');
           }
 
-          var label = L.DomUtil.create("div", "page-label", elm);
+          var label;
           var labelText = this.refs.grid[r][i].page_number || this.rowNames[r] + (i+1);
+          var path = (document.location.pathname.slice(-1) === '/') ?
+                      document.location.pathname.slice(0,-1) :
+                      document.location.pathname;
+
+          if (!FP.isAtlasPageView) {
+            var link = L.DomUtil.create("a", "page-link", elm);
+            label = L.DomUtil.create("div", "page-label", link);
+            link.href = path + '/' + labelText;
+          } else {
+            label = L.DomUtil.create("div", "page-label", elm);
+          }
+
           $(label).text(labelText);
 
           this.pageElements.push(elm);
+
+
         }
       }
     }

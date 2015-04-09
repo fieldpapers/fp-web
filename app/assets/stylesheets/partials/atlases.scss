@@ -128,6 +128,20 @@
     border-right: 0;
   }
 
+.leaflet-pagelayout-container .page-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  color: #000 !important;
+}
+
+.leaflet-pagelayout-container .page-link:hover {
+  background: transparent;
+  background: rgba(255,255,255,0.3);
+}
+
 .leaflet-pagelayout-container .page-label{
   display: inline;
   position: absolute;

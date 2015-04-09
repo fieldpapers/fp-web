@@ -78,6 +78,7 @@
 
   <% content_for :foot do %>
     <script>
+      FP.isAtlasPageView = true;
       $(function(){
         var providerObject = <%= Providers.get_layer_from_url(@page.atlas.get_provider_without_overlay).to_json.html_safe %>;
         var atlasProvider = "<%= @page.atlas.get_provider_without_overlay %>";
