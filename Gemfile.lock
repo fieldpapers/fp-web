@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ollie/geo-mercator.git
+  revision: 2761d0c2ca4c7c2cb6388a088987fda6e9fc947b
+  specs:
+    geo (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -307,6 +313,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   friendly_id (~> 5.1.0)
+  geo!
   gettext (>= 3.0.2)
   gettext_i18n_rails
   guard
@@ -318,6 +325,7 @@ DEPENDENCIES
   http_accept_language
   jbuilder (~> 2.0)
   jquery-rails
+  json
   kaminari
   leaflet-rails
   meta_request

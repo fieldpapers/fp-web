@@ -302,7 +302,7 @@ private
         north: north + vert_padding,
         zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
-        provider: provider.gsub("http://tile.stamen.com/utm/{Z}/{X}/{Y}.png", "")
+        provider: provider.gsub(OVERLAY_UTM, "")
     end
 
     # create individual pages

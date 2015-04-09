@@ -1,5 +1,7 @@
 require "placefinder"
 require "providers"
+require "json"
+require "geo"
 
 class ComposeController < ApplicationController
   include Wicked::Wizard
@@ -31,6 +33,90 @@ class ComposeController < ApplicationController
   end
 
   def create
+    # raw geojson data
+    if params[:geojson_data]
+      # params[:geojson_data] is a String,
+      # so need to convert to JSON
+      geojson = JSON.parse(params[:geojson_data])
+
+      # TODO: need to validate geojson
+
+      props = geojson['properties']
+
+
+      # TODO: need to validate geojson props
+      params[:atlas] = {
+        title: props['title'] || '',
+        text: props['description'] || '',
+        paper_size: props['paper_size'] || 'letter',
+        orientation: props['orientation'] || 'landscape',
+        layout: props['layout'] || 'full-page',
+        utm_grid: props['utm_grid'] || false,
+        redcross_overlay: props['redcross_overlay'] || false,
+        zoom: props['zoom'] || 16,
+        provider: Providers.layers[Providers.default.to_sym][:template],
+        west: nil,
+        south: nil,
+        east: nil,
+        north: nil,
+        rows: 0,
+        cols: 0
+      }
+
+      templates = []
+
+      for feature in geojson['features']
+        b = nil
+        p = feature['properties']
+
+        templates.push(p['provider'] || Providers.layers[Providers.default.to_sym][:template])
+        zoom = p['zoom'] || 16
+
+        if feature['geometry']['type'] == 'Point'
+          b = point_extent(feature['geometry']['coordinates'], zoom, [1200, 1200])
+        elsif feature['geometry']['type'] == 'Polygon'
+          b = polygon_extent(feature['geometry']['coordinates'])
+        else
+          # skip
+        end
+
+        if !b.nil?
+          if params[:atlas][:west].nil?
+            params[:atlas][:west] = b[0]
+          else
+            params[:atlas][:west] = [params[:atlas][:west], b[0]].min
+          end
+
+          if params[:atlas][:east].nil?
+            params[:atlas][:east] = b[2]
+          else
+            params[:atlas][:east] = [params[:atlas][:east], b[2]].max
+          end
+
+          if params[:atlas][:north].nil?
+            params[:atlas][:north] = b[3]
+          else
+            params[:atlas][:north] = [params[:atlas][:north], b[3]].max
+          end
+
+          if params[:atlas][:south].nil?
+            params[:atlas][:south] = b[1]
+          else
+            params[:atlas][:south] = [params[:atlas][:south], b[1]].min
+          end
+        end
+      end
+
+      # TODO: figure out how to calculate rows & columns
+      # TODO: how to handle providers & zooms for pages ("features")
+      return redirect_to wizard_path(:search)
+    end
+
+    # geojson file
+    if params[:geojson_file]
+      return redirect_to wizard_path(:search)
+    end
+
     # convert params into a form that ActiveRecord likes (retaining old input
     # names)
     params[:atlas] = {
@@ -96,5 +182,43 @@ class ComposeController < ApplicationController
 
   def finish_wizard_path
     atlas_path(@atlas)
+  end
+
+  def point_extent(point, zoom, dimensions)
+    px = Geo::Utils.pixel_coord(point[0], point[1], zoom)
+    top_left_px = [
+      px[0] - (dimensions[0] / 2),
+      px[1] - (dimensions[1] / 2)
+    ]
+    bottom_right_px = [
+      px[0] + (dimensions[0] / 2),
+      px[1] + (dimensions[1] / 2)
+    ]
+
+    west_north = Geo::Utils.ll_coord(top_left_px[0], top_left_px[1], zoom)
+    east_south = Geo::Utils.ll_coord(bottom_right_px[0], bottom_right_px[1], zoom)
+
+    return [
+      west_north[0],
+      east_south[1],
+      east_south[0],
+      west_north[1]
+    ]
+
+  end
+
+  def polygon_extent(coords)
+    coords = coords[0]
+
+    longitude_minmax = coords.minmax_by { |c| c[0]}
+    latitude_minmax = coords.minmax_by { |c| c[1]}
+
+    west = longitude_minmax[0][0]
+    south = latitude_minmax[0][1]
+    east = longitude_minmax[1][0]
+    north = latitude_minmax[1][1]
+
+    return [west, south, east, north]
+
   end
 end

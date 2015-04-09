@@ -39,6 +39,8 @@ gem "s3_direct_upload" # direct-to-S3 upload helpers
 gem "sucker_punch", "~> 1.0" # in-process queue processing
 gem "mysql2"
 gem "wicked" # wizard controllers
+gem "json"
+gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 
 ## production-only dependencies
 
