@@ -41,7 +41,7 @@ class GeneratePdfJob < ActiveJob::Base
       atlas.update \
         pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}",
         progress: 1,
-        created_at: Time.now
+        composed_at: Time.now
     ensure
       # clean up our temp files
       filenames.map do |f|
