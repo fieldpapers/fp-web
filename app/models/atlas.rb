@@ -261,14 +261,13 @@ private
 
   def calculate_zoom(west, east)
     z = (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
-    info = provider_info
+    info = provider_info || {}
+
+    info[:minzoom] ||= 0
+    info[:maxzoom] ||= 18
 
     # clamp zoom to the available zoom range
-    if !info.nil?
-      [info[:minzoom], z, info[:maxzoom]].sort[1]
-    else
-      [0, z, 18].sort[1]
-    end
+    [info[:minzoom], z, info[:maxzoom]].sort[1]
   end
 
   def create_pages
