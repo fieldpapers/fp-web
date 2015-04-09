@@ -3,16 +3,23 @@ require "timeout"
 class GeneratePdfJob < ActiveJob::Base
   queue_as :default
 
+  ADDITIONAL_STEP_COUNT = 3 # started, merge pages, upload
+
   # bypass the default scope
   GlobalID::Locator.use :app do |gid|
     const_get(gid.model_name).unscoped.find(gid.model_id)
   end
 
   def perform(atlas)
+    update_progress(atlas)
+
+    filenames = nil
+    filename = nil
+
     begin
       filenames = atlas.pages.map(&method(:render_page))
 
-      filename = merge_pages(filenames) if atlas.pages.size > 1
+      filename = merge_pages(atlas, filenames) if atlas.pages.size > 1
       filename ||= filenames.first
 
       s3 = AWS::S3.new
@@ -39,16 +46,16 @@ class GeneratePdfJob < ActiveJob::Base
       # clean up our temp files
       filenames.map do |f|
         File.unlink(f)
-      end
+      end if filenames
 
       # possibly a merged file
-      File.unlink(filename)
+      File.unlink(filename) if filename
     end
   end
 
   private
 
-  def merge_pages(filenames)
+  def merge_pages(atlas, filenames)
     cmd = %w(gs -q -sDEVICE=pdfwrite -o -)
 
     cmd.concat(filenames)
@@ -75,6 +82,8 @@ class GeneratePdfJob < ActiveJob::Base
     end
 
     logger.debug "Merged output: #{output.path}"
+
+    update_progress(atlas)
 
     output.path
   end
@@ -132,6 +141,18 @@ class GeneratePdfJob < ActiveJob::Base
 
     logger.debug "#{page.atlas.slug}/#{page.page_number} rendered to #{output.path}"
 
+    update_progress(page.atlas)
+
     output.path
+  end
+
+  def update_progress(atlas, increments = 1)
+    atlas.update(progress: atlas.progress + (increments * partial_progress(atlas)))
+  end
+
+  private
+
+  def partial_progress(atlas)
+    1.0 / ((atlas.pages.size || 0) + ADDITIONAL_STEP_COUNT)
   end
 end

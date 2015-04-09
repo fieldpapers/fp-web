@@ -63,6 +63,7 @@ class Atlas < ActiveRecord::Base
 
   after_create :create_pages
   after_create :generate_pdf
+  after_initialize :apply_defaults
   before_save :handle_overlays
   before_save :pick_zoom
 
@@ -233,6 +234,10 @@ class Atlas < ActiveRecord::Base
   end
 
 private
+
+  def apply_defaults
+    self.progress ||= 0
+  end
 
   def random_id
     # use multiple attempts of a lambda for slug candidates
