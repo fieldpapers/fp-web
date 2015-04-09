@@ -141,6 +141,7 @@ class GeneratePdfJob < ActiveJob::Base
 
     logger.debug "#{page.atlas.slug}/#{page.page_number} rendered to #{output.path}"
 
+    page.update(composed_at: Time.now)
     update_progress(page.atlas)
 
     output.path
