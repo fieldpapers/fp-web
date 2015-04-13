@@ -5,6 +5,30 @@
   <% end %>
 <% end %>
 
+<% if @atlas.composed_at.nil? %>
+  <div class="row">
+    <div class="twelve columns">
+        <h2>Rendering atlas <a href="<%= atlas_path(@atlas) %>"><%= @atlas.slug %></a></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns pad-bottom">
+      <!-- https://css-tricks.com/examples/ProgressBars/ -->
+      <div class="progress-bar">
+        <span style="width: <%= (@atlas.progress * 100) %>%;"></span>
+      </div>
+    </div>
+    <div class="twelve columns">
+      <p>This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href="<%= atlas_path(@atlas) %>">bookmark this page</a> and come back later.</p>
+      <p>If it takes more than an hour, check <a href="http://twitter.com/fieldpapers">@fieldpapers on twitter</a> for system status updates, and email us at help@fieldpapers.org if your atlas is stuck.</p>
+      <% if @atlas.private %>
+      <p>Since this atlas is <span class="private">private</span>, you probably should <a href="<%= atlas_path(@atlas) %>">bookmark it</a>.</p>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+
 <div class="row pad-bottom">
     <div id="atlas-locator-map" class="twelve columns"></div>
     <div class="twelve columns relative">
@@ -64,22 +88,6 @@
       <div id="atlas-map"></div>
     </div>
 </div>
-
-<!-- Testing progress -->
-<% if @atlas.composed_at.nil? %>
-<div class="row pad-bottom">
-  <div class="three columns">
-    Atlas rendering progress
-  </div>
-  <div class="nine columns">
-    <!-- https://css-tricks.com/examples/ProgressBars/ -->
-    <div class="progress-bar">
-      <span style="width: <%= (@atlas.progress * 100) %>%;"></span>
-    </div>
-  </div>
-</div>
-<% end %>
-
 
 <div class="row">
     <div class="eight columns atlases-activity">
@@ -145,3 +153,5 @@
     });
   </script>
 <% end %>
+
+<% end %> <!-- end atlas block -->
