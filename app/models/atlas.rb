@@ -173,7 +173,11 @@ class Atlas < ActiveRecord::Base
   end
 
   def title
-    read_attribute(:title) || "Untitled"
+    if self[:title].blank?
+      "Untitled"
+    else
+      read_attribute(:title)
+    end
   end
 
   # probably can get rid of this once migrated
