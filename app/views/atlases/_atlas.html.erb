@@ -1,5 +1,5 @@
 <li class="map-card four columns">
-  <div class="map-card-preview static-map">
+  <a href="<%= atlas_path(atlas) %>" class="map-card-preview static-map">
     <%= map(
       :container_id => "static-map-#{atlas.slug}",
       :center => {
@@ -24,7 +24,7 @@
       :subdomains => ['a','b','c'],
       :fitbounds => [[atlas.bbox[1], atlas.bbox[0]],[atlas.bbox[3], atlas.bbox[2]]]
     ) %>
-  </div>
+  </a>
 
 
   <div class="no-wrap">

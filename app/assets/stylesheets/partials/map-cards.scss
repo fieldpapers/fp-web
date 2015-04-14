@@ -3,16 +3,7 @@ $column-counts: 3;
 .map-cards {
   margin-top: 2rem;
   list-style: none;
-  /*
-  @media (#{$bp-larger-than-tablet}) {
-    -moz-column-count: $column-counts;
-    -webkit-column-count: $column-counts;
-    column-count: $column-counts;
-    -moz-column-gap: 1em;
-    -webkit-column-gap: 1em;
-    column-gap: 1em;
-  }
-  */
+  @media (#{$bp-larger-than-tablet}) {}
 }
 
 .map-card {
@@ -25,14 +16,9 @@ $column-counts: 3;
   background-image: linear-gradient(45deg, #FFF, #F9F9F9);
   color: #666;
   vertical-align: top;
-  -webkit-column-break-inside: avoid;
-     -moz-column-break-inside: avoid;
-          column-break-inside: avoid;
+  cursor: pointer;
 
-
-  @media (#{$bp-larger-than-tablet}) {
-
-  }
+  @media (#{$bp-larger-than-tablet}) {}
 }
 
 .map-card:first-child,
@@ -70,6 +56,9 @@ $column-counts: 3;
 
   .map-card-preview.static-map > div {
     height: 240px;
+  }
+  .map-card-preview .leaflet-container {
+    cursor: pointer;
   }
 
 
