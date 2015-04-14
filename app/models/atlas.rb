@@ -318,8 +318,6 @@ private
         left = west + (x * width)
         right = east - ((cols - x - 1) * width)
 
-        z = (BASE_ZOOM - Math.log2((((right * (2**(BASE_ZOOM + 8))) / 360) - ((left * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
-
         pages.create! \
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
