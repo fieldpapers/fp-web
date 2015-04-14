@@ -4,6 +4,12 @@ GIT
   specs:
     geo (0.0.1)
 
+GIT
+  remote: https://github.com/stamen/leaflet-rails
+  revision: 574ef8cc43ddf396859cc7c69eb7cd9a58e3a17b
+  specs:
+    leaflet-rails (0.7.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -159,7 +165,6 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    leaflet-rails (0.7.4)
     listen (2.9.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -330,7 +335,7 @@ DEPENDENCIES
   jquery-rails
   json
   kaminari
-  leaflet-rails
+  leaflet-rails!
   meta_request
   minitest-reporters
   mysql2

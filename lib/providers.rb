@@ -38,7 +38,14 @@ class Providers
     obj = self.layers.select do |k,v|
       k.to_s == layer_key
     end.values
+  end
 
+  def self.get_template_from_url(url)
+    provider_layer = self.get_layer_from_url(url)
+    if provider_layer && !provider_layer[0].nil?
+      return provider_layer[0][:template]
+    end
+    url
   end
 
   # For layer options see: http://leafletjs.com/reference.html#tilelayer

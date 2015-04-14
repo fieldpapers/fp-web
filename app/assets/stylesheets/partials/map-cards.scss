@@ -3,7 +3,7 @@ $column-counts: 3;
 .map-cards {
   margin-top: 2rem;
   list-style: none;
-
+  /*
   @media (#{$bp-larger-than-tablet}) {
     -moz-column-count: $column-counts;
     -webkit-column-count: $column-counts;
@@ -12,12 +12,12 @@ $column-counts: 3;
     -webkit-column-gap: 1em;
     column-gap: 1em;
   }
+  */
 }
 
 .map-card {
   display: block;
-  width: 100%;
-  margin: 0 0 15px;
+  margin-bottom:15px;
   padding: 15px;
   border: 2px solid #FAFAFA;
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
@@ -31,15 +31,17 @@ $column-counts: 3;
 
 
   @media (#{$bp-larger-than-tablet}) {
-    width: auto;
+
   }
-
-
 }
 
 .map-card:first-child,
 .map-card:nth-child(3n+1) {
   margin-left: 0 !important;
+}
+
+.map-card .no-wrap {
+  overflow: hidden !important;
 }
 
 .map-card-preview {
@@ -64,6 +66,10 @@ $column-counts: 3;
     @media (#{$bp-larger-than-tablet}) {
       //height: 148px;
     }
+  }
+
+  .map-card-preview.static-map > div {
+    height: 240px;
   }
 
 

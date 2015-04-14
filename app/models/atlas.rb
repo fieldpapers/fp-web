@@ -230,11 +230,11 @@ class Atlas < ActiveRecord::Base
   def get_provider_without_overlay
     if redcross_overlay?
       provider.gsub(OVERLAY_REDCROSS, "")
-    elsif utm_grid?
-      provider.gsub(OVERLAY_UTM, "")
-    else
-      provider
     end
+    if utm_grid?
+      provider.gsub(OVERLAY_UTM, "")
+    end
+    provider
   end
 
 private

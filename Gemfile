@@ -32,7 +32,7 @@ gem "gettext_i18n_rails" # gettext-style i18n
 gem "has_scope" # automatic filter generation
 gem "http_accept_language"
 gem "kaminari" # pagination
-gem "leaflet-rails"
+gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
 gem "s3_direct_upload" # direct-to-S3 upload helpers
