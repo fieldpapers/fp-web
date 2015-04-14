@@ -41,6 +41,7 @@ gem "mysql2"
 gem "wicked" # wizard controllers
 gem "json"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
+gem 'actionview-encoded_mail_to'
 
 ## production-only dependencies
 

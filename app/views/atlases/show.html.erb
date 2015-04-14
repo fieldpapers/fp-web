@@ -1,31 +1,40 @@
 <% content_for :head do %>
   <% if @atlas.composed_at.nil? %>
     <!-- original fieldpapers way of updating atlas progress -->
-    <meta http-equiv="refresh" content="5" data-turbolinks-track=true>
+    <!--<meta http-equiv="refresh" content="5" data-turbolinks-track=true>-->
   <% end %>
 <% end %>
 
 <% if @atlas.composed_at.nil? %>
+
   <div class="row">
-    <div class="twelve columns">
-        <h2>Rendering atlas <a href="<%= atlas_path(@atlas) %>"><%= @atlas.slug %></a></h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="twelve columns pad-bottom">
-      <!-- https://css-tricks.com/examples/ProgressBars/ -->
-      <div class="progress-bar">
-        <span style="width: <%= (@atlas.progress * 100) %>%;"></span>
+    <div class="eight columns">
+      <div class="row">
+        <div class="twelve columns">
+            <h2>Atlas rendering</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns pad-bottom">
+          <!-- https://css-tricks.com/examples/ProgressBars/ -->
+          <div class="progress-bar">
+            <span style="width: <%= (@atlas.progress * 100) %>%;"></span>
+          </div>
+          <p class="form-help progress-bar--help"><%= _("This process has been running for %{time_ago}") % {time_ago: time_ago_in_words(@atlas.created_at)} %></p>
+        </div>
+        <div class="twelve columns">
+          <p><%= _("This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later.") % {atlas_url: atlas_path(@atlas)} %></p>
+          <p><%= _("If it takes more than an hour, check <a href='http://twitter.com/fieldpapers'>@fieldpapers on twitter</a> for system status updates, and email us at %{email_url} if your atlas is stuck.") %
+              {email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject:'Atlas '+@atlas.slug+' stuck')} %></p>
+
+          <% if @atlas.private %>
+          <p><%= _("Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>.") % {atlas_url: atlas_path(@atlas)} %></p>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="twelve columns">
-      <p>This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href="<%= atlas_path(@atlas) %>">bookmark this page</a> and come back later.</p>
-      <p>If it takes more than an hour, check <a href="http://twitter.com/fieldpapers">@fieldpapers on twitter</a> for system status updates, and email us at help@fieldpapers.org if your atlas is stuck.</p>
-      <% if @atlas.private %>
-      <p>Since this atlas is <span class="private">private</span>, you probably should <a href="<%= atlas_path(@atlas) %>">bookmark it</a>.</p>
-      <% end %>
-    </div>
   </div>
+
 
 <% else %>
 
