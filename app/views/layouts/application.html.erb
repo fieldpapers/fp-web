@@ -14,7 +14,13 @@
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
 
 <div class="container">
+<div class="row development-message">
+  <div class="twelve columns">
+    <span>Alpha Release!</span>
+    <span>Scanning does not work yet and <strong>Atlas</strong> data will be lost on move to beta.</span>
+  </div>
 
+</div>
 <%= render partial: "shared/navbar" %>
 <% if notice || alert %>
 <div class="row">
