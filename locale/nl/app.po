@@ -1,7 +1,7 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-#
+# 
 # Translators:
 # Translators:
 # Heimen Stoffels <vistausss@outlook.com>, 2015
@@ -9,10 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-04 20:21+0000\n"
+"PO-Revision-Date: 2015-04-12 13:32+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/fieldpapers/language"
-"/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/fieldpapers/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,22 +41,20 @@ msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-bijdragers"
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
-msgstr ""
-"(Dit betekent dat u de enige bent met toegang wanneer u bent ingelogd of via e"
-"en directe URL.)"
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr "(Dit betekent dat u de enige bent met toegang wanneer u bent ingelogd of via een directe URL.)"
 
 msgid ""
-"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-"a>, named “geojson_file”:"
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
 msgid "About the Project"
 msgstr "Over het project"
 
 msgid "Activity"
-msgstr ""
+msgstr "Activiteit"
 
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr "Wilt u een %{UTM}-raster-overlay toevoegen aan elke kaart?"
@@ -66,30 +63,27 @@ msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr "Wilt u de Rode Kruis-overlay toevoegen (voor rampoplossingsdoeleinden)?"
 
 msgid ""
-"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-"g</a> as a form value, named “geojson_data”:"
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
 
 msgid "Atlas Name"
 msgstr "Naam van atlas"
 
-#, fuzzy
 msgid "Atlas description"
-msgstr "Beschrijving"
+msgstr "Atlasbeschrijving"
 
 msgid "Atlas location"
-msgstr ""
+msgstr "Atlaslocatie"
 
 msgid "Atlas provider"
-msgstr ""
+msgstr "Atlasprovider"
 
-#, fuzzy
 msgid "Atlas text"
-msgstr "Naam van atlas"
+msgstr "Atlastekst"
 
-#, fuzzy
 msgid "Atlas title"
-msgstr "Naam van atlas"
+msgstr "Atlastitel"
 
 msgid "Atlases"
 msgstr "Atlassen"
@@ -104,14 +98,12 @@ msgid "Check out the OSM help wiki."
 msgstr "Neem een kijkje op de OSM-hulpwiki."
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
-msgstr ""
-"Kies een atlaspagina om te uploaden. Wij zullen ervoor zorgen dat hij op de ju"
-"iste plaats verschijnt (d.m.v. een QR-code)."
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "Kies een atlaspagina om te uploaden. Wij zullen ervoor zorgen dat hij op de juiste plaats verschijnt (d.m.v. een QR-code)."
 
 msgid "Copy this atlas"
-msgstr ""
+msgstr "Deze atlas kopiëren"
 
 msgid "Describe"
 msgstr "Omschrijf"
@@ -129,18 +121,18 @@ msgid "EXTEND"
 msgstr "UITBREIDEN"
 
 msgid ""
-"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
-"rs.org</a>. <i>All are optional.</i>"
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
 
 msgid "Edit in..."
-msgstr ""
+msgstr "Bewerken in..."
 
 msgid "Examples:"
-msgstr ""
+msgstr "Voorbeelden:"
 
 msgid "Export Data"
-msgstr ""
+msgstr "Gegevens exporteren"
 
 msgid "Field Papers"
 msgstr "Field Papers"
@@ -149,21 +141,20 @@ msgid "Finished!"
 msgstr "Voltooid!"
 
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr ""
+msgstr "Geojson-gegevens"
 
 msgid "Geojson File"
-msgstr ""
+msgstr "Geojson-bestand"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "Handgetekende grafische kunst die een Field Papers-atlas in het wild creëren"
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
-"Handgetekende grafische kunst die een Field Papers-atlas een fotografische pag"
-"ina creëren"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Handgetekende grafische kunst die een Field Papers-atlas een fotografische pagina creëren"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
 msgstr "Handgetekende grafische kunst die een Field Papers-atlas creëren"
@@ -172,14 +163,14 @@ msgid "Help"
 msgstr "Hulp"
 
 msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details u"
-"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
-"rocess."
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
 msgstr ""
 
 msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
-"one of two ways:"
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
@@ -189,15 +180,15 @@ msgid "LOG OUT"
 msgstr "UITLOGGEN"
 
 msgid ""
-"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-"\">dbsgeo.com/latlon/</a> to make new ones."
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Layout"
 msgstr "INDELING"
 
 msgid "Location and zoom"
-msgstr ""
+msgstr "Locatie en zoom"
 
 msgid "MAKE"
 msgstr "CREËREN"
@@ -206,9 +197,7 @@ msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Zorg ervoor dat de scan/foto/afbeelding op zijn mist 200 DPI is."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
-"Zorg ervoor dat u een JPG-, PNG-, TIF- of GIF-bestand upload. (PDF-bestand zul"
-"len niet werken.)"
+msgstr "Zorg ervoor dat u een JPG-, PNG-, TIF- of GIF-bestand upload. (PDF-bestand zullen niet werken.)"
 
 msgid "Make your notes and observations."
 msgstr "Creëer notities en observaties."
@@ -217,17 +206,15 @@ msgid "Make yourself an atlas"
 msgstr "Creëer een atlas voor uzelf"
 
 msgid "Making Atlases From GeoJSON"
-msgstr ""
+msgstr "Bezig met creëren van atlassen uit GeoJSON"
 
 msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
-msgstr ""
-"Kaartdata %{OSMCopyright}, %{Toner} van Stamen, %{Bing} van Microsoft, %{Mapbo"
-"x}, of een combinatie hiervan."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr "Kaartdata %{OSMCopyright}, %{Toner} van Stamen, %{Bing} van Microsoft, %{Mapbox}, of een combinatie hiervan."
 
 msgid "Mapbox"
 msgstr "Atlasdoos"
@@ -251,10 +238,10 @@ msgid "No snapshots."
 msgstr "Geen snapshots."
 
 msgid "Plain Text (CSV)"
-msgstr ""
+msgstr "Platte tekst (CSV)"
 
 msgid "Potlatch"
-msgstr ""
+msgstr "Potlatch"
 
 msgid "Print out anywhere in the world."
 msgstr "Overal ter wereld afdrukken."
@@ -263,7 +250,7 @@ msgid "Private"
 msgstr "Privé"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Verversen"
 
 msgid "Rules"
 msgstr "Regels"
@@ -272,7 +259,7 @@ msgid "Select"
 msgstr "Selecteren"
 
 msgid "ShapeFile"
-msgstr ""
+msgstr "ShapeFile"
 
 msgid "Snapshots"
 msgstr "Snapshots"
@@ -281,13 +268,13 @@ msgid "Stamen Design"
 msgstr "Stamen Design"
 
 msgid "Submit"
-msgstr ""
+msgstr "Indienen"
 
 msgid "Take it into the field"
 msgstr "Neem het mee, de wijde wereld in"
 
 msgid "Tile URL template"
-msgstr ""
+msgstr "URL-sjabloon van tegels"
 
 msgid "Toner"
 msgstr "Toner"
@@ -308,7 +295,7 @@ msgid "Upload"
 msgstr "Uploaden"
 
 msgid "Upload MBTiles"
-msgstr ""
+msgstr "MBTitles uploaden"
 
 msgid "WATCH"
 msgstr "BEKIJKEN"
@@ -323,7 +310,7 @@ msgid "an atlas to print"
 msgstr "een atlas om af te drukken"
 
 msgid "iD"
-msgstr ""
+msgstr "iD"
 
 msgid "on same page"
 msgstr "op dezelfde pagina"
@@ -347,7 +334,7 @@ msgid "search"
 msgstr "zoeken"
 
 msgid "snapshot of page %{tp}"
-msgstr ""
+msgstr "snapshot van pagina %{tp}"
 
 msgid "with advanced tools"
 msgstr "met geavanceerde hulpmiddelen"
