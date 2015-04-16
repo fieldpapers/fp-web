@@ -202,7 +202,6 @@ label > .label-body {
 
 .development-message span {
   display: inline-block;
-
 }
 
 .development-message span:first-child {
@@ -213,4 +212,8 @@ label > .label-body {
 .development-message span:last-child {
   margin-left: 15px;
   font-weight: 200;
+}
+
+.development-message span a {
+  color: #aa2116;
 }
