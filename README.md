@@ -148,7 +148,12 @@ guard
 Install the [Transifex](https://www.transifex.com/) client (`tx`):
 
 ```bash
-pip install transifex-client
+# optionally create a virtualenv
+virtualenv venv
+source venv/bin/activate
+
+# install Python dependencies
+pip install -r requirements.txt
 ```
 
 To extract strings from the app (and update pending translations):
