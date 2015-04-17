@@ -1,3 +1,5 @@
+require "uri"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -67,6 +69,19 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: 'www.fieldpapers.org'
   }
+
+  smtp_uri = URI(ENV["SMTP_URL"])
+
+  config.action_mailer.smtp_settings = {
+    domain: "fieldpapers.org",
+    address: smtp_uri.host || "localhost",
+    port: smtp_uri.port || 587,
+    user_name: URI.unescape(smtp_uri.user),
+    password: smtp_uri.password,
+    authentication: :plain,
+  }
+
+  config.action_mailer.delivery_method = :smtp
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
