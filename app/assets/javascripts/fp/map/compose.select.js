@@ -98,7 +98,7 @@
     });
 
     $('#atlas_provider').on('change', function(){
-      var template = $(this).val();
+      var template = this.value;
 
       var label = Object.keys(tileProviders).map(function(k) {
         return [k, tileProviders[k]];
@@ -108,6 +108,8 @@
 
       return setTileLayer(label);
     });
+
+
 
     // Set the map tile layer
     function setTileLayer(label) {
@@ -124,6 +126,11 @@
 
     // sync up the fields
     map.fire("move");
+
+    // sync up any stored values...
+    $('#atlas_orientation').change();
+    $('#atlas_paper_size').change();
+    $('#atlas_provider').change();
 
     return __;
   };
