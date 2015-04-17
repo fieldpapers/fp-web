@@ -138,7 +138,7 @@
 
 })(this);
 
-
+// TODO: Hi I don't belong here
 // https://github.com/heyman/leaflet-areaselect/
 L.AreaSelect = L.Class.extend({
     includes: L.Mixin.Events,
