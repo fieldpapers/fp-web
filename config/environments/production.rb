@@ -67,7 +67,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.default_url_options = {
-    host: 'www.fieldpapers.org'
+    host: "next.fieldpapers.org"
   }
 
   smtp_uri = URI(ENV["SMTP_URL"])
