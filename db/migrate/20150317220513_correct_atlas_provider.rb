@@ -1,7 +1,7 @@
 class CorrectAtlasProvider < ActiveRecord::Migration
   def change
     execute <<-EOQ
-      CREATE TEMPORARY TABLE atlas_metadata
+      CREATE TEMPORARY TABLE atlas_metadata2
       SELECT
         atlas_id,
         zoom,
@@ -11,10 +11,10 @@ class CorrectAtlasProvider < ActiveRecord::Migration
     EOQ
 
     execute <<-EOQ
-      UPDATE atlas_metadata
-      LEFT JOIN atlases ON atlases.id = atlas_metadata.atlas_id
-      SET atlases.zoom = atlas_metadata.zoom,
-        atlases.provider = atlas_metadata.provider
+      UPDATE atlas_metadata2
+      LEFT JOIN atlases ON atlases.id = atlas_metadata2.atlas_id
+      SET atlases.zoom = atlas_metadata2.zoom,
+        atlases.provider = atlas_metadata2.provider
     EOQ
   end
 end
