@@ -13,14 +13,14 @@ class GeneratePdfJob < ActiveJob::Base
   def perform(atlas)
     update_progress(atlas)
 
-    filenames = nil
-    filename = nil
+    files = []
+    file = nil
 
     begin
-      filenames = atlas.pages.map(&method(:render_page))
+      files = atlas.pages.map(&method(:render_page))
 
-      filename = merge_pages(atlas, filenames) if atlas.pages.size > 1
-      filename ||= filenames.first
+      file = merge_pages(atlas, files.map(&:path)) if atlas.pages.size > 1
+      file ||= files.first
 
       s3 = AWS::S3.new
 
@@ -29,10 +29,10 @@ class GeneratePdfJob < ActiveJob::Base
       key = "prints/#{atlas.slug}/atlas-#{atlas.slug}.pdf"
       bucket = Rails.application.secrets.aws["s3_bucket_name"]
 
-      logger.debug "Uploading #{filename} to #{bucket}/#{key} for atlas #{atlas.slug}"
+      logger.debug "Uploading #{file.path} to #{bucket}/#{key} for atlas #{atlas.slug}"
 
       s3.buckets[bucket].objects[key].write \
-        file: filename,
+        file: file.path,
         acl: :public_read,
         cache_control: "public,max-age=31536000",
         content_type: "application/pdf"
@@ -44,12 +44,10 @@ class GeneratePdfJob < ActiveJob::Base
         composed_at: Time.now
     ensure
       # clean up our temp files
-      filenames.map do |f|
-        File.unlink(f)
-      end if filenames
+      File.delete(*files.map(&:path))
 
       # possibly a merged file
-      File.unlink(filename) if filename
+      File.unlink(file.path) if file && File.file?(file.path)
     end
   end
 
@@ -85,7 +83,7 @@ class GeneratePdfJob < ActiveJob::Base
 
     update_progress(atlas)
 
-    output.path
+    output
   end
 
   def render_page(page)
@@ -144,7 +142,7 @@ class GeneratePdfJob < ActiveJob::Base
     page.update(composed_at: Time.now)
     update_progress(page.atlas)
 
-    output.path
+    output
   end
 
   def update_progress(atlas, increments = 1)
