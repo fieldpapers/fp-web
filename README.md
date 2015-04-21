@@ -100,6 +100,8 @@ rbenv install $(< .ruby-version) # install the desired ruby version
 
 gem install bundler        # install bundler using rbenv-installed ruby
 
+xcode-select --install     # install Xcode command line utilities
+
 bundle install --path vendor/bundle # install dependencies
 
 direnv allow .             # whitelist the local .envrc
