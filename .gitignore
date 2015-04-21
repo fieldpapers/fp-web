@@ -16,3 +16,4 @@
 .bash_history
 vendor/bundle
 .env
+venv
