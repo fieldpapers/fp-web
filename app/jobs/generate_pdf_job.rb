@@ -42,6 +42,10 @@ class GeneratePdfJob < ActiveJob::Base
         pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}",
         progress: 1,
         composed_at: Time.now
+    rescue Exception => exception
+      Raven.capture_exception(exception)
+
+      raise
     ensure
       # clean up our temp files
       File.delete(*files.map(&:path))
