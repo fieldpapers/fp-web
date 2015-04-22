@@ -52,7 +52,7 @@
       </div>
       <div class="row">
         <div class="twelve columns">
-          <p><%= _("Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Atlas #{@atlas.slug} failed to render" } %></p>
+          <p><%= _("Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Atlas #{@atlas.slug} failed to render") } %></p>
         </div>
       </div>
     </div>
