@@ -1,6 +1,5 @@
 require "paper"
 require "providers"
-
 # == Schema Information
 #
 # Table name: atlases
@@ -30,7 +29,7 @@ require "providers"
 #  place_name     :string(128)
 #  place_woeid    :integer
 #  progress       :float(24)
-#  private        :boolean          default("0"), not null
+#  private        :boolean          default(FALSE), not null
 #  cloned_from    :integer
 #  refreshed_from :integer
 #  created_at     :datetime

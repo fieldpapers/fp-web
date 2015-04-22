@@ -15,7 +15,7 @@
 #  min_zoom           :integer
 #  max_zoom           :integer
 #  description        :text(4294967295)
-#  private            :boolean          default("0"), not null
+#  private            :boolean          default(FALSE), not null
 #  has_geotiff        :string(3)        default("no")
 #  has_geojpeg        :string(3)        default("no")
 #  base_url           :string(255)
@@ -28,7 +28,7 @@
 #  region_woeid       :integer
 #  place_name         :string(128)
 #  place_woeid        :integer
-#  failed             :integer          default("0")
+#  failed             :integer          default(0)
 #  progress           :float(24)
 #  created_at         :datetime
 #  updated_at         :datetime
