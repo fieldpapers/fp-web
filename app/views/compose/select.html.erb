@@ -63,12 +63,6 @@ var tp = <%= Providers.layers.to_json.html_safe %>;
       tileProviders: <%= Providers.layers.to_json.html_safe %>,
       defaultProvider: "<%= Providers.default %>"
     });
-
-    $("#atlas_provider").select2({
-      tags: true,
-      width: "style",
-      multiple: false
-    })
   });
 </script>
 <% end %>

@@ -101,6 +101,13 @@
       validateTileLayer(this.value);
     });
 
+    var lastTemplate;
+    var templateSelector = $("#atlas_provider").select2({
+      tags: true,
+      width: "style",
+      multiple: false
+    });
+
     function validateTileLayer(template) {
       var provider = Object.keys(tileProviders).map(function(k) {
           return [k, tileProviders[k]];
@@ -117,6 +124,7 @@
         }
 
         console.error('Not a valid template string.');
+        if (lastTemplate) templateSelector.val(lastTemplate);
       }
 
     }
@@ -124,6 +132,8 @@
     // Set the map tile layer
     function setTileLayer(template, options) {
       if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
+      lastTemplate = template;
+
       tileLayer = L.tileLayer(template.toLowerCase(), options || {}).addTo(map);
 
       return true;
