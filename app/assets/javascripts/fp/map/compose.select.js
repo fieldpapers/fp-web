@@ -14,8 +14,20 @@
         tileLayer,
         map,
         areaSelect,
-        zoomControls;
+        zoomControls,
+        lastTemplate,
+        templateSelector;
 
+    var resetIcon = [
+      '<svg version="1.1"'
+      ,'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"'
+      ,'x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">'
+      ,'<defs>'
+      ,'</defs>'
+      ,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
+      ,'</svg>'].join(" ");
+
+    // create map
     map = L.map(settings.selector,
       L.Util.extend(FP.map.options, {
           zoomControl: false,
@@ -24,28 +36,21 @@
         }
     ));
 
+    // set tileLayer
     validateTileLayer(tileProviders[defaultProviderLabel].template);
 
+    // scale tool
     L.control.scale().addTo(map);
 
     // Area selection tool
     areaSelect = L.areaSelect({width:200, height:300});
     areaSelect.addTo(map);
 
-    var icon = [
-        '<svg version="1.1"'
-        ,'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"'
-        ,'x="0px" y="0px" width="18px" height="18px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">'
-        ,'<defs>'
-        ,'</defs>'
-        ,'<path d="M6,2h4V0H6V2z M2,18H0v4h4v-2H2V18z M6,22h4v-2H6V22z M2,12H0v4h2V12z M2,6H0v4h2V6z M0,4h2V2h2V0H0V4z M20,10h2V6h-2V10z M12,22h4v-2h-4V22z M18,0v2h2v2h2V0H18z M20,16h2v-4h-2V16z M20,20h-2v2h4v-4h-2V20z M12,2h4V0h-4V2z M6,16h10V6H6V16z"/>'
-        ,'</svg>'].join(" ");
-
     // Custom zoom control
     zoomControls = new L.Control.ZoomExtras( {
         position: 'topleft',
         extras: [{
-            text: icon,
+            text: resetIcon,
             title: 'Reset',
             klass: 'zoom-reset',
             onClick: function(){
@@ -66,6 +71,7 @@
         extraMapDisabledEvents: [] // map events that will trigger an onDisabled check
     }).addTo(map);
 
+
     // cache some elements
     var atlasRows = $('#atlas_rows'),
         atlasCols = $('#atlas_cols'),
@@ -74,7 +80,9 @@
         atlasSouth = $("#atlas_south"),
         atlasEast = $("#atlas_east"),
         atlasNorth = $("#atlas_north"),
-        atlasProvider = $('#atlas_provider');
+        atlasProvider = $('#atlas_provider'),
+        atlasPaperSize = $('#atlas_paper_size'),
+        atlasOrientation = $('#atlas_orientation');
 
     // Form listeners
     areaSelect.on('change', function(e){
@@ -90,23 +98,30 @@
       atlasNorth.val( bds.getNorth() );
     });
 
-    $('#atlas_orientation').on('change', function(){
+    atlasOrientation.on('change', function(){
       areaSelect.setOrientation(this.value);
     });
-    $('#atlas_paper_size').on('change', function(){
+
+    atlasPaperSize.on('change', function(){
       areaSelect.setPaperSize(this.value);
     });
 
-    $('#atlas_provider').on('change', function(){
+    atlasProvider.on('change', function(){
       validateTileLayer(this.value);
     });
 
-    var lastTemplate;
-    var templateSelector = $("#atlas_provider").select2({
+    templateSelector = atlasProvider.select2({
       tags: true,
       width: "style",
       multiple: false
     });
+
+    // sync up the fields
+    map.fire("move");
+    atlasOrientation.change();
+    atlasPaperSize.change();
+    atlasProvider.change();
+
 
     function validateTileLayer(template) {
       var provider = Object.keys(tileProviders).map(function(k) {
@@ -124,9 +139,8 @@
         }
 
         console.error('Not a valid template string.');
-        if (lastTemplate) templateSelector.val(lastTemplate);
+        if (lastTemplate && templateSelector) templateSelector.val(lastTemplate);
       }
-
     }
 
     // Set the map tile layer
@@ -139,19 +153,11 @@
       return true;
     }
 
-    // sync up the fields
-    map.fire("move");
-
-    // sync up any stored values...
-    $('#atlas_orientation').change();
-    $('#atlas_paper_size').change();
-    $('#atlas_provider').change();
-
     return __;
   };
-
-
 })(this);
+
+
 
 // TODO: Hi I don't belong here
 // https://github.com/heyman/leaflet-areaselect/
