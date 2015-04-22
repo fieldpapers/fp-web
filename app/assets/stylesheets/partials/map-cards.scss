@@ -41,12 +41,12 @@ $column-counts: 3;
 }
 
   .map-card-preview img {
+    display: block;
+    margin: 0 auto 0 auto;
     padding: 0;
-    margin: 0;
-    width: 100%;
+    width: auto;
     max-width: 100%;
-    height: auto;
-    margin-bottom: 0;
+    height: 240px;
     border: 0;
 
     @media (#{$bp-larger-than-tablet}) {
