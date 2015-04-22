@@ -198,6 +198,19 @@ You'll also need to add the new locales to
 `config/initializers/fast_gettext.rb` and to the footer
 (`app/views/shared/_footer.html.erb`).
 
+### Heroku Deployment
+
+Due to the presence of both `Gemfile` and `requirements.txt`, Heroku reports
+the ability to build this app using both the Ruby and Python buildpacks. The
+current [buildpack detection
+order](https://devcenter.heroku.com/articles/buildpacks#buildpack-detect-order)
+puts Ruby first, but explicit is better than implicit, so you can force the
+Ruby buildpack to be used:
+
+```bash
+heroku buildpack:set https://github.com/heroku/heroku-buildpack-ruby
+```
+
 ### Data
 
 To bootstrap a database for development or on a new instance, run:
