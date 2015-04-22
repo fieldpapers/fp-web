@@ -43,6 +43,9 @@ class GeneratePdfJob < ActiveJob::Base
         progress: 1,
         composed_at: Time.now
     rescue Exception => exception
+      atlas.update \
+        failed_at: Time.now
+
       Raven.capture_exception(exception)
 
       raise

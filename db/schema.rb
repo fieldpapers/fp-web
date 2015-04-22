@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317220513) do
+ActiveRecord::Schema.define(version: 20150422001133) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150317220513) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "composed_at"
+    t.datetime "failed_at"
   end
 
   add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree

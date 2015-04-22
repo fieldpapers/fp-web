@@ -33,6 +33,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  composed_at    :datetime
+#  failed_at      :datetime
 #
 
 require 'test_helper'

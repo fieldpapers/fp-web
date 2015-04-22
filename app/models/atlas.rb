@@ -36,6 +36,7 @@ require "providers"
 #  created_at     :datetime
 #  updated_at     :datetime
 #  composed_at    :datetime
+#  failed_at      :datetime
 #
 
 class Atlas < ActiveRecord::Base
@@ -235,6 +236,14 @@ class Atlas < ActiveRecord::Base
       provider.gsub(OVERLAY_UTM, "")
     end
     provider
+  end
+
+  def incomplete?
+    composed_at.nil? && failed_at.nil?
+  end
+
+  def failed?
+    !failed_at.nil?
   end
 
 private
