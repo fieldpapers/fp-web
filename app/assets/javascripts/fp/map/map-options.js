@@ -20,5 +20,12 @@
     return matches;
   };
 
+  // Simple check to see if string
+  // fits Leaflet's template requirements
+  // http://leafletjs.com/reference.html#tilelayer
+  utils.isTemplateString = function(str) {
+    var re = /https?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}\.(jpg|png)$/gi;
+    return re.test(str);
+  };
 
 })(this);

@@ -24,7 +24,7 @@
         }
     ));
 
-    setTileLayer(defaultProviderLabel);
+    validateTileLayer(tileProviders[defaultProviderLabel].template);
 
     L.control.scale().addTo(map);
 
@@ -98,28 +98,33 @@
     });
 
     $('#atlas_provider').on('change', function(){
-      var template = this.value;
-
-      var label = Object.keys(tileProviders).map(function(k) {
-        return [k, tileProviders[k]];
-      }).filter(function(x) {
-        return x[1].template === template;
-      })[0][0];
-
-      return setTileLayer(label);
+      validateTileLayer(this.value);
     });
 
+    function validateTileLayer(template) {
+      var provider = Object.keys(tileProviders).map(function(k) {
+          return [k, tileProviders[k]];
+        }).filter(function(x) {
+          return x[1].template === template;
+        })[0];
 
+      if (provider) {
+        return setTileLayer(provider[1].template, provider[1].options);
+      } else {
+
+        if (FP.map.utils.isTemplateString(template)) {
+          return setTileLayer(template, {});
+        }
+
+        console.error('Not a valid template string.');
+      }
+
+    }
 
     // Set the map tile layer
-    function setTileLayer(label) {
-      if (!tileProviders || !tileProviders.hasOwnProperty(label)) return false;
-
+    function setTileLayer(template, options) {
       if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
-      tileLayer = L.tileLayer(
-        tileProviders[label].template.toLowerCase(),
-        tileProviders[label].options || {})
-      .addTo(map);
+      tileLayer = L.tileLayer(template.toLowerCase(), options || {}).addTo(map);
 
       return true;
     }
