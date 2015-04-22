@@ -10,6 +10,12 @@ class GeneratePdfJob < ActiveJob::Base
     const_get(gid.model_name).unscoped.find(gid.model_id)
   end
 
+  rescue_from(Exception) do |exception|
+    Raven.capture_exception(exception)
+
+    raise
+  end
+
   def perform(atlas)
     update_progress(atlas)
 
@@ -42,11 +48,9 @@ class GeneratePdfJob < ActiveJob::Base
         pdf_url: "https://s3.amazonaws.com/#{bucket}/#{key}",
         progress: 1,
         composed_at: Time.now
-    rescue Exception => exception
+    rescue
       atlas.update \
         failed_at: Time.now
-
-      Raven.capture_exception(exception)
 
       raise
     ensure
