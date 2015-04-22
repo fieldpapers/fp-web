@@ -50,7 +50,7 @@
             <li>This atlas is a <i>copy</i> of <%= link_to(@page.atlas.cloned_from, atlas_path(@page.atlas.cloned_from)) %> </li>
           <% end %>
           <% if !@page.atlas.snapshots.empty? %>
-            <%= render partial: "atlas_snapshot", collection: @page.atlas.snapshots %>
+            <%= render partial: "atlases/atlas_snapshot", collection: @page.atlas.snapshots %>
           <% end %>
         </ul>
 
