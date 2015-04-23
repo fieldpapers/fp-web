@@ -1,5 +1,9 @@
 <% if !defined? @page.atlas.id %>
   <p class="alert">No atlas</p>
+<% elsif @atlas.incomplete? %>
+  <%= render partial: "atlases/atlas_incomplete", locals: {atlas: @page.atlas} %>
+<% elsif @atlas.failed?%>
+  <%= render partial: "atlases/atlas_failed", locals: {atlas: @page.atlas} %>
 <% else %>
   <div class="row pad-bottom">
       <div id="atlas-locator-map" class="twelve columns"></div>
@@ -36,41 +40,7 @@
   </div>
 
   <div class="row">
-      <div class="eight columns atlases-activity">
-        <h4><%= _("Activity") %></h4>
-        <ul class="pad-bottom">
-          <li>
-            <p><%= @page.atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@page.atlas.created_at) }, atlases_path(month: @page.atlas.created_at.strftime("%Y-%m")) %></p>
-            <p class="details"><%= pluralize(@page.atlas.pages.length, 'page') %> + <%= Providers.derive(@page.atlas.get_provider_without_overlay) %> + <%= @page.atlas.orientation %> + <%= @page.atlas.layout %></p>
-          </li>
-          <% if @page.atlas.refreshed_from  %>
-            <li>This atlas is a <i>refresh</i> of <%= link_to(@page.atlas.refreshed_from, atlas_path(@page.atlas.refreshed_from)) %> </li>
-          <% end %>
-          <% if @page.atlas.cloned_from  %>
-            <li>This atlas is a <i>copy</i> of <%= link_to(@page.atlas.cloned_from, atlas_path(@page.atlas.cloned_from)) %> </li>
-          <% end %>
-          <% if !@page.atlas.snapshots.empty? %>
-            <%= render partial: "atlases/atlas_snapshot", collection: @page.atlas.snapshots %>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="four columns">
-        <div class="u-pull-right no-wrap options-list">
-          <h6 class="options-list-title"><%= _("Export Data") %></h6>
-          <ul>
-            <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
-            <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
-            <li><a href="#"><%= _("ShapeFile") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=shp -->
-          </ul>
-
-          <h6 class="options-list-title"><%= _("Edit in...") %></h6>
-          <ul>
-            <li><a href=<%= iDLink(@page.atlas.slug, @page.atlas.zoom, @page.atlas.longitude, @page.atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-            <li><a href=<%= potlatchLink(@page.atlas.slug, @page.atlas.zoom, @page.atlas.longitude, @page.atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
-          </ul>
-        </div>
-      </div>
+    <%= render partial: "atlases/atlas_activity", locals: {atlas: @page.atlas} %>
   </div>
 
 
@@ -100,4 +70,3 @@
     </script>
   <% end %>
 <% end %>
-

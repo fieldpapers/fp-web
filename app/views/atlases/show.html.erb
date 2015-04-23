@@ -1,66 +1,9 @@
-<% content_for :head do %>
-  <% if @atlas.incomplete? %>
-    <!-- original fieldpapers way of updating atlas progress -->
-    <meta http-equiv="refresh" content="5" data-turbolinks-track=true>
-  <% end %>
-<% end %>
-
 <% if @atlas.incomplete? %>
-
-  <div class="row">
-    <div class="eight columns">
-      <div class="row">
-        <div class="twelve columns">
-          <h2><%= _("Atlas Rendering") %></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns pad-bottom">
-          <!-- https://css-tricks.com/examples/ProgressBars/ -->
-          <div class="progress-bar">
-            <span style="width: <%= (@atlas.progress * 100) %>%;"></span>
-          </div>
-          <p class="form-help progress-bar--help"><%= _("This process has been running for %{time}") % {time: time_ago_in_words(@atlas.created_at)} %></p>
-        </div>
-        <div class="twelve columns">
-          <p><%= _("This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later.") % {atlas_url: atlas_path(@atlas)} %></p>
-          <p><%= _("If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck.") %
-            {
-            email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Atlas #{@atlas.slug} stuck"),
-            twitter_link: link_to("http://twitter.com/fieldpapers", _("@fieldpapers on Twitter"))
-            } %></p>
-
-          <% if @atlas.private %>
-          <p><%= _("Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>.") % {atlas_url: atlas_path(@atlas)} %></p>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+  <%= render partial: "atlas_incomplete", locals: {atlas: @atlas} %>
+<% elsif @atlas.failed? %>
+  <%= render partial: "atlas_failed", locals: {atlas: @atlas} %>
 <% else %>
-
-  <% if @atlas.failed? %>
-
-  <div class="row">
-    <div class="eight columns">
-      <div class="row">
-        <div class="twelve columns">
-          <h2><%= _("Atlas Creation Failed") %></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <p><%= _("Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Atlas #{@atlas.slug} failed to render") } %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <% else %>
-
-<div class="row pad-bottom">
+  <div class="row pad-bottom">
     <div id="atlas-locator-map" class="twelve columns"></div>
     <div class="twelve columns relative">
 
@@ -118,49 +61,13 @@
 
       <div id="atlas-map"></div>
     </div>
-</div>
+  </div>
 
-<div class="row">
-    <div class="eight columns atlases-activity">
-      <h4><%= _("Activity") %></h4>
-      <ul class="pad-bottom">
-        <li>
-          <p><%= @atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@atlas.created_at) }, atlases_path(month: @atlas.created_at.strftime("%Y-%m")) %></p>
-          <p class="details"><%= pluralize(@atlas.pages.length, 'page') %> + <%= Providers.derive(@atlas.provider) %> + <%= @atlas.orientation %> + <%= @atlas.layout %></p>
-        </li>
-        <% if @atlas.refreshed_from  %>
-          <li>This atlas is a <i>refresh</i> of <%= link_to(@atlas.refreshed_from, atlas_path(@atlas.refreshed_from)) %> </li>
-        <% end %>
-        <% if @atlas.cloned_from  %>
-          <li>This atlas is a <i>copy</i> of <%= link_to(@atlas.cloned_from, atlas_path(@atlas.cloned_from)) %> </li>
-        <% end %>
-        <% if !@atlas.snapshots.empty? %>
-          <%= render partial: "atlas_snapshot", collection: @atlas.snapshots %>
-        <% end %>
-      </ul>
+  <div class="row">
+    <%= render partial: "atlas_activity", locals: {atlas: @atlas} %>
+  </div>
 
-
-    </div>
-
-    <div class="four columns">
-      <div class="u-pull-right no-wrap options-list">
-        <h6 class="options-list-title"><%= _("Export Data") %></h6>
-        <ul>
-          <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
-          <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
-          <li><a href="#"><%= _("ShapeFile") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=shp -->
-        </ul>
-
-        <h6 class="options-list-title"><%= _("Edit in...") %></h6>
-        <ul>
-          <li><a href=<%= iDLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-          <li><a href=<%= potlatchLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
-        </ul>
-      </div>
-    </div>
-</div>
-
-<% content_for :foot do %>
+  <% content_for :foot do %>
   <script>
     $(function(){
       var providerObject = <%= Providers.get_layer_from_url(@atlas.get_provider_without_overlay).to_json.html_safe %>;
@@ -172,7 +79,7 @@
         bbox: bbox,
         provider: atlasProvider,
         showMarker: true,
-        zoom: 5
+        zoom: 3
       });
 
       FP.map.atlas('atlas-map',{
@@ -183,8 +90,6 @@
       });
     });
   </script>
-<% end %>
-
   <% end %>
 
 <% end %> <!-- end atlas block -->

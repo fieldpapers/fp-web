@@ -1,0 +1,35 @@
+<div class="eight columns atlases-activity">
+<h4><%= _("Activity") %></h4>
+<ul class="pad-bottom">
+  <li>
+    <p><%= atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></p>
+    <p class="details"><%= pluralize(atlas.pages.length, 'page') %> + <%= Providers.derive(atlas.get_provider_without_overlay) %> + <%= atlas.orientation %> + <%= atlas.layout %></p>
+  </li>
+  <% if atlas.refreshed_from  %>
+    <li>This atlas is a <i>refresh</i> of <%= link_to(atlas.refreshed_from, atlas_path(atlas.refreshed_from)) %> </li>
+  <% end %>
+  <% if atlas.cloned_from  %>
+    <li>This atlas is a <i>copy</i> of <%= link_to(atlas.cloned_from, atlas_path(atlas.cloned_from)) %> </li>
+  <% end %>
+  <% if !atlas.snapshots.empty? %>
+    <%= render partial: "atlas_snapshot", collection: atlas.snapshots %>
+  <% end %>
+</ul>
+</div>
+
+<div class="four columns">
+  <div class="u-pull-right no-wrap options-list">
+    <h6 class="options-list-title"><%= _("Export Data") %></h6>
+    <ul>
+      <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
+      <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
+      <li><a href="#"><%= _("ShapeFile") %></a></li> <!-- http://fieldpapers.org/activity.php?print=ndx9fx4v&type=shp -->
+    </ul>
+
+    <h6 class="options-list-title"><%= _("Edit in...") %></h6>
+    <ul>
+      <li><a href=<%= iDLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+      <li><a href=<%= potlatchLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+    </ul>
+  </div>
+</div>
