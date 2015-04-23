@@ -41,7 +41,7 @@
         <ul class="pad-bottom">
           <li>
             <p><%= @page.atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(@page.atlas.created_at) }, atlases_path(month: @page.atlas.created_at.strftime("%Y-%m")) %></p>
-            <p class="details"><%= pluralize(@page.atlas.pages.length, 'page') %> + <%= Providers.derive(@page.atlas.provider) %> + <%= @page.atlas.orientation %> + <%= @page.atlas.layout %></p>
+            <p class="details"><%= pluralize(@page.atlas.pages.length, 'page') %> + <%= Providers.derive(@page.atlas.get_provider_without_overlay) %> + <%= @page.atlas.orientation %> + <%= @page.atlas.layout %></p>
           </li>
           <% if @page.atlas.refreshed_from  %>
             <li>This atlas is a <i>refresh</i> of <%= link_to(@page.atlas.refreshed_from, atlas_path(@page.atlas.refreshed_from)) %> </li>
@@ -53,8 +53,6 @@
             <%= render partial: "atlases/atlas_snapshot", collection: @page.atlas.snapshots %>
           <% end %>
         </ul>
-
-
       </div>
 
       <div class="four columns">
@@ -88,7 +86,7 @@
           bbox: bbox,
           provider: atlasProvider,
           showMarker: true,
-          zoom: 5
+          zoom: 3
         });
 
         FP.map.atlas('atlas-map',{

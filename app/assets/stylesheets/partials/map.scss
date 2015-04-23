@@ -19,3 +19,155 @@
 .atlas-boundingbox:hover {
     fill: steelblue;
 }
+
+// Page composer tool
+.leaflet-areaselect-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.leaflet-areaselect-shade {
+    position: absolute;
+    background: rgba(0,0,0, 0.3);
+}
+
+.leaflet-areaselect-handle {
+    position: absolute;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    margin-left: -7px;
+    cursor: move;
+}
+
+.leaflet-areaselect-handle.drag-handle,
+.leaflet-areaselect-handle.scale-handle {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    margin-left: -23px;
+}
+
+.leaflet-areaselect-handle.drag-handle {
+    background-image: url(asset-path('ui/button-move-atlas-off.png'));
+
+    &:hover {
+        background-image: url(asset-path('ui/button-move-atlas-on.png'));
+    }
+}
+
+.leaflet-areaselect-handle.scale-handle {
+    background-image: url(asset-path('ui/button-scale-atlas-off.png'));
+
+    &:hover,
+    .scaling & {
+        background-image: url(asset-path('ui/button-scale-atlas-on.png'));
+    }
+}
+
+
+.leaflet-areaselect-handle.page-tool{
+    background: transparent;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.modifier-btn {
+    position: absolute;
+    background: #fff;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 800;
+    cursor: pointer;
+    border: 2px solid #000;
+
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+    &:hover {
+        background: #000;
+        color: #fff;
+    }
+}
+
+.modifier-btn > div {
+    display: block;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.leaflet-areaselect-handle .add-btn {
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: -12px;
+    font-size: 19px;
+}
+
+.leaflet-areaselect-handle .subtract-btn {
+    margin-top: -28px;
+    margin-left: -9px;
+}
+
+.leaflet-areaselect-handle.col-modifier .subtract-btn {
+    margin-left: -28px;
+    margin-top: -9px;
+}
+
+.one-col .col-modifier .subtract-btn {
+    display:none;
+}
+.one-row .row-modifier .subtract-btn {
+    display:none;
+}
+
+.leaflet-areaselect-grid {
+    position: absolute;
+}
+
+.leaflet-areaselect-grid .page {
+    position: absolute;
+    width: 1px;
+    background: rgba(255,255,255,0);
+    border: 1px solid #000;
+}
+
+.leaflet-areaselect-grid .page.outer-top {
+  border-top-width: 3px;
+}
+.leaflet-areaselect-grid .page.outer-bottom {
+  border-bottom-width: 3px;
+}
+.leaflet-areaselect-grid .page.outer-left {
+  border-left-width: 3px;
+}
+.leaflet-areaselect-grid .page.outer-right {
+  border-right-width: 3px;
+}
+
+.leaflet-areaselect-grid .page.no-top {
+  border-top: 0;
+}
+.leaflet-areaselect-grid .page.no-bottom {
+  border-bottom: 0;
+}
+.leaflet-areaselect-grid .page.no-left {
+  border-left: 0;
+}
+.leaflet-areaselect-grid .page.no-right {
+  border-right: 0;
+}

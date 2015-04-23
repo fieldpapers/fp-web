@@ -93,6 +93,18 @@ class Atlas < ActiveRecord::Base
     message: "%{value} is not a supported paper size"
   }
 
+  # provider validation
+  validate :provider_valid
+
+  # TODO: will there be ever a case where provider can
+  # have multiple URL templates not including OVERLAYS
+  def provider_valid
+    p = get_provider_without_overlay
+    if /\Ahttps?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}\.(jpg|png)\z/i !~ p
+      errors.add(:provider, "Invalid URL template")
+    end
+  end
+
   # relations
 
   belongs_to :creator,
@@ -228,13 +240,19 @@ class Atlas < ActiveRecord::Base
   end
 
   def get_provider_without_overlay
+    tmp = provider
     if redcross_overlay?
-      provider.gsub(OVERLAY_REDCROSS, "")
+      tmp = tmp.gsub(OVERLAY_REDCROSS, "")
     end
     if utm_grid?
-      provider.gsub(OVERLAY_UTM, "")
+      tmp = tmp.gsub(OVERLAY_UTM, "")
     end
-    provider
+  end
+
+  # split a concatenated provider string
+  def provider_split
+    positions = provider.enum_for(:scan, /https?/).map { Regexp.last_match.begin(0) }
+    return positions.enum_for(:each_with_index).map { |x,i| provider[x..((positions[i+1] || 0)-1)] }
   end
 
   def incomplete?
@@ -338,7 +356,6 @@ private
     end
   end
 
-  # huh?
   def handle_overlays
     if redcross_overlay == "1"
       self.provider += OVERLAY_REDCROSS unless redcross_overlay?
