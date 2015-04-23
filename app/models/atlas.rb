@@ -247,6 +247,7 @@ class Atlas < ActiveRecord::Base
     if utm_grid?
       tmp = tmp.gsub(OVERLAY_UTM, "")
     end
+    return tmp
   end
 
   # split a concatenated provider string

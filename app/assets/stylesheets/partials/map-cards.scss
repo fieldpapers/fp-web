@@ -66,3 +66,20 @@ $column-counts: 3;
 .map-card-title {
   margin-right: 2px;
 }
+
+.atlas-status {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  background: green;
+  border-radius: 8px;
+}
+
+.atlas-status.failed {
+  background: red;
+}
+
+.atlas-status.incomplete {
+  background: yellow;
+}
