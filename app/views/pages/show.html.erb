@@ -1,3 +1,5 @@
+<% content_for :title, _("Atlas page - Field Papers") %>
+
 <% if !defined? @page.atlas.id %>
   <p class="alert">No atlas</p>
 <% elsif @atlas.incomplete? %>

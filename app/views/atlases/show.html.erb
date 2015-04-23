@@ -1,3 +1,5 @@
+<% content_for :title, _("Atlas - Field Papers") %>
+
 <% if @atlas.incomplete? %>
   <%= render partial: "atlas_incomplete", locals: {atlas: @atlas} %>
 <% elsif @atlas.failed? %>
