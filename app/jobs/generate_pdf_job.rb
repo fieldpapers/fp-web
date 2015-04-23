@@ -1,3 +1,4 @@
+require "raven"
 require "timeout"
 
 class GeneratePdfJob < ActiveJob::Base
