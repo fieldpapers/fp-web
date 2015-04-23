@@ -43,4 +43,17 @@ class Page < ActiveRecord::Base
   def bbox
     [west, south, east, north]
   end
+
+  def latitude
+    north + ((south-north)/2)
+  end
+
+  def longitude
+    west + ((east-west)/2)
+  end
+
+  def region_woeid
+    # TODO add me in a migration
+    ""
+  end
 end

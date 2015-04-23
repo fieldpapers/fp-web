@@ -44,6 +44,7 @@ class AtlasesController < ApplicationController
         headers["Content-Type"] ||= "application/geo+json; charset=UTF-8"
       end
 
+      format.xml
     end
   end
 end
