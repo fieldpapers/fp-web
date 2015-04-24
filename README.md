@@ -132,6 +132,24 @@ were already installed.
 NOTE: If you later decide to use `fig`, you'll need to delete `vendor/bundle`
 first.
 
+### Environment Variables
+
+If using `direnv` or `foreman`, add these to `.env`. Otherwise, ensure that
+they are available to the environment in which Rails is running.
+
+* `DATABASE_URL` - development / production database URL. Probably similar to
+  `mysql2://root@localhost/fieldpapers_development`
+* `TEST_DATABASE_URL` - test database URL.
+* `S3_BUCKET_NAME` - S3 bucket for file storage. Defaults to
+  `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
+  (test), and `files.fieldpapers.org` (production).
+* `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
+  bucket(s).
+* `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
+* `API_BASE_URL` - Network-accessible (i.e. from a Docker container) base URL
+  rendered into PDFs.
+* `SENTRY_DSN` - Sentry DSN for exception logging. Optional.
+
 ### Running Tests
 
 ```bash
