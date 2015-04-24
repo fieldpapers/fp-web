@@ -100,7 +100,14 @@ class GeneratePdfJob < ActiveJob::Base
 
   def render_page(page)
     logger.debug "Rendering #{page.atlas.slug}/#{page.page_number}"
-    cmd = %w(docker run fieldpapers/paper)
+    cmd = [
+      "docker",
+      "run",
+      "--rm",
+      "-e", "API_BASE_URL=#{ENV["API_BASE_URL"] || "http://fieldpapers.org/"}",
+      "-e", "SENTRY_DSN=#{ENV["SENTRY_DSN"]}",
+      "fieldpapers/paper",
+    ]
 
     case page.page_number
     when "i"
