@@ -1,3 +1,4 @@
+require "open3"
 require "raven"
 require "timeout"
 
@@ -137,23 +138,23 @@ class GeneratePdfJob < ActiveJob::Base
     # convert all arguments to strings
     cmd = cmd.map(&:to_s)
 
-    pid = nil
+    stdout, stderr, status = nil
     output = Tempfile.new(["page", ".pdf"], "tmp/")
 
     begin
       Timeout.timeout(30) do
-        pid = IO.popen(cmd) do |out|
-          IO.copy_stream(out, output)
-        end
+        (stdout, stderr, status) = Open3.capture3(*cmd)
+
+        output.write(stdout)
       end
     rescue Timeout::Error
-      Process.kill 9, pid
+      Process.kill(9, status.pid)
 
       raise "Timed out waiting to render page #{page.page_number}"
     end
 
-    unless $?.success?
-      raise "Failed to render page #{page.page_number}"
+    unless status.success?
+      raise "Failed to render page #{page.page_number}\nstdout: #{stdout}\nstderr: #{stderr}"
     end
 
     logger.debug "#{page.atlas.slug}/#{page.page_number} rendered to #{output.path}"
