@@ -130,6 +130,7 @@ class Atlas < ActiveRecord::Base
   default_scope {
     includes(:creator)
       .where("#{self.table_name}.private = false")
+      .where("#{self.table_name}.failed_at is null")
       .order("created_at DESC")
   }
 
