@@ -66,6 +66,30 @@
   user-select: none;
 }
 
+.indent {
+  margin-left: 4rem;
+}
+
+.status-text.msg {
+  padding: 10px;
+}
+
+.status-text.success.msg {
+  background: $success-color;
+}
+
+.status-text.info.msg {
+  background: $info-color;
+}
+
+.status-text.warning.msg {
+  background: $warning-color;
+}
+
+.status-text.error.msg {
+  background: $error-color;
+}
+
 .no-margin-left {margin-left: 0 !important;}
 .col-width-only { width: 100%; }
 

@@ -10,8 +10,10 @@
 <% else %>
 <div class="row">
   <div class="twelve columns">
-    <h2><%= _("Upload") %></h2>
-    <p><%= _("Choose an atlas page to upload. We'll work out where it goes (using the QR code).") %></p>
+    <h2 class="status-text default"><%= _("Upload") %></h2>
+    <h2 class="status-text uploading"><%= _("Uploading") %></h2>
+    <h2 class="status-text error"><%= _("Upload Failed") %></h2>
+    <p class=""><%= _("Choose an atlas page to upload. We'll work out where it goes (using the QR code).") %></p>
   </div>
   <div class="twelve columns">
     <%= s3_uploader_form id: "s3_uploader",
@@ -23,27 +25,56 @@
       max_file_size: 25.megabytes do %>
       <%= file_field_tag :file, multiple: true %>
     <% end %>
-    <div id="uploads_container"></div>
+
+    <div class="upload js-progress-bars">
+      <div class="progress progress-striped active">
+        <div class="bar" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <p class="status-text error msg"><%= _("Something went wrong! Please review the <strong>rules</strong> below and try again.") %></p>
+
   </div>
 </div>
 
 <div class="row">
   <div class="twelve columns">
     <h4><%= _("Rules") %></h4>
-    <ul>
+    <ul class="indent">
       <li><%= _("Make sure the scan/photo/image is at least 200dpi.") %></li>
       <li><%= _("Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)") %></li>
       <li><%= _("Don't upload things that aren't Field Papers maps, please.") %></li>
     </ul>
   </div>
 </div>
+<% end %>
 
+<% content_for :foot do %>
+  <script>
+    $(function() {
+      $("#s3_uploader").S3Uploader(
+        {
+          remove_completed_progress_bar: false,
+          progress_bar_target: $('.js-progress-bars')
+        }
+      );
 
-<script id="template-upload" type="text/x-tmpl">
-<div id="upload_{%=o.unique_id%}" class="upload">
-  <button id="upload-close-btn">X</button>
-  <h5>{%=o.name%}</h5>
-  <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
-</div>
-</script>
+      $("#s3_uploader").bind("s3_upload_complete", function(e, content) {
+        console.log('Upload complete');
+        console.log(e, content);
+      });
+
+      $("#s3_uploader").bind("s3_upload_failed", function(e, content) {
+        console.log('Upload error');
+        console.error(e, content);
+        $('body').addClass('error').removeClass('uploading');
+      });
+
+      $("#s3_uploader").bind("s3_uploads_start", function(e, content) {
+        $('body').addClass('uploading').removeClass('error');
+      });
+
+    });
+
+  </script>
 <% end %>

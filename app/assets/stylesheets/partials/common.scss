@@ -149,12 +149,14 @@ label > .label-body {
 }
 
 // progress bars
-.progress-bar {
+.progress-bar,
+.upload .progress {
   height: 20px;
   position: relative;
   margin: 0;
   padding: 0;
   background: #555;
+  border: 0;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
@@ -163,17 +165,18 @@ label > .label-body {
   box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 }
 
-.progress-bar > span {
+.progress-bar > span,
+.upload .progress .bar {
   display: block;
   position: relative;
   height: 20px;
   overflow: hidden;
-  -webkit-border-top-right-radius: 8px;
-  -webkit-border-bottom-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -moz-border-radius-bottomright: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   -webkit-border-top-left-radius: 20px;
   -webkit-border-bottom-left-radius: 20px;
   -moz-border-radius-topleft: 20px;

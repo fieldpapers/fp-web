@@ -1,12 +1,12 @@
 <% if @snapshot.persisted? %>
-  $('#upload_<%= params[:unique_id] %>').hide();
-  console.log("snapshot url: <%= snapshot_url(@snapshot) %>");
+  // redirect to snapshot page
+  window.location.href = "<%= snapshot_url(@snapshot) %>";
 <% else %>
-  console.log("not persisted. validation errors presumably present.");
+  console.info("not persisted. validation errors presumably present.");
 
   <% @snapshot.errors.full_messages.each do |msg| %>
     console.error("<%= msg %>");
   <% end %>
 
-  $('#upload_<%= params[:unique_id] %> div.progress').removeClass('active progress-striped').addClass('progress-danger');
+  $('body').addClass('error').removeClass('uploading');
 <% end %>
