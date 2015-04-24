@@ -50,7 +50,7 @@ class ProcessSceneJob < ActiveJob::Base
     rescue Exception => e
       logger.warn e
       snapshot.update \
-        failed: true
+        failed: true # TODO create failed_at, similar to atlases
 
       raise
     ensure
