@@ -141,7 +141,7 @@ class ProcessSceneJob < ActiveJob::Base
 
     # TODO stop relying on conventions
     # key = "snapshots/#{snapshot.slug}/snapshot-#{snapshot.slug}.tiff"
-    key = "snapshots/#{snapshot.slug}/walking-paper-#{snapshot.slug}.tiff"
+    key = "snapshots/#{snapshot.slug}/walking-paper-#{snapshot.slug}.tif"
     bucket = Rails.application.secrets.aws["s3_bucket_name"]
 
     logger.debug "Uploading to #{bucket}/#{key} for snapshot #{snapshot.slug}"
