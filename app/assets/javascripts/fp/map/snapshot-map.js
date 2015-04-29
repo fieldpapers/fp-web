@@ -33,7 +33,7 @@
     var map = L.map(selector, mapOptions);//.setView(bbox.getCenter(), 17);
     if (bbox) map.fitBounds(bbox);
 
-    var template = settings.base_url + '/{z}/{x}/{y}.jpg';
+    var template = settings.base_url + '/{z}/{x}/{y}.png';
 
     L.tileLayer(template, {
       attribution: '',

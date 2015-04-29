@@ -71,20 +71,20 @@ class ProcessSceneJob < ActiveJob::Base
     # zbar uses ImageMagick internally, so :- is stdin
     cmd = %w(docker run --rm -i fieldpapers/paper zbarimg --raw -q :-)
 
-    pid, stdout, stderr, status = nil
+    stdout, stderr, status = nil
 
     begin
       Timeout.timeout(30) do
-        stdout, stderr, status = Open3.capture3(*cmd, stdin_data: image.read, binmode: true)
+        (stdout, stderr, status) = Open3.capture3(*cmd, stdin_data: image.read, binmode: true)
       end
     rescue Timeout::Error
-      Process.kill(9, pid)
+      Process.kill(9, status.pid)
 
       raise "Timed out reading QR code for snapshot #{snapshot.slug}"
     end
 
     unless status.success?
-      raise "Failed to read QR code for snapshot #{snapshot.slug}: #{stderr}"
+      raise "Failed to read QR code for snapshot #{snapshot.slug}\nstdout: #{stdout}\nstderr: #{stderr}"
     end
 
     update_progress(snapshot)
@@ -111,14 +111,14 @@ class ProcessSceneJob < ActiveJob::Base
       "process_snapshot.py",
     ]
 
-    pid, stdout, stderr, status = nil
+    stdout, stderr, status = nil
 
     begin
       Timeout.timeout(60) do
-        stdout, stderr, status = Open3.capture3(*cmd, stdin_data: image.read, binmode: true)
+        (stdout, stderr, status) = Open3.capture3(*cmd, stdin_data: image.read, binmode: true)
       end
     rescue Timeout::Error
-      Process.kill(9, pid)
+      Process.kill(9, status.pid)
 
       raise "Timed out processing snapshot #{snapshot.slug}"
     end
@@ -141,7 +141,7 @@ class ProcessSceneJob < ActiveJob::Base
 
     # TODO stop relying on conventions
     # key = "snapshots/#{snapshot.slug}/snapshot-#{snapshot.slug}.tiff"
-    key = "snapshots/#{snapshot.slug}/walking-paper-#{snapshot.slug}.tiff"
+    key = "snapshots/#{snapshot.slug}/walking-paper-#{snapshot.slug}.tif"
     bucket = Rails.application.secrets.aws["s3_bucket_name"]
 
     logger.debug "Uploading to #{bucket}/#{key} for snapshot #{snapshot.slug}"

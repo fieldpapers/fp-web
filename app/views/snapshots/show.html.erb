@@ -30,7 +30,7 @@
 
       FP.map.snapshot('map',{
         bbox: <%= @snapshot.bbox %>,
-        base_url: "<%= @snapshot.base_url %>",
+        base_url: "http://fieldpapers-tiler.herokuapp.com/snapshots/<%= @snapshot.slug %>",
         min_zoom: <%= @snapshot.min_zoom %>,
         max_zoom: <%= @snapshot.max_zoom %>,
       });
