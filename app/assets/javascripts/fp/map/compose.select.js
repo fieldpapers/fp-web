@@ -149,7 +149,7 @@
       if (map.hasLayer(tileLayer)) map.removeLayer(tileLayer);
       lastTemplate = template;
 
-      tileLayer = L.tileLayer(template.toLowerCase(), options || {}).addTo(map);
+      tileLayer = L.tileLayer(FP.map.utils.conformTemplate(template), options || {}).addTo(map);
 
       return true;
     }

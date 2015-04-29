@@ -100,7 +100,7 @@ class Atlas < ActiveRecord::Base
   # have multiple URL templates not including OVERLAYS
   def provider_valid
     p = get_provider_without_overlay
-    if /\Ahttps?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}\.(jpg|png)\z/i !~ p
+    if /\Ahttps?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*(jpg|png)([\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*)?\z/i !~ p
       errors.add(:provider, "Invalid URL template")
     end
   end
@@ -249,6 +249,10 @@ class Atlas < ActiveRecord::Base
       tmp = tmp.gsub(OVERLAY_UTM, "")
     end
     return tmp
+  end
+
+  def conform_template(template)
+    return template.gsub('{S}','{s}').gsub('{X}','{x}').gsub('{Y}','{y}').gsub('{Z}','{z}')
   end
 
   # split a concatenated provider string

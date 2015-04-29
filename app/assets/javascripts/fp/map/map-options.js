@@ -24,8 +24,11 @@
   // fits Leaflet's template requirements
   // http://leafletjs.com/reference.html#tilelayer
   utils.isTemplateString = function(str) {
-    var re = /https?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}\.(jpg|png)$/gi;
+    var re = /^https?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*(jpg|png)([\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*)?$/gi;
     return re.test(str);
   };
 
+  utils.conformTemplate = function(template) {
+    return template.replace('{S}','{s}').replace('{X}','{x}').replace('{Y}','{y}').replace('{Z}','{z}');
+  };
 })(this);

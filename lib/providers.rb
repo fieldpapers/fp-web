@@ -24,6 +24,8 @@ class Providers
       'satellite-only'
     elsif url.include? 'openstreetmap.fr/hot'
       'humanitarian'
+    elsif url.include? 'kll.ptthjjor'
+      'humanitarian-nepal'
     elsif url.include? 'stamen.i808gmk6'
       'mapbox-satellite'
     elsif url.include? 'opencyclemap.org'
@@ -98,6 +100,15 @@ class Providers
         minzoom: 0,
         maxzoom: 20,
       },
+      'humanitarian-nepal': {
+        label: 'Humanitarian-Nepal',
+        template: 'https://{S}.tiles.mapbox.com/v4/kll.ptthjjor/{Z}/{X}/{Y}@2x.png?access_token=pk.eyJ1Ijoia2xsIiwiYSI6IktVRUtfQnMifQ.GJAHJPvusgK_f0NsSXS8QA',
+        options: {
+          attribution: ''
+        },
+        minzoom: 0,
+        maxzoom: 20,
+      },
       'mapbox-satellite': {
         label: 'Mapbox Satellite',
         template: 'http://{S}.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png',
@@ -116,6 +127,7 @@ class Providers
         minzoom: 0,
         maxzoom: 20,
       },
+
     }
   end
 end

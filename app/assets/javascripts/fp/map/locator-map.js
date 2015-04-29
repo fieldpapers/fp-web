@@ -48,7 +48,7 @@
     });
     */
 
-    L.tileLayer(settings.provider.toLowerCase(), {
+    L.tileLayer(FP.map.utils.conformTemplate(settings.provider), {
       attribution: ''
     }).addTo(map);
 

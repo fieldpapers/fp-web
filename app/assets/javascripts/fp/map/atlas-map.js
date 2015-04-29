@@ -67,7 +67,7 @@
     });
     */
 
-    L.tileLayer(settings.provider.toLowerCase(), {
+    L.tileLayer(FP.map.utils.conformTemplate(settings.provider), {
       attribution: getAttribution(settings),
       minZoom: zooms[0],
       maxZoom: zooms[1]
