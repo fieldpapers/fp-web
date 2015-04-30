@@ -1,17 +1,17 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-#
+# 
 # Translators:
 # Translators:
+# Mhairi O'Hara <mhairi.ohara@hotosm.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:44+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
-"Language-Team: Indonesian (http://www.transifex.com/projects/p/fieldpapers/lan"
-"guage/id/)\n"
+"PO-Revision-Date: 2015-04-20 09:40+0000\n"
+"Last-Translator: Mhairi O'Hara <mhairi.ohara@hotosm.org>\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/fieldpapers/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,178 +19,177 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr ""
+msgstr "%{FieldPapers} dibangun oleh %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr ""
+msgstr "%{Upload} halaman anda difoto."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} Atlas"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} Foto"
 
 msgid "%{time_period} ago"
-msgstr ""
+msgstr "%{time_period} silam"
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
+msgstr "&copy; OpenStreetMap kontributor"
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
-msgstr ""
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr "(Itu berarti hanya dapat diakses oleh anda , jika anda login , atau dengan URL langsung.)"
 
 msgid ""
-"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-"a>, named “geojson_file”:"
-msgstr ""
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr "Sebuah file GeoJSON dapat diposting sebagai file melekat <a href=\"/\"> fieldpapers.org </a> , bernama \" geojson_file \" :"
 
 msgid "About the Project"
-msgstr ""
+msgstr "Tentang Proyek"
 
 msgid "Activity"
-msgstr ""
+msgstr "Aktivitas"
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
+msgstr "Tambahkan overlay % {UTM} grid untuk setiap peta?"
 
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
-msgstr ""
+msgstr "Tambahkan overlay Red Cross (untuk upaya bantuan bencana)?"
 
 msgid ""
-"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-"g</a> as a form value, named “geojson_data”:"
-msgstr ""
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr "Atau, konten GeoJSON baku dapat diposting ke <a href=\"/\">fieldpapers.org</a> sebagai bentuk nilai, bernama \"geojson_data\":"
 
 msgid "Atlas Name"
-msgstr ""
+msgstr "Nama Atlas"
 
 msgid "Atlas description"
-msgstr ""
+msgstr "Deskripsi atlas"
 
 msgid "Atlas location"
-msgstr ""
+msgstr "Lokasi atlas"
 
 msgid "Atlas provider"
-msgstr ""
+msgstr "Penyedia atlas"
 
 msgid "Atlas text"
-msgstr ""
+msgstr "Teks atlas"
 
 msgid "Atlas title"
-msgstr ""
+msgstr "Judul atlas"
 
 msgid "Atlases"
-msgstr ""
+msgstr "Atlas"
 
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 msgid "Capture your notes"
-msgstr ""
+msgstr "Menangkap catatan anda"
 
 msgid "Check out the OSM help wiki."
-msgstr ""
+msgstr "Memeriksa OSM bantuan wiki."
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
-msgstr ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "Pilih halaman atlas untuk meng-upload . Kami akan memutuskan di mana untuk menempatkan (menggunakan kode QR) ."
 
 msgid "Copy this atlas"
-msgstr ""
+msgstr "Salin atlas ini"
 
 msgid "Describe"
-msgstr ""
+msgstr "Menggambarkan"
 
 msgid "Description"
-msgstr ""
+msgstr "Deskripsi"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr ""
+msgstr "Mohon, jangan meng-upload hal-hal yang tidak peta Field Papers."
 
 msgid "Download PDF"
-msgstr ""
+msgstr "Men-download PDF"
 
 msgid "EXTEND"
-msgstr ""
+msgstr "Memperpanjang"
 
 msgid ""
-"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
-"rs.org</a>. <i>All are optional.</i>"
-msgstr ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr "Setiap pengaturan di bawah ini dapat diposting melalui formulir HTML <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 
 msgid "Edit in..."
-msgstr ""
+msgstr "Mengedit di..."
 
 msgid "Examples:"
-msgstr ""
+msgstr "Contoh:"
 
 msgid "Export Data"
-msgstr ""
+msgstr "Data Ekspor"
 
 msgid "Field Papers"
-msgstr ""
+msgstr "Field Papers"
 
 msgid "Finished!"
-msgstr ""
+msgstr "Selesai!"
 
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr ""
+msgstr "Geojson Data"
 
 msgid "Geojson File"
-msgstr ""
+msgstr "Geojson File"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
+msgstr "Digambar tangan grafis mewakili Field Papers atlas di alam liar"
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Digambar tangan grafis mewakili memotret halaman dalam Field Papers atlas"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
+msgstr "Digambar tangan grafis mewakili cara membuat atlas Field Papers"
 
 msgid "Help"
+msgstr "Membantu"
+
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
 msgstr ""
 
 msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details u"
-"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
-"rocess."
-msgstr ""
-
-msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
-"one of two ways:"
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
-msgstr ""
+msgstr "MASUK"
 
 msgid "LOG OUT"
-msgstr ""
+msgstr "KELUAR"
 
 msgid ""
-"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-"\">dbsgeo.com/latlon/</a> to make new ones."
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Layout"
-msgstr ""
+msgstr "Susunan"
 
 msgid "Location and zoom"
-msgstr ""
+msgstr "Lokasi dan zoom"
 
 msgid "MAKE"
-msgstr ""
+msgstr "MEMBUAT"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr ""
@@ -211,12 +210,12 @@ msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
 msgstr ""
 
 msgid "Mapbox"
-msgstr ""
+msgstr "Mapbox"
 
 msgid "Maps + Notes"
 msgstr ""
