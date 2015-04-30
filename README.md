@@ -200,7 +200,7 @@ source of truth for non-English strings.
 To pull pending translations:
 
 ```bash
-tx pull -a
+tx pull -af
 ```
 
 To initialize a new language:
