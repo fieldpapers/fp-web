@@ -31,6 +31,7 @@ class ProcessSceneJob < ActiveJob::Base
 
       snapshot.update \
         page: page,
+        private: page.atlas.private,
         print_href: url
 
       geotiff = process(snapshot, image)
@@ -38,10 +39,7 @@ class ProcessSceneJob < ActiveJob::Base
       geotiff_url = upload(snapshot, geotiff)
 
       # TODO save geotiff_url vs. relying on conventions
-      # TODO make private if the corresponding atlas is
-      # TODO associate with a page
       # TODO update geojpeg_bounds
-      # TODO refactor geojpeg_bounds
       snapshot.update \
         progress: 1,
         base_url: "https://s3.amazonaws.com/#{BUCKET}/snapshots/#{snapshot.slug}", # TODO refactor
