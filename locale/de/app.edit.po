@@ -6,12 +6,13 @@
 # Translators:
 # Eric Rodenbeck <erode@stamen.com>, 2015
 # merlinmc <merlin@phase-2.info>, 2015
+# Sean Connelley <slconnelley@aim.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-05 18:31+0000\n"
-"Last-Translator: merlinmc <merlin@phase-2.info>\n"
+"PO-Revision-Date: 2015-04-17 20:05+0000\n"
+"Last-Translator: Sean Connelley <slconnelley@aim.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fieldpapers/languag"
 "e/de/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%[FieldPapers] ist von %[StamenDesign] gebaut"
+msgstr "%{FieldPapers} ist von %{StamenDesign} gebaut"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Seiten} fotografierte Seiten"
@@ -45,6 +46,9 @@ msgstr "&copy; OpenStreetMap contributors"
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
 msgstr ""
 
+msgid "@fieldpapers on Twitter"
+msgstr ""
+
 msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
@@ -60,32 +64,51 @@ msgstr "Soll der {%UTM} Gitter Overlay hinzugefügt werden?"
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr "Soll der Overlay des Roten  Kreuzes (für Katastrophenmanagment) hinzugefügt werden?"
 
+#, fuzzy
+msgid "Advanced - Field Papers"
+msgstr "Willkommen bei Field  Papers "
+
 msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr ""
+
+#, fuzzy
+msgid "Atlas - Field Papers"
+msgstr "Willkommen bei Field  Papers "
+
+msgid "Atlas Creation Failed"
 msgstr ""
 
 msgid "Atlas Name"
 msgstr "Atlasname"
 
-#, fuzzy
+msgid "Atlas Rendering"
+msgstr ""
+
 msgid "Atlas description"
-msgstr "Beschreibung "
+msgstr ""
 
 msgid "Atlas location"
 msgstr ""
 
+#, fuzzy
+msgid "Atlas page - Field Papers"
+msgstr "Willkommen bei Field  Papers "
+
 msgid "Atlas provider"
 msgstr ""
 
-#, fuzzy
 msgid "Atlas text"
-msgstr "Atlasname"
+msgstr ""
 
-#, fuzzy
 msgid "Atlas title"
-msgstr "Atlasname"
+msgstr ""
 
 msgid "Atlases"
 msgstr "Atlanten"
+
+#, fuzzy
+msgid "Atlases - Field Papers"
+msgstr "Willkommen bei Field  Papers "
 
 msgid "Bing"
 msgstr "Bing"
@@ -107,6 +130,9 @@ msgstr "Beschreibe"
 
 msgid "Description"
 msgstr "Beschreibung "
+
+msgid "Development Blog"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Lade  bitte  nur  Field  Papers  Karten hoch! "
@@ -135,6 +161,9 @@ msgstr "Field  Papers"
 msgid "Finished!"
 msgstr "Fertig! "
 
+msgid "From"
+msgstr ""
+
 msgid "GeoJSON"
 msgstr ""
 
@@ -155,6 +184,9 @@ msgstr ""
 
 msgid "Help"
 msgstr "Hilfe"
+
+msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
+msgstr ""
 
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr ""
@@ -179,6 +211,10 @@ msgstr ""
 
 msgid "MAKE"
 msgstr "ERSTELLE"
+
+#, fuzzy
+msgid "Make - Field Papers"
+msgstr "Willkommen bei Field  Papers "
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Stelle  sicher dass  der Scan, das Foto/Bild eine  Auflösung  von mindestens  200dpi hat."
@@ -237,6 +273,9 @@ msgstr "Privat "
 msgid "Refresh"
 msgstr ""
 
+msgid "Reworking of snapshot uploads is in progress; availability will increase over time."
+msgstr ""
+
 msgid "Rules"
 msgstr "Regeln"
 
@@ -246,8 +285,25 @@ msgstr "Auswählen "
 msgid "ShapeFile"
 msgstr ""
 
+msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+
+#, fuzzy
+msgid "Snapshot - Field Papers"
+msgstr "Willkommen bei Field  Papers "
+
+msgid "Snapshot upload - Field Papers"
+msgstr ""
+
 msgid "Snapshots"
 msgstr "Schnappschuss"
+
+#, fuzzy
+msgid "Snapshots - Field Papers"
+msgstr "Willkommen bei Field  Papers "
+
+msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
+msgstr ""
 
 msgid "Stamen Design"
 msgstr ""
@@ -256,6 +312,12 @@ msgid "Submit"
 msgstr ""
 
 msgid "Take it into the field"
+msgstr ""
+
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
+msgstr ""
+
+msgid "This process has been running for %{time}"
 msgstr ""
 
 msgid "Tile URL template"
@@ -273,14 +335,24 @@ msgstr "HOCHLADEN"
 msgid "UTM"
 msgstr "UTM"
 
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+msgstr ""
+
 msgid "Untitled"
 msgstr ""
 
 msgid "Upload"
 msgstr "hochladen"
 
+msgid "Upload Failed"
+msgstr ""
+
 msgid "Upload MBTiles"
 msgstr ""
+
+#, fuzzy
+msgid "Uploading"
+msgstr "hochladen"
 
 msgid "WATCH"
 msgstr ""

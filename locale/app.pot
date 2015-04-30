@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 14:46-0400\n"
-"PO-Revision-Date: 2015-03-31 14:46-0400\n"
+"POT-Creation-Date: 2015-04-30 15:38-0700\n"
+"PO-Revision-Date: 2015-04-30 15:38-0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -43,6 +43,9 @@ msgstr ""
 msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
 msgstr ""
 
+msgid "@fieldpapers on Twitter"
+msgstr ""
+
 msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
@@ -58,16 +61,31 @@ msgstr ""
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
 msgstr ""
 
+msgid "Advanced - Field Papers"
+msgstr ""
+
 msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
 
+msgid "Atlas - Field Papers"
+msgstr ""
+
+msgid "Atlas Creation Failed"
+msgstr ""
+
 msgid "Atlas Name"
+msgstr ""
+
+msgid "Atlas Rendering"
 msgstr ""
 
 msgid "Atlas description"
 msgstr ""
 
 msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas page - Field Papers"
 msgstr ""
 
 msgid "Atlas provider"
@@ -80,6 +98,9 @@ msgid "Atlas title"
 msgstr ""
 
 msgid "Atlases"
+msgstr ""
+
+msgid "Atlases - Field Papers"
 msgstr ""
 
 msgid "Bing"
@@ -101,6 +122,9 @@ msgid "Describe"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Development Blog"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -130,6 +154,9 @@ msgstr ""
 msgid "Finished!"
 msgstr ""
 
+msgid "From"
+msgstr ""
+
 msgid "GeoJSON"
 msgstr ""
 
@@ -149,6 +176,9 @@ msgid "Hand-drawn graphic to represent making a Field Papers atlas"
 msgstr ""
 
 msgid "Help"
+msgstr ""
+
+msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
@@ -173,6 +203,9 @@ msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
+msgstr ""
+
+msgid "Make - Field Papers"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -232,6 +265,9 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Reworking of snapshot uploads is in progress; availability will increase over time."
+msgstr ""
+
 msgid "Rules"
 msgstr ""
 
@@ -241,7 +277,22 @@ msgstr ""
 msgid "ShapeFile"
 msgstr ""
 
+msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+
+msgid "Snapshot - Field Papers"
+msgstr ""
+
+msgid "Snapshot upload - Field Papers"
+msgstr ""
+
 msgid "Snapshots"
+msgstr ""
+
+msgid "Snapshots - Field Papers"
+msgstr ""
+
+msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr ""
 
 msgid "Stamen Design"
@@ -251,6 +302,12 @@ msgid "Submit"
 msgstr ""
 
 msgid "Take it into the field"
+msgstr ""
+
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
+msgstr ""
+
+msgid "This process has been running for %{time}"
 msgstr ""
 
 msgid "Tile URL template"
@@ -268,13 +325,22 @@ msgstr ""
 msgid "UTM"
 msgstr ""
 
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+msgstr ""
+
 msgid "Untitled"
 msgstr ""
 
 msgid "Upload"
 msgstr ""
 
+msgid "Upload Failed"
+msgstr ""
+
 msgid "Upload MBTiles"
+msgstr ""
+
+msgid "Uploading"
 msgstr ""
 
 msgid "WATCH"
