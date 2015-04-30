@@ -118,19 +118,17 @@ class Snapshot < ActiveRecord::Base
     "Page #{page.page_number} of #{atlas.title}"
   end
 
-  # takes bounds string and outputs bounds
-  # [west, south, east, north] or []
+  # TODO this should go away if/when migrating to postgres
   def bbox
-    if geojpeg_bounds
-      bds = geojpeg_bounds.split(',')
-      if bds.length === 4
-        [bds[1].to_f, bds[0].to_f, bds[3].to_f, bds[2].to_f]
-      else
-        []
-      end
-    else
-      []
-    end
+    [west, south, east, north]
+  end
+
+  def latitude
+    north + ((south-north)/2)
+  end
+
+  def longitude
+    west + ((east-west)/2)
   end
 
   def uploader_name
