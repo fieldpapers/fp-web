@@ -37,6 +37,11 @@
 #  scene_file_size    :integer
 #  scene_updated_at   :datetime
 #  s3_scene_url       :string(255)
+#  west               :float(24)
+#  south              :float(24)
+#  east               :float(24)
+#  north              :float(24)
+#  zoom               :integer
 #
 
 class Snapshot < ActiveRecord::Base

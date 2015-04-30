@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422001133) do
+ActiveRecord::Schema.define(version: 20150430230647) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -143,7 +143,11 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.integer  "scene_file_size",    limit: 4
     t.datetime "scene_updated_at"
     t.string   "s3_scene_url",       limit: 255
-    t.integer  "atlas_id",           limit: 4
+    t.float    "west",               limit: 24
+    t.float    "south",              limit: 24
+    t.float    "east",               limit: 24
+    t.float    "north",              limit: 24
+    t.integer  "zoom",               limit: 4
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree
