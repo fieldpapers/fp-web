@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430232850) do
+ActiveRecord::Schema.define(version: 20150430233132) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(version: 20150430232850) do
     t.string   "has_geojpeg",        limit: 3,          default: "no"
     t.string   "base_url",           limit: 255
     t.string   "uploaded_file",      limit: 255
-    t.text     "decoding_json",      limit: 65535
     t.string   "country_name",       limit: 64
     t.integer  "country_woeid",      limit: 4
     t.string   "region_name",        limit: 64
