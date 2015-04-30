@@ -149,6 +149,10 @@ class Snapshot < ActiveRecord::Base
     return "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
   end
 
+  def incomplete?
+    decoded_at.nil? && !failed
+  end
+
   # store an unescaped version of the URL that Amazon returns from direct
   # upload
   def s3_scene_url=(escaped_url)
