@@ -151,7 +151,7 @@ class Snapshot < ActiveRecord::Base
   end
 
   def incomplete?
-    decoded_at.nil? && !failed
+    decoded_at.nil? && !failed?
   end
 
   # store an unescaped version of the URL that Amazon returns from direct
