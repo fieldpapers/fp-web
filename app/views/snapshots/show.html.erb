@@ -1,5 +1,10 @@
 <% content_for :title, _("Snapshot - Field Papers") %>
 
+<% if @snapshot.incomplete? %>
+  <%= render partial: "incomplete", locals: { snapshot: @snapshot } %>
+<% elsif @snapshot.failed? %>
+  <%= render partial: "failed", locals: { snapshot: @snapshot } %>
+<% else %>
 <div class="row pad-bottom">
   <div class="twelve columns relative">
     <div id="map" style="width: 100%; height: 500px;"></div>
@@ -30,11 +35,13 @@
 
       FP.map.snapshot('map',{
         bbox: <%= @snapshot.bbox %>,
-        base_url: "http://fieldpapers-tiler.herokuapp.com/snapshots/<%= @snapshot.slug %>",
-        min_zoom: <%= @snapshot.min_zoom %>,
-        max_zoom: <%= @snapshot.max_zoom %>,
+        base_url: "http://localhost:8080/snapshots/<%= @snapshot.slug %>",
+        // TODO these are placeholder values; this should pull from TileJSON instead
+        min_zoom: <%= @snapshot.zoom - 3 %>,
+        max_zoom: <%= @snapshot.zoom + 1 %>,
       });
 
     });
   </script>
+<% end %>
 <% end %>
