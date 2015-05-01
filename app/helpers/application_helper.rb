@@ -18,10 +18,10 @@ module ApplicationHelper
   end
 
   def id_link(slug, zoom, lon, lat)
-    "http://www.openstreetmap.org/edit#background=custom:http://fieldpapers.org/files/scans/#{slug}/{z}/{x}/{y}.jpg&map=#{zoom}/#{lat}/#{lon}"
+    "http://www.openstreetmap.org/edit#background=custom:#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{z}/{x}/{y}.png&map=#{zoom}/#{lat}/#{lon}"
   end
 
   def potlatch_link(slug, zoom, lon, lat)
-    "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=http://fieldpapers.org/files/scans/#{slug}/$z/$x/$y.jpg"
+    "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/$z/$x/$y.png"
   end
 end
