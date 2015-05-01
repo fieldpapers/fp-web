@@ -132,7 +132,7 @@ class ProcessSceneJob < ActiveJob::Base
     stdout
   end
 
-  def update_progress(snapshot, increments = 1)    snapshot.update(progress: snapshot.progress + (increments * partial_progress(snapshot)))
+  def update_progress(snapshot, increments = 1)
     snapshot.update(progress: snapshot.progress + (increments * partial_progress(snapshot)))
   end
 
