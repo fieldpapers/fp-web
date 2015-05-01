@@ -13,16 +13,20 @@
 
 <div class="row">
   <div class="eight columns atlases-activity">
+<% if @snapshot.atlas %>
     <h5><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %></h5>
     <p>Page <%= @snapshot.page.page_number %> of <%= @snapshot.atlas.pages.size %></p>
+<% else %>
+    <h5>Unknown</h5>
+<% end %>
   </div>
 
   <div class="four columns">
     <div class="u-pull-right no-wrap options-list">
       <h6 class="options-list-title">Edit in...</h6>
       <ul>
-        <li><a href=<%= iDLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-        <li><a href=<%= potlatchLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+        <li><a href=<%= iDLink(@snapshot.slug, @snapshot.zoom, @snapshot.longitude, @snapshot.latitude) %> target="_blank"><%= _("iD") %></a></li>
+        <li><a href=<%= potlatchLink(@snapshot.slug, @snapshot.zoom, @snapshot.longitude, @snapshot.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
       </ul>
     </div>
   </div>
