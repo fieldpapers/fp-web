@@ -61,7 +61,7 @@ class Snapshot < ActiveRecord::Base
   has_attached_file :scene
 
   # callbacks
-  after_create :process_scene
+  after_commit :process_scene
   after_initialize :apply_defaults
 
   # validations

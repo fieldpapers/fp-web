@@ -62,7 +62,7 @@ class Atlas < ActiveRecord::Base
   # callbacks
 
   after_create :create_pages
-  after_create :generate_pdf
+  after_commit :generate_pdf
   after_initialize :apply_defaults
   before_save :handle_overlays
   before_save :pick_zoom
