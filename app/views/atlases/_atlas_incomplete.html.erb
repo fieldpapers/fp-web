@@ -26,7 +26,7 @@
           twitter_link: link_to("http://twitter.com/fieldpapers", _("@fieldpapers on Twitter"))
           } %></p>
 
-        <% if atlas.private %>
+        <% if atlas.private? %>
         <p><%= _("Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>.") % {atlas_url: atlas_path(atlas)} %></p>
         <% end %>
       </div>
