@@ -23,6 +23,7 @@ class ProcessSceneJob < ActiveJob::Base
     update_progress(snapshot)
 
     begin
+      # TODO consider attaching $TMPDIR as a volume when using `docker run`
       image = download_image(snapshot)
 
       # NOTE: the use of URLs theoretically means that atlases and scans are
