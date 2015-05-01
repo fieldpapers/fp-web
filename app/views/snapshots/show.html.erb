@@ -37,13 +37,7 @@
   <script>
     $(function(){
 
-      FP.map.snapshot('map',{
-        bbox: <%= @snapshot.bbox %>,
-        base_url: "http://localhost:8080/snapshots/<%= @snapshot.slug %>",
-        // TODO these are placeholder values; this should pull from TileJSON instead
-        min_zoom: <%= @snapshot.zoom - 3 %>,
-        max_zoom: <%= @snapshot.zoom + 1 %>,
-      });
+      FP.map.snapshot("map", "<%= tilejson_url(@snapshot) %>");
 
     });
   </script>
