@@ -17,11 +17,11 @@ module ApplicationHelper
     return target
   end
 
-  def iDLink(slug, zoom, lon, lat)
+  def id_link(slug, zoom, lon, lat)
     "http://www.openstreetmap.org/edit#background=custom:http://fieldpapers.org/files/scans/#{slug}/{z}/{x}/{y}.jpg&map=#{zoom}/#{lat}/#{lon}"
   end
 
-  def potlatchLink(slug, zoom, lon, lat)
+  def potlatch_link(slug, zoom, lon, lat)
     "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=http://fieldpapers.org/files/scans/#{slug}/$z/$x/$y.jpg"
   end
 end

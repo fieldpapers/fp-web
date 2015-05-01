@@ -28,8 +28,8 @@
 
     <h6 class="options-list-title"><%= _("Edit in...") %></h6>
     <ul>
-      <li><a href=<%= iDLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-      <li><a href=<%= potlatchLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+      <li><a href=<%= id_link(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+      <li><a href=<%= potlatch_link(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
     </ul>
   </div>
 </div>
