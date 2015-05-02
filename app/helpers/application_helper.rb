@@ -17,11 +17,19 @@ module ApplicationHelper
     return target
   end
 
-  def id_link(slug, zoom, lon, lat)
-    "http://www.openstreetmap.org/edit#background=custom:#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{z}/{x}/{y}.png&map=#{zoom}/#{lat}/#{lon}"
+  def id_link(zoom, lon, lat, slug = nil)
+    if slug
+      "http://www.openstreetmap.org/edit#background=custom:#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{z}/{x}/{y}.png&map=#{zoom}/#{lat}/#{lon}"
+    else
+      "http://www.openstreetmap.org/edit#map=#{zoom}/#{lat}/#{lon}"
+    end
   end
 
-  def potlatch_link(slug, zoom, lon, lat)
-    "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/$z/$x/$y.png"
+  def potlatch_link(zoom, lon, lat, slug = nil)
+    if slug
+      "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/$z/$x/$y.png"
+    else
+      "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}"
+    end
   end
 end

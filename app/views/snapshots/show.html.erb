@@ -32,8 +32,8 @@
     <div class="u-pull-right no-wrap options-list">
       <h6 class="options-list-title">Edit in...</h6>
       <ul>
-        <li><a href=<%= id_link(@snapshot.slug, @snapshot.zoom, @snapshot.longitude, @snapshot.latitude) %> target="_blank"><%= _("iD") %></a></li>
-        <li><a href=<%= potlatch_link(@snapshot.slug, @snapshot.zoom, @snapshot.longitude, @snapshot.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+        <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
+        <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
       </ul>
     </div>
   </div>
