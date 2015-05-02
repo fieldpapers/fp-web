@@ -28,7 +28,14 @@ class ProcessSceneJob < ActiveJob::Base
       # NOTE: the use of URLs theoretically means that atlases and scans are
       # portable between instances, but the reality is somewhat different
       url = get_url(snapshot, image)
-      (atlas_slug, page_number) = url.split("/").slice(-2, 2)
+
+      uri = URI.parse(URI.decode(url))
+      (atlas_slug, page_number) = if uri.query
+        CGI.parse(uri.query)["id"][0].split("/")
+      else
+        uri.path.split("/").slice(-2, 2)
+      end
+
       page = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
 
       snapshot.update \
@@ -120,7 +127,7 @@ class ProcessSceneJob < ActiveJob::Base
 
     update_progress(snapshot)
 
-    url = stdout.strip
+    url = URI.decode(stdout.strip)
 
     logger.debug "Page URL: #{url}"
 
