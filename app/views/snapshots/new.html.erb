@@ -1,13 +1,5 @@
 <% content_for :title, _("Snapshot upload - Field Papers") %>
 
-<% unless Rails.env.development?  %>
-<div class="row">
-  <div class="twelve columns">
-    <h2><%= _("Upload") %></h2>
-    <p><%= _("Reworking of snapshot uploads is in progress; availability will increase over time.") %></p>
-  </div>
-</div>
-<% else %>
 <div class="row">
   <div class="twelve columns">
     <h2 class="status-text default"><%= _("Upload") %></h2>
@@ -47,7 +39,6 @@
     </ul>
   </div>
 </div>
-<% end %>
 
 <% content_for :foot do %>
   <script>
