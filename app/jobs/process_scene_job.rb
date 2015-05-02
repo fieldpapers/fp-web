@@ -29,7 +29,7 @@ class ProcessSceneJob < ActiveJob::Base
       # portable between instances, but the reality is somewhat different
       url = get_url(snapshot, image)
       (atlas_slug, page_number) = url.split("/").slice(-2, 2)
-      page = Atlas.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
+      page = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
 
       snapshot.update \
         page: page,
