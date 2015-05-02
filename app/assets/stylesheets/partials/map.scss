@@ -7,6 +7,99 @@
   min-height: 300px;
 }
 
+#locator-map {
+  height: 140px;
+}
+
+#map {
+  height: 500px;
+}
+
+#locator-map,
+#map {
+  border: 1px solid black
+}
+
+#locator-map {
+  border-bottom: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  z-index: 2;
+  width: auto;
+}
+
+  .map-overlay.stacked {
+    width: 1px;
+  }
+
+  .map-overlay.top-left {
+    top: 0;
+    left: 0;
+  }
+
+  .map-overlay.top-right {
+    top: 0;
+    right: 0;
+  }
+
+  .map-overlay.bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+
+  .map-overlay.bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+
+  .map-overlay .overlay-item {
+    display: inline-block;
+    background: black;
+    padding: 1px 15px;
+    margin: 0;
+    color: white;
+    width: auto;
+    white-space: nowrap;
+  }
+    .map-overlay .overlay-item a {
+      color: #fff !important;
+    }
+
+    .overlay-item.page-number {
+      font-weight: 600;
+      font-size: 34px;
+    }
+
+  .map-overlay button,
+  .map-overlay a.button {
+    padding: 0 15px;
+    margin: 0;
+    background: black;
+    text-transform: none;
+    color: white;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    text-decoration: underline;
+    border-radius: 0;
+    border: 0;
+  }
+  .map-overlay form {
+    display: inline-block;
+    margin: 0;
+  }
+
+#map .leaflet-control-zoom {
+  top: 6.5rem;
+}
+
+#map.page-view .leaflet-control-zoom {
+  top: 9.5rem;
+}
+
 // markers
 .atlas-boundingbox {
   stroke: #000;

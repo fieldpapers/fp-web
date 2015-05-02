@@ -6,16 +6,16 @@
   <%= render partial: "atlas_failed", locals: {atlas: @atlas} %>
 <% else %>
   <div class="row pad-bottom">
-    <div id="atlas-locator-map" class="twelve columns"></div>
+    <div id="locator-map" class="twelve columns"></div>
     <div class="twelve columns relative">
 
-      <div class="atlas-map-overlay top-left stacked">
+      <div class="map-overlay top-left stacked">
         <h5 class="overlay-item"><%= @atlas.title %></h5>
         <p class="overlay-item"><%= pluralize(@atlas.pages.length, 'page') %></p>
       </div>
 
       <% if Providers.derive(@atlas.provider) === 'openstreetmap'  %>
-      <div class="atlas-map-overlay top-right">
+      <div class="map-overlay top-right">
         <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
           <%= f.hidden_field :north, :value=> @atlas.north %>
           <%= f.hidden_field :south, :value=> @atlas.south %>
@@ -36,7 +36,7 @@
       </div>
       <% end %>
 
-      <div class="atlas-map-overlay bottom-right">
+      <div class="map-overlay bottom-right">
         <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
           <%= f.hidden_field :north, :value=> @atlas.north %>
           <%= f.hidden_field :south, :value=> @atlas.south %>
@@ -61,7 +61,7 @@
         <% end %>
       </div>
 
-      <div id="atlas-map"></div>
+      <div id="map"></div>
     </div>
   </div>
 
@@ -77,14 +77,14 @@
       var bbox = <%= @atlas.bbox %>;
       var pages = <%= @atlas.pages.to_json.html_safe %>;
 
-      FP.map.locator('atlas-locator-map', {
+      FP.map.locator('locator-map', {
         bbox: bbox,
         provider: atlasProvider,
         showMarker: true,
         zoom: 3
       });
 
-      FP.map.atlas('atlas-map',{
+      FP.map.atlas('map',{
         bbox: bbox,
         providerSettings: providerObject,
         provider: atlasProvider,
