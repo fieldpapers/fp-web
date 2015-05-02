@@ -13,7 +13,7 @@ class GeneratePdfJob < ActiveJob::Base
   end
 
   rescue_from(Exception) do |exception|
-    logger.warn e
+    logger.warn exception
     Raven.capture_exception(exception)
   end
 
