@@ -11,13 +11,13 @@
   height: 140px;
 }
 
-#map {
+#map.detail {
   height: 500px;
 }
 
 #locator-map,
-#map {
-  border: 1px solid black
+#map.detail {
+  border: 1px solid black;
 }
 
 #locator-map {
@@ -92,7 +92,7 @@
     margin: 0;
   }
 
-#map .leaflet-control-zoom {
+#map.detail .leaflet-control-zoom {
   top: 6.5rem;
 }
 
