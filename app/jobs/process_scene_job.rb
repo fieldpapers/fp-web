@@ -14,9 +14,8 @@ class ProcessSceneJob < ActiveJob::Base
   end
 
   rescue_from(Exception) do |exception|
+    logger.warn e
     Raven.capture_exception(exception)
-
-    raise
   end
 
   def perform(snapshot)
