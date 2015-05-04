@@ -25,6 +25,8 @@ gem "aws-sdk-v1", "~> 1"
 gem "bootstrap-sass", "~> 3.3.3"
 gem "composite_primary_keys", "~> 8.0.0"
 gem "devise" # authentication
+gem "devise-i18n" # Devise translations
+gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
 gem "faraday_middleware" # response parsing, etc.
 gem "friendly_id", "~> 5.1.0" # alphanumeric slugs
