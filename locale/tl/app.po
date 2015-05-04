@@ -1,17 +1,16 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-#
+# 
 # Translators:
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-03-31 18:53+0000\n"
-"Last-Translator: Sean Connelley <slconnelley@aim.com>\n"
-"Language-Team: Tagalog (http://www.transifex.com/projects/p/fieldpapers/langua"
-"ge/tl/)\n"
+"PO-Revision-Date: 2015-04-30 22:39+0000\n"
+"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"Language-Team: Tagalog (http://www.transifex.com/projects/p/fieldpapers/language/tl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,16 +40,16 @@ msgid "&copy; OpenStreetMap contributors"
 msgstr ""
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
 msgstr ""
 
 msgid "@fieldpapers on Twitter"
 msgstr ""
 
 msgid ""
-"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-"a>, named “geojson_file”:"
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
 msgid "About the Project"
@@ -69,8 +68,8 @@ msgid "Advanced - Field Papers"
 msgstr ""
 
 msgid ""
-"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-"g</a> as a form value, named “geojson_data”:"
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
 
 msgid "Atlas - Field Papers"
@@ -119,8 +118,8 @@ msgid "Check out the OSM help wiki."
 msgstr ""
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
 msgstr ""
 
 msgid "Copy this atlas"
@@ -145,8 +144,8 @@ msgid "EXTEND"
 msgstr ""
 
 msgid ""
-"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
-"rs.org</a>. <i>All are optional.</i>"
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
 
 msgid "Edit in..."
@@ -179,7 +178,8 @@ msgstr ""
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr ""
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr ""
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
@@ -189,19 +189,19 @@ msgid "Help"
 msgstr ""
 
 msgid ""
-"If it takes more than an hour, check %{twitter_link} for system status updates"
-", and email us at %{email_url} if your atlas is stuck."
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
 msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details u"
-"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
-"rocess."
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
 msgstr ""
 
 msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
-"one of two ways:"
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
@@ -211,8 +211,8 @@ msgid "LOG OUT"
 msgstr ""
 
 msgid ""
-"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-"\">dbsgeo.com/latlon/</a> to make new ones."
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Layout"
@@ -246,8 +246,8 @@ msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
 msgstr ""
 
 msgid "Mapbox"
@@ -287,8 +287,8 @@ msgid "Refresh"
 msgstr ""
 
 msgid ""
-"Reworking of snapshot uploads is in progress; availability will increase over "
-"time."
+"Reworking of snapshot uploads is in progress; availability will increase "
+"over time."
 msgstr ""
 
 msgid "Rules"
@@ -301,8 +301,8 @@ msgid "ShapeFile"
 msgstr ""
 
 msgid ""
-"Since this atlas is <span class='private'>private</span>, you probably should "
-"<a href='%{atlas_url}'>bookmark it</a>."
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
 
 msgid "Snapshot - Field Papers"
@@ -318,8 +318,8 @@ msgid "Snapshots - Field Papers"
 msgstr ""
 
 msgid ""
-"Something went wrong! Please review the <strong>rules</strong> below and try a"
-"gain."
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
 msgstr ""
 
 msgid "Stamen Design"
@@ -332,9 +332,9 @@ msgid "Take it into the field"
 msgstr ""
 
 msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this wi"
-"ndow open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back"
-" later."
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
 msgstr ""
 
 msgid "This process has been running for %{time}"
@@ -356,9 +356,9 @@ msgid "UTM"
 msgstr ""
 
 msgid ""
-"Unfortunately, your atlas failed to render. It's possible that it was an inter"
-"mittent error, in which case you should try re-creating the atlas. If the prob"
-"lem persists, please email %{email_url} with details."
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
 msgstr ""
 
 msgid "Untitled"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-04-30 22:52+0000\n"
+"PO-Revision-Date: 2015-05-04 20:35+0000\n"
 "Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fieldpapers/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -44,16 +44,16 @@ msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap contributors"
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
-msgstr ""
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr "(Dieser Bereich ist nur aufrufbar, wenn du dich einloggst oder die URL kennst.)"
 
 msgid "@fieldpapers on Twitter"
 msgstr ""
 
 msgid ""
-"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-"a>, named “geojson_file”:"
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
 msgid "About the Project"
@@ -63,25 +63,21 @@ msgid "Activity"
 msgstr ""
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr "Soll der {%UTM} Gitter Overlay hinzugefügt werden?"
+msgstr "Soll der %{UTM} Gitter Overlay hinzugefügt werden?"
 
 msgid "Add the Red Cross overlay (for disaster relief efforts)?"
-msgstr ""
-"Soll der Overlay des Roten  Kreuzes (für Katastrophenmanagment) hinzugefügt we"
-"rden?"
+msgstr "Soll der Overlay des Roten  Kreuzes (für Katastrophenmanagment) hinzugefügt werden?"
 
-#, fuzzy
 msgid "Advanced - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid ""
-"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-"g</a> as a form value, named “geojson_data”:"
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
 
-#, fuzzy
 msgid "Atlas - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid "Atlas Creation Failed"
 msgstr ""
@@ -98,9 +94,8 @@ msgstr ""
 msgid "Atlas location"
 msgstr ""
 
-#, fuzzy
 msgid "Atlas page - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid "Atlas provider"
 msgstr ""
@@ -114,9 +109,8 @@ msgstr ""
 msgid "Atlases"
 msgstr "Atlanten"
 
-#, fuzzy
 msgid "Atlases - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid "Bing"
 msgstr "Bing"
@@ -125,14 +119,12 @@ msgid "Capture your notes"
 msgstr "Erfasse deine  Notizen "
 
 msgid "Check out the OSM help wiki."
-msgstr ""
+msgstr "Schau dir das OSM Hilfe Wiki an."
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
-msgstr ""
-"Wählen Sie einen Atlas-Seite hochladen. Wir werden auswerken, wo es geht (mit "
-"Hilfe des QR-Code)."
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "Wählen Sie einen Atlas-Seite hochladen. Wir werden auswerken, wo es geht (mit Hilfe des QR-Code)."
 
 msgid "Copy this atlas"
 msgstr ""
@@ -144,7 +136,7 @@ msgid "Description"
 msgstr "Beschreibung "
 
 msgid "Development Blog"
-msgstr ""
+msgstr "Entwickler Blog"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Lade  bitte  nur  Field  Papers  Karten hoch! "
@@ -156,8 +148,8 @@ msgid "EXTEND"
 msgstr "ERWEITERN "
 
 msgid ""
-"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
-"rs.org</a>. <i>All are optional.</i>"
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
 
 msgid "Edit in..."
@@ -167,7 +159,7 @@ msgid "Examples:"
 msgstr ""
 
 msgid "Export Data"
-msgstr ""
+msgstr "Data Exportieren"
 
 msgid "Field Papers"
 msgstr "Field  Papers"
@@ -176,45 +168,44 @@ msgid "Finished!"
 msgstr "Fertig! "
 
 msgid "From"
-msgstr ""
+msgstr "Von"
 
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr ""
+msgstr "Geojson Data"
 
 msgid "Geojson File"
-msgstr ""
+msgstr "Geojson Datei"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
-"Eine  handgezeichnete  Graphik repräsentiert  einen  Field  Paper  Atlas  in d"
-"er freien Wildbahn."
+msgstr "Eine  handgezeichnete  Graphik repräsentiert  einen  Field  Paper  Atlas  in der freien Wildbahn."
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Hand-gemalte Bild, die das Fotografieren einer Seite in einem Feld Papers atlas repräsentiert."
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
+msgstr "Hand-gemalte Bild, das repräsentiert ein Feld Papers atlas gebaut werden."
 
 msgid "Help"
 msgstr "Hilfe"
 
 msgid ""
-"If it takes more than an hour, check %{twitter_link} for system status updates"
-", and email us at %{email_url} if your atlas is stuck."
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
 msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details u"
-"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
-"rocess."
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
 msgstr ""
 
 msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
-"one of two ways:"
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
@@ -224,8 +215,8 @@ msgid "LOG OUT"
 msgstr "ABMELDEN "
 
 msgid ""
-"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-"\">dbsgeo.com/latlon/</a> to make new ones."
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Layout"
@@ -237,19 +228,14 @@ msgstr ""
 msgid "MAKE"
 msgstr "ERSTELLE"
 
-#, fuzzy
 msgid "Make - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
-"Stelle  sicher dass  der Scan, das Foto/Bild eine  Auflösung  von mindestens  "
-"200dpi hat."
+msgstr "Stelle  sicher dass  der Scan, das Foto/Bild eine  Auflösung  von mindestens  200dpi hat."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
-"Stelle sicher  das du ein JPG,  PNG,  TIF, oder  GIF hochladest. (PDF's  funkt"
-"ionieren  nicht)"
+msgstr "Stelle sicher  das du ein JPG,  PNG,  TIF, oder  GIF hochladest. (PDF's  funktionieren  nicht)"
 
 msgid "Make your notes and observations."
 msgstr "Mache  deine Notizen  und Beobachtungen."
@@ -258,14 +244,14 @@ msgid "Make yourself an atlas"
 msgstr "Erstelle  einen  eigenen  Atlas "
 
 msgid "Making Atlases From GeoJSON"
-msgstr ""
+msgstr "Erstelle Atlanten von einer Geo JSON Datei"
 
 msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
 msgstr ""
 
 msgid "Mapbox"
@@ -290,7 +276,7 @@ msgid "No snapshots."
 msgstr ""
 
 msgid "Plain Text (CSV)"
-msgstr ""
+msgstr "Komma-getrennter Text (CSV)"
 
 msgid "Potlatch"
 msgstr ""
@@ -305,8 +291,8 @@ msgid "Refresh"
 msgstr ""
 
 msgid ""
-"Reworking of snapshot uploads is in progress; availability will increase over "
-"time."
+"Reworking of snapshot uploads is in progress; availability will increase "
+"over time."
 msgstr ""
 
 msgid "Rules"
@@ -319,13 +305,12 @@ msgid "ShapeFile"
 msgstr ""
 
 msgid ""
-"Since this atlas is <span class='private'>private</span>, you probably should "
-"<a href='%{atlas_url}'>bookmark it</a>."
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
 
-#, fuzzy
 msgid "Snapshot - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr ""
@@ -333,13 +318,12 @@ msgstr ""
 msgid "Snapshots"
 msgstr "Schnappschuss"
 
-#, fuzzy
 msgid "Snapshots - Field Papers"
-msgstr "Willkommen bei Field  Papers "
+msgstr ""
 
 msgid ""
-"Something went wrong! Please review the <strong>rules</strong> below and try a"
-"gain."
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
 msgstr ""
 
 msgid "Stamen Design"
@@ -352,10 +336,10 @@ msgid "Take it into the field"
 msgstr ""
 
 msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this wi"
-"ndow open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back"
-" later."
-msgstr ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr "Das könnte eine Weile dauern bis zu wenigen Minuten. Dieses Fenster muss dabei nicht geöffnet bleiben; du kannst diese Seite als <a href='%{atlas_url}'>Bookmark hinzufügen</a> and später zurück kommen."
 
 msgid "This process has been running for %{time}"
 msgstr ""
@@ -376,29 +360,28 @@ msgid "UTM"
 msgstr "UTM"
 
 msgid ""
-"Unfortunately, your atlas failed to render. It's possible that it was an inter"
-"mittent error, in which case you should try re-creating the atlas. If the prob"
-"lem persists, please email %{email_url} with details."
-msgstr ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
+msgstr "Leider konnte dein Atlas nicht gerendert werden. Es könnte ein zufällig auftretender Fehler sein, wobei es am Besten wäre, den Atlas neu zu erstellen. Wenn das Problem damit nicht gelöst wird, schreibe bitte eine Mail an %{email_url} mit weiteren Details."
 
 msgid "Untitled"
-msgstr ""
+msgstr "Untitled"
 
 msgid "Upload"
-msgstr "hochladen"
+msgstr "Hochladen"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "Hochladen Fehlgeschlagen"
 
 msgid "Upload MBTiles"
 msgstr ""
 
-#, fuzzy
 msgid "Uploading"
-msgstr "hochladen"
+msgstr ""
 
 msgid "WATCH"
-msgstr ""
+msgstr "ZUSEHEN"
 
 msgid "Welcome to Field Papers"
 msgstr "Willkommen bei Field  Papers "
