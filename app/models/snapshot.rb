@@ -82,7 +82,10 @@ class Snapshot < ActiveRecord::Base
   default_scope {
     includes([:atlas, :page, :uploader])
       .joins(:atlas)
-      .where("#{self.table_name}.page_id IS NOT NULL AND #{self.table_name}.private = false AND #{Atlas.table_name}.private = false AND #{self.table_name}.failed = false")
+      .where("#{self.table_name}.page_id IS NOT NULL")
+      .where("#{self.table_name}.private = false")
+      .where("#{Atlas.table_name}.private = false")
+      .where("#{self.table_name}.failed = false")
       .order("#{self.table_name}.created_at DESC")
   }
 
