@@ -273,6 +273,7 @@ private
 
   def apply_defaults
     self.progress ||= 0
+    self.provider ||= ""
   end
 
   def random_id
