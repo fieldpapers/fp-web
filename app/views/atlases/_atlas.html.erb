@@ -21,7 +21,7 @@
       :tile_layer => "#{atlas.conform_template(atlas.get_provider_without_overlay)}",
       :attribution => nil,
       :max_zoom => 18,
-      :subdomains => ['a','b','c'],
+      :subdomains => ["a", "b", "c", "d"],
       :fitbounds => [[atlas.bbox[1], atlas.bbox[0]],[atlas.bbox[3], atlas.bbox[2]]]
     ) %>
   </a>
@@ -29,12 +29,12 @@
 
   <div class="no-wrap">
     <span class="atlas-status <% if atlas.failed? %>failed<% elsif atlas.incomplete? %>incomplete<% end %>"></span>
-    <%= link_to atlas.title, atlas_path(atlas), {:class=>"map-card-title embolden"} %>
+    <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %>
     <span class="map-card-creator small"><%= atlas.creator_name %></span>
   </div>
 
   <div>
-    <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, 'page') %>,</span>
+    <span class="map-card-pages small"><%= pluralize(atlas.atlas_pages, "page") %>,</span>
     <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></span>
   </div>
 </li>
