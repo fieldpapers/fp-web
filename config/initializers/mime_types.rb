@@ -2,4 +2,4 @@
 
 # Add new mime types for use in respond_to blocks:
 Mime::Type.register "application/geo+json", :geojson
-Mime::Type.register "application/paperwalking+xml", :xml
+Mime::Type.register "application/paperwalking+xml", :fpxml
