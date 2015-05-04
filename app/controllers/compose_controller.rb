@@ -23,7 +23,14 @@ class ComposeController < ApplicationController
     when :select
       if params[:q]
         # #select does double-duty and redirects to the center
-        zoom, longitude, latitude = Placefinder.query(params[:q])
+        begin
+          zoom, longitude, latitude = Placefinder.query(params[:q])
+        rescue Placefinder::PlaceNotFoundException => e
+          @error = true
+          @place = e.place
+
+          return render previous_step
+        end
 
         return redirect_to wizard_path(:select, zoom: zoom, lat: latitude, lon: longitude)
       end
