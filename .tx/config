@@ -12,6 +12,7 @@ trans.fr = locale/fr/app.po
 trans.id = locale/id/app.po
 trans.it = locale/it/app.po
 trans.ja = locale/ja/app.po
+trans.ku = locale/ku/app.po
 trans.nl = locale/nl/app.po
 trans.pl = locale/pl/app.po
 trans.pt = locale/pt/app.po
