@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
     <div class="six columns field">
-      <%= f.label :login, :username %>
+      <%= f.label :login %>
       <%= f.text_field :login, autofocus: true, required: true, placeholder: "...", class: 'u-full-width' %>
     </div>
   </div>
