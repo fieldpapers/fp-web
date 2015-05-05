@@ -20,7 +20,7 @@
     </div>
 
     <div class="map-overlay bottom-right">
-      <a href="<%= "#{@snapshot.base_url}/walking-paper-#{@snapshot.slug}.tif" %>" class="button"><%= _("Download GeoTIFF") %></a>
+      <a href="<%= @snapshot.geotiff_url %>" class="button"><%= _("Download GeoTIFF") %></a>
     </div>
 
     <div id="map" class="detail"></div>

@@ -40,6 +40,7 @@
 #  east               :float(24)
 #  north              :float(24)
 #  zoom               :integer
+#  geotiff_url        :string(255)
 #
 
 require 'test_helper'
