@@ -25,7 +25,6 @@
 #  region_woeid       :integer
 #  place_name         :string(128)
 #  place_woeid        :integer
-#  failed             :integer          default(0)
 #  progress           :float(24)
 #  created_at         :datetime
 #  updated_at         :datetime
@@ -41,6 +40,7 @@
 #  north              :float(24)
 #  zoom               :integer
 #  geotiff_url        :string(255)
+#  failed_at          :datetime
 #
 
 class Snapshot < ActiveRecord::Base
@@ -86,7 +86,7 @@ class Snapshot < ActiveRecord::Base
       .where("#{self.table_name}.page_id IS NOT NULL")
       .where("#{self.table_name}.private = false")
       .where("#{Atlas.table_name}.private = false")
-      .where("#{self.table_name}.failed = false")
+      .where("#{self.table_name}.failed_at IS NULL")
       .order("#{self.table_name}.created_at DESC")
   }
 
@@ -155,7 +155,11 @@ class Snapshot < ActiveRecord::Base
   end
 
   def incomplete?
-    decoded_at.nil? && !failed?
+    decoded_at.nil? && failed_at.nil?
+  end
+
+  def failed?
+    !failed_at.nil?
   end
 
   # store an unescaped version of the URL that Amazon returns from direct

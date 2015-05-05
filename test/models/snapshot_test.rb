@@ -25,7 +25,6 @@
 #  region_woeid       :integer
 #  place_name         :string(128)
 #  place_woeid        :integer
-#  failed             :integer          default(0)
 #  progress           :float(24)
 #  created_at         :datetime
 #  updated_at         :datetime
@@ -41,6 +40,7 @@
 #  north              :float(24)
 #  zoom               :integer
 #  geotiff_url        :string(255)
+#  failed_at          :datetime
 #
 
 require 'test_helper'

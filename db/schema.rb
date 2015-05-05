@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504234531) do
+ActiveRecord::Schema.define(version: 20150505010118) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -131,7 +131,6 @@ ActiveRecord::Schema.define(version: 20150504234531) do
     t.integer  "region_woeid",       limit: 4
     t.string   "place_name",         limit: 128
     t.integer  "place_woeid",        limit: 4
-    t.integer  "failed",             limit: 4,          default: 0
     t.float    "progress",           limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -147,6 +146,7 @@ ActiveRecord::Schema.define(version: 20150504234531) do
     t.float    "north",              limit: 24
     t.integer  "zoom",               limit: 4
     t.string   "geotiff_url",        limit: 255
+    t.datetime "failed_at"
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree
