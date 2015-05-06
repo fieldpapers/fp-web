@@ -137,23 +137,47 @@ class GeneratePdfJob < ActiveJob::Base
     # convert all arguments to strings
     cmd = cmd.map(&:to_s)
 
-    stdout, stderr, status = nil
     output = Tempfile.new(["page", ".pdf"], "tmp/")
+    output.binmode
+
+    out = ""
+    err = ""
+    stdin, stdout, stderr, t = Open3.popen3(*cmd)
 
     begin
       Timeout.timeout(30) do
-        (stdout, stderr, status) = Open3.capture3(*cmd)
+        stdin.close
 
-        output.write(stdout)
+        while true
+          begin
+            out << stdout.read_nonblock(1024)
+            err << stderr.read_nonblock(1024)
+          rescue IO::WaitReadable
+            IO.select([stdout, stderr])
+            retry
+          rescue IO::WaitWritable
+            IO.select(nil, [stdout, stderr])
+            retry
+          rescue EOFError
+            break if stdout.eof? && stderr.eof?
+          end
+        end
+
+        # wait for the process to finish
+        status = t.value
+
+        raise "Failed to render page #{page.page_number}\nstdout: #{out}\nstderr: #{err}" unless status.success?
+
+        output.write(out)
       end
     rescue Timeout::Error
-      Process.kill(9, status.pid)
+      Process.kill 9, t.pid
 
       raise "Timed out waiting to render page #{page.page_number}"
-    end
-
-    unless status.success?
-      raise "Failed to render page #{page.page_number}\nstdout: #{stdout}\nstderr: #{stderr}"
+    ensure
+      stdin.close unless stdin.closed?
+      stdout.close
+      stderr.close
     end
 
     logger.debug "#{page.atlas.slug}/#{page.page_number} rendered to #{output.path}"
