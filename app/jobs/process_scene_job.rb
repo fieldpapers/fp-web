@@ -15,6 +15,7 @@ class ProcessSceneJob < ActiveJob::Base
 
   rescue_from(Exception) do |exception|
     logger.warn exception
+    logger.warn exception.backtrace.join("\n")
     Raven.capture_exception(exception)
   end
 
