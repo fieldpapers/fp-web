@@ -83,7 +83,10 @@ class GeneratePdfJob < ActiveJob::Base
         end
       end
     rescue Timeout::Error
-      Process.kill 9, pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out waiting to merge pages #{filenames.join(",")} for #{atlas.slug}"
     end
@@ -172,7 +175,10 @@ class GeneratePdfJob < ActiveJob::Base
         output.write(out)
       end
     rescue Timeout::Error
-      Process.kill 9, t.pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out waiting to render page #{page.page_number} for #{page.atlas.slug}\nstdout: #{out}\nstderr: #{err}"
     ensure

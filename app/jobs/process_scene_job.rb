@@ -126,7 +126,10 @@ class ProcessSceneJob < ActiveJob::Base
           end
       end
     rescue Timeout::Error
-      Process.kill 9, t.pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out determining extent for snapshot #{snapshot.slug}"
     ensure
@@ -175,7 +178,10 @@ class ProcessSceneJob < ActiveJob::Base
         return URI.decode(out.strip)
       end
     rescue Timeout::Error
-      Process.kill 9, t.pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out reading QR code for snapshot #{snapshot.slug}"
     ensure
@@ -235,7 +241,10 @@ class ProcessSceneJob < ActiveJob::Base
         return out
       end
     rescue Timeout::Error
-      Process.kill 9, t.pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out processing snapshot #{snapshot.slug}"
     ensure
@@ -288,7 +297,10 @@ class ProcessSceneJob < ActiveJob::Base
           end
       end
     rescue Timeout::Error
-      Process.kill 9, t.pid
+      begin
+        Process.kill 9, t.pid
+      rescue
+      end
 
       raise "Timed out transforming coordinates: #{coords}"
     ensure
