@@ -153,6 +153,8 @@ class GeneratePdfJob < ActiveJob::Base
     # convert all arguments to strings
     cmd = cmd.map(&:to_s)
 
+    logger.debug cmd.join(" ")
+
     output = Tempfile.new(["page", ".pdf"], "tmp/")
     output.binmode
 
