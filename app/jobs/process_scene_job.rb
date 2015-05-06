@@ -204,7 +204,7 @@ class ProcessSceneJob < ActiveJob::Base
     stdin, stdout, stderr, t = Open3.popen3(*cmd)
 
     begin
-      Timeout.timeout(30) do
+      Timeout.timeout(120) do
         stdin.binmode
         stdin.write image
         stdin.close
