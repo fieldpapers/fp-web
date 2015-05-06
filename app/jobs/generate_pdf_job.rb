@@ -85,7 +85,7 @@ class GeneratePdfJob < ActiveJob::Base
     rescue Timeout::Error
       Process.kill 9, pid
 
-      raise "Timed out waiting to merge pages #{filenames.join(",")}"
+      raise "Timed out waiting to merge pages #{filenames.join(",")} for #{atlas.slug}"
     end
 
     unless $?.success?
@@ -174,7 +174,7 @@ class GeneratePdfJob < ActiveJob::Base
     rescue Timeout::Error
       Process.kill 9, t.pid
 
-      raise "Timed out waiting to render page #{page.page_number}"
+      raise "Timed out waiting to render page #{page.page_number} for #{page.atlas.slug}\nstdout: #{out}\nstderr: #{err}"
     ensure
       stdin.close unless stdin.closed?
       stdout.close
