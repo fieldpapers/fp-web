@@ -113,24 +113,12 @@ class GeneratePdfJob < ActiveJob::Base
       "fieldpapers/paper",
     ]
 
-    orientation = case page.atlas.layout
-                  when "full-page"
-                    page.atlas.orientation
-                  when "half-page"
-                    case page.atlas.orientation
-                    when "landscape"
-                      "portrait"
-                    when "portrait"
-                      "landscape"
-                    end
-                  end
-
     case page.page_number
     when "i"
       cmd << "create_index.py"
       cmd << "-s" << page.atlas.paper_size
       cmd << "-l" << page.atlas.layout
-      cmd << "-o" << orientation
+      cmd << "-o" << page.atlas.orientation
       cmd << "-b" << page.north << page.west << page.south << page.east
       cmd << "-e" << page.atlas.north << page.atlas.west << page.atlas.south << page.atlas.east
       cmd << "-z" << page.zoom
@@ -142,7 +130,7 @@ class GeneratePdfJob < ActiveJob::Base
       cmd << "create_page.py"
       cmd << "-s" << page.atlas.paper_size
       cmd << "-l" << page.atlas.layout
-      cmd << "-o" << orientation
+      cmd << "-o" << page.atlas.orientation
       cmd << "-b" << page.north << page.west << page.south << page.east
       cmd << "-n" << page.page_number
       cmd << "-z" << page.zoom

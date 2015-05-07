@@ -154,6 +154,16 @@ class ComposeController < ApplicationController
       session[:atlas]
         .merge(atlas_params)
 
+    # flip the orientation if the layout was set on this POST (hence
+    # atlas_params)
+    if atlas_params[:layout] == "half-page"
+      if @atlas.orientation == "landscape"
+        @atlas.orientation = "portrait"
+      else
+        @atlas.orientation = "landscape"
+      end
+    end
+
     # for stepwise validation (not implemented due to reasonable defaults) see:
     #   https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step
     if @atlas.valid?
