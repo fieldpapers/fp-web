@@ -61,7 +61,7 @@ class ProcessSceneJob < ActiveJob::Base
         geotiff_url: geotiff_url,
         has_geotiff: "yes", # TODO turn this into a boolean field
         decoded_at: Time.now
-    rescue Exception => e
+    rescue Exception
       snapshot.update \
         failed_at: Time.now
 
@@ -83,6 +83,8 @@ class ProcessSceneJob < ActiveJob::Base
   def get_extent(snapshot, image)
     cmd = %w(docker run --rm -i fieldpapers/paper gdalinfo /vsistdin/)
 
+    logger.debug cmd.join(" ")
+
     out = ""
     err = ""
     stdin, stdout, stderr, t = Open3.popen3(*cmd)
@@ -93,7 +95,7 @@ class ProcessSceneJob < ActiveJob::Base
         stdin.write image
         stdin.close
 
-        while true
+        while t.status
           begin
             out << stdout.read_nonblock(1024)
             err << stderr.read_nonblock(1024)
@@ -107,6 +109,9 @@ class ProcessSceneJob < ActiveJob::Base
             break if stdout.eof? && stderr.eof?
           end
         end
+
+        out << stdout.read
+        err << stderr.read
 
         # wait for the process to finish
         status = t.value
@@ -126,12 +131,9 @@ class ProcessSceneJob < ActiveJob::Base
           end
       end
     rescue Timeout::Error
-      begin
-        Process.kill 9, t.pid
-      rescue
-      end
+      Process.kill 9, t.pid
 
-      raise "Timed out determining extent for snapshot #{snapshot.slug}"
+      raise "Timed out determining extent for snapshot #{snapshot.slug}\nstdout: #{out}\nstderr: #{err}"
     ensure
       stdin.close unless stdin.closed?
       stdout.close
@@ -153,7 +155,7 @@ class ProcessSceneJob < ActiveJob::Base
         stdin.write image
         stdin.close
 
-        while true
+        while t.status
           begin
             out << stdout.read_nonblock(1024)
             err << stderr.read_nonblock(1024)
@@ -168,6 +170,9 @@ class ProcessSceneJob < ActiveJob::Base
           end
         end
 
+        out << stdout.read
+        err << stderr.read
+
         # wait for the process to finish
         status = t.value
 
@@ -178,10 +183,7 @@ class ProcessSceneJob < ActiveJob::Base
         return URI.decode(out.strip)
       end
     rescue Timeout::Error
-      begin
-        Process.kill 9, t.pid
-      rescue
-      end
+      Process.kill 9, t.pid
 
       raise "Timed out reading QR code for snapshot #{snapshot.slug}"
     ensure
@@ -206,6 +208,8 @@ class ProcessSceneJob < ActiveJob::Base
       "process_snapshot.py",
     ]
 
+    logger.debug cmd.join(" ")
+
     out = ""
     err = ""
     stdin, stdout, stderr, t = Open3.popen3(*cmd)
@@ -216,7 +220,7 @@ class ProcessSceneJob < ActiveJob::Base
         stdin.write image
         stdin.close
 
-        while true
+        while t.status
           begin
             out << stdout.read_nonblock(1024)
             err << stderr.read_nonblock(1024)
@@ -231,6 +235,9 @@ class ProcessSceneJob < ActiveJob::Base
           end
         end
 
+        out << stdout.read
+        err << stderr.read
+
         # wait for the process to finish
         status = t.value
 
@@ -241,10 +248,7 @@ class ProcessSceneJob < ActiveJob::Base
         return out
       end
     rescue Timeout::Error
-      begin
-        Process.kill 9, t.pid
-      rescue
-      end
+      Process.kill 9, t.pid
 
       raise "Timed out processing snapshot #{snapshot.slug}"
     ensure
@@ -270,7 +274,7 @@ class ProcessSceneJob < ActiveJob::Base
         stdin.write(coords)
         stdin.close
 
-        while true
+        while t.status
           begin
             out << stdout.read_nonblock(1024)
             err << stderr.read_nonblock(1024)
@@ -285,6 +289,9 @@ class ProcessSceneJob < ActiveJob::Base
           end
         end
 
+        out << stdout.read
+        err << stderr.read
+
         # wait for the process to finish
         status = t.value
 
@@ -297,10 +304,7 @@ class ProcessSceneJob < ActiveJob::Base
           end
       end
     rescue Timeout::Error
-      begin
-        Process.kill 9, t.pid
-      rescue
-      end
+      Process.kill 9, t.pid
 
       raise "Timed out transforming coordinates: #{coords}"
     ensure
