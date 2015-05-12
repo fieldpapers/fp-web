@@ -29,8 +29,8 @@
 
   <div class="no-wrap">
     <span class="atlas-status <% if atlas.failed? %>failed<% elsif atlas.incomplete? %>incomplete<% end %>"></span>
-    <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %>
-    <span class="map-card-creator small"><%= atlas.creator_name %></span>
+    <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %><br>
+    <span class="map-card-creator small"><%= atlas.creator_name if atlas.creator %>&nbsp;</span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
   </div>
 
   <div>

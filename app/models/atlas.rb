@@ -134,6 +134,20 @@ class Atlas < ActiveRecord::Base
       .order("created_at DESC")
   }
 
+  scope :default, -> {
+    includes(:creator)
+      .where("#{self.table_name}.failed_at is null")
+      .order("created_at DESC")
+  }
+
+  scope :by_creator, -> (creator) {
+    if creator
+      where("#{self.table_name}.private = false OR (#{self.table_name}.private = true AND #{self.table_name}.user_id = ?)", creator.id)
+    else
+      where("#{self.table_name}.private = false")
+    end
+  }
+
   scope :date,
     -> date {
       where("DATE(#{self.table_name}.created_at) = ?", date)

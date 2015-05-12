@@ -10,7 +10,7 @@
     <div class="twelve columns relative">
 
       <div class="map-overlay top-left stacked">
-        <h5 class="overlay-item"><%= @atlas.title %></h5>
+        <h5 class="overlay-item"><%= @atlas.title %><% if @atlas.private %><span class="private"><%= _("private") %></span><% end %></h5>
         <p class="overlay-item"><%= pluralize(@atlas.pages.length, 'page') %></p>
       </div>
 

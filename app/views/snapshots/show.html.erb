@@ -12,10 +12,10 @@
   <div class="twelve columns relative">
     <div class="map-overlay top-left stacked">
 <% if @snapshot.atlas %>
-      <h5 class="overlay-item"><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %></h5>
+      <h5 class="overlay-item"><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %><% if @snapshot.private? %><span class="private"><%= _("private") %></span><% end %></h5>
       <p class="overlay-item">Page <%= @snapshot.page.page_number %> (of <%= @snapshot.atlas.pages.size %>)</p>
 <% else %>
-      <h5 class="overlay-item">Unknown</h5>
+      <h5 class="overlay-item">Unknown<% if @snapshot.private? %><span class="private">private</span><% end %></h5>
 <% end %>
     </div>
 

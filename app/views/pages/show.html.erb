@@ -12,7 +12,7 @@
       <div class="twelve columns relative">
 
         <div class="map-overlay top-left stacked">
-          <h5 class="overlay-item"> <%= _("From") %> <%=link_to @page.atlas.title, atlas_path(@page.atlas) %></h5>
+          <h5 class="overlay-item"> <%= _("From") %> <%= link_to @page.atlas.title, atlas_path(@page.atlas) %><% if @page.atlas.private? %><span class="private"><%= _("private") %></span><% end %></h5>
           <p class="overlay-item page-number"><%=h @page.page_number %></p>
         </div>
 

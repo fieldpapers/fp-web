@@ -90,6 +90,25 @@ class Snapshot < ActiveRecord::Base
       .order("#{self.table_name}.created_at DESC")
   }
 
+  scope :default, -> {
+    includes([:atlas, :page, :uploader])
+      .joins(:atlas)
+      .where("#{self.table_name}.page_id IS NOT NULL")
+      .where("#{self.table_name}.private = false")
+      .where("#{Atlas.table_name}.private = false") # TODO update data to obviate this (only needed for legacy snapshots)
+      .where("#{self.table_name}.failed_at IS NULL")
+      .order("#{self.table_name}.created_at DESC")
+  }
+
+  scope :by_creator, -> (creator) {
+    if creator
+      where("#{self.table_name}.private = false OR (#{self.table_name}.private = true AND #{self.table_name}.user_id = ?)", creator.id)
+    else
+      where("#{self.table_name}.private = false")
+        .where("#{Atlas.table_name}.private = false")
+    end
+  }
+
   scope :date,
     -> date {
       where("DATE(#{self.table_name}.created_at) = ?", date)

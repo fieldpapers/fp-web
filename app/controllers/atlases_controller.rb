@@ -10,8 +10,8 @@ class AtlasesController < ApplicationController
   has_scope :user,  only: :index
 
   def index
-    @atlases = apply_scopes(Atlas).page(params[:page])
-    @counts = apply_scopes(Atlas).count('id')
+    @atlases = apply_scopes(Atlas.unscoped).default.by_creator(current_user).page(params[:page])
+    @counts = apply_scopes(Atlas.unscoped).default.by_creator(current_user).count('id')
   end
 
   def show

@@ -11,8 +11,8 @@ class SnapshotsController < ApplicationController
   end
 
   def index
-    @snapshots = apply_scopes(Snapshot).page(params[:page])
-    @counts = apply_scopes(Snapshot).count('id')
+    @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page])
+    @counts = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).count('id')
   end
 
   def show
