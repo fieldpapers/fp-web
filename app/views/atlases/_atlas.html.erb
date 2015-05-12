@@ -21,7 +21,7 @@
       :tile_layer => "#{atlas.conform_template(atlas.get_provider_without_overlay)}",
       :attribution => nil,
       :max_zoom => 18,
-      :subdomains => ["a", "b", "c", "d"],
+      :subdomains => ["a", "b", "c"], # should be abcd, but OSM + OpenCycleMap don't include d
       :fitbounds => [[atlas.bbox[1], atlas.bbox[0]],[atlas.bbox[3], atlas.bbox[2]]]
     ) %>
   </a>
