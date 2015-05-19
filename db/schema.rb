@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505010118) do
+ActiveRecord::Schema.define(version: 20150519044330) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150505010118) do
     t.datetime "updated_at"
     t.datetime "composed_at"
     t.datetime "failed_at"
+    t.string   "workflow_state", limit: 255
   end
 
   add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150505010118) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "composed_at"
+    t.string   "pdf_url",       limit: 255
   end
 
   add_index "pages", ["atlas_id", "page_number"], name: "index_pages_on_atlas_id_and_page_number", using: :btree

@@ -11,7 +11,7 @@
 
       <div class="map-overlay top-left stacked">
         <h5 class="overlay-item"><%= @atlas.title %><% if @atlas.private %><span class="private"><%= _("private") %></span><% end %></h5>
-        <p class="overlay-item"><%= pluralize(@atlas.pages.length, 'page') %></p>
+        <p class="overlay-item"><%= pluralize(@atlas.pages.size, 'page') %></p>
       </div>
 
       <% if Providers.derive(@atlas.provider) === 'openstreetmap'  %>

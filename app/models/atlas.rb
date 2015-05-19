@@ -36,10 +36,12 @@ require "providers"
 #  updated_at     :datetime
 #  composed_at    :datetime
 #  failed_at      :datetime
+#  workflow_state :string(255)
 #
 
 class Atlas < ActiveRecord::Base
   include FriendlyId
+  include Workflow
 
   INDEX_BUFFER_FACTOR = 0.1
   OVERLAY_REDCROSS = "http://a.tiles.mapbox.com/v3/americanredcross.HAIYAN_Atlas_Bounds/{Z}/{X}/{Y}.png"
@@ -62,7 +64,6 @@ class Atlas < ActiveRecord::Base
   # callbacks
 
   after_create :create_pages
-  after_commit :generate_pdf, on: :create
   after_initialize :apply_defaults
   before_save :handle_overlays
   before_save :pick_zoom
@@ -167,6 +168,96 @@ class Atlas < ActiveRecord::Base
     -> user {
       where(user_id: user)
     }
+
+  # workflow states
+
+  workflow do
+    state :new do
+      event :render, transitions_to: :rendering
+    end
+
+    state :rendering do
+      # TODO this can be simplified to if: :all_pages_rendered? once
+      # workflow@1.3.0 is released
+      event :rendered, transitions_to: :merging, if: proc { |x| x.send :all_pages_rendered? }
+      event :rendered, transitions_to: :rendering
+      event :fail, transitions_to: :failed
+    end
+
+    state :merging do
+      event :merged, transitions_to: :complete
+      event :fail, transitions_to: :failed
+    end
+
+    state :complete
+    state :failed
+  end
+
+  # workflow transition event handlers
+
+  def increment_progress
+    # 2 = started, merged
+    update(progress: self.progress += 1.0 / (pages.size + 2))
+  end
+
+  def merged
+    increment_progress
+  end
+
+  def render
+    increment_progress
+
+    pages.each do |page|
+      json = page.as_json(include: {atlas: { only: [:slug, :layout, :orientation, :paper_size, :cols, :rows], methods: [:bbox] }}, methods: [:bbox], only: [:page_number, :provider, :zoom])
+
+      task = "render_page"
+      task = "render_index" if page.page_number == "i"
+
+      rsp = task_client.put do |req|
+        req.url "/#{task}"
+        req.headers["Content-Type"] = "application/json"
+        req.body = {
+          task: task,
+          callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
+          page: json,
+        }.to_json
+      end
+
+      if rsp.status < 200 || rsp.status >= 300
+        Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      end
+    end
+  end
+
+  def rendered
+    increment_progress
+  end
+
+  def on_complete_entry(previous_state, event)
+    update(composed_at: Time.now, progress: 1)
+  end
+
+  def on_failed_entry(previous_state, event)
+    update(failed_at: Time.now)
+  end
+
+  def on_merging_entry(previous_state, event)
+    json = as_json(include: {pages: { only: [:page_number, :pdf_url] }}, only: [:slug])
+
+    rsp = task_client.put do |req|
+      req.url "/merge_pages"
+      req.headers["Content-Type"] = "application/json"
+      req.body = {
+        task: "merge_pages",
+        callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}",
+        atlas: json,
+      }.to_json
+    end
+
+    if rsp.status < 200 || rsp.status >= 300
+      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+    end
+  end
 
   # instance methods
 
@@ -275,6 +366,10 @@ class Atlas < ActiveRecord::Base
     return positions.enum_for(:each_with_index).map { |x,i| provider[x..((positions[i+1] || 0)-1)] }
   end
 
+  def complete?
+    !composed_at.nil?
+  end
+
   def incomplete?
     composed_at.nil? && failed_at.nil?
   end
@@ -284,6 +379,12 @@ class Atlas < ActiveRecord::Base
   end
 
 private
+
+  def all_pages_rendered?
+    pages.all? do |page|
+      page.complete?
+    end
+  end
 
   def apply_defaults
     self.progress ||= 0
@@ -396,7 +497,11 @@ private
     self.zoom = calculate_zoom(west, east)
   end
 
-  def generate_pdf
-    GeneratePdfJob.perform_later(self)
+  def task_client
+    @task_client ||= Faraday.new(url: FieldPapers::TASK_BASE_URL) do |faraday|
+      faraday.response :json, content_type: /\bjson$/
+
+      faraday.adapter Faraday.default_adapter
+    end
   end
 end

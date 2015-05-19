@@ -21,6 +21,7 @@ require "providers"
 #  created_at    :datetime
 #  updated_at    :datetime
 #  composed_at   :datetime
+#  pdf_url       :string(255)
 #
 
 class Page < ActiveRecord::Base
@@ -42,6 +43,10 @@ class Page < ActiveRecord::Base
   # TODO this show go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
+  end
+
+  def complete?
+    !composed_at.nil?
   end
 
   def latitude

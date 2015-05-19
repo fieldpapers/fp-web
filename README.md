@@ -106,10 +106,12 @@ bundle install --path vendor/bundle # install dependencies
 
 direnv allow .             # whitelist the local .envrc
 
-rails server # start the app
+rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
-The app will now be running on [localhost:3000](http://localhost:3000/).
+The app will now be running on [localhost:3000](http://localhost:3000/) and
+will also be available as `<you>.local` (which is what should be used for
+`BASE_URL`).
 
 You'll probably want to add the following to the end of your `.bash_profile`
 (or equivalent):
@@ -148,6 +150,11 @@ they are available to the environment in which Rails is running.
 * `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
 * `API_BASE_URL` - Network-accessible (i.e. from a Docker container) base URL
   rendered into PDFs.
+* `BASE_URL` - Base URL, e.g. `http://fieldpapers.org`.
+* `TASK_BASE_URL` - Base URL for the task server (probably an instance of
+  [fp-tasks](https://github.com/fieldpapers/fp-tasks)).
+* `TILE_BASE_URL` - Base URL for the snapshot tiler (probably an instance of
+  [fp-tiler](https://github.com/fieldpapers/fp-tiler)).
 * `SENTRY_DSN` - Sentry DSN for exception logging. Optional.
 
 ### Running Tests

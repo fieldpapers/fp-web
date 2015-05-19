@@ -308,6 +308,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     wicked (1.1.1)
       rails (>= 3.0.7)
+    workflow (1.2.0)
 
 PLATFORMS
   ruby
@@ -359,3 +360,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   wicked
+  workflow

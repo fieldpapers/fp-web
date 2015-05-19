@@ -18,8 +18,14 @@ Rails.application.routes.draw do
 
   resources :atlases, :concerns => :pageable do
     member do
-      get ':page' => 'pages#show',
+      get ':page_number' => 'pages#show',
         as: :atlas_page,
+        constraints: {
+          id: /(?:(?!page).)+/ # use negative lookaheads to match anything
+                               # *except* page (necessary because concerns
+                               # are prioritized lower)
+        }
+      patch ':page_number' => 'pages#update',
         constraints: {
           id: /(?:(?!page).)+/ # use negative lookaheads to match anything
                                # *except* page (necessary because concerns
