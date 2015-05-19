@@ -67,7 +67,7 @@ class AtlasesController < ApplicationController
       }
 
       format.json {
-        render status: 201, nothing: true
+        render status: 201, json: true
       }
     end
   end
