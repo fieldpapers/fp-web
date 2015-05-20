@@ -45,7 +45,6 @@ require "raven"
 #  failed_at          :datetime
 #
 
-# TODO remove private and inherit from the associated atlas
 class Snapshot < ActiveRecord::Base
   include FriendlyId
   include Workflow
