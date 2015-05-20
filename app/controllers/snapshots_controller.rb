@@ -37,10 +37,18 @@ class SnapshotsController < ApplicationController
         stack: params[:error][:stack],
         snapshot: snapshot.slug,
       })
+
+      snapshot.fail!
+      snapshot.save!
     elsif params[:task] == "process_snapshot"
       # this is a callback from our renderer
       snapshot.update!(snapshot_update_params)
       snapshot.processed!
+      snapshot.save!
+    elsif params[:task] == "fetch_snapshot_metadata"
+      # this is a callback from our renderer
+      snapshot.update!(snapshot_update_params)
+      snapshot.metadata_fetched!
       snapshot.save!
     else
       snapshot.update!(snapshot_update_params)
@@ -70,6 +78,6 @@ class SnapshotsController < ApplicationController
 
   def snapshot_update_params
     params.require(:snapshot)
-      .permit(:geotiff_url, :page_url)
+      .permit(:geotiff_url, :page_url, :private, bbox: [])
   end
 end

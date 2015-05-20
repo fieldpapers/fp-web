@@ -60,6 +60,9 @@ class AtlasesController < ApplicationController
         stack: params[:error][:stack],
         atlas: atlas.slug,
       })
+
+      atlas.fail!
+      atlas.save!
     elsif params[:task] == "merge_pages"
       # this is a callback from our renderer
       atlas.update!(atlas_params)

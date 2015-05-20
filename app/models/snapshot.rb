@@ -1,3 +1,4 @@
+require "providers"
 require "raven"
 
 # == Schema Information
@@ -144,7 +145,12 @@ class Snapshot < ActiveRecord::Base
     end
 
     state :processing do
-      event :processed, transitions_to: :complete
+      event :processed, transitions_to: :fetching_metadata
+      event :fail, transitions_to: :failed
+    end
+
+    state :fetching_metadata do
+      event :metadata_fetched, transitions_to: :complete
       event :fail, transitions_to: :failed
     end
 
@@ -155,13 +161,31 @@ class Snapshot < ActiveRecord::Base
   # workflow transition event handlers
 
   def increment_progress
-    update(progress: self.progress += 1.0 / 3)
+    update(progress: self.progress += 1.0 / 4)
   end
 
   def process
     increment_progress
 
     task = "process_snapshot"
+
+    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
+      task: task,
+      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
+      snapshot: as_json(methods: [:image_url], only: [:slug]),
+    }
+
+    if rsp.status < 200 || rsp.status >= 300
+      logger.warn("Got #{rsp.status}: #{rsp.body}")
+      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      fail!
+    end
+  end
+
+  def processed
+    increment_progress
+
+    task = "fetch_snapshot_metadata"
 
     rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
       task: task,
@@ -184,8 +208,11 @@ class Snapshot < ActiveRecord::Base
     update(failed_at: Time.now)
   end
 
-  def processed
+  def metadata_fetched
     increment_progress
+
+    # TODO use page_url to see if this is a local atlas, and if so, associate
+    # them
   end
 
   # instance methods
@@ -194,9 +221,31 @@ class Snapshot < ActiveRecord::Base
     "Page #{page.page_number} of #{atlas.title}"
   end
 
-  # TODO this should go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
+  end
+
+  def bbox=(bbox)
+    if bbox.nil?
+      write_attribute :west, nil
+      write_attribute :south, nil
+      write_attribute :east, nil
+      write_attribute :north, nil
+    else
+      write_attribute :west, bbox[0]
+      write_attribute :south, bbox[1]
+      write_attribute :east, bbox[2]
+      write_attribute :north, bbox[3]
+    end
+  end
+
+  def provider
+    if atlas
+      atlas.get_provider_without_overlay
+    else
+      # TODO this is a really nasty way to achieve this
+      Providers.layers[Providers.default.to_sym][:template]
+    end
   end
 
   def image_url
@@ -215,6 +264,7 @@ class Snapshot < ActiveRecord::Base
     uploader && uploader.username || "anonymous"
   end
 
+  # TODO pull this off of bbox instead
   def geometry_string
     if !geojpeg_bounds
       return ''

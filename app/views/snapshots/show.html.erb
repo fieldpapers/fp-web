@@ -45,8 +45,8 @@
     $(function(){
 
       FP.map.locator("locator-map", {
-        bbox: <%= @snapshot.atlas.bbox %>,
-        provider: "<%= @snapshot.atlas.get_provider_without_overlay %>",
+        bbox: <%= @snapshot.bbox %>,
+        provider: "<%= @snapshot.provider %>",
         showMarker: true,
         zoom: 3
       });

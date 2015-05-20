@@ -21,6 +21,9 @@ class PagesController < ApplicationController
         atlas: atlas.slug,
         page: page.page_number,
       })
+
+      page.atlas.fail!
+      page.atlas.save!
     elsif ["render_page", "render_index"].include? params[:task]
       # this is a callback from our renderer
       page.update!(page_params.merge(composed_at: Time.now))
