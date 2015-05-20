@@ -3,6 +3,7 @@ xml.print id: @atlas.slug, user: @atlas.creator.try(:slug), href: atlas_url(@atl
   xml.paper size: @atlas.paper_size, orientation: @atlas.orientation, layout: @atlas.layout
   xml.provider @atlas.provider
   xml.pdf href: @atlas.pdf_url
+  xml.private @page.private?
 
   xml.bounds do
     xml.north @atlas.north
