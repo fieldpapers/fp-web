@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519044330) do
+ActiveRecord::Schema.define(version: 20150519230420) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150519044330) do
     t.string   "slug",               limit: 8,                          null: false
     t.integer  "user_id",            limit: 4
     t.integer  "page_id",            limit: 4
-    t.text     "print_href",         limit: 65535
+    t.text     "page_url",           limit: 65535
     t.float    "min_row",            limit: 24
     t.float    "max_row",            limit: 24
     t.float    "min_column",         limit: 24
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20150519044330) do
     t.integer  "zoom",               limit: 4
     t.string   "geotiff_url",        limit: 255
     t.datetime "failed_at"
+    t.string   "workflow_state",     limit: 255
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree

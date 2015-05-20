@@ -1,5 +1,6 @@
+require "csv"
 require "providers"
-require 'csv'
+require "raven"
 
 class AtlasesController < ApplicationController
   # filters
@@ -57,6 +58,13 @@ class AtlasesController < ApplicationController
       atlas.update!(atlas_params)
       atlas.merged!
       atlas.save!
+    elsif params[:error]
+      logger.warn(params[:error][:message])
+      logger.warn(params[:error][:stack])
+      Raven.capture_message(params[:error][:message], extra: {
+        stack: params[:error][:stack],
+        atlas: atlas.slug,
+      })
     else
       atlas.update!(atlas_params)
     end

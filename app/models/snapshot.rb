@@ -1,3 +1,5 @@
+require "raven"
+
 # == Schema Information
 #
 # Table name: snapshots
@@ -45,6 +47,7 @@
 
 class Snapshot < ActiveRecord::Base
   include FriendlyId
+  include Workflow
 
   # Environment-specific direct upload url verifier screens for malicious posted upload locations.
   S3_UPLOAD_URL_FORMAT = %r{\Ahttps:\/\/s3\.amazonaws\.com\/#{Rails.application.secrets.aws["s3_bucket_name"]}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
@@ -62,7 +65,6 @@ class Snapshot < ActiveRecord::Base
   has_attached_file :scene
 
   # callbacks
-  after_commit :process_scene, on: :create
   after_initialize :apply_defaults
 
   # validations
@@ -133,6 +135,59 @@ class Snapshot < ActiveRecord::Base
 
   validates_attachment_content_type :scene, :content_type => /\Aimage/
 
+  # workflow states
+
+  workflow do
+    state :new do
+      event :process, transitions_to: :processing
+      event :fail, transitions_to: :failed
+    end
+
+    state :processing do
+      event :processed, transitions_to: :complete
+      event :fail, transitions_to: :failed
+    end
+
+    state :complete
+    state :failed
+  end
+
+  # workflow transition event handlers
+
+  def increment_progress
+    update(progress: self.progress += 1.0 / 3)
+  end
+
+  def process
+    increment_progress
+
+    task = "process_snapshot"
+
+    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+      task: task,
+      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
+      snapshot: as_json(methods: [:image_url], only: [:slug]),
+    }
+
+    if rsp.status < 200 || rsp.status >= 300
+      logger.warn("Got #{rsp.status}: #{rsp.body}")
+      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      fail!
+    end
+  end
+
+  def on_complete_entry(previous_state, event)
+    update(decoded_at: Time.now, progress: 1)
+  end
+
+  def on_failed_entry(previous_state, event)
+    update(failed_at: Time.now)
+  end
+
+  def processed
+    increment_progress
+  end
+
   # instance methods
 
   def title
@@ -142,6 +197,10 @@ class Snapshot < ActiveRecord::Base
   # TODO this should go away if/when migrating to postgres
   def bbox
     [west, south, east, north]
+  end
+
+  def image_url
+    s3_scene_url
   end
 
   def latitude
@@ -193,10 +252,6 @@ private
     self.progress ||= 0
   end
 
-  def process_scene
-    ProcessSceneJob.perform_later(self)
-  end
-
   def random_id
     # use multiple attempts of a lambda for slug candidates
 
@@ -204,6 +259,15 @@ private
       -> {
         rand(2**256).to_s(36).ljust(8,'a')[0..7]
       }
+    end
+  end
+
+  def http_client
+    @http_client ||= Faraday.new do |faraday|
+      faraday.request :json
+      faraday.response :json, content_type: /\bjson$/
+
+      faraday.adapter Faraday.default_adapter
     end
   end
 end

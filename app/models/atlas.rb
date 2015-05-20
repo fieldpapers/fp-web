@@ -1,5 +1,7 @@
 require "paper"
 require "providers"
+require "raven"
+
 # == Schema Information
 #
 # Table name: atlases
@@ -174,6 +176,7 @@ class Atlas < ActiveRecord::Base
   workflow do
     state :new do
       event :render, transitions_to: :rendering
+      event :fail, transitions_to: :failed
     end
 
     state :rendering do
@@ -208,23 +211,26 @@ class Atlas < ActiveRecord::Base
     increment_progress
 
     pages.each do |page|
-      json = page.as_json(include: {atlas: { only: [:slug, :layout, :orientation, :paper_size, :cols, :rows], methods: [:bbox] }}, methods: [:bbox], only: [:page_number, :provider, :zoom])
-
       task = "render_page"
       task = "render_index" if page.page_number == "i"
 
-      rsp = task_client.put do |req|
-        req.url "/#{task}"
-        req.headers["Content-Type"] = "application/json"
-        req.body = {
-          task: task,
-          callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
-          page: json,
-        }.to_json
-      end
+      rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+        task: task,
+        callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
+        page: page.as_json(include: {
+          atlas: {
+            only: [:slug, :layout, :orientation, :paper_size, :cols, :rows],
+            methods: [:bbox]
+          }
+        },
+        methods: [:bbox],
+        only: [:page_number, :provider, :zoom]),
+      }
 
       if rsp.status < 200 || rsp.status >= 300
+        logger.warn("Got #{rsp.status}: #{rsp.body}")
         Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+        fail!
       end
     end
   end
@@ -242,20 +248,18 @@ class Atlas < ActiveRecord::Base
   end
 
   def on_merging_entry(previous_state, event)
-    json = as_json(include: {pages: { only: [:page_number, :pdf_url] }}, only: [:slug])
+    task = "merge_pages"
 
-    rsp = task_client.put do |req|
-      req.url "/merge_pages"
-      req.headers["Content-Type"] = "application/json"
-      req.body = {
-        task: "merge_pages",
-        callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}",
-        atlas: json,
-      }.to_json
-    end
+    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+      task: task,
+      callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}",
+      atlas: as_json(include: {pages: { only: [:page_number, :pdf_url] }}, only: [:slug]),
+    }
 
     if rsp.status < 200 || rsp.status >= 300
+      logger.warn("Got #{rsp.status}: #{rsp.body}")
       Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      fail!
     end
   end
 
@@ -497,8 +501,9 @@ private
     self.zoom = calculate_zoom(west, east)
   end
 
-  def task_client
-    @task_client ||= Faraday.new(url: FieldPapers::TASK_BASE_URL) do |faraday|
+  def http_client
+    @http_client ||= Faraday.new do |faraday|
+      faraday.request :json
       faraday.response :json, content_type: /\bjson$/
 
       faraday.adapter Faraday.default_adapter
