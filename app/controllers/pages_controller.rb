@@ -13,12 +13,7 @@ class PagesController < ApplicationController
     atlas = Atlas.unscoped.friendly.find(params[:id])
     page = atlas.pages.find_by_page_number(params[:page_number])
 
-    if ["render_page", "render_index"].include? params[:task]
-      # this is a callback from our renderer
-      page.update!(page_params.merge(composed_at: Time.now))
-      page.atlas.rendered!
-      page.atlas.save!
-    elsif params[:error]
+    if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
       Raven.capture_message(params[:error][:message], extra: {
@@ -26,6 +21,11 @@ class PagesController < ApplicationController
         atlas: atlas.slug,
         page: page.page_number,
       })
+    elsif ["render_page", "render_index"].include? params[:task]
+      # this is a callback from our renderer
+      page.update!(page_params.merge(composed_at: Time.now))
+      page.atlas.rendered!
+      page.atlas.save!
     else
       page.update!(page_params)
     end

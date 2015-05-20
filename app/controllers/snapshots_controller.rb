@@ -30,18 +30,18 @@ class SnapshotsController < ApplicationController
   def update
     snapshot = Snapshot.unscoped.friendly.find(params[:id])
 
-    if params[:task] == "process_snapshot"
-      # this is a callback from our renderer
-      snapshot.update!(snapshot_update_params)
-      snapshot.processed!
-      snapshot.save!
-    elsif params[:error]
+    if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
       Raven.capture_message(params[:error][:message], extra: {
         stack: params[:error][:stack],
         snapshot: snapshot.slug,
       })
+    elsif params[:task] == "process_snapshot"
+      # this is a callback from our renderer
+      snapshot.update!(snapshot_update_params)
+      snapshot.processed!
+      snapshot.save!
     else
       snapshot.update!(snapshot_update_params)
     end

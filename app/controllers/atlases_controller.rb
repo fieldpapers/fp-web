@@ -53,18 +53,18 @@ class AtlasesController < ApplicationController
   def update
     atlas = Atlas.unscoped.find_by_slug(params[:id])
 
-    if params[:task] == "merge_pages"
-      # this is a callback from our renderer
-      atlas.update!(atlas_params)
-      atlas.merged!
-      atlas.save!
-    elsif params[:error]
+    if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
       Raven.capture_message(params[:error][:message], extra: {
         stack: params[:error][:stack],
         atlas: atlas.slug,
       })
+    elsif params[:task] == "merge_pages"
+      # this is a callback from our renderer
+      atlas.update!(atlas_params)
+      atlas.merged!
+      atlas.save!
     else
       atlas.update!(atlas_params)
     end
