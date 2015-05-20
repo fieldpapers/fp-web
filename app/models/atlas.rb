@@ -458,8 +458,7 @@ private
         north: north + vert_padding,
         zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
-        provider: provider.gsub(OVERLAY_UTM, ""),
-        private: private
+        provider: provider.gsub(OVERLAY_UTM, "")
     end
 
     # create individual pages
@@ -478,8 +477,7 @@ private
           east: east - ((cols - x - 1) * width),
           north: north - (y * height),
           zoom: calculate_zoom(left, right),
-          provider: provider,
-          private: private
+          provider: provider
       end
     end
   end
