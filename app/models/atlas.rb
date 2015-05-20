@@ -214,7 +214,7 @@ class Atlas < ActiveRecord::Base
       task = "render_page"
       task = "render_index" if page.page_number == "i"
 
-      rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+      rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
         task: task,
         callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
         page: page.as_json(include: {
@@ -250,7 +250,7 @@ class Atlas < ActiveRecord::Base
   def on_merging_entry(previous_state, event)
     task = "merge_pages"
 
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
       task: task,
       callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}",
       atlas: as_json(include: {pages: { only: [:page_number, :pdf_url] }}, only: [:slug]),

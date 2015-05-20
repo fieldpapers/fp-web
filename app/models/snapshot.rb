@@ -164,7 +164,7 @@ class Snapshot < ActiveRecord::Base
 
     task = "process_snapshot"
 
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", body: {
+    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
       task: task,
       callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
       snapshot: as_json(methods: [:image_url], only: [:slug]),
