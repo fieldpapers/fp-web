@@ -201,7 +201,30 @@ class Snapshot < ActiveRecord::Base
   end
 
   def on_complete_entry(previous_state, event)
-    update(decoded_at: Time.now, progress: 1)
+    updates = {
+      decoded_at: Time.now,
+      progress: 1,
+    }
+
+    uri = URI.parse(page_url)
+    base_uri = URI.parse(FieldPapers::BASE_URL)
+
+    if uri.hostname == base_uri.hostname && uri.port == base_uri.port
+      (atlas_slug, page_number) = if uri.query
+        CGI.parse(uri.query)["id"][0].split("/")
+      else
+        uri.path.split("/").slice(-2, 2)
+      end
+
+      if atlas_slug && page_number
+        begin
+          updates[:page] = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
+        rescue ActiveRecord::RecordNotFound
+        end
+      end
+    end
+
+    update(updates)
   end
 
   def on_failed_entry(previous_state, event)
@@ -210,9 +233,6 @@ class Snapshot < ActiveRecord::Base
 
   def metadata_fetched
     increment_progress
-
-    # TODO use page_url to see if this is a local atlas, and if so, associate
-    # them
   end
 
   # instance methods
