@@ -36,3 +36,9 @@ directory and reenter: `cd ..; cd -`.
 `DATABASE_URL` probably isn't set. It should look like
 `mysql2://root@localhost/fieldpapers_development`.
 
+# `rails` won't start after complaining about missing gems
+
+First, make sure your gems are up-to-date by running `bundle`. If they are (and
+are installed globally), try removing `.bundle/config`, as it's likely
+preventing system gems from being loaded correctly. This is most likely to
+happen when running Field Papers with Docker.
