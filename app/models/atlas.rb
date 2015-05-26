@@ -193,7 +193,9 @@ class Atlas < ActiveRecord::Base
     end
 
     state :complete
-    state :failed
+    state :failed do
+      event :fail, transitions_to: :failed
+    end
   end
 
   # workflow transition event handlers
