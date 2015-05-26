@@ -11,68 +11,80 @@ overview](https://github.com/fieldpapers/fieldpapers).
 
 [![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
 
-### Using fig
+### Using docker-compose
 
-_NOTE_: this method is not actively being used, so there will be missing
-pieces.
+[compose](https://docs.docker.com/compose/) is
+a [Docker](http://www.docker.com/)-based tool for orchestrating development
+environments. Rather than using `foreman` to manage multiple processes locally,
+`compose` runs each component process in a separate container, built up from
+local `Dockerfile`s or from remote repositories.
 
-[`fig`](http://www.fig.sh/) is a [Docker](http://www.docker.com/)-based tool for
-orchestrating development environments. Rather than using `foreman` to manage
-multiple processes locally, `fig` runs each component process in a separate
-container, built up from local `Dockerfile`s or from remote repositories.
+#### Prerequisites
 
-Keeping your local development environment clean does come at a slight cost, at
-least on a Mac. In order to facilitate development, `fig` mounts your local
-directory as a volume in the container. Since the container is actually running
-in a VM, shenanigans are required to make it transparent and (currently)
-results in dramatically decreased performance, at least when starting Rails and
-running the asset pipeline on-demand.
+* A working instance of [Docker](http://www.docker.com/), via
+  [boot2docker](http://boot2docker.io/), [docker
+  machine](https://docs.docker.com/machine/), or another mechanism
+* mDNS, built-in on OS X, via `libnss-mdns` on Linux or [Bonjour Print Services
+  fpr Windows](https://support.apple.com/kb/DL999?locale=en_US)
+* [Docker compose](https://docs.docker.com/compose/)
 
-(At least that's my current theory; it's also possible that initializing Rails
-is stalling as a result of some sort of network misconfiguration in the
-container.)
-
-Besides reducing chaos, using `fig` has the benefit of producing and
-maintaining Docker-based configurations that can be used in a production
-environment (potentially with minor modifications).
-
-On OS X, install `boot2docker` and `fig` and start them up. If images do not
-exist, `fig` will create them the first time they're needed.
+#### Configuration
 
 ```bash
-brew install boot2docker fig
-
-boot2docker init         # create the Docker host if necessary
-boot2docker up           # start the Docker host
-$(boot2docker shellinit) # set the necessary Docker environment vars
-
-fig up                   # start all services
+cp sample.env .env
+# provide some AWS credentials, etc.
+open -t .env
 ```
 
-The app will now be running on port 3000 on the Docker host. `boot2docker ip`
-will show you the Docker host's IP, or you can do this:
+#### Starting
+
+This will fetch and build images as appropriate. If it doesn't work the first
+time (usually when building an image), try it again.
 
 ```bash
-open http://$(boot2docker ip):3000/
+docker-compose up
 ```
 
-To rebuild, use `fig build`. This is typically only necessary when
-modifications are made to the `Dockerfile`; additions to the `Gemfile` can be
-applied by running:
+The app will now be running on port 3000 on the Docker host, conveniently
+announcing itself as `fieldpapers.local`. Thus,
+`http://fieldpapers.local:3000/`.
+
+To see logs for other processes (web will display), run this in another window/tab:
 
 ```bash
-fig run web bundle install --path vendor/bundle
+docker-compose logs
 ```
 
-NOTE: If you later decide to take the "running locally" approach, you'll need
-to delete `vendor/bundle`, as it contains Linux-specific binaries linked to
-versions of libraries present in the Docker image.
+After you make changes to the `Dockerfile` to add system dependencies, you'll
+need to run `docker-compose build` in order to recreate the base `web` image.
+If you've just made chanegs to `Gemfile`, run `docker-compose run web bundle`.
+
+If this is the first time you're running this (or have pending migrations),
+you'll need to (optionally) load data and run the migrations:
+
+```bash
+gzip -dc ../data/fieldpapers.sql.gz | \
+  docker run \
+  -i \
+  --rm \
+  --link fpweb_db_1:db \
+  mysql \
+  mysql -uroot -pfp -h db fieldpapers_development
+docker run \
+  -it \
+  --rm \
+  -v $(pwd)/db:/app/db \
+  -e DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development \
+  --link fpweb_db_1:db \
+  fpweb_web:latest \
+  rake db:migrate
+```
 
 ### Running Locally
 
-Given the observed performance problems, it may make more sense to run the
-application locally (you can still use `fig` to run supplementary services like
-MySQL, etc.).
+Given the potential complexity of the above, or the need to make changes to the
+peripheral services, it may make more sense to run the application locally (you
+can still use `docker-compose` to run supplementary services like MySQL, etc.).
 
 On OS X, you'll want use `rbenv` (and `ruby-build`) in order to isolate the
 version of Ruby used here (and to prevent it from conflicting with other
