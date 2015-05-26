@@ -38,7 +38,6 @@ gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
 gem "s3_direct_upload" # direct-to-S3 upload helpers
-gem "sucker_punch", "~> 1.0" # in-process queue processing
 gem "mysql2"
 gem "workflow"
 gem "wicked" # wizard controllers
