@@ -216,6 +216,7 @@ GEM
     rack (1.6.0)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -345,6 +346,7 @@ DEPENDENCIES
   paperclip (~> 4.2.1)
   puma
   quiet_assets
+  rack-rewrite
   rails (= 4.2.1)
   rails_12factor
   rake

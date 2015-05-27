@@ -22,8 +22,6 @@ class SnapshotsController < ApplicationController
   end
 
   def show
-    return redirect_to snapshot_url(params[:id]) if params[:redirect]
-
     @snapshot = Snapshot.unscoped.friendly.find(params[:id])
   end
 

@@ -19,13 +19,6 @@ class AtlasesController < ApplicationController
   end
 
   def show
-    # redirects for legacy URLs
-    if params[:redirect]
-      return redirect_to atlas_page_atlas_url($1, $2) if params[:id] =~ /(\w+)\/(.+)/
-
-      return redirect_to atlas_url(params[:id])
-    end
-
     @atlas = Atlas.unscoped.friendly.find(params[:id])
 
     respond_to do |format|

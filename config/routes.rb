@@ -36,11 +36,4 @@ Rails.application.routes.draw do
 
   resources :compose
   resources :snapshots, :concerns => :pageable
-
-  # URL backward-compatibility
-
-  get 'atlas.php' => 'atlases#show', redirect: true
-  get 'atlases.php' => 'atlases#index', redirect: true
-  get 'snapshot.php' => 'snapshots#show', redirect: true
-  get 'snapshots.php' => 'snapshots#index', redirect: true
 end
