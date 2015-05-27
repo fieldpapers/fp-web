@@ -18,6 +18,9 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "\"%{place}\" could not be found."
+msgstr ""
+
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr ""
 
@@ -62,7 +65,7 @@ msgstr ""
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr ""
 
-msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
 msgstr ""
 
 msgid "Advanced - Field Papers"
@@ -129,13 +132,13 @@ msgstr ""
 msgid "Describe"
 msgstr ""
 
-msgid "Description"
-msgstr ""
-
 msgid "Development Blog"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr ""
+
+msgid "Download GeoTIFF"
 msgstr ""
 
 msgid "Download PDF"
@@ -271,6 +274,9 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
+msgid "Notes (only shown on half-page atlases)"
+msgstr ""
+
 msgid "Plain Text (CSV)"
 msgstr ""
 
@@ -284,11 +290,6 @@ msgid "Private"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
-
-msgid ""
-"Reworking of snapshot uploads is in progress; availability will increase over "
-"time."
 msgstr ""
 
 msgid "Rules"
@@ -305,7 +306,18 @@ msgid ""
 "<a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
 
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably shou"
+"ld <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
 msgid "Snapshot - Field Papers"
+msgstr ""
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
 msgstr ""
 
 msgid "Snapshot upload - Field Papers"
@@ -337,6 +349,12 @@ msgid ""
 " later."
 msgstr ""
 
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this wi"
+"ndow open; you can <a href='%{url}'>bookmark this page</a> and come back later"
+"."
+msgstr ""
+
 msgid "This process has been running for %{time}"
 msgstr ""
 
@@ -358,6 +376,12 @@ msgstr ""
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an inter"
 "mittent error, in which case you should try re-creating the atlas. If the prob"
+"lem persists, please email %{email_url} with details."
+msgstr ""
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it was"
+" an intermittent error, in which case you should try re-uploading. If the prob"
 "lem persists, please email %{email_url} with details."
 msgstr ""
 
@@ -394,9 +418,6 @@ msgstr ""
 msgid "on same page"
 msgstr ""
 
-msgid "on their own pages"
-msgstr ""
-
 msgid "one per page"
 msgstr ""
 
@@ -404,6 +425,9 @@ msgid "or create an account"
 msgstr ""
 
 msgid "pages you've marked"
+msgstr ""
+
+msgid "private"
 msgstr ""
 
 msgid "recent activity"

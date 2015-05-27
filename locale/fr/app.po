@@ -12,14 +12,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-05-04 20:02+0000\n"
-"Last-Translator: severin.menard <severin.menard@gmail.com>\n"
+"PO-Revision-Date: 2015-05-27 15:55+0000\n"
+"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/fieldpapers/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "\"%{place}\" could not be found."
+msgstr ""
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} est développé par %{StamenDesign}"
@@ -65,8 +68,8 @@ msgstr "Activité"
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr "Ajouter une grille %{UTM} à chaque carte ?"
 
-msgid "Add the Red Cross overlay (for disaster relief efforts)?"
-msgstr "Ajouter le calque Croix Rouge (pour l'aide humanitaire en cas de catastrophe) ?"
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Fonctions avancées - Field Papers"
@@ -132,14 +135,14 @@ msgstr "Faire une copie de l'atlas"
 msgid "Describe"
 msgstr "Décrire"
 
-msgid "Description"
-msgstr "Description"
-
 msgid "Development Blog"
 msgstr "Blog du développement"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Ne chargez pas d'éléments autres que des cartes Field Papers, s'il vous plait."
+
+msgid "Download GeoTIFF"
+msgstr ""
 
 msgid "Download PDF"
 msgstr "Télécharger le PDF"
@@ -275,6 +278,9 @@ msgstr "Pas d'atlas"
 msgid "No snapshots."
 msgstr "Pas d'aperçus."
 
+msgid "Notes (only shown on half-page atlases)"
+msgstr ""
+
 msgid "Plain Text (CSV)"
 msgstr "Texte brut (CSV)"
 
@@ -290,11 +296,6 @@ msgstr "Privé"
 msgid "Refresh"
 msgstr "Rafraîchir"
 
-msgid ""
-"Reworking of snapshot uploads is in progress; availability will increase "
-"over time."
-msgstr ""
-
 msgid "Rules"
 msgstr "Règles"
 
@@ -309,8 +310,19 @@ msgid ""
 "should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr "Comme cet atlas est <span class='private'>privé</span>, vous devriez l'ajouter à vos <a href='%{atlas_url}'>favoris</a>."
 
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
 msgid "Snapshot - Field Papers"
 msgstr "Aperçu - Field Papers"
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Transfert du cliché - Field Papers "
@@ -341,6 +353,12 @@ msgid ""
 "back later."
 msgstr "Cela peut prendre un peu de temps, généralement quelques minutes. Il n'est pas nécessaire de maintenir cette fenêtre ouverte : vous pouvez  <a href='%{atlas_url}'>ajouter son url dans vos favoris</a> et revenir plus tard."
 
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+
 msgid "This process has been running for %{time}"
 msgstr "Le processus est en cours depuis %{time}"
 
@@ -364,6 +382,12 @@ msgid ""
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
 msgstr "Malheureusement, le rendu de votre atlas a échoué. Il est possible que cela soit dû à une erreur intermittente, dans quel cas vous pouvez tenter de recréer votre atlas. Si le problème persiste, envoyez SVP un courrier à %{email_url} en fournissant des détails. "
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr ""
 
 msgid "Untitled"
 msgstr "Sans-titre"
@@ -398,9 +422,6 @@ msgstr "iD"
 msgid "on same page"
 msgstr "sur la même page"
 
-msgid "on their own pages"
-msgstr "sur leurs propres pages"
-
 msgid "one per page"
 msgstr "un par page"
 
@@ -409,6 +430,9 @@ msgstr "ou créez votre compte"
 
 msgid "pages you've marked"
 msgstr "les pages que vous avez annotées"
+
+msgid "private"
+msgstr ""
 
 msgid "recent activity"
 msgstr "l'activité récente"

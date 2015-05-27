@@ -9,14 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-05-01 21:03+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2015-05-27 15:55+0000\n"
+"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/fieldpapers/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "\"%{place}\" could not be found."
+msgstr ""
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
@@ -62,8 +65,8 @@ msgstr "Activiteit"
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr "Wilt u een %{UTM}-raster-overlay toevoegen aan elke kaart?"
 
-msgid "Add the Red Cross overlay (for disaster relief efforts)?"
-msgstr "Wilt u de Rode Kruis-overlay toevoegen (voor rampoplossingsdoeleinden)?"
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Geavanceerd - Field Papers"
@@ -129,14 +132,14 @@ msgstr "Deze atlas kopiëren"
 msgid "Describe"
 msgstr "Omschrijf"
 
-msgid "Description"
-msgstr "Beschrijving"
-
 msgid "Development Blog"
 msgstr "Ontwikkelingsblog"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
+
+msgid "Download GeoTIFF"
+msgstr ""
 
 msgid "Download PDF"
 msgstr "PDF downloaden"
@@ -272,6 +275,9 @@ msgstr "Geen atlassen."
 msgid "No snapshots."
 msgstr "Geen snapshots."
 
+msgid "Notes (only shown on half-page atlases)"
+msgstr ""
+
 msgid "Plain Text (CSV)"
 msgstr "Platte tekst (CSV)"
 
@@ -287,11 +293,6 @@ msgstr "Privé"
 msgid "Refresh"
 msgstr "Verversen"
 
-msgid ""
-"Reworking of snapshot uploads is in progress; availability will increase "
-"over time."
-msgstr "Het herschrijven van snapshot-uploads is bezig; de beschikbaarheid zal binnenkort toenemen."
-
 msgid "Rules"
 msgstr "Regels"
 
@@ -306,8 +307,19 @@ msgid ""
 "should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr "Omdat deze atlas <span class='private'>privé</span> is, zult u hem moeten toevoegen aan uw <a href='%{atlas_url}'>favorieten</a>."
 
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
 msgid "Snapshot - Field Papers"
 msgstr "Snapshot - Field Papers"
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Snapshot-upload - Field Papers"
@@ -338,6 +350,12 @@ msgid ""
 "back later."
 msgstr "Dit kan even duren, doorgaans een paar minuten. U hoeft dit venster niet open te houden; u kunt <a href='%{atlas_url}'>deze pagina toevoegen aan uw bladwijzers</a> en later terugkomen."
 
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+
 msgid "This process has been running for %{time}"
 msgstr "Dit proces draait al %{time}"
 
@@ -361,6 +379,12 @@ msgid ""
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
 msgstr "Het is niet gelukt om uw atlas te genereren. Het kan zijn dat dit een aanhoudende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de details."
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr ""
 
 msgid "Untitled"
 msgstr "Zonder titel"
@@ -395,9 +419,6 @@ msgstr "iD"
 msgid "on same page"
 msgstr "op dezelfde pagina"
 
-msgid "on their own pages"
-msgstr "op hun eigen pagina's"
-
 msgid "one per page"
 msgstr "één per pagina"
 
@@ -406,6 +427,9 @@ msgstr "of creëer een account"
 
 msgid "pages you've marked"
 msgstr "pagina's die u heeft gemarkeerd"
+
+msgid "private"
+msgstr ""
 
 msgid "recent activity"
 msgstr "recente activiteit"
