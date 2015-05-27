@@ -31,8 +31,10 @@ L.DraggableAny = L.Class.extend({
 
   enable: function () {
     if (this._enabled) { return; }
-
-    L.DomEvent.on(this._dragStartTarget, L.Draggable.START.join(' '), this._onDown, this);
+    var that = this;
+    L.DraggableAny.START.forEach(function(e){
+      L.DomEvent.on(that._dragStartTarget, e, that._onDown, that);
+    });
 
     this._enabled = true;
   },
@@ -40,7 +42,10 @@ L.DraggableAny = L.Class.extend({
   disable: function () {
     if (!this._enabled) { return; }
 
-    L.DomEvent.off(this._dragStartTarget, L.Draggable.START.join(' '), this._onDown, this);
+    var that = this;
+    L.DraggableAny.START.forEach(function(e){
+      L.DomEvent.off(that._dragStartTarget, e, that._onDown, that);
+    });
 
     this._enabled = false;
     this._moved = false;
@@ -52,6 +57,16 @@ L.DraggableAny = L.Class.extend({
     if (e.shiftKey || ((e.which !== 1) && (e.button !== 1) && !e.touches)) { return; }
 
     L.DomEvent.stopPropagation(e);
+
+    // disable map dragging while dragging tool
+    try {
+      this._context.map.dragging.disable();
+    } catch(e) {}
+
+
+    if (this._preventOutline) {
+      L.DomUtil.preventOutline(this._element);
+    }
 
     if (L.DomUtil.hasClass(this._element, 'leaflet-zoom-anim')) { return; }
 
@@ -68,8 +83,10 @@ L.DraggableAny = L.Class.extend({
     this._startPos = this._newPos = this.getPosition.call(this._context);
 
     L.DomEvent
-        .on(document, L.Draggable.MOVE[e.type], this._onMove, this)
-        .on(document, L.Draggable.END[e.type], this._onUp, this);
+        .on(document, L.DraggableAny.MOVE[e.type], this._onMove, this)
+        .on(document, L.DraggableAny.END[e.type], this._onUp, this);
+
+    L.DomEvent.preventDefault(e);
   },
 
   _onMove: function (e) {
@@ -106,13 +123,15 @@ L.DraggableAny = L.Class.extend({
     this._moving = true;
 
     L.Util.cancelAnimFrame(this._animRequest);
+    this._lastEvent = e;
     this._animRequest = L.Util.requestAnimFrame(this._updatePosition, this, true, this._dragStartTarget);
   },
 
   _updatePosition: function () {
-    this.fire('predrag');
+    var e = {originalEvent: this._lastEvent};
+    this.fire('predrag', e);
     this.setPosition.call(this._context, this._newPos, this._offset);
-    this.fire('drag');
+    this.fire('drag', e);
   },
 
   _onUp: function () {
@@ -123,10 +142,10 @@ L.DraggableAny = L.Class.extend({
       this._lastTarget = null;
     }
 
-    for (var i in L.Draggable.MOVE) {
+    for (var i in L.DraggableAny.MOVE) {
       L.DomEvent
-          .off(document, L.Draggable.MOVE[i], this._onMove, this)
-          .off(document, L.Draggable.END[i], this._onUp, this);
+          .off(document, L.DraggableAny.MOVE[i], this._onMove, this)
+          .off(document, L.DraggableAny.END[i], this._onUp, this);
     }
 
     L.DomUtil.enableImageDrag();
@@ -139,6 +158,13 @@ L.DraggableAny = L.Class.extend({
       this.fire('dragend', {
         distance: this._newPos.distanceTo(this._startPos)
       });
+    }
+
+    // re-enable map dragging
+    if(this._context.map.options.dragging) {
+      try {
+        this._context.map.dragging.enable();
+      } catch(e){}
     }
 
     this._moving = false;
