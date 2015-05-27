@@ -34,6 +34,7 @@
 #  updated_at     :datetime
 #  composed_at    :datetime
 #  failed_at      :datetime
+#  workflow_state :string(255)
 #
 
 require 'test_helper'

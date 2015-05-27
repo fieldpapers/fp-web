@@ -1,9 +1,9 @@
-<h2>Log in</h2>
+<h2><%= t('.sign_in', default: "Sign in") %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
     <div class="six columns field">
-      <%= f.label :login, "Username" %>
+      <%= f.label :login %>
       <%= f.text_field :login, autofocus: true, required: true, placeholder: "...", class: 'u-full-width' %>
     </div>
   </div>
@@ -20,13 +20,13 @@
       <div class="twelve columns field">
         <%= f.label :remember_me do %>
           <%= f.check_box :remember_me %>
-          <span class="label-body">Remember Me</span>
+          <span class="label-body"><%= t(".remember_me", default: "Remember Me") %></span>
         <% end %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit t('.sign_in', :default => "Sign in") %>
     </div>
   </div>
 <% end %>

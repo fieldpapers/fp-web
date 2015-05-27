@@ -18,6 +18,9 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "\"%{place}\" could not be found."
+msgstr ""
+
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr ""
 
@@ -45,6 +48,9 @@ msgid ""
 ".)"
 msgstr ""
 
+msgid "@fieldpapers on Twitter"
+msgstr ""
+
 msgid ""
 "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
 "a>, named “geojson_file”:"
@@ -59,7 +65,10 @@ msgstr ""
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr ""
 
-msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr ""
+
+msgid "Advanced - Field Papers"
 msgstr ""
 
 msgid ""
@@ -67,13 +76,25 @@ msgid ""
 "g</a> as a form value, named “geojson_data”:"
 msgstr ""
 
+msgid "Atlas - Field Papers"
+msgstr ""
+
+msgid "Atlas Creation Failed"
+msgstr ""
+
 msgid "Atlas Name"
+msgstr ""
+
+msgid "Atlas Rendering"
 msgstr ""
 
 msgid "Atlas description"
 msgstr ""
 
 msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas page - Field Papers"
 msgstr ""
 
 msgid "Atlas provider"
@@ -86,6 +107,9 @@ msgid "Atlas title"
 msgstr ""
 
 msgid "Atlases"
+msgstr ""
+
+msgid "Atlases - Field Papers"
 msgstr ""
 
 msgid "Bing"
@@ -108,10 +132,13 @@ msgstr ""
 msgid "Describe"
 msgstr ""
 
-msgid "Description"
+msgid "Development Blog"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr ""
+
+msgid "Download GeoTIFF"
 msgstr ""
 
 msgid "Download PDF"
@@ -140,6 +167,9 @@ msgstr ""
 msgid "Finished!"
 msgstr ""
 
+msgid "From"
+msgstr ""
+
 msgid "GeoJSON"
 msgstr ""
 
@@ -159,6 +189,11 @@ msgid "Hand-drawn graphic to represent making a Field Papers atlas"
 msgstr ""
 
 msgid "Help"
+msgstr ""
+
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status updates"
+", and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
 msgid ""
@@ -190,6 +225,9 @@ msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
+msgstr ""
+
+msgid "Make - Field Papers"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -236,6 +274,9 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
+msgid "Notes (only shown on half-page atlases)"
+msgstr ""
+
 msgid "Plain Text (CSV)"
 msgstr ""
 
@@ -260,7 +301,37 @@ msgstr ""
 msgid "ShapeFile"
 msgstr ""
 
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably should "
+"<a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably shou"
+"ld <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
+msgid "Snapshot - Field Papers"
+msgstr ""
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
+msgstr ""
+
+msgid "Snapshot upload - Field Papers"
+msgstr ""
+
 msgid "Snapshots"
+msgstr ""
+
+msgid "Snapshots - Field Papers"
+msgstr ""
+
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try a"
+"gain."
 msgstr ""
 
 msgid "Stamen Design"
@@ -270,6 +341,21 @@ msgid "Submit"
 msgstr ""
 
 msgid "Take it into the field"
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this wi"
+"ndow open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back"
+" later."
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this wi"
+"ndow open; you can <a href='%{url}'>bookmark this page</a> and come back later"
+"."
+msgstr ""
+
+msgid "This process has been running for %{time}"
 msgstr ""
 
 msgid "Tile URL template"
@@ -287,13 +373,31 @@ msgstr ""
 msgid "UTM"
 msgstr ""
 
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an inter"
+"mittent error, in which case you should try re-creating the atlas. If the prob"
+"lem persists, please email %{email_url} with details."
+msgstr ""
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it was"
+" an intermittent error, in which case you should try re-uploading. If the prob"
+"lem persists, please email %{email_url} with details."
+msgstr ""
+
 msgid "Untitled"
 msgstr ""
 
 msgid "Upload"
 msgstr ""
 
+msgid "Upload Failed"
+msgstr ""
+
 msgid "Upload MBTiles"
+msgstr ""
+
+msgid "Uploading"
 msgstr ""
 
 msgid "WATCH"
@@ -314,9 +418,6 @@ msgstr ""
 msgid "on same page"
 msgstr ""
 
-msgid "on their own pages"
-msgstr ""
-
 msgid "one per page"
 msgstr ""
 
@@ -324,6 +425,9 @@ msgid "or create an account"
 msgstr ""
 
 msgid "pages you've marked"
+msgstr ""
+
+msgid "private"
 msgstr ""
 
 msgid "recent activity"

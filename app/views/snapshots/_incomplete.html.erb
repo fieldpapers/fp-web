@@ -1,0 +1,35 @@
+<% content_for :head do %>
+    <!-- original fieldpapers way of updating atlas progress -->
+    <meta http-equiv="refresh" content="5" data-turbolinks-track=true>
+<% end %>
+
+<div class="row">
+  <div class="eight columns">
+    <div class="row">
+      <div class="twelve columns">
+        <h2><%= _("Snapshot Processing") %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns pad-bottom">
+        <!-- https://css-tricks.com/examples/ProgressBars/ -->
+        <div class="progress-bar">
+          <span style="width: <%= (snapshot.progress * 100) %>%;"></span>
+        </div>
+        <p class="form-help progress-bar--help"><%= _("This process has been running for %{time}") % {time: time_ago_in_words(snapshot.created_at)} %></p>
+      </div>
+      <div class="twelve columns">
+        <p><%= _("This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later.") % {url: snapshot_path(snapshot)} %></p>
+        <p><%= _("If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck.") %
+          {
+          email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} stuck"),
+          twitter_link: link_to(_("@fieldpapers on Twitter"), "http://twitter.com/fieldpapers")
+          } %></p>
+
+        <% if snapshot.private? %>
+        <p><%= _("Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>.") % {url: snapshot_path(snapshot)} %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

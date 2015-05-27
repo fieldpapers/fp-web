@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422001133) do
+ActiveRecord::Schema.define(version: 20150519230420) do
 
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.datetime "updated_at"
     t.datetime "composed_at"
     t.datetime "failed_at"
+    t.string   "workflow_state", limit: 255
   end
 
   add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "composed_at"
+    t.string   "pdf_url",       limit: 255
   end
 
   add_index "pages", ["atlas_id", "page_number"], name: "index_pages_on_atlas_id_and_page_number", using: :btree
@@ -112,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.string   "slug",               limit: 8,                          null: false
     t.integer  "user_id",            limit: 4
     t.integer  "page_id",            limit: 4
-    t.text     "print_href",         limit: 65535
+    t.text     "page_url",           limit: 65535
     t.float    "min_row",            limit: 24
     t.float    "max_row",            limit: 24
     t.float    "min_column",         limit: 24
@@ -125,15 +127,12 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.string   "has_geojpeg",        limit: 3,          default: "no"
     t.string   "base_url",           limit: 255
     t.string   "uploaded_file",      limit: 255
-    t.text     "geojpeg_bounds",     limit: 65535
-    t.text     "decoding_json",      limit: 65535
     t.string   "country_name",       limit: 64
     t.integer  "country_woeid",      limit: 4
     t.string   "region_name",        limit: 64
     t.integer  "region_woeid",       limit: 4
     t.string   "place_name",         limit: 128
     t.integer  "place_woeid",        limit: 4
-    t.integer  "failed",             limit: 4,          default: 0
     t.float    "progress",           limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -143,7 +142,14 @@ ActiveRecord::Schema.define(version: 20150422001133) do
     t.integer  "scene_file_size",    limit: 4
     t.datetime "scene_updated_at"
     t.string   "s3_scene_url",       limit: 255
-    t.integer  "atlas_id",           limit: 4
+    t.float    "west",               limit: 24
+    t.float    "south",              limit: 24
+    t.float    "east",               limit: 24
+    t.float    "north",              limit: 24
+    t.integer  "zoom",               limit: 4
+    t.string   "geotiff_url",        limit: 255
+    t.datetime "failed_at"
+    t.string   "workflow_state",     limit: 255
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree

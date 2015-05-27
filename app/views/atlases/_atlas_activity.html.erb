@@ -12,7 +12,7 @@
     <li>This atlas is a <i>copy</i> of <%= link_to(atlas.cloned_from, atlas_path(atlas.cloned_from)) %> </li>
   <% end %>
   <% if !atlas.snapshots.empty? %>
-    <%= render partial: "atlas_snapshot", collection: atlas.snapshots %>
+    <%= render partial: "atlases/atlas_snapshot", collection: atlas.snapshots %>
   <% end %>
 </ul>
 </div>
@@ -28,8 +28,8 @@
 
     <h6 class="options-list-title"><%= _("Edit in...") %></h6>
     <ul>
-      <li><a href=<%= iDLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-      <li><a href=<%= potlatchLink(@atlas.slug, @atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+      <li><a href=<%= id_link(@atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
+      <li><a href=<%= potlatch_link(@atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
     </ul>
   </div>
 </div>

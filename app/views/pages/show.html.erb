@@ -8,15 +8,15 @@
   <%= render partial: "atlases/atlas_failed", locals: {atlas: @page.atlas} %>
 <% else %>
   <div class="row pad-bottom">
-      <div id="atlas-locator-map" class="twelve columns"></div>
+      <div id="locator-map" class="twelve columns"></div>
       <div class="twelve columns relative">
 
-        <div class="atlas-map-overlay top-left stacked">
-          <h5 class="overlay-item"> <%= _("From") %> <%=link_to @page.atlas.title, atlas_path(@page.atlas) %></h5>
+        <div class="map-overlay top-left stacked">
+          <h5 class="overlay-item"> <%= _("From") %> <%= link_to @page.atlas.title, atlas_path(@page.atlas) %><% if @page.atlas.private? %><span class="private"><%= _("private") %></span><% end %></h5>
           <p class="overlay-item page-number"><%=h @page.page_number %></p>
         </div>
 
-        <div class="atlas-map-overlay bottom-right">
+        <div class="map-overlay bottom-right">
           <%= form_for @page.atlas, url: compose_path(:select), method: :put do |f| %>
             <%= f.hidden_field :north, :value=> @page.atlas.north %>
             <%= f.hidden_field :south, :value=> @page.atlas.south %>
@@ -37,7 +37,7 @@
           <% if @page.atlas.pdf_url %><a href="<%= @page.atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
         </div>
 
-        <div id="atlas-map" class="page-view"></div>
+        <div id="map" class="page-view"></div>
       </div>
   </div>
 
@@ -54,14 +54,14 @@
         var bbox = <%= @page.bbox %>;
         var pages = [<%= @page.to_json.html_safe %>];
 
-        FP.map.locator('atlas-locator-map', {
+        FP.map.locator('locator-map', {
           bbox: bbox,
           provider: atlasProvider,
           showMarker: true,
           zoom: 3
         });
 
-        FP.map.atlas('atlas-map',{
+        FP.map.atlas('map',{
           bbox: bbox,
           providerSettings: providerObject,
           provider: atlasProvider,

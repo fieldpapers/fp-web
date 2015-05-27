@@ -1,23 +1,39 @@
 <% content_for :title, _("Snapshot - Field Papers") %>
 
+<% if @snapshot.incomplete? %>
+  <%= render partial: "incomplete", locals: { snapshot: @snapshot } %>
+<% elsif @snapshot.failed? %>
+  <%= render partial: "failed", locals: { snapshot: @snapshot } %>
+<% else %>
 <div class="row pad-bottom">
+<% if @snapshot.atlas %>
+  <div id="locator-map" class="twelve columns"></div>
+<% end %>
   <div class="twelve columns relative">
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    <div class="map-overlay top-left stacked">
+<% if @snapshot.atlas %>
+      <h5 class="overlay-item"><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %><% if @snapshot.private? %><span class="private"><%= _("private") %></span><% end %></h5>
+      <p class="overlay-item">Page <%= @snapshot.page.page_number %> (of <%= @snapshot.atlas.pages.size %>)</p>
+<% else %>
+      <h5 class="overlay-item">Unknown<% if @snapshot.private? %><span class="private">private</span><% end %></h5>
+<% end %>
+    </div>
+
+    <div class="map-overlay bottom-right">
+      <a href="<%= @snapshot.geotiff_url %>" class="button"><%= _("Download GeoTIFF") %></a>
+    </div>
+
+    <div id="map" class="detail"></div>
   </div>
 </div>
 
 <div class="row">
-  <div class="eight columns atlases-activity">
-    <h5><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %></h5>
-    <p>Page <%= @snapshot.page.page_number %> of <%= @snapshot.atlas.pages.size %></p>
-  </div>
-
-  <div class="four columns">
+  <div class="eleven columns">
     <div class="u-pull-right no-wrap options-list">
       <h6 class="options-list-title">Edit in...</h6>
       <ul>
-        <li><a href=<%= iDLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
-        <li><a href=<%= potlatchLink(@snapshot.slug, @snapshot.atlas.zoom, @snapshot.atlas.longitude, @snapshot.atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
+        <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
+        <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
       </ul>
     </div>
   </div>
@@ -28,13 +44,16 @@
   <script>
     $(function(){
 
-      FP.map.snapshot('map',{
+      FP.map.locator("locator-map", {
         bbox: <%= @snapshot.bbox %>,
-        base_url: "http://fieldpapers-tiler.herokuapp.com/snapshots/<%= @snapshot.slug %>",
-        min_zoom: <%= @snapshot.min_zoom %>,
-        max_zoom: <%= @snapshot.max_zoom %>,
+        provider: "<%= @snapshot.provider %>",
+        showMarker: true,
+        zoom: 3
       });
+
+      FP.map.snapshot("map", "<%= tilejson_url(@snapshot) %>");
 
     });
   </script>
+<% end %>
 <% end %>

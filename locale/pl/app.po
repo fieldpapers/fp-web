@@ -1,22 +1,24 @@
 # English translations for app package.
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
-#
+# 
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:52+0000\n"
+"PO-Revision-Date: 2015-05-27 15:55+0000\n"
 "Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/fieldpapers/langua"
-"ge/en/)\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/fieldpapers/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "\"%{place}\" could not be found."
+msgstr ""
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr ""
@@ -28,11 +30,13 @@ msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%{time_period} ago"
 msgstr ""
@@ -41,13 +45,16 @@ msgid "&copy; OpenStreetMap contributors"
 msgstr ""
 
 msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct URL"
-".)"
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr ""
+
+msgid "@fieldpapers on Twitter"
 msgstr ""
 
 msgid ""
-"A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-"a>, named “geojson_file”:"
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
 msgid "About the Project"
@@ -59,21 +66,36 @@ msgstr ""
 msgid "Add a %{UTM} grid overlay to each map?"
 msgstr ""
 
-msgid "Add the Red Cross overlay (for disaster relief efforts)?"
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr ""
+
+msgid "Advanced - Field Papers"
 msgstr ""
 
 msgid ""
-"Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-"g</a> as a form value, named “geojson_data”:"
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr ""
+
+msgid "Atlas - Field Papers"
+msgstr ""
+
+msgid "Atlas Creation Failed"
 msgstr ""
 
 msgid "Atlas Name"
+msgstr ""
+
+msgid "Atlas Rendering"
 msgstr ""
 
 msgid "Atlas description"
 msgstr ""
 
 msgid "Atlas location"
+msgstr ""
+
+msgid "Atlas page - Field Papers"
 msgstr ""
 
 msgid "Atlas provider"
@@ -88,6 +110,9 @@ msgstr ""
 msgid "Atlases"
 msgstr ""
 
+msgid "Atlases - Field Papers"
+msgstr ""
+
 msgid "Bing"
 msgstr ""
 
@@ -98,8 +123,8 @@ msgid "Check out the OSM help wiki."
 msgstr ""
 
 msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR cod"
-"e)."
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
 msgstr ""
 
 msgid "Copy this atlas"
@@ -108,10 +133,13 @@ msgstr ""
 msgid "Describe"
 msgstr ""
 
-msgid "Description"
+msgid "Development Blog"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr ""
+
+msgid "Download GeoTIFF"
 msgstr ""
 
 msgid "Download PDF"
@@ -121,8 +149,8 @@ msgid "EXTEND"
 msgstr ""
 
 msgid ""
-"Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpape"
-"rs.org</a>. <i>All are optional.</i>"
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
 
 msgid "Edit in..."
@@ -140,6 +168,9 @@ msgstr ""
 msgid "Finished!"
 msgstr ""
 
+msgid "From"
+msgstr ""
+
 msgid "GeoJSON"
 msgstr ""
 
@@ -152,7 +183,8 @@ msgstr ""
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr ""
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr ""
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
@@ -162,14 +194,19 @@ msgid "Help"
 msgstr ""
 
 msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details u"
-"p-front that are used as default values throughout the <a href=\"%s\">Make</a> p"
-"rocess."
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
 msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done in "
-"one of two ways:"
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
+msgstr ""
+
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr ""
 
 msgid "LOG IN"
@@ -179,8 +216,8 @@ msgid "LOG OUT"
 msgstr ""
 
 msgid ""
-"Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-"\">dbsgeo.com/latlon/</a> to make new ones."
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Layout"
@@ -190,6 +227,9 @@ msgid "Location and zoom"
 msgstr ""
 
 msgid "MAKE"
+msgstr ""
+
+msgid "Make - Field Papers"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -211,8 +251,8 @@ msgid "Making Canned Atlases"
 msgstr ""
 
 msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox},"
-" or a combination thereof."
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
 msgstr ""
 
 msgid "Mapbox"
@@ -234,6 +274,9 @@ msgid "No atlases."
 msgstr ""
 
 msgid "No snapshots."
+msgstr ""
+
+msgid "Notes (only shown on half-page atlases)"
 msgstr ""
 
 msgid "Plain Text (CSV)"
@@ -260,7 +303,37 @@ msgstr ""
 msgid "ShapeFile"
 msgstr ""
 
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
+msgid "Snapshot - Field Papers"
+msgstr ""
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
+msgstr ""
+
+msgid "Snapshot upload - Field Papers"
+msgstr ""
+
 msgid "Snapshots"
+msgstr ""
+
+msgid "Snapshots - Field Papers"
+msgstr ""
+
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
 msgstr ""
 
 msgid "Stamen Design"
@@ -270,6 +343,21 @@ msgid "Submit"
 msgstr ""
 
 msgid "Take it into the field"
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+
+msgid "This process has been running for %{time}"
 msgstr ""
 
 msgid "Tile URL template"
@@ -287,13 +375,31 @@ msgstr ""
 msgid "UTM"
 msgstr ""
 
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
+msgstr ""
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr ""
+
 msgid "Untitled"
 msgstr ""
 
 msgid "Upload"
 msgstr ""
 
+msgid "Upload Failed"
+msgstr ""
+
 msgid "Upload MBTiles"
+msgstr ""
+
+msgid "Uploading"
 msgstr ""
 
 msgid "WATCH"
@@ -314,9 +420,6 @@ msgstr ""
 msgid "on same page"
 msgstr ""
 
-msgid "on their own pages"
-msgstr ""
-
 msgid "one per page"
 msgstr ""
 
@@ -324,6 +427,9 @@ msgid "or create an account"
 msgstr ""
 
 msgid "pages you've marked"
+msgstr ""
+
+msgid "private"
 msgstr ""
 
 msgid "recent activity"

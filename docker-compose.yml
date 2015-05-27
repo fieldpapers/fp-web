@@ -1,0 +1,52 @@
+db:
+  image: mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=fp
+    - MYSQL_DATABASE=fieldpapers_development
+    - MYSQL_USER=fieldpapers
+    - MYSQL_PASSWORD=fieldpapers
+  ports:
+    - 3306:3306
+web:
+  build: .
+  env_file: .env
+  environment:
+    - RAILS_ENV=development
+    - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
+    - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
+    - API_BASE_URL=http://fieldpapers.local:3000/
+    - BASE_URL=http://fieldpapers.local:3000
+    - TILE_BASE_URL=http://fieldpapers.local:8080
+    - TASK_BASE_URL=http://localhost:8080
+  hostname: fieldpapers
+  links:
+    - db
+  ports:
+    - 3000:3000
+  volumes:
+    - ./app:/app/app
+    - ./config:/app/config
+    - ./db:/app/db
+    - ./lib:/app/lib
+    - ./locale:/app/locale
+    - ./public:/app/public
+    - ./test:/app/test
+tasks:
+  image: fieldpapers/tasks:v0.2.1
+  env_file: .env
+  net: container:web
+tiler:
+  image: fieldpapers/tiler:v0.1.1
+  env_file: .env
+  environment:
+    - API_BASE_URL=http://web:3000/
+  links:
+    - web
+  ports:
+    - 8080:8080
+mdns:
+  image: fieldpapers/mdns
+  environment:
+  # workaround for hostname conflicting with net=host
+    - HOSTNAME=fieldpapers
+  net: host

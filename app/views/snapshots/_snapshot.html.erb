@@ -1,11 +1,29 @@
 <li class="map-card four columns">
-  <%= link_to snapshot_path(snapshot), {:class=>"map-card-preview"} do %>
-    <% if defined? snapshot.base_url and snapshot.base_url %>
-      <%= image_tag (snapshot.base_url + "/preview.jpg") %>
-    <% else %>
-      <%= image_tag 'http://placehold.it/300x300&text=No%20Image' %>
-    <% end %>
-  <% end %>
+  <a href="<%= snapshot_url(snapshot) %>" class="map-card-preview static-map">
+    <%= map(
+      :container_id => "static-map-#{snapshot.slug}",
+      :center => {
+        :latlng => [snapshot.latitude, snapshot.longitude],
+        :zoom => snapshot.zoom - 3
+      },
+      :map_options => {
+        :attribution_control => false,
+        :zoom_control => false,
+        :dragging => false,
+        :touchZoom => false,
+        :scrollWheelZoom => false,
+        :doubleClickZoom => false,
+        :boxZoom => false,
+        :tap => false,
+        :keyboard => false
+      },
+
+      :tile_layer => "#{FieldPapers::TILE_BASE_URL}/snapshots/#{snapshot.slug}/{z}/{x}/{y}.png",
+      :attribution => nil,
+      :max_zoom => 18,
+      :subdomains => ["a", "b", "c", "d"]
+    ) %>
+  </a>
 
   <div class="no-wrap">
     <%= link_to snapshot.title, snapshot_path(snapshot), {:class=>"map-card-title embolden"} %>

@@ -2,6 +2,15 @@ require "faraday"
 require "faraday_middleware"
 
 class Placefinder
+  class PlaceNotFoundException < Exception
+    attr_reader :place
+
+    def initialize(message, place)
+      super(message)
+      @place = place
+    end
+  end
+
   def self.query(q)
     client = Faraday.new(url: "http://query.yahooapis.com/v1/public/yql") do |faraday|
       faraday.response :json, content_type: /\bjson$/
@@ -16,8 +25,11 @@ class Placefinder
 
     case rsp.status
     when 200
-      result = rsp.body["query"]["results"]["Result"]
+      results = rsp.body["query"]["results"]
 
+      raise PlaceNotFoundException.new("'#{q}' could not be found", q) unless results
+
+      result = results["Result"]
       result = result.first if result.is_a?(Array)
 
       zoom = case

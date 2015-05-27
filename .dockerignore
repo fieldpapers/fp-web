@@ -1,0 +1,6 @@
+.git
+.bundle
+log
+tmp
+vendor/bundle
+venv

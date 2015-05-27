@@ -4,43 +4,42 @@
   var FP = exports.FP || (exports.FP = {});
   var Map = FP.map || (FP.map = {});
 
-  // TODO: write something helpful
-  function deriveBbox(settings) {
+  Map.snapshot = function(selector, url) {
+    var map = L.map(selector, FP.map.options);
 
-    // bbox = [west, south, east, north]
-    if (settings.bbox && settings.bbox instanceof Array && settings.bbox.length === 4) {
-      var sw = L.latLng(settings.bbox[1], settings.bbox[0]),
-          ne = L.latLng(settings.bbox[3], settings.bbox[2]),
-          bds = L.latLngBounds(sw, ne);
+    $.getJSON(url, function(data) {
+      // provide a default location in the hash, not the L.map (since that will
+      // load before L.Hash takes control)
+      if (!window.location.hash) {
+        if (data.center) {
+          window.location.hash = "#" + data.center.reverse().join("/");
+        } else {
+          window.location.hash = "#13/37.8/-122.4";
+        }
+      }
 
-      if (bds.isValid()) return bds;
-    }
+      new L.Hash(map);
 
-    return null;
-  }
+      var options = {
+        minZoom: data.minzoom || 0,
+        maxZoom: data.maxzoom || 20
+      };
 
-  var locatorMapOptions = {
-    attributionControl: false
-  };
+      var provider = data.tiles.pop();
 
-  Map.snapshot = function(selector, settings) {
-    var __ = {};
-    var mapOptions = L.Util.extend({}, locatorMapOptions, FP.map.options);
-    mapOptions.minZoom = settings.min_zoom || 16;
-    mapOptions.maxZoom = settings.max_zoom || 18;
-    var bbox = deriveBbox(settings);
+      var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+                        (min--moz-device-pixel-ratio: 1.5),\
+                        (-o-min-device-pixel-ratio: 3/2),\
+                        (min-resolution: 1.5dppx)";
 
-    var map = L.map(selector, mapOptions);//.setView(bbox.getCenter(), 17);
-    if (bbox) map.fitBounds(bbox);
+      if (window.devicePixelRatio > 1 ||
+          (window.matchMedia && window.matchMedia(mediaQuery).matches)) {
+        // replace the last "." with "@2x."
+        provider = provider.replace(/\.(?!.*\.)/, "@2x.")
+      }
 
-    var template = settings.base_url + '/{z}/{x}/{y}.png';
-
-    L.tileLayer(template, {
-      attribution: '',
-      maxZoom: mapOptions.maxZoom
-    }).addTo(map);
-
-    return __;
+      L.tileLayer(provider, options).addTo(map);
+    });
   };
 
 

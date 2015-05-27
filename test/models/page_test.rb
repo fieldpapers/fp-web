@@ -20,6 +20,7 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  composed_at   :datetime
+#  pdf_url       :string(255)
 #
 
 require 'test_helper'

@@ -20,15 +20,12 @@
 #  has_geojpeg        :string(3)        default("no")
 #  base_url           :string(255)
 #  uploaded_file      :string(255)
-#  geojpeg_bounds     :text(65535)
-#  decoding_json      :text(65535)
 #  country_name       :string(64)
 #  country_woeid      :integer
 #  region_name        :string(64)
 #  region_woeid       :integer
 #  place_name         :string(128)
 #  place_woeid        :integer
-#  failed             :integer          default(0)
 #  progress           :float(24)
 #  created_at         :datetime
 #  updated_at         :datetime
@@ -38,4 +35,11 @@
 #  scene_file_size    :integer
 #  scene_updated_at   :datetime
 #  s3_scene_url       :string(255)
+#  west               :float(24)
+#  south              :float(24)
+#  east               :float(24)
+#  north              :float(24)
+#  zoom               :integer
+#  geotiff_url        :string(255)
+#  failed_at          :datetime
 #

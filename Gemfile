@@ -25,6 +25,8 @@ gem "aws-sdk-v1", "~> 1"
 gem "bootstrap-sass", "~> 3.3.3"
 gem "composite_primary_keys", "~> 8.0.0"
 gem "devise" # authentication
+gem "devise-i18n" # Devise translations
+gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
 gem "faraday_middleware" # response parsing, etc.
 gem "friendly_id", "~> 5.1.0" # alphanumeric slugs
@@ -35,9 +37,10 @@ gem "kaminari" # pagination
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
+gem "rack-rewrite" # URL rewriting middleware
 gem "s3_direct_upload" # direct-to-S3 upload helpers
-gem "sucker_punch", "~> 1.0" # in-process queue processing
 gem "mysql2"
+gem "workflow"
 gem "wicked" # wizard controllers
 gem "json"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'

@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="eight columns">
+    <div class="row">
+      <div class="twelve columns">
+        <h2><%= _("Snapshot Processing Failed") %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <p><%= _("Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} failed to process") } %></p>
+      </div>
+    </div>
+  </div>
+</div>

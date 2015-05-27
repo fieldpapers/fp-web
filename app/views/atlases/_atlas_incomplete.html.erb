@@ -23,10 +23,10 @@
         <p><%= _("If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck.") %
           {
           email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Atlas #{atlas.slug} stuck"),
-          twitter_link: link_to("http://twitter.com/fieldpapers", _("@fieldpapers on Twitter"))
+          twitter_link: link_to(_("@fieldpapers on Twitter"), "http://twitter.com/fieldpapers")
           } %></p>
 
-        <% if atlas.private %>
+        <% if atlas.private? %>
         <p><%= _("Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>.") % {atlas_url: atlas_path(atlas)} %></p>
         <% end %>
       </div>
