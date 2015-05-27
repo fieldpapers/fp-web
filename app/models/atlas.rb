@@ -221,7 +221,7 @@ class Atlas < ActiveRecord::Base
         callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
         page: page.as_json(include: {
           atlas: {
-            only: [:slug, :layout, :orientation, :paper_size, :cols, :rows],
+            only: [:slug, :layout, :orientation, :paper_size, :text, :cols, :rows],
             methods: [:bbox]
           }
         },
