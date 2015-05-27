@@ -354,10 +354,10 @@ class Atlas < ActiveRecord::Base
   def get_provider_without_overlay
     tmp = provider
     if redcross_overlay?
-      tmp = tmp.gsub(OVERLAY_REDCROSS, "")
+      tmp = tmp.gsub(",#{OVERLAY_REDCROSS}", "")
     end
     if utm_grid?
-      tmp = tmp.gsub(OVERLAY_UTM, "")
+      tmp = tmp.gsub(",#{OVERLAY_UTM}", "")
     end
     return tmp
   end
@@ -486,15 +486,15 @@ private
 
   def handle_overlays
     if redcross_overlay == "1"
-      self.provider += OVERLAY_REDCROSS unless redcross_overlay?
+      self.provider += ",#{OVERLAY_REDCROSS}" unless redcross_overlay?
     else
-      self.provider = self.provider.gsub(OVERLAY_REDCROSS, "")
+      self.provider = self.provider.gsub(",#{OVERLAY_REDCROSS}", "")
     end
 
     if utm_grid == "1"
-      self.provider += OVERLAY_UTM unless utm_grid?
+      self.provider += ",#{OVERLAY_UTM}" unless utm_grid?
     else
-      self.provider = self.provider.gsub(OVERLAY_UTM, "")
+      self.provider = self.provider.gsub(",#{OVERLAY_UTM}", "")
     end
   end
 
