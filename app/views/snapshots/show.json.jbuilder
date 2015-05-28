@@ -1,5 +1,5 @@
 json.geotiff do
-  json.url "#{@snapshot.base_url}/walking-paper-#{@snapshot.slug}.tif"
+  json.url @snapshot.geotiff_url
 end
 
 json.bbox @snapshot.bbox
