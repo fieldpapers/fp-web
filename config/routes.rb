@@ -36,4 +36,6 @@ Rails.application.routes.draw do
 
   resources :compose
   resources :snapshots, :concerns => :pageable
+
+  mount Rack::NotFound.new("public/404.html") => "activity.php"
 end

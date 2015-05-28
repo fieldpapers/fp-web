@@ -346,6 +346,7 @@ DEPENDENCIES
   paperclip (~> 4.2.1)
   puma
   quiet_assets
+  rack-contrib
   rack-rewrite
   rails (= 4.2.1)
   rails_12factor
