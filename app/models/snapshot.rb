@@ -124,7 +124,7 @@ class Snapshot < ActiveRecord::Base
 
   scope :place,
     -> place {
-      where("place_woeid = ? OR region_woeid = ? OR country_woeid = ?", place, place, place)
+      where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
     }
 
   scope :user,
