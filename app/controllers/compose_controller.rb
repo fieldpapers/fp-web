@@ -136,7 +136,7 @@ class ComposeController < ApplicationController
     zoom ||= 12 # arbitrary zoom
 
     session[:atlas] = params[:atlas].merge({
-      creator_id: current_user.try(:id)
+      user_id: current_user.try(:id)
     })
 
     return redirect_to wizard_path(:select, zoom: zoom, lat: latitude, lon: longitude) if latitude && longitude
@@ -147,7 +147,7 @@ class ComposeController < ApplicationController
   def update
     # initialize session storage of atlas attributes
     session[:atlas] ||= {
-      creator_id: current_user.try(:id)
+      user_id: current_user.try(:id)
     }
 
     @atlas = Atlas.new \
