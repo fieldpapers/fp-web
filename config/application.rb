@@ -30,6 +30,8 @@ module App
       rewrite "/atlases.php", "/atlases"
       rewrite %r{^/snapshot.php(\?id=(.*))?$}, "/snapshots/$2"
       rewrite "/snapshots.php", "/snapshots"
+      r301 %r{^/files/prints/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/atlases/$1"
+      r301 %r{^/files/scans/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/snapshots/$1"
     end
   end
 end
