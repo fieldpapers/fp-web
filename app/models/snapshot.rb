@@ -59,7 +59,7 @@ class Snapshot < ActiveRecord::Base
 
   # kaminari (pagination) configuration
 
-  paginates_per 50
+  paginates_per 25
 
   # paperclip (attachment) configuration
 
