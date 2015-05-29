@@ -67,8 +67,8 @@ class Atlas < ActiveRecord::Base
 
   after_create :create_pages
   after_initialize :apply_defaults
-  before_save :handle_overlays
-  before_save :pick_zoom
+  before_create :handle_overlays
+  before_create :pick_zoom
 
   # validations
 
