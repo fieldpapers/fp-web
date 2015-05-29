@@ -194,6 +194,8 @@ class Atlas < ActiveRecord::Base
 
     state :complete
     state :failed do
+      event :rendered, transitions_to: :failed
+      event :merged, transitions_to: :failed
       event :fail, transitions_to: :failed
     end
   end
