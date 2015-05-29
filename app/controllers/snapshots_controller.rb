@@ -76,6 +76,6 @@ class SnapshotsController < ApplicationController
 
   def snapshot_update_params
     params.require(:snapshot)
-      .permit(:geotiff_url, :page_url, :private, bbox: [])
+      .permit(:geotiff_url, :page_url, :private, :zoom, bbox: [])
   end
 end
