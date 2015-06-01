@@ -169,8 +169,8 @@ class ComposeController < ApplicationController
     if @atlas.valid?
       case step
       when :layout # final step
-        @atlas.save
         @atlas.render!
+        @atlas.save
 
         # now that this atlas exists, clear out the session representation
         session[:atlas] = nil
