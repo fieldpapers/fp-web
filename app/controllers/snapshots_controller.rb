@@ -12,7 +12,7 @@ class SnapshotsController < ApplicationController
   # @http_method XHR POST
   # @url /snapshots
   def create
-    @snapshot = Snapshot.create(snapshot_upload_params)
+    @snapshot = Snapshot.create!(snapshot_upload_params)
     @snapshot.process!
   end
 
