@@ -20,6 +20,8 @@ L.PageComposer = L.Class.extend({
         a4: {landscape: 1.414, portrait: 0.707, scale: 1}
       },
       toolScale: 1,
+      zoomScale: 1,
+      startZoom: null,
       paperSize: 'letter',
       pageOrientation: 'landscape',
       page_aspect_ratio:  null,
@@ -37,6 +39,31 @@ L.PageComposer = L.Class.extend({
       this._width = (this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.cols;
       this._height = this.options.pageHeight * this.refs.rows;
       this._limitChangeFire = L.Util.limitExecByInterval( function(){this.fire("change");}, 500, this);
+    },
+
+    addTo: function(map) {
+      this.map = map;
+
+      // set inital zoom level
+      this.refs.startZoom = map.getZoom();
+
+      // set up tool elements
+      this._createElements();
+
+      // _render positions & sets the dimensions of the tool
+      this._render();
+      return this;
+    },
+
+    remove: function() {
+      this.map.on("move",     this._onMapMovement, this);
+      this.map.on("moveend",  this._onMapMovement, this);
+      this.map.on("viewreset",  this._onMapReset, this);
+      this.map.on("resize",   this._onMapReset, this);
+
+      if (this._scaleHandle) L.DomEvent.removeListener(this._scaleHandle, "mousedown", this._onScaleMouseDown);
+
+      this._container.parentNode.removeChild(this._container);
     },
 
     setPaperSize: function(x) {
@@ -77,29 +104,6 @@ L.PageComposer = L.Class.extend({
       return this;
     },
 
-    addTo: function(map) {
-        this.map = map;
-        this._createElements();
-        this._render();
-        return this;
-    },
-
-    getBounds: function() {
-        var size = this.map.getSize();
-        var topRight = new L.Point();
-        var bottomLeft = new L.Point();
-
-        bottomLeft.x = Math.round((size.x - this._width) / 2);
-        topRight.y = Math.round((size.y - this._height) / 2);
-        topRight.x = size.x - bottomLeft.x;
-        bottomLeft.y = size.y - topRight.y;
-
-        var sw = this.map.containerPointToLatLng(bottomLeft);
-        var ne = this.map.containerPointToLatLng(topRight);
-
-        return new L.LatLngBounds(sw, ne);
-    },
-
     getPages: function() {
       return {cols: this.refs.cols, rows: this.refs.rows};
     },
@@ -108,46 +112,298 @@ L.PageComposer = L.Class.extend({
       return this.bounds || null;
     },
 
-    remove: function() {
-        this.map.off("move", this._onMapChange);
-        this.map.off("moveend", this._onMapChange);
-        this.map.off("zoomend", this._onMapChange);
-        this.map.off("resize", this._onMapResize);
+    getBounds: function() {
+      var size = this.map.getSize();
+      var topRight = new L.Point();
+      var bottomLeft = new L.Point();
 
-        this._container.parentNode.removeChild(this._container);
+      bottomLeft.x = Math.round((size.x - this._width) / 2);
+      topRight.y = Math.round((size.y - this._height) / 2);
+      topRight.x = size.x - bottomLeft.x;
+      bottomLeft.y = size.y - topRight.y;
+
+      var sw = this.map.containerPointToLatLng(bottomLeft);
+      var ne = this.map.containerPointToLatLng(topRight);
+
+      return new L.LatLngBounds(sw, ne);
     },
 
+    _onMapMovement: function() {
+      this._render();
+      this.fire("change");
+    },
+
+    _onMapReset: function() {
+      this.refs.zoomScale = 1 / this.map.getZoomScale(this.refs.startZoom);
+      this._render();
+      this.fire("change");
+    },
+
+    _limitChangeFire: function(){},
+
     _createElements: function() {
-        if (!!this._container)
-            return;
+      if (!!this._container)
+          return;
 
-        this._container =   L.DomUtil.create("div", "leaflet-areaselect-container", this.map._controlContainer);
-        this._grid =        L.DomUtil.create("div", "leaflet-areaselect-grid", this._container);
+      // base elements
+      this._container =   L.DomUtil.create("div", "leaflet-areaselect-container", this.map._controlContainer);
+      this._grid =        L.DomUtil.create("div", "leaflet-areaselect-grid", this._container);
 
-        // shade layers
-        this._topShade =    L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
-        this._bottomShade = L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
-        this._leftShade =   L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
-        this._rightShade =  L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
+      // shade layers
+      this._topShade =    L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
+      this._bottomShade = L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
+      this._leftShade =   L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
+      this._rightShade =  L.DomUtil.create("div", "leaflet-areaselect-shade", this._container);
 
-        // add/remove cols & rows
-        this._setPageTool();
+      // add/remove page btns
+      this._createPageModifiers();
 
-        // scale tool
-        this._scaleHandle = L.DomUtil.create("div", "leaflet-areaselect-handle scale-handle", this._container);
-        this._setScaleHandler(this._scaleHandle, -1, -1);
+      // add scale & drag btns
+      this._createContainerModifiers();
 
-        // drag tool
+      //
+      this._calculateInitialPositions();
+      this._setDimensions();
+      this._createPages();
+
+      this.map.on("move",     this._onMapMovement, this);
+      this.map.on("moveend",  this._onMapMovement, this);
+      this.map.on("viewreset",  this._onMapReset, this);
+      this.map.on("resize",   this._onMapReset, this);
+
+      this.fire("change");
+    },
+
+    // Adds the scale & drag buttons
+    _createContainerModifiers: function() {
+      // scale button
+      this._setScaleHandler(L.DomUtil.create("div", "leaflet-areaselect-handle scale-handle", this._container), -1, -1);
+
+      // drag button
+      if (typeof L.DraggableAny === 'function') {
         this._dragHandle = L.DomUtil.create("div", "leaflet-areaselect-handle drag-handle", this._container);
         var draggable = new L.DraggableAny(this._dragHandle, null, this._getPos, this._setPos, this);
         draggable.enable();
+      }
+    },
 
-        this.map.on("move",     this._onMapChange, this);
-        this.map.on("moveend",  this._onMapChange, this);
-        this.map.on("zoomend",  this._onMapChange, this);
-        this.map.on("resize",   this._onMapResize, this);
+    // Adds the add/remove buttons to the tool
+    _createPageModifiers: function() {
+      // row
+      this._rowModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool row-modifier", this._container);
+      this._addRow = L.DomUtil.create("div", "modifier-btn add-btn", this._rowModifier);
+      //this._addRow.innerHTML = "+";
+      this._createInnerText(this._addRow, "+");
+      this._minusRow = L.DomUtil.create("div", "modifier-btn subtract-btn", this._rowModifier);
+      //this._minusRow.innerHTML = "&#8722;";
+      this._createInnerText(this._minusRow, "&#8722;");
 
-        this.fire("change");
+      // col
+      this._colModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool col-modifier", this._container);
+      this._addCol = L.DomUtil.create("div", "modifier-btn add-btn", this._colModifier);
+      //this._addCol.innerHTML = "+";
+      this._createInnerText(this._addCol, "+");
+      this._minusCol = L.DomUtil.create("div", "modifier-btn subtract-btn", this._colModifier);
+      //this._minusCol.innerHTML = "&#8722;";
+      this._createInnerText(this._minusCol, "&#8722;");
+
+
+      L.DomEvent.addListener(this._addRow, "click", this._onAddRow, this);
+      L.DomEvent.addListener(this._minusRow, "click", this._onSubtractRow, this);
+      L.DomEvent.addListener(this._addCol, "click", this._onAddCol, this);
+      L.DomEvent.addListener(this._minusCol, "click", this._onSubtractCol, this);
+    },
+
+    // Handler for when the tool is scaled
+    _setScaleHandler: function(handle, xMod, yMod) {
+      if (this._scaleHandle) return;
+      xMod = xMod || 1;
+      yMod = yMod || 1;
+
+      this._scaleHandle = handle;
+
+      this._scaleProps = {
+        x: xMod,
+        y: yMod,
+        curX: 0,
+        curY: 0,
+        maxHeight: 0,
+        ratio: 1
+      };
+
+      L.DomEvent.addListener(this._scaleHandle, "mousedown", this._onScaleMouseDown, this);
+    },
+
+    _onScaleMouseMove: function(event) {
+      var width = this.dimensions.width,
+          height = this.dimensions.height;
+
+      if (this.options.keepAspectRatio) {
+        //var maxHeight = (height >= width ? size.y : size.y * (1/ratio) ) - 30;
+        height += (this._scaleProps.curY - event.originalEvent.pageY) * 2 * this._scaleProps.y;
+        height = Math.max(this.options.minHeight, height);
+        height = Math.min(this._scaleProps.maxHeight, height);
+        width = height * this._scaleProps.ratio;
+        this.refs.toolScale = height/this.options.pageHeight;
+
+      } else {
+        this._width += (this._scaleProps.curX - event.originalEvent.pageX) * 2 * this._scaleProps.x;
+        this._height += (this._scaleProps.curY - event.originalEvent.pageY) * 2 * this._scaleProps.y;
+        this._width = Math.max(this.options.paddingToEdge, this._width);
+        this._height = Math.max(this.options.paddingToEdge, this._height);
+        this._width = Math.min(size.x-this.options.paddingToEdge, this._width);
+        this._height = Math.min(size.y-this.options.paddingToEdge, this._height);
+      }
+
+      this.dimensions.width = width;
+      this.dimensions.height = height;
+
+      this._scaleProps.curX = event.originalEvent.pageX;
+      this._scaleProps.curY = event.originalEvent.pageY;
+
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._setDimensions();
+      this._render();
+    },
+
+    _onScaleMouseDown: function(event) {
+      //event.stopPropagation();
+      L.DomEvent.stopPropagation(event);
+      L.DomEvent.removeListener(this._scaleHandle, "mousedown", this._onScaleMouseDown);
+
+      this._scaleProps.curX = event.pageX;
+      this._scaleProps.curY = event.pageY;
+      this._scaleProps.ratio = this.dimensions.width / this.dimensions.height;
+      var size = this.map.getSize();
+      L.DomUtil.disableTextSelection();
+      L.DomUtil.addClass(this._container, 'scaling');
+
+      var nwPt = this.map.latLngToContainerPoint(this.bounds.getNorthWest());
+      var maxHeightY = size.y - this.map.latLngToContainerPoint(this.bounds.getNorthWest()).y - this.options.paddingToEdge;
+      var maxHeightX = (size.x - this.map.latLngToContainerPoint(this.bounds.getNorthWest()).x - this.options.paddingToEdge) * 1/this._scaleProps.ratio;
+      this._scaleProps.maxHeight = Math.min(maxHeightY, maxHeightX);
+
+      L.DomEvent.addListener(this.map, "mousemove", this._onScaleMouseMove, this);
+      L.DomEvent.addListener(this.map, "mouseup", this._onScaleMouseUp, this);
+    },
+
+    _onScaleMouseUp: function(event) {
+      L.DomEvent.removeListener(this.map, "mouseup", this._onScaleMouseUp);
+      L.DomEvent.removeListener(this.map, "mousemove", this._onScaleMouseMove);
+      L.DomEvent.addListener(this._scaleHandle, "mousedown", this._onScaleMouseDown, this);
+      L.DomUtil.enableTextSelection();
+      L.DomUtil.removeClass(this._container, 'scaling');
+      this.fire("change");
+    },
+
+    _createInnerText: function(container, text) {
+      var c = L.DomUtil.create("div", "", container);
+      c.innerHTML = text;
+    },
+
+    _makePageElement: function(x,y,w,h) {
+      var div = document.createElement('div');
+      div.className = "page";
+      div.style.left = x + "%";
+      div.style.top = y + "%";
+      div.style.height = h + "%";
+      div.style.width = w + "%";
+      return div;
+    },
+
+    _updateGridElement: function(element, dimension) {
+      element.style.width = dimension.width + "px";
+      element.style.height = dimension.height + "px";
+      element.style.top = dimension.top + "px";
+      element.style.left = dimension.left + "px";
+      element.style.bottom = dimension.bottom + "px";
+      element.style.right = dimension.right + "px";
+    },
+
+    _createPages: function() {
+      var cols = this.refs.cols,
+          rows = this.refs.rows,
+          gridElm = this._grid,
+          top = this.dimensions.nw.y,
+          left = this.dimensions.nw.x,
+          width = this.dimensions.width,
+          height = this.dimensions.height;
+
+      L.DomUtil.removeClass(this._container, "one-row");
+      L.DomUtil.removeClass(this._container, "one-col");
+
+      if (cols === 1) L.DomUtil.addClass(this._container, "one-col");
+      if (rows === 1) L.DomUtil.addClass(this._container, "one-row");
+
+      this._grid.innerHTML = "";
+      this._grid.style.top = top + "px";
+      this._grid.style.left = left + "px";
+      this._grid.style.width = width + "px";
+      this._grid.style.height = height + "px";
+
+      var spacingX = 100 / cols,
+          spacingY = 100 / rows;
+
+      // cols
+      for (var i = 0;i< cols;i++) {
+        for (var r = 0;r< rows;r++) {
+          var elm = gridElm.appendChild( this._makePageElement(spacingX * i, spacingY * r, spacingX, spacingY ) );
+
+          // adjust borders
+          if (r === 0) {
+            L.DomUtil.addClass(elm, 'outer-top');
+          } else {
+            L.DomUtil.addClass(elm, 'no-top');
+          }
+
+          if(r == rows-1) {
+            L.DomUtil.addClass(elm, 'outer-bottom');
+          }
+
+          if (i === 0) {
+            L.DomUtil.addClass(elm, 'outer-left');
+          } else {
+            L.DomUtil.addClass(elm, 'no-left');
+          }
+          if (i == cols-1) {
+            L.DomUtil.addClass(elm, 'outer-right');
+          }
+        }
+      }
+    },
+
+    _onAddRow: function(evt) {
+      evt.stopPropagation();
+      this.refs.rows++;
+      this._updatePages();
+    },
+
+    _onSubtractRow: function(evt) {
+      evt.stopPropagation();
+      if (this.refs.rows === 1) return;
+      this.refs.rows--;
+      this._updatePages();
+    },
+
+    _onAddCol: function(evt) {
+      evt.stopPropagation();
+      this.refs.cols++;
+      this._updatePages();
+    },
+
+    _onSubtractCol: function(evt) {
+      evt.stopPropagation();
+      if (this.refs.cols === 1) return;
+      this.refs.cols--;
+      this._updatePages();
+    },
+
+    _updatePages: function() {
+      this._setDimensions();
+      this._updateToolDimensions();
+      this._createPages();
+
+      this.fire("change");
     },
 
     _getPos: function(ctx) {
@@ -158,36 +414,6 @@ L.PageComposer = L.Class.extend({
       this._updateNWPosition(pos);
       this._render();
       this._limitChangeFire();
-    },
-
-    _limitChangeFire: function(){},
-
-    _onAddRow: function(evt) {
-      evt.stopPropagation();
-      this.refs.rows++;
-      this._updatePages();
-    },
-    _onSubtractRow: function(evt) {
-      evt.stopPropagation();
-      if (this.refs.rows === 1) return;
-      this.refs.rows--;
-      this._updatePages();
-    },
-    _onAddCol: function(evt) {
-      evt.stopPropagation();
-      this.refs.cols++;
-      this._updatePages();
-    },
-    _onSubtractCol: function(evt) {
-      evt.stopPropagation();
-      if (this.refs.cols === 1) return;
-      this.refs.cols--;
-      this._updatePages();
-    },
-
-    _updatePages: function() {
-      this._updateToolDimensions();
-      this.fire("change");
     },
 
     _calculateInitialPositions: function() {
@@ -203,11 +429,11 @@ L.PageComposer = L.Class.extend({
     _updateToolDimensions: function() {
       var scale = this.refs.paper_aspect_ratios[this.refs.paperSize].scale;
       if (this.refs.pageOrientation === 'portrait') {
-        this.dimensions.width = (this.options.pageHeight * this.refs.toolScale * scale) * this.refs.cols;
-        this.dimensions.height = ((this.options.pageHeight / this.refs.page_aspect_ratio) * this.refs.toolScale * scale) * this.refs.rows;
+        this.dimensions.width = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
+        this.dimensions.height = ((this.options.pageHeight / this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
       } else {
-        this.dimensions.width = ((this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.toolScale * scale) * this.refs.cols;
-        this.dimensions.height = (this.options.pageHeight * this.refs.toolScale * scale) * this.refs.rows;
+        this.dimensions.width = ((this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
+        this.dimensions.height = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
       }
 
       // re-calc bounds
@@ -251,169 +477,11 @@ L.PageComposer = L.Class.extend({
       this.bounds = this._getBoundsPinToNorthWest();
     },
 
-    _setPageTool: function() {
-
-      function createInnerText(container, text) {
-        var c = L.DomUtil.create("div", "", container);
-        c.innerHTML = text;
-      }
-      // row
-      this._rowModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool row-modifier", this._container);
-      this._addRow = L.DomUtil.create("div", "modifier-btn add-btn", this._rowModifier);
-      //this._addRow.innerHTML = "+";
-      createInnerText(this._addRow, "+");
-      this._minusRow = L.DomUtil.create("div", "modifier-btn subtract-btn", this._rowModifier);
-      //this._minusRow.innerHTML = "&#8722;";
-      createInnerText(this._minusRow, "&#8722;");
-
-      // col
-      this._colModifier = L.DomUtil.create("div", "leaflet-areaselect-handle page-tool col-modifier", this._container);
-      this._addCol = L.DomUtil.create("div", "modifier-btn add-btn", this._colModifier);
-      //this._addCol.innerHTML = "+";
-      createInnerText(this._addCol, "+");
-      this._minusCol = L.DomUtil.create("div", "modifier-btn subtract-btn", this._colModifier);
-      //this._minusCol.innerHTML = "&#8722;";
-      createInnerText(this._minusCol, "&#8722;");
-
-
-      L.DomEvent.addListener(this._addRow, "click", this._onAddRow, this);
-      L.DomEvent.addListener(this._minusRow, "click", this._onSubtractRow, this);
-      L.DomEvent.addListener(this._addCol, "click", this._onAddCol, this);
-      L.DomEvent.addListener(this._minusCol, "click", this._onSubtractCol, this);
-    },
-
-    _setScaleHandler: function(handle, xMod, yMod) {
-        xMod = xMod || 1;
-        yMod = yMod || 1;
-
-        var self = this;
-        function onMouseDown(event) {
-            event.stopPropagation();
-            L.DomEvent.removeListener(this, "mousedown", onMouseDown);
-            var curX = event.pageX;
-            var curY = event.pageY;
-            var ratio = self.dimensions.width / self.dimensions.height;
-            var size = self.map.getSize();
-            L.DomUtil.disableTextSelection();
-            L.DomUtil.addClass(self._container, 'scaling');
-
-            var nwPt = self.map.latLngToContainerPoint(self.bounds.getNorthWest());
-            var maxHeightY = size.y - self.map.latLngToContainerPoint(self.bounds.getNorthWest()).y - self.options.paddingToEdge;
-            var maxHeightX = (size.x - self.map.latLngToContainerPoint(self.bounds.getNorthWest()).x - self.options.paddingToEdge) * 1/ratio;
-            var maxHeight = Math.min(maxHeightY, maxHeightX);
-
-            function onMouseMove(event) {
-                var width = self.dimensions.width,
-                    height = self.dimensions.height;
-
-                if (self.options.keepAspectRatio) {
-                    //var maxHeight = (height >= width ? size.y : size.y * (1/ratio) ) - 30;
-                    height += (curY - event.originalEvent.pageY) * 2 * yMod;
-                    height = Math.max(self.options.minHeight, height);
-                    height = Math.min(maxHeight, height);
-                    width = height * ratio;
-                    self.refs.toolScale = height/self.options.pageHeight;
-
-                } else {
-                    self._width += (curX - event.originalEvent.pageX) * 2 * xMod;
-                    self._height += (curY - event.originalEvent.pageY) * 2 * yMod;
-                    self._width = Math.max(self.options.paddingToEdge, self._width);
-                    self._height = Math.max(self.options.paddingToEdge, self._height);
-                    self._width = Math.min(size.x-self.options.paddingToEdge, self._width);
-                    self._height = Math.min(size.y-self.options.paddingToEdge, self._height);
-                }
-
-                self.dimensions.width = width;
-                self.dimensions.height = height;
-
-                curX = event.originalEvent.pageX;
-                curY = event.originalEvent.pageY;
-
-                self.bounds = self._getBoundsPinToNorthWest();
-                self._setDimensions();
-                self._render();
-            }
-            function onMouseUp(event) {
-                L.DomEvent.removeListener(self.map, "mouseup", onMouseUp);
-                L.DomEvent.removeListener(self.map, "mousemove", onMouseMove);
-                L.DomEvent.addListener(handle, "mousedown", onMouseDown);
-                L.DomUtil.enableTextSelection();
-                L.DomUtil.removeClass(self._container, 'scaling');
-                self.fire("change");
-            }
-
-            L.DomEvent.addListener(self.map, "mousemove", onMouseMove);
-            L.DomEvent.addListener(self.map, "mouseup", onMouseUp);
-        }
-        L.DomEvent.addListener(handle, "mousedown", onMouseDown);
-    },
-
-    _onMapResize: function() {
-        this._render();
-    },
-
-    _onMapChange: function() {
-        this._render();
-        this.fire("change");
-    },
-
-    _updateTool: function(left, top, width, height) {
-      var cols = this.refs.cols,
-          rows = this.refs.rows,
-          gridElm = this._grid;
-
-      L.DomUtil.removeClass(this._container, "one-row");
-      L.DomUtil.removeClass(this._container, "one-col");
-
-      if (cols === 1) L.DomUtil.addClass(this._container, "one-col");
-      if (rows === 1) L.DomUtil.addClass(this._container, "one-row");
-
-      this._grid.innerHTML = "";
+    _updatePageGridPosition: function(left, top, width, height) {
       this._grid.style.top = top + "px";
       this._grid.style.left = left + "px";
       this._grid.style.width = width + "px";
       this._grid.style.height = height + "px";
-
-      var spacingX = 100 / cols,
-          spacingY = 100 / rows;
-
-      function makeElm(x,y,w,h) {
-        var div = document.createElement('div');
-        div.className = "page";
-        div.style.left = x + "%";
-        div.style.top = y + "%";
-        div.style.height = h + "%";
-        div.style.width = w + "%";
-        gridElm.appendChild(div);
-        return div;
-      }
-
-      // cols
-      for (var i = 0;i< cols;i++) {
-        for (var r = 0;r< rows;r++) {
-          var elm = makeElm(spacingX * i, spacingY * r, spacingX, spacingY );
-
-          // adjust borders
-          if (r === 0) {
-            L.DomUtil.addClass(elm, 'outer-top');
-          } else {
-            L.DomUtil.addClass(elm, 'no-top');
-          }
-
-          if(r == rows-1) {
-            L.DomUtil.addClass(elm, 'outer-bottom');
-          }
-
-          if (i === 0) {
-            L.DomUtil.addClass(elm, 'outer-left');
-          } else {
-            L.DomUtil.addClass(elm, 'no-left');
-          }
-          if (i == cols-1) {
-            L.DomUtil.addClass(elm, 'outer-right');
-          }
-        }
-      }
     },
 
     _render: function() {
@@ -430,46 +498,36 @@ L.PageComposer = L.Class.extend({
           sw = this.dimensions.sw,
           se = this.dimensions.se,
           width = this.dimensions.width,
-          height = this.dimensions.height;
-
-
-      function setElement(element, dimension) {
-          element.style.width = dimension.width + "px";
-          element.style.height = dimension.height + "px";
-          element.style.top = dimension.top + "px";
-          element.style.left = dimension.left + "px";
-          element.style.bottom = dimension.bottom + "px";
-          element.style.right = dimension.right + "px";
-      }
-
-      this._updateTool(nw.x, nw.y, width, height);
-
-      var rightWidth = size.x - width - nw.x,
+          height = this.dimensions.height,
+          rightWidth = size.x - width - nw.x,
           bottomHeight = size.y - height - nw.y;
 
+      // position page grid
+      this._updatePageGridPosition(nw.x, nw.y, width, height);
+
       // position shades
-      setElement(this._topShade, {
+      this._updateGridElement(this._topShade, {
         width:size.x,
         height:nw.y > 0 ? nw.y : 0,
         top:0,
         left:0
       });
 
-      setElement(this._bottomShade, {
+      this._updateGridElement(this._bottomShade, {
         width:size.x,
         height: bottomHeight > 0 ? bottomHeight : 0,
         bottom:0,
         left:0
       });
 
-      setElement(this._leftShade, {
+      this._updateGridElement(this._leftShade, {
           width: nw.x > 0 ? nw.x : 0,
           height: height,
           top: nw.y,
           left: 0
       });
 
-      setElement(this._rightShade, {
+      this._updateGridElement(this._rightShade, {
           width: rightWidth > 0 ? rightWidth : 0,
           height: height,
           top: nw.y,
@@ -477,13 +535,11 @@ L.PageComposer = L.Class.extend({
       });
 
       // position handles
-      setElement(this._dragHandle, {left:nw.x, top:nw.y });
-      setElement(this._scaleHandle, {left:nw.x + width, top:nw.y + height});
+      this._updateGridElement(this._dragHandle, {left:nw.x, top:nw.y });
+      this._updateGridElement(this._scaleHandle, {left:nw.x + width, top:nw.y + height});
 
-      setElement(this._rowModifier, {left:nw.x + (width / 2), top:nw.y + height});
-      setElement(this._colModifier, {left:nw.x + width, top:nw.y + (height/2)});
-
-
+      this._updateGridElement(this._rowModifier, {left:nw.x + (width / 2), top:nw.y + height});
+      this._updateGridElement(this._colModifier, {left:nw.x + width, top:nw.y + (height/2)});
     }
 });
 
