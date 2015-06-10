@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150519230420) do
     t.integer  "scene_file_size",    limit: 4
     t.datetime "scene_updated_at"
     t.string   "s3_scene_url",       limit: 255
+    t.integer  "atlas_id",           limit: 4
     t.float    "west",               limit: 24
     t.float    "south",              limit: 24
     t.float    "east",               limit: 24
