@@ -4,38 +4,37 @@
     <div class="twelve columns">
         <h2>Outils avancés</h2>
         <p>
-            Field Papers propose plusieurs outils d'automatisation et de personnalisation des cartes. Ces outils et processus sont mis à disposition pour des utilisateurs d'un bon niveau technique et aucun support (ou limité) n'est fourni. Si une fonctionnalité vous est importante, nous sommes disponibles pour définir une collaboration rémunérée. Décrivez votre proposition ou votre besoin à info@stamen.com [en anglais de préférence].
+            Field Papers propose plusieurs outils d'automatisation et de personnalisation des cartes. Ces outils et processus sont mis à disposition pour des utilisateurs d'un bon niveau technique et aucun support (ou limité) n'est fourni. Si une fonctionnalité vous est importante, nous sommes disponibles pour définir une collaboration rémunérée. Décrivez votre proposition ou votre besoin à info@stamen.com (en anglais de préférence).
         </p>
         <ol>
             <li>
             <p>
-                <strong><a href="<%= make_canned_atlas_path() %>">Atlas Template Tool</a></strong> - Field Papers includes a HTML form based template API that you can host anywhere and populate with preset values for each use case. The form posts those parameters to Field Papers and populates each phase of the make atlas process with those values, while allowing the user to modify the area of interest, etc.
+                <strong><a href="<%= make_canned_atlas_path() %>">Outil de Modèle d'Atlas</a></strong> - Field Papers incorpore une modèle d'API sous la forme d'un formulaire HTML que vous pouvez héberger où vous le souhaitez et le remplir avec des valeurs prédéfinies pour chaque cas d'utilisation. Le formulaire publie ces paramètres aux Field Papers et renseigne chaque étape de la création de l'atlas avec ces valeurs, tout en permettant à l'utilisateur de modifier la zone d'intérêt et le fond d'imagerie utilisé pour l'atlas.
             </p>
             </li>
             <li>
             <p>
-                <strong><a href="<%= make_geojson_atlas_path() %>">Incident Maps</a></strong> - Field checking a list of feature locations? Upload a list of locations in GeoJSON format and we'll center an atlas page on each incident to give you a head start and liberate you from the atlas page grid.
+                <strong><a href="<%= make_geojson_atlas_path() %>">Cartes d'incidents</a></strong> - Besoin de contrôler sur le terrain une liste de d'objets localisés ? Transférez une liste de lieux au format GeoJSON et une page d'atlas sera centrée autour de chaque incident pour vous permettre de vous passer de l'atlas classique sous forme de grille continue. 
             </p>
             </li>
             <li>
             <p>
-                <strong>Custom Map Styles</strong> - <a href="<%= upload_mbtiles_path() %>">MBTiles Uploader Tool</a> - Use <a href="http://mapbox.com/tilemill/">TileMill</a> to design your own basemap or leverage existing ArcGIS geodata via <a href="http://www.arc2earth.com/">Arc2Earth</a> to export maps out of ArcMap in the MapBoxTiles SQLite data <a href="http://mapbox.com/mbtiles-spec/">format</a> and upload them for use on Field Papers. You'll need to be logged into Field Papers to save these to your account and have them available in the make atlas process.
+                <strong>Personnaliser des styles de carte</strong> - <a href="<%= upload_mbtiles_path() %>">Outil de transfert de MBTiles</a> - Utilisez <a href="http://mapbox.com/tilemill/">TileMill</a> pour concevoir votre propre fond de carte ou tirez profit de données géographiques ArcGIS existantes via <a href="http://www.arc2earth.com/">Arc2Earth</a> pour exporter des cartes hors d'ArcMap dans le format de données <a href="http://mapbox.com/mbtiles-spec/">MapBoxTiles SQLite</a> pour les utiliser dans les Field Papers. Vous aurez besoin de vous connecter sous votre compte Field Papers pour sauvegarder ces fonds et les rendre disponibles pour le processus de création d'atlas.
             </p>
             </li>
             <li>
             <p>
-                <strong>Custom Map Styles</strong> - <a href="<%= make_canned_atlas_path() %>">TMS endpoints</a> - Already published your basemap online as a tiled map service? Use our template tool detailed above to point to the TMS endpoint. Example: <a href="http://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">http://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
+                <strong>Personnaliser des styles de carte</strong> - <a href="<%= make_canned_atlas_path() %>">TMS spécifiques</a> - Vous avez déjà publié votre fond de carte en ligne en tant que tms (tiled map service) ? Utilisez cet outil pour indiquer le chemin vers ce tms spécifique. Exemple : <a href="http://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">http://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
             </p>
             </li>
             <li>
             <p>
-                <strong>Edit in OSM</strong> - Field Papers plays well with others. If you upload a snapshot of your map at <a href="http://walkingpapers.org">Walking Papers</a>, you can use the tools there to edit OpenStreetMap in Potlatch and JOSM using your snapshot as a reference layer. Common tasks include adding streets, parks, building outlines, addresses, business names, and more.
+                <strong>Editer la base OSM</strong> - Si vous transférez un aperçu de votre carte vers <a href="http://walkingpapers.org">Walking Papers</a>, vous pouvez utiliser les outils qui s'y trouvent pour ;editer la base OpenStreetMap dans Potlatch ou JOSM en tuilisant votre aperçu comme couche de référence. Les éditions les plus fréquentes concernent les rues, les bâtiments, les équipements de toutes sortes, les parcs, les adresses, les commerces, etc.
             </p>
             </li>
-
         <li>
             <p>
-                <strong><a href="https://github.com/fieldpapers">Fork us on GitHub</a></strong> - Field Papers in an open source project hosted at GitHub.
+                <strong><a href="https://github.com/fieldpapers">Créer une fork sur GitHub</a></strong> - Field Papers est un projet open source hébergé sur GitHub.
             </p></li>
 
         </ol>
