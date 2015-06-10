@@ -201,28 +201,3 @@ label > .label-body {
   font-weight: 200;
   float: right;
 }
-
-.development-message {
-  margin-top: -8px;
-  padding:5px 10px;
-  background: #FF4136;
-  color: white;
-}
-
-.development-message span {
-  display: inline-block;
-}
-
-.development-message span:first-child {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.development-message span:last-child {
-  margin-left: 15px;
-  font-weight: 200;
-}
-
-.development-message span a {
-  color: #aa2116;
-}

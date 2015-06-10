@@ -67,8 +67,8 @@ class Atlas < ActiveRecord::Base
 
   after_create :create_pages
   after_initialize :apply_defaults
-  before_save :handle_overlays
-  before_save :pick_zoom
+  before_create :handle_overlays
+  before_create :pick_zoom
 
   # validations
 
@@ -194,6 +194,8 @@ class Atlas < ActiveRecord::Base
 
     state :complete
     state :failed do
+      event :rendered, transitions_to: :failed
+      event :merged, transitions_to: :failed
       event :fail, transitions_to: :failed
     end
   end

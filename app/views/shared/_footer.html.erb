@@ -1,7 +1,7 @@
 <div id="footer" class="row align-center">
   <div class="twelve columns">
     <%= _("%{FieldPapers} is built by %{StamenDesign}") % { FieldPapers: content_tag(:b, link_to(_("Field Papers"), "http://fieldpapers.org/")), StamenDesign: link_to(_("Stamen Design"), "http://www.stamen.com/") } %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <a href="#"><%= _("About the Project") %></a>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to _("About the Project"), about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <a href="http://wiki.openstreetmap.org/wiki/Field_Papers" title="<%= _("Check out the OSM help wiki.") %>"><%= _("Help") %></a>
     <br>
     <small><%= _("Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof.") % { OSMCopyright: link_to(_("&copy; OpenStreetMap contributors"), "http://www.openstreetmap.org/copyright"), Toner: link_to(_("Toner"), "http://maps.stamen.com/toner/"), Bing: link_to(_("Bing"), "http://www.bing.com/maps/"), Mapbox: link_to(_("Mapbox"), "https://www.mapbox.com") } %></small>
@@ -11,7 +11,7 @@
       <%= link_to_unless I18n.locale == :da, "Dansk", locale: :da %>
       <%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %>
       <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
-      <%= link_to_unless I18n.locale == :es, "Español", locale: :rs %>
+      <%= link_to_unless I18n.locale == :es, "Español", locale: :es %>
       <%= link_to_unless I18n.locale == :fr, "Français", locale: :fr %>
       <%= link_to_unless I18n.locale == :id, "Bahasa Indonesia", locale: :id %>
       <%= link_to_unless I18n.locale == :it, "Italiano", locale: :it %>
@@ -26,6 +26,10 @@
     </small>
   </div>
   <div class="twelve columns">
-    <small><%= link_to _("Development Blog"), "http://fieldpapers.tumblr.com/" %></small>
+    <small>
+      <%= link_to _("Development Blog"), "http://fieldpapers.tumblr.com/" %>
+      <%= link_to _("GitHub Issues"), "https://github.com/fieldpapers/fieldpapers/issues/" %>
+      <%= link_to _("Translations"), "https://www.transifex.com/projects/p/fieldpapers/" %>
+    </small>
   </div>
 </div>

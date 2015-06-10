@@ -12,7 +12,7 @@ class SnapshotsController < ApplicationController
   # @http_method XHR POST
   # @url /snapshots
   def create
-    @snapshot = Snapshot.create(snapshot_upload_params)
+    @snapshot = Snapshot.create!(snapshot_upload_params)
     @snapshot.process!
   end
 
@@ -76,6 +76,6 @@ class SnapshotsController < ApplicationController
 
   def snapshot_update_params
     params.require(:snapshot)
-      .permit(:geotiff_url, :page_url, :private, bbox: [])
+      .permit(:geotiff_url, :page_url, :private, :zoom, bbox: [])
   end
 end

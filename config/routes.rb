@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # site root
   root 'home#index'
 
+  get '/about' => 'home#about', as: :about
   get '/advanced' => 'home#advanced', as: :advanced
   get '/make-canned-atlas-template' => 'home#make-canned-atlas-template', as: :make_canned_atlas
   get '/make-geojson-atlas-form' => 'home#make-geojson-atlas-form', as: :make_geojson_atlas
@@ -36,4 +37,6 @@ Rails.application.routes.draw do
 
   resources :compose
   resources :snapshots, :concerns => :pageable
+
+  mount Rack::NotFound.new("public/404.html") => "activity.php"
 end

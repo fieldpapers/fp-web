@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-05-27 15:55+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
+"PO-Revision-Date: 2015-05-29 03:40+0000\n"
+"Last-Translator: Mhairi O'Hara <mhairi.ohara@hotosm.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/fieldpapers/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "\"%{place}\" could not be found."
-msgstr ""
+msgstr "\"%{place}\" tidak dapat ditemukan."
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} dibangun oleh %{StamenDesign}"
@@ -47,7 +47,7 @@ msgid ""
 msgstr "(Itu berarti hanya dapat diakses oleh anda , jika anda login , atau dengan URL langsung.)"
 
 msgid "@fieldpapers on Twitter"
-msgstr ""
+msgstr "@fieldpapers di Twitter"
 
 msgid ""
 "A GeoJSON file can posted as an attached file to <a "
@@ -64,10 +64,10 @@ msgid "Add a %{UTM} grid overlay to each map?"
 msgstr "Tambahkan overlay % {UTM} grid untuk setiap peta?"
 
 msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
-msgstr ""
+msgstr "Tambahkan overlay GADM (untuk upaya bantuan bencana di Filipina)"
 
 msgid "Advanced - Field Papers"
-msgstr ""
+msgstr "Ahli - Field Papers"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
@@ -75,28 +75,28 @@ msgid ""
 msgstr "Atau, konten GeoJSON baku dapat diposting ke <a href=\"/\">fieldpapers.org</a> sebagai bentuk nilai, bernama \"geojson_data\":"
 
 msgid "Atlas - Field Papers"
-msgstr ""
+msgstr "Atlas - Field Papers"
 
 msgid "Atlas Creation Failed"
-msgstr ""
+msgstr "Pembuatan Atlas Gagal"
 
 msgid "Atlas Name"
 msgstr "Nama Atlas"
 
 msgid "Atlas Rendering"
-msgstr ""
+msgstr "Atlas Mengambar"
 
 msgid "Atlas description"
-msgstr "Deskripsi atlas"
+msgstr "Deskripsi Atlas"
 
 msgid "Atlas location"
-msgstr "Lokasi atlas"
+msgstr "Lokasi Atlas"
 
 msgid "Atlas page - Field Papers"
-msgstr ""
+msgstr "Halaman Atlas - Field Papers"
 
 msgid "Atlas provider"
-msgstr "Penyedia atlas"
+msgstr "Penyedia Atlas"
 
 msgid "Atlas text"
 msgstr "Teks atlas"
@@ -108,7 +108,7 @@ msgid "Atlases"
 msgstr "Atlas"
 
 msgid "Atlases - Field Papers"
-msgstr ""
+msgstr "Atlas - Field Papers"
 
 msgid "Bing"
 msgstr "Bing"
@@ -131,13 +131,13 @@ msgid "Describe"
 msgstr "Menggambarkan"
 
 msgid "Development Blog"
-msgstr ""
+msgstr "Blog Pengembangan"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Mohon, jangan meng-upload hal-hal yang tidak peta Field Papers."
 
 msgid "Download GeoTIFF"
-msgstr ""
+msgstr "Men-download GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Men-download PDF"
@@ -166,7 +166,7 @@ msgid "Finished!"
 msgstr "Selesai!"
 
 msgid "From"
-msgstr ""
+msgstr "Dari"
 
 msgid "GeoJSON"
 msgstr "GeoJSON"
@@ -227,7 +227,7 @@ msgid "MAKE"
 msgstr "MEMBUAT"
 
 msgid "Make - Field Papers"
-msgstr ""
+msgstr "Membuat - Field Papers"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr ""
@@ -256,49 +256,49 @@ msgid "Mapbox"
 msgstr "Mapbox"
 
 msgid "Maps + Notes"
-msgstr ""
+msgstr "Peta + Catatan"
 
 msgid "Maps Only"
-msgstr ""
+msgstr "Hanya Peta"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgid "Next"
-msgstr ""
+msgstr "Berikutnya"
 
 msgid "No atlases."
-msgstr ""
+msgstr "Tidak ada atlas"
 
 msgid "No snapshots."
-msgstr ""
+msgstr "Tidak ada foto."
 
 msgid "Notes (only shown on half-page atlases)"
-msgstr ""
+msgstr "Catatan (hanya ditampilkan pada atlas setengah halaman)"
 
 msgid "Plain Text (CSV)"
-msgstr ""
+msgstr "Plain Text (CSV)"
 
 msgid "Potlatch"
-msgstr ""
+msgstr "Potlatch"
 
 msgid "Print out anywhere in the world."
-msgstr ""
+msgstr "Mencetak di mana saja di dunia."
 
 msgid "Private"
-msgstr ""
+msgstr "Pribadi"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Menyegarkan"
 
 msgid "Rules"
-msgstr ""
+msgstr "Aturan"
 
 msgid "Select"
-msgstr ""
+msgstr "Pilih"
 
 msgid "ShapeFile"
-msgstr ""
+msgstr "Shapefile"
 
 msgid ""
 "Since this atlas is <span class='private'>private</span>, you probably "
@@ -311,22 +311,22 @@ msgid ""
 msgstr ""
 
 msgid "Snapshot - Field Papers"
-msgstr ""
+msgstr "Foto - Field Papers"
 
 msgid "Snapshot Processing"
-msgstr ""
+msgstr "Pengolahan Foto"
 
 msgid "Snapshot Processing Failed"
-msgstr ""
+msgstr "Pengolahan Foto Gagal"
 
 msgid "Snapshot upload - Field Papers"
-msgstr ""
+msgstr "Foto meng-upload - Field Papers"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Foto"
 
 msgid "Snapshots - Field Papers"
-msgstr ""
+msgstr "Foto - Field Papers"
 
 msgid ""
 "Something went wrong! Please review the <strong>rules</strong> below and try"
@@ -334,13 +334,13 @@ msgid ""
 msgstr ""
 
 msgid "Stamen Design"
-msgstr ""
+msgstr "Stamen Design"
 
 msgid "Submit"
-msgstr ""
+msgstr "Menyerahkan"
 
 msgid "Take it into the field"
-msgstr ""
+msgstr "Bawa ke lapangan"
 
 msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "

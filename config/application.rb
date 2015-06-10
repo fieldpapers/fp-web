@@ -25,10 +25,17 @@ module App
 
     # rewrite URLs for backward-compatibility
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+      # handle both encoded and non-encoded /s
+      rewrite %r{^/atlas.php(\?id=(.*)%2F(.*))?$}, "/atlases/$2/$3"
       rewrite %r{^/atlas.php(\?id=(.*))?$}, "/atlases/$2"
       rewrite "/atlases.php", "/atlases"
       rewrite %r{^/snapshot.php(\?id=(.*))?$}, "/snapshots/$2"
       rewrite "/snapshots.php", "/snapshots"
+
+      # this S3 bucket is hard-coded here because these requests are purely
+      # legacy requests
+      r301 %r{^/files/prints/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/atlases/$1"
+      r301 %r{^/files/scans/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/snapshots/$1"
     end
   end
 end

@@ -37,6 +37,7 @@ gem "kaminari" # pagination
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
+gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
 gem "s3_direct_upload" # direct-to-S3 upload helpers
 gem "mysql2"

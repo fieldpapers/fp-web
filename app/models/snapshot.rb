@@ -59,7 +59,7 @@ class Snapshot < ActiveRecord::Base
 
   # kaminari (pagination) configuration
 
-  paginates_per 50
+  paginates_per 25
 
   # paperclip (attachment) configuration
 
@@ -124,7 +124,7 @@ class Snapshot < ActiveRecord::Base
 
   scope :place,
     -> place {
-      where("place_woeid = ? OR region_woeid = ? OR country_woeid = ?", place, place, place)
+      where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
     }
 
   scope :user,
@@ -284,21 +284,7 @@ class Snapshot < ActiveRecord::Base
     uploader && uploader.username || "anonymous"
   end
 
-  # TODO pull this off of bbox instead
   def geometry_string
-    if !geojpeg_bounds
-      return ''
-    end
-
-    bds = geojpeg_bounds.split(',')
-    if !bds.length === 4
-      return ''
-    end
-
-    west = bds[1]
-    south = bds[0]
-    east = bds[3]
-    north = bds[2]
     return "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
   end
 
