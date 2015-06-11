@@ -1,3 +1,5 @@
+json.id @snapshot.slug
+
 json.geotiff do
   json.url @snapshot.geotiff_url
 end
