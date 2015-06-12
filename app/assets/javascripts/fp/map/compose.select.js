@@ -37,6 +37,9 @@
       })
     );
 
+    // turn on leaflet-hash
+    new L.Hash(map);
+
     // set tileLayer
     validateTileLayer(tileProviders[defaultProviderLabel].template);
 
