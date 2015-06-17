@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :update
 
   def show
-    @atlas = Atlas.friendly.find(params[:id])
+    @atlas = Atlas.unscoped.friendly.find(params[:id])
     @page = @atlas.pages.find_by_page_number(params[:page_number])
   end
 
