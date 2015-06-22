@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Translators:
+# adityo dwijananto <adz.only@gmail.com>, 2015
 # Mhairi O'Hara <mhairi.ohara@hotosm.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-05-29 03:40+0000\n"
-"Last-Translator: Mhairi O'Hara <mhairi.ohara@hotosm.org>\n"
+"PO-Revision-Date: 2015-06-11 04:47+0000\n"
+"Last-Translator: adityo dwijananto <adz.only@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/fieldpapers/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} dibangun oleh %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr "%{Upload} halaman anda difoto."
+msgstr "%{Upload} halaman yang telah Anda foto."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
@@ -52,7 +53,7 @@ msgstr "@fieldpapers di Twitter"
 msgid ""
 "A GeoJSON file can posted as an attached file to <a "
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Sebuah file GeoJSON dapat diposting sebagai file melekat <a href=\"/\"> fieldpapers.org </a> , bernama \" geojson_file \" :"
+msgstr "Sebuah file GeoJSON dapat diposting sebagai file yang melekat ke <a href=\"/\"> fieldpapers.org </a> , bernama \" geojson_file \" :"
 
 msgid "About the Project"
 msgstr "Tentang Proyek"
@@ -61,7 +62,7 @@ msgid "Activity"
 msgstr "Aktivitas"
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr "Tambahkan overlay % {UTM} grid untuk setiap peta?"
+msgstr "Tambahkan overlay grid % {UTM} untuk setiap peta?"
 
 msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
 msgstr "Tambahkan overlay GADM (untuk upaya bantuan bencana di Filipina)"
@@ -72,7 +73,7 @@ msgstr "Ahli - Field Papers"
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
 "href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Atau, konten GeoJSON baku dapat diposting ke <a href=\"/\">fieldpapers.org</a> sebagai bentuk nilai, bernama \"geojson_data\":"
+msgstr "Alternatifnya, konten GeoJSON baku dapat diposting ke <a href=\"/\">fieldpapers.org</a> sebagai bentuk nilai, bernama \"geojson_data\":"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -117,7 +118,7 @@ msgid "Capture your notes"
 msgstr "Menangkap catatan anda"
 
 msgid "Check out the OSM help wiki."
-msgstr "Memeriksa OSM bantuan wiki."
+msgstr "Memeriksa bantuan OSM wiki."
 
 msgid ""
 "Choose an atlas page to upload. We'll work out where it goes (using the QR "
@@ -128,13 +129,13 @@ msgid "Copy this atlas"
 msgstr "Salin atlas ini"
 
 msgid "Describe"
-msgstr "Menggambarkan"
+msgstr "Deskripsikan"
 
 msgid "Development Blog"
 msgstr "Blog Pengembangan"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr "Mohon, jangan meng-upload hal-hal yang tidak peta Field Papers."
+msgstr "Mohon, jangan meng-upload hal-hal yang bukan merupakan peta Field Papers."
 
 msgid "Download GeoTIFF"
 msgstr "Men-download GeoTIFF"
@@ -157,7 +158,7 @@ msgid "Examples:"
 msgstr "Contoh:"
 
 msgid "Export Data"
-msgstr "Data Ekspor"
+msgstr "Ekspor Data"
 
 msgid "Field Papers"
 msgstr "Field Papers"
@@ -172,39 +173,39 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr "Geojson Data"
+msgstr "Data Geojson"
 
 msgid "Geojson File"
-msgstr "Geojson File"
+msgstr "File Geojson"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr "Digambar tangan grafis mewakili Field Papers atlas di alam liar"
+msgstr "Grafis yang digambar dengan tangan mewakili atlas Field Papers di lapangan"
 
 msgid ""
 "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr "Digambar tangan grafis mewakili memotret halaman dalam Field Papers atlas"
+msgstr "Grafis yang digambar dengan tangan mewakili memotret sebuah halaman didalam atlas Field Papers"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr "Digambar tangan grafis mewakili cara membuat atlas Field Papers"
+msgstr "Grafis yang digambar dengan tangan mewakili cara membuat atlas Field Papers"
 
 msgid "Help"
-msgstr "Membantu"
+msgstr "Bantuan"
 
 msgid ""
 "If it takes more than an hour, check %{twitter_link} for system status "
 "updates, and email us at %{email_url} if your atlas is stuck."
-msgstr ""
+msgstr "Jika memakan waktu lebih dari sejam, cek %{twitter_link} untuk status update dari sistem, and email kami di %{email_url} jika atlas proses atlas Anda tidak berjalan."
 
 msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
-msgstr ""
+msgstr "Sangatlah mudah untuk membuat atlas Field yang sudah ter\"definiskan\" dengan memberikan detail ekstra di depan yang digunakan sebagai nilai standar melalui proses <a href=\"%s\">Membuat</a>"
 
 msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
-msgstr ""
+msgstr "Itu memungkinkan untuk membuat atlas dari file GeoJSON. Ini bisa dilakukan dalam dua cara:"
 
 msgid "LOG IN"
 msgstr "MASUK"
@@ -215,7 +216,7 @@ msgstr "KELUAR"
 msgid ""
 "Latitude, longitude, and optional zoom. Use <a "
 "href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr ""
+msgstr "Lintang, bujur, dan lever perbesaran. Gunakan <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> untuk mendapatkannya."
 
 msgid "Layout"
 msgstr "Susunan"
@@ -230,27 +231,27 @@ msgid "Make - Field Papers"
 msgstr "Membuat - Field Papers"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
+msgstr "Pastikan bahwa scan/foto/gambar setidaknya 200dpi"
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
+msgstr "Pastikan bahwa anda mengupload JPG, PNG, TIF, atau GIF. (PDF tidak bisa digunakan.)"
 
 msgid "Make your notes and observations."
-msgstr ""
+msgstr "Buat catatan dan pengamatan anda."
 
 msgid "Make yourself an atlas"
-msgstr ""
+msgstr "Buat atlas anda sendiri"
 
 msgid "Making Atlases From GeoJSON"
-msgstr ""
+msgstr "Buat atlas dari GeoJSON"
 
 msgid "Making Canned Atlases"
-msgstr ""
+msgstr "Buat Atlas Terdefinisikan"
 
 msgid ""
 "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
 "%{Mapbox}, or a combination thereof."
-msgstr ""
+msgstr "Data peta %{OSMCopyright}, %{Toner} oleh Stamen, %{Bing} oleh Microsoft, %{Mapbox}, atau kombinasinya."
 
 msgid "Mapbox"
 msgstr "Mapbox"
@@ -289,7 +290,7 @@ msgid "Private"
 msgstr "Pribadi"
 
 msgid "Refresh"
-msgstr "Menyegarkan"
+msgstr "Memuat ulang"
 
 msgid "Rules"
 msgstr "Aturan"
@@ -303,12 +304,12 @@ msgstr "Shapefile"
 msgid ""
 "Since this atlas is <span class='private'>private</span>, you probably "
 "should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr ""
+msgstr "Karena ini adalah atlas <span class='private'>pribadi</span>, Anda mungkin harus <a href='%{atlas_url}'>menandainya</a>."
 
 msgid ""
 "Since this snapshot is <span class='private'>private</span>, you probably "
 "should <a href='%{url}'>bookmark it</a>."
-msgstr ""
+msgstr "Karena foto ini adalah <span class='private'>pribadi</span>, anda mungkin harus <a href='%{url}'>menandainya</a>."
 
 msgid "Snapshot - Field Papers"
 msgstr "Foto - Field Papers"
@@ -320,7 +321,7 @@ msgid "Snapshot Processing Failed"
 msgstr "Pengolahan Foto Gagal"
 
 msgid "Snapshot upload - Field Papers"
-msgstr "Foto meng-upload - Field Papers"
+msgstr "Meng-upload foto- Field Papers"
 
 msgid "Snapshots"
 msgstr "Foto"
@@ -331,7 +332,7 @@ msgstr "Foto - Field Papers"
 msgid ""
 "Something went wrong! Please review the <strong>rules</strong> below and try"
 " again."
-msgstr ""
+msgstr "Ada sesuatu yang salah! Harap tinjau kembali <strong>aturan</strong> dibawah dan ulang kembali."
 
 msgid "Stamen Design"
 msgstr "Stamen Design"
@@ -346,97 +347,97 @@ msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
 "back later."
-msgstr ""
+msgstr "Ini mungkin akan memakan waktu, pada umumnya hanya beberapa menit. Anda tidak harus membuka jendela ini; anda dapat <a href='%{atlas_url}'>menandai halaman ini</a> dan kembali lagi nanti."
 
 msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{url}'>bookmark this page</a> and come back "
 "later."
-msgstr ""
+msgstr "Ini mungkin akan memakan waktu, pada umumnya hanya beberapa menit. Anda tidak harus membuka jendela ini; anda dapat <a href='%{url}'>menandai halaman ini</a> dan kembali lagi nanti."
 
 msgid "This process has been running for %{time}"
-msgstr ""
+msgstr "Proses ini sudah berjalan selama %{time}"
 
 msgid "Tile URL template"
 msgstr ""
 
 msgid "Toner"
-msgstr ""
+msgstr "Warna"
 
 msgid "Type in a location"
-msgstr ""
+msgstr "Tulis lokasi"
 
 msgid "UPLOAD"
-msgstr ""
+msgstr "UNGGAH"
 
 msgid "UTM"
-msgstr ""
+msgstr "UTM"
 
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
-msgstr ""
+msgstr "Sayang sekali, atlas anda gagal di gambar. Ini mungkin adalah kesalah sesaat, yang jika hal ini terjadi, anda harus membuat ulang atlas. Jika masalah ini tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."
 
 msgid ""
 "Unfortunately, your snapshot failed to be processed. It's possible that it "
 "was an intermittent error, in which case you should try re-uploading. If the"
 " problem persists, please email %{email_url} with details."
-msgstr ""
+msgstr "Sayang sekali, foto anda gagal di proses. Ini mungkin adalah kesalah sesaat, yang jika hal ini terjadi, anda harus mengunggah ulang gambar. Jika masalah ini tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."
 
 msgid "Untitled"
-msgstr ""
+msgstr "Belum ada judul"
 
 msgid "Upload"
-msgstr ""
+msgstr "Unggah"
 
 msgid "Upload Failed"
-msgstr ""
+msgstr "Gagal mengunggah"
 
 msgid "Upload MBTiles"
-msgstr ""
+msgstr "Unggah MBTiles"
 
 msgid "Uploading"
-msgstr ""
+msgstr "Sedang mengunggah"
 
 msgid "WATCH"
-msgstr ""
+msgstr "PANTAU"
 
 msgid "Welcome to Field Papers"
-msgstr ""
+msgstr "Selamat datang di Field Papers"
 
 msgid "Where in the world is your atlas?"
-msgstr ""
+msgstr "Di daerah mana peta anda?"
 
 msgid "an atlas to print"
 msgstr ""
 
 msgid "iD"
-msgstr ""
+msgstr "iD"
 
 msgid "on same page"
-msgstr ""
+msgstr "pada halaman yang sama"
 
 msgid "one per page"
-msgstr ""
+msgstr "satu per halaman"
 
 msgid "or create an account"
-msgstr ""
+msgstr "atau membuat akun"
 
 msgid "pages you've marked"
-msgstr ""
+msgstr "halaman yang anda tandai"
 
 msgid "private"
-msgstr ""
+msgstr "pribadi"
 
 msgid "recent activity"
-msgstr ""
+msgstr "aktifitas saat ini"
 
 msgid "search"
-msgstr ""
+msgstr "cari"
 
 msgid "snapshot of page %{tp}"
-msgstr ""
+msgstr "foto dari halaman %{tp}"
 
 msgid "with advanced tools"
-msgstr ""
+msgstr "dengan alat lebih mahir"
