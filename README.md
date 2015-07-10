@@ -154,6 +154,9 @@ gem install foreman
 
 bundle install --path vendor/bundle # install dependencies
 
+cp sample.env .env
+sensible-editor .env
+
 foreman run echo $DATABASE_URL # ensure that your environment is prepared
 
 foreman run rake db:migrate # initialize/migrate your database
