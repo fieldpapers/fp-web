@@ -99,6 +99,8 @@ used. It's opt-in, so you'll need to enable it with `direnv allow .`.
 Ghostscript is used to merge atlas pages together into a single PDF, so you'll
 need that (and `boot2docker` generate individual pages) to generate atlases.
 
+#### OS X
+
 ```bash
 brew install rbenv ruby-build direnv ghostscript boot2docker
 
@@ -123,6 +125,40 @@ echo $DATABASE_URL         # ensure that your environment is prepared
 rake db:migrate            # initialize/migrate your database
 
 rails server -b 0.0.0.0 # start the app, listening on all interfaces
+```
+
+#### Ubuntu
+
+[Install Docker](https://docs.docker.com/installation/ubuntulinux/).
+
+```bash
+sudo apt-get install ghostscript git-core curl zlib1g-dev \
+  build-essential libssl-dev libreadline-dev libyaml-dev \
+  libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
+  python-software-properties libffi-dev
+
+# install rbenv + ruby-build
+git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
+eval "$(direnv hook bash)" # initialize direnv
+rbenv install $(< .ruby-version) # install the desired ruby version
+
+gem install bundler        # install bundler using rbenv-installed ruby
+gem install foreman
+
+bundle install --path vendor/bundle # install dependencies
+
+foreman run echo $DATABASE_URL # ensure that your environment is prepared
+
+foreman run rake db:migrate # initialize/migrate your database
+
+foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
 The app will now be running on [localhost:3000](http://localhost:3000/) and
