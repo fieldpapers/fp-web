@@ -118,6 +118,8 @@ bundle install --path vendor/bundle # install dependencies
 
 direnv allow .             # whitelist the local .envrc
 
+echo $DATABASE_URL         # ensure that your environment is prepared
+
 rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
