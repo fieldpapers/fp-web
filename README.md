@@ -137,6 +137,16 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi`
 eval "$(direnv hook bash)"
 ```
 
+If you choose not to use `direnv`, you'll need to ensure that the contents
+of `.env` are exported in your environment.
+
+[foreman](https://github.com/ddollar/foreman) is an alternative, in which
+case you'll prefix all commands with `foreman run <cmd>` in order to expose
+environment variables to them.
+
+Barring that, `export <VAR>=<VAL>` for each pair in each shell instance
+you're using.
+
 When updating, the following should be sufficient to sync your working copy:
 
 ```bash
