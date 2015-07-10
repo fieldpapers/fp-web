@@ -122,6 +122,7 @@ direnv allow .             # whitelist the local .envrc
 
 echo $DATABASE_URL         # ensure that your environment is prepared
 
+rake db:create             # create a database if one doesn't already exist
 rake db:migrate            # initialize/migrate your database
 
 rails server -b 0.0.0.0 # start the app, listening on all interfaces
@@ -159,6 +160,7 @@ sensible-editor .env
 
 foreman run echo $DATABASE_URL # ensure that your environment is prepared
 
+rake db:create             # create a database if one doesn't already exist
 foreman run rake db:migrate # initialize/migrate your database
 
 foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
