@@ -120,6 +120,8 @@ direnv allow .             # whitelist the local .envrc
 
 echo $DATABASE_URL         # ensure that your environment is prepared
 
+rake db:migrate            # initialize/migrate your database
+
 rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
