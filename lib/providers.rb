@@ -30,6 +30,8 @@ class Providers
       'mapbox-satellite'
     elsif url.include? 'opencyclemap.org'
       'opencyclemap'
+    elsif url.include? 'sputnik.ru'
+      'sputnik.ru'
     else
       url
     end
@@ -126,6 +128,15 @@ class Providers
         },
         minzoom: 0,
         maxzoom: 20,
+      },
+      'sputnik.ru': {
+        label: 'Sputnik.RU',
+        template: 'http://{S}.tiles.maps.sputnik.ru/{z}/{x}/{y}.png',
+        options: {
+          attribution: ' © <a href="http://sputnik.ru">Спутник</a> | © <a href="http://www.openstreetmap.org/copyright">Openstreetmap</a> | © <a href="http://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a> '
+        },
+        minzoom: 0,
+        maxzoom: 19,
       },
 
     }
