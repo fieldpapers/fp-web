@@ -32,7 +32,7 @@ web:
     - ./public:/app/public
     - ./test:/app/test
 tasks:
-  image: fieldpapers/tasks:v0.2.1
+  image: fieldpapers/tasks:v0.3.2
   env_file: .env
   net: container:web
 tiler:

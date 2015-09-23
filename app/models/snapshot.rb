@@ -50,8 +50,16 @@ class Snapshot < ActiveRecord::Base
   include FriendlyId
   include Workflow
 
+
+  def self.s3_url(bucket, region)
+    region = region || 'us-east-1'
+    s3 = region == 'us-east-1' ? 's3' : 's3-' + region
+    %r{\Ahttps:\/\/#{bucket}.#{s3}\.amazonaws\.com\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
+  end
+
   # Environment-specific direct upload url verifier screens for malicious posted upload locations.
-  S3_UPLOAD_URL_FORMAT = %r{\Ahttps:\/\/s3\.amazonaws\.com\/#{Rails.application.secrets.aws["s3_bucket_name"]}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
+  S3_UPLOAD_URL_FORMAT = s3_url(Rails.application.secrets.aws["s3_bucket_name"],
+                                Rails.application.secrets.aws["s3_bucket_region"])
 
   # friendly_id configuration
 
