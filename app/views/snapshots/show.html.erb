@@ -6,7 +6,7 @@
   <%= render partial: "failed", locals: { snapshot: @snapshot } %>
 <% else %>
 <div class="row pad-bottom">
-<% if @snapshot.atlas %>
+<% if @snapshot.bbox && @snapshot.provider %>
   <div id="locator-map" class="twelve columns"></div>
 <% end %>
   <div class="twelve columns relative">
@@ -44,12 +44,14 @@
   <script>
     $(function(){
 
+    <% if @snapshot.bbox && @snapshot.provider %>
       FP.map.locator("locator-map", {
         bbox: <%= @snapshot.bbox %>,
         provider: "<%= @snapshot.provider %>",
         showMarker: true,
         zoom: 3
       });
+    <% end %>
 
       FP.map.snapshot("map", "<%= tilejson_url(@snapshot) %>");
 
