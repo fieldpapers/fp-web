@@ -375,34 +375,33 @@ L.PageComposer = L.Class.extend({
     _onAddRow: function(evt) {
       evt.stopPropagation();
       this.refs.rows++;
-      this._updatePages();
+      this._updatePagesModifier('add_row');
     },
 
     _onSubtractRow: function(evt) {
       evt.stopPropagation();
       if (this.refs.rows === 1) return;
       this.refs.rows--;
-      this._updatePages();
+      this._updatePagesModifier('sub_row');
     },
 
     _onAddCol: function(evt) {
       evt.stopPropagation();
       this.refs.cols++;
-      this._updatePages();
+      this._updatePagesModifier('add_col');
     },
 
     _onSubtractCol: function(evt) {
       evt.stopPropagation();
       if (this.refs.cols === 1) return;
       this.refs.cols--;
-      this._updatePages();
+      this._updatePagesModifier('sub_col');
     },
 
-    _updatePages: function() {
+    _updatePagesModifier: function(grid_mod) {
       this._setDimensions();
-      this._updateToolDimensions();
-      this._createPages();
-
+      this._updateToolDimensionsModifier(grid_mod); 
+      this._createPages();     
       this.fire("change");
     },
 
@@ -424,6 +423,21 @@ L.PageComposer = L.Class.extend({
       this.nwPosition = new L.Point(leftRightWidth + this.offset.x, topBottomHeight + this.offset.y);
       this.nwLocation = this.map.containerPointToLatLng(this.nwPosition);
       this.bounds = this.getBounds();
+    },
+
+    _updateToolDimensionsModifier: function(grid_mod) {
+      if (grid_mod === 'sub_col') {     
+        this.dimensions.width=this.dimensions.width-(this.dimensions.width/(this.refs.cols+1));
+      } else if (grid_mod === 'sub_row') {
+        this.dimensions.height=this.dimensions.height-(this.dimensions.height/(this.refs.rows+1));
+      } else if (grid_mod === 'add_row') {
+        this.dimensions.height=this.dimensions.height+(this.dimensions.height/(this.refs.rows-1));
+      } else if (grid_mod === 'add_col') {
+        this.dimensions.width=this.dimensions.width+(this.dimensions.width/(this.refs.cols-1)); 
+      }
+      // re-calc bounds
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._render();
     },
 
     _updateToolDimensions: function() {
