@@ -30,7 +30,9 @@ L.PageComposer = L.Class.extend({
         height: 0
       },
       rows: 1,
-      cols: 2
+      cols: 2,
+      prevRows: 1,
+      prevCols: 2
     },
 
     initialize: function(options) {
@@ -71,8 +73,7 @@ L.PageComposer = L.Class.extend({
       this.refs.paperSize = x;
       this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][this.refs.pageOrientation];
 
-      this._updateToolDimensions();
-
+      this._updateScale();
       // if the new size is outside the map bounds, contain it.
       var mapBds = this.map.getBounds();
       if(!mapBds.contains(this.bounds)) {
@@ -90,7 +91,7 @@ L.PageComposer = L.Class.extend({
         this.refs.pageOrientation = x;
         this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][x];
 
-        this._updateToolDimensions();
+        this._updateAspectRatio();
 
         // if the flop is outside the map bounds, contain it.
         var mapBds = this.map.getBounds();
@@ -244,7 +245,6 @@ L.PageComposer = L.Class.extend({
         height = Math.max(this.options.minHeight, height);
         height = Math.min(this._scaleProps.maxHeight, height);
         width = height * this._scaleProps.ratio;
-        this.refs.toolScale = height/this.options.pageHeight;
 
       } else {
         this._width += (this._scaleProps.curX - event.originalEvent.pageX) * 2 * this._scaleProps.x;
@@ -376,6 +376,7 @@ L.PageComposer = L.Class.extend({
       evt.stopPropagation();
       this.refs.rows++;
       this._updatePages();
+      this.refs.prevRows = this.refs.rows;
     },
 
     _onSubtractRow: function(evt) {
@@ -383,12 +384,15 @@ L.PageComposer = L.Class.extend({
       if (this.refs.rows === 1) return;
       this.refs.rows--;
       this._updatePages();
+      this.refs.prevRows = this.refs.rows;
     },
 
     _onAddCol: function(evt) {
       evt.stopPropagation();
       this.refs.cols++;
       this._updatePages();
+      this.refs.prevCols = this.refs.cols;
+
     },
 
     _onSubtractCol: function(evt) {
@@ -396,6 +400,7 @@ L.PageComposer = L.Class.extend({
       if (this.refs.cols === 1) return;
       this.refs.cols--;
       this._updatePages();
+      this.refs.prevCols = this.refs.cols;
     },
 
     _updatePages: function() {
@@ -426,15 +431,45 @@ L.PageComposer = L.Class.extend({
       this.bounds = this.getBounds();
     },
 
-    _updateToolDimensions: function() {
+    _updateAspectRatio: function(){
+      //switch from landscape to portrait
+      var width = this.dimensions.width / this.refs.cols;
+      var height = this.dimensions.height/this.refs.rows;
+
+      this.dimensions.height = width * this.refs.rows;
+      this.dimensions.width = height * this.refs.cols;
+
+      // re-calc bounds
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._render();
+    },
+
+    _updateScale: function(){
+      //switch between letter/a3/a4
       var scale = this.refs.paper_aspect_ratios[this.refs.paperSize].scale;
-      if (this.refs.pageOrientation === 'portrait') {
-        this.dimensions.width = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
-        this.dimensions.height = ((this.options.pageHeight / this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
-      } else {
-        this.dimensions.width = ((this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
-        this.dimensions.height = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
+      var toolScale = this.refs.toolScale;
+
+      if (scale > toolScale) {
+        this.dimensions.height = this.dimensions.height * scale;
+        this.dimensions.width = this.dimensions.width * scale;
+        this.refs.toolScale = scale;
+      } else if (scale < toolScale) {
+        this.dimensions.height = this.dimensions.height / toolScale;
+        this.dimensions.width = this.dimensions.width / toolScale;
+        this.refs.toolScale = scale;
       }
+
+        // re-calc bounds
+        this.bounds = this._getBoundsPinToNorthWest();
+        this._render();
+    },
+
+    _updateToolDimensions: function() {
+      var width = this.dimensions.width/this.refs.prevCols
+      this.dimensions.width = width * this.refs.cols;
+
+      var height = this.dimensions.height/this.refs.prevRows
+      this.dimensions.height = height * this.refs.rows;
 
       // re-calc bounds
       this.bounds = this._getBoundsPinToNorthWest();
