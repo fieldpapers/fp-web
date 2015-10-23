@@ -1,7 +1,8 @@
 <%# TODO: populate empty fields and other activity  %>
-<%= CSV.generate_line(['type', 'href', 'created', 'person_href', 'geometry', 'atlas_page_href', 'snapshot_href', 'note']).html_safe %>
+<%= CSV.generate_line(['type', 'href', 'title', 'created', 'person_href', 'geometry', 'atlas_page_href', 'snapshot_href', 'note']).html_safe %>
 <%= CSV.generate_line(['atlas',
     atlas_url(@atlas),
+    @atlas.title,
     @atlas.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
     atlas_person_href(@atlas),
     @atlas.geometry_string,
@@ -15,6 +16,7 @@
 
     <%= CSV.generate_line(['snapshot',
       snapshot_url(snapshot),
+      snapshot.title,
       snapshot.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
       snapshot_person_href(snapshot),
       snapshot.geometry_string,
