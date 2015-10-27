@@ -43,3 +43,89 @@
 #  geotiff_url        :string(255)
 #  failed_at          :datetime
 #
+
+tstsnap1:
+  id:                 7
+  slug:               "77btuvr8"
+  user_id:            NULL
+  page_id:            8
+  page_url:           "http://0.0.0.0:3000/atlases/1v00xegb/A1"
+  min_row:            NULL
+  max_row:            NULL
+  min_column:         NULL
+  max_column:         NULL
+  min_zoom:           NULL
+  max_zoom:           NULL
+  description:        NULL
+  private:            0
+  has_geotiff:        "no"
+  has_geojpeg:        "no"
+  base_url:           NULL
+  uploaded_file:      NULL
+  country_name:       NULL
+  country_woeid:      NULL
+  region_name:        NULL
+  region_woeid:       NULL
+  place_name:         NULL
+  place_woeid:        NULL
+  progress:           1
+  created_at:         "2015-11-04 21:27:49"
+  updated_at:         "2015-11-04 21:28:46"
+  decoded_at:         "2015-11-04 21:28:45"
+  scene_file_name:    "/dev.files.fieldpapers.org/uploads%2F1446672452510-ion40pa393rz4cxr-61da9bf9ae9f72fb17622701a581386d%2Fsnap-1.png"
+  scene_content_type: "image/png"
+  scene_file_size:    7753210
+  scene_updated_at:   NULL
+  s3_scene_url:       "https://s3.amazonaws.com/dev.files.fieldpapers.org/uploads/1446672452510-ion40pa393rz4cxr-61da9bf9ae9f72fb17622701a581386d/snap-1.png"
+  atlas_id:           4
+  west:               11.3382
+  south:              47.2135
+  east:               11.4048
+  north:              47.2485
+  zoom:               15
+  geotiff_url:        "https://fieldpapers-dev.s3.amazonaws.com/snapshots/77btuvr8/field-paper-77btuvr8.tiff"
+  failed_at:          NULL
+  workflow_state:     "complete"
+
+tstsnap2:
+  id:                 8
+  slug:               "5nuv8bki"
+  user_id:            NULL
+  page_id:            9
+  page_url:           "http://0.0.0.0:3000/atlases/1v00xegb/A2"
+  min_row:            NULL
+  max_row:            NULL
+  min_column:         NULL
+  max_column:         NULL
+  min_zoom:           NULL
+  max_zoom:           NULL
+  description:        NULL
+  private:            0
+  has_geotiff:        "no"
+  has_geojpeg:        "no"
+  base_url:           NULL
+  uploaded_file:      NULL
+  country_name:       NULL
+  country_woeid:      NULL
+  region_name:        NULL
+  region_woeid:       NULL
+  place_name:         NULL
+  place_woeid:        NULL
+  progress:           1
+  created_at:         "2015-11-04 21:29:16"
+  updated_at:         "2015-11-04 21:30:09"
+  decoded_at:         "2015-11-04 21:30:09"
+  scene_file_name:    "/dev.files.fieldpapers.org/uploads%2F1446672540731-m5ccyza814d0lik9-8e148f85e49909d6601bb4352d5c3130%2Fsnap-2.png"
+  scene_content_type: "image/png"
+  scene_file_size:    7852703
+  scene_updated_at:   NULL
+  s3_scene_url:       "https://s3.amazonaws.com/dev.files.fieldpapers.org/uploads/1446672540731-m5ccyza814d0lik9-8e148f85e49909d6601bb4352d5c3130/snap-2.png"
+  atlas_id:           4
+  west:               11.4048
+  south:              47.2135
+  east:               11.4714
+  north:              47.2485
+  zoom:               15
+  geotiff_url:        "https://fieldpapers-dev.s3.amazonaws.com/snapshots/5nuv8bki/field-paper-5nuv8bki.tiff"
+  failed_at:          NULL
+  workflow_state:     "complete"
