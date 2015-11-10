@@ -215,6 +215,8 @@ they are available to the environment in which Rails is running.
 * `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
   bucket(s).
 * `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
+* `AWS_REGION` - AWS region of S3 bucket.  Defaults to "default"
+  region of `us-east-1`.
 * `API_BASE_URL` - Network-accessible (i.e. from a Docker container) base URL
   rendered into PDFs.
 * `BASE_URL` - Base URL, e.g. `http://fieldpapers.org`.
@@ -332,3 +334,64 @@ version. Part of the migration involves cleaning up encoding errors (UTF-8 text
 stored as latin1 in UTF-8 columns)--your database may include some invalid
 characters, causing the migration to fail. To work-around that, identify the
 affected rows and clear their values before retrying the migration.
+
+
+### AWS Deployment
+
+The Rails `production` environment is set up to allow a "quick start"
+deployment on Amazon Web Services using the [`aws-quick-start.py`
+script](https://github.com/fieldpapers/fieldpapers/blob/master/aws-quick-start/aws-quick-start.py)
+in the
+[`fieldpapers/fieldpapers` repository](https://github.com/fieldpapers/fieldpapers).
+See the documentation
+[here](https://github.com/fieldpapers/fieldpapers/tree/master/aws-quick-start)
+details.
+
+A couple of things to note about this production environment:
+
+ * The database configuration (in `config/database.yaml`) is taken
+   from a set of `RDS_*` environment variables which are set up
+   automatically by AWS within the Docker container where the Rails
+   web app runs.  The AWS Relational Database Service (RDS) database
+   is set up automatically by the `aws-quick-start.py` script.
+
+ * Access to AWS resources (the S3 bucket used to store atlas pages
+   and snapshots, the database, the SES mail service) is managed using
+   AWS Identity and Access Management (IAM) roles, policies and
+   instance profiles.
+
+ * Obviously the relevant IAM roles, policies and instance profiles
+   have to exist with the appropriate permissions.  The easiest (and
+   only recommended) way to do this is to use the `aws-quick-start.py`
+   script to set everything up.  It's kind of complicated and there
+   are no guarantees that it will work if you try to do it by hand...
+
+ * No AWS credentials appear anywhere in the code and no credentials
+   are loaded from environment variables (such as `AWS_ACCESS_KEY_ID`
+   or `AWS_SECRET_ACCESS_KEY`) when running on an EC2 instance;
+   instead, temporary AWS credentials are made available by the
+   infrastructure on the EC2 instance and are accessed via the
+   instance metadata (the Ruby AWS SDK deals with this transparently).
+
+ * There are some cases where extra authentication information is
+   required to perform AWS actions from within an EC2 instance.  In
+   particular, a session token is needed to validate temporary AWS
+   credentials (a case handled transparently by the AWS Ruby SDK), and
+   a "source ARN" is required for sending email (which needs to be
+   handled explicitly).  This source ARN is needed to associate the
+   EC2 instance with a mail identity policy so that the web app can
+   send email using the AWS SES email service.
+
+
+#### Extra environment variables
+
+These are all set up by the `aws-quick-start.py` script, but are
+documented here for reference.  They should *not* need to be set
+explicitly!
+
+* `MAIL_ORIGIN` - the originating email address used for sending
+  account confirmation, password reset, etc. emails.
+* `MAIL_SOURCE_ARN` - AWS resource identifier used to associate EC2
+   instance with a mail identity policy, allowing email to be sent
+   from within an EC2 instance using the AWS Simple Email Service
+   (SES).

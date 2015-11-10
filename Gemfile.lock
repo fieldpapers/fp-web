@@ -1,4 +1,24 @@
 GIT
+  remote: https://github.com/Cadasta/aws-ses
+  revision: c1141c4925cad9f742440c995a1378745a34676c
+  specs:
+    aws-ses (0.6.0)
+      builder
+      mail (> 2.2.5)
+      mime-types
+      xml-simple
+
+GIT
+  remote: https://github.com/Cadasta/s3_direct_upload
+  revision: f8dd8cc03ece607c78ba3befa3270a256eac947c
+  specs:
+    s3_direct_upload (0.1.7)
+      coffee-rails (>= 3.1)
+      jquery-fileupload-rails (~> 0.4.1)
+      rails (>= 3.1)
+      sass-rails (>= 3.1)
+
+GIT
   remote: https://github.com/ollie/geo-mercator.git
   revision: 8c65c77c0182662ed22fea72072c35d6ce49114a
   specs:
@@ -32,7 +52,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    actionview-encoded_mail_to (1.0.6)
+    actionview-encoded_mail_to (1.0.7)
       rails
     activejob (4.2.2)
       activesupport (= 4.2.2)
@@ -54,11 +74,14 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     ansi (1.5.0)
-    arel (6.0.2)
-    autoprefixer-rails (5.2.1.1)
+    api-pagination (4.1.1)
+    arel (6.0.3)
+    autoprefixer-rails (6.0.3)
       execjs
       json
-    aws-sdk-v1 (1.64.0)
+    aws-sdk-core (2.1.29)
+      jmespath (~> 1.0)
+    aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
@@ -68,10 +91,8 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
+    byebug (6.0.2)
     callsite (0.0.11)
-    certifi (14.5.14)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -84,11 +105,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    columnize (0.9.0)
     composite_primary_keys (8.0.0)
       activerecord (~> 4.2.0)
     debug_inspector (0.0.2)
-    devise (3.5.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -96,14 +116,15 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-i18n (0.12.1)
-    devise-i18n-views (0.3.4)
+    devise-i18n-views (0.3.6)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.0.7)
-    execjs (2.5.2)
-    faraday (0.9.1)
+    eventmachine (1.0.8)
+    execjs (2.6.0)
+    fakeweb (1.3.0)
+    faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
@@ -112,15 +133,15 @@ GEM
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    gettext (3.1.6)
+    gettext (3.1.7)
       locale (>= 2.0.5)
       text (>= 1.3.0)
-    gettext_i18n_rails (1.2.3)
+    gettext_i18n_rails (1.3.0)
       fast_gettext (>= 0.9.0)
     git-version-bump (0.15.1)
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
-    guard (2.12.8)
+    guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
       lumberjack (~> 1.0)
@@ -150,14 +171,15 @@ GEM
     http_accept_language (2.0.5)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
-    jbuilder (2.3.1)
+    jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-fileupload-rails (0.4.5)
+    jmespath (1.1.3)
+    jquery-fileupload-rails (0.4.6)
       actionpack (>= 3.1)
       railties (>= 3.1)
       sass (>= 3.2)
-    jquery-rails (4.0.4)
+    jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -165,11 +187,12 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    listen (3.0.2)
+    libv8 (3.16.14.11)
+    listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    locale (2.1.1)
-    loofah (2.0.2)
+    locale (2.1.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
@@ -179,21 +202,21 @@ GEM
       rack-contrib (~> 1.1)
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
-    mime-types (2.6.1)
+    mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.7.0)
-    minitest-reporters (1.0.19)
+    minitest (5.8.1)
+    minitest-reporters (1.1.3)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.11.2)
     multipart-post (2.0.0)
-    mysql2 (0.3.18)
+    mysql2 (0.3.20)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    notiffany (0.0.6)
+    notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
@@ -202,15 +225,15 @@ GEM
       activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
-    pry (0.10.1)
+    pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.12.2)
+    puma (2.14.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
-    rack-contrib (1.3.0)
+    rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
     rack-rewrite (1.5.1)
@@ -229,7 +252,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -239,56 +262,54 @@ GEM
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.3)
+    rails_stdout_logging (0.0.4)
     railties (4.2.2)
       actionpack (= 4.2.2)
       activesupport (= 4.2.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    rb-fsevent (0.9.5)
+    rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+    ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     ruby-progressbar (1.7.5)
-    s3_direct_upload (0.1.7)
-      coffee-rails (>= 3.1)
-      jquery-fileupload-rails (~> 0.4.1)
-      rails (>= 3.1)
-      sass-rails (>= 3.1)
-    sass (3.4.16)
-    sass-rails (5.0.3)
+    sass (3.4.19)
+    sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-      tilt (~> 1.1)
+      tilt (>= 1.1, < 3)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sentry-raven (0.14.0)
-      certifi
+    sentry-raven (0.15.2)
       faraday (>= 0.7.6)
     shellany (0.0.1)
     slop (3.6.0)
-    spring (1.3.6)
-    sprockets (3.2.0)
-      rack (~> 1.0)
-    sprockets-rails (2.3.2)
+    spring (1.4.0)
+    sprockets (3.4.0)
+      rack (> 1, < 3)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     text (1.3.1)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (1.4.1)
+    tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
@@ -298,9 +319,10 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    wicked (1.1.1)
-      rails (>= 3.0.7)
+    wicked (1.2.1)
+      railties (>= 3.0.7)
     workflow (1.2.0)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -308,13 +330,17 @@ PLATFORMS
 DEPENDENCIES
   actionview-encoded_mail_to
   annotate (~> 2.6.5)
+  api-pagination
+  aws-sdk-core (~> 2)
   aws-sdk-v1 (~> 1)
+  aws-ses!
   bootstrap-sass (~> 3.3.3)
   byebug
   composite_primary_keys (~> 8.0.0)
   devise
   devise-i18n
   devise-i18n-views
+  fakeweb
   faraday
   faraday_middleware
   friendly_id (~> 5.1.0)
@@ -335,7 +361,7 @@ DEPENDENCIES
   leaflet-rails!
   meta_request
   minitest-reporters
-  mysql2
+  mysql2 (~> 0.3.18)
   paperclip (~> 4.2.1)
   puma
   quiet_assets
@@ -344,13 +370,17 @@ DEPENDENCIES
   rails (= 4.2.2)
   rails_12factor
   rake
-  s3_direct_upload
+  s3_direct_upload!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sentry-raven
   spring
+  therubyracer (~> 0.12.2)
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   wicked
   workflow
+
+BUNDLED WITH
+   1.10.6

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
+ruby "2.2.3"
 
 ## standard dependencies
 
@@ -22,6 +22,8 @@ gem "sdoc", "~> 0.4.0", group: :doc
 ## explicit choices
 
 gem "aws-sdk-v1", "~> 1"
+gem "aws-sdk-core", "~> 2"
+gem "aws-ses", :require => 'aws/ses', git: 'https://github.com/Cadasta/aws-ses'
 gem "bootstrap-sass", "~> 3.3.3"
 gem "composite_primary_keys", "~> 8.0.0"
 gem "devise" # authentication
@@ -34,18 +36,20 @@ gem "gettext_i18n_rails" # gettext-style i18n
 gem "has_scope" # automatic filter generation
 gem "http_accept_language"
 gem "kaminari" # pagination
+gem 'api-pagination'
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
-gem "s3_direct_upload" # direct-to-S3 upload helpers
-gem "mysql2"
+gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
+gem "mysql2", "~> 0.3.18"
 gem "workflow"
 gem "wicked" # wizard controllers
 gem "json"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
+gem 'therubyracer', '~> 0.12.2'
 
 ## production-only dependencies
 
@@ -81,6 +85,7 @@ group :development, :test do
 
   gem "meta_request" # to support https://github.com/dejan/rails_panel
   gem "minitest-reporters"
+  gem "fakeweb"
 
   gem "rake"
 end

@@ -33,5 +33,20 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+# This "production" environment is specialised for deployment on
+# Amazon Web Services using the AWS Elastic Beanstalk service, with
+# resources set up by the aws-quick-start.py script in the
+# fieldpapers/fieldpapers repository.  The RDS_* environment variables
+# used here are provided with values by the AWS environment on the EC2
+# instance where the web app runs, i.e. they are not explicitly
+# assigned values anywhere the web app code, but are set up
+# automatically by AWS.
+
 production:
-  <<: *default
+  adapter: mysql2
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
