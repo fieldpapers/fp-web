@@ -376,7 +376,6 @@ L.PageComposer = L.Class.extend({
       evt.stopPropagation();
       this.refs.rows++;
       this._updatePages();
-      this.refs.prevRows = this.refs.rows;
     },
 
     _onSubtractRow: function(evt) {
@@ -384,15 +383,12 @@ L.PageComposer = L.Class.extend({
       if (this.refs.rows === 1) return;
       this.refs.rows--;
       this._updatePages();
-      this.refs.prevRows = this.refs.rows;
     },
 
     _onAddCol: function(evt) {
       evt.stopPropagation();
       this.refs.cols++;
       this._updatePages();
-      this.refs.prevCols = this.refs.cols;
-
     },
 
     _onSubtractCol: function(evt) {
@@ -400,7 +396,6 @@ L.PageComposer = L.Class.extend({
       if (this.refs.cols === 1) return;
       this.refs.cols--;
       this._updatePages();
-      this.refs.prevCols = this.refs.cols;
     },
 
     _updatePages: function() {
@@ -433,11 +428,8 @@ L.PageComposer = L.Class.extend({
 
     _updateAspectRatio: function(){
       //switch from landscape to portrait
-      var width = this.dimensions.width / this.refs.cols;
-      var height = this.dimensions.height/this.refs.rows;
-
-      this.dimensions.height = width * this.refs.rows;
-      this.dimensions.width = height * this.refs.cols;
+      this.dimensions.height = this.dimensions.cellWidth * this.refs.rows;
+      this.dimensions.width = this.dimensions.cellHeight * this.refs.cols;
 
       // re-calc bounds
       this.bounds = this._getBoundsPinToNorthWest();
@@ -447,29 +439,34 @@ L.PageComposer = L.Class.extend({
     _updateScale: function(){
       //switch between letter/a3/a4
       var scale = this.refs.paper_aspect_ratios[this.refs.paperSize].scale;
-      var toolScale = this.refs.toolScale;
 
-      if (scale > toolScale) {
-        this.dimensions.height = this.dimensions.height * scale;
+      if (scale > this.refs.toolScale) {
         this.dimensions.width = this.dimensions.width * scale;
         this.refs.toolScale = scale;
-      } else if (scale < toolScale) {
-        this.dimensions.height = this.dimensions.height / toolScale;
-        this.dimensions.width = this.dimensions.width / toolScale;
+      } else if (scale < this.refs.toolScale) {
+        this.dimensions.width = this.dimensions.width / this.refs.toolScale;
         this.refs.toolScale = scale;
       }
 
-        // re-calc bounds
-        this.bounds = this._getBoundsPinToNorthWest();
-        this._render();
+      this.dimensions.height = ((this.dimensions.width / this.refs.cols) / this.refs.page_aspect_ratio) * this.refs.rows;
+
+      // re-calc bounds
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._render();
     },
 
     _updateToolDimensions: function() {
-      var width = this.dimensions.width/this.refs.prevCols
-      this.dimensions.width = width * this.refs.cols;
+      if (this.refs.cols !== this.refs.prevCols) {
+        var width = this.dimensions.width / this.refs.prevCols;
+        this.dimensions.width = width * this.refs.cols;
+        this.refs.prevCols = this.refs.cols;
+      }
 
-      var height = this.dimensions.height/this.refs.prevRows
-      this.dimensions.height = height * this.refs.rows;
+      if (this.refs.rows !== this.refs.prevRows) {
+        var height = this.dimensions.height / this.refs.prevRows;
+        this.dimensions.height = height * this.refs.rows;
+        this.refs.prevRows = this.refs.rows;
+      }
 
       // re-calc bounds
       this.bounds = this._getBoundsPinToNorthWest();
