@@ -119,7 +119,7 @@ xcode-select --install     # install Xcode command line utilities
 # on 10.11, openssl headers aren't easily findable
 bundle config build.eventmachine --with-opt-dir=/usr/local/opt/openssl
 
-bundle install --path vendor/bundle # install dependencies
+bundle install -j4 --path vendor/bundle # install dependencies
 
 direnv allow .             # whitelist the local .envrc
 
@@ -156,7 +156,7 @@ rbenv install $(< .ruby-version) # install the desired ruby version
 gem install bundler        # install bundler using rbenv-installed ruby
 gem install foreman
 
-bundle install --path vendor/bundle # install dependencies
+bundle install -j4 --path vendor/bundle # install dependencies
 
 cp sample.env .env
 sensible-editor .env
