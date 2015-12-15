@@ -5,6 +5,13 @@ require 'fakeweb'
 module Api
   module V1
     class SnapshotsControllerTest < ActionController::TestCase
+      def s3_url(path)
+        bucket = Rails.application.secrets.aws["s3_bucket_name"]
+        region = Rails.application.secrets.aws["s3_region_name"] || 'us-east-1'
+        s3 = region == 'us-east-1' ? 's3' : 's3-' + region
+        "https://#{bucket}.#{s3}.amazonaws.com#{path}"
+      end
+
       test "should get snapshot index" do
         get :index, format: :json
         assert_response :success
@@ -21,8 +28,7 @@ module Api
         FakeWeb.register_uri(:any, %r|#{Regexp.quote(FieldPapers::TASK_BASE_URL)}/.*|, body: "OK")
         FakeWeb.register_uri(:any, %r|https://#{bucket}\.s3.*\.amazonaws\.com/uploads/.*|, body: "OK")
 
-        scene_url = 'https://fieldpapers-dev.s3-us-west-2.amazonaws.com/' +
-                    'uploads/L_D1_XpVixCgHixHVP4RYg/snap-1.png'
+        scene_url = s3_url("/uploads/L_D1_XpVixCgHixHVP4RYg/snap-1.png")
         post :create, s3_scene_url: scene_url
         assert_response :success
       end
