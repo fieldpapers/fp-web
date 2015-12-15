@@ -30,7 +30,9 @@ L.PageComposer = L.Class.extend({
         height: 0
       },
       rows: 1,
-      cols: 2
+      cols: 2,
+      prevRows: 1,
+      prevCols: 2
     },
 
     initialize: function(options) {
@@ -71,8 +73,7 @@ L.PageComposer = L.Class.extend({
       this.refs.paperSize = x;
       this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][this.refs.pageOrientation];
 
-      this._updateToolDimensions();
-
+      this._updateScale();
       // if the new size is outside the map bounds, contain it.
       var mapBds = this.map.getBounds();
       if(!mapBds.contains(this.bounds)) {
@@ -90,7 +91,7 @@ L.PageComposer = L.Class.extend({
         this.refs.pageOrientation = x;
         this.refs.page_aspect_ratio = this.refs.paper_aspect_ratios[this.refs.paperSize][x];
 
-        this._updateToolDimensions();
+        this._updateAspectRatio();
 
         // if the flop is outside the map bounds, contain it.
         var mapBds = this.map.getBounds();
@@ -244,7 +245,6 @@ L.PageComposer = L.Class.extend({
         height = Math.max(this.options.minHeight, height);
         height = Math.min(this._scaleProps.maxHeight, height);
         width = height * this._scaleProps.ratio;
-        this.refs.toolScale = height/this.options.pageHeight;
 
       } else {
         this._width += (this._scaleProps.curX - event.originalEvent.pageX) * 2 * this._scaleProps.x;
@@ -426,14 +426,46 @@ L.PageComposer = L.Class.extend({
       this.bounds = this.getBounds();
     },
 
-    _updateToolDimensions: function() {
+    _updateAspectRatio: function(){
+      //switch from landscape to portrait
+      this.dimensions.height = this.dimensions.cellWidth * this.refs.rows;
+      this.dimensions.width = this.dimensions.cellHeight * this.refs.cols;
+
+      // re-calc bounds
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._render();
+    },
+
+    _updateScale: function(){
+      //switch between letter/a3/a4
       var scale = this.refs.paper_aspect_ratios[this.refs.paperSize].scale;
-      if (this.refs.pageOrientation === 'portrait') {
-        this.dimensions.width = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
-        this.dimensions.height = ((this.options.pageHeight / this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
-      } else {
-        this.dimensions.width = ((this.options.pageHeight * this.refs.page_aspect_ratio) * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.cols;
-        this.dimensions.height = (this.options.pageHeight * this.refs.toolScale * this.refs.zoomScale * scale) * this.refs.rows;
+
+      if (scale > this.refs.toolScale) {
+        this.dimensions.width = this.dimensions.width * scale;
+        this.refs.toolScale = scale;
+      } else if (scale < this.refs.toolScale) {
+        this.dimensions.width = this.dimensions.width / this.refs.toolScale;
+        this.refs.toolScale = scale;
+      }
+
+      this.dimensions.height = ((this.dimensions.width / this.refs.cols) / this.refs.page_aspect_ratio) * this.refs.rows;
+
+      // re-calc bounds
+      this.bounds = this._getBoundsPinToNorthWest();
+      this._render();
+    },
+
+    _updateToolDimensions: function() {
+      if (this.refs.cols !== this.refs.prevCols) {
+        var width = this.dimensions.width / this.refs.prevCols;
+        this.dimensions.width = width * this.refs.cols;
+        this.refs.prevCols = this.refs.cols;
+      }
+
+      if (this.refs.rows !== this.refs.prevRows) {
+        var height = this.dimensions.height / this.refs.prevRows;
+        this.dimensions.height = height * this.refs.rows;
+        this.refs.prevRows = this.refs.rows;
       }
 
       // re-calc bounds
