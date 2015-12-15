@@ -49,4 +49,4 @@ production:
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  port: <%= ENV['RDS_PORT'] || 3306 %>
