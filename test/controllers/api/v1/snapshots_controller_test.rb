@@ -7,9 +7,15 @@ module Api
     class SnapshotsControllerTest < ActionController::TestCase
       def s3_url(path)
         bucket = Rails.application.secrets.aws["s3_bucket_name"]
-        region = Rails.application.secrets.aws["s3_region_name"] || 'us-east-1'
+        region = Rails.application.secrets.aws["s3_bucket_region"] || 'us-east-1'
         s3 = region == 'us-east-1' ? 's3' : 's3-' + region
         "https://#{bucket}.#{s3}.amazonaws.com#{path}"
+      end
+
+      def setup
+        bucket = Regexp.quote(Rails.application.secrets.aws["s3_bucket_name"])
+        FakeWeb.register_uri(:any, %r|#{Regexp.quote(FieldPapers::TASK_BASE_URL)}/.*|, body: "OK")
+        FakeWeb.register_uri(:any, %r|https://#{bucket}\.s3.*\.amazonaws\.com/uploads/.*|, body: "OK")
       end
 
       test "should get snapshot index" do
@@ -24,20 +30,20 @@ module Api
       end
 
       test "create snapshot" do
-        bucket = Regexp.quote(Rails.application.secrets.aws["s3_bucket_name"])
-        FakeWeb.register_uri(:any, %r|#{Regexp.quote(FieldPapers::TASK_BASE_URL)}/.*|, body: "OK")
-        FakeWeb.register_uri(:any, %r|https://#{bucket}\.s3.*\.amazonaws\.com/uploads/.*|, body: "OK")
-
         scene_url = s3_url("/uploads/L_D1_XpVixCgHixHVP4RYg/snap-1.png")
         post :create, s3_scene_url: scene_url
         assert_response :success
       end
 
       test "delete snapshot" do
-        delete :destroy, id: "5nuv8bki", format: :json
-        assert_response :success
-        get :show, id: "5nuv8bki", format: :json
-        assert_response :not_found
+        begin
+          delete :destroy, id: "5nuv8bki", format: :json
+          assert_response :success
+          get :show, id: "5nuv8bki", format: :json
+          assert_response :not_found
+        rescue AWS::Errors::MissingCredentialsError
+          skip "No AWS credentials"
+        end
       end
     end
   end
