@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Translators:
+# Alberto Chung Vázquez <isc.chungvazquez@gmail.com>, 2015
 # Carmen, 2015
 # Eduardo <e@mayorgalinux.com>, 2015
 # Humberto Yances <hyances@gmail.com>, 2015
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-06-09 03:45+0000\n"
-"Last-Translator: Marco Antonio <marcoantoniofrias@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/p/fieldpapers/language/es/)\n"
+"PO-Revision-Date: 2015-07-27 09:56+0000\n"
+"Last-Translator: Alberto Chung Vázquez <isc.chungvazquez@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/fieldpapers/fieldpapers/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,7 +245,7 @@ msgid "Make your notes and observations."
 msgstr "Haga sus notas y observaciones."
 
 msgid "Make yourself an atlas"
-msgstr "Haga usted mismo un altas"
+msgstr "Haga usted mismo un atlas"
 
 msgid "Making Atlases From GeoJSON"
 msgstr "Haciendo atlas desde GeoJSON"

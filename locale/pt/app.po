@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Translators:
+# Márcio Vinícius Pinheiro <marcioviniciusmp@gmail.com>, 2015
 # Tassia Camoes Araujo <tassia@acaia.ca>, 2015
 # Victor Ferreira <victor.mota.ferreira@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-05-27 15:55+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
-"Language-Team: Portuguese (http://www.transifex.com/p/fieldpapers/language/pt/)\n"
+"PO-Revision-Date: 2015-11-04 20:15+0000\n"
+"Last-Translator: Márcio Vinícius Pinheiro <marcioviniciusmp@gmail.com>\n"
+"Language-Team: Portuguese (http://www.transifex.com/fieldpapers/fieldpapers/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,34 +21,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "\"%{place}\" could not be found."
-msgstr ""
+msgstr "\"%{place}\" não pôde ser encontrado."
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} é criado por %{StamenDesign}"
+msgstr "%{FieldPapers} foi criado por %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr "%{Upload} páginas que fotografou."
+msgstr "%{Upload} páginas que você fotografou."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} Atlas"
+msgstr[1] "%{count} Atlas"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} Captura"
+msgstr[1] "%{count} Capturas"
 
 msgid "%{time_period} ago"
-msgstr "À %{time_period}"
+msgstr "Há %{time_period}"
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr "&copy; contribuidores OpenStreetMap"
+msgstr "&copy; contribuidores do OpenStreetMap"
 
 msgid ""
 "(That means it's only accessible to you, if you're logged in, or by direct "
 "URL.)"
-msgstr "(Isso significa que só é acessível a si, se estiver credenciado no sistema (logged in), ou por URLdireto.)"
+msgstr "(Isso significa que só é acessível a si, se estiver credenciado no sistema (logged in), ou por URL direto.)"
 
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers no Twitter"
@@ -61,13 +62,13 @@ msgid "About the Project"
 msgstr "Acerca do Projeto"
 
 msgid "Activity"
-msgstr "Actividade"
+msgstr "Atividade"
 
 msgid "Add a %{UTM} grid overlay to each map?"
-msgstr "Adicione uma grelha %{UTM} em sobreposição a cada mapa?"
+msgstr "Adicionar uma grelha %{UTM} em sobreposição a cada mapa?"
 
 msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
-msgstr ""
+msgstr "Adicione a camada GADM (para esforços de apoio a desastres nas Filipinas)"
 
 msgid "Advanced - Field Papers"
 msgstr "Avançado - Field Papers"
@@ -75,7 +76,7 @@ msgstr "Avançado - Field Papers"
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
 "href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Alternativamente, conteúdo raw GeoJSON pode ser publicado em <a href=\"/\">fieldpapers.org</a> como um valor de formulário, com o nome “geojson_data”:"
+msgstr "Alternativamente, o conteúdo GeoJSON bruto pode ser publicado em <a href=\"/\">fieldpapers.org</a> como um valor de formulário, com o nome “geojson_data”:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -125,7 +126,7 @@ msgstr "Dê uma vista de olhos no wiki de ajuda do OSM."
 msgid ""
 "Choose an atlas page to upload. We'll work out where it goes (using the QR "
 "code)."
-msgstr "Escolha uma página do atlas para carregar. Nós decobriremos onde ela pertence (utilizando o código QR)."
+msgstr "Escolha uma página do atlas para carregar. Nós descobriremos de onde ela é (utilizando o código QR)."
 
 msgid "Copy this atlas"
 msgstr "Copiar este atlas"
@@ -137,21 +138,21 @@ msgid "Development Blog"
 msgstr "Blog do desenvolvimento"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr "ao carregue coisas que não sejam mapas do \"Field Papers\", por favor."
+msgstr "Não carregue coisas que não sejam mapas do \"Field Papers\", por favor."
 
 msgid "Download GeoTIFF"
-msgstr ""
+msgstr "Descarregar GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Descarregar PDF"
 
 msgid "EXTEND"
-msgstr "EXTEND"
+msgstr "EXTENDA"
 
 msgid ""
 "Each setting below can be posted via plain HTML form to <a "
 "href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr "Cada configuração abaixo pode ser publicado via formulário HTML simples em <a href=\"%s\">fieldpapers.org</a>. <i>Todos são opcionais.</i>"
+msgstr "Cada configuração abaixo pode ser publicada via formulário HTML simples em <a href=\"%s\">fieldpapers.org</a>. <i>Todos são opcionais.</i>"
 
 msgid "Edit in..."
 msgstr "Editar em..."
@@ -202,12 +203,12 @@ msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
-msgstr "É fácil criar atlas Field Papers \"enlatados\" providenciando à partida detalhes extra, que são utilizados como valores pré-definidos em todo o processo de <a href=\"%s\">Make</a>."
+msgstr "É fácil criar atlas Field Papers \"enlatados\" providenciando inicialmente detalhes extras, que são utilizados como valores pré-definidos ao longo do processo de <a href=\"%s\">Criação</a>."
 
 msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
-msgstr "É possivel gerar atlas a partir de ficheiros raw GeoJSON. Isto pode ser feito de uma de duas formas."
+msgstr "É possivel gerar atlas a partir de ficheiros GeoJSON brutos. Isto pode ser feito de uma das duas formas:"
 
 msgid "LOG IN"
 msgstr "LOG IN"
@@ -227,16 +228,16 @@ msgid "Location and zoom"
 msgstr "Localização e zoom"
 
 msgid "MAKE"
-msgstr "MAKE"
+msgstr "CRIE"
 
 msgid "Make - Field Papers"
-msgstr "Make - Field Papers"
+msgstr "Criação - Field Papers"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr "Certifique-se que o scan/foto/imagem tem pelo menos 200dpi."
+msgstr "Certifique-se de que o scan/foto/imagem tem pelo menos 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr "Certifique-se que está a carregar um JPG, PNG, TIF, or GIF. (PDFs não funcionam.)"
+msgstr "Certifique-se de que está a carregar um JPG, PNG, TIF, ou GIF. (PDFs não funcionam.)"
 
 msgid "Make your notes and observations."
 msgstr "Faça as suas notas e observações."
@@ -277,7 +278,7 @@ msgid "No snapshots."
 msgstr "Nenhuma captura"
 
 msgid "Notes (only shown on half-page atlases)"
-msgstr ""
+msgstr "Notas (mostradas apenas em altas de meia página)"
 
 msgid "Plain Text (CSV)"
 msgstr "Texto Simples (CSV)"
@@ -292,7 +293,7 @@ msgid "Private"
 msgstr "Privado"
 
 msgid "Refresh"
-msgstr "Refrescar"
+msgstr "Atualizar"
 
 msgid "Rules"
 msgstr "Regras"
@@ -311,16 +312,16 @@ msgstr "Dado que o atlas é <span class='private'>privado</span>, você provavel
 msgid ""
 "Since this snapshot is <span class='private'>private</span>, you probably "
 "should <a href='%{url}'>bookmark it</a>."
-msgstr ""
+msgstr "Dado que esta captura é <span class='private'>privada</span>, recomenda-se que você <a href='%{url}'>a salve nos seus favoritos</a>."
 
 msgid "Snapshot - Field Papers"
 msgstr "Captura - Field Papers"
 
 msgid "Snapshot Processing"
-msgstr ""
+msgstr "Processando captura"
 
 msgid "Snapshot Processing Failed"
-msgstr ""
+msgstr "O processamento da captura falhou."
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Envio de captura - Field Papers"
@@ -340,7 +341,7 @@ msgid "Stamen Design"
 msgstr "Stamen Design"
 
 msgid "Submit"
-msgstr "Submeter"
+msgstr "Enviar"
 
 msgid "Take it into the field"
 msgstr "Levar para o campo"
@@ -355,7 +356,7 @@ msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{url}'>bookmark this page</a> and come back "
 "later."
-msgstr ""
+msgstr "Isto pode demorar um pouco, normalmente alguns minutos. Você não precisa manter esta janela aberta, você pode <a href='%{url}'>salvar o endereço nos seus favoritos</a> e voltar mais tarde."
 
 msgid "This process has been running for %{time}"
 msgstr "Este processo está sendo executado há %{time}"
@@ -379,13 +380,13 @@ msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
-msgstr "Infelizmente, seu atlas não foi gerado. É possível que tenha sido um problem intermitente, e neste caso você deveria tentar gerá-lo novamente. Se o problema persistir, por favor escreva para %{email_url} com detalhes."
+msgstr "Infelizmente, seu atlas não pôde ser gerado. É possível que tenha ocorrido um problema intermitente, neste caso você deveria tentar criá-lo novamente. Se o problema persistir, por favor envie um email para %{email_url} com detalhes."
 
 msgid ""
 "Unfortunately, your snapshot failed to be processed. It's possible that it "
 "was an intermittent error, in which case you should try re-uploading. If the"
 " problem persists, please email %{email_url} with details."
-msgstr ""
+msgstr "Infelizmente, sua captura não pôde ser processada. É possível que tenha ocorrido um problema intermitente, neste caso você deveria tentar carregá-la novamente. Se o problema persistir, por favor envie um email para %{email_url} com detalhes."
 
 msgid "Untitled"
 msgstr "Sem título"
@@ -430,7 +431,7 @@ msgid "pages you've marked"
 msgstr "paginas que marcou"
 
 msgid "private"
-msgstr ""
+msgstr "privado"
 
 msgid "recent activity"
 msgstr "actividade recente"
