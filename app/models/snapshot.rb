@@ -246,6 +246,10 @@ class Snapshot < ActiveRecord::Base
 
   # instance methods
 
+  def atlas_id
+    page && page.atlas_id
+  end
+
   def title
     "Page #{page.page_number} of #{atlas.title}"
   end
