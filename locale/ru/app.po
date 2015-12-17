@@ -1,0 +1,452 @@
+# English translations for app package.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# 
+# Translators:
+# Translators:
+# Alexey Frolov <uryevich@gmail.com>, 2015
+# Andrey Karmatsky <karmatsky@gmail.com>, 2015
+# Ilya Zverev <zverik@textual.ru>, 2015
+# Michael <m1@tut.by>, 2015
+# Nikolay Parukhin <parukhin@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: fieldpapers\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2015-11-04 11:54+0000\n"
+"Last-Translator: Alexey Frolov <uryevich@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/fieldpapers/fieldpapers/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "\"%{place}\" could not be found."
+msgstr "Не удалось найти \"%{place}\"."
+
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr "%{FieldPapers} создан в %{StamenDesign}"
+
+msgid "%{Upload} pages you've photographed."
+msgstr "%{Upload} страниц, что вы сняли."
+
+msgid "%{count} Atlas"
+msgid_plural "%{count} Atlases"
+msgstr[0] "%{count} Атлас"
+msgstr[1] "%{count} Атласов"
+msgstr[2] "%{count} Атласов"
+msgstr[3] "%{count} Атласов"
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] "%{count} Снимок"
+msgstr[1] "%{count} Снимка"
+msgstr[2] "%{count} Снимков"
+msgstr[3] "%{count} Снимков"
+
+msgid "%{time_period} ago"
+msgstr "%{time_period} спустя"
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr "&copy; Участники OpenStreetMap"
+
+msgid ""
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr "(Это значит, что это доступно только для вас по прямой ссылке или по логину)"
+
+msgid "@fieldpapers on Twitter"
+msgstr "@fieldpapers в Twitter"
+
+msgid ""
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr "GeoJSON файл может быть приаттачен к <a href=\"/\">fieldpapers.org</a>, если его назвать “geojson_file”:"
+
+msgid "About the Project"
+msgstr "О проекте"
+
+msgid "Activity"
+msgstr "Активность"
+
+msgid "Add a %{UTM} grid overlay to each map?"
+msgstr "Добавить %{UTM} слой сетки на каждую карту?"
+
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr "Добавить слой GADM (for disaster relief efforts in the Philippines)"
+
+msgid "Advanced - Field Papers"
+msgstr "Расширенные инструменты - Полевые Материалы"
+
+msgid ""
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr "Кроме того, содержимое GeoJSON может быть отправлено на  <a href=\"/\">fieldpapers.org</a> как значение формы под названием „geojson_data“: "
+
+msgid "Atlas - Field Papers"
+msgstr "Атлас - Полевые Материалы"
+
+msgid "Atlas Creation Failed"
+msgstr "Не удалось создать атлас"
+
+msgid "Atlas Name"
+msgstr "Название атласа"
+
+msgid "Atlas Rendering"
+msgstr "Отрисовка атласа"
+
+msgid "Atlas description"
+msgstr "Описание атласа"
+
+msgid "Atlas location"
+msgstr "Расположение атласа"
+
+msgid "Atlas page - Field Papers"
+msgstr "Страница атласа - Полевые Материалы"
+
+msgid "Atlas provider"
+msgstr "Поставщик атласа"
+
+msgid "Atlas text"
+msgstr "Текст атласа"
+
+msgid "Atlas title"
+msgstr "Заглавие атласа"
+
+msgid "Atlases"
+msgstr "Атласы"
+
+msgid "Atlases - Field Papers"
+msgstr "Атласы - Полевые Материалы"
+
+msgid "Bing"
+msgstr "Bing"
+
+msgid "Capture your notes"
+msgstr "Запишите свои заметки"
+
+msgid "Check out the OSM help wiki."
+msgstr "Посмотреть помощь на викисайте OSM"
+
+msgid ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "Выберите страницу атласа для загрузки. Мы узнаем это место (с помощью QR-кода)."
+
+msgid "Copy this atlas"
+msgstr "Скопировать этот атлас"
+
+msgid "Describe"
+msgstr "Опишите"
+
+msgid "Development Blog"
+msgstr "Блог разработки"
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr "Не загружайте ничего кроме карт Полевых Материалов, пожалуйста."
+
+msgid "Download GeoTIFF"
+msgstr "Скачать GeoTIFF"
+
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+msgid "EXTEND"
+msgstr "РАСШИРИТЬ"
+
+msgid ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr "Каждая настройка ниже может быть отправлена на <a href=\"%s\">fieldpapers.org</a> через простую форму HTML.  <i>Все настойки необязательные.</i>"
+
+msgid "Edit in..."
+msgstr "Редактировать в..."
+
+msgid "Examples:"
+msgstr "Примеры:"
+
+msgid "Export Data"
+msgstr "Экспорт данных"
+
+msgid "Field Papers"
+msgstr "Полевые Материалы"
+
+msgid "Finished!"
+msgstr "Завершено!"
+
+msgid "From"
+msgstr "От"
+
+msgid "GeoJSON"
+msgstr "GeoJSON"
+
+msgid "Geojson Data"
+msgstr "Данные Geojson"
+
+msgid "Geojson File"
+msgstr "Файл Geojson"
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr "Рисунок, изображающий атлас Полевых Материалов в реальных условиях"
+
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Рисунок, изображающий фотографирование страницы в атласе Полевых Материалов"
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr "Рисунок, изображающий создание атласа Полевых Материалов"
+
+msgid "Help"
+msgstr "Справка"
+
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
+msgstr "Если это занимает больше часа, проверьте статус системы на %{twitter_link} и напишите нам на %{email_url}, если ваш атлас застрял."
+
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
+msgstr "Создать \"консервированные\" атласы Полевых материалов легко, предоставляя дополнительные детали к тем, что используются в качестве значений по умолчанию в течение  процесса <a href=\"%s\">создания</a>."
+
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
+msgstr "Можно сгенерировать атласы из текстовых GeoJSON файлов. Это можно сделать одним из двух способов:"
+
+msgid "LOG IN"
+msgstr "ВОЙТИ"
+
+msgid "LOG OUT"
+msgstr "ВЫЙТИ"
+
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr "Широта, долгота и необязателный масштаб. Используйте  <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, чтобы создать новые."
+
+msgid "Layout"
+msgstr "Макет"
+
+msgid "Location and zoom"
+msgstr "Координаты и масштаб"
+
+msgid "MAKE"
+msgstr "СДЕЛАТЬ"
+
+msgid "Make - Field Papers"
+msgstr "Сделать - Полевые Материалы"
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr "Убедитесь, что скан/фотография/изображение имеют разрешение как минимум 200 точек на дюйм."
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
+msgstr "Убедитесь, что вы загружаете JPG, PNG, TIF или GIF (PDF не сработает)."
+
+msgid "Make your notes and observations."
+msgstr "Сделайте свои заметки и наблюдения."
+
+msgid "Make yourself an atlas"
+msgstr "Сделайте себе атлас"
+
+msgid "Making Atlases From GeoJSON"
+msgstr "Создание атласов из GeoJSON"
+
+msgid "Making Canned Atlases"
+msgstr "Создание \"консервированных\" атласов"
+
+msgid ""
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr "Данные карты %{OSMCopyright}, %{Toner} от Stamen, %{Bing} от Microsoft, %{Mapbox} или их комбинация."
+
+msgid "Mapbox"
+msgstr "Mapbox"
+
+msgid "Maps + Notes"
+msgstr "Карты + Заметки"
+
+msgid "Maps Only"
+msgstr "Только карты"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "No atlases."
+msgstr "Нет атласов."
+
+msgid "No snapshots."
+msgstr "Нет снимков."
+
+msgid "Notes (only shown on half-page atlases)"
+msgstr "Заметки (показыаются только на полстраничных атласах)"
+
+msgid "Plain Text (CSV)"
+msgstr "Простой текст (CSV)"
+
+msgid "Potlatch"
+msgstr "Potlatch"
+
+msgid "Print out anywhere in the world."
+msgstr "Распечатайте в любой точке мира."
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "Refresh"
+msgstr "Обновить"
+
+msgid "Rules"
+msgstr "Правила"
+
+msgid "Select"
+msgstr "Выбери"
+
+msgid "ShapeFile"
+msgstr "Шейп-файл"
+
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr "Поскольку этот атлас -  <span class='private'>частный</span>, вы, вероятно, должны <a href='%{atlas_url}'>добавить его в избранное</a>."
+
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr "Поскольку этот атлас -  <span class='private'>частный</span>, вы, вероятно, должны <a href='%{url}'>добавить его в избранное</a>."
+
+msgid "Snapshot - Field Papers"
+msgstr "Снимок - Полевые Материалы"
+
+msgid "Snapshot Processing"
+msgstr "Обработка снимка"
+
+msgid "Snapshot Processing Failed"
+msgstr "Обработка снимка не удалась"
+
+msgid "Snapshot upload - Field Papers"
+msgstr "Загрузка снимка - Полевые Материалы"
+
+msgid "Snapshots"
+msgstr "Снимки"
+
+msgid "Snapshots - Field Papers"
+msgstr "Снимки - Полевые Материалы"
+
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
+msgstr "Что-то пошло не так! Пожалуйста, посмотрите ниже <strong>правила</strong> и попробуйте снова."
+
+msgid "Stamen Design"
+msgstr "Дизайн Stamen"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Take it into the field"
+msgstr "Взять это в поле"
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr "Это может занять некоторое время, обычно несколько минут. Вам не нужно держать открытым это страницу, Вы можете <a href='%{atlas_url}'>добавить ее в избранное</a> и вернуться позже."
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr "Это может занять некоторое время, обычно несколько минут. Вам не нужно держать открытым это страницу, Вы можете <a href='%{url}'>добавить ее в избранное</a> и вернуться позже."
+
+msgid "This process has been running for %{time}"
+msgstr "Процесс длится %{time}"
+
+msgid "Tile URL template"
+msgstr "Шаблон ссылки на тайл"
+
+msgid "Toner"
+msgstr "Тонер"
+
+msgid "Type in a location"
+msgstr "Впечатайте место"
+
+msgid "UPLOAD"
+msgstr "ЗАГРУЗИТЬ"
+
+msgid "UTM"
+msgstr "Система координат UTM"
+
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
+msgstr "К сожалению, Ваш атлас не удалось отрисовать. Возможно это была временная ошибка, в таком случае нужно попробовать пересоздать атлас. Если проблема остается, то сообщите нам %{email_url} подробности."
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr "К сожалению, Ваш снимок не удалось обработать. Возможно это была временная ошибка, в таком случае нужно попробовать загрузить снимок снова. Если проблема остается, то сообщите нам %{email_url} подробности."
+
+msgid "Untitled"
+msgstr "Без названия"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Upload Failed"
+msgstr "Не удалось загрузить"
+
+msgid "Upload MBTiles"
+msgstr "Загрузить MBTiles"
+
+msgid "Uploading"
+msgstr "Загрузка"
+
+msgid "WATCH"
+msgstr "ПОСМОТРЕТЬ"
+
+msgid "Welcome to Field Papers"
+msgstr "Добро пожаловать в Полевые Материалы"
+
+msgid "Where in the world is your atlas?"
+msgstr "Где в мире Ваш атлас?"
+
+msgid "an atlas to print"
+msgstr "атлас для печати"
+
+msgid "iD"
+msgstr "iD"
+
+msgid "on same page"
+msgstr "на той же странице"
+
+msgid "one per page"
+msgstr "одна на страницу"
+
+msgid "or create an account"
+msgstr "или создайте учетную запись"
+
+msgid "pages you've marked"
+msgstr "страницы, которые Вы отметили"
+
+msgid "private"
+msgstr "частный"
+
+msgid "recent activity"
+msgstr "последние действия"
+
+msgid "search"
+msgstr "поиск"
+
+msgid "snapshot of page %{tp}"
+msgstr "снимок страницы %{tp}"
+
+msgid "with advanced tools"
+msgstr "с продвинутыми инструментами"

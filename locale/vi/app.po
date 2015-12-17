@@ -1,0 +1,442 @@
+# English translations for app package.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# 
+# Translators:
+# Translators:
+# Minh Nguyễn <minh@nguyen.cincinnati.oh.us>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: fieldpapers\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2015-09-02 17:47+0000\n"
+"Last-Translator: Minh Nguyễn <minh@nguyen.cincinnati.oh.us>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/fieldpapers/fieldpapers/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "\"%{place}\" could not be found."
+msgstr "Không tìm thấy “%{place}”."
+
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr "%{FieldPapers} do %{StamenDesign} xây dựng"
+
+msgid "%{Upload} pages you've photographed."
+msgstr "%{Upload} trang mà bạn đã chụp hình."
+
+msgid "%{count} Atlas"
+msgid_plural "%{count} Atlases"
+msgstr[0] "%{count} Tập Bản đồ"
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] ""
+
+msgid "%{time_period} ago"
+msgstr "trước đây %{time_period}"
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr "&copy; những người đóng góp vào OpenStreetMap"
+
+msgid ""
+"(That means it's only accessible to you, if you're logged in, or by direct "
+"URL.)"
+msgstr ""
+
+msgid "@fieldpapers on Twitter"
+msgstr "@fieldpapers trên Twitter"
+
+msgid ""
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr "Có thể đăng một tập tin GeoJSON dưới dạng tập tin đính kèm lên <a href=\"/\">fieldpapers.org</a> với tên “geojson_file”:"
+
+msgid "About the Project"
+msgstr "Giới thiệu về Dự án"
+
+msgid "Activity"
+msgstr "Hoạt động"
+
+msgid "Add a %{UTM} grid overlay to each map?"
+msgstr ""
+
+msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgstr ""
+
+msgid "Advanced - Field Papers"
+msgstr ""
+
+msgid ""
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr "Thay thế, bạn có thể đăng nội dung GeoJSON thô lên <a href=\"/\">fieldpapers.org</a> dưới dạng giá trị biểu mẫu với tên “geojson_data”:"
+
+msgid "Atlas - Field Papers"
+msgstr ""
+
+msgid "Atlas Creation Failed"
+msgstr ""
+
+msgid "Atlas Name"
+msgstr "Tên Tập Bản đồ"
+
+msgid "Atlas Rendering"
+msgstr "Kết xuất Tập Bản đồ"
+
+msgid "Atlas description"
+msgstr "Miêu tả tập bản đồ"
+
+msgid "Atlas location"
+msgstr "Địa điểm tập bản đồ"
+
+msgid "Atlas page - Field Papers"
+msgstr ""
+
+msgid "Atlas provider"
+msgstr ""
+
+msgid "Atlas text"
+msgstr "Văn bản tập bản đồ"
+
+msgid "Atlas title"
+msgstr ""
+
+msgid "Atlases"
+msgstr "Tập bản đồ"
+
+msgid "Atlases - Field Papers"
+msgstr ""
+
+msgid "Bing"
+msgstr "Bing"
+
+msgid "Capture your notes"
+msgstr "Ghi chép"
+
+msgid "Check out the OSM help wiki."
+msgstr "Ghé vào wiki trợ giúp của OSM."
+
+msgid ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr ""
+
+msgid "Copy this atlas"
+msgstr "Sao chép tập bản đồ nà"
+
+msgid "Describe"
+msgstr "Miêu tả"
+
+msgid "Development Blog"
+msgstr "Blog của Nhà phát triển"
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr ""
+
+msgid "Download GeoTIFF"
+msgstr "Tải về GeoTIFF"
+
+msgid "Download PDF"
+msgstr "Tải về PDF"
+
+msgid "EXTEND"
+msgstr "MỞ RỘNG"
+
+msgid ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+
+msgid "Edit in..."
+msgstr "Sửa đổi trong…"
+
+msgid "Examples:"
+msgstr "Ví dụ:"
+
+msgid "Export Data"
+msgstr "Xuất Dữ liệu"
+
+msgid "Field Papers"
+msgstr ""
+
+msgid "Finished!"
+msgstr "Xong rồi!"
+
+msgid "From"
+msgstr "Từ"
+
+msgid "GeoJSON"
+msgstr "GeoJSON"
+
+msgid "Geojson Data"
+msgstr "Dữ liệu GeoJSON"
+
+msgid "Geojson File"
+msgstr "Tập tin GeoJSON"
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr ""
+
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr ""
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr ""
+
+msgid "Help"
+msgstr "Trợ giúp"
+
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
+msgstr ""
+
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
+msgstr ""
+
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
+msgstr ""
+
+msgid "LOG IN"
+msgstr "ĐĂNG NHẬP"
+
+msgid "LOG OUT"
+msgstr "ĐĂNG XUẤT"
+
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
+msgid "Layout"
+msgstr "Bố trí"
+
+msgid "Location and zoom"
+msgstr "Địa điểm và mức thu phóng"
+
+msgid "MAKE"
+msgstr ""
+
+msgid "Make - Field Papers"
+msgstr ""
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr ""
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
+msgstr ""
+
+msgid "Make your notes and observations."
+msgstr ""
+
+msgid "Make yourself an atlas"
+msgstr ""
+
+msgid "Making Atlases From GeoJSON"
+msgstr ""
+
+msgid "Making Canned Atlases"
+msgstr ""
+
+msgid ""
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr ""
+
+msgid "Mapbox"
+msgstr "Mapbox"
+
+msgid "Maps + Notes"
+msgstr "Bản đồ + Lời ghi"
+
+msgid "Maps Only"
+msgstr "Chỉ Bản đồ"
+
+msgid "Menu"
+msgstr "Trình đơn"
+
+msgid "Next"
+msgstr "Sau"
+
+msgid "No atlases."
+msgstr "Không có tập bản đồ."
+
+msgid "No snapshots."
+msgstr ""
+
+msgid "Notes (only shown on half-page atlases)"
+msgstr "Lời ghi (chỉ có trên các tập bản đồ nửa trang)"
+
+msgid "Plain Text (CSV)"
+msgstr "Văn bản Thuần túy (CSV)"
+
+msgid "Potlatch"
+msgstr "Potlatch"
+
+msgid "Print out anywhere in the world."
+msgstr "In ra ở mọi nơi trên thế giới."
+
+msgid "Private"
+msgstr "Riêng tư"
+
+msgid "Refresh"
+msgstr "Làm mới"
+
+msgid "Rules"
+msgstr ""
+
+msgid "Select"
+msgstr "Chọn"
+
+msgid "ShapeFile"
+msgstr "Shapefile"
+
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+
+msgid "Snapshot - Field Papers"
+msgstr ""
+
+msgid "Snapshot Processing"
+msgstr ""
+
+msgid "Snapshot Processing Failed"
+msgstr ""
+
+msgid "Snapshot upload - Field Papers"
+msgstr ""
+
+msgid "Snapshots"
+msgstr ""
+
+msgid "Snapshots - Field Papers"
+msgstr ""
+
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
+msgstr ""
+
+msgid "Stamen Design"
+msgstr "Stamen Desig"
+
+msgid "Submit"
+msgstr ""
+
+msgid "Take it into the field"
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr ""
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+
+msgid "This process has been running for %{time}"
+msgstr ""
+
+msgid "Tile URL template"
+msgstr ""
+
+msgid "Toner"
+msgstr "Toner"
+
+msgid "Type in a location"
+msgstr "Nhập địa điểm"
+
+msgid "UPLOAD"
+msgstr "TẢI LÊN"
+
+msgid "UTM"
+msgstr "UTM"
+
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
+msgstr ""
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr ""
+
+msgid "Untitled"
+msgstr "Không tên"
+
+msgid "Upload"
+msgstr "Tải lên"
+
+msgid "Upload Failed"
+msgstr "Tải lên Thất bại"
+
+msgid "Upload MBTiles"
+msgstr "Tải lên MBTiles"
+
+msgid "Uploading"
+msgstr "Đang tải lên"
+
+msgid "WATCH"
+msgstr "THEO DÕI"
+
+msgid "Welcome to Field Papers"
+msgstr ""
+
+msgid "Where in the world is your atlas?"
+msgstr ""
+
+msgid "an atlas to print"
+msgstr "tập bản đồ để in ra"
+
+msgid "iD"
+msgstr "iD"
+
+msgid "on same page"
+msgstr "trên cùng trang"
+
+msgid "one per page"
+msgstr "mỗi trang một tấm"
+
+msgid "or create an account"
+msgstr "hoặc tạo tài khoản"
+
+msgid "pages you've marked"
+msgstr ""
+
+msgid "private"
+msgstr "riêng tư"
+
+msgid "recent activity"
+msgstr "hoạt động gần đây"
+
+msgid "search"
+msgstr "tìm kiếm"
+
+msgid "snapshot of page %{tp}"
+msgstr ""
+
+msgid "with advanced tools"
+msgstr "có công cụ nâng cao"
