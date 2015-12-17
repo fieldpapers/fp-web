@@ -12,7 +12,6 @@
       callback_url: snapshots_url,
       callback_param: "snapshot[s3_scene_url]",
       expiration: 24.hours.from_now.utc.iso8601,
-      acl: "private",
       class: "upload-form",
       max_file_size: 25.megabytes do %>
       <%= file_field_tag :file, multiple: true %>
