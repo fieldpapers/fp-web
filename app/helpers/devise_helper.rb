@@ -1,27 +1,19 @@
 module DeviseHelper
-  # http://stackoverflow.com/questions/4101641/rails-devise-handling-devise-error-messages
   def devise_error_messages!
-    html = ""
+    return "" if resource.errors.empty?
 
-    return html if resource.errors.empty?
+    messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg, class: "error alert active") }.join
+    sentence = I18n.t("errors.messages.not_saved",
+                      :count => resource.errors.count,
+                      :resource => resource.class.model_name.human.downcase)
 
-    errors_number = 0
+    html = <<-HTML
+    <div id="error_explanation">
+      <h2>#{sentence}</h2>
+      <ul class="#{resource_name})errors_title">#{messages}</ul>
+    </div>
+    HTML
 
-    html << "<ul class=\"#{resource_name}_errors_list\">"
-
-    saved_key = ""
-    resource.errors.each do |key, value|
-      if key != saved_key
-        html << "<li class=\"#{key} error alert active\"> This #{key} #{value} </li>"
-        errors_number += 1
-      end
-      saved_key = key
-    end
-
-    unsolved_errors = pluralize(errors_number, "unsolved error")
-    html = "<h4 class=\"#{resource_name}_errors_title\"> You have #{unsolved_errors} </h4>" + html
-    html << "</ul>"
-
-    return html.html_safe
+    html.html_safe
   end
 end
