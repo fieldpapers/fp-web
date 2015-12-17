@@ -41,6 +41,7 @@ gem "paperclip", "~> 4.2.1" # file attachments
 gem "puma" # app server
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
+gem "rails-i18n", "~> 4.0.0"
 gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
 gem "mysql2", "~> 0.3.18"
 gem "workflow"
