@@ -6,8 +6,3 @@ rvm:
 before_script:
     - mysql -uroot -e 'create database fieldpapers_test;'
 env: TEST_DATABASE_URL=mysql2://root@localhost/fieldpapers_test
-notifications:
-  slack:
-    on_success: always
-    on_failure: change
-    secure: uemuRP1ntaQIhq1Kg3zpDFh+aAb35tW5DS5/DaktgDeuLKOZipv+kMMsrbOsgElmh1YHAoh72rXc5hDD0kP5M/gReYQjenG4k7RP7sW9HmmfmD0OX8upFWZmcHfvwWolqeNXWGOkKib9rU6TfwzlTbtb/go4/sM+kw6ZsN2Wih4ni/CFCnnyKNYd0VIfSLVG5C5gNR88ETpGhBYhByjTEjr/2bN0a18EqFJg8lVG1bpOVnFwmmlkIpZfFeXpCVKSHO5EF9e4luGk0D8bPA/NkX60cf/KzPbzDkId4uurk90KF71iE0lJtJXGb/74G/sjtZcs07pRkoWPY7l7U5m3BOyGnLqjcFx5mXGIZ8vPhAE+Awm0K1AeGXgRxmXBPH2LlioDZuaN2CwVnG9GEAZ2NouIildgTUCY0ZF8hkfS+zJf6R6b7/DIMSkHoI+ttXqnNXpXPM2kHTOp897T57PpAAPRa4YPBHWws6o/0IehjrkDyzBvKMEHUN+3zjZHwQaqbYUgT+453irzEB6RdDnK92hAE6kQkbn93djvvowFm2p62grsF7cOS1796mm7BJXN4QUSDl26uEAuvpW4QVVQ1yWiIGHaze4IiTDiRvuzx3xWei+aGKRwIHqBveqJIavRjs+D+3N8tXCIbU0AiA/G5l3m/wtf1YCnfle7NnDeXdQ=

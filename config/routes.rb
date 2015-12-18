@@ -1,5 +1,3 @@
-require 'api_constraints'
-
 Rails.application.routes.draw do
   devise_for :users
 
@@ -40,16 +38,4 @@ Rails.application.routes.draw do
   resources :snapshots, :concerns => :pageable
 
   mount Rack::NotFound.new("public/404.html") => "activity.php"
-
-  # API routes: versioned, no HTML rendering
-  namespace :api, defaults: { format: 'json' } do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :atlases, except: [:new, :edit]
-      get '/atlases/:id/page/:page_number' => 'atlases#page'
-      get '/atlases/:id/status'            => 'atlases#status'
-      resources :snapshots, except: [:new, :edit]
-      get '/snapshots/:id/status'          => 'snapshots#status'
-      get '/s3_upload/:filename'           => 's3_upload#show'
-    end
-  end
 end
