@@ -15,4 +15,6 @@ S3DirectUpload.config do |c|
 
   c.bucket = Rails.application.secrets.aws["s3_bucket_name"]
   c.region = Rails.application.secrets.aws["s3_bucket_region"]
+  s3 = c.region == "us-east-1" ? "s3" : "s3-#{c.region}"
+  c.url = "https://#{s3}.amazonaws.com/#{c.bucket}"
 end

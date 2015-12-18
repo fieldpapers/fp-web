@@ -54,7 +54,7 @@ class Snapshot < ActiveRecord::Base
   def self.s3_url(bucket, region)
     region = region || 'us-east-1'
     s3 = region == 'us-east-1' ? 's3' : 's3-' + region
-    %r{\Ahttps:\/\/#{bucket}.#{s3}\.amazonaws\.com\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
+    %r{\Ahttps?:\/\/#{s3}\.amazonaws\.com\/#{bucket}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
   end
 
   # Environment-specific direct upload url verifier screens for malicious posted upload locations.
