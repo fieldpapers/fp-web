@@ -1,404 +1,425 @@
 # English translations for app package.
-# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 #
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015
+# Сергій Дубик <dubyk@ukr.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-02-26 01:52+0000\n"
-"Last-Translator: Seth Fitzsimmons <seth@mojodna.net>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/fieldpapers/langua"
-"ge/en/)\n"
+"PO-Revision-Date: 2016-02-26 12:04+0000\n"
+"Last-Translator: Ian Ross <iross@cadasta.org>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/fieldpapers/fieldpapers/lan"
+"guage/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "\"%{place}\" could not be found."
-msgstr ""
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr ""
+msgstr "%{FieldPapers} створено у %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr ""
+msgstr "%{Upload} сторінки, які Ви зфотографували."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} атлас"
+msgstr[1] "%{count} атласи"
+msgstr[2] "%{count} атласів"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
+msgstr[0] "%{count} знімок"
+msgstr[1] "%{count} знімки"
+msgstr[2] "%{count} знімків"
+
+msgid "%{count} page"
+msgid_plural "%{count} pages"
 msgstr[0] ""
 msgstr[1] ""
 
 msgid "%{time_period} ago"
-msgstr ""
+msgstr "%{time_period} тому назад"
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
-
-msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
-msgstr ""
+msgstr "&copy; Учасники OpenStreetMap"
 
 msgid "@fieldpapers on Twitter"
-msgstr ""
+msgstr "@fieldpapers у Twitter"
 
 msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr "Файл GeoJSON може бути розміщений як прикріплений файл  на <a href=\"/\">fieldpapers.org</a> з назвою „geojson_file“: "
+
+msgid "About"
 msgstr ""
 
 msgid "About the Project"
-msgstr ""
+msgstr "Про проект"
 
 msgid "Activity"
-msgstr ""
+msgstr "Активність"
 
-msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
-
-msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgid "Add-ons"
 msgstr ""
 
 msgid "Advanced - Field Papers"
+msgstr "Розвинені інструменти — Польові дослідження"
+
+msgid "All Atlases"
+msgstr ""
+
+msgid "All Snapshots"
 msgstr ""
 
 msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr ""
+msgstr "Альтернативно, вміст у виді сирого тексту GeoJSON може бути розміщений на <a href=\"/\">fieldpapers.org</a> як значення у формі з назвою „geojson_data“: "
 
 msgid "Atlas - Field Papers"
-msgstr ""
+msgstr "Атлас — Польові дослідження"
 
 msgid "Atlas Creation Failed"
-msgstr ""
-
-msgid "Atlas Name"
-msgstr ""
+msgstr "Не вдалося створити атлас"
 
 msgid "Atlas Rendering"
-msgstr ""
+msgstr "Промальовка атласу"
+
+#, fuzzy
+msgid "Atlas Title"
+msgstr "Заголовок атласу"
 
 msgid "Atlas description"
+msgstr "Опис атласу"
+
+msgid "Atlas information"
 msgstr ""
 
 msgid "Atlas location"
-msgstr ""
+msgstr "Розташування атласу"
 
 msgid "Atlas page - Field Papers"
-msgstr ""
+msgstr "Сторінка атласу — Польові дослідження"
 
 msgid "Atlas provider"
-msgstr ""
+msgstr "Постачальник атласу"
 
 msgid "Atlas text"
-msgstr ""
+msgstr "Текст атласу"
 
 msgid "Atlas title"
-msgstr ""
+msgstr "Заголовок атласу"
 
 msgid "Atlases"
-msgstr ""
+msgstr "Атласи"
 
 msgid "Atlases - Field Papers"
+msgstr "Атласи — Польові дослідження"
+
+msgid "Basemap"
 msgstr ""
 
 msgid "Bing"
+msgstr "Bing"
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Capture your notes"
-msgstr ""
+msgstr "Оцифруйте Ваші замітки"
 
 msgid "Check out the OSM help wiki."
-msgstr ""
+msgstr "Переглянути довідку на OSM-вікі."
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr "Виберіть сторінку атласу для вивантаження. Ми будемо працювати там, де це можливо (використовуючи QR-код)."
+
+msgid "Click for more information."
 msgstr ""
 
 msgid "Copy this atlas"
-msgstr ""
+msgstr "Зкопіювати цей атлас"
 
-msgid "Describe"
+msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
 
 msgid "Development Blog"
-msgstr ""
+msgstr "Блог розробників"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr ""
+msgstr "Не вивантажуйте зображення, які не є мапами Польових досліджень, будь ласка."
 
 msgid "Download GeoTIFF"
-msgstr ""
+msgstr "Завантажити GeoTIFF"
 
 msgid "Download PDF"
-msgstr ""
+msgstr "Звантажити PDF"
 
 msgid "EXTEND"
-msgstr ""
+msgstr "ВДОСКОНАЛИТИ"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr ""
+msgstr "Кожне налаштування нижче може бути опубліковане через просту HTML-форму на сайт <a href=\"%s\">fieldpapers.org</a>. <i>Усе є факультативним</i>."
 
 msgid "Edit in..."
-msgstr ""
+msgstr "Редагувати з допомогою…"
 
 msgid "Examples:"
-msgstr ""
+msgstr "Приклади: "
 
 msgid "Export Data"
-msgstr ""
+msgstr "Експорт даних"
 
 msgid "Field Papers"
-msgstr ""
-
-msgid "Finished!"
-msgstr ""
+msgstr "Польові дослідження"
 
 msgid "From"
-msgstr ""
+msgstr "Від"
 
 msgid "GeoJSON"
-msgstr ""
+msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr ""
+msgstr "Дані Geojson"
 
 msgid "Geojson File"
+msgstr "Файл Geojson"
+
+msgid "GitHub Issues"
+msgstr ""
+
+msgid "Grid layout"
 msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
+msgstr "Вручну намальоване креслення представляє атлас польових досліджень в природних умовах"
 
 msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgstr "Вручну намальоване креслення представляє сторінку фотознимки у атласі польових досліджень"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
+msgstr "Вручну намальоване креслення представляє створення атласу польових досліджень"
 
 msgid "Help"
-msgstr ""
+msgstr "Довідка"
 
 msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
+msgstr "Якщо це займає більше години, гляньте у %{twitter_link}  на оновлення стану системи, і напишіть нам за адресою %{email_url} якщо Ваш атлас застряг."
+
+msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr ""
 
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
-msgstr ""
+msgstr "Легко створювати „сталі“ атласи польових досліджень, надаючи додаткові початкові значення, які використовуються як типові значення впродовж процесу <a href=\"%s\">створення</a>."
 
 msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgstr "Можна створювати атласи зі сирих GeoJSON-файлів. Це може бути зроблено одним з двох способів: "
+
+msgid "JOSM"
+msgstr ""
+
+msgid "Keep atlas private"
 msgstr ""
 
 msgid "LOG IN"
-msgstr ""
+msgstr "УВІЙТИ"
 
 msgid "LOG OUT"
-msgstr ""
+msgstr "ВИЙТИ"
 
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr ""
-
-msgid "Layout"
-msgstr ""
+msgstr "Широта, довгота та факультативно масштаб. Скористайтеся сайтом <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, щоб зробити нові."
 
 msgid "Location and zoom"
-msgstr ""
+msgstr "Координати та масштаб"
 
 msgid "MAKE"
-msgstr ""
+msgstr "СТВОРИТИ"
 
 msgid "Make - Field Papers"
+msgstr "Створення — Польові дослідження"
+
+msgid "Make Atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
+msgstr "Переконайтеся, що роздільна здатність скану/світлини/зображення становить не менше 200 точок на дюйм."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
+msgstr "Переконайтеся, що Ви завантажуєте зображення у форматі JPG, PNG, TIF або GIF (PDF-файли не будуть працювати)."
 
 msgid "Make your notes and observations."
-msgstr ""
+msgstr "Занотуйте свої спостереження."
 
 msgid "Make yourself an atlas"
-msgstr ""
+msgstr "Зробіть собі атлас"
 
 msgid "Making Atlases From GeoJSON"
-msgstr ""
+msgstr "Утворення атласів з GeoJSON"
 
 msgid "Making Canned Atlases"
-msgstr ""
+msgstr "Утворення сталих атласів"
 
 msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
-msgstr ""
+msgstr "Дані з мапи %{OSMCopyright}, %{Toner} від Stamen, %{Bing} від Microsoft, %{Mapbox}, або ж їх поєднання."
 
 msgid "Mapbox"
-msgstr ""
-
-msgid "Maps + Notes"
-msgstr ""
-
-msgid "Maps Only"
-msgstr ""
+msgstr "Mapbox"
 
 msgid "Menu"
-msgstr ""
-
-msgid "Next"
-msgstr ""
+msgstr "Меню"
 
 msgid "No atlases."
-msgstr ""
+msgstr "Немає атласів."
 
 msgid "No snapshots."
+msgstr "Немає знімків."
+
+msgid "Notes"
 msgstr ""
 
-msgid "Notes (only shown on half-page atlases)"
+msgid "Orientation"
+msgstr ""
+
+msgid "Paper size"
+msgstr ""
+
+msgid "Pin grid to map"
 msgstr ""
 
 msgid "Plain Text (CSV)"
-msgstr ""
+msgstr "Простий текст (CSV)"
 
 msgid "Potlatch"
+msgstr "Potlatch"
+
+msgid "Print notes"
 msgstr ""
 
 msgid "Print out anywhere in the world."
-msgstr ""
+msgstr "Роздрукуйте будь-яке місце світу."
 
-msgid "Private"
+msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
+msgstr "Оновити"
 
 msgid "Rules"
-msgstr ""
-
-msgid "Select"
-msgstr ""
-
-msgid "ShapeFile"
-msgstr ""
+msgstr "Правила"
 
 msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr ""
+msgstr "Оскільки цей атлас <span class='private'>приватний</span>, Вам мабуть слід <a href='%{atlas_url}'>додати його у закладки</a>."
 
 msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
-msgstr ""
+msgstr "Так як це знімок <span class='private'>приватний</span>, Вам, мабуть, слід <a href='%{url}'>додати його у закладки</a>."
 
 msgid "Snapshot - Field Papers"
-msgstr ""
+msgstr "Знімок — Польові дослідження"
 
 msgid "Snapshot Processing"
-msgstr ""
+msgstr "Обробка знімків"
 
 msgid "Snapshot Processing Failed"
-msgstr ""
+msgstr "Обробити знімки не вдалося"
 
 msgid "Snapshot upload - Field Papers"
-msgstr ""
+msgstr "Вивантаження знімку — Польові дослідження"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Знімки"
 
 msgid "Snapshots - Field Papers"
-msgstr ""
+msgstr "Знімки — Польові дослідження"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
-msgstr ""
+msgstr "Щось пішло не так! Будь ласка, ознайомтеся з <strong>правилами</strong> нижче та спробуйте знову."
 
 msgid "Stamen Design"
-msgstr ""
+msgstr "Stamen Design"
 
 msgid "Submit"
-msgstr ""
+msgstr "Затвердити"
 
 msgid "Take it into the field"
-msgstr ""
+msgstr "Візьміть його у польові дослідження"
 
 msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
-msgstr ""
+msgstr "Це може зайняти деякий час, зазвичай кілька хвилин. Вам не треба тримати вікно відчиненим, Ви можете <a href='%{atlas_url}'>додати цю сторінку в закладки</a> та повернутися пізніше."
 
 msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
-msgstr ""
+msgstr "Це може зайняти деякий час, як правило, кілька хвилин. Вам не потрібно тримати це вікно відкритим; Ви можете <a href='%{url}'>додати у закладки цю сторінку</a> та повернутися пізніше."
 
 msgid "This process has been running for %{time}"
-msgstr ""
+msgstr "Цей процес був запущений %{time}"
 
 msgid "Tile URL template"
-msgstr ""
+msgstr "Шаблон URL-посилання на тайли"
 
 msgid "Toner"
-msgstr ""
+msgstr "Toner"
 
-msgid "Type in a location"
+msgid "Translations"
 msgstr ""
 
 msgid "UPLOAD"
-msgstr ""
+msgstr "ВИВАНТАЖИТИ"
 
-msgid "UTM"
+msgid "UTM Grid"
 msgstr ""
 
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
-msgstr ""
+msgstr "На жаль, Ваш атлас не вдалося відмалювати. Цілком можливо, що це була нереґулярна помилка, в такому випадку Вам слід спробувати заново створити атлас. Якщо проблема зберігається, будь ласка, напишіть за адресою %{email_url}  з докладною інформацією."
 
 msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
-msgstr ""
-
-msgid "Untitled"
-msgstr ""
+msgstr "На жаль, не вдалося обробити Ваш знімок. Цілком можливо , що це була тимчасова помилка , в цьому випадку Ви повинні спробувати повторно завантажити. Якщо проблема не усувається, будь ласка, напишіть на пошту %{email_url}, вказавши подробиці."
 
 msgid "Upload"
-msgstr ""
+msgstr "Вивантажте"
 
 msgid "Upload Failed"
-msgstr ""
-
-msgid "Upload MBTiles"
-msgstr ""
+msgstr "Вивантажити не вдалося"
 
 msgid "Uploading"
-msgstr ""
+msgstr "Вивантажується"
 
 msgid "WATCH"
-msgstr ""
+msgstr "СТЕЖИТИ"
 
 msgid "Welcome to Field Papers"
+msgstr "Ласкаво просимо у „Польові дослідження“"
+
+msgid "Your Atlases"
 msgstr ""
 
-msgid "Where in the world is your atlas?"
+msgid "Your Snapshots"
 msgstr ""
 
 msgid "an atlas to print"
+msgstr "атлас для друку"
+
+msgid "anonymous"
 msgstr ""
 
 msgid "iD"
-msgstr ""
-
-msgid "on same page"
-msgstr ""
-
-msgid "one per page"
-msgstr ""
+msgstr "iD"
 
 msgid "or create an account"
-msgstr ""
+msgstr "або ж створити обліковий запис"
 
 msgid "pages you've marked"
-msgstr ""
+msgstr "промарковані Вами сторінки"
 
 msgid "private"
-msgstr ""
+msgstr "приватний"
 
 msgid "recent activity"
-msgstr ""
-
-msgid "search"
-msgstr ""
+msgstr "за останньою активністю"
 
 msgid "snapshot of page %{tp}"
-msgstr ""
+msgstr "знімок сторінки %{tp}"
 
 msgid "with advanced tools"
-msgstr ""
+msgstr "з розвиненими інструментами"

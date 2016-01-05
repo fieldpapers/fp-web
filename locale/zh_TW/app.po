@@ -1,8 +1,7 @@
 # English translations for app package.
-# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # 
-# Translators:
 # Translators:
 # Supaplex <bejokeup@gmail.com>, 2015
 # mcdlee <mcdlee@gmail.com>, 2015
@@ -11,17 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-08-11 18:34+0000\n"
-"Last-Translator: Supaplex <bejokeup@gmail.com>\n"
+"PO-Revision-Date: 2016-02-26 18:10+0000\n"
+"Last-Translator: Ian Ross <iross@cadasta.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/fieldpapers/fieldpapers/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "\"%{place}\" could not be found."
-msgstr "可能無法找到\"%{place}\" ."
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} 由 %{StamenDesign} 所建立"
@@ -37,16 +33,15 @@ msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} 快照"
 
+msgid "%{count} page"
+msgid_plural "%{count} pages"
+msgstr[0] ""
+
 msgid "%{time_period} ago"
 msgstr "%{time_period} 之前"
 
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; 開放街圖貢獻者"
-
-msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct "
-"URL.)"
-msgstr "(如果你登入或經由網址直接進入，那麼代表它只能由你來進入。)"
 
 msgid "@fieldpapers on Twitter"
 msgstr "推特上的 @fieldpapers"
@@ -56,20 +51,26 @@ msgid ""
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr "可以將GeoJSON檔案以附件方式放在<a href=\"/\">fieldpapers.org</a>，稱為“geojson_file”："
 
+msgid "About"
+msgstr ""
+
 msgid "About the Project"
 msgstr "關於這個專案"
 
 msgid "Activity"
 msgstr "活動"
 
-msgid "Add a %{UTM} grid overlay to each map?"
-msgstr "要加入 %{UTM} 格線疊加在地圖上嗎？"
-
-msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
-msgstr "加入GADM 重疊部分 (為菲律賓的救災工作)"
+msgid "Add-ons"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "進階 - Field Papers"
+
+msgid "All Atlases"
+msgstr ""
+
+msgid "All Snapshots"
+msgstr ""
 
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
@@ -82,14 +83,17 @@ msgstr "地圖集 - Field Papers"
 msgid "Atlas Creation Failed"
 msgstr "建立地圖集失敗"
 
-msgid "Atlas Name"
-msgstr "地圖集名稱"
-
 msgid "Atlas Rendering"
 msgstr "地圖集渲染圖像"
 
+msgid "Atlas Title"
+msgstr ""
+
 msgid "Atlas description"
 msgstr "地圖集敘述"
+
+msgid "Atlas information"
+msgstr ""
 
 msgid "Atlas location"
 msgstr "地圖集位置"
@@ -112,8 +116,14 @@ msgstr "地圖集"
 msgid "Atlases - Field Papers"
 msgstr "多份地圖集 - Field Papers"
 
+msgid "Basemap"
+msgstr ""
+
 msgid "Bing"
 msgstr "Bing"
+
+msgid "Cancel"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "抓取你的註解"
@@ -126,11 +136,16 @@ msgid ""
 "code)."
 msgstr "選擇一份地圖集頁上傳。我們會掝出它的位置(使用QR碼)"
 
+msgid "Click for more information."
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "複製這份地圖集"
 
-msgid "Describe"
-msgstr "敘述"
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
+msgstr ""
 
 msgid "Development Blog"
 msgstr "程式開發部落格"
@@ -164,9 +179,6 @@ msgstr "輸出資料"
 msgid "Field Papers"
 msgstr "Field Papers"
 
-msgid "Finished!"
-msgstr "完成！"
-
 msgid "From"
 msgstr "從"
 
@@ -178,6 +190,12 @@ msgstr "Geojson資料"
 
 msgid "Geojson File"
 msgstr "Geojson檔案"
+
+msgid "GitHub Issues"
+msgstr ""
+
+msgid "Grid layout"
+msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "手畫地圖代表在野外的一份Field Papers地圖集"
@@ -198,6 +216,12 @@ msgid ""
 msgstr "如果這要花超過一個小時的話，那麼替系統狀態更新來檢查%{twitter_link}，並且如果你的地圖集被卡住的話，那麼以%{email_url} 寄電子郵件給我們。"
 
 msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
+msgstr ""
+
+msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
@@ -207,6 +231,12 @@ msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
 msgstr "從原始GeoJSON檔案產生地圖集是可能的。這可能從兩種方法其中之一被處理完畢。"
+
+msgid "JOSM"
+msgstr ""
+
+msgid "Keep atlas private"
+msgstr ""
 
 msgid "LOG IN"
 msgstr "登入"
@@ -219,9 +249,6 @@ msgid ""
 "href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "緯度、經度與自選的縮放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>來製作新的。"
 
-msgid "Layout"
-msgstr "頁面排版"
-
 msgid "Location and zoom"
 msgstr "地點與縮放"
 
@@ -230,6 +257,9 @@ msgstr "製作"
 
 msgid "Make - Field Papers"
 msgstr "製作 - Field Papers"
+
+msgid "Make Atlas"
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "確認掃描/照片/圖像解析度至少200dpi"
@@ -257,17 +287,8 @@ msgstr "地圖資料%{OSMCopyright}：Stamen %{Toner} 、微軟 %{Bing}、%{Mapb
 msgid "Mapbox"
 msgstr "Mapbox"
 
-msgid "Maps + Notes"
-msgstr "地圖 + 註解"
-
-msgid "Maps Only"
-msgstr "僅有地圖"
-
 msgid "Menu"
 msgstr "選單"
-
-msgid "Next"
-msgstr "下一個"
 
 msgid "No atlases."
 msgstr "沒有地圖集"
@@ -275,8 +296,17 @@ msgstr "沒有地圖集"
 msgid "No snapshots."
 msgstr "沒有快照"
 
-msgid "Notes (only shown on half-page atlases)"
-msgstr "註解(只有在半頁地圖集上顯示)"
+msgid "Notes"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "Paper size"
+msgstr ""
+
+msgid "Pin grid to map"
+msgstr ""
 
 msgid "Plain Text (CSV)"
 msgstr "純文字(CSV)"
@@ -284,23 +314,22 @@ msgstr "純文字(CSV)"
 msgid "Potlatch"
 msgstr "Potlatch"
 
+msgid "Print notes"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr "印出世界上任一地點"
 
-msgid "Private"
-msgstr "私人的"
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
+msgstr ""
 
 msgid "Refresh"
 msgstr "重新整理"
 
 msgid "Rules"
 msgstr "規則"
-
-msgid "Select"
-msgstr "選擇"
-
-msgid "ShapeFile"
-msgstr "ShapeFile"
 
 msgid ""
 "Since this atlas is <span class='private'>private</span>, you probably "
@@ -365,14 +394,14 @@ msgstr "圖磚網址模板"
 msgid "Toner"
 msgstr "Toner"
 
-msgid "Type in a location"
-msgstr "輸入一個位置"
+msgid "Translations"
+msgstr ""
 
 msgid "UPLOAD"
 msgstr "上傳"
 
-msgid "UTM"
-msgstr "UTM"
+msgid "UTM Grid"
+msgstr ""
 
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
@@ -386,17 +415,11 @@ msgid ""
 " problem persists, please email %{email_url} with details."
 msgstr "可惜你的快照集無法被處理。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新上傳。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"
 
-msgid "Untitled"
-msgstr "沒有標題"
-
 msgid "Upload"
 msgstr "上傳"
 
 msgid "Upload Failed"
 msgstr "上傳失敗"
-
-msgid "Upload MBTiles"
-msgstr "上傳MBTiles"
 
 msgid "Uploading"
 msgstr "上傳中"
@@ -407,20 +430,20 @@ msgstr "觀察"
 msgid "Welcome to Field Papers"
 msgstr "歡迎來到Field Papers"
 
-msgid "Where in the world is your atlas?"
-msgstr "世界上的哪一個地點是你的地圖集？"
+msgid "Your Atlases"
+msgstr ""
+
+msgid "Your Snapshots"
+msgstr ""
 
 msgid "an atlas to print"
 msgstr "要印出的地圖集"
 
+msgid "anonymous"
+msgstr ""
+
 msgid "iD"
 msgstr "iD"
-
-msgid "on same page"
-msgstr "位於同一頁面"
-
-msgid "one per page"
-msgstr "每一頁面"
 
 msgid "or create an account"
 msgstr "或者建立一個帳號"
@@ -433,9 +456,6 @@ msgstr "私人的"
 
 msgid "recent activity"
 msgstr "最近的活動"
-
-msgid "search"
-msgstr "搜尋"
 
 msgid "snapshot of page %{tp}"
 msgstr "頁面 %{tp} 的快照"

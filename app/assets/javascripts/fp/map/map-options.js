@@ -6,7 +6,7 @@
 
 
   map.options = {
-    scrollWheelZoom: false,
+    scrollWheelZoom: true,
     attributionControl: false
   };
 

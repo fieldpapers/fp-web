@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require selectize
 //= require leaflet
 //= require s3_direct_upload
+//= requite mapbox.js
 //= require_directory ./fp
 //= require turbolinks
 //= require_tree .

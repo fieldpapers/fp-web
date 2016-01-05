@@ -1,0 +1,129 @@
+<% content_for :title, _('Make - Field Papers') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.4.0/leaflet-geocoder-mapzen.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.4.0/leaflet-geocoder-mapzen.js"></script>
+
+  <div id="big-map-menu">
+        <div id="atlas-title-placeholder-text" style="display:none;">
+          <%= _("Atlas Title") %>
+        </div>
+        <div class='menu-group-container'>
+        <div class='menu-group'>
+        <div class="atlas-location-and-name">
+          <h5><%= _("Atlas information") %></h5>
+
+        <%= form_for :atlas do |f| %>
+          <%= f.hidden_field :zoom, :value => @atlas.zoom %>
+          <%= f.hidden_field :west, :value => @atlas.west %>
+          <%= f.hidden_field :south, :value => @atlas.south %>
+          <%= f.hidden_field :east, :value => @atlas.east %>
+          <%= f.hidden_field :north, :value => @atlas.north %>
+          <%= f.hidden_field :rows, :value => @atlas.rows %>
+          <%= f.hidden_field :cols, :value => @atlas.cols %>
+
+          <div id="printing-information">
+            <%= f.text_field :title %>
+
+            <div class='notes-textarea'>
+              <%= f.label :text, _("Notes") %>
+              <%= f.text_area :text %>
+            </div>
+
+            <div class="include-notes">
+              <%= f.check_box :layout %>
+              <%= f.label :layout, _("Print notes") %>
+              <div class='tooltips-container'><div data-tooltip="<%= _("If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page.") %>" class="tooltips">(?)</div></div>
+            </div><br />
+            <div class="private-map">
+              <%= f.check_box :private %>
+              <%= f.label :private, _("Keep atlas private") %>
+              <div class='tooltips-container'><div data-tooltip="<%= _("Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step.") %>" class="tooltips">(?)</div></div>
+            </div>
+
+          </div> <!-- atlas-location-and-name -->
+          </div>
+        </div>
+
+          <div class='menu-group'>
+            <h5><%= _("Grid layout") %></h5>
+          <div class="page-sizing-and-orientation" id='page-layout'>
+            <div class="page-layout-group">
+              <%= f.label :paper_size, _("Paper size") %>
+              <%= f.select :paper_size, options_for_select([["Letter", "letter"], ["A3", "a3"], ["A4", "a4"]]) %>
+            </div>
+            <div class="page-layout-group orientation">
+              <%= f.label :orientation, _("Orientation") %>
+              <%= f.select :orientation, options_for_select([["Landscape", "landscape"], ["Portrait", "portrait"]]) %>
+            </div>
+          </div>
+          <%= f.label :provider, _("Basemap") %>
+          <%= f.select :provider, options_for_select(Providers.options, [Providers.default]) %>
+
+
+      <div id='map-lock-box'>
+        <input type='checkbox'>
+        <label><%= _("Pin grid to map") %></label>
+      </div>
+      </div>
+
+      <div class="menu-group">
+        <h5><%= _("Add-ons") %></h5>
+
+      <div class="add-ons">
+        <%= f.check_box :utm_grid%>
+        <%= f.label :utm_grid, _("UTM Grid")  %><div class='tooltips-container'><div data-tooltip="<%= _("Click for more information.") %>" class="tooltips">(<a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system" target="_blank">?</a>)</div></div>
+      </div>
+    </div>
+      <%= f.submit _("Make Atlas"), {:id => "final-step"} %>
+
+      <%= link_to _("Cancel"),  root_path, :method => :get, :class => 'cancel'%>
+      <% end %>
+    </div>
+  </div><!-- menu -->
+
+  <div id="big-map" class="leaflet-pagelayout-container leaflet-fade-anim">
+    <div class="field-papers-logo">
+      <%= image_tag "logo-header.png" %>
+    </div>
+
+    <div class='col-row-modifiers'>
+
+        <div class="col-row-modifier-box-1"></div>
+        <div class="col-row-modifier-box-2"></div>
+        <div class="col-row-modifier-box-3"></div>
+
+        <div class="col-row-modifiers-group col-row-modifiers-group-1">
+          <div class="grid-modifier-group">
+            <i class="fa fa-navicon fa-rotate-90"></i>
+            <div class="grid-modifier minus">-</div>
+            <div class="grid-modifier number">2</div>
+            <div class="grid-modifier plus">+</div>
+          </div> <!-- grid-modifier-group -->
+        </div> <!-- col-row-modifier-group -->
+
+        <div class="col-row-modifiers-group col-row-modifiers-group-2">
+          <div class="grid-modifier-group">
+            <i class="fa fa-navicon"></i>
+            <div class="grid-modifier minus">-</div>
+            <div class="grid-modifier number">1</div>
+            <div class="grid-modifier plus">+</div>
+          </div> <!-- grid-modifier-group -->
+        </div> <!-- col-row-modifier-group -->
+
+      </div> <!-- col-row-modifiers -->
+  </div>
+
+<% content_for :foot do %>
+
+<script>
+var tp = <%= Providers.layers.to_json.html_safe %>;
+  $(function(){
+    var settings = {
+      selector: 'big-map',
+      initialView: [[<%= @initial_lat %>, <%= @initial_lon %>], <%= @initial_zoom %>],
+      tileProviders: <%= Providers.layers.to_json.html_safe %>,
+      defaultProvider: "<%= Providers.default %>"
+    }
+    FP.map.compose.select(settings);
+  });
+</script>
+<% end %>

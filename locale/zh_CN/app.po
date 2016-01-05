@@ -1,25 +1,21 @@
 # English translations for app package.
-# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # 
-# Translators:
 # Translators:
 # Ching-ping Yu <qyu@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-06-10 21:19+0000\n"
-"Last-Translator: Ching-ping Yu <qyu@outlook.com>\n"
+"PO-Revision-Date: 2016-02-26 18:10+0000\n"
+"Last-Translator: Ian Ross <iross@cadasta.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/fieldpapers/fieldpapers/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "\"%{place}\" could not be found."
-msgstr "“%{地点}”不能找到"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} 创建于 %{StamenDesign}"
@@ -35,15 +31,14 @@ msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] ""
 
+msgid "%{count} page"
+msgid_plural "%{count} pages"
+msgstr[0] ""
+
 msgid "%{time_period} ago"
 msgstr ""
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
-
-msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct "
-"URL.)"
 msgstr ""
 
 msgid "@fieldpapers on Twitter"
@@ -54,19 +49,25 @@ msgid ""
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
+msgid "About"
+msgstr ""
+
 msgid "About the Project"
 msgstr ""
 
 msgid "Activity"
 msgstr "活动"
 
-msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
-
-msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgid "Add-ons"
 msgstr ""
 
 msgid "Advanced - Field Papers"
+msgstr ""
+
+msgid "All Atlases"
+msgstr ""
+
+msgid "All Snapshots"
 msgstr ""
 
 msgid ""
@@ -80,13 +81,16 @@ msgstr ""
 msgid "Atlas Creation Failed"
 msgstr ""
 
-msgid "Atlas Name"
-msgstr ""
-
 msgid "Atlas Rendering"
 msgstr ""
 
+msgid "Atlas Title"
+msgstr ""
+
 msgid "Atlas description"
+msgstr ""
+
+msgid "Atlas information"
 msgstr ""
 
 msgid "Atlas location"
@@ -110,7 +114,13 @@ msgstr ""
 msgid "Atlases - Field Papers"
 msgstr ""
 
+msgid "Basemap"
+msgstr ""
+
 msgid "Bing"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Capture your notes"
@@ -124,11 +134,16 @@ msgid ""
 "code)."
 msgstr ""
 
+msgid "Click for more information."
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr ""
 
-msgid "Describe"
-msgstr "描述"
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
+msgstr ""
 
 msgid "Development Blog"
 msgstr "开发博客"
@@ -162,9 +177,6 @@ msgstr ""
 msgid "Field Papers"
 msgstr ""
 
-msgid "Finished!"
-msgstr "完成！"
-
 msgid "From"
 msgstr ""
 
@@ -175,6 +187,12 @@ msgid "Geojson Data"
 msgstr ""
 
 msgid "Geojson File"
+msgstr ""
+
+msgid "GitHub Issues"
+msgstr ""
+
+msgid "Grid layout"
 msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
@@ -196,6 +214,12 @@ msgid ""
 msgstr ""
 
 msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
+msgstr ""
+
+msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
@@ -204,6 +228,12 @@ msgstr ""
 msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
+msgstr ""
+
+msgid "JOSM"
+msgstr ""
+
+msgid "Keep atlas private"
 msgstr ""
 
 msgid "LOG IN"
@@ -217,9 +247,6 @@ msgid ""
 "href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
-msgid "Layout"
-msgstr ""
-
 msgid "Location and zoom"
 msgstr "地点和放大"
 
@@ -227,6 +254,9 @@ msgid "MAKE"
 msgstr "制作"
 
 msgid "Make - Field Papers"
+msgstr ""
+
+msgid "Make Atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -255,17 +285,8 @@ msgstr ""
 msgid "Mapbox"
 msgstr ""
 
-msgid "Maps + Notes"
-msgstr "地图+笔记"
-
-msgid "Maps Only"
-msgstr "只有地图"
-
 msgid "Menu"
 msgstr "目录"
-
-msgid "Next"
-msgstr "下一步"
 
 msgid "No atlases."
 msgstr ""
@@ -273,7 +294,16 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
-msgid "Notes (only shown on half-page atlases)"
+msgid "Notes"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "Paper size"
+msgstr ""
+
+msgid "Pin grid to map"
 msgstr ""
 
 msgid "Plain Text (CSV)"
@@ -282,22 +312,21 @@ msgstr ""
 msgid "Potlatch"
 msgstr ""
 
+msgid "Print notes"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr ""
 
-msgid "Private"
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
 msgstr ""
 
 msgid "Refresh"
 msgstr ""
 
 msgid "Rules"
-msgstr ""
-
-msgid "Select"
-msgstr "选择"
-
-msgid "ShapeFile"
 msgstr ""
 
 msgid ""
@@ -363,13 +392,13 @@ msgstr ""
 msgid "Toner"
 msgstr ""
 
-msgid "Type in a location"
+msgid "Translations"
 msgstr ""
 
 msgid "UPLOAD"
 msgstr "上传"
 
-msgid "UTM"
+msgid "UTM Grid"
 msgstr ""
 
 msgid ""
@@ -384,17 +413,11 @@ msgid ""
 " problem persists, please email %{email_url} with details."
 msgstr ""
 
-msgid "Untitled"
-msgstr ""
-
 msgid "Upload"
 msgstr "上传"
 
 msgid "Upload Failed"
 msgstr "上传失败"
-
-msgid "Upload MBTiles"
-msgstr "上传 MBTiles"
 
 msgid "Uploading"
 msgstr "上传中"
@@ -405,19 +428,19 @@ msgstr ""
 msgid "Welcome to Field Papers"
 msgstr "欢迎来到 Field Papers"
 
-msgid "Where in the world is your atlas?"
+msgid "Your Atlases"
+msgstr ""
+
+msgid "Your Snapshots"
 msgstr ""
 
 msgid "an atlas to print"
 msgstr ""
 
+msgid "anonymous"
+msgstr ""
+
 msgid "iD"
-msgstr ""
-
-msgid "on same page"
-msgstr ""
-
-msgid "one per page"
 msgstr ""
 
 msgid "or create an account"
@@ -431,9 +454,6 @@ msgstr "私人"
 
 msgid "recent activity"
 msgstr "最近的活动"
-
-msgid "search"
-msgstr "搜索"
 
 msgid "snapshot of page %{tp}"
 msgstr ""

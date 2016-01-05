@@ -2,199 +2,164 @@ require "geocoder"
 require "providers"
 require "json"
 require "geo"
+require "csv"
 
 class ComposeController < ApplicationController
-  include Wicked::Wizard
+  @@cities = nil
+
+  layout "big_map"
 
   # allow existing forms (w/o CSRF projection) to create canned atlases
   skip_before_filter :verify_authenticity_token, only: :create
 
-  steps :search, :select, :describe, :layout
+  def new
+    @atlas = Atlas.new
+    @initial_lat, @initial_lon, @initial_zoom = initial_center
 
-  def show
-    # create an atlas instance with whatever we know about it at this point
-    # (which could very well be nothing)
-    @atlas = Atlas.new(session[:atlas] || {})
-
-    case step
-    when :search
-      # we're starting our way through the wizard; clear out anything we know
-      session[:atlas] = nil unless params[:canned]
-
-      if FieldPapers::DEFAULT_CENTER
-        return redirect_to wizard_path(:select,
-                                       zoom: FieldPapers::DEFAULT_ZOOM,
-                                       lat: FieldPapers::DEFAULT_LATITUDE,
-                                       lon: FieldPapers::DEFAULT_LONGITUDE)
+    # Convert params into a form that ActiveRecord likes (retaining old input
+    # names)
+    if params[:atlas_location]
+      new_params = {}
+      new_params[:lat], new_params[:lon], new_params[:zoom] =
+        params[:atlas_location].split(/,\s*| /).map(&:strip)
+      new_params[:zoom] ||= 12 # arbitrary zoom
+      if !params[:atlas_title].empty?
+        new_params[:title] = params[:atlas_title]
       end
-    when :select
-      if params[:q]
-        # #select does double-duty and redirects to the center
-        begin
-          zoom, longitude, latitude = Geocoder.query(params[:q])
-        rescue Geocoder::PlaceNotFoundException => e
-          @error = true
-          @place = e.place
-
-          return render previous_step
-        end
-
-        return redirect_to wizard_path(:select, zoom: zoom, lat: latitude, lon: longitude)
+      if !params[:atlas_text].empty?
+        new_params[:text] = params[:atlas_text]
       end
+      if !params[:atlas_provider].empty?
+        new_params[:provider] = params[:atlas_provider]
+      end
+      redirect_to compose_path(new_params)
     end
-
-    render_wizard
   end
 
   def create
-    # raw geojson data
-    if params[:geojson_data]
-      # params[:geojson_data] is a String,
-      # so need to convert to JSON
-      geojson = JSON.parse(params[:geojson_data])
-
-      # TODO: need to validate geojson
-
-      props = geojson['properties']
-
-
-      # TODO: need to validate geojson props
-      params[:atlas] = {
-        title: props['title'] || '',
-        text: props['description'] || '',
-        paper_size: props['paper_size'] || 'letter',
-        orientation: props['orientation'] || 'landscape',
-        layout: props['layout'] || 'full-page',
-        utm_grid: props['utm_grid'] || false,
-        zoom: props['zoom'] || 16,
-        provider: Providers.layers[Providers.default.to_sym][:template],
-        west: nil,
-        south: nil,
-        east: nil,
-        north: nil,
-        rows: 0,
-        cols: 0
-      }
-
-      templates = []
-
-      for feature in geojson['features']
-        b = nil
-        p = feature['properties']
-
-        templates.push(p['provider'] || Providers.layers[Providers.default.to_sym][:template])
-        zoom = p['zoom'] || 16
-
-        if feature['geometry']['type'] == 'Point'
-          b = point_extent(feature['geometry']['coordinates'], zoom, [1200, 1200])
-        elsif feature['geometry']['type'] == 'Polygon'
-          b = polygon_extent(feature['geometry']['coordinates'])
-        else
-          # skip
-        end
-
-        if !b.nil?
-          if params[:atlas][:west].nil?
-            params[:atlas][:west] = b[0]
-          else
-            params[:atlas][:west] = [params[:atlas][:west], b[0]].min
-          end
-
-          if params[:atlas][:east].nil?
-            params[:atlas][:east] = b[2]
-          else
-            params[:atlas][:east] = [params[:atlas][:east], b[2]].max
-          end
-
-          if params[:atlas][:north].nil?
-            params[:atlas][:north] = b[3]
-          else
-            params[:atlas][:north] = [params[:atlas][:north], b[3]].max
-          end
-
-          if params[:atlas][:south].nil?
-            params[:atlas][:south] = b[1]
-          else
-            params[:atlas][:south] = [params[:atlas][:south], b[1]].min
-          end
-        end
-      end
-
-      # TODO: figure out how to calculate rows & columns
-      # TODO: how to handle providers & zooms for pages ("features")
-      return redirect_to wizard_path(:search)
-    end
-
     # geojson file
     if params[:geojson_file]
-      return redirect_to wizard_path(:search)
+      params[:geojson_data] = params[:geojson_file].read
+      return redirect_to compose_path(process_geojson)
     end
 
-    # convert params into a form that ActiveRecord likes (retaining old input
-    # names)
-    params[:atlas] = {
-      title: params[:atlas_title],
-      text: params[:atlas_text],
-      provider: params[:atlas_provider]
-    }
+    # TODO: figure out how to calculate rows & columns
+    # TODO: how to handle providers & zooms for pages ("features")
+    if params[:geojson_data]
+      return redirect_to compose_path(process_geojson)
+    end
 
-    latitude, longitude, zoom = params[:atlas_location].split(/,\s*| /).map(&:strip)
-    zoom ||= 12 # arbitrary zoom
+    # Nasty: force numeric conversion of numeric strings in parameters
+    # from client...
+    @atlas = Atlas.new (Atlas.new atlas_params).attributes
+    @atlas.layout = @atlas.layout == 1 ? "half-page" : "full-page"
 
-    session[:atlas] = params[:atlas].merge({
-      user_id: current_user.try(:id)
-    })
+    if @atlas.valid?
+      @atlas.save!
+      @atlas.render!
+      return redirect_to atlas_path(@atlas)
+    end
 
-    return redirect_to wizard_path(:select, zoom: zoom, lat: latitude, lon: longitude) if latitude && longitude
-
-    redirect_to wizard_path(:search, canned: true)
+    redirect_to compose_path
   end
 
   def update
-    # initialize session storage of atlas attributes
-    session[:atlas] ||= {
-      user_id: current_user.try(:id)
-    }
+    # Nasty: force numeric conversion of numeric strings in parameters
+    # from client...
+    @atlas = Atlas.new (Atlas.new atlas_params).attributes
+    @atlas.layout = @atlas.layout == 1 ? "half-page" : "full-page"
 
-    @atlas = Atlas.new \
-      session[:atlas]
-        .merge(atlas_params)
-
-    # flip the orientation if the layout was set on this POST (hence
-    # atlas_params)
-    if atlas_params[:layout] == "half-page"
-      if @atlas.orientation == "landscape"
-        @atlas.orientation = "portrait"
-      else
-        @atlas.orientation = "landscape"
-      end
-    end
-
-    # for stepwise validation (not implemented due to reasonable defaults) see:
-    #   https://github.com/schneems/wicked/wiki/Building-Partial-Objects-Step-by-Step
     if @atlas.valid?
-      case step
-      when :layout # final step
-        @atlas.save
-        @atlas.render!
-
-        # now that this atlas exists, clear out the session representation
-        session[:atlas] = nil
-
-        return redirect_to atlas_path(@atlas)
-      else
-        # update the session store
-        session[:atlas] = @atlas.attributes
-
-        # move on to the next step
-        return redirect_to next_wizard_path
-      end
+      @atlas.save!
+      @atlas.render!
+      return redirect_to atlas_path(@atlas)
     end
 
-    render step
+    redirect_to compose_path
   end
 
   private
+
+  def process_geojson
+    # params[:geojson_data] is a String,
+    # so need to convert to JSON
+    geojson = JSON.parse(params[:geojson_data])
+
+    # TODO: need to validate geojson
+
+    props = geojson['properties']
+
+
+    # TODO: need to validate geojson props
+    new_params = {
+      title: props['title'] || '',
+      text: props['description'] || '',
+      paper_size: props['paper_size'] || 'letter',
+      orientation: props['orientation'] || 'landscape',
+      layout: props['layout'] || 'full-page',
+      utm_grid: props['utm_grid'] || false,
+      redcross_overlay: props['redcross_overlay'] || false,
+      zoom: props['zoom'] || 16,
+      provider: Providers.layers[Providers.default][:template],
+      west: nil,
+      south: nil,
+      east: nil,
+      north: nil,
+      rows: 0,
+      cols: 0
+    }
+
+    templates = []
+
+    for feature in geojson['features']
+      b = nil
+      p = feature['properties']
+
+      templates.push(p['provider'] || Providers.layers[Providers.default][:template])
+      zoom = p['zoom'] || 16
+
+      if feature['geometry']['type'] == 'Point'
+        b = point_extent(feature['geometry']['coordinates'], zoom, [1200, 1200])
+      elsif feature['geometry']['type'] == 'Polygon'
+        b = polygon_extent(feature['geometry']['coordinates'])
+      else
+        # skip
+      end
+
+      if !b.nil?
+        if new_params[:west].nil?
+          new_params[:west] = b[0]
+        else
+          new_params[:west] = [new_params[:west], b[0]].min
+        end
+
+        if new_params[:east].nil?
+          new_params[:east] = b[2]
+        else
+          new_params[:east] = [new_params[:east], b[2]].max
+        end
+
+        if new_params[:north].nil?
+          new_params[:north] = b[3]
+        else
+          new_params[:north] = [new_params[:north], b[3]].max
+        end
+
+        if new_params[:south].nil?
+          new_params[:south] = b[1]
+        else
+          new_params[:south] = [new_params[:south], b[1]].min
+        end
+      end
+    end
+    if not new_params[:south].nil? and not new_params[:north].nil?
+      new_params[:lat] = (new_params[:south] + new_params[:north]) / 2
+    end
+    if not new_params[:west].nil? and not new_params[:east].nil?
+      new_params[:lon] = (new_params[:west] + new_params[:east]) / 2
+    end
+    return new_params
+  end
 
   def atlas_params
     params.require(:atlas).permit \
@@ -202,10 +167,6 @@ class ComposeController < ApplicationController
       :title, :text, :private, # from describe
       :layout, :utm_grid, :paper_size, # from layout
       :refreshed_from, :cloned_from
-  end
-
-  def finish_wizard_path
-    atlas_path(@atlas)
   end
 
   def point_extent(point, zoom, dimensions)
@@ -244,5 +205,19 @@ class ComposeController < ApplicationController
 
     return [west, south, east, north]
 
+  end
+
+  def initial_center
+    if FieldPapers::DEFAULT_CENTER
+      return FieldPapers::DEFAULT_LATITUDE,
+             FieldPapers::DEFAULT_LONGITUDE,
+             FieldPapers::DEFAULT_ZOOM
+    else
+      if @@cities.nil?
+        @@cities = CSV.read("config/capitals.dat")
+      end
+      lat, lon = @@cities.sample
+      return lat, lon, 8
+    end
   end
 end

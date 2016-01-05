@@ -8,10 +8,12 @@ ruby "2.2.4"
 gem "rails", "4.2.5"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
+gem 'font-awesome-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
+gem "selectize-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem "turbolinks"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,11 +48,11 @@ gem "rails-i18n", "~> 4.0.0"
 gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
 gem "mysql2", "~> 0.3.18"
 gem "workflow"
-gem "wicked" # wizard controllers
 gem "json"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
 gem 'therubyracer', '~> 0.12.2'
+gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
 
 ## production-only dependencies
 
