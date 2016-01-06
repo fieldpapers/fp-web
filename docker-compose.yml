@@ -14,7 +14,6 @@ web:
     - RAILS_ENV=development
     - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
     - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
-    - API_BASE_URL=http://fieldpapers.local:3000/
     - BASE_URL=http://fieldpapers.local:3000
     - TILE_BASE_URL=http://fieldpapers.local:8080
     - TASK_BASE_URL=http://localhost:8080
