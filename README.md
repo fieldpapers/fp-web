@@ -220,7 +220,7 @@ they are available to the environment in which Rails is running.
 * `MAIL_ORIGIN` - From address to use for automated system emails.
 * `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
   be granted access to send from this)
-* `BASE_URL` - Site base URL.
+* `BASE_URL` - Site base URL (Network-accessible, i.e. from a Docker container).
 * `S3_BUCKET_NAME` - S3 bucket for file storage. Defaults to
   `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
   (test), and `files.fieldpapers.org` (production).
@@ -228,8 +228,6 @@ they are available to the environment in which Rails is running.
   bucket(s).
 * `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
 * `AWS_REGION` - AWS region to use for services.
-* `API_BASE_URL` - Network-accessible (i.e. from a Docker container) base URL
-  rendered into PDFs.
 * `BASE_URL` - Base URL, e.g. `http://fieldpapers.org`.
 * `TASK_BASE_URL` - Base URL for the task server (probably an instance of
   [fp-tasks](https://github.com/fieldpapers/fp-tasks)).

@@ -22,7 +22,7 @@ etc.) are present, the `boot2docker` VM may not be running.
 
 First, check to see that the IP/hostname present in the PDF corresponds to your
 development instance (i.e. isn't `fieldpapers.org`; this can be configured by
-setting `API_BASE_URL`). Second, ensure that your docker containers can access
+setting `BASE_URL`). Second, ensure that your docker containers can access
 it using that name. Using `<hostname>.local` is a convenient way to do so and
 to survive DHCP renewals.
 
