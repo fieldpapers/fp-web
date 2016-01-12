@@ -8,9 +8,5 @@
 # method, it's assumed that you have AWS credentials set up
 # appropriately via environment variables.
 
-if Rails.env.production?
-  ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
-    :source_arn => ENV['MAIL_SOURCE_ARN']
-else
-  ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base
-end
+ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
+  :source_arn => ENV['MAIL_SOURCE_ARN']
