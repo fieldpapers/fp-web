@@ -12,40 +12,39 @@ class Placefinder
   end
 
   def self.query(q)
-    client = Faraday.new(url: "http://query.yahooapis.com/v1/public/yql") do |faraday|
+    client = Faraday.new(url: "https://search.mapzen.com/v1/search") do |faraday|
       faraday.response :json, content_type: /\bjson$/
 
       faraday.adapter Faraday.default_adapter
     end
 
     rsp = client.get("", {
-      format: "json",
-      q: "select * from geo.placefinder where text='#{q}'"
+      api_key: "blah",
+      text: q,
     })
 
     case rsp.status
     when 200
-      results = rsp.body["query"]["results"]
+      results = rsp.body["features"]
 
-      raise PlaceNotFoundException.new("'#{q}' could not be found", q) unless results
+      raise PlaceNotFoundException.new("'#{q}' could not be found", q) if results.empty?
 
-      result = results["Result"]
-      result = result.first if result.is_a?(Array)
+      result = results.first
 
-      zoom = case
-        when result["street"]
+      zoom = case result["properties"]["layer"]
+        when "neighborhood"
           14
-        when result["city"]
+        when "locality"
           12
-        when result["state"]
+        when "region"
           8
-        when result["country"]
+        when "country"
           6
         else
           10
         end
 
-      return zoom, result["longitude"], result["latitude"]
+      return zoom, result["geometry"]["coordinates"][0], result["geometry"]["coordinates"][1]
     else
       raise rsp.body
     end
