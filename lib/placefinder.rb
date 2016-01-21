@@ -19,8 +19,9 @@ class Placefinder
     end
 
     rsp = client.get("", {
-      api_key: "blah",
+      api_key: ENV["MAPZEN_SEARCH_KEY"],
       text: q,
+      size: 1,
     })
 
     case rsp.status
