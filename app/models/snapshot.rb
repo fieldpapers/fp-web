@@ -50,17 +50,6 @@ class Snapshot < ActiveRecord::Base
   include FriendlyId
   include Workflow
 
-
-  def self.s3_url(bucket, region)
-    region = region || 'us-east-1'
-    s3 = region == 'us-east-1' ? 's3' : 's3-' + region
-    %r{\Ahttps?:\/\/#{s3}\.amazonaws\.com\/#{bucket}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
-  end
-
-  # Environment-specific direct upload url verifier screens for malicious posted upload locations.
-  S3_UPLOAD_URL_FORMAT = s3_url(Rails.application.secrets.aws["s3_bucket_name"],
-                                Rails.application.secrets.aws["s3_bucket_region"])
-
   # friendly_id configuration
 
   friendly_id :random_id, use: :slugged
@@ -71,14 +60,17 @@ class Snapshot < ActiveRecord::Base
 
   # paperclip (attachment) configuration
 
-  has_attached_file :scene
+  has_attached_file :scene, {
+    hash_secret: "whatever",
+    url: "/snapshots/:hash.:extension",
+  }
 
   # callbacks
   after_initialize :apply_defaults
 
   # validations
 
-  validates :s3_scene_url, presence: true, format: { with: S3_UPLOAD_URL_FORMAT }
+  validates_attachment_content_type :scene, content_type: /\Aimage\/.*\Z/
 
   # relations
 
@@ -281,7 +273,7 @@ class Snapshot < ActiveRecord::Base
   end
 
   def image_url
-    s3_scene_url
+    FieldPapers::STATIC_URI_PREFIX + scene.url
   end
 
   def latitude

@@ -19,3 +19,4 @@ vendor/bundle
 venv
 .tx/fieldpapers.www/
 public/assets/
+public/snapshots/

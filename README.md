@@ -236,6 +236,10 @@ they are available to the environment in which Rails is running.
 * `SENTRY_DSN` - Sentry DSN for exception logging. Optional.
 * `MAPZEN_SEARCH_KEY` - A Mapzen Search API key, obtained from
   [mapzen.com/developers](https://mapzen.com/developers).
+* `STATIC_PATH` - Path to write static files to. Must be HTTP-accessible.
+  Defaults to `:rails_root/public` (to match the `STATIC_URI_PREFIX` default).
+* `STATIC_URI_PREFIX` - Prefix to apply to static paths (e.g.
+  http://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
 
 ### Running Tests
 
