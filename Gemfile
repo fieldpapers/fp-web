@@ -38,7 +38,7 @@ gem "http_accept_language"
 gem "kaminari" # pagination
 gem "kaminari-i18n"
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
-gem "paperclip", "~> 4.2.1" # file attachments
+gem "paperclip", "~> 4.3.1" # file attachments
 gem "puma" # app server
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware

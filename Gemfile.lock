@@ -206,6 +206,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.99)
+    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     minitest-reporters (1.1.7)
@@ -223,11 +224,12 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    paperclip (4.2.4)
+    paperclip (4.3.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
+      mimemagic (= 0.3.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -368,7 +370,7 @@ DEPENDENCIES
   meta_request
   minitest-reporters
   mysql2 (~> 0.3.18)
-  paperclip (~> 4.2.1)
+  paperclip (~> 4.3.1)
   puma
   quiet_assets
   rack-contrib
