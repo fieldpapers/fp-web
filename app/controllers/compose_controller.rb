@@ -1,4 +1,4 @@
-require "placefinder"
+require "geocoder"
 require "providers"
 require "json"
 require "geo"
@@ -24,8 +24,8 @@ class ComposeController < ApplicationController
       if params[:q]
         # #select does double-duty and redirects to the center
         begin
-          zoom, longitude, latitude = Placefinder.query(params[:q])
-        rescue Placefinder::PlaceNotFoundException => e
+          zoom, longitude, latitude = Geocoder.query(params[:q])
+        rescue Geocoder::PlaceNotFoundException => e
           @error = true
           @place = e.place
 

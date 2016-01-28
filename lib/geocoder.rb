@@ -1,7 +1,7 @@
 require "faraday"
 require "faraday_middleware"
 
-class Placefinder
+class Geocoder
   class PlaceNotFoundException < Exception
     attr_reader :place
 
