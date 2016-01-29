@@ -8,6 +8,15 @@
     <p class=""><%= _("Choose an atlas page to upload. We'll work out where it goes (using the QR code).") %></p>
   </div>
   <div class="twelve columns">
+    <p class="status-text error msg"><%= _("Something went wrong! Please review the <strong>rules</strong> below and try again.") %></p>
+
+  <% case FieldPapers::PERSIST %>
+  <% when "local" %>
+    <%= form_for @snapshot, url: snapshots_path, html: { multipart: true } do |f| %>
+      <%= f.file_field :scene %><br>
+      <%= f.submit "Upload" %>
+  <% end %>
+  <% when "s3" %>
     <%= s3_uploader_form id: "s3_uploader",
       callback_url: snapshots_url,
       callback_param: "snapshot[s3_scene_url]",
@@ -23,9 +32,7 @@
         <div class="bar" style="width: 0%"></div>
       </div>
     </div>
-
-    <p class="status-text error msg"><%= _("Something went wrong! Please review the <strong>rules</strong> below and try again.") %></p>
-
+  <% end %>
   </div>
 </div>
 
@@ -40,6 +47,7 @@
   </div>
 </div>
 
+<% if FieldPapers::PERSIST == "s3" %>
 <% content_for :foot do %>
   <script>
     $(function() {
@@ -69,4 +77,5 @@
     });
 
   </script>
+<% end %>
 <% end %>
