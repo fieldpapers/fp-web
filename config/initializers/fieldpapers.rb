@@ -6,4 +6,5 @@ module FieldPapers
   STATIC_PATH = ENV["STATIC_PATH"] || ":rails_root/public"
   TASK_BASE_URL = ENV["TASK_BASE_URL"] || "http://tasks.fieldpapers.org"
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "http://tiles.fieldpapers.org"
+  PERSIST = ENV["PERSIST"] || "s3"
 end

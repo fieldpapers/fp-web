@@ -240,6 +240,7 @@ they are available to the environment in which Rails is running.
   Defaults to `:rails_root/public` (to match the `STATIC_URI_PREFIX` default).
 * `STATIC_URI_PREFIX` - Prefix to apply to static paths (e.g.
   http://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
+* `PERSIST` - File persistence. Can be `local` or `s3`. Defaults to `s3`.
 
 ### Running Tests
 

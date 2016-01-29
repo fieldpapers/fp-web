@@ -72,9 +72,19 @@ class SnapshotsController < ApplicationController
   private
 
   def snapshot_upload_params
-    params.require(:snapshot)
-      .permit(:scene)
-      .merge(uploader: current_user)
+    case FieldPapers::PERSIST
+    when "local"
+      params.require(:snapshot)
+        .permit(:scene)
+        .merge(uploader: current_user)
+    when "s3"
+      params.require(:snapshot)
+        .permit(:s3_scene_url)
+        .merge(scene_file_name: params.permit(:filepath)[:filepath],
+               scene_content_type: params.permit(:filetype)[:filetype],
+               scene_file_size: params.permit(:filesize)[:filesize])
+        .merge(uploader: current_user)
+    end
   end
 
   def snapshot_update_params
