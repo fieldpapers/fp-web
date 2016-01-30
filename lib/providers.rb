@@ -10,7 +10,7 @@ class Providers
 
   def self.options()
     self.layers.map do |k, v|
-      [v[:label], v[:template]]
+      [v['label'], v['template']]
     end
   end
 
@@ -49,7 +49,7 @@ class Providers
   def self.get_template_from_url(url)
     provider_layer = self.get_layer_from_url(url)
     if provider_layer && !provider_layer[0].nil?
-      return provider_layer[0][:template]
+      return provider_layer[0]['template']
     end
     url
   end
