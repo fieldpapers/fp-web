@@ -241,7 +241,10 @@ they are available to the environment in which Rails is running.
 * `STATIC_URI_PREFIX` - Prefix to apply to static paths (e.g.
   http://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
 * `PERSIST` - File persistence. Can be `local` or `s3`. Defaults to `s3`.
-
+* `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
+  unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
+  Optional.
+  
 ### Running Tests
 
 ```bash

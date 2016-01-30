@@ -7,4 +7,10 @@ module FieldPapers
   TASK_BASE_URL = ENV["TASK_BASE_URL"] || "http://tasks.fieldpapers.org"
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "http://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
+
+  if ENV["DEFAULT_CENTER"]
+    DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
+    zoom, DEFAULT_LATITUDE, DEFAULT_LONGITUDE = ENV["DEFAULT_CENTER"].split("/").map(&:to_f)
+    DEFAULT_ZOOM = zoom.to_i
+  end
 end

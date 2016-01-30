@@ -20,6 +20,13 @@ class ComposeController < ApplicationController
     when :search
       # we're starting our way through the wizard; clear out anything we know
       session[:atlas] = nil unless params[:canned]
+
+      if FieldPapers::DEFAULT_CENTER
+        return redirect_to wizard_path(:select,
+                                       zoom: FieldPapers::DEFAULT_ZOOM,
+                                       lat: FieldPapers::DEFAULT_LATITUDE,
+                                       lon: FieldPapers::DEFAULT_LONGITUDE)
+      end
     when :select
       if params[:q]
         # #select does double-duty and redirects to the center
