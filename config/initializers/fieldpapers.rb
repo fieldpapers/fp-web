@@ -12,5 +12,7 @@ module FieldPapers
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
     zoom, DEFAULT_LATITUDE, DEFAULT_LONGITUDE = ENV["DEFAULT_CENTER"].split("/").map(&:to_f)
     DEFAULT_ZOOM = zoom.to_i
+  else
+    DEFAULT_CENTER = nil
   end
 end
