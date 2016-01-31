@@ -232,6 +232,7 @@ class Snapshot < ActiveRecord::Base
       if atlas_slug && page_number
         begin
           updates[:page] = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
+          updates[:atlas_id] = updates[:page].atlas_id
         rescue ActiveRecord::RecordNotFound
         end
       end

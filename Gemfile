@@ -37,6 +37,7 @@ gem "has_scope" # automatic filter generation
 gem "http_accept_language"
 gem "kaminari" # pagination
 gem "kaminari-i18n"
+gem 'api-pagination'
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 4.3.1" # file attachments
 gem "puma" # app server
@@ -86,6 +87,7 @@ group :development, :test do
 
   gem "meta_request" # to support https://github.com/dejan/rails_panel
   gem "minitest-reporters"
+  gem "fakeweb"
 
   gem "rake"
 end
