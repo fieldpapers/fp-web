@@ -89,8 +89,8 @@ docker run \
 Given the potential complexity of the above, or the need to make changes to the
 peripheral services, it may make more sense to run the application locally (you
 can still use `docker-compose` to run supplementary services like MySQL, etc.).
-If not using `docker-compose`, be sure MySQL is installed (`brew install mysql`
-if not).
+If not using `docker-compose`, be sure MySQL is installed (`$``brew install mysql`
+if not) and running (`$``mysql.server start` if not).
 
 On OS X, you'll want use `rbenv` (and `ruby-build`) in order to isolate the
 version of Ruby used here (and to prevent it from conflicting with other
