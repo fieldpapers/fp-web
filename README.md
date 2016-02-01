@@ -11,6 +11,18 @@ overview](https://github.com/fieldpapers/fieldpapers).
 
 [![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
 
+### Setting environment variables
+
+The following is required to run Field Papers, whether locally or via Docker / `docker-compose`:
+
+```bash
+cp sample.env .env
+# provide some AWS credentials, etc.
+open -t .env
+```
+
+In the opened text editor, add variables per [Environment Variables](https://github.com/fieldpapers/fp-web#environment-variables). Contact another Field Papers contributor for any required values not present in `sample.env`.
+
 ### Using docker-compose
 
 [compose](https://docs.docker.com/compose/) is
@@ -27,14 +39,6 @@ local `Dockerfile`s or from remote repositories.
 * mDNS, built-in on OS X, via `libnss-mdns` on Linux or [Bonjour Print Services
   fpr Windows](https://support.apple.com/kb/DL999?locale=en_US)
 * [Docker compose](https://docs.docker.com/compose/)
-
-#### Configuration
-
-```bash
-cp sample.env .env
-# provide some AWS credentials, etc.
-open -t .env
-```
 
 #### Starting
 
