@@ -33,35 +33,34 @@ module ApplicationHelper
     end
   end
 
-  def josm_link(north, south, east, west, slug = nil)
+  # derives URLs for HTTP GET requests needed for JOSM to load data and tiles.
+  # Actual XHRs exist in <script> in show.html.erb.
+  def josm_link(zoom, lon, lat, north, south, east, west, slug = nil)
     protocol = URI.parse(request.original_url).scheme
     port = protocol == "https" ? "8112" : "8111"
     domain = "127.0.0.1"
 
     # The OSM server refuses requests above a certain size bounding box (~0.5deg x 0.5deg)
     # http://wiki.openstreetmap.org/wiki/Downloading_data
-    # 
-    # zoomVal = 0.25
-    # zoomedwest = west + zoomVal * (east - west)
-    # zoomedeast = east + zoomVal * (west - east)
-    # zoomednorth = north + zoomVal * (south - north)
-    # zoomedsouth = south + zoomVal * (north - south)
-    # west = zoomedwest
-    # east = zoomedeast
-    # north = zoomednorth
-    # south = zoomedsouth
-    
-    # TODO: if user has not enabled remote control in JOSM,
-    # this request will fail. not sure how to be able to
-    # inform the user that Remote Control must be enabled...
+    # This code shrinks the bounding box for testing.
+    zoomVal = 0.4
+    zoomedwest = west + zoomVal * (east - west)
+    zoomedeast = east + zoomVal * (west - east)
+    zoomednorth = north + zoomVal * (south - north)
+    zoomedsouth = south + zoomVal * (north - south)
+    west = zoomedwest
+    east = zoomedeast
+    north = zoomednorth
+    south = zoomedsouth
 
-    if slug
-      "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+    # load OSM data and zoom to extents
+    dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+    # TODO: do slugs mean anything to JOSM or can we just omit them?
+    # "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}&slug=#{slug}"
 
-      # TODO: do slugs mean anything to JOSM or can we just omit them?
-      # "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}&slug=#{slug}"
-    else
-      "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
-    end
+    # load OSM tiles
+    tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=https://a.tile.openstreetmap.org/#{zoom}/#{lon}/#{lat}.png"
+
+    return "data-data-request=#{dataRequest} data-tile-request=#{tileRequest}"
   end
 end

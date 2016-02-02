@@ -29,7 +29,7 @@
     <ul>
       <li><a href=<%= id_link(@atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("iD") %></a></li>
       <li><a href=<%= potlatch_link(@atlas.zoom, @atlas.longitude, @atlas.latitude) %> target="_blank"><%= _("Potlatch") %></a></li>
-      <li><a href=<%= josm_link(@atlas.north, @atlas.south, @atlas.east, @atlas.west) %> target="_blank"><%= _("JOSM") %></a></li>
+      <li><a id='josm_link' <%= josm_link(@atlas.zoom, @atlas.longitude, @atlas.latitude, @atlas.north, @atlas.south, @atlas.east, @atlas.west) %> href="#"><%= _("JOSM") %></a></li>
     </ul>
   </div>
 </div>

@@ -90,6 +90,34 @@
         provider: atlasProvider,
         pages: pages
       });
+
+      // handle JOSM link click with all required HTTP requests
+      var josmLink = document.querySelector('#josm_link');
+      josmLink.addEventListener('click', function (event) {
+        var dataRequestURL = event.currentTarget.dataset.dataRequest,
+          tileRequestURL = event.currentTarget.dataset.tileRequest;
+
+        if (!dataRequestURL) { return; }
+
+        var errorHandler = function (errorEvent) {
+          window.alert('Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.');
+        };
+
+        // fire XHRs in sequence:
+        // first the data request,
+        // then the tile request.
+        var dataRequest = new XMLHttpRequest();
+        dataRequest.addEventListener("error", errorHandler);
+        dataRequest.addEventListener("load", function (loadEvent) {
+          var tileRequest = new XMLHttpRequest();
+          tileRequest.addEventListener("error", errorHandler);
+          tileRequest.open("GET", tileRequestURL);
+          tileRequest.send();
+        });
+
+        dataRequest.open("GET", dataRequestURL);
+        dataRequest.send();
+      });
     });
   </script>
   <% end %>
