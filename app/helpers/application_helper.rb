@@ -50,9 +50,15 @@ module ApplicationHelper
     # east = zoomedeast
     # north = zoomednorth
     # south = zoomedsouth
+    
+    # TODO: if user has not enabled remote control in JOSM,
+    # this request will fail. not sure how to be able to
+    # inform the user that Remote Control must be enabled...
 
     if slug
       "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+
+      # TODO: do slugs mean anything to JOSM or can we just omit them?
       # "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}&slug=#{slug}"
     else
       "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
