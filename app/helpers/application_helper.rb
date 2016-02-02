@@ -40,19 +40,6 @@ module ApplicationHelper
     port = protocol == "https" ? "8112" : "8111"
     domain = "127.0.0.1"
 
-    # The OSM server refuses requests above a certain size bounding box (~0.5deg x 0.5deg)
-    # http://wiki.openstreetmap.org/wiki/Downloading_data
-    # This code shrinks the bounding box for testing.
-    zoomVal = 0.4
-    zoomedwest = west + zoomVal * (east - west)
-    zoomedeast = east + zoomVal * (west - east)
-    zoomednorth = north + zoomVal * (south - north)
-    zoomedsouth = south + zoomVal * (north - south)
-    west = zoomedwest
-    east = zoomedeast
-    north = zoomednorth
-    south = zoomedsouth
-
     # load OSM data and zoom to extents
     dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
     # TODO: do slugs mean anything to JOSM or can we just omit them?
