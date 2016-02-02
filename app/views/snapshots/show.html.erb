@@ -34,6 +34,7 @@
       <ul>
         <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
         <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
+        <li><a href=<%= josm_link(@snapshot.north, @snapshot.south, @snapshot.east, @snapshot.west, @snapshot.slug) %> target="_blank"><%= _("JOSM") %></a></li>
       </ul>
     </div>
   </div>

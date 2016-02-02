@@ -32,4 +32,30 @@ module ApplicationHelper
       "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}"
     end
   end
+
+  def josm_link(north, south, east, west, slug = nil)
+    protocol = URI.parse(request.original_url).scheme
+    port = protocol == "https" ? "8112" : "8111"
+    domain = "127.0.0.1"
+
+    # The OSM server refuses requests above a certain size bounding box (~0.5deg x 0.5deg)
+    # http://wiki.openstreetmap.org/wiki/Downloading_data
+    # 
+    # zoomVal = 0.25
+    # zoomedwest = west + zoomVal * (east - west)
+    # zoomedeast = east + zoomVal * (west - east)
+    # zoomednorth = north + zoomVal * (south - north)
+    # zoomedsouth = south + zoomVal * (north - south)
+    # west = zoomedwest
+    # east = zoomedeast
+    # north = zoomednorth
+    # south = zoomedsouth
+
+    if slug
+      "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+      # "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}&slug=#{slug}"
+    else
+      "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+    end
+  end
 end
