@@ -17,3 +17,44 @@
 //= require_directory ./fp
 //= require turbolinks
 //= require_tree .
+
+(function(exports){
+  "use strict";
+
+  var FP = exports.FP || (exports.FP = {});
+
+  // required both by atlases and snapshots;
+  // therefore, this logic is in application.js
+  FP.setUpJOSMClickHandler = function (errorMsg) {
+
+    // handle JOSM link click with all required HTTP requests
+    var josmLink = document.querySelector('#josm_link');
+    josmLink.addEventListener('click', function (event) {
+      var dataRequestURL = event.currentTarget.dataset.dataRequest,
+        tileRequestURL = event.currentTarget.dataset.tileRequest;
+
+      if (!dataRequestURL) { return; }
+
+      var errorHandler = function (errorEvent) {
+        window.alert(errorMsg);
+      };
+
+      // fire XHRs in sequence:
+      // first the data request,
+      // then the tile request.
+      var dataRequest = new XMLHttpRequest();
+      dataRequest.addEventListener("error", errorHandler);
+      dataRequest.addEventListener("load", function (loadEvent) {
+        var tileRequest = new XMLHttpRequest();
+        tileRequest.addEventListener("error", errorHandler);
+        tileRequest.open("GET", tileRequestURL);
+        tileRequest.send();
+      });
+
+      dataRequest.open("GET", dataRequestURL);
+      dataRequest.send();
+    });
+
+  };
+
+})(this);
