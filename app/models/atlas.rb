@@ -46,14 +46,13 @@ class Atlas < ActiveRecord::Base
   include Workflow
 
   INDEX_BUFFER_FACTOR = 0.1
-  OVERLAY_REDCROSS = "http://a.tiles.mapbox.com/v3/americanredcross.HAIYAN_Atlas_Bounds/{Z}/{X}/{Y}.png"
   OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
   BASE_ZOOM = 22 # zoom level to use for pixel calculations
   TARGET_RESOLUTION_PPI = 150 # target resolution for printing
 
   # virtual attributes
 
-  attr_accessor :redcross_overlay, :utm_grid
+  attr_accessor :utm_grid
 
   # friendly_id configuration
 
@@ -345,22 +344,15 @@ class Atlas < ActiveRecord::Base
   # overlays (TODO generalize this, allowing overlays to be registered on
   # a system- and user-level (and group?))
 
-  def redcross_overlay?
-    provider.include? OVERLAY_REDCROSS
-  end
-
   def utm_grid?
     provider.include? OVERLAY_UTM
   end
 
   def get_provider_without_overlay
     tmp = provider
-    if redcross_overlay?
-      tmp = tmp.gsub(",#{OVERLAY_REDCROSS}", "")
-    end
-    if utm_grid?
-      tmp = tmp.gsub(",#{OVERLAY_UTM}", "")
-    end
+
+    tmp = tmp.gsub(",#{OVERLAY_UTM}", "") if utm_grid?
+
     return tmp
   end
 
@@ -487,12 +479,6 @@ private
   end
 
   def handle_overlays
-    if redcross_overlay == "1"
-      self.provider += ",#{OVERLAY_REDCROSS}" unless redcross_overlay?
-    else
-      self.provider = self.provider.gsub(",#{OVERLAY_REDCROSS}", "")
-    end
-
     if utm_grid == "1"
       self.provider += ",#{OVERLAY_UTM}" unless utm_grid?
     else

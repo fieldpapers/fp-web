@@ -66,7 +66,6 @@ class ComposeController < ApplicationController
         orientation: props['orientation'] || 'landscape',
         layout: props['layout'] || 'full-page',
         utm_grid: props['utm_grid'] || false,
-        redcross_overlay: props['redcross_overlay'] || false,
         zoom: props['zoom'] || 16,
         provider: Providers.layers[Providers.default.to_sym][:template],
         west: nil,
@@ -201,7 +200,7 @@ class ComposeController < ApplicationController
     params.require(:atlas).permit \
       :north, :south, :east, :west, :zoom, :rows, :cols, :orientation, :provider, # from select
       :title, :text, :private, # from describe
-      :layout, :utm_grid, :redcross_overlay, :paper_size, # from layout
+      :layout, :utm_grid, :paper_size, # from layout
       :refreshed_from, :cloned_from
   end
 
