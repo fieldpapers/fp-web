@@ -55,6 +55,7 @@
     <% end %>
 
       FP.map.snapshot("map", "<%= tilejson_url(@snapshot) %>");
+      FP.setUpJOSMClickHandler("<%=escape_javascript _('Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.') %>");
 
     });
   </script>

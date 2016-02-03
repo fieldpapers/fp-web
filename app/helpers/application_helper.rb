@@ -42,11 +42,13 @@ module ApplicationHelper
 
     # load OSM data and zoom to extents
     dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
-    # TODO: do slugs mean anything to JOSM or can we just omit them?
-    # "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}&slug=#{slug}"
 
     # load OSM tiles
-    tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=https://a.tile.openstreetmap.org/#{zoom}/#{lon}/#{lat}.png"
+    if slug
+      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/#{zoom}/#{lon}/#{lat}.png"
+    else
+      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=https://a.tile.openstreetmap.org/#{zoom}/#{lon}/#{lat}.png"
+    end
 
     return "data-data-request=#{dataRequest} data-tile-request=#{tileRequest}"
   end
