@@ -266,6 +266,9 @@ guard
 
 ### Translation and Localization
 
+To mark a string as one that should be localized, wrap it in `_()`.
+E.g. `window.alert("Hello Field Papers!")` becomes `window.alert(_("Hello Field Papers!"))`.
+
 Install the [Transifex](https://www.transifex.com/) client (`tx`):
 
 ```bash
