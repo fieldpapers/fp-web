@@ -35,19 +35,21 @@ module ApplicationHelper
 
   # derives URLs for HTTP GET requests needed for JOSM to load data and tiles.
   # Actual XHRs exist in <script> in show.html.erb.
-  def josm_link(zoom, lon, lat, north, south, east, west, slug = nil)
+  def josm_link(zoom, lon, lat, north, south, east, west, provider, slug = nil)
     protocol = URI.parse(request.original_url).scheme
     port = protocol == "https" ? "8112" : "8111"
     domain = "127.0.0.1"
 
-    # load OSM data and zoom to extents
+    provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "#{zoom}").gsub("{Y}", "#{lon}").gsub("{X}", "#{lat}");
+
+    # load data and zoom to extents
     dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
 
-    # load OSM tiles
+    # load tiles
     if slug
       tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/#{zoom}/#{lon}/#{lat}.png"
     else
-      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=https://a.tile.openstreetmap.org/#{zoom}/#{lon}/#{lat}.png"
+      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{provider}"
     end
 
     return "data-data-request=#{dataRequest} data-tile-request=#{tileRequest}"
