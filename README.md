@@ -267,8 +267,22 @@ guard
 ### Translation and Localization
 
 To mark a string as one that should be localized, wrap it in `_()`.
-E.g. in an ERB template, `<% content_for :title, "Atlas - Field Papers" %>` becomes `<% content_for :title, _("Atlas - Field Papers") %>`.
-E.g. in Javascript within an ERB template, `window.alert("Hello Field Papers!")` becomes `window.alert(_('<%=escape_javascript _("Hello Field Papers!") %>'))`.
+
+E.g. in an ERB template,
+
+`<% content_for :title, "Atlas - Field Papers" %>`
+
+becomes
+
+`<% content_for :title, _("Atlas - Field Papers") %>`.
+
+E.g. in Javascript within an ERB template,
+
+`window.alert("Hello Field Papers!")`
+
+becomes
+
+`window.alert(_('<%=escape_javascript _("Hello Field Papers!") %>'))`.
 
 Install the [Transifex](https://www.transifex.com/) client (`tx`):
 
