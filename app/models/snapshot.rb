@@ -149,6 +149,12 @@ class Snapshot < ActiveRecord::Base
       where(user_id: user)
     }
 
+  scope :username,
+    -> username {
+      joins(:uploader)
+      .where(users: {username: username})
+    }
+    
   # workflow states
 
   workflow do

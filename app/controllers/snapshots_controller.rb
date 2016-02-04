@@ -5,6 +5,7 @@ class SnapshotsController < ApplicationController
   has_scope :month, only: :index
   has_scope :place, only: :index
   has_scope :user, only: :index
+  has_scope :username, only: :index
 
   # allow API usage
   skip_before_filter :verify_authenticity_token, only: :update
