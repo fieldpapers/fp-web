@@ -8,7 +8,7 @@
         params[:username] ? _("All Snapshots") : _("Your Snapshots"),
         snapshots_path(params[:username] ? nil : {username: current_user.try(:username)}),
         class: "right" 
-      ) %>
+      ) if current_user.present? %>
     </p>
   </div>
 </div>

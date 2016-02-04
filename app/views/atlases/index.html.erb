@@ -9,7 +9,7 @@
         params[:username] ? _("All Atlases") : _("Your Atlases"),
         atlases_path(params[:username] ? nil : {username: current_user.try(:username)}),
         class: "right" 
-      ) %>
+      ) if current_user.present? %>
     </p>
   </div>
 </div>
