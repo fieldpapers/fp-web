@@ -3,7 +3,7 @@
 <div class="row">
   <div class="twelve columns map-container">
     <div id="map" class="map"></div>
-    <p class="inline-linkbar bottom"><%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path %></p>
+    <p class="inline-linkbar bottom"><%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path(username: current_user.try(:username)) %></p>
   </div>
 </div>
 
