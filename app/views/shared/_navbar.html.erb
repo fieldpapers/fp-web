@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="nav-item<%= " active" if ["watch"].include? current_nav_target %>">
-                    <a href="<%= atlases_path %>">
+                    <a href="<%= atlases_path(username: current_user.try(:username)) %>">
                         <div class="section"><%= _("WATCH") %></div>
                         <div class="desc"><%= _("recent activity") %></div>
                     </a>
