@@ -88,6 +88,13 @@ ul {
   font-weight: 800;
   font-size: 2rem;
   letter-spacing: 0.5px;
+
+  a.right {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+  }
 }
 
 .inline-linkbar.bottom {

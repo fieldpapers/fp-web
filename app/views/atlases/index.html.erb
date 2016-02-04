@@ -3,7 +3,14 @@
 <div class="row">
   <div class="twelve columns map-container">
     <div id="map" class="map"></div>
-    <p class="inline-linkbar bottom"><%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path(username: current_user.try(:username)) %></p>
+    <p class="inline-linkbar bottom">
+      <%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path(username: params[:username]) %>
+      <%= link_to(
+        params[:username] ? _("All Atlases") : _("Your Atlases"),
+        atlases_path(params[:username] ? nil : {username: current_user.try(:username)}),
+        class: "right" 
+      ) %>
+    </p>
   </div>
 </div>
 
