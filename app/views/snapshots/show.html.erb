@@ -34,6 +34,7 @@
       <ul>
         <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
         <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
+        <li><a id='josm_link' <%= josm_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.north, @snapshot.south, @snapshot.east, @snapshot.west, @snapshot.provider, @snapshot.slug) %> href="#"><%= _("JOSM") %></a></li>
       </ul>
     </div>
   </div>
@@ -54,6 +55,7 @@
     <% end %>
 
       FP.map.snapshot("map", "<%= tilejson_url(@snapshot) %>");
+      FP.setUpJOSMClickHandler("<%= escape_javascript(_('Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.')) %>");
 
     });
   </script>
