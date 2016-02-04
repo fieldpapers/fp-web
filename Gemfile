@@ -45,6 +45,7 @@ gem "rack-rewrite" # URL rewriting middleware
 gem "rails-i18n", "~> 4.0.0"
 gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
 gem "mysql2", "~> 0.3.18"
+gem "pg"
 gem "workflow"
 gem "wicked" # wizard controllers
 gem "json"

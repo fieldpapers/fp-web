@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20150528055308) do
   create_table "atlases", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
     t.string   "slug",           limit: 8,                                null: false
-    t.text     "title",          limit: 4294967295
-    t.text     "text",           limit: 4294967295
+    t.text     "title",          limit: 65535
+    t.text     "text",           limit: 65535
     t.float    "west",           limit: 53,                               null: false
     t.float    "south",          limit: 53,                               null: false
     t.float    "east",           limit: 53,                               null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150528055308) do
     t.string   "place_name",     limit: 128
     t.integer  "place_woeid",    limit: 4
     t.float    "progress",       limit: 24
-    t.boolean  "private",        limit: 1,          default: false,       null: false
+    t.boolean  "private",                           default: false,       null: false
     t.integer  "cloned_from",    limit: 4
     t.integer  "refreshed_from", limit: 4
     t.datetime "created_at"
@@ -49,15 +49,14 @@ ActiveRecord::Schema.define(version: 20150528055308) do
   end
 
   add_index "atlases", ["cloned_from"], name: "index_atlases_on_cloned_from", using: :btree
-  add_index "atlases", ["private"], name: "private", using: :btree
+  add_index "atlases", ["private"], name: "index_atlases_on_private", using: :btree
   add_index "atlases", ["refreshed_from"], name: "index_atlases_on_refreshed_from", using: :btree
   add_index "atlases", ["slug"], name: "index_atlases_on_slug", unique: true, using: :btree
-  add_index "atlases", ["slug"], name: "slug", using: :btree
   add_index "atlases", ["user_id"], name: "index_atlases_on_user_id", using: :btree
 
   create_table "mbtiles", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,                   null: false
-    t.boolean  "private",        limit: 1,   default: false, null: false
+    t.boolean  "private",                    default: false, null: false
     t.string   "url",            limit: 255
     t.string   "uploaded_file",  limit: 255
     t.integer  "min_zoom",       limit: 4
@@ -69,13 +68,13 @@ ActiveRecord::Schema.define(version: 20150528055308) do
     t.datetime "updated_at"
   end
 
-  add_index "mbtiles", ["user_id"], name: "user_id", using: :btree
+  add_index "mbtiles", ["user_id"], name: "index_mbtiles_on_user_id", using: :btree
 
   create_table "notes", force: :cascade do |t|
     t.integer  "snapshot_id", limit: 4,                      null: false
     t.integer  "user_id",     limit: 4
     t.integer  "note_number", limit: 4,          default: 0, null: false
-    t.text     "note",        limit: 4294967295
+    t.text     "note",        limit: 65535
     t.float    "latitude",    limit: 53
     t.float    "longitude",   limit: 53
     t.text     "geometry",    limit: 65535
@@ -108,7 +107,7 @@ ActiveRecord::Schema.define(version: 20150528055308) do
   end
 
   add_index "pages", ["atlas_id", "page_number"], name: "index_pages_on_atlas_id_and_page_number", using: :btree
-  add_index "pages", ["atlas_id"], name: "print_id", using: :btree
+  add_index "pages", ["atlas_id"], name: "index_pages_on_print_id", using: :btree
 
   create_table "snapshots", force: :cascade do |t|
     t.string   "slug",               limit: 8,                          null: false
@@ -121,8 +120,8 @@ ActiveRecord::Schema.define(version: 20150528055308) do
     t.float    "max_column",         limit: 24
     t.integer  "min_zoom",           limit: 4
     t.integer  "max_zoom",           limit: 4
-    t.text     "description",        limit: 4294967295
-    t.boolean  "private",            limit: 1,          default: false, null: false
+    t.text     "description",        limit: 65535
+    t.boolean  "private",                               default: false, null: false
     t.string   "has_geotiff",        limit: 3,          default: "no"
     t.string   "has_geojpeg",        limit: 3,          default: "no"
     t.string   "base_url",           limit: 255
@@ -154,7 +153,7 @@ ActiveRecord::Schema.define(version: 20150528055308) do
   end
 
   add_index "snapshots", ["slug"], name: "index_snapshots_on_slug", unique: true, using: :btree
-  add_index "snapshots", ["user_id"], name: "user_id", using: :btree
+  add_index "snapshots", ["user_id"], name: "index_snapshots_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               limit: 32
@@ -172,9 +171,20 @@ ActiveRecord::Schema.define(version: 20150528055308) do
     t.datetime "created_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "reset_password_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "username", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  execute "DROP FUNCTION IF EXISTS field(anyelement, VARIADIC anyarray)"
+  execute <<-EOQ
+CREATE FUNCTION field(anyelement, VARIADIC anyarray) RETURNS integer AS $$
+SELECT
+  COALESCE(
+   ( SELECT i FROM generate_subscripts($2, 1) gs(i)
+     WHERE $2[i] = $1 ),
+   0);
+$$ LANGUAGE SQL STABLE
+EOQ
 
 end
