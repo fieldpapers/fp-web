@@ -26,8 +26,8 @@
   </a>
 
   <div class="no-wrap">
-    <%= link_to snapshot.title, snapshot_path(snapshot), {:class=>"map-card-title embolden"} %>
-    <span class="map-card-creator small"><%= snapshot.uploader_name %></span>
+    <%= link_to snapshot.title, snapshot_path(snapshot), {:class=>"map-card-title embolden"} %><br>
+    <span class="map-card-creator small"><% if snapshot.uploader %><%= link_to snapshot.uploader_name, snapshots_path(username: snapshot.uploader.username) %><% else %><%= snapshot.uploader_name %><% end %></span>
   </div>
 
   <div>
