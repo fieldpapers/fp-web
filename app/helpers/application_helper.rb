@@ -40,14 +40,14 @@ module ApplicationHelper
     port = protocol == "https" ? "8112" : "8111"
     domain = "127.0.0.1"
 
-    provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "#{zoom}").gsub("{Y}", "#{lon}").gsub("{X}", "#{lat}");
+    provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "{zoom}").gsub("{Y}", "{y}").gsub("{X}", "{x}");
 
     # load data and zoom to extents
     dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
 
     # load tiles
     if slug
-      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/#{zoom}/#{lon}/#{lat}.png"
+      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{zoom}/{x}/{y}.png"
     else
       tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{provider}"
     end
