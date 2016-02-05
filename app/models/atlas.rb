@@ -133,13 +133,13 @@ class Atlas < ActiveRecord::Base
     includes(:creator)
       .where("#{self.table_name}.private = false")
       .where("#{self.table_name}.failed_at is null")
-      .order("created_at DESC")
+      .order("#{self.table_name}.created_at DESC")
   }
 
   scope :default, -> {
     includes(:creator)
       .where("#{self.table_name}.failed_at is null")
-      .order("created_at DESC")
+      .order("#{self.table_name}.created_at DESC")
   }
 
   scope :by_creator, -> (creator) {
@@ -168,6 +168,12 @@ class Atlas < ActiveRecord::Base
   scope :user,
     -> user {
       where(user_id: user)
+    }
+
+  scope :username,
+    -> username {
+      joins(:creator)
+      .where(users: {username: username})
     }
 
   # workflow states

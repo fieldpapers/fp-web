@@ -30,11 +30,11 @@
   <div class="no-wrap">
     <span class="atlas-status <% if atlas.failed? %>failed<% elsif atlas.incomplete? %>incomplete<% end %>"></span>
     <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %><br>
-    <span class="map-card-creator small"><%= atlas.creator_name if atlas.creator %>&nbsp;</span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
+    <span class="map-card-creator small"><%= link_to(atlas.creator_name, atlases_path(username: atlas.creator.username)) if atlas.creator %>&nbsp;</span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
   </div>
 
   <div>
     <span class="map-card-pages small"><%= n_("%{count} page", "%{count} pages", atlas.atlas_pages) % {count: number_with_delimiter(atlas.atlas_pages)} %>,</span>
-    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></span>
+    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(params.slice(:date, :month, :place, :user, :username).merge(month: atlas.created_at.strftime("%Y-%m"))) %></span>
   </div>
 </li>
