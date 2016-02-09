@@ -30,8 +30,10 @@
   <div class="no-wrap">
     <span class="atlas-status <% if atlas.failed? %>failed<% elsif atlas.incomplete? %>incomplete<% end %>"></span>
     <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %><br>
-    <!-- <span class="map-card-creator small"><%= link_to(atlas.creator_name, atlases_path(username: atlas.creator.username)) if atlas.creator %>&nbsp;</span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %> -->
-    <span class="map-card-creator small"><% if atlas.creator %><%= link_to atlas.creator_name, atlases_path(username: atlas.creator.username) %><% else %><%= atlas.creator_name %><% end %></span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
+    <span class="map-card-creator small">
+      <%= link_to atlas.creator_name, atlases_path(username: atlas.creator.username) if atlas.creator %>
+      <%= _("anonymous") unless atlas.creator %>
+    </span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
   </div>
 
   <div>
