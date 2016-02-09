@@ -160,19 +160,18 @@ eval "$(direnv hook bash)" # initialize direnv
 rbenv install $(< .ruby-version) # install the desired ruby version
 
 gem install bundler        # install bundler using rbenv-installed ruby
-gem install foreman
 
 bundle install -j4 --path vendor/bundle # install dependencies
 
 cp sample.env .env
 sensible-editor .env
 
-foreman run echo $DATABASE_URL # ensure that your environment is prepared
+bundle exec foreman run echo $DATABASE_URL # ensure that your environment is prepared
 
 rake db:create             # create a database if one doesn't already exist
 rake db:schema:load        # initialize your database
 
-foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
+bundle exec foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
 The app will now be running on [localhost:3000](http://localhost:3000/) and
@@ -250,7 +249,7 @@ they are available to the environment in which Rails is running.
 * `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
   unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
   Optional.
-  
+
 ### Running Tests
 
 ```bash
