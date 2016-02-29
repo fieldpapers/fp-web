@@ -6,7 +6,7 @@ $(document).on('page:change', function(){
     $(function(){
         $('select#atlas_provider').selectize({
             create: true,
-            sortField: 'text'
+            closeAfterSelect: true
         });
     });
 
