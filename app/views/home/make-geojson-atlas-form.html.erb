@@ -4,12 +4,12 @@
     <p><%= _("It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:") %></p>
     <ol>
       <li>
-      <p><%= _("A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:") %></p>
+      <p><%= _("A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:") % { link: compose_url } %></p>
 
     <%= form_tag compose_path, method: :post, multipart: true do %>
       <div class="row">
         <div class="twelve columns">
-          <label for="geojson_file"><%= _("Geojson File") %></label>
+          <label for="geojson_file"><%= _("GeoJSON File") %></label>
           <%= file_field_tag :geojson_file, accept: "application/vnd.geo+json,application/json" %>
         </div>
       </div>
@@ -22,49 +22,43 @@
     </li>
 
     <li>
-    <p><%= _("Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:") %></p>
+    <p><%= _("Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:") % { link: compose_url } %></p>
 
     <%= form_tag compose_path, method: :post, multipart: true do %>
       <div class="row">
         <div class="twelve columns">
-          <label for="geojson_data"><%= _("Geojson Data") %></label>
+          <label for="geojson_data"><%= _("GeoJSON Data") %></label>
           <%= text_area_tag :geojson_data, '{
-            "properties":
-            {
-              "paper_size": "letter",
-              "orientation": "portrait"
-            },
-            "type": "FeatureCollection",
-            "features":
-            [
-              {
-                "properties":
-                {
-                  "provider": "http://tile.openstreetmap.org/{Z}/{X}/{Y}.png",
-                  "zoom": 17
-                },
-                "type": "Feature",
-                "geometry":
-                {
-                  "type": "Polygon",
-                  "coordinates": [[ [-122.293647, 37.817211], [-122.293647, 37.801750], [-122.278198, 37.801750], [-122.278198, 37.817211], [-122.293647, 37.817211] ]]
-                }
-              },
-              {
-                "properties":
-                {
-                  "provider": "http://tile.openstreetmap.org/{Z}/{X}/{Y}.png",
-                  "zoom": 17
-                },
-                "type": "Feature",
-                "geometry":
-                {
-                  "type": "Point",
-                  "coordinates": [-122.281694, 37.822091]
-                }
-              }
-            ]
-          }', rows: "10", class: "u-full-width auto-height" %>
+  "properties": {
+    "paper_size": "letter",
+    "orientation": "portrait"
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "properties": {
+        "provider": "http://tile.openstreetmap.org/{Z}/{X}/{Y}.png",
+        "zoom": 17
+      },
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[ [-122.293647, 37.817211], [-122.293647, 37.801750], [-122.278198, 37.801750], [-122.278198, 37.817211], [-122.293647, 37.817211] ]]
+      }
+    },
+    {
+      "properties": {
+        "provider": "http://tile.openstreetmap.org/{Z}/{X}/{Y}.png",
+        "zoom": 17
+      },
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.281694, 37.822091]
+      }
+    }
+  ]
+}', rows: "10", class: "u-full-width auto-height" %>
 
         </div>
       </div>
