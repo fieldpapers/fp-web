@@ -87,7 +87,7 @@ class ComposeController < ApplicationController
 
     # TODO: need to validate geojson
 
-    props = geojson['properties']
+    props = geojson['properties'] || {}
 
 
     # TODO: need to validate geojson props
