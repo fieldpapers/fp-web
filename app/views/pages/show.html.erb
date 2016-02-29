@@ -17,7 +17,7 @@
         </div>
 
         <div class="map-overlay bottom-right">
-          <%= form_for @page.atlas, url: compose_path(:select), method: :put do |f| %>
+          <%= form_for @page.atlas, url: compose_path, method: :put do |f| %>
             <%= f.hidden_field :north, :value=> @page.atlas.north %>
             <%= f.hidden_field :south, :value=> @page.atlas.south %>
             <%= f.hidden_field :east, :value=> @page.atlas.east %>

@@ -4,17 +4,17 @@
 
 <div class="row cards">
     <div class="four columns card">
-        <a class="card-image" href="<%= compose_path(:search) %>"><img src="<%= asset_path 'atlases-large.gif' %>" alt="<%= _("Hand-drawn graphic to represent making a Field Papers atlas") %>"></a>
+        <a class="card-image" data-no-turbolink="true" href="<%= compose_path %>"><img src="<%= asset_path 'atlases-large.gif' %>" alt="<%= _("Hand-drawn graphic to represent making a Field Papers atlas") %>"></a>
         <div class="card-details">
-            <h5 class="card-title"><%= link_to _("Make yourself an atlas"), compose_path(:search) %></h5>
+            <h5 class="card-title" data-no-turbolink="true"><%= link_to _("Make yourself an atlas"), compose_path %></h5>
             <p class="card-desc"><%= _("Print out anywhere in the world.") %></p>
         </div>
     </div>
 
     <div class="four columns card">
-        <a class="card-image" href="<%= compose_path(:search) %>"><img src="<%= asset_path 'field-large.gif' %>" alt="<%= _("Hand-drawn graphic representing a Field Papers atlas in the wild") %>"></a>
+        <a class="card-image" data-no-turbolink="true" href="<%= compose_path %>"><img src="<%= asset_path 'field-large.gif' %>" alt="<%= _("Hand-drawn graphic representing a Field Papers atlas in the wild") %>"></a>
         <div class="card-details">
-            <h5 class="card-title"><%= link_to _("Take it into the field"), compose_path(:search) %></h5>
+            <h5 class="card-title" data-no-turbolink="true"><%= link_to _("Take it into the field"), compose_path %></h5>
             <p class="card-desc"><%= _("Make your notes and observations.") %></p>
         </div>
     </div>

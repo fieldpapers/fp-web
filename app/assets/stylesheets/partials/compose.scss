@@ -1,146 +1,677 @@
-#compose-search {
-  margin: 6rem 0;
+/*************
+MIX-INS
+*************/
+
+@mixin flexbox-cb($prefix, $option) {
+    -webkit-box-flex#{$prefix}: #{$option};      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex#{$prefix}: #{$option};         /* OLD - Firefox 19- */
+    -webkit-flex#{$prefix}: #{$option};          /* Chrome */
+    -ms-flex#{$prefix}: #{$option};              /* IE 10 */
+    flex#{$prefix}: #{$option};
 }
 
-.crumbs {
-    margin-bottom: 2.5rem;
-    height: 50px;
-    overflow: hidden;
-    color: #ccc;
+@mixin display-flex(){
+  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  // display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;
 }
 
-.crumb {
-    position: relative;
-    display: block;
-    float: left;
-    padding: 0 20px 0 35px;
-    line-height: 50px;
-    background: #ccc;
-    margin-left: 15px;
-    font-size: 34px;
-    color: #fff;
-}
+$menu-width: 180px;
 
-.crumb:first-child {
-    margin-left: 0;
-    padding-left: 20px;
-}
-
-.crumb:after{
-    content: "";
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent;
-    border-left: 15px solid #ccc;
-    position: absolute;
-    left: 100%;
-    top: 0;
-}
-
-.crumb:before {
-    content: "";
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent;
-    border-left: 15px solid #fff;
-    position: absolute; left: 0; top: 0;
-}
-
-.crumb:first-child:before {
-    display: none;
-}
-
-.crumb.active {
-    background: #000;
-    color: #fff;
-}
-
-.crumb.active:after {
-    border-left-color: #000;
-}
+/**********
+GENERAL FOR COMPOSE
+***********/
 
 
-// layout styles
-.radio-cards {
-    margin-bottom: 2.5rem;
+body .big-map {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
-.radio-cards .inner {
-    display: inline-block;
+
+.big-map-container {
+  position: relative;
+  top: -10px;
+  left: -10px;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
-.radio-cards .inner * {
-    text-align: left;
-}
-.radio-cards label {
-    font-weight: normal;
-}
-.radio-cards input[type="radio"] {
+
+/***************
+SIDE MENU
+**************/
+
+#big-map-menu {
+  @include display-flex();
+  @include flexbox-cb(-flow, column);
+  @include flexbox-cb(-wrap, nowrap);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: $menu-width;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  border: 2px solid #eee;
+  border-top: none;
+
+  form {
     margin-bottom: 0;
-}
-.radio-cards p {
-    margin: 0;
+  }
+
+  label {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  input[type=text] {
+    width: 97%;
+    height: 25px;
     font-size: 1.2rem;
-    //margin-left: 23px;
-}
+  }
 
-.radio-cards .tc:last-child {padding-left: 5px;}
+  textarea {
+    width: 97%;
+    max-width: 97%;
+    resize: vertical;
+    max-height:100px;
+    min-height:30px
+  }
 
-.zoom-reset svg {
-    margin-top: 4px;
-}
+  input {
+    &[type="checkbox"],
+    &[type='text'] {
+      margin: 0;
+    }
+  }
 
-body .select2-container--default .select2-selection--single {
-    height: 38px;
-    padding: 6px 10px;
-    background-color: #fff;
-    border: 1px solid #d1d1d1;
-    border-radius: 4px;
+  select {
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    height: 25px;
+    font-size: 1.1rem;
     box-shadow: none;
-    box-sizing: border-box;
-}
+  }
 
-body .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 24px;
-    font-size: 11px;
-}
+  /****************
+  TOOLTIP
+  *****************/
+  .tooltips-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 0;
+    font-size: 1rem;
 
-body .select2-container--default .select2-selection--single .select2-selection__arrow {
-    top: 50%;
-    transform: translateY(-50%);
-}
+    .tooltips {
+      cursor: pointer;
+      display: inline;
 
-body .select2-container {
-    width: 180px;
-}
+      &:hover {
+        transition: opacity 0.5s ease-in;
+        -webkit-transition: opacity 0.5s ease-in; /* Safari */;
 
-body .select2-container *:focus {
-    outline: none;
-}
+        &:before {
+          margin-left: 0;
+          opacity: 1;
+        }
+      }
 
-body .select2-container--default .select2-results__option--highlighted[aria-selected] {
-      background-color: #aaa;
-}
+      &:before {
+        position: fixed;
+        max-width: 300px;
+        margin-top: 10px;
+        margin-left: -2000px; /* IE fix for incompatability with pointer-events: none */
+        padding: 8px;
 
-body .select2-results__option {
-    font-size: 11px;
-    margin-bottom: 1px;
-}
+        background: white;
+        border: $light-grey 1px solid;
+        border-radius: 3px;
 
-body .select2-container--default .select2-results > .select2-results__options {
-    max-height: 250px;
-}
+        color: $dark-grey;
+        font-weight: bold;
+        content: attr(data-tooltip);
 
-body .select2-container--default .select2-selection--single .select2-selection__arrow b {
-    border-color: #000 transparent transparent transparent;
-      border-style: solid;
-      border-width: 5px 3px 0 3px;
-      height: 0;
-      left: 50%;
-      margin-left: 0;
-      margin-top: 0px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        -webkit-transition: opacity 0.3s; /* Safari */
+
+        z-index: 8;
+        pointer-events: none;
+      }
+    }
+  }
+
+  /****************
+  MENU LABELS AND GROUP
+  *****************/
+  h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: -5px;
+  }
+
+  label {
+      color: #444;
+      font-weight: 400;
+  }
+
+  .menu-group-container{
+    overflow: hidden;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+
+    .menu-group {
+      padding: 10px;
+      min-height: 0;
+      min-width: 0;
+      border-bottom: $light-grey 2px solid;
+    }
+  }
+
+  /**************
+  NOTES + CHECKBOX
+  ***************/
+
+  #atlas_title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .notes-textarea {
+    height: 0;
+    opacity: 0;
+  }
+
+  .notes-textarea-visible {
+    height: 70px;
+    opacity: 1;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    }
+
+  .include-notes,
+  .private-map,
+  #map-lock-box,
+  .add-ons {
+    width: 90%;
+    color: #666;
+    display: inline;
+
+    label {
+      display: inline;
+      font-size: 1.2rem;
+    }
+  }
+
+  .include-notes,
+  .private-map {
+    line-height: 1.4;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    label {
+      font-size: 1.2rem;
+    }
+  }
+
+  /**************
+  PAGE ORIENTATION AND PAPER SIZE
+  ***************/
+
+  .page-sizing-and-orientation {
+    @include display-flex();
+    @include flexbox-cb(-flow, row);
+    @include flexbox-cb(-wrap, nowrap);
+    width: 160px;
+    position: relative;
+
+   .page-layout-group {
+      width: 70px;
+    }
+
+    .orientation {
+      width: 85px;
+      margin-right: 0;
       position: absolute;
-      top: 50%;
-      width: 0;
-      transform: translateX(-50%) translateY(-50%);
+      bottom: 0;
+      left: 75px;
+    }
+  }
+
+  /**************
+  BASEMAP OPTIONS
+  ***************/
+
+  .selectize-control {
+    width: 96%;
+
+    .selectize-input {
+      height: 25px;
+      font-size: 1.2rem;
+      box-shadow: none;
+      padding: 2px 8px;
+
+      input {
+        position: relative !important;
+      }
+    }
+    .selectize-dropdown {
+      height: 100px;
+
+      .selectize-dropdown-content {
+        max-height: 100px;
+      }
+    }
+  }
+
+  /**************
+  ADD-ONS
+  ***************/
+
+  .add-ons {
+    color: #666;
+
+    label {
+      display: inline;
+      line-height: 1.4;
+      margin-right: 2px;
+    }
+  }
+
+  /**************
+  PRINT ATLAS BUTTON
+  ***************/
+
+  #final-step {
+    position: absolute;
+    bottom: 20px;
+    margin-top: 10px;
+    width: 86%;
+    height: 40px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 0;
+    background-color: #444;
+    border-color: 1px solid #d1d1d1;
+
+    font-size: 1.4rem;
+    color: $light-grey;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .cancel {
+    position: absolute;
+    bottom: 0;
+    float: right;
+    width: 100%;
+    height: 20px;
+    padding-right: 10%;
+    text-align: right;
+    text-decoration: none;
+  }
+
+  @media screen and ( max-height: 567px ){
+    #final-step {
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .cancel {
+      position: relative;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  }
+} //end menu
+
+/**************
+FULL-SCREEN MAP
+***************/
+
+#big-map {
+  width: calc(100vw - #{$menu-width});
+  height: 100vh;
+  margin: 0;
+  margin-left: $menu-width;
+  padding: 0;
+
+ .field-papers-logo {
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    width: 125px;
+    z-index: 2;
+
+    img {
+      width: 125px;
+    }
+  }
+
+  /**************
+  ROW AND COL MODIFIERS
+  ***************/
+  .leaflet-control-zoom {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0px;
+    // top: 50px;
+  }
+
+  .leaflet-pelias-control {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    margin: 0px;
+  }
+
+  .col-row-modifiers {
+    width: 240px;
+    align-items: right;
+    margin-left: 5px;
+    z-index: 999;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    display: inline-block;
+
+    .col-row-modifier-box-1 {
+      z-index: -1;
+      background-color: white;
+      position: absolute;
+      top: -5px;
+      left: -2px;
+      width: 208px;
+      height: 40px;
+      border: 1px solid black;
+      border-radius: 5px;
+      border-left: none;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    .col-row-modifier-box-2 {
+      z-index: -1;
+      background-color: white;
+      position: absolute;
+      top: -5px;
+      left: -40px;
+      width: 38px;
+      height: 40px;
+      border: 1px solid black;
+      border-radius: 5px;
+      border-right: none;
+      border-bottom: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    .col-row-modifier-box-3 {
+      z-index: -1;
+      background-color: white;
+      position: absolute;
+      top: 34px;
+      left: -40px;
+      width: 38px;
+      height: 26px;
+      border: 1px solid black;
+      border-radius: 5px;
+      border-top: none;
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+    }
+
+    .col-row-modifiers-group-1 {
+      .grid-modifier-group {
+      }
+    }
+
+    .col-row-modifiers-group-2 {
+      margin-left: 5px;
+      .grid-modifier-group {
+      }
+    }
+
+    .col-row-modifiers-group {
+      display: inline-block;
+
+      .grid-modifier-group {
+        height: 30px;
+        width: 97px;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+
+        cursor: pointer;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;
+        user-select: none;
+
+        div {
+          display: inline-block;
+          width: calc(85px/3);
+          height: 30px;
+          margin: 0;
+          margin-left: -5px;
+          padding-top: 2.5px;
+
+          background-color: #fff;
+          border: 1px solid rgba($dark-grey, 0.7);
+          box-shadow: none;
+          text-align: center;
+        }
+
+        i {
+          z-index: 999;
+          margin-right: 5px;
+
+        }
+
+        .minus {
+          width: 26px;
+          background-color: #fff;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border-right: none;
+
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+
+        .plus {
+          width: 26px;
+          background-color: #fff;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          border-left: 1px solid rgba($dark-grey, 0.2);
+
+          &:hover {
+            background-color: $hover-color;
+          }
+        }
+
+        .number {
+          width: 26px;
+          text-align: center;
+          border-right: none;
+          border-left: 1px solid rgba($dark-grey, 0.2);
+        }
+      }
+    }
+  }
 }
-body .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-  border-color: transparent transparent #000 transparent;
-  border-width: 0 3px 5px 3px;
+
+/************
+SEARCH
+*************/
+
+.leaflet-pelias-search-icon {
+  width: 23px !important;
+
+  &:hover {
+    width: 23px !important;
+  }
+}
+
+
+/*******************
+LARGER THAN A TABLET
+********************/
+
+@media (#{$bp-larger-than-tablet}) {
+  /**************
+  LARGER SIDE MENU
+  ***************/
+  #big-map-menu {
+    width: 225px;
+
+    /***********
+    LARGER GENERIC
+    ************/
+
+    label {
+      font-size: 1.4rem;
+      margin-bottom: 0px;
+      margin-top: 5px;
+    }
+
+    input[type=text] {
+      height: 30px;
+    }
+
+    textarea {
+      margin-bottom: 0px;
+
+    }
+
+    input {
+      &[type="checkbox"],
+      &[type='text'] {
+        position: relative;
+        vertical-align: middle;
+        margin-bottom: 0px;
+      }
+    }
+
+    select {
+      margin-bottom: 0px;
+      height: 30px;
+    }
+
+    h5 {
+      font-size: 1.8rem;
+    }
+
+    .tooltips-container {
+      font-size: 1.2rem;
+    }
+
+    /**************
+    LARGER PAGE ORIENTATION AND PAPER SIZE
+    ***************/
+
+    .page-sizing-and-orientation {
+      @include display-flex();
+      @include flexbox-cb(-flow, row);
+      @include flexbox-cb(-wrap, wrap);
+      width: 210px;
+
+     .page-layout-group {
+        width: 95px;
+      }
+
+      .orientation {
+        width: 110px;
+        margin-right: 0;
+        left: 95px;
+      }
+    }
+
+    /**************
+    BASEMAP OPTIONS
+    ***************/
+
+    .selectize-control {
+      .selectize-input {
+        height: 30px;
+        padding: 1px 8px;
+      }
+      z-index: 999;
+    }
+
+    /**************
+    LARGER ROW AND COL MODIFIERS
+    ***************/
+    .col-row-modifiers {
+      left: 550px;
+
+      .col-row-modifiers-group {
+        width: 100%;
+
+        .grid-modifier-group {
+          height: 20px;
+          width: 90%;
+          font-size: 13px;
+        }
+      }
+    }
+
+    /**************
+    LARGER PRINT ATLAS BUTTON
+    ***************/
+    #final-step {
+      bottom: 30px;
+      width: 87%;
+      margin-left: 10px;
+      height: 50px;
+    }
+
+    @media screen and ( max-height: 690px ){
+      #final-step {
+        position: relative;
+        margin-top: 50px;
+      }
+
+      .cancel {
+        position: relative;
+        margin-top: -10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .cancel {
+      height: 30px;
+    }
+
+    #final-step,
+    .cancel {
+      font-size: 1.7rem;
+    }
+  }
+
+  #big-map {
+    margin-left: 225px;
+    width: calc(100vw - 225px);
+
+    .field-papers-logo, .field-papers-logo img {
+      width: 175px;
+    }
+  }
 }

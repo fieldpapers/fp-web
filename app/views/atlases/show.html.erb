@@ -16,7 +16,7 @@
 
       <% if Providers.derive(@atlas.provider) === 'openstreetmap'  %>
       <div class="map-overlay top-right">
-        <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
+        <%= form_for @atlas, url: compose_path, method: :put do |f| %>
           <%= f.hidden_field :north, :value=> @atlas.north %>
           <%= f.hidden_field :south, :value=> @atlas.south %>
           <%= f.hidden_field :east, :value=> @atlas.east %>
@@ -37,7 +37,7 @@
       <% end %>
 
       <div class="map-overlay bottom-right">
-        <%= form_for @atlas, url: compose_path(:select), method: :put do |f| %>
+        <%= form_for @atlas, url: compose_path, method: :put do |f| %>
           <%= f.hidden_field :north, :value=> @atlas.north %>
           <%= f.hidden_field :south, :value=> @atlas.south %>
           <%= f.hidden_field :east, :value=> @atlas.east %>

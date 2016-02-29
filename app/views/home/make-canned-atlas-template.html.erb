@@ -2,10 +2,10 @@
   <div class="twelve columns">
     <h2><%= _("Making Canned Atlases") %></h2>
 
-    <p><%= _("It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process.") % compose_index_path %></p>
-    <p><%= _("Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>") % compose_index_path %></p>
+    <p><%= _("It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process.") % compose_path %></p>
+    <p><%= _("Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>") % compose_path %></p>
 
-    <%= form_tag compose_index_path, method: :post do %>
+    <%= form_tag compose_path, method: :get do %>
       <div class="row">
         <div class="twelve columns">
           <label for="atlas_title"><%= _("Atlas title") %></label>
@@ -34,7 +34,7 @@
 
         <div class="twelve columns">
           <label for="atlas_provider"><%= _("Atlas provider") %></label>
-          <%= text_field_tag :provider, nil, placeholder: _("Tile URL template"), size: "40" %>
+          <%= text_field_tag :atlas_provider, nil, placeholder: _("Tile URL template"), size: "40" %>
           <div class="form-example">
             <p class="title"><%= _("Examples:") %></p>
             <ul>

@@ -1,15 +1,18 @@
 //= require leaflet
 //= require s3_direct_upload_progress_bars
+//= require mapbox
+//= require selectize
 
 @import "partials/base";
-@import "vendor/select2";
 @import "partials/nav";
 @import "partials/pagination";
 @import "partials/common";
 @import "partials/cards";
 @import "partials/map-cards";
 @import "partials/map";
-@import "partials/compose";
+@import "partials/compose.scss";
 @import "partials/atlases.scss";
 @import "partials/snapshots.scss";
 @import "partials/helpers";
+@import "font-awesome-sprockets";
+@import "font-awesome";

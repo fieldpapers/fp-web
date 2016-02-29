@@ -1,12 +1,12 @@
 # English translations for app package.
-# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # 
-# Translators:
 # Translators:
 # CarstenG <carsten-gerlach@gmx.de>, 2015
 # Eric Rodenbeck <erode@stamen.com>, 2015
 # F. N. <hosteddinner@googlemail.com>, 2015
+# Ian Ross <iross@cadasta.org>, 2016
 # merlinmc <merlin@phase-2.info>, 2015
 # nebulon42, 2015
 # Sean Connelley <slconnelley@aim.com>, 2015
@@ -15,17 +15,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fieldpapers\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-06-17 19:37+0000\n"
-"Last-Translator: nebulon42\n"
+"PO-Revision-Date: 2016-02-26 18:13+0000\n"
+"Last-Translator: Ian Ross <iross@cadasta.org>\n"
 "Language-Team: German (http://www.transifex.com/fieldpapers/fieldpapers/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "\"%{place}\" could not be found."
-msgstr "\"%{place}\" konnte nicht gefunden werden."
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr "%{FieldPapers} von %{StamenDesign}"
@@ -43,16 +40,16 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} Schnappschuss"
 msgstr[1] "%{count} Schnappschüsse"
 
+msgid "%{count} page"
+msgid_plural "%{count} pages"
+msgstr[0] "%{count} Seite"
+msgstr[1] "%{count} Seite"
+
 msgid "%{time_period} ago"
 msgstr "vor %{time_period}"
 
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-Mitwirkende"
-
-msgid ""
-"(That means it's only accessible to you, if you're logged in, or by direct "
-"URL.)"
-msgstr "(Dieser Bereich ist nur aufrufbar, wenn du dich einloggst oder die URL kennst.)"
 
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers auf Twitter"
@@ -62,20 +59,26 @@ msgid ""
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr "Eine GeoJSON-Datei kann als Anhang mit dem Namen \"geojson_file\" an <a href=\"/\">fieldpapers.org</a> gesendet werden:"
 
+msgid "About"
+msgstr "About"
+
 msgid "About the Project"
 msgstr "Über das Projekt"
 
 msgid "Activity"
 msgstr "Aktivität"
 
-msgid "Add a %{UTM} grid overlay to each map?"
-msgstr "Soll der %{UTM} Gitter Overlay hinzugefügt werden?"
-
-msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
-msgstr "Das GADM Overlay hinzufügen (für die Katastrophenhilfe auf den Philippinen)"
+msgid "Add-ons"
+msgstr "Zugaben"
 
 msgid "Advanced - Field Papers"
 msgstr "Erweitert - Field Papers"
+
+msgid "All Atlases"
+msgstr "Alle Atlanten"
+
+msgid "All Snapshots"
+msgstr "Alle Schnappschüsse"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
@@ -88,14 +91,17 @@ msgstr "Atlas - Field Papers"
 msgid "Atlas Creation Failed"
 msgstr "Atlas-Erstellung fehlgeschlagen"
 
-msgid "Atlas Name"
-msgstr "Atlasname"
-
 msgid "Atlas Rendering"
 msgstr "Atlas Rendering"
 
+msgid "Atlas Title"
+msgstr "Atlastitel"
+
 msgid "Atlas description"
 msgstr "Atlas-Beschreibung"
+
+msgid "Atlas information"
+msgstr "Atlasinformation"
 
 msgid "Atlas location"
 msgstr "Atlas-Ort"
@@ -118,8 +124,14 @@ msgstr "Atlanten"
 msgid "Atlases - Field Papers"
 msgstr "Atlanten - Field Papers"
 
+msgid "Basemap"
+msgstr "Basiskarte"
+
 msgid "Bing"
 msgstr "Bing"
+
+msgid "Cancel"
+msgstr "Löschen"
 
 msgid "Capture your notes"
 msgstr "Erfasse deine Notizen"
@@ -132,11 +144,16 @@ msgid ""
 "code)."
 msgstr "Wähle eine Atlas-Seite zum Hochladen aus. Mit Hilfe des QR-Codes finden wir heraus, wo diese hingehört."
 
+msgid "Click for more information."
+msgstr "Klicken für weitere Information."
+
 msgid "Copy this atlas"
 msgstr "Kopiere diesen Atlas"
 
-msgid "Describe"
-msgstr "Beschreibe"
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
+msgstr "Verbindung mit JOSM fehlgeschlagen.  Gewährleisten, dass JOSM funktioniert, und dass die \"Remote Control\" Funktionalität in \"Preferences\" aktiv ist."
 
 msgid "Development Blog"
 msgstr "Entwickler-Blog"
@@ -170,9 +187,6 @@ msgstr "Daten Exportieren"
 msgid "Field Papers"
 msgstr "Field Papers"
 
-msgid "Finished!"
-msgstr "Fertig!"
-
 msgid "From"
 msgstr "Von"
 
@@ -184,6 +198,12 @@ msgstr "Geojson Data"
 
 msgid "Geojson File"
 msgstr "Geojson Datei"
+
+msgid "GitHub Issues"
+msgstr "GitHub Probleme"
+
+msgid "Grid layout"
+msgstr "Gitteranordnung"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "Handgezeichnete Grafik, die einen Field Papers Atlas in der freien Wildbahn repräsentiert."
@@ -204,6 +224,12 @@ msgid ""
 msgstr "Wenn es länger als eine Stunde dauert, überprüfe bitte %{twitter_link} auf System Status Updates und emaile uns unter %{email_link}, falls dein Atlas hängt."
 
 msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
+msgstr "Wenn du dich entscheidest, Notizen zu inkludieren, wird deine Karte auf der oberen Hälfte der Seite ausgedruckt, während Notizen auf der unteren Hälfte abgebildet werden.  Ansonsten werden Karten auf einer ganzen Seite abgebildet."
+
+msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
@@ -213,6 +239,12 @@ msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
 msgstr "Es ist möglich Atlanten aus unbearbeiteten GeoJSON-Dateien zu erstellen. Dies kann auf zwei Arten geschehen:"
+
+msgid "JOSM"
+msgstr "JOSM"
+
+msgid "Keep atlas private"
+msgstr "Atlas privat halten"
 
 msgid "LOG IN"
 msgstr "ANMELDEN"
@@ -225,9 +257,6 @@ msgid ""
 "href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Breitengrad, Längengrad und optional Zoom. Benutze <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> um neue Werte zu erstellen."
 
-msgid "Layout"
-msgstr "Layout"
-
 msgid "Location and zoom"
 msgstr "Ort und Zoom"
 
@@ -236,6 +265,9 @@ msgstr "ERSTELLE"
 
 msgid "Make - Field Papers"
 msgstr "Erstellen - Field Papers"
+
+msgid "Make Atlas"
+msgstr "Atlas erstellen"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Stelle sicher, dass der Scan oder das Foto/Bild eine Auflösung von mindestens 200dpi hat."
@@ -263,17 +295,8 @@ msgstr "Kartendaten %{OSMCopyright}, %{Toner} von Stamen, %{Bing} von Microsoft,
 msgid "Mapbox"
 msgstr "Mapbox"
 
-msgid "Maps + Notes"
-msgstr "Karten + Notizen"
-
-msgid "Maps Only"
-msgstr "nur Karten"
-
 msgid "Menu"
 msgstr "Menu"
-
-msgid "Next"
-msgstr "Weiter"
 
 msgid "No atlases."
 msgstr "Keine Atlanten."
@@ -281,8 +304,17 @@ msgstr "Keine Atlanten."
 msgid "No snapshots."
 msgstr "Keine Schnappschüsse."
 
-msgid "Notes (only shown on half-page atlases)"
-msgstr "Notizen (werden nur auf halbseitigen Atlanten angezeigt)"
+msgid "Notes"
+msgstr "Notizen"
+
+msgid "Orientation"
+msgstr "Orientierung"
+
+msgid "Paper size"
+msgstr "Papierformat"
+
+msgid "Pin grid to map"
+msgstr "Gitter an die Karte anheften"
 
 msgid "Plain Text (CSV)"
 msgstr "Komma-getrennter Text (CSV)"
@@ -290,23 +322,22 @@ msgstr "Komma-getrennter Text (CSV)"
 msgid "Potlatch"
 msgstr "Potlatch"
 
+msgid "Print notes"
+msgstr "Notizen ausdrucken"
+
 msgid "Print out anywhere in the world."
 msgstr "Drucke irgendwo in der Welt aus."
 
-msgid "Private"
-msgstr "Privat"
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
+msgstr "Man kann private Atlanten nur abrufen, wenn man eingeloggt ist, oder durch eine URL, die dir im letzten Schritt bereitgestellt wird."
 
 msgid "Refresh"
 msgstr "Neu laden"
 
 msgid "Rules"
 msgstr "Regeln"
-
-msgid "Select"
-msgstr "Auswählen"
-
-msgid "ShapeFile"
-msgstr "Shape-Datei"
 
 msgid ""
 "Since this atlas is <span class='private'>private</span>, you probably "
@@ -371,14 +402,14 @@ msgstr "Tile URL-Vorlage"
 msgid "Toner"
 msgstr "Toner"
 
-msgid "Type in a location"
-msgstr "Gib einen Ort ein"
+msgid "Translations"
+msgstr "Übersetzungen"
 
 msgid "UPLOAD"
 msgstr "HOCHLADEN"
 
-msgid "UTM"
-msgstr "UTM"
+msgid "UTM Grid"
+msgstr "UTM-Gitter"
 
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
@@ -392,17 +423,11 @@ msgid ""
 " problem persists, please email %{email_url} with details."
 msgstr "Leider konnte dein Schnappschuss nicht gerendert werden. Es könnte ein zufällig auftretender Fehler sein, daher wäre es am besten den Schnappschuss neu zu erstellen. Wenn das Problem damit nicht gelöst wird, schreibe bitte eine Mail an %{email_url} mit weiteren Details."
 
-msgid "Untitled"
-msgstr "Unbenannt"
-
 msgid "Upload"
 msgstr "Hochladen"
 
 msgid "Upload Failed"
 msgstr "Hochladen Fehlgeschlagen"
-
-msgid "Upload MBTiles"
-msgstr "MBTiles hochladen"
 
 msgid "Uploading"
 msgstr "Lädt hoch"
@@ -413,20 +438,20 @@ msgstr "ZUSEHEN"
 msgid "Welcome to Field Papers"
 msgstr "Willkommen bei Field Papers"
 
-msgid "Where in the world is your atlas?"
-msgstr "Wo in der Welt ist dein Atlas?"
+msgid "Your Atlases"
+msgstr "Deine Atlanten"
+
+msgid "Your Snapshots"
+msgstr "Deine Schnappschüsse"
 
 msgid "an atlas to print"
 msgstr "einen Atlas zum Ausdrucken"
 
+msgid "anonymous"
+msgstr "anonym"
+
 msgid "iD"
 msgstr "iD"
-
-msgid "on same page"
-msgstr "auf der gleichen Seite"
-
-msgid "one per page"
-msgstr "Einer pro Seite"
 
 msgid "or create an account"
 msgstr "oder erstelle ein Konto"
@@ -439,9 +464,6 @@ msgstr "privat"
 
 msgid "recent activity"
 msgstr "kürzliche Aktivitäten"
-
-msgid "search"
-msgstr "suchen"
 
 msgid "snapshot of page %{tp}"
 msgstr "Schnappschuss der Seite %{tp}"

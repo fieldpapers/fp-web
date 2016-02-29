@@ -34,7 +34,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :compose
+  get '/compose' => 'compose#new', as: :compose
+  post '/compose' => 'compose#create'
+  put '/compose' => 'compose#update'
+
   resources :snapshots, :concerns => :pageable
 
   mount Rack::NotFound.new("public/404.html") => "activity.php"

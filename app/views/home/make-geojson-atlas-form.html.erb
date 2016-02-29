@@ -6,7 +6,7 @@
       <li>
       <p><%= _("A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:") %></p>
 
-    <%= form_tag compose_index_path, method: :post do %>
+    <%= form_tag compose_path, method: :post, multipart: true do %>
       <div class="row">
         <div class="twelve columns">
           <label for="geojson_file"><%= _("Geojson File") %></label>
@@ -24,7 +24,7 @@
     <li>
     <p><%= _("Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:") %></p>
 
-    <%= form_tag compose_index_path, method: :post do %>
+    <%= form_tag compose_path, method: :post, multipart: true do %>
       <div class="row">
         <div class="twelve columns">
           <label for="geojson_data"><%= _("Geojson Data") %></label>
