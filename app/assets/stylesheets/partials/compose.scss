@@ -613,6 +613,10 @@ LARGER THAN A TABLET
         height: 30px;
         padding: 1px 8px;
       }
+
+      .selectize-input.input-active {
+        padding-right: 30px;
+      }
       z-index: 999;
     }
 
