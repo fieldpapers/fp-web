@@ -477,35 +477,39 @@ L.PageComposer = L.Class.extend({
     },
 
     _onSearch: function(){
-      var geocoder = L.control.geocoder('search-w9J1EjM', {
-          markers: false
-        }).addTo(this.map);
+      try {
+        var geocoder = L.control.geocoder('search-w9J1EjM', {
+            markers: false
+          }).addTo(this.map);
 
-      var self = this;
+        var self = this;
 
-      function unlockGrid(self){
-        if (self.refs.locked){
-        //uncheck the "pin to nw corner" box
-          document.getElementById('map-lock-box').childNodes[1].checked = false;
+        function unlockGrid(self){
+          if (self.refs.locked){
+          //uncheck the "pin to nw corner" box
+            document.getElementById('map-lock-box').childNodes[1].checked = false;
 
-          self.refs.locked = false;
-          self._render();
+            self.refs.locked = false;
+            self._render();
+          }
+
+          self.refs.was_locked = false;
+          self.refs.lock_change = false;
+
+          self._updateToolDimensions();
+          self.fire("change");
         }
 
-        self.refs.was_locked = false;
-        self.refs.lock_change = false;
+        L.DomEvent.addListener(geocoder, 'select', function(){
+          unlockGrid(self);
+        }, self);
 
-        self._updateToolDimensions();
-        self.fire("change");
+        L.DomEvent.addListener(geocoder, 'highlight', function(){
+          unlockGrid(self);
+        }, self);
+      } catch (err) {
+        console.warn(err.stack);
       }
-
-      L.DomEvent.addListener(geocoder, 'select', function(){
-        unlockGrid(self);
-      }, self);
-
-      L.DomEvent.addListener(geocoder, 'highlight', function(){
-        unlockGrid(self);
-      }, self);
     },
 
     _onMapLock: function(){
