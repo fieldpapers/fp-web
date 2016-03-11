@@ -7,6 +7,7 @@ module FieldPapers
   TASK_BASE_URL = ENV["TASK_BASE_URL"] || "http://tasks.fieldpapers.org"
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "http://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
+  OSM_BASE_URL = ENV["OSM_BASE_URL"] || "http://www.openstreetmap.org"
 
   if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
