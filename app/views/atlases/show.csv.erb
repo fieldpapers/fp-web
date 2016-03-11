@@ -1,5 +1,5 @@
-<%# TODO: populate empty fields and other activity  %>
-<%= CSV.generate_line(['type', 'href', 'title', 'created', 'person_href', 'geometry', 'atlas_page_href', 'snapshot_href', 'note']).html_safe %>
+<%# TODO: populate empty fields and other activity  -%>
+<%= CSV.generate_line(['type', 'href', 'title', 'created', 'person_href', 'geometry', 'atlas_page_href', 'snapshot_href', 'note']).html_safe -%>
 <%= CSV.generate_line(['atlas',
     atlas_url(@atlas),
     @atlas.title,
@@ -9,9 +9,8 @@
     "",
     "",
     ""
-  ]).html_safe %>
-
-<% if @atlas.snapshots %>
+  ]).html_safe -%>
+<% if @atlas.snapshots -%>
   <%- @atlas.snapshots.each do |snapshot| -%>
 
     <%= CSV.generate_line(['snapshot',
@@ -23,8 +22,7 @@
       atlas_url(@atlas) + "/" + snapshot.page.page_number,
       "",
       ""
-    ]).html_safe %>
+    ]).html_safe -%>
   <%- end -%>
 <% end %>
-
-<%# Notes should go here, if we keep them%>
+<%# Notes should go here, if we keep them -%>
