@@ -7,6 +7,13 @@
 
 
   compose.select = function(settings) {
+    // copy min/max zoom into Leaflet options
+    Object.keys(settings.tileProviders).forEach(function(k) {
+      var p = settings.tileProviders[k];
+      p.options.minZoom = p.minzoom;
+      p.options.maxZoom = p.maxzoom;
+    });
+
     var __ = {};
 
     var intitle = paramByName('title'), intext = paramByName('text');
