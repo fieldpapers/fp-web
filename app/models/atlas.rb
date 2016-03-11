@@ -417,8 +417,7 @@ private
     provider_key = Providers.derive provider
 
     Providers.layers.select do |k,v|
-      k.to_s == provider_key
-      #v[:template] == provider
+      k.to_s == provider_key || v["template"] == provider
     end.values.first
   end
 
@@ -426,11 +425,11 @@ private
     z = (BASE_ZOOM - Math.log2((((east * (2**(BASE_ZOOM + 8))) / 360) - ((west * (2**(BASE_ZOOM + 8))) / 360)) / (canvas_size[0] * TARGET_RESOLUTION_PPI))).round
     info = provider_info || {}
 
-    info[:minzoom] ||= 0
-    info[:maxzoom] ||= 18
+    info["minzoom"] ||= 0
+    info["maxzoom"] ||= 18
 
     # clamp zoom to the available zoom range
-    [info[:minzoom], z, info[:maxzoom]].sort[1]
+    [info["minzoom"], z, info["maxzoom"]].sort[1]
   end
 
   def create_pages
