@@ -10,6 +10,7 @@
     // copy min/max zoom into Leaflet options
     Object.keys(settings.tileProviders).forEach(function(k) {
       var p = settings.tileProviders[k];
+      p.options = p.options || {};
       p.options.minZoom = p.minzoom;
       p.options.maxZoom = p.maxzoom;
     });
