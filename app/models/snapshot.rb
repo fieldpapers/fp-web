@@ -229,7 +229,7 @@ class Snapshot < ActiveRecord::Base
     base_uri = URI.parse(FieldPapers::BASE_URL)
 
     if uri.hostname == base_uri.hostname && uri.port == base_uri.port
-      (atlas_slug, page_number) = if uri.query
+      (atlas_slug, page_number) = if uri.query =~ /id=/
         CGI.parse(uri.query)["id"][0].split("/")
       else
         uri.path.split("/").slice(-2, 2)
