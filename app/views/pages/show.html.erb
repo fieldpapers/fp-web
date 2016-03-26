@@ -34,7 +34,7 @@
             <%= f.button _("Copy this atlas") %>
           <% end %>
 
-          <% if @page.atlas.pdf_url %><a href="<%= @page.atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
+          <% if @page.pdf_url %><a href="<%= @page.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
         </div>
 
         <div id="map" class="page-view"></div>
