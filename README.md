@@ -64,25 +64,43 @@ need to run `docker-compose build` in order to recreate the base `web` image.
 If you've just made chanegs to `Gemfile`, run `docker-compose run web bundle`.
 
 If this is the first time you're running this (or have pending migrations),
-you'll need to (optionally) load data and run the migrations:
+you'll need to ssh into the docker `fpweb_web_1` container:
+
+    ```bash
+    docker exec -it fpweb_web_1 bash
+    ```
+
+Then you'll run the following `rake` commands:
+
+    ```bash
+    rake db:create && rake db:schema:load
+    ```
 
 ```bash
-gzip -dc ../data/fieldpapers.sql.gz | \
-  docker run \
-  -i \
-  --rm \
-  --link fpweb_db_1:db \
-  mysql \
-  mysql -uroot -pfp -h db fieldpapers_development
-docker run \
-  -it \
-  --rm \
-  -v $(pwd)/db:/app/db \
-  -e DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development \
-  --link fpweb_db_1:db \
-  fpweb_web:latest \
-  rake db:migrate
+helpful docker and docker-compose commands
 ```
+To get a list of docker images ( and versions ) that the containers are running:
+
+    ```bash
+    $ docker images
+    REPOSITORY             TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    fpweb_web              latest              60c68a29c91e        2 days ago          940.4 MB
+    mysql                  latest              c607d9b50dfa        9 days ago          374.1 MB
+    fieldpapers/tasks      v0.3.2              f5d276cbb93a        11 months ago       732.9 MB
+    ```
+
+To see a list of the containers and their state that are running under `docker-compose`:
+
+    ```bash
+    $ docker-compose ps
+        Name                   Command               State           Ports
+    -------------------------------------------------------------------------------
+    fpweb_db_1      docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
+    fpweb_tasks_1   /bin/sh -c avahi-daemon -D ...   Up
+    fpweb_tiler_1   /bin/sh -c npm start             Up      0.0.0.0:8080->8080/tcp
+    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp
+    ```
+
 
 ### Running Locally
 
@@ -226,7 +244,7 @@ they are available to the environment in which Rails is running.
 * `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
   be granted access to send from this)
 * `BASE_URL` - Site base URL (Network-accessible, i.e. from a Docker container).
-* `S3_BUCKET_NAME` - S3 bucket for file storage. Defaults to
+* `S3_BUCKET_NAME` - S3 bucket for file storage. Required. Some enpoints might be
   `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
   (test), and `files.fieldpapers.org` (production).
 * `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
@@ -249,6 +267,9 @@ they are available to the environment in which Rails is running.
 * `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
   unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
   Optional.
+* `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
+  moves to the state 'complete' fieldpapers will POST the JSON representation
+  of the atlas to each URL.
 
 ### Running Tests
 
