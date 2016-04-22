@@ -43,9 +43,9 @@ tiler:
     - web
   ports:
     - 8080:8080
-mdns:
-  image: fieldpapers/mdns
-  environment:
-  # workaround for hostname conflicting with net=host
-    - HOSTNAME=fieldpapers
-  net: host
+#mdns:
+#  image: fieldpapers/mdns
+#  environment:
+#  # workaround for hostname conflicting with net=host
+#    - HOSTNAME=fieldpapers
+#  net: host
