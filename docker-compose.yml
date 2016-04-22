@@ -35,7 +35,7 @@ tasks:
   env_file: .env
   net: container:web
 tiler:
-  image: fieldpapers/tiler:v0.1.1
+  image: quay.io/fieldpapers/tiler:v0.2.0
   env_file: .env
   environment:
     - API_BASE_URL=http://web:3000/
