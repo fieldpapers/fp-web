@@ -31,7 +31,7 @@ web:
     - ./public:/app/public
     - ./test:/app/test
 tasks:
-  image: fieldpapers/tasks:v0.3.2
+  image: quay.io/fieldpapers/tasks:v0.10.2
   env_file: .env
   net: container:web
 tiler:
