@@ -255,7 +255,7 @@ class Atlas < ActiveRecord::Base
       rsp = http_client.post "#{url}", { atlas: self.to_json }
       if rsp.status < 200 || rsp.status >= 300
         logger.error("Got #{rsp.status}: #{rsp.body}")
-        #Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+        Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
       end
     end
   end
