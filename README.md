@@ -77,25 +77,25 @@ Some helpful `docker` and `docker-compose` commands to know:
 
 0. To get a list of docker images ( and versions ) that the containers are running:
 
-```bash
-$ docker images
-REPOSITORY             TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-fpweb_web              latest              60c68a29c91e        2 days ago          940.4 MB
-mysql                  latest              c607d9b50dfa        9 days ago          374.1 MB
-fieldpapers/tasks      v0.3.2              f5d276cbb93a        11 months ago       732.9 MB
-```
+    ```bash
+    $ docker images
+    REPOSITORY             TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    fpweb_web              latest              60c68a29c91e        2 days ago          940.4 MB
+    mysql                  latest              c607d9b50dfa        9 days ago          374.1 MB
+    fieldpapers/tasks      v0.3.2              f5d276cbb93a        11 months ago       732.9 MB
+    ```
 
 0. To see a list of the containers and their state that are running under `docker-compose`:
 
-```bash
-$ docker-compose ps
-    Name                   Command               State           Ports
--------------------------------------------------------------------------------
-fpweb_db_1      docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
-fpweb_tasks_1   /bin/sh -c avahi-daemon -D ...   Up
-fpweb_tiler_1   /bin/sh -c npm start             Up      0.0.0.0:8080->8080/tcp
-fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp
-```
+    ```bash
+    $ docker-compose ps
+        Name                   Command               State           Ports
+    -------------------------------------------------------------------------------
+    fpweb_db_1      docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
+    fpweb_tasks_1   /bin/sh -c avahi-daemon -D ...   Up
+    fpweb_tiler_1   /bin/sh -c npm start             Up      0.0.0.0:8080->8080/tcp
+    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp
+    ```
 
 
 ### Running Locally
