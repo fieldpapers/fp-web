@@ -250,6 +250,17 @@ class Atlas < ActiveRecord::Base
 
   def on_complete_entry(previous_state, event)
     update(composed_at: Time.now, progress: 1)
+
+    if FieldPapers::POSM_ADMIN_WEBHOOK_URL.nil?
+      logger.error("to update POSM webhooks set the environment variable 'POSM_ADMIN_WEBHOOK_URL'")
+      return
+    end
+
+    rsp = http_client.post "#{FieldPapers::POSM_ADMIN_WEBHOOK_URL}", { atlas: self.to_json }
+    if rsp.status < 200 || rsp.status >= 300
+      logger.error("Got #{rsp.status}: #{rsp.body}")
+      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+    end
   end
 
   def on_failed_entry(previous_state, event)
