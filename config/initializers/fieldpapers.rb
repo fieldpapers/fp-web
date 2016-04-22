@@ -8,7 +8,7 @@ module FieldPapers
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "http://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
   OSM_BASE_URL = ENV["OSM_BASE_URL"] || "http://www.openstreetmap.org"
-  POSM_ADMIN_WEBHOOK_URL = ENV["POSM_ADMIN_WEBHOOK_URL"] || nil
+  ATLAS_COMPLETE_WEBHOOKS = ENV["ATLAS_COMPLETE_WEBHOOKS"] || ""
 
   if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
