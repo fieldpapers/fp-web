@@ -33,6 +33,8 @@ web:
 tasks:
   image: fieldpapers/tasks:v0.3.2
   env_file: .env
+  environment:
+    - API_BASE_URL=http://web:3000/
   net: container:web
 tiler:
   image: fieldpapers/tiler:v0.1.1
