@@ -1,2 +1,1 @@
-<%# atlas_to_geojson is in atlases_helper.rb %>
-<%= atlas_to_geojson(@atlas).to_json.html_safe %>
+<%= @atlas.as_geojson.html_safe %>

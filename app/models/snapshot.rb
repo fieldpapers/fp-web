@@ -325,6 +325,53 @@ class Snapshot < ActiveRecord::Base
     write_attribute(:s3_scene_url, (CGI.unescape(escaped_url) rescue nil))
   end
 
+  def as_polygon
+    [[
+         [west, south],
+         [west, north],
+         [east, north],
+         [east, south],
+         [west, south]
+     ]]
+  end
+
+  def as_url
+    Rails.application.routes.url_helpers.url_for(controller: "snapshots", action: "show", id: self.slug, host: ENV['BASE_URL'])
+  end
+
+  def as_person_href
+    if self.user_id?
+      self.as_url + "?" + "user=" + self.user_id.to_s
+    end
+  end
+
+  def as_feature
+    {
+        type: 'Feature',
+        properties: {
+            type: 'snapshot',
+            title: self.title,
+            description: self.description,
+            uploader: self.uploader_name,
+            created: self.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
+            min_row: self.min_row,
+            max_row: self.max_row,
+            min_column: self.min_column,
+            max_column: self.max_column,
+            min_zoom: self.min_zoom,
+            max_zoom: self.max_zoom,
+            base_url: self.base_url,
+            url: self.as_url,
+            url_page: self.as_url + "/" + self.page.page_number,
+            url_uploader: self.as_person_href,
+        },
+        geometry: {
+            type: 'Polygon',
+            coordinates: self.as_polygon
+        }
+    }
+  end
+
 private
 
   def apply_defaults

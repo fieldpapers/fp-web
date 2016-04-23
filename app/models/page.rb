@@ -61,4 +61,33 @@ class Page < ActiveRecord::Base
     # TODO add me in a migration
     ""
   end
+
+  def as_polygon
+    [[
+         [west, south],
+         [west, north],
+         [east, north],
+         [east, south],
+         [west, south]
+    ]]
+  end
+
+  def as_feature
+    {
+        type: 'Feature',
+        properties: {
+            type: 'page',
+            provider: self.provider,
+            page_number: self.page_number,
+            zoom: self.zoom,
+            created: self.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
+            url: self.atlas.as_url + "/" + self.page_number,
+        },
+        geometry: {
+            type: 'Polygon',
+            coordinates: self.as_polygon
+        }
+    }
+  end
+
 end
