@@ -240,7 +240,7 @@ they are available to the environment in which Rails is running.
 * `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
   be granted access to send from this)
 * `BASE_URL` - Site base URL (Network-accessible, i.e. from a Docker container).
-* `S3_BUCKET_NAME` - S3 bucket for file storage. Required. Some enpoints might be
+* `S3_BUCKET_NAME` - S3 bucket for file storage. Required. Some endpoints might be
   `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
   (test), and `files.fieldpapers.org` (production).
 * `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
@@ -264,7 +264,7 @@ they are available to the environment in which Rails is running.
   unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
   Optional.
 * `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
-  moves to the state 'complete' fieldpapers will POST the JSON representation
+  moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
 
 ### Running Tests
