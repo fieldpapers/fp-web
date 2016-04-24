@@ -255,7 +255,7 @@ class Atlas < ActiveRecord::Base
     for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/)
       atlas_json = nil
       begin
-        atlas_json = self.as_geojson
+        atlas_json = self.as_json(geojson: true)
       rescue Exception => e
         logger.error(e)
       end
@@ -447,6 +447,14 @@ class Atlas < ActiveRecord::Base
         type: 'FeatureCollection',
         features: [atlas_feature] + self.pages.map{ |p| p.as_feature } + self.snapshots.map{ |s| s.as_feature }
     }.to_json
+  end
+
+  def as_json(options = nil)
+    if options and options[:geojson]
+      as_geojson
+    else
+      super(options || {})
+    end
   end
 
 private
