@@ -78,8 +78,8 @@ If `docker.local` doesn't work, you'll need to update `docker-compose.yml` to se
 docker-compose port web 8080
 ```
 
-After you make changes to the `Dockerfile` to add system dependencies, you'll
-need to run `docker-compose build` in order to recreate the base `web` image.
+Note, adding system dependencies to the `Dockerfile` requires you to
+`docker-compose build` in order to recreate the base `web` image.
 If you've just made changes to `Gemfile`, run `docker-compose run web bundle`.
 
 
@@ -89,22 +89,24 @@ Some helpful `docker` and `docker-compose` commands to know:
 
     ```bash
     $ docker images
-    REPOSITORY             TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-    fpweb_web              latest              60c68a29c91e        2 days ago          940.4 MB
-    mysql                  latest              c607d9b50dfa        9 days ago          374.1 MB
-    fieldpapers/tasks      v0.3.2              f5d276cbb93a        11 months ago       732.9 MB
+    REPOSITORY                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    fpweb_web                   latest              e2cafa474299        58 minutes ago      940.4 MB
+    quay.io/fieldpapers/tiler   v0.2.0              b2683b4d606d        3 days ago          855.9 MB
+    mysql                       latest              c607d9b50dfa        13 days ago         374.1 MB
+    ruby                        2.2.4               9168c99105ac        2 weeks ago         719.3 MB
+    quay.io/fieldpapers/tasks   v0.10.2             f637d9257755        8 weeks ago         843 MB
     ```
 
 0. To see a list of the containers and their state that are running under `docker-compose`:
 
     ```bash
     $ docker-compose ps
-        Name                   Command               State           Ports
-    -------------------------------------------------------------------------------
-    fpweb_db_1      docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
-    fpweb_tasks_1   /bin/sh -c avahi-daemon -D ...   Up
-    fpweb_tiler_1   /bin/sh -c npm start             Up      0.0.0.0:8080->8080/tcp
-    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp
+        Name                   Command               State                       Ports
+    -------------------------------------------------------------------------------------------------------
+    fpweb_db_1      docker-entrypoint.sh mysqld      Up      3306/tcp
+    fpweb_tasks_1   /bin/sh -c npm start             Up
+    fpweb_tiler_1   /bin/sh -c npm start             Up
+    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp, 0.0.0.0:8080->8080/tcp
     ```
 
 
