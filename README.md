@@ -70,9 +70,9 @@ The app will now be running on port 3000 on the Docker host. If you're lucky, it
 at [`docker.local:3000`](http://docker.local:3000), otherwise you'll need to determine the IP of
 your Docker host (`localhost` on Linux) and use that in place of `docker.local`.
 
-You'll also need to update `docker-compose.yml` to set `TILE_BASE_URL` (in the `environment` section
-of `web`) to reflect your Docker host's IP. In my case, it's `192.168.64.6`. You should be able to
-determine appropriate values using:
+If `docker.local` doesn't work, you'll need to update `docker-compose.yml` to set `TILE_BASE_URL`
+(in the `environment` section of `web`) to reflect your Docker host's IP. In my case, it's
+`192.168.64.6`. You should be able to determine appropriate values using:
 
 ```bash
 docker-compose port web 8080
