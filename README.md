@@ -42,35 +42,40 @@ local `Dockerfile`s or from remote repositories.
 
 #### Starting
 
-This will fetch and build images as appropriate. If it doesn't work the first
-time (usually when building an image), try it again.
+This will fetch and build images as appropriate, logging `STDOUT` from all containers.
+
+```bash
+docker-compose build
+```
+
+If this is the first time you're running this, you'll need to load the schema into MySQL:
+
+```bash
+docker-compose run web rake db:schema:load
+```
+
+If you have pending migrations, run:
+
+```bash
+docker-compose run web rake db:migrate
+```
+
+To start the stack, logging `STDOUT` from all containers:
 
 ```bash
 docker-compose up
 ```
 
-The app will now be running on port 3000 on the Docker host, conveniently
-announcing itself as `fieldpapers.local`. Thus,
-`http://fieldpapers.local:3000/`.
+The app will now be running on port 3000 on the Docker host. If you're lucky, it will be available
+at [`docker.local:3000`](http://docker.local:3000), otherwise you'll need to determine the IP of
+your Docker host (`localhost` on Linux) and use that in place of `docker.local`.
 
-To see logs for other processes (web will display), run this in another window/tab:
-
-```bash
-docker-compose logs
-```
+You'll also need to update `docker-compose.yml` to set `BASE_URL` and `TILE_BASE_URL` (in the
+`environment` section of `web`) to reflect your Docker host's IP. In my case, it's `192.168.64.6`.
 
 After you make changes to the `Dockerfile` to add system dependencies, you'll
 need to run `docker-compose build` in order to recreate the base `web` image.
-If you've just made chanegs to `Gemfile`, run `docker-compose run web bundle`.
-
-If this is the first time you're running this (or have pending migrations),
-you'll need to ssh into the docker `fpweb_web_1` container:
-
-    docker exec -it fpweb_web_1 bash
-
-Then you'll run the following `rake` commands:
-
-    rake db:create && rake db:schema:load
+If you've just made changes to `Gemfile`, run `docker-compose run web bundle`.
 
 
 Some helpful `docker` and `docker-compose` commands to know:
