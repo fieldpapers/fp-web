@@ -45,6 +45,7 @@ require "json"
 class Atlas < ActiveRecord::Base
   include FriendlyId
   include Workflow
+  include Rails.application.routes.url_helpers
 
   INDEX_BUFFER_FACTOR = 0.1
   OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
@@ -253,15 +254,11 @@ class Atlas < ActiveRecord::Base
     update(composed_at: Time.now, progress: 1)
 
     for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/)
-      atlas_json = nil
       begin
         atlas_json = self.as_json(geojson: true)
       rescue Exception => e
         logger.error(e)
-      end
-
-      if atlas_json.nil?
-        return
+        next
       end
 
       #logger.debug("[ JSON ]: #{atlas_json}")
@@ -405,53 +402,55 @@ class Atlas < ActiveRecord::Base
     !failed_at.nil?
   end
 
-  def as_url
-    Rails.application.routes.url_helpers.url_for(controller: "atlases", action: "show", id: self.slug, host: ENV['BASE_URL'])
+  def page_coordinates
+    self.pages.map{ |p| p.as_polygon }
   end
 
-  def as_person_href
-    if self.user_id?
-      self.as_url + "?" + "user=" + self.user_id.to_s
-    end
+  def page_features
+    self.pages.map{ |p| p.as_json(geojson: true) }
   end
 
-  def as_geojson
+  def snapshot_features
+    self.snapshots.map{ |s| s.as_json(geojson: true) }
+  end
+
+  def as_feature_collection
     atlas_feature =  {
-        type: 'Feature',
-        properties: {
-            type: 'atlas',
-            creator: self.creator_name,
-            title: self.title,
-            description: self.text,
-            providers: self.provider,
-            paper_size: self.paper_size,
-            orientation: self.orientation,
-            layout: self.layout,
-            zoom: self.zoom,
-            rows: self.rows,
-            cols: self.cols,
-            pages: self.atlas_pages,
-            created: self.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
-            url: self.as_url,
-            url_pdf: self.pdf_url,
-            url_user: self.as_person_href
-        },
-        geometry: {
-            type: 'MultiPolygon',
-            coordinates: self.pages.map{ |p| p.as_polygon }
-        }
+      type: 'Feature',
+      properties: {
+        type: 'atlas',
+        creator: creator_name,
+        title: title,
+        description: text,
+        providers: provider,
+        paper_size: paper_size,
+        orientation: orientation,
+        layout: layout,
+        zoom: zoom,
+        rows: rows,
+        cols: cols,
+        pages: atlas_pages,
+        created: created_at.to_s(:iso8601),
+        url: atlas_url(self),
+        url_pdf: pdf_url,
+        url_user: creator ? user_url(creator) : nil
+      },
+      geometry: {
+        type: 'MultiPolygon',
+        coordinates: page_coordinates
+      }
     }
 
     # build the feature collection
     {
-        type: 'FeatureCollection',
-        features: [atlas_feature] + self.pages.map{ |p| p.as_feature } + self.snapshots.map{ |s| s.as_feature }
-    }.to_json
+      type: 'FeatureCollection',
+      features: [atlas_feature] + page_features + snapshot_features
+    }
   end
 
   def as_json(options = nil)
-    if options and options[:geojson]
-      as_geojson
+    if options && options[:geojson]
+      as_feature_collection
     else
       super(options || {})
     end

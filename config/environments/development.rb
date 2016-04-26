@@ -33,6 +33,11 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.logger = Logger.new(STDOUT)
+  config.log_formatter = ::Logger::Formatter.new
+  config.log_level = :debug
+
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
@@ -44,4 +49,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # this allows us to use url_helpers in models without passing all the args
+  config.after_initialize do
+    Rails.application.routes.default_url_options[:host] = ENV['BASE_URL']
+  end
 end

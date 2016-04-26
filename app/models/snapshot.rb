@@ -49,6 +49,7 @@ require "raven"
 class Snapshot < ActiveRecord::Base
   include FriendlyId
   include Workflow
+  include Rails.application.routes.url_helpers
 
   # friendly_id configuration
 
@@ -327,49 +328,47 @@ class Snapshot < ActiveRecord::Base
 
   def as_polygon
     [[
-         [west, south],
-         [west, north],
-         [east, north],
-         [east, south],
-         [west, south]
+      [west, south],
+      [west, north],
+      [east, north],
+      [east, south],
+      [west, south]
      ]]
-  end
-
-  def as_url
-    Rails.application.routes.url_helpers.url_for(controller: "snapshots", action: "show", id: self.slug, host: ENV['BASE_URL'])
-  end
-
-  def as_person_href
-    if self.user_id?
-      self.as_url + "?" + "user=" + self.user_id.to_s
-    end
   end
 
   def as_feature
     {
-        type: 'Feature',
-        properties: {
-            type: 'snapshot',
-            title: self.title,
-            description: self.description,
-            uploader: self.uploader_name,
-            created: self.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
-            min_row: self.min_row,
-            max_row: self.max_row,
-            min_column: self.min_column,
-            max_column: self.max_column,
-            min_zoom: self.min_zoom,
-            max_zoom: self.max_zoom,
-            base_url: self.base_url,
-            url: self.as_url,
-            url_page: self.as_url + "/" + self.page.page_number,
-            url_uploader: self.as_person_href,
-        },
-        geometry: {
-            type: 'Polygon',
-            coordinates: self.as_polygon
-        }
+      type: 'Feature',
+      properties: {
+        type: 'snapshot',
+        title: title,
+        description: description,
+        uploader: uploader_name,
+        created: created_at.to_s(:iso8601),
+        min_row: min_row,
+        max_row: max_row,
+        min_column: min_column,
+        max_column: max_column,
+        min_zoom: min_zoom,
+        max_zoom: max_zoom,
+        base_url: base_url,
+        url: snapshot_url(self),
+        url_page: snapshot_url(self) + "/" + page.page_number,
+        url_uploader: uploader ? user_url(uploader) : nil,
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: as_polygon
+      }
     }
+  end
+
+  def as_json(options = nil)
+    if options && options[:geojson]
+      as_feature
+    else
+      super(options || {})
+    end
   end
 
 private
