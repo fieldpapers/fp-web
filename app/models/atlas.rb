@@ -253,7 +253,7 @@ class Atlas < ActiveRecord::Base
   def on_complete_entry(previous_state, event)
     update(composed_at: Time.now, progress: 1)
 
-    for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/)
+    for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/) do
       begin
         atlas_json = self.as_json(geojson: true)
       rescue Exception => e
