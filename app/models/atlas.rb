@@ -1,6 +1,7 @@
 require "paper"
 require "providers"
 require "raven"
+require "json"
 
 # == Schema Information
 #
@@ -44,6 +45,7 @@ require "raven"
 class Atlas < ActiveRecord::Base
   include FriendlyId
   include Workflow
+  include Rails.application.routes.url_helpers
 
   INDEX_BUFFER_FACTOR = 0.1
   OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
@@ -250,6 +252,22 @@ class Atlas < ActiveRecord::Base
 
   def on_complete_entry(previous_state, event)
     update(composed_at: Time.now, progress: 1)
+
+    for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/) do
+      begin
+        atlas_json = self.as_json(geojson: true)
+      rescue Exception => e
+        logger.error(e)
+        next
+      end
+
+      #logger.debug("[ JSON ]: #{atlas_json}")
+      rsp = http_client.post "#{url}", { atlas: atlas_json }
+      if rsp.status < 200 || rsp.status >= 300
+        logger.error("Got #{rsp.status}: #{rsp.body}")
+        Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      end
+    end
   end
 
   def on_failed_entry(previous_state, event)
@@ -384,6 +402,60 @@ class Atlas < ActiveRecord::Base
     !failed_at.nil?
   end
 
+  def page_coordinates
+    self.pages.map{ |p| p.as_polygon }
+  end
+
+  def page_features
+    self.pages.map{ |p| p.as_json(geojson: true) }
+  end
+
+  def snapshot_features
+    self.snapshots.map{ |s| s.as_json(geojson: true) }
+  end
+
+  def as_feature_collection
+    atlas_feature =  {
+      type: 'Feature',
+      properties: {
+        type: 'atlas',
+        creator: creator_name,
+        title: title,
+        description: text,
+        providers: provider,
+        paper_size: paper_size,
+        orientation: orientation,
+        layout: layout,
+        zoom: zoom,
+        rows: rows,
+        cols: cols,
+        pages: atlas_pages,
+        created: created_at.to_s(:iso8601),
+        url: atlas_url(self),
+        url_pdf: pdf_url,
+        url_user: creator ? user_url(creator) : nil
+      },
+      geometry: {
+        type: 'MultiPolygon',
+        coordinates: page_coordinates
+      }
+    }
+
+    # build the feature collection
+    {
+      type: 'FeatureCollection',
+      features: [atlas_feature] + page_features + snapshot_features
+    }
+  end
+
+  def as_json(options = nil)
+    if options && options[:geojson]
+      as_feature_collection
+    else
+      super(options || {})
+    end
+  end
+
 private
 
   def all_pages_rendered?
@@ -504,4 +576,5 @@ private
       faraday.adapter Faraday.default_adapter
     end
   end
+
 end

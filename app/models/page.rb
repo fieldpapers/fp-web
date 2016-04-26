@@ -25,6 +25,8 @@ require "providers"
 #
 
 class Page < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   belongs_to :atlas
 
   has_many :snapshots,
@@ -61,4 +63,41 @@ class Page < ActiveRecord::Base
     # TODO add me in a migration
     ""
   end
+
+  def as_polygon
+    [[
+      [west, south],
+      [west, north],
+      [east, north],
+      [east, south],
+      [west, south]
+    ]]
+  end
+
+  def as_feature
+    {
+      type: 'Feature',
+      properties: {
+        type: 'page',
+        provider: provider,
+        page_number: page_number,
+        zoom: zoom,
+        created: created_at.to_s(:iso8601),
+        url: atlas_url(atlas) + "/" + page_number,
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: as_polygon
+      }
+    }
+  end
+
+  def as_json(options = nil)
+    if options && options[:geojson]
+      as_feature
+    else
+      super(options || {})
+    end
+  end
+
 end
