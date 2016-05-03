@@ -35,7 +35,7 @@ web:
     - ./public:/app/public
     - ./test:/app/test
 tasks:
-  image: quay.io/fieldpapers/tasks:v0.10.2
+  image: quay.io/fieldpapers/tasks:v0.12.0
   env_file: .env
   environment:
     # this will cause generated URLs in the PDFs to look suspicious, but it will work
