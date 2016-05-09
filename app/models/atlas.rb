@@ -526,9 +526,9 @@ private
       pages.create! \
         page_number: "i",
         west: left,
-        south: south - vert_padding,
+        south: [south - vert_padding, -90].max,
         east: right,
-        north: north + vert_padding,
+        north: [north + vert_padding, 90].min,
         zoom: calculate_zoom(left, right),
         # omit UTM overlays (if present) from the index page
         provider: provider.gsub(OVERLAY_UTM, "")
@@ -546,9 +546,9 @@ private
         pages.create! \
           page_number: "#{row_names[y]}#{x + 1}",
           west: west + (x * width),
-          south: south + ((rows - y - 1) * height),
+          south: [south + ((rows - y - 1) * height), -90].max,
           east: east - ((cols - x - 1) * width),
-          north: north - (y * height),
+          north: [north - (y * height), 90].min,
           zoom: calculate_zoom(left, right),
           provider: provider
       end
