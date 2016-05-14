@@ -19,6 +19,10 @@
 <% end %>
     </div>
 
+    <div class="map-overlay top-right">
+     <p class="overlay-item">File <%= @snapshot.image_filename %></p>
+    </div>
+
     <div class="map-overlay bottom-right">
       <a href="<%= @snapshot.geotiff_url %>" class="button"><%= _("Download GeoTIFF") %></a>
     </div>

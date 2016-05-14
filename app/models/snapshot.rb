@@ -1,5 +1,6 @@
 require "providers"
 require "raven"
+require "uri"
 
 # == Schema Information
 #
@@ -294,6 +295,10 @@ class Snapshot < ActiveRecord::Base
 
   def image_url
     s3_scene_url || FieldPapers::STATIC_URI_PREFIX + scene.url
+  end
+
+  def image_filename
+    URI(URI.decode(self.image_url)).path.split('/').last
   end
 
   def latitude
