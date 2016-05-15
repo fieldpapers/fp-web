@@ -37,7 +37,12 @@
 <% content_for :foot do %>
   <script>
     $(function(){
-      FP.map.boundingBoxes('map').data(<%= raw(@atlases.to_json) %>);
+      FP.map.boundingBoxes('map',{
+        provider: "<%= Rails.application.config.atlas_index_overview_tilelayer.html_safe %>",
+        providerSettings: [{options:{
+          attribution: '<%= Rails.application.config.atlas_index_overview_attribution.html_safe %>'
+        }}]
+      }).data(<%= raw(@atlases.to_json) %>);
     });
   </script>
 <% end %>
