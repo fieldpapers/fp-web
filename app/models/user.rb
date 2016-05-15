@@ -60,6 +60,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  # override Devise to not send confirmation
+  def confirmation_required?
+    false
+  end
+
   # instance methods
 
   def init
