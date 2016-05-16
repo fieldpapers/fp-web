@@ -279,7 +279,7 @@ they are available to the environment in which Rails is running.
   moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
 * `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](http://leafletjs.com/reference.html#tilelayer). Optional.
-  Providing this url will override the header basemaps for the atlas index pages. Defaults to `http://tile.stamen.com/toner/{Z}/{X}/{Y}.jpg`
+  Providing this url will override the header basemaps for the atlas index pages. Defaults to `http://tile.stamen.com/toner/{Z}/{X}/{Y}.png`
 
 ### Running Tests
 
