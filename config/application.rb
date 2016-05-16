@@ -42,9 +42,5 @@ module App
     config.after_initialize do
       Rails.application.routes.default_url_options[:host] = FieldPapers::BASE_URL
     end
-
-    # if there is an environment variable ATLAS_MAP_OVERVIEW_TILELAYER
-    # then use that value as the atlas index map overview tilelayer
-    config.atlas_index_header_tilelayer = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
   end
 end
