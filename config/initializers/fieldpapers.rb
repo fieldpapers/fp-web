@@ -9,6 +9,7 @@ module FieldPapers
   PERSIST = ENV["PERSIST"] || "s3"
   OSM_BASE_URL = ENV["OSM_BASE_URL"] || "http://www.openstreetmap.org"
   ATLAS_COMPLETE_WEBHOOKS = ENV["ATLAS_COMPLETE_WEBHOOKS"] || ""
+  ATLAS_INDEX_HEADER_TILELAYER = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
 
   if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
