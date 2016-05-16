@@ -37,10 +37,13 @@
 <% content_for :foot do %>
   <script>
     $(function(){
+      var providerTemplate = "<%= Rails.application.config.atlas_index_header_tilelayer.html_safe %>";
+      var providerAttribution = (providerTemplate.search("tile.stamen.com") === -1) ? '' :
+        'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
       FP.map.boundingBoxes('map',{
-        provider: "<%= Rails.application.config.atlas_index_overview_tilelayer.html_safe %>",
+        provider: providerTemplate,
         providerSettings: [{options:{
-          attribution: '<%= Rails.application.config.atlas_index_overview_attribution.html_safe %>'
+          attribution: providerAttribution
         }}]
       }).data(<%= raw(@atlases.to_json) %>);
     });

@@ -278,8 +278,8 @@ they are available to the environment in which Rails is running.
 * `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
   moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
-* `ATLAS_INDEX_OVERVIEW_TILELAYER` - A [Leaflet TileLayer urlTemplate](http://leafletjs.com/reference.html#tilelayer).
-  The purpose of this to override the overview basemaps for the atlas index pages
+* `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](http://leafletjs.com/reference.html#tilelayer). Optional.
+  Providing this url will override the header basemaps for the atlas index pages
 
 ### Running Tests
 

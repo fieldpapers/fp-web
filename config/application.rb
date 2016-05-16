@@ -45,9 +45,6 @@ module App
 
     # if there is an environment variable ATLAS_MAP_OVERVIEW_TILELAYER
     # then use that value as the atlas index map overview tilelayer
-    config.atlas_index_overview_tilelayer = ENV['ATLAS_INDEX_OVERVIEW_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
-    config.atlas_index_overview_attribution = config.atlas_index_overview_tilelayer.include?('tile.stamen.com') ?
-      'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.' :
-      ''
+    config.atlas_index_header_tilelayer = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
   end
 end
