@@ -298,7 +298,7 @@ class Snapshot < ActiveRecord::Base
   end
 
   def image_filename
-    URI.decode(URI(URI.encode(self.image_url)).path.split('/').last)
+    image_url.split('/').last
   end
 
   def latitude
