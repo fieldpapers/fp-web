@@ -2,12 +2,12 @@
   <div class="eight columns">
     <div class="row">
       <div class="twelve columns">
-        <h2><%= _("Snapshot Processing Failed") %></h2>
+        <h2><%= _("Snapshot Processing Failed (%{image_filename})") % {image_filename: snapshot.image_filename} %></h2>
       </div>
     </div>
     <div class="row">
       <div class="twelve columns">
-        <p><%= _("Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} failed to process") } %></p>
+        <p><%= _("Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} failed to process for image #{snapshot.image_filename}"), image_filename: snapshot.image_filename } %></p>
       </div>
     </div>
   </div>
