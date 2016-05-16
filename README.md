@@ -278,6 +278,10 @@ they are available to the environment in which Rails is running.
 * `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
   moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
+* `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
+  users to confirm their accounts after registration and will not send confirmation emails.
+  Optional. Defaults to `false` -- registration confirmations are required
+
 
 ### Running Tests
 

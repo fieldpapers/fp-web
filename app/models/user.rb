@@ -24,8 +24,11 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   # devise configuration (authentication)
-  devise :confirmable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise_mods = [:database_authenticatable, :registerable, :recoverable, :rememberable, :validatable]
+  if !Rails.application.config.disable_login_confirmations
+    devise_mods.push(:confirmable)
+  end
+  devise *devise_mods
 
   # generate a random id (since id is not currently auto-increment)
   after_initialize :init
@@ -58,11 +61,6 @@ class User < ActiveRecord::Base
     else
       where(conditions.to_h).first
     end
-  end
-
-  # override Devise to not send confirmation
-  def confirmation_required?
-    false
   end
 
   # instance methods
