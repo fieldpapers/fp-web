@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   # devise configuration (authentication)
   devise_mods = [:database_authenticatable, :registerable, :recoverable, :rememberable, :validatable]
-  if !Rails.application.config.disable_login_confirmations
+  if !FieldPapers::DISABLE_LOGIN_CONFIRMATIONS
     devise_mods.push(:confirmable)
   end
   devise *devise_mods

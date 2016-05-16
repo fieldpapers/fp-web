@@ -42,8 +42,5 @@ module App
     config.after_initialize do
       Rails.application.routes.default_url_options[:host] = FieldPapers::BASE_URL
     end
-
-    # remove the Devise :confirmable module based on env variable
-    config.disable_login_confirmations = ENV['DISABLE_LOGIN_CONFIRMATIONS'] ? ENV['DISABLE_LOGIN_CONFIRMATIONS'] == 'true' : false
   end
 end
