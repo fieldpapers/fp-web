@@ -1,0 +1,27 @@
+<%
+row_names = [""] + ("A".."Z").to_a
+
+grid = ""
+
+(@atlas.cols + 1).times do |y|
+  (@atlas.rows + 1).times do |x|
+    grid << row_names[x] if y == 0
+    grid << y.to_s if x == 0 && y > 0
+
+    slugs = if y > 0 && x > 0
+      page_number = "#{row_names[x]}#{y}"
+      @atlas.pages.find_by_page_number(page_number).snapshots.pluck(:slug)
+    elsif y == 0 && x == 0
+      @atlas.pages.find_by_page_number("i").snapshots.pluck(:slug)
+    end
+
+    grid << "\"" + slugs.map { |slug| snapshot_url(slug) }.join(",") + "\"" if slugs
+
+    grid << "," unless x == @atlas.cols - 1
+  end
+
+  grid << "\n"
+end
+%>
+
+<%= grid.html_safe %>
