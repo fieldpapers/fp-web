@@ -298,7 +298,7 @@ class Snapshot < ActiveRecord::Base
   end
 
   def image_filename
-    s3_scene_url.split("/").last if s3_scene_url
+    return s3_scene_url.split("/").last if s3_scene_url
     scene_file_name.split("/").last
   end
 
