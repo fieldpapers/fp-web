@@ -26,6 +26,18 @@ class SnapshotsController < ApplicationController
   def index
     @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page])
     @counts = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).count('id')
+
+    respond_to do |format|
+      format.html
+
+      # the grid CSV only makes sense if this is scoped beneath an atlas
+      if params[:atlas_id]
+        @atlas = Atlas.unscoped.friendly.find(params[:atlas_id])
+        format.csv do
+          headers["Content-Type"] ||= "text/csv"
+        end
+      end
+    end
   end
 
   def show

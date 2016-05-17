@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :atlases, :concerns => :pageable do
+    resources :snapshots, only: [:index]
     member do
       get ':page_number' => 'pages#show',
         as: :atlas_page,
