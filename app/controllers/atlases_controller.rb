@@ -31,12 +31,10 @@ class AtlasesController < ApplicationController
       }
 
       format.csv do
-        filename = "atlas-#{@atlas.slug}.csv"
         headers["Content-Type"] ||= "text/csv"
       end
 
       format.geojson do
-        filename = "atlas-#{@atlas.slug}.geojson"
         headers["Content-Type"] ||= "application/geo+json; charset=UTF-8"
       end
     end
