@@ -162,11 +162,12 @@ class ComposeController < ApplicationController
   end
 
   def atlas_params
-    params.require(:atlas).permit \
+    params.require(:atlas).permit(
       :north, :south, :east, :west, :zoom, :rows, :cols, :orientation, :provider, # from select
       :title, :text, :private, # from describe
       :layout, :utm_grid, :paper_size, # from layout
-      :refreshed_from, :cloned_from
+      :refreshed_from, :cloned_from)
+      .merge(creator: current_user)
   end
 
   def point_extent(point, zoom, dimensions)
