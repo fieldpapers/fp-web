@@ -298,7 +298,8 @@ class Snapshot < ActiveRecord::Base
   end
 
   def image_filename
-    image_url.split('/').last
+    s3_scene_url.split("/").last if s3_scene_url
+    scene_file_name.split("/").last
   end
 
   def latitude
