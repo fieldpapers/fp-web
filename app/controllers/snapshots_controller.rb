@@ -8,7 +8,7 @@ class SnapshotsController < ApplicationController
   has_scope :username, only: :index
 
   # allow API usage
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_filter :verify_authenticity_token, only: [:create, :update]
 
   def new
     @snapshot = Snapshot.new
