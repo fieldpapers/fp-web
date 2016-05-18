@@ -11,7 +11,7 @@ grid = ""
     slugs = if y > 0 && x > 0
       page_number = "#{row_names[x]}#{y}"
       @atlas.pages.find_by_page_number(page_number).snapshots.pluck(:slug)
-    elsif y == 0 && x == 0
+    elsif y == 0 && x == 0 && @atlas.rows > 0 && @atlas.cols > 0
       @atlas.pages.find_by_page_number("i").snapshots.pluck(:slug)
     end
 
