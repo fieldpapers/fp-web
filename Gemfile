@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
-ruby "2.2.4"
+ruby "2.5.1"
 
 ## standard dependencies
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.2.5"
+gem "rails", "4.2.10"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 gem 'font-awesome-sass'
@@ -19,7 +19,7 @@ gem "turbolinks"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.0"
 # bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc", "~> 0.4.0", group: :doc
+gem "sdoc", "~> 1.0.0", group: :doc
 
 ## explicit choices
 
@@ -46,12 +46,12 @@ gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
 gem "rails-i18n", "~> 4.0.0"
 gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
-gem "mysql2", "~> 0.3.18"
+gem "mysql2", "~> 0.4.0"
 gem "workflow"
 gem "json"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
-gem 'therubyracer', '~> 0.12.2'
+gem 'therubyracer', '~> 0.12.3'
 gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
 
 ## production-only dependencies
