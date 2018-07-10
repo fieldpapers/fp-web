@@ -28,7 +28,7 @@ gem "aws-sdk-core", "~> 2"
 gem "aws-ses", :require => 'aws/ses', git: 'https://github.com/Cadasta/aws-ses'
 gem "bootstrap-sass", "~> 3.3.3"
 gem "composite_primary_keys", "~> 8.0.0"
-gem "devise" # authentication
+gem "devise", "~> 3.5.10" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
