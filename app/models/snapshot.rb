@@ -1,5 +1,6 @@
 require "providers"
 require "raven"
+require "uri"
 
 # == Schema Information
 #
@@ -49,6 +50,7 @@ require "raven"
 class Snapshot < ActiveRecord::Base
   include FriendlyId
   include Workflow
+  include Rails.application.routes.url_helpers
 
   # friendly_id configuration
 
@@ -149,6 +151,12 @@ class Snapshot < ActiveRecord::Base
       where(user_id: user)
     }
 
+  scope :username,
+    -> username {
+      joins(:uploader)
+      .where(users: {username: username})
+    }
+    
   # workflow states
 
   workflow do
@@ -223,7 +231,7 @@ class Snapshot < ActiveRecord::Base
     base_uri = URI.parse(FieldPapers::BASE_URL)
 
     if uri.hostname == base_uri.hostname && uri.port == base_uri.port
-      (atlas_slug, page_number) = if uri.query
+      (atlas_slug, page_number) = if uri.query =~ /id=/
         CGI.parse(uri.query)["id"][0].split("/")
       else
         uri.path.split("/").slice(-2, 2)
@@ -281,12 +289,18 @@ class Snapshot < ActiveRecord::Base
       atlas.get_provider_without_overlay
     else
       # TODO this is a really nasty way to achieve this
-      Providers.layers[Providers.default.to_sym][:template]
+      Providers.layers[Providers.default]["template"]
     end
   end
 
   def image_url
     s3_scene_url || FieldPapers::STATIC_URI_PREFIX + scene.url
+  end
+
+  def image_filename
+    return uploaded_file if uploaded_file
+    return s3_scene_url.split("/").last if s3_scene_url
+    scene_file_name.split("/").last
   end
 
   def latitude
@@ -317,6 +331,51 @@ class Snapshot < ActiveRecord::Base
   # upload
   def s3_scene_url=(escaped_url)
     write_attribute(:s3_scene_url, (CGI.unescape(escaped_url) rescue nil))
+  end
+
+  def as_polygon
+    [[
+      [west, south],
+      [west, north],
+      [east, north],
+      [east, south],
+      [west, south]
+     ]]
+  end
+
+  def as_feature
+    {
+      type: 'Feature',
+      properties: {
+        type: 'snapshot',
+        title: title,
+        description: description,
+        uploader: uploader_name,
+        created: created_at.to_s(:iso8601),
+        min_row: min_row,
+        max_row: max_row,
+        min_column: min_column,
+        max_column: max_column,
+        min_zoom: min_zoom,
+        max_zoom: max_zoom,
+        base_url: base_url,
+        url: snapshot_url(self),
+        url_page: snapshot_url(self) + "/" + page.page_number,
+        url_uploader: uploader ? user_url(uploader) : nil,
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: as_polygon
+      }
+    }
+  end
+
+  def as_json(options = nil)
+    if options && options[:geojson]
+      as_feature
+    else
+      super(options || {})
+    end
   end
 
 private

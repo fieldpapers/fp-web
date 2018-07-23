@@ -6,15 +6,16 @@
 
   // make a map showing bounding boxes of atlases as
   // squares
-  map.boundingBoxes = function( selector ) {
+  map.boundingBoxes = function( selector, settings ) {
     var __ = {},
       data = [],
       markers = [];
 
     var map = L.map(selector, FP.map.options).setView([0,0], 5);
 
-    L.tileLayer("http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png", {
-      attribution: 'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
+    // TODO: factor FP.map.atlas.getAttribution into mixin or reusable util
+    L.tileLayer(FP.map.utils.conformTemplate(settings.provider), {
+      attribution: settings.providerSettings[0].options.attribution,
       maxZoom: 18
     }).addTo(map);
 

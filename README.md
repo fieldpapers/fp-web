@@ -42,47 +42,73 @@ local `Dockerfile`s or from remote repositories.
 
 #### Starting
 
-This will fetch and build images as appropriate. If it doesn't work the first
-time (usually when building an image), try it again.
+This will fetch and build images as appropriate, logging `STDOUT` from all containers.
+
+```bash
+docker-compose build
+```
+
+If this is the first time you're running this, you'll need to load the schema into MySQL:
+
+```bash
+docker-compose run web rake db:schema:load
+```
+
+If you have pending migrations, run:
+
+```bash
+docker-compose run web rake db:migrate
+```
+
+To start the stack, logging `STDOUT` from all containers:
 
 ```bash
 docker-compose up
 ```
 
-The app will now be running on port 3000 on the Docker host, conveniently
-announcing itself as `fieldpapers.local`. Thus,
-`http://fieldpapers.local:3000/`.
+The app will now be running on port 3000 on the Docker host. If you're lucky, it will be available
+at [`docker.local:3000`](http://docker.local:3000), otherwise you'll need to determine the IP of
+your Docker host (`localhost` on Linux) and use that in place of `docker.local`.
 
-To see logs for other processes (web will display), run this in another window/tab:
-
-```bash
-docker-compose logs
-```
-
-After you make changes to the `Dockerfile` to add system dependencies, you'll
-need to run `docker-compose build` in order to recreate the base `web` image.
-If you've just made chanegs to `Gemfile`, run `docker-compose run web bundle`.
-
-If this is the first time you're running this (or have pending migrations),
-you'll need to (optionally) load data and run the migrations:
+If `docker.local` doesn't work, you'll need to update `docker-compose.yml` to set `TILE_BASE_URL`
+(in the `environment` section of `web`) to reflect your Docker host's IP. In my case, it's
+`192.168.64.6`. You should be able to determine appropriate values using:
 
 ```bash
-gzip -dc ../data/fieldpapers.sql.gz | \
-  docker run \
-  -i \
-  --rm \
-  --link fpweb_db_1:db \
-  mysql \
-  mysql -uroot -pfp -h db fieldpapers_development
-docker run \
-  -it \
-  --rm \
-  -v $(pwd)/db:/app/db \
-  -e DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development \
-  --link fpweb_db_1:db \
-  fpweb_web:latest \
-  rake db:migrate
+docker-compose port web 8080
 ```
+
+Note, adding system dependencies to the `Dockerfile` requires you to
+`docker-compose build` in order to recreate the base `web` image.
+If you've just made changes to `Gemfile`, run `docker-compose run web bundle`.
+
+
+Some helpful `docker` and `docker-compose` commands to know:
+
+0. To get a list of docker images ( and versions ) that the containers are running:
+
+    ```bash
+    $ docker images
+    REPOSITORY                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    fpweb_web                   latest              e2cafa474299        58 minutes ago      940.4 MB
+    quay.io/fieldpapers/tiler   v0.2.0              b2683b4d606d        3 days ago          855.9 MB
+    mysql                       latest              c607d9b50dfa        13 days ago         374.1 MB
+    ruby                        2.2.4               9168c99105ac        2 weeks ago         719.3 MB
+    quay.io/fieldpapers/tasks   v0.10.2             f637d9257755        8 weeks ago         843 MB
+    ```
+
+0. To see a list of the containers and their state that are running under `docker-compose`:
+
+    ```bash
+    $ docker-compose ps
+        Name                   Command               State                       Ports
+    -------------------------------------------------------------------------------------------------------
+    fpweb_db_1      docker-entrypoint.sh mysqld      Up      3306/tcp
+    fpweb_tasks_1   /bin/sh -c npm start             Up
+    fpweb_tiler_1   /bin/sh -c npm start             Up
+    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp, 0.0.0.0:8080->8080/tcp
+    ```
+
 
 ### Running Locally
 
@@ -160,19 +186,18 @@ eval "$(direnv hook bash)" # initialize direnv
 rbenv install $(< .ruby-version) # install the desired ruby version
 
 gem install bundler        # install bundler using rbenv-installed ruby
-gem install foreman
 
 bundle install -j4 --path vendor/bundle # install dependencies
 
 cp sample.env .env
 sensible-editor .env
 
-foreman run echo $DATABASE_URL # ensure that your environment is prepared
+bundle exec foreman run echo $DATABASE_URL # ensure that your environment is prepared
 
 rake db:create             # create a database if one doesn't already exist
 rake db:schema:load        # initialize your database
 
-foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
+bundle exec foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
 The app will now be running on [localhost:3000](http://localhost:3000/) and
@@ -227,7 +252,7 @@ they are available to the environment in which Rails is running.
 * `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
   be granted access to send from this)
 * `BASE_URL` - Site base URL (Network-accessible, i.e. from a Docker container).
-* `S3_BUCKET_NAME` - S3 bucket for file storage. Defaults to
+* `S3_BUCKET_NAME` - S3 bucket for file storage. Required. Some endpoints might be
   `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
   (test), and `files.fieldpapers.org` (production).
 * `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
@@ -250,7 +275,15 @@ they are available to the environment in which Rails is running.
 * `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
   unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
   Optional.
-  
+* `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
+  moves to the state 'complete', fp-web will `POST` the JSON representation
+  of the atlas to each URL.
+* `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](http://leafletjs.com/reference.html#tilelayer). Optional.
+  Providing this url will override the header basemaps for the atlas index pages. Defaults to `http://tile.stamen.com/toner/{Z}/{X}/{Y}.png`
+* `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
+  users to confirm their accounts after registration and will not send confirmation emails.
+  Optional. Defaults to `false` -- registration confirmations are required
+
 ### Running Tests
 
 ```bash

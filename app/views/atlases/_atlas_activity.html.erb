@@ -23,6 +23,7 @@
     <ul>
       <li><a href="<%= atlas_path(format: :geojson) %>"><%= _("GeoJSON") %></a></li>
       <li><a href="<%= atlas_path(format: :csv) %>"><%= _("Plain Text (CSV)") %></a></li>
+      <li><a href="<%= atlas_snapshots_path(atlas, format: :csv) %>"><%= _("Snapshot URL Grid (CSV)") %></a></li>
     </ul>
 
     <h6 class="options-list-title"><%= _("Edit in...") %></h6>

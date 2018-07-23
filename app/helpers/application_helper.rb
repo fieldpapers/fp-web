@@ -19,17 +19,17 @@ module ApplicationHelper
 
   def id_link(zoom, lon, lat, slug = nil)
     if slug
-      "http://www.openstreetmap.org/edit#background=custom:#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{z}/{x}/{y}.png&map=#{zoom}/#{lat}/#{lon}"
+      "#{FieldPapers::OSM_BASE_URL}/edit#background=custom:#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{z}/{x}/{y}.png&map=#{zoom}/#{lat}/#{lon}"
     else
-      "http://www.openstreetmap.org/edit#map=#{zoom}/#{lat}/#{lon}"
+      "#{FieldPapers::OSM_BASE_URL}/edit#map=#{zoom}/#{lat}/#{lon}"
     end
   end
 
   def potlatch_link(zoom, lon, lat, slug = nil)
     if slug
-      "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/$z/$x/$y.png"
+      "#{FieldPapers::OSM_BASE_URL}/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&tileurl=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/$z/$x/$y.png"
     else
-      "http://www.openstreetmap.org/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}"
+      "#{FieldPapers::OSM_BASE_URL}/edit?lat=#{lat}&lon=#{lon}&zoom=#{zoom}"
     end
   end
 
@@ -40,14 +40,14 @@ module ApplicationHelper
     port = protocol == "https" ? "8112" : "8111"
     domain = "127.0.0.1"
 
-    provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "#{zoom}").gsub("{Y}", "#{lon}").gsub("{X}", "#{lat}");
+    provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "{zoom}").gsub("{Y}", "{y}").gsub("{X}", "{x}");
 
     # load data and zoom to extents
     dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
 
     # load tiles
     if slug
-      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/#{zoom}/#{lon}/#{lat}.png"
+      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{zoom}/{x}/{y}.png"
     else
       tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{provider}"
     end

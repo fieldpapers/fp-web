@@ -3,7 +3,14 @@
 <div class="row">
   <div class="twelve columns map-container">
     <div id="map" class="map"></div>
-    <p class="inline-linkbar bottom"><%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path %></p>
+    <p class="inline-linkbar bottom">
+      <%= n_("%{count} Atlas", "%{count} Atlases", @counts) % {count: number_with_delimiter(@counts) } %> | <%= link_to _("Snapshots"), snapshots_path(username: params[:username]) %>
+      <%= link_to(
+        params[:username] ? _("All Atlases") : _("Your Atlases"),
+        atlases_path(params[:username] ? nil : {username: current_user.try(:username)}),
+        class: "right" 
+      ) if user_signed_in? %>
+    </p>
   </div>
 </div>
 
@@ -30,7 +37,15 @@
 <% content_for :foot do %>
   <script>
     $(function(){
-      FP.map.boundingBoxes('map').data(<%= raw(@atlases.to_json) %>);
+      var providerTemplate = "<%= FieldPapers::ATLAS_INDEX_HEADER_TILELAYER.html_safe %>";
+      var providerAttribution = (providerTemplate.search("tile.stamen.com") === -1) ? '' :
+        'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
+      FP.map.boundingBoxes('map',{
+        provider: providerTemplate,
+        providerSettings: [{options:{
+          attribution: providerAttribution
+        }}]
+      }).data(<%= raw(@atlases.to_json) %>);
     });
   </script>
 <% end %>

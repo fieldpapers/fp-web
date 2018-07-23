@@ -33,6 +33,11 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.logger = Logger.new(STDOUT)
+  config.log_formatter = ::Logger::Formatter.new
+  config.log_level = :debug
+
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true

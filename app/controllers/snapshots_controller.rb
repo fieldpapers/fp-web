@@ -5,9 +5,10 @@ class SnapshotsController < ApplicationController
   has_scope :month, only: :index
   has_scope :place, only: :index
   has_scope :user, only: :index
+  has_scope :username, only: :index
 
   # allow API usage
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_filter :verify_authenticity_token, only: [:create, :update]
 
   def new
     @snapshot = Snapshot.new
@@ -25,6 +26,18 @@ class SnapshotsController < ApplicationController
   def index
     @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page])
     @counts = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).count('id')
+
+    respond_to do |format|
+      format.html
+
+      # the grid CSV only makes sense if this is scoped beneath an atlas
+      if params[:atlas_id]
+        @atlas = Atlas.unscoped.friendly.find(params[:atlas_id])
+        format.csv do
+          headers["Content-Type"] ||= "text/csv"
+        end
+      end
+    end
   end
 
   def show

@@ -7,8 +7,11 @@ module FieldPapers
   TASK_BASE_URL = ENV["TASK_BASE_URL"] || "http://tasks.fieldpapers.org"
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "http://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
+  OSM_BASE_URL = ENV["OSM_BASE_URL"] || "http://www.openstreetmap.org"
+  ATLAS_COMPLETE_WEBHOOKS = ENV["ATLAS_COMPLETE_WEBHOOKS"] || ""
+  ATLAS_INDEX_HEADER_TILELAYER = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
 
-  if ENV["DEFAULT_CENTER"]
+  if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
     zoom, DEFAULT_LATITUDE, DEFAULT_LONGITUDE = ENV["DEFAULT_CENTER"].split("/").map(&:to_f)
     DEFAULT_ZOOM = zoom.to_i

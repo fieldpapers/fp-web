@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 08:54-0700\n"
-"PO-Revision-Date: 2015-05-27 08:54-0700\n"
+"POT-Creation-Date: 2016-02-26 19:09+0100\n"
+"PO-Revision-Date: 2016-02-26 19:09+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-msgid "\"%{place}\" could not be found."
-msgstr ""
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
 msgstr ""
@@ -37,13 +34,15 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "%{count} page"
+msgid_plural "%{count} pages"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "%{time_period} ago"
 msgstr ""
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr ""
-
-msgid "(That means it's only accessible to you, if you're logged in, or by direct URL.)"
 msgstr ""
 
 msgid "@fieldpapers on Twitter"
@@ -52,19 +51,25 @@ msgstr ""
 msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
 
+msgid "About"
+msgstr ""
+
 msgid "About the Project"
 msgstr ""
 
 msgid "Activity"
 msgstr ""
 
-msgid "Add a %{UTM} grid overlay to each map?"
-msgstr ""
-
-msgid "Add the GADM overlay (for disaster relief efforts in the Philippines)"
+msgid "Add-ons"
 msgstr ""
 
 msgid "Advanced - Field Papers"
+msgstr ""
+
+msgid "All Atlases"
+msgstr ""
+
+msgid "All Snapshots"
 msgstr ""
 
 msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
@@ -76,13 +81,16 @@ msgstr ""
 msgid "Atlas Creation Failed"
 msgstr ""
 
-msgid "Atlas Name"
-msgstr ""
-
 msgid "Atlas Rendering"
 msgstr ""
 
+msgid "Atlas Title"
+msgstr ""
+
 msgid "Atlas description"
+msgstr ""
+
+msgid "Atlas information"
 msgstr ""
 
 msgid "Atlas location"
@@ -106,7 +114,13 @@ msgstr ""
 msgid "Atlases - Field Papers"
 msgstr ""
 
+msgid "Basemap"
+msgstr ""
+
 msgid "Bing"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Capture your notes"
@@ -118,10 +132,13 @@ msgstr ""
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr ""
 
+msgid "Click for more information."
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr ""
 
-msgid "Describe"
+msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
 
 msgid "Development Blog"
@@ -154,9 +171,6 @@ msgstr ""
 msgid "Field Papers"
 msgstr ""
 
-msgid "Finished!"
-msgstr ""
-
 msgid "From"
 msgstr ""
 
@@ -167,6 +181,12 @@ msgid "Geojson Data"
 msgstr ""
 
 msgid "Geojson File"
+msgstr ""
+
+msgid "GitHub Issues"
+msgstr ""
+
+msgid "Grid layout"
 msgstr ""
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
@@ -184,10 +204,19 @@ msgstr ""
 msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
 
+msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
+msgstr ""
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr ""
 
 msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgstr ""
+
+msgid "JOSM"
+msgstr ""
+
+msgid "Keep atlas private"
 msgstr ""
 
 msgid "LOG IN"
@@ -199,9 +228,6 @@ msgstr ""
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
-msgid "Layout"
-msgstr ""
-
 msgid "Location and zoom"
 msgstr ""
 
@@ -209,6 +235,9 @@ msgid "MAKE"
 msgstr ""
 
 msgid "Make - Field Papers"
+msgstr ""
+
+msgid "Make Atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -235,16 +264,7 @@ msgstr ""
 msgid "Mapbox"
 msgstr ""
 
-msgid "Maps + Notes"
-msgstr ""
-
-msgid "Maps Only"
-msgstr ""
-
 msgid "Menu"
-msgstr ""
-
-msgid "Next"
 msgstr ""
 
 msgid "No atlases."
@@ -253,7 +273,16 @@ msgstr ""
 msgid "No snapshots."
 msgstr ""
 
-msgid "Notes (only shown on half-page atlases)"
+msgid "Notes"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "Paper size"
+msgstr ""
+
+msgid "Pin grid to map"
 msgstr ""
 
 msgid "Plain Text (CSV)"
@@ -262,22 +291,19 @@ msgstr ""
 msgid "Potlatch"
 msgstr ""
 
+msgid "Print notes"
+msgstr ""
+
 msgid "Print out anywhere in the world."
 msgstr ""
 
-msgid "Private"
+msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
 msgstr ""
 
 msgid "Refresh"
 msgstr ""
 
 msgid "Rules"
-msgstr ""
-
-msgid "Select"
-msgstr ""
-
-msgid "ShapeFile"
 msgstr ""
 
 msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
@@ -331,13 +357,13 @@ msgstr ""
 msgid "Toner"
 msgstr ""
 
-msgid "Type in a location"
+msgid "Translations"
 msgstr ""
 
 msgid "UPLOAD"
 msgstr ""
 
-msgid "UTM"
+msgid "UTM Grid"
 msgstr ""
 
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
@@ -346,16 +372,10 @@ msgstr ""
 msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
 msgstr ""
 
-msgid "Untitled"
-msgstr ""
-
 msgid "Upload"
 msgstr ""
 
 msgid "Upload Failed"
-msgstr ""
-
-msgid "Upload MBTiles"
 msgstr ""
 
 msgid "Uploading"
@@ -367,19 +387,19 @@ msgstr ""
 msgid "Welcome to Field Papers"
 msgstr ""
 
-msgid "Where in the world is your atlas?"
+msgid "Your Atlases"
+msgstr ""
+
+msgid "Your Snapshots"
 msgstr ""
 
 msgid "an atlas to print"
 msgstr ""
 
+msgid "anonymous"
+msgstr ""
+
 msgid "iD"
-msgstr ""
-
-msgid "on same page"
-msgstr ""
-
-msgid "one per page"
 msgstr ""
 
 msgid "or create an account"
@@ -392,9 +412,6 @@ msgid "private"
 msgstr ""
 
 msgid "recent activity"
-msgstr ""
-
-msgid "search"
 msgstr ""
 
 msgid "snapshot of page %{tp}"

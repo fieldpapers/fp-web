@@ -12,7 +12,7 @@
             <ul class="navbar u-cf">
 
                 <li class="nav-item<%= " active" if ["compose"].include? current_nav_target %>">
-                    <a href="<%= compose_path(:search) %>">
+                    <a href="<%= compose_path %>" data-no-turbolink="true">
                         <div class="section"><%= _("MAKE") %></div>
                         <div class="desc"><%= _("an atlas to print") %></div>
                     </a>
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="nav-item<%= " active" if ["watch"].include? current_nav_target %>">
-                    <a href="<%= atlases_path %>">
+                    <a href="<%= atlases_path(username: current_user.try(:username)) %>">
                         <div class="section"><%= _("WATCH") %></div>
                         <div class="desc"><%= _("recent activity") %></div>
                     </a>

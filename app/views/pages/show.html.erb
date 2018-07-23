@@ -17,7 +17,7 @@
         </div>
 
         <div class="map-overlay bottom-right">
-          <%= form_for @page.atlas, url: compose_path(:select), method: :put do |f| %>
+          <%= form_for @page.atlas, url: compose_path, method: :put do |f| %>
             <%= f.hidden_field :north, :value=> @page.atlas.north %>
             <%= f.hidden_field :south, :value=> @page.atlas.south %>
             <%= f.hidden_field :east, :value=> @page.atlas.east %>
@@ -34,7 +34,7 @@
             <%= f.button _("Copy this atlas") %>
           <% end %>
 
-          <% if @page.atlas.pdf_url %><a href="<%= @page.atlas.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
+          <% if @page.pdf_url %><a href="<%= @page.pdf_url %>" class="button"><%= _("Download PDF") %></a><% end %>
         </div>
 
         <div id="map" class="page-view"></div>

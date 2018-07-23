@@ -5,10 +5,11 @@ require "raven"
 class AtlasesController < ApplicationController
   # filters
 
-  has_scope :date,  only: :index
-  has_scope :month, only: :index
-  has_scope :place, only: :index
-  has_scope :user,  only: :index
+  has_scope :date,      only: :index
+  has_scope :month,     only: :index
+  has_scope :place,     only: :index
+  has_scope :user,      only: :index
+  has_scope :username,  only: :index
 
   # allow API usage
   skip_before_filter :verify_authenticity_token, only: :update
@@ -30,14 +31,10 @@ class AtlasesController < ApplicationController
       }
 
       format.csv do
-        filename = "atlas-#{@atlas.slug}.csv"
-        headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
         headers["Content-Type"] ||= "text/csv"
       end
 
       format.geojson do
-        filename = "atlas-#{@atlas.slug}.geojson"
-        headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
         headers["Content-Type"] ||= "application/geo+json; charset=UTF-8"
       end
     end
