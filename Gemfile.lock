@@ -231,7 +231,6 @@ GEM
       ruby-progressbar
     multi_json (1.11.2)
     multipart-post (2.0.0)
-    mysql2 (0.4.10)
     nenv (0.2.0)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -387,7 +386,6 @@ DEPENDENCIES
   mapbox-rails!
   meta_request
   minitest-reporters
-  mysql2 (~> 0.4.0)
   paperclip (~> 4.3.1)
   pg
   puma
