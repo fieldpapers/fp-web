@@ -1,54 +1,53 @@
 source "https://rubygems.org"
 
-ruby "2.4.4"
+ruby "3.2.1"
 
 ## standard dependencies
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.2.10"
+gem "rails", "7.0.4.3"
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+gem "sass-rails", "~> 6.0.0"
 gem 'font-awesome-sass'
 # Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", ">= 4.2.0"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
 gem "selectize-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem "turbolinks"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.0"
+gem "jbuilder", "~> 2.11.5"
 # bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc", "~> 1.0.0", group: :doc
+gem "sdoc", "~> 2.6.1", group: :doc
 
 ## explicit choices
 
-gem "aws-sdk-v1", "~> 1"
-gem "aws-sdk-core", "~> 2"
-gem "aws-ses", :require => 'aws/ses', git: 'https://github.com/Cadasta/aws-ses'
-gem "bootstrap-sass", "~> 3.3.3"
-gem "composite_primary_keys", "~> 8.0.0"
-gem "devise", "~> 3.5.10" # authentication
+gem "aws-sdk-core", "~> 3"
+gem "aws-ses", '~> 0.7.1'
+gem "bootstrap-sass", "~> 3.4.1"
+gem "composite_primary_keys", "~> 14.0.6"
+gem "devise", "~> 4.9.0" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
 gem "faraday_middleware" # response parsing, etc.
-gem "friendly_id", "~> 5.1.0" # alphanumeric slugs
+gem "friendly_id", "~> 5.5.0" # alphanumeric slugs
 gem "gettext_i18n_rails" # gettext-style i18n
 gem "has_scope" # automatic filter generation
 gem "http_accept_language"
 gem "kaminari" # pagination
 gem "kaminari-i18n"
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
-gem "paperclip", "~> 4.3.1" # file attachments
+gem "paperclip", "~> 6.1.0" # file attachments
 gem "puma" # app server
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
-gem "rails-i18n", "~> 4.0.0"
-gem "s3_direct_upload", git: 'https://github.com/Cadasta/s3_direct_upload'
-gem "mysql2", "~> 0.4.0"
+gem "rails-i18n", "~> 7.0.6"
+gem "s3_direct_upload", git: 'https://github.com/waynehoover/s3_direct_upload'
+gem "mysql2", "~> 0.5.5"
 gem "workflow"
-gem "json"
+gem "json", "~> 2.6.3"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
 gem 'therubyracer', '~> 0.12.3'
@@ -64,20 +63,17 @@ end
 ## development-only dependencies
 
 group :development do
-  gem "annotate", "~> 2.6.5" # model annotation
+  gem "annotate", "~> 3.2.0" # model annotation
 
-  gem "gettext", ">= 3.0.2", require: false
+  gem "gettext", ">= 3.4.3", require: false
   gem "guard"
-  gem "guard-annotate"
   gem "guard-bundler", require: false
-  gem "guard-livereload", "~> 2.4", require: false
+  gem "guard-livereload", "~> 2.5.2", require: false
   gem "guard-minitest"
   gem "foreman"
 
-  gem "quiet_assets"
-
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem "web-console", "~> 2.0"
+  gem "web-console", "~> 4.2.0"
 end
 
 group :development, :test do
