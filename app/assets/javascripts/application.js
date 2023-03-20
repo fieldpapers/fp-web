@@ -17,7 +17,6 @@
 //= require s3_direct_upload
 //= requite mapbox.js
 //= require_directory ./fp
-//= require turbolinks
 //= require_tree .
 
 (function(exports){
