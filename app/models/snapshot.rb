@@ -79,8 +79,8 @@ class Snapshot < ActiveRecord::Base
     end
 
     # Environment-specific direct upload url verifier screens for malicious posted upload locations.
-    S3_UPLOAD_URL_FORMAT = s3_url(Rails.application.secrets.aws["s3_bucket_name"],
-                                  Rails.application.secrets.aws["s3_bucket_region"])
+    S3_UPLOAD_URL_FORMAT = s3_url(Rails.application.secrets[:aws][:s3_bucket_name],
+                                  Rails.application.secrets[:aws][:s3_bucket_region])
 
     has_attached_file :scene
 
