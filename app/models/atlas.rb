@@ -117,14 +117,14 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order "FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC"
+      order Arel.sql("FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC")
     },
     dependent: :destroy,
     inverse_of: :atlas
 
   has_many :snapshots,
     -> {
-      order "#{Snapshot.table_name}.created_at DESC"
+      order Arel.sql("#{Snapshot.table_name}.created_at DESC")
     },
     through: :pages,
     inverse_of: :atlas
