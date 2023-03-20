@@ -1,4 +1,4 @@
-class CleanSnapshots < ActiveRecord::Migration
+class CleanSnapshots < ActiveRecord::Migration[4.2]
   def change
     rename_table :scans, :snapshots
 

@@ -1,4 +1,4 @@
-class ReversePropagateAtlasMetadata < ActiveRecord::Migration
+class ReversePropagateAtlasMetadata < ActiveRecord::Migration[4.2]
   def change
     execute <<-EOQ
       CREATE TEMPORARY TABLE atlas_metadata

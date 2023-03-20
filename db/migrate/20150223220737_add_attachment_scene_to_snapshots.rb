@@ -1,4 +1,4 @@
-class AddAttachmentSceneToSnapshots < ActiveRecord::Migration
+class AddAttachmentSceneToSnapshots < ActiveRecord::Migration[4.2]
   def self.up
     change_table :snapshots do |t|
       t.attachment :scene

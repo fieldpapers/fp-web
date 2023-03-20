@@ -1,4 +1,4 @@
-class AssignIdsToNotes < ActiveRecord::Migration
+class AssignIdsToNotes < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       CREATE TABLE notes (

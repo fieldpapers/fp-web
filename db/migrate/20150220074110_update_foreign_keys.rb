@@ -1,4 +1,4 @@
-class UpdateForeignKeys < ActiveRecord::Migration
+class UpdateForeignKeys < ActiveRecord::Migration[4.2]
   def up
     add_index :atlases, :slug
     add_index :atlases, :user_slug

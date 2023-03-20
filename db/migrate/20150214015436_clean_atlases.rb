@@ -1,4 +1,4 @@
-class CleanAtlases < ActiveRecord::Migration
+class CleanAtlases < ActiveRecord::Migration[4.2]
   def change
     rename_table :prints, :atlases
 

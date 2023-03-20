@@ -1,4 +1,4 @@
-class AssignIdsToUsers < ActiveRecord::Migration
+class AssignIdsToUsers < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       CREATE TABLE new_users (

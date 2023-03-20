@@ -1,4 +1,4 @@
-class AssignIdsToSnapshots < ActiveRecord::Migration
+class AssignIdsToSnapshots < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       CREATE TABLE new_snapshots (

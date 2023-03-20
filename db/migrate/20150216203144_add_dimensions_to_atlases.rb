@@ -1,4 +1,4 @@
-class AddDimensionsToAtlases < ActiveRecord::Migration
+class AddDimensionsToAtlases < ActiveRecord::Migration[4.2]
   def change
     change_table(:atlases) do |t|
       t.integer :rows, null: false

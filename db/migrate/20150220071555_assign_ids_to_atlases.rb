@@ -1,4 +1,4 @@
-class AssignIdsToAtlases < ActiveRecord::Migration
+class AssignIdsToAtlases < ActiveRecord::Migration[4.2]
   def up
     # clear out titles containing invalid characters (manually identified with
     # the help of

@@ -1,4 +1,4 @@
-class ConvertSnapshotFailedToTimestamp < ActiveRecord::Migration
+class ConvertSnapshotFailedToTimestamp < ActiveRecord::Migration[4.2]
   def up
     change_table(:snapshots) do |t|
       t.datetime :failed_at

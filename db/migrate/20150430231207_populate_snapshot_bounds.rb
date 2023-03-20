@@ -1,4 +1,4 @@
-class PopulateSnapshotBounds < ActiveRecord::Migration
+class PopulateSnapshotBounds < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       UPDATE snapshots

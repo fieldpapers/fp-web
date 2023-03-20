@@ -1,4 +1,4 @@
-class RenameCreatedInUsers < ActiveRecord::Migration
+class RenameCreatedInUsers < ActiveRecord::Migration[4.2]
   def change
     change_table(:users) do |t|
       t.datetime :created_at

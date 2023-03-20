@@ -1,4 +1,4 @@
-class AddGeoTiffUrlToSnapshots < ActiveRecord::Migration
+class AddGeoTiffUrlToSnapshots < ActiveRecord::Migration[4.2]
   def up
     change_table(:snapshots) do |t|
       t.string :geotiff_url
