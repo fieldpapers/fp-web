@@ -2,7 +2,7 @@ require "raven"
 
 class PagesController < ApplicationController
   # allow API usage
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_action :verify_authenticity_token, only: :update
 
   def show
     @atlas = Atlas.unscoped.friendly.find(params[:id])

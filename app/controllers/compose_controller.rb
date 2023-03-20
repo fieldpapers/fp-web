@@ -10,7 +10,7 @@ class ComposeController < ApplicationController
   layout "big_map"
 
   # allow existing forms (w/o CSRF projection) to create canned atlases
-  skip_before_filter :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     @atlas = Atlas.new
