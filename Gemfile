@@ -50,7 +50,6 @@ gem "workflow"
 gem "json", "~> 2.6.3"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
-gem 'therubyracer', '~> 0.12.3'
 gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
 
 ## production-only dependencies
