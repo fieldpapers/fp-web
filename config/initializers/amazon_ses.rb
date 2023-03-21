@@ -9,4 +9,7 @@
 # appropriately via environment variables.
 
 ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base,
-  :source_arn => ENV['MAIL_SOURCE_ARN']
+  :source_arn => ENV['MAIL_SOURCE_ARN'],
+  :access_key_id     => Rails.application.secrets[:aws][:access_key_id],
+  :secret_access_key => Rails.application.secrets[:aws][:secret_access_key],
+  :signature_version => 4
