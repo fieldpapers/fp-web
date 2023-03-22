@@ -6,8 +6,8 @@ services:
       - MYSQL_DATABASE=fieldpapers_development
       - MYSQL_USER=fieldpapers
       - MYSQL_PASSWORD=fieldpapers
-    #expose:
-    #  - 3306
+    ports:
+      - 3306:3306
   web:
     build: .
     env_file: .env
