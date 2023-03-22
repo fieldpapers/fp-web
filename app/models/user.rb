@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :integer          not null, primary key, auto_increment
 #  username               :string(32)
 #  legacy_password        :string(40)
 #  email                  :string(255)
@@ -29,9 +29,6 @@ class User < ActiveRecord::Base
     devise_mods.push(:confirmable)
   end
   devise *devise_mods
-
-  # generate a random id (since id is not currently auto-increment)
-  after_initialize :init
 
   # relations
 
@@ -63,9 +60,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  # instance methods
-
-  def init
-    self.id ||= ('a'..'z').to_a.shuffle[0,8].join
-  end
 end
