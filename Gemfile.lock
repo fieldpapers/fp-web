@@ -186,7 +186,7 @@ GEM
       faraday (~> 1.0)
     fast_gettext (2.3.0)
     ffi (1.15.5)
-    font-awesome-sass (6.3.0)
+    font-awesome-sass (6.4.0)
       sassc (~> 2.0)
     foreman (0.87.2)
     formatador (1.1.0)
