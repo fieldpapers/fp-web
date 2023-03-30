@@ -183,6 +183,12 @@ class Atlas < ActiveRecord::Base
   workflow do
     state :new do
       event :render, transitions_to: :rendering
+
+      # TODO: figure out why we're getting `rendered` and `merged` events here
+      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
+      event :rendered, transitions_to: :rendering
+      event :merged, transitions_to: :complete
+      
       event :fail, transitions_to: :failed
     end
 
