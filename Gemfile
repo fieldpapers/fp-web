@@ -22,6 +22,7 @@ gem "sdoc", "~> 2.6.1", group: :doc
 ## explicit choices
 
 gem "aws-sdk-core", "~> 3"
+gem "aws-sdk-s3", '~> 1.119', '>= 1.119.2'
 gem "aws-ses", '~> 0.7.1'
 gem "bootstrap-sass", "~> 3.4.1"
 gem "composite_primary_keys", "~> 14.0.6"
