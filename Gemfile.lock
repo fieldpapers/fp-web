@@ -403,8 +403,11 @@ GEM
     sdoc (2.6.1)
       rdoc (>= 5.0)
     selectize-rails (0.12.6)
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-rails (5.8.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.8.0)
+    sentry-ruby (5.8.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shellany (0.0.1)
     singleton (0.1.1)
     sprockets (4.2.0)
@@ -493,7 +496,8 @@ DEPENDENCIES
   sass-rails (~> 6.0.0)
   sdoc (~> 2.6.1)
   selectize-rails
-  sentry-raven
+  sentry-rails
+  sentry-ruby
   uglifier (>= 4.2.0)
   web-console (~> 4.2.0)
   workflow (~> 3.0.0)

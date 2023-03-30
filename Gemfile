@@ -55,7 +55,8 @@ gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
 
 group :production do
   gem "rails_12factor" # Heroku compatibility
-  gem "sentry-raven" # exception logging
+  gem "sentry-ruby" # exception logging
+  gem "sentry-rails"
 end
 
 ## development-only dependencies
