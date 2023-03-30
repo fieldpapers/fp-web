@@ -1,8 +1,8 @@
-FROM ruby:2.2.4
+FROM ruby:3.2.1
 
 RUN \
   apt-get update -qq && \
-  apt-get install -y build-essential zlib1g-dev libmysqlclient-dev libssl-dev && \
+  apt-get install -y build-essential nodejs zlib1g-dev default-libmysqlclient-dev libssl-dev && \
   apt-get clean
 
 WORKDIR /app

@@ -117,14 +117,14 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order "FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC"
+      order Arel.sql("FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC")
     },
     dependent: :destroy,
     inverse_of: :atlas
 
   has_many :snapshots,
     -> {
-      order "#{Snapshot.table_name}.created_at DESC"
+      order Arel.sql("#{Snapshot.table_name}.created_at DESC")
     },
     through: :pages,
     inverse_of: :atlas
@@ -183,13 +183,17 @@ class Atlas < ActiveRecord::Base
   workflow do
     state :new do
       event :render, transitions_to: :rendering
+
+      # TODO: figure out why we're getting `rendered` and `merged` events here
+      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
+      event :rendered, transitions_to: :rendering
+      event :merged, transitions_to: :complete
+      
       event :fail, transitions_to: :failed
     end
 
     state :rendering do
-      # TODO this can be simplified to if: :all_pages_rendered? once
-      # workflow@1.3.0 is released
-      event :rendered, transitions_to: :merging, if: proc { |x| x.send :all_pages_rendered? }
+      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
       event :rendered, transitions_to: :rendering
       event :fail, transitions_to: :failed
     end

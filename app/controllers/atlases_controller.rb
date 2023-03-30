@@ -12,7 +12,7 @@ class AtlasesController < ApplicationController
   has_scope :username,  only: :index
 
   # allow API usage
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_action :verify_authenticity_token, only: :update
 
   def index
     @atlases = apply_scopes(Atlas.unscoped).default.by_creator(current_user).page(params[:page])
@@ -76,6 +76,6 @@ class AtlasesController < ApplicationController
   private
 
   def atlas_params
-    params.require(:atlas).permit(:pdf_url)
+    params.require(:atlas).permit(:pdf_url, :slug)
   end
 end

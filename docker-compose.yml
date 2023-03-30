@@ -1,54 +1,53 @@
-db:
-  image: mysql:latest
-  environment:
-    - MYSQL_ROOT_PASSWORD=fp
-    - MYSQL_DATABASE=fieldpapers_development
-    - MYSQL_USER=fieldpapers
-    - MYSQL_PASSWORD=fieldpapers
-  expose:
-    - 3306
-web:
-  build: .
-  env_file: .env
-  environment:
-    - RAILS_ENV=development
-    - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
-    - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
-    - BASE_URL=http://localhost:3000
-    # needs to be publicly addressable
-    - TILE_BASE_URL=http://docker.local:8080
-    - TASK_BASE_URL=http://localhost:8081
-  hostname: fieldpapers
-  links:
-    - db
-  ports:
-    # web
-    - 3000:3000
-    # tiler
-    - 8080:8080
-  volumes:
-    - ./app:/app/app
-    - ./config:/app/config
-    - ./db:/app/db
-    - ./lib:/app/lib
-    - ./locale:/app/locale
-    - ./public:/app/public
-    - ./test:/app/test
-tasks:
-  image: quay.io/fieldpapers/tasks:v0.12.0
-  env_file: .env
-  environment:
-    # this will cause generated URLs in the PDFs to look suspicious, but it will work
-    - API_BASE_URL=http://localhost:3000/
-    - NODE_ENV=production
-    - PORT=8081
-  net: container:web
-tiler:
-  image: quay.io/fieldpapers/tiler:v0.2.0
-  env_file: .env
-  environment:
-    - API_BASE_URL=http://localhost:3000/
-    - NODE_ENV=production
-    - PORT=8080
-  # this should be public, so we do the port mapping within the network container (web)
-  net: container:web
+services:
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=fp
+      - MYSQL_DATABASE=fieldpapers_development
+      - MYSQL_USER=fieldpapers
+      - MYSQL_PASSWORD=fieldpapers
+    ports:
+      - 3306:3306
+  web:
+    build: .
+    env_file: .env
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
+      - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
+      - BASE_URL=http://localhost:3000
+      # needs to be publicly addressable
+      - TILE_BASE_URL=http://tiler:8080
+      - TASK_BASE_URL=http://tasks:8081
+    hostname: fieldpapers
+    links:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app:/app/app
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./locale:/app/locale
+      - ./public:/app/public
+      - ./test:/app/test
+  tasks:
+    image: quay.io/fieldpapers/tasks:v0.12.0
+    env_file: .env
+    environment:
+      # this will cause generated URLs in the PDFs to look suspicious, but it will work
+      - API_BASE_URL=http://localhost:3000/
+      - NODE_ENV=production
+      - PORT=8081
+    ports:
+      - 8081:8081
+  tiler:
+    image: quay.io/fieldpapers/tiler:v0.2.0
+    env_file: .env
+    environment:
+      - API_BASE_URL=http://localhost:3000/
+      - NODE_ENV=production
+      - PORT=8080
+    ports:
+      - 8080:8080

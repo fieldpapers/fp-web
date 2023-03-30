@@ -1,4 +1,4 @@
-class UpdateAtlasPdfUrls < ActiveRecord::Migration
+class UpdateAtlasPdfUrls < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       UPDATE atlases

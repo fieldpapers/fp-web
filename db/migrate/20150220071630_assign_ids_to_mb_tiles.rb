@@ -1,4 +1,4 @@
-class AssignIdsToMbTiles < ActiveRecord::Migration
+class AssignIdsToMbTiles < ActiveRecord::Migration[4.2]
   def up
     execute <<-EOQ
       CREATE TABLE new_mbtiles (

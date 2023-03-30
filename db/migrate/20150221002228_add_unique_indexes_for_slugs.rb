@@ -1,4 +1,4 @@
-class AddUniqueIndexesForSlugs < ActiveRecord::Migration
+class AddUniqueIndexesForSlugs < ActiveRecord::Migration[4.2]
   def up
     remove_index :atlases, :slug
     remove_index :snapshots, :slug

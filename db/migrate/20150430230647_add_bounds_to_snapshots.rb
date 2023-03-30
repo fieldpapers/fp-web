@@ -1,4 +1,4 @@
-class AddBoundsToSnapshots < ActiveRecord::Migration
+class AddBoundsToSnapshots < ActiveRecord::Migration[4.2]
   def change
     change_table(:snapshots) do |t|
       t.float :west

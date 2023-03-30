@@ -2,7 +2,7 @@ require "raven"
 
 class PagesController < ApplicationController
   # allow API usage
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_action :verify_authenticity_token, only: :update
 
   def show
     @atlas = Atlas.unscoped.friendly.find(params[:id])
@@ -47,6 +47,8 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:pdf_url, :geotiff_url)
+    # :atlas param was causing some issues and doesn't seem to be needed so just delete it
+    params[:page].delete :atlas
+    params.require(:page).permit(:page_number, :pdf_url, :geotiff_url)
   end
 end

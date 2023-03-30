@@ -1,4 +1,4 @@
-class CorrectAtlasProvider < ActiveRecord::Migration
+class CorrectAtlasProvider < ActiveRecord::Migration[4.2]
   def change
     execute <<-EOQ
       CREATE TEMPORARY TABLE atlas_metadata2

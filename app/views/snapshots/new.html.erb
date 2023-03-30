@@ -24,7 +24,7 @@
       acl: "private",
       class: "upload-form",
       max_file_size: 25.megabytes do %>
-      <%= file_field_tag :file, multiple: true %>
+      <%= file_field_tag :file, multiple: true, data: { url: s3_uploader_url } %>
     <% end %>
 
     <div class="upload js-progress-bars">

@@ -1,4 +1,4 @@
-class AssignIdsToPages < ActiveRecord::Migration
+class AssignIdsToPages < ActiveRecord::Migration[4.2]
   def change
     execute <<-EOQ
       CREATE TABLE new_pages (
