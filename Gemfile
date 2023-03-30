@@ -44,7 +44,7 @@ gem "rack-rewrite" # URL rewriting middleware
 gem "rails-i18n", "~> 7.0.6"
 gem "s3_direct_upload", git: 'https://github.com/waynehoover/s3_direct_upload'
 gem "mysql2", "~> 0.5.5"
-gem "workflow"
+gem "workflow", "~> 3.0.0"
 gem "json", "~> 2.6.3"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'

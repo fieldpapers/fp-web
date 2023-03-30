@@ -480,7 +480,7 @@ DEPENDENCIES
   sentry-raven
   uglifier (>= 4.2.0)
   web-console (~> 4.2.0)
-  workflow
+  workflow (~> 3.0.0)
 
 RUBY VERSION
    ruby 3.2.1p31

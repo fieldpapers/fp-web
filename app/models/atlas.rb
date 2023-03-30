@@ -187,9 +187,7 @@ class Atlas < ActiveRecord::Base
     end
 
     state :rendering do
-      # TODO this can be simplified to if: :all_pages_rendered? once
-      # workflow@1.3.0 is released
-      event :rendered, transitions_to: :merging, if: proc { |x| x.send :all_pages_rendered? }
+      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
       event :rendered, transitions_to: :rendering
       event :fail, transitions_to: :failed
     end
