@@ -160,6 +160,8 @@ class Snapshot < ActiveRecord::Base
   workflow do
     state :new do
       event :process, transitions_to: :processing
+      event :processed, transitions_to: :fetching_metadata
+      event :metadata_fetched, transitions_to: :complete
       event :fail, transitions_to: :failed
     end
 
