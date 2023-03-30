@@ -9,8 +9,8 @@ gem "rails", "7.0.4.3"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 6.0.0"
 gem 'font-awesome-sass'
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 4.2.0"
+# Use terser-ruby as compressor for JavaScript assets
+gem "terser", ">= 1.1.14"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
 gem "selectize-rails"
