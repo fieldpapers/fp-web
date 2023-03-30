@@ -1,4 +1,4 @@
-require "raven"
+require "sentry-ruby"
 
 class PagesController < ApplicationController
   # allow API usage
@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
-      Raven.capture_message(params[:error][:message], extra: {
+      Sentry.capture_message(params[:error][:message], extra: {
         stack: params[:error][:stack],
         atlas: atlas.slug,
         page: page.page_number,

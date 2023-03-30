@@ -1,5 +1,5 @@
 require "providers"
-require "raven"
+require "sentry-ruby"
 require "uri"
 
 # == Schema Information
@@ -196,7 +196,7 @@ class Snapshot < ActiveRecord::Base
 
     if rsp.status < 200 || rsp.status >= 300
       logger.warn("Got #{rsp.status}: #{rsp.body}")
-      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
       fail!
     end
   end
@@ -214,7 +214,7 @@ class Snapshot < ActiveRecord::Base
 
     if rsp.status < 200 || rsp.status >= 300
       logger.warn("Got #{rsp.status}: #{rsp.body}")
-      Raven.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
+      Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
       fail!
     end
   end
