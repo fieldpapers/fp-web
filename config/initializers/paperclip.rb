@@ -13,6 +13,7 @@ when "s3"
         secret_access_key:  Rails.application.secrets[:aws][:secret_access_key],
         bucket:             Rails.application.secrets[:aws][:s3_bucket_name]
       },
+      s3_region: Rails.application.secrets[:aws][:s3_bucket_region],
       s3_permissions:       :private,
       s3_protocol:          'https'
     )
@@ -31,6 +32,7 @@ when "s3"
           secret_access_key: prov.credentials[:secret_access_key]
         }
       },
+      s3_region: Rails.application.secrets[:aws][:s3_bucket_region],
       s3_permissions:       :private,
       s3_protocol:          'https'
     )
