@@ -76,6 +76,6 @@ class AtlasesController < ApplicationController
   private
 
   def atlas_params
-    params.require(:atlas).permit(:pdf_url)
+    params.require(:atlas).permit(:pdf_url, :slug)
   end
 end
