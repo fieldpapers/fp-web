@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: "finnp/create-file-action@master"
+    - uses: "finnp/create-file-action@1.0.0"
       env:
         FILE_NAME: ".env"
         FILE_DATA: ""
     - name: Run docker-compose build
       run: docker-compose build
+    - name: Run docker-compose up
+      run: docker-compose up
     - name: Set up database schema
       run: docker-compose run web rake db:schema:load
     - name: Run migrations
       run: docker-compose run web rake db:migrate
-    - name: Run docker-compose up
-      run: docker-compose up
     - name: Run docker-compose up
       run: docker-compose down
