@@ -6,7 +6,7 @@ S3DirectUpload.config do |c|
     c.secret_access_key = Rails.application.secrets[:aws][:secret_access_key]
   else
     # if AWS credentials are _not_ available, assume we're on EC2 with an IAM role
-    prov = AWS::Core::CredentialProviders::EC2Provider.new
+    prov = Aws::Core::CredentialProviders::EC2Provider.new
 
     c.access_key_id     = lambda { prov.credentials[:access_key_id] }
     c.secret_access_key = lambda { prov.credentials[:secret_access_key] }

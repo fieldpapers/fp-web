@@ -24,7 +24,7 @@ when "s3"
       # If no AWS credentials were provided, assume we're running on EC2 with an
       # IAM role.
       s3_credentials: lambda { |a|
-        prov = AWS::Core::CredentialProviders::EC2Provider.new
+        prov = Aws::Core::CredentialProviders::EC2Provider.new
 
         return {
           bucket: Rails.application.secrets[:aws][:s3_bucket_name],
