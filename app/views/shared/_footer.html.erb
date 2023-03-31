@@ -1,6 +1,6 @@
 <div id="footer" class="row align-center">
   <div class="twelve columns">
-    <%= _("%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}") % { FieldPapers: content_tag(:b, link_to(_("Field Papers"), "https://fieldpapers.org/")), OpenStreetMapUS: link_to(_("OpenStreetMap US"), "https://openstreetmap.us/"), NowAProject: link_to(_("now a project"), "https://www.openstreetmap.us/2023/03/a-new-home-for-field-papers/") } %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= _("%{FieldPapers} is built by %{StamenDesign}") % { FieldPapers: content_tag(:b, link_to(_("Field Papers"), "http://fieldpapers.org/")), StamenDesign: link_to(_("Stamen Design"), "http://www.stamen.com/") } %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <%= link_to _("About the Project"), about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <a href="http://wiki.openstreetmap.org/wiki/Field_Papers" title="<%= _("Check out the OSM help wiki.") %>"><%= _("Help") %></a>
     <br>
@@ -31,8 +31,9 @@
   </div>
   <div class="twelve columns">
     <small>
-      <%= link_to _("GitHub Issues"), "https://github.com/fieldpapers/fieldpapers/issues/" %> / 
-      <%= link_to _("Translations"), "https://app.transifex.com/fieldpapers/" %>
+      <%= link_to _("Development Blog"), "http://fieldpapers.tumblr.com/" %>
+      <%= link_to _("GitHub Issues"), "https://github.com/fieldpapers/fieldpapers/issues/" %>
+      <%= link_to _("Translations"), "https://www.transifex.com/projects/p/fieldpapers/" %>
     </small>
   </div>
 </div>
