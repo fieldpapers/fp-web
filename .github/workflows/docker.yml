@@ -1,0 +1,20 @@
+name: "Docker"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run docker-compose build
+      run: docker-compose build
+    - name: Set up database schema
+      run: docker-compose run web rake db:schema:load
+    - name: Run migrations
+      run: docker-compose run web rake db:migrate
+    - name: Run docker-compose up
+      run: docker-compose up
+    - name: Run docker-compose up
+      run: docker-compose down
