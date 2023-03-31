@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run docker-compose build
-      run: docker-compose build
+      run: docker-compose -f ./docker-compose.yml build
     - name: Set up database schema
-      run: docker-compose run web rake db:schema:load
+      run: docker-compose -f ./docker-compose.yml run web rake db:schema:load
     - name: Run migrations
-      run: docker-compose run web rake db:migrate
+      run: docker-compose -f ./docker-compose.yml run web rake db:migrate
     - name: Run docker-compose up
-      run: docker-compose up
+      run: docker-compose -f ./docker-compose.yml up
     - name: Run docker-compose up
-      run: docker-compose down
+      run: docker-compose -f ./docker-compose.yml down
