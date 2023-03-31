@@ -5,14 +5,14 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - uses: "finnp/create-file-action@master"
       env:
         FILE_NAME: ".env"
         FILE_DATA: ""
-    - uses: actions/checkout@v3
     - name: Run docker-compose build
       run: docker-compose build
     - name: Set up database schema
