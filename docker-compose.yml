@@ -13,9 +13,10 @@ services:
     env_file: .env
     environment:
       - RAILS_ENV=development
+      - RAILS_DEVELOPMENT_HOSTS=web
       - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
       - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
-      - BASE_URL=http://localhost:3000
+      - BASE_URL=http://web:3000
       # needs to be publicly addressable
       - TILE_BASE_URL=http://tiler:8080
       - TASK_BASE_URL=http://tasks:8081
@@ -37,7 +38,7 @@ services:
     env_file: .env
     environment:
       # this will cause generated URLs in the PDFs to look suspicious, but it will work
-      - API_BASE_URL=http://localhost:3000/
+      - API_BASE_URL=http://web:3000/
       - NODE_ENV=production
       - PORT=8081
     ports:
@@ -46,7 +47,7 @@ services:
     image: quay.io/fieldpapers/tiler:v0.2.0
     env_file: .env
     environment:
-      - API_BASE_URL=http://localhost:3000/
+      - API_BASE_URL=http://web:3000/
       - NODE_ENV=production
       - PORT=8080
     ports:
