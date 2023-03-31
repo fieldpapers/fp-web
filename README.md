@@ -9,8 +9,6 @@ overview](https://github.com/fieldpapers/fieldpapers).
 
 ## Development
 
-[![Build Status](https://travis-ci.org/fieldpapers/fp-web.svg?branch=master)](https://travis-ci.org/fieldpapers/fp-web)
-
 ### Setting environment variables
 
 The following is required to run Field Papers, whether locally or via Docker / `docker-compose`:
