@@ -8,13 +8,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - name: Run docker-compose build
-      run: docker-compose -f docker-compose.yml build
+      run: docker-compose build
     - name: Set up database schema
-      run: docker-compose -f docker-compose.yml run web rake db:schema:load
+      run: docker-compose run web rake db:schema:load
     - name: Run migrations
-      run: docker-compose -f docker-compose.yml run web rake db:migrate
+      run: docker-compose run web rake db:migrate
     - name: Run docker-compose up
-      run: docker-compose -f docker-compose.yml up
+      run: docker-compose up
     - name: Run docker-compose up
-      run: docker-compose -f docker-compose.yml down
+      run: docker-compose down
