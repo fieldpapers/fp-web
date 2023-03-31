@@ -25,7 +25,7 @@ jobs:
           MYSQL_PASSWORD: fieldpapers
     env:
       RAILS_ENV: test
-      DATABASE_URL: "mysql2://fieldpapers:fieldpapers@db/fieldpapers_test"
+      DATABASE_URL: "mysql://fieldpapers:fieldpapers@db/fieldpapers_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
