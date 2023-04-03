@@ -2,7 +2,8 @@
   <div class="twelve columns">
     <%= _("%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}") % { FieldPapers: content_tag(:b, link_to(_("Field Papers"), "https://fieldpapers.org/")), OpenStreetMapUS: link_to(_("OpenStreetMap US"), "https://openstreetmap.us/"), NowAProject: link_to(_("now a project"), "https://www.openstreetmap.us/2023/03/a-new-home-for-field-papers/") } %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <%= link_to _("About the Project"), about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <a href="http://wiki.openstreetmap.org/wiki/Field_Papers" title="<%= _("Check out the OSM help wiki.") %>"><%= _("Help") %></a>
+    <a href="http://wiki.openstreetmap.org/wiki/Field_Papers" title="<%= _("Check out the OSM help wiki.") %>"><%= _("Help") %></a>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <a href="https://openstreetmap.app.neoncrm.com/forms/field-papers"><%= _("Donate") %></a>
     <br>
     <small><%= _("Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof.") % { OSMCopyright: link_to(_("&copy; OpenStreetMap contributors"), "http://www.openstreetmap.org/copyright"), Toner: link_to(_("Toner"), "http://maps.stamen.com/toner/"), Bing: link_to(_("Bing"), "http://www.bing.com/maps/"), Mapbox: link_to(_("Mapbox"), "https://www.mapbox.com") } %></small>
   </div>
