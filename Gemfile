@@ -26,7 +26,7 @@ gem "aws-sdk-s3", '~> 1.119', '>= 1.119.2'
 gem 'aws-sdk-rails', '~> 3.7', '>= 3.7.1'
 gem "bootstrap-sass", "~> 3.4.1"
 gem "composite_primary_keys", "~> 14.0.6"
-gem "devise", "~> 4.9.1" # authentication
+gem "devise", "~> 4.9.2" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
