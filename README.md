@@ -1,11 +1,11 @@
 # Field Papers
 
-[![Translation Status](https://www.transifex.com/projects/p/fieldpapers/resource/www/chart/image_png)](https://www.transifex.com/projects/p/fieldpapers/resource/www/)
-
-## Helping
-
-If you'd like to help out (thanks!), check out [this
-overview](https://github.com/fieldpapers/fieldpapers).
+## Quick links
+- [🔗 fieldpapers.org](https://fieldpapers.org)
+- [📋 Project overview](https://github.com/fieldpapers)
+- [🐞 Issues and bug reports](https://github.com/fieldpapers/fieldpapers/issues)
+- [🌐 Translations](https://explore.transifex.com/fieldpapers/fieldpapers/)
+- [🤝 Code of Conduct](https://wiki.openstreetmap.org/wiki/Foundation/Local_Chapters/United_States/Code_of_Conduct_Committee/OSM_US_Code_of_Conduct)
 
 ## Development
 
