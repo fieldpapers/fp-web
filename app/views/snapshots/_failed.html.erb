@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="twelve columns">
-        <p><%= _("Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details.") % { email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} failed to process for image #{snapshot.image_filename}"), image_filename: snapshot.image_filename } %></p>
+        <p><%= _("Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details.") % { open_issue: link_to(_("open a GitHub issue"), "https://github.com/fieldpapers/fieldpapers/issues/"), email_url: mail_to("help@fieldpapers.org", nil, replace_at: "[at]", class: "email", encode: "hex", subject: "Snapshot #{snapshot.slug} failed to process for image #{snapshot.image_filename}"), image_filename: snapshot.image_filename } %></p>
       </div>
     </div>
   </div>
