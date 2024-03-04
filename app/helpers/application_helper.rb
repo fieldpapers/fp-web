@@ -36,20 +36,18 @@ module ApplicationHelper
   # derives URLs for HTTP GET requests needed for JOSM to load data and tiles.
   # Actual XHRs exist in <script> in show.html.erb.
   def josm_link(zoom, lon, lat, north, south, east, west, provider, slug = nil)
-    protocol = URI.parse(request.original_url).scheme
-    port = protocol == "https" ? "8112" : "8111"
-    domain = "127.0.0.1"
+    josmremote = "http://127.0.0.1:8111"
 
     provider = provider.gsub("{S}", "{switch:a,b,c}").gsub("{Z}", "{zoom}").gsub("{Y}", "{y}").gsub("{X}", "{x}");
 
     # load data and zoom to extents
-    dataRequest = "#{protocol}://#{domain}:#{port}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
+    dataRequest = "#{josmremote}/load_and_zoom?left=#{west}&right=#{east}&top=#{north}5&bottom=#{south}"
 
     # load tiles
     if slug
-      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{zoom}/{x}/{y}.png"
+      tileRequest = "#{josmremote}/imagery?title=osm&type=tms&url=#{FieldPapers::TILE_BASE_URL}/snapshots/#{slug}/{zoom}/{x}/{y}.png"
     else
-      tileRequest = "#{protocol}://#{domain}:#{port}/imagery?title=osm&type=tms&url=#{provider}"
+      tileRequest = "#{josmremote}/imagery?title=osm&type=tms&url=#{provider}"
     end
 
     return "data-data-request=#{dataRequest} data-tile-request=#{tileRequest}"
