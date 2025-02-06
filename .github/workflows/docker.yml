@@ -6,6 +6,8 @@ on:
     branches: [ "main" ]
 jobs:
   build:
+    # disable workflow for now
+    if: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
