@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :redirect_www
+
   before_action :set_locale
 
   # Prevent CSRF attacks by raising an exception.
@@ -22,5 +24,11 @@ class ApplicationController < ActionController::Base
     http_accept_language.user_preferred_languages.unshift cookies[:locale] if cookies[:locale]
 
     I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+  end
+
+  def redirect_www
+    if request.host.starts_with?('www.')
+      redirect_to "https://#{request.host.sub('www.', '')}#{request.fullpath}", status: 301
+    end
   end
 end
