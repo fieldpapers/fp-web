@@ -1,18 +1,31 @@
 # English translations for app package.
 # Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 # 
 # Translators:
-# yasuto.furukawa <furushare@gmail.com>, 2015
-# mapconcierge <mapconcierge@gmail.com>, 2015
-# nyampire <nyampire@gmail.com>, 2015
+# MISA NAKAI <misasnsregis@gmail.com>, 2025
+# imachan0224 <imachan.piccolo@gmail.com>, 2025
+# Ken Taniguchi <sas625.30@gmail.com>, 2025
+# Minori Sako <sakominori1747@gmail.com>, 2025
+# Yayoi Eguchi <yayoi.eguchi@gmail.com>, 2025
+# 多賀谷 美里 <mi-310.aaa.817@ezweb.ne.jp>, 2025
+# Satoshi IIDA <nyampire@gmail.com>, 2025
+# Ayame Otsuki <cafe13e.ap@icloud.com>, 2025
+# 古川 泰人, 2025
+# MARIKO NAGANO <mushboy-tm.virus@docomo.ne.jp>, 2025
+# 水谷花 <mzhn.87@gmail.com>, 2025
+# Misa7716 <ten.kh.fantasia@gmail.com>, 2025
+# mapconcierge <mapconcierge@gmail.com>, 2025
+# k_zoar <zoar@k-side.net>, 2025
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: fieldpapers\n"
+"Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-02-26 18:10+0000\n"
-"Last-Translator: Ian Ross <iross@cadasta.org>\n"
-"Language-Team: Japanese (http://www.transifex.com/fieldpapers/fieldpapers/language/ja/)\n"
+"PO-Revision-Date: 2025-02-12 21:56+0000\n"
+"Last-Translator: k_zoar <zoar@k-side.net>, 2025\n"
+"Language-Team: Japanese (https://app.transifex.com/fieldpapers/teams/36392/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +33,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています"
+msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています。"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "写真を撮って %{Upload} "
@@ -35,7 +48,7 @@ msgstr[0] "%{count} 枚の写真"
 
 msgid "%{count} page"
 msgid_plural "%{count} pages"
-msgstr[0] ""
+msgstr[0] "%{count} ページ"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} 日前"
@@ -50,9 +63,11 @@ msgid ""
 "A GeoJSON file can posted as an attached file to <a "
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
+"添付された GeoJSON ファイルを <a href=\"/\">fieldpapers.org</a> に投稿することができます。ファイル名 "
+"“geojson_file”:"
 
 msgid "About"
-msgstr ""
+msgstr "概要"
 
 msgid "About the Project"
 msgstr "このプロジェクトについて"
@@ -61,16 +76,16 @@ msgid "Activity"
 msgstr "活動"
 
 msgid "Add-ons"
-msgstr ""
+msgstr "アドオン"
 
 msgid "Advanced - Field Papers"
 msgstr "高度な機能 - Field Papers"
 
 msgid "All Atlases"
-msgstr ""
+msgstr "すべての地図"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "すべてのスナップショット"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
@@ -81,19 +96,19 @@ msgid "Atlas - Field Papers"
 msgstr "地図帳 - Field Papers"
 
 msgid "Atlas Creation Failed"
-msgstr "地図帳の生成に失敗しました。"
+msgstr "地図帳の作成に失敗しました。"
 
 msgid "Atlas Rendering"
 msgstr "地図帳のレンダリング"
 
 msgid "Atlas Title"
-msgstr ""
+msgstr "地図のタイトル"
 
 msgid "Atlas description"
 msgstr "地図帳の説明"
 
 msgid "Atlas information"
-msgstr ""
+msgstr "地図の情報"
 
 msgid "Atlas location"
 msgstr "地図帳の位置"
@@ -105,39 +120,39 @@ msgid "Atlas provider"
 msgstr "地図帳提供者"
 
 msgid "Atlas text"
-msgstr "地図帳テキスト"
+msgstr ""
 
 msgid "Atlas title"
 msgstr "地図帳タイトル"
 
 msgid "Atlases"
-msgstr "地図"
+msgstr "地図帳"
 
 msgid "Atlases - Field Papers"
 msgstr "地図帳 - Field Papers"
 
 msgid "Basemap"
-msgstr ""
+msgstr "ベースマップ"
 
 msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 msgid "Capture your notes"
 msgstr "ノートを撮影"
 
 msgid "Check out the OSM help wiki."
-msgstr "OpenStreetMapのヘルプwikiをご確認ください"
+msgstr "OpenStreetMapのヘルプwikiをご確認ください。"
 
 msgid ""
 "Choose an atlas page to upload. We'll work out where it goes (using the QR "
 "code)."
-msgstr "メモした地図の画像ファイルを選択してアップロードしてください。記載されたQRコードを使ってその位置を判別します"
+msgstr "メモした地図の画像ファイルを選択してアップロードしてください。記載されたQRコードを使ってその位置を判別します。"
 
 msgid "Click for more information."
-msgstr ""
+msgstr "クリックで詳細を見られます"
 
 msgid "Copy this atlas"
 msgstr "この地図帳をコピー"
@@ -146,6 +161,8 @@ msgid ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote "
 "Control functionality is enabled in Preferences."
 msgstr ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.\n"
+"%{JOSM}に接続できなかった場合。%{JOSM}が機能していて、%{the Remote Control functionality}が優先的に有効になっているか確認してください。"
 
 msgid "Development Blog"
 msgstr "開発ブログ"
@@ -166,9 +183,11 @@ msgid ""
 "Each setting below can be posted via plain HTML form to <a "
 "href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
+"それぞれの設定は平文のHTMLフォームとして <a href=\"%s\">fieldpapers.org</a>に保存されます。 "
+"<i>必須となる設定はありません。</i>"
 
 msgid "Edit in..."
-msgstr ""
+msgstr "編集する"
 
 msgid "Examples:"
 msgstr "サンプル:"
@@ -192,20 +211,20 @@ msgid "Geojson File"
 msgstr "Geojsonファイル"
 
 msgid "GitHub Issues"
-msgstr ""
+msgstr "GitHub Issue"
 
 msgid "Grid layout"
-msgstr ""
+msgstr "グリッドレイアウト"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
+msgstr "野外で書き込んだフィールドペーパー地図帳"
 
 msgid ""
 "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
+msgstr "手書きの図が表す野外で書いた地図"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
+msgstr "フィールドペーパー地図帳の作成を表す手書きの図"
 
 msgid "Help"
 msgstr "ヘルプ"
@@ -214,12 +233,15 @@ msgid ""
 "If it takes more than an hour, check %{twitter_link} for system status "
 "updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
+"もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  "
+"をチェックしてください。そしてもし地図帳がスタックしたら, %{email_url} にEmail してください。"
 
 msgid ""
 "If you choose to include notes, your map will be printed on the top half a "
 "page with notes displayed on the bottom half. Otherwise, maps will be "
 "displayed on a full page."
 msgstr ""
+"もしノートを含むものを選んだのであれば、あなたの地図は下半分に表示されているノートとともに上半分に印刷されます。そうでなければ地図は全体に表示されます。"
 
 msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
@@ -230,13 +252,13 @@ msgstr ""
 msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
-msgstr ""
+msgstr "地図帳はGeoJSONファイルから作成することが可能です。これは二つの方法のうちの一つです。"
 
 msgid "JOSM"
-msgstr ""
+msgstr "JOSM"
 
 msgid "Keep atlas private"
-msgstr ""
+msgstr "この地図帳の非公開設定を維持する。"
 
 msgid "LOG IN"
 msgstr "ログイン"
@@ -259,13 +281,13 @@ msgid "Make - Field Papers"
 msgstr "作る - Field Papers"
 
 msgid "Make Atlas"
-msgstr ""
+msgstr "地図を作成"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr ""
+msgstr "スキャンデータ/写真/画像の解像度が 200dpi 以上であることを確認してください."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
+msgstr "アップロードする画像が JPG, PNG, TIF またはGIF であることを確認してください. (PDF は利用できません.)"
 
 msgid "Make your notes and observations."
 msgstr "あなたの観察記録や気付きをメモしよう"
@@ -274,15 +296,17 @@ msgid "Make yourself an atlas"
 msgstr "あなた自身の地図帳を作る"
 
 msgid "Making Atlases From GeoJSON"
-msgstr ""
+msgstr "GeoJSONで地図帳を作る"
 
 msgid "Making Canned Atlases"
-msgstr ""
+msgstr "既存の地図帳を作る"
 
 msgid ""
 "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
 "%{Mapbox}, or a combination thereof."
 msgstr ""
+"地図データ %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, "
+"もしくはその組み合わせです。"
 
 msgid "Mapbox"
 msgstr "Mapbox"
@@ -297,16 +321,16 @@ msgid "No snapshots."
 msgstr "スナップショットがありません。"
 
 msgid "Notes"
-msgstr ""
+msgstr "ノート"
 
 msgid "Orientation"
-msgstr ""
+msgstr "用紙の向き"
 
 msgid "Paper size"
-msgstr ""
+msgstr "用紙サイズ"
 
 msgid "Pin grid to map"
-msgstr ""
+msgstr "グリッドを地図に固定する"
 
 msgid "Plain Text (CSV)"
 msgstr "プレーンテキスト(CSV)"
@@ -315,7 +339,7 @@ msgid "Potlatch"
 msgstr "Potlatch"
 
 msgid "Print notes"
-msgstr ""
+msgstr "ノートを印刷する"
 
 msgid "Print out anywhere in the world."
 msgstr "世界中どこでも印刷"
@@ -323,7 +347,7 @@ msgstr "世界中どこでも印刷"
 msgid ""
 "Private atlases can only be accessed if you're logged in, or via a URL "
 "provided to you in the final step."
-msgstr ""
+msgstr "個人が作成した地図帳はログイン時、あるいは最終段階で表示されるURLを通じてしかアクセスすることができません。"
 
 msgid "Refresh"
 msgstr "更新"
@@ -340,15 +364,17 @@ msgid ""
 "Since this snapshot is <span class='private'>private</span>, you probably "
 "should <a href='%{url}'>bookmark it</a>."
 msgstr ""
+"このスナップショットは<span class='private'>プライベート</span>なので、たぶんあなたはリンクを<a "
+"href='%{url}'>ブックマーク</a>するべきです。"
 
 msgid "Snapshot - Field Papers"
 msgstr "スナップショット - Field Papers"
 
 msgid "Snapshot Processing"
-msgstr ""
+msgstr "スナップショットを処理"
 
 msgid "Snapshot Processing Failed"
-msgstr ""
+msgstr "スナップショットの処理が失敗しました。"
 
 msgid "Snapshot upload - Field Papers"
 msgstr "スナップショットをアップロード - Field Papers"
@@ -362,7 +388,7 @@ msgstr "スナップショット - Field Papers"
 msgid ""
 "Something went wrong! Please review the <strong>rules</strong> below and try"
 " again."
-msgstr ""
+msgstr "エラーが生じました。以下の項目 <strong>rules</strong> を確認し、やり直してください。"
 
 msgid "Stamen Design"
 msgstr "Stamen Design"
@@ -378,15 +404,19 @@ msgid ""
 "window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
 "back later."
 msgstr ""
+"数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a "
+"href='%{atlas_url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
 
 msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{url}'>bookmark this page</a> and come back "
 "later."
 msgstr ""
+"数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a "
+"href='%{url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
 
 msgid "This process has been running for %{time}"
-msgstr ""
+msgstr "このプロセスは実行中 %{time} "
 
 msgid "Tile URL template"
 msgstr "タイトル URL のテンプレート"
@@ -395,25 +425,29 @@ msgid "Toner"
 msgstr "Toner"
 
 msgid "Translations"
-msgstr ""
+msgstr "翻訳"
 
 msgid "UPLOAD"
 msgstr "アップロード"
 
 msgid "UTM Grid"
-msgstr ""
+msgstr "UTM グリッド"
 
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
 msgstr ""
+"残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに "
+"%{email_url} にメールを送ってください。 "
 
 msgid ""
 "Unfortunately, your snapshot failed to be processed. It's possible that it "
 "was an intermittent error, in which case you should try re-uploading. If the"
 " problem persists, please email %{email_url} with details."
 msgstr ""
+"残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳細と一緒に"
+" %{email_url} へメールをしてください。"
 
 msgid "Upload"
 msgstr "アップロード"
@@ -431,16 +465,16 @@ msgid "Welcome to Field Papers"
 msgstr "ようこそ Field Papers へ"
 
 msgid "Your Atlases"
-msgstr ""
+msgstr "あなたの地図"
 
 msgid "Your Snapshots"
-msgstr ""
+msgstr "あなたのスナップショット"
 
 msgid "an atlas to print"
 msgstr "地図帳を印刷"
 
 msgid "anonymous"
-msgstr ""
+msgstr "anonymous"
 
 msgid "iD"
 msgstr "iD"
@@ -452,7 +486,7 @@ msgid "pages you've marked"
 msgstr "あなたがマークしたページ"
 
 msgid "private"
-msgstr ""
+msgstr "プライベート"
 
 msgid "recent activity"
 msgstr "現在の活動状況"
