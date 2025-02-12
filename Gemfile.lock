@@ -313,7 +313,7 @@ GEM
       ruby-progressbar
     multi_json (1.15.0)
     multipart-post (2.3.0)
-    mysql2 (0.5.5)
+    mysql2 (0.5.6)
     nenv (0.3.0)
     net-imap (0.3.4)
       date
@@ -350,7 +350,7 @@ GEM
       method_source (~> 1.0)
     psych (5.1.0)
       stringio
-    puma (6.2.1)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
@@ -500,9 +500,9 @@ DEPENDENCIES
   mapbox-rails!
   meta_request
   minitest-reporters
-  mysql2 (~> 0.5.5)
+  mysql2 (~> 0.5.6)
   paperclip (~> 6.1.0)
-  puma
+  puma (~> 6.6.0)
   rack-contrib
   rack-rewrite
   rails (= 7.0.4.3)

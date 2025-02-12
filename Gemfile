@@ -39,12 +39,12 @@ gem "kaminari" # pagination
 gem "kaminari-i18n"
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "paperclip", "~> 6.1.0" # file attachments
-gem "puma" # app server
+gem "puma", "~> 6.6.0" # app server
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
 gem "rails-i18n", "~> 7.0.6"
 gem "s3_direct_upload", git: 'https://github.com/waynehoover/s3_direct_upload'
-gem "mysql2", "~> 0.5.5"
+gem "mysql2", "~> 0.5.6"
 gem "workflow", "~> 3.0.0"
 gem "json", "~> 2.6.3"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
