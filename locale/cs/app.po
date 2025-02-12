@@ -4,126 +4,125 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 # 
 # Translators:
-# Teiron, 2025
-# wh4teverever <wh4tever@outlook.com>, 2025
+# Jiří Podhorecký <jirka.p@volny.cz>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: wh4teverever <wh4tever@outlook.com>, 2025\n"
-"Language-Team: Polish (https://app.transifex.com/fieldpapers/teams/36392/pl/)\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
+"Language-Team: Czech (https://app.transifex.com/fieldpapers/teams/36392/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} zbudowane przez %{StamenDesign}"
+msgstr "%{FieldPapers} je vytvořen %{StamenDesign}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr "%{Prześlij} sfotografowane strony."
+msgstr "%{Upload} stránky, které jste vyfotografovali."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
 msgstr[0] "%{count} Atlas"
 msgstr[1] "%{count} Atlasy"
-msgstr[2] "%{count} Atlasów"
-msgstr[3] "%{count} Atlasów"
+msgstr[2] "%{count} Atlasů"
+msgstr[3] "%{count} Atlasů"
 
 msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
-msgstr[0] "%{count} Zrzut"
-msgstr[1] "%{count} Zrzuty"
-msgstr[2] "%{count} Zrzutów"
-msgstr[3] "%{count} Zrzutów"
+msgstr[0] "%{count} Snímek"
+msgstr[1] "%{count} Snímky"
+msgstr[2] "%{count} Snímků"
+msgstr[3] "%{count} Snímků"
 
 msgid "%{count} page"
 msgid_plural "%{count} pages"
-msgstr[0] "%{count} strona"
-msgstr[1] "%{count} strony"
-msgstr[2] "%{count} stron"
-msgstr[3] "%{count} stron"
+msgstr[0] "%{count} strana"
+msgstr[1] "%{count} strany"
+msgstr[2] "%{count} stran"
+msgstr[3] "%{count} stran"
 
 msgid "%{time_period} ago"
-msgstr "%{time_period} temu"
+msgstr "před %{time_period} "
 
 msgid "&copy; OpenStreetMap contributors"
-msgstr "&copy; Autorzy OpenStreetMap"
+msgstr "&copy; OpenStreetMap přispěvatelé"
 
 msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers na Twitterze"
+msgstr "@fieldpapers na Twitteru"
 
 msgid ""
 "A GeoJSON file can posted as an attached file to <a "
 "href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
 msgstr ""
-"Plik GeoJSON może zostać przesłany jako załącznik na <a "
-"href=\"/\">fieldpapers.org</a>, pod nazwą “geojson_file”:"
+"Soubor GeoJSON může být zveřejněn jako připojený soubor k <a "
+"href=\"/\">fieldpapers.org</a> s názvem „geojson_file“:"
 
 msgid "About"
-msgstr "O Field Papers"
+msgstr "O nás"
 
 msgid "About the Project"
-msgstr "O projekcie"
+msgstr "O Projektu"
 
 msgid "Activity"
-msgstr "Aktywność"
+msgstr "Aktivita"
 
 msgid "Add-ons"
-msgstr "Dodatki"
+msgstr "Doplňky"
 
 msgid "Advanced - Field Papers"
-msgstr "Zaawansowane - Field Papers"
+msgstr "Pokročilé - Field Papers "
 
 msgid "All Atlases"
-msgstr "Wszystkie atlasy"
+msgstr "Všechny Atlasy"
 
 msgid "All Snapshots"
-msgstr "Wszystkie zrzuty"
+msgstr "Všechny Snímky"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be posted to <a "
 "href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
 msgstr ""
-"Oprócz tego, zawartość pliku GeoJSON może zostać przesłana na <a "
-"href=\"/\">fieldpapers.org</a> jako zawartość formularza, nazwanego "
-"\"geojson_data\":"
+"Alternativně lze surový obsah GeoJSON zapsat na <a "
+"href=\"/\">fieldpapers.org</a> jako hodnotu formuláře s názvem "
+"„geojson_data“:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
 
 msgid "Atlas Creation Failed"
-msgstr "Tworzenie atlasu nieudane"
+msgstr "Vytvoření Atlasu selhalo"
 
 msgid "Atlas Rendering"
-msgstr "Renderowanie atlasu"
+msgstr "Vytváření Atlasu"
 
 msgid "Atlas Title"
-msgstr "Nazwa atlasu"
+msgstr "Název Atlasu"
 
 msgid "Atlas description"
-msgstr "Opis atlasu"
+msgstr "popis Atlasu"
 
 msgid "Atlas information"
-msgstr "Informacje o atlasie"
+msgstr "informace o Atlasu"
 
 msgid "Atlas location"
-msgstr "Lokalizacja atlasu"
+msgstr "umístění Atlasu"
 
 msgid "Atlas page - Field Papers"
-msgstr "Strona atlasu - Field Papers"
+msgstr "strana Atlasu - Field Papers"
 
 msgid "Atlas provider"
-msgstr "Dostawca atlasu"
+msgstr "poskytovatel Atlasu"
 
 msgid "Atlas text"
-msgstr "Opis atlasu"
+msgstr "text Atlasu"
 
 msgid "Atlas title"
-msgstr "Nazwa atlasu"
+msgstr "název Atlasu"
 
 msgid "Atlases"
 msgstr "Atlasy"
@@ -132,70 +131,71 @@ msgid "Atlases - Field Papers"
 msgstr "Atlasy - Field Papers"
 
 msgid "Basemap"
-msgstr "Podkład"
+msgstr "Podkladová mapa"
 
 msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr "Anuluj"
+msgstr "Zrušit"
 
 msgid "Capture your notes"
-msgstr "Przechwyć swoje notatki"
+msgstr "Zachyťte své poznámky"
 
 msgid "Check out the OSM help wiki."
-msgstr "Sprawdź pomoc na wiki OSM "
+msgstr "Podívejte se na wiki nápovědu OSM."
 
 msgid ""
 "Choose an atlas page to upload. We'll work out where it goes (using the QR "
 "code)."
 msgstr ""
-"Wybierz atlas do przesłania. My ustalimy jego położenie (z pomocą kodu QR)."
+"Vyberte stránku Atlasu, kterou chcete nahrát. Uvidíme, kam to půjde (pomocí "
+"QR kódu)."
 
 msgid "Click for more information."
-msgstr "Kliknij po więcej informacji."
+msgstr "Klikněte pro více informací."
 
 msgid "Copy this atlas"
-msgstr "Skopiuj ten atlas"
+msgstr "Zkopírovat tento atlas"
 
 msgid ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote "
 "Control functionality is enabled in Preferences."
 msgstr ""
-"Nie udało się połączyć z JOSM. Upewnij się, że JOSM jest uruchomiony i ma "
-"włączoną funkcję Zdalne Sterowanie w Preferencjach."
+"Nelze se připojit k JOSM. Ujistěte se, že je spuštěn JOSM a zda je v "
+"předvolbách povolena funkce dálkového ovládání."
 
 msgid "Development Blog"
-msgstr "Blog deweloperski"
+msgstr "Vývojářský blog"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr "Proszę nie przesyłać niczego innego niż mapy Field Papers"
+msgstr "Nenahrávejte prosím věci, které nejsou mapami Field Papers."
 
 msgid "Download GeoTIFF"
-msgstr "Pobierz jako GeoTIFF"
+msgstr "Stáhnout GeoTIFF"
 
 msgid "Download PDF"
-msgstr "Pobierz jako PDF"
+msgstr "Stáhnout PDF"
 
 msgid "EXTEND"
-msgstr "ROZSZERZ"
+msgstr "ROZŠÍŘIT"
 
 msgid ""
 "Each setting below can be posted via plain HTML form to <a "
 "href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
-"Wszystkie poniższe ustawienia można wysłać na <a "
-"href=\"%s\">fieldpapers.org</a> przez formularz HTML. <i> Wszystkie "
-"ustawienia są opcjonalne.</i>"
+"Každé níže uvedené nastavení lze odeslat prostřednictvím obyčejného HTML "
+"formuláře na <a href=\"%s\">fieldpapers.org</a>. <i>Všechny jsou "
+"volitelné</i>."
 
 msgid "Edit in..."
-msgstr "Edytuj w..."
+msgstr "Upravit v ..."
 
 msgid "Examples:"
-msgstr "Przykłady:"
+msgstr "Příklady:"
 
 msgid "Export Data"
-msgstr "Eksportuj dane"
+msgstr "Exportovat data"
 
 msgid "Field Papers"
 msgstr "Field Papers"
@@ -207,120 +207,122 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "Geojson Data"
-msgstr "Dane Geojson"
+msgstr "Geojson Data"
 
 msgid "Geojson File"
-msgstr "Plik Geojson"
+msgstr "Geojson soubor"
 
 msgid "GitHub Issues"
-msgstr "Problemy na GitHub"
+msgstr "GitHub Issues"
 
 msgid "Grid layout"
-msgstr "Układ siatki"
+msgstr "Rozvržení mřížky"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr "Odręczny rysunek pokazujący atlas Field Papers w terenie"
+msgstr "Ručně kreslená grafika představující atlas Field Papers v přírodě"
 
 msgid ""
 "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr ""
-"Odręczny rysunek pokazujący fotografowanie strony w atlasie Field Papers"
+"Ručně kreslená grafika představující fotografování stránky v atlasu Field "
+"Papers"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr "Odręczny rysunek pokazujący tworzenie atlasu Field Papers"
+msgstr "Ručně kreslená grafika reprezentující výrobu atlasu Field Papers"
 
 msgid "Help"
-msgstr "Pomoc"
+msgstr "Nápověda"
 
 msgid ""
 "If it takes more than an hour, check %{twitter_link} for system status "
 "updates, and email us at %{email_url} if your atlas is stuck."
 msgstr ""
-"Gdy proces trwa ponad godzinę, sprawdź status systemu %{twitter_link} i "
-"napisz do nas %{email_url}, jeśli Twój atlas utknął."
+"Pokud to trvá déle než hodinu, zkontrolujte %{twitter_link}, zda jsou "
+"aktualizovány stavy systému, a pokud je váš atlas zaseknutý, pošlete nám "
+"e-mail na %{email_url}."
 
 msgid ""
 "If you choose to include notes, your map will be printed on the top half a "
 "page with notes displayed on the bottom half. Otherwise, maps will be "
 "displayed on a full page."
 msgstr ""
-"Jeśli zechcesz dołączyć notatki, Twoje mapa zostanie wydrukowana na górnej "
-"połowie strony, a notatki na dolnej. W przeciwnym wypadku mapa zostanie "
-"wydrukowana na całej stronie."
+"Pokud se rozhodnete zahrnout poznámky, vaše mapa se vytiskne na horní "
+"polovinu stránky s poznámkami zobrazenými na spodní polovině. Jinak se mapy "
+"zobrazí na celé stránce."
 
 msgid ""
 "It’s easy to create “canned” Field Papers atlases by providing extra details"
 " up-front that are used as default values throughout the <a "
 "href=\"%s\">Make</a> process."
 msgstr ""
-"Tworzenie wstępnie przygotowanych atlasów jest proste - wystarczy podać "
-"kilka informacji używanych jako domyślne wartości w sekcji <a "
-"href=\"%s\">Utwórz</a>."
+"Vytváření  „zakonzervovaných“  atlasů Field Papersje snadné, protože "
+"poskytujete další podrobnosti předem, které se používají jako výchozí "
+"hodnoty během procesu <a href=\"%s\">vytváření</a>."
 
 msgid ""
 "It’s possible to generate atlases from raw GeoJSON files. This can be done "
 "in one of two ways:"
 msgstr ""
-"Możliwe jest generowanie atlasów z surowych plików GeoJSON. Można to zrobić "
-"na dwa sposoby:"
+"Je možné generovat atlasy ze surových souborů GeoJSON. To lze provést jedním"
+" ze dvou způsobů:"
 
 msgid "JOSM"
 msgstr "JOSM"
 
 msgid "Keep atlas private"
-msgstr "Ustaw jako prywatny"
+msgstr "Zachovat atlas soukromý"
 
 msgid "LOG IN"
-msgstr "ZALOGUJ SIĘ"
+msgstr "PŘIHLÁSIT SE"
 
 msgid "LOG OUT"
-msgstr "WYLOGUJ SIĘ"
+msgstr "ODHLÁSIT SE"
 
 msgid ""
 "Latitude, longitude, and optional zoom. Use <a "
 "href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
-"Szerokość, długość i opcjonalnie przybliżenie . Użyj <a "
-"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, aby je ustalić."
+"Zeměpisná šířka, délka a volitelné zvětšení. Chcete-li vytvořit nové, "
+"použijte <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>."
 
 msgid "Location and zoom"
-msgstr "Lokalizacja i powiększenie"
+msgstr "Poloha a zvětšení"
 
 msgid "MAKE"
-msgstr "UTWÓRZ"
+msgstr "VYTVOŘIT"
 
 msgid "Make - Field Papers"
-msgstr "Utwórz - Field Papers"
+msgstr "Vytvořit  - Field Papers"
 
 msgid "Make Atlas"
-msgstr "Utwórz atlas"
+msgstr "Vytvořit Atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr "Upewnij się, że skan/zdjęcie/obraz ma co najmniej 200dpi."
+msgstr "Ujistěte se, že sken / fotografie / obrázek má alespoň 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr ""
-"Upewnij się, że przesyłasz plik JPG, PNG, TIF lub GIF. (PDF nie jest "
-"obsługiwany.)"
+"Ujistěte se, že nahráváte soubory JPG, PNG, TIF nebo GIF. (Soubory PDF "
+"nebudou fungovat.)"
 
 msgid "Make your notes and observations."
-msgstr "Sporządź notatki i obserwacje."
+msgstr "Vytvořte si poznámky a postřehy."
 
 msgid "Make yourself an atlas"
-msgstr "U"
+msgstr "Udělejte si atlas"
 
 msgid "Making Atlases From GeoJSON"
-msgstr "Tworzenie atlasów z GeoJSON"
+msgstr "Vytváření atlasů z GeoJSON"
 
 msgid "Making Canned Atlases"
-msgstr "Tworzenie wstępnie przygotowanych atlasów"
+msgstr "Vytváření zakonzervovaných Atlasů"
 
 msgid ""
 "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
 "%{Mapbox}, or a combination thereof."
 msgstr ""
-"Dane map %{OSMCopyright}, %{Toner} - Stamen, %{Bing} - Microsoft, %{Mapbox},"
-" lub kombinacje niniejszych."
+"Mapová data %{OSMCopyright}, %{Toner} od Stamen, %{Bing} od Microsoftu, "
+"%{Mapbox}, nebo z jejich kombinace."
 
 msgid "Mapbox"
 msgstr "Mapbox"
@@ -329,192 +331,194 @@ msgid "Menu"
 msgstr "Menu"
 
 msgid "No atlases."
-msgstr "Brak atlasów"
+msgstr "Žádné atlasy."
 
 msgid "No snapshots."
-msgstr "Brak zrzutów."
+msgstr "Žádné snímky"
 
 msgid "Notes"
-msgstr "Notatki"
+msgstr "Poznámky"
 
 msgid "Orientation"
-msgstr "Orientacja"
+msgstr "Orientace"
 
 msgid "Paper size"
-msgstr "Rozmiar arkusza"
+msgstr "Velikost papíru"
 
 msgid "Pin grid to map"
-msgstr "Przypnij siatkę do mapy"
+msgstr "Připnout mřížku k mapě"
 
 msgid "Plain Text (CSV)"
-msgstr "Zwykły tekst (CSV)"
+msgstr "Plain Text (CSV)"
 
 msgid "Potlatch"
 msgstr "Potlatch"
 
 msgid "Print notes"
-msgstr "Wydrukuj notatki"
+msgstr "Tisk poznámek"
 
 msgid "Print out anywhere in the world."
-msgstr "Wydrukuj gdziekolwiek na świecie."
+msgstr "Tiskněte kdekoli na světě."
 
 msgid ""
 "Private atlases can only be accessed if you're logged in, or via a URL "
 "provided to you in the final step."
 msgstr ""
-"Prywatne atlasy możesz przeglądać po zalogowaniu się albo przez link podany "
-"w ostatnim kroku."
+"Přístup k soukromým atlasům je možný pouze v případě, že jste přihlášeni, "
+"nebo prostřednictvím adresy URL poskytnuté v posledním kroku."
 
 msgid "Refresh"
-msgstr "Odśwież"
+msgstr "Obnovit"
 
 msgid "Rules"
-msgstr "Zasady"
+msgstr "Pravidla"
 
 msgid ""
 "Since this atlas is <span class='private'>private</span>, you probably "
 "should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
-"Ponieważ ten atlas jest <span class='private'>prywatny</span>, powinieneś "
-"prawdopodobnie <a href='%{atlas_url}'>dodać go do zakładek</a>."
+"Protože je tento atlas <span class='private'>soukromý</span>, pravděpodobně "
+"byste si ho měli <a href='%{atlas_url}'>uložit do záložek</a>."
 
 msgid ""
 "Since this snapshot is <span class='private'>private</span>, you probably "
 "should <a href='%{url}'>bookmark it</a>."
 msgstr ""
-"Ponieważ ten zrzut jest <span class='private'>prywatny</span>, powinieneś "
-"prawdopodobnie <a href='%{atlas_url}'>dodać go do zakładek</a>."
+"Protože je tento snímek <span class='private'>soukromý</span>, pravděpodobně"
+" byste si ho měli <a href='%{url}'>uložit jako záložku</a>."
 
 msgid "Snapshot - Field Papers"
-msgstr "Zrzut - Field Papers"
+msgstr "Snímek - Field Papers"
 
 msgid "Snapshot Processing"
-msgstr "Przetwarzanie zrzutu"
+msgstr "Zpracování Snímku"
 
 msgid "Snapshot Processing Failed"
-msgstr "Przetwarzanie zrzutu nieudane"
+msgstr "Zpracování Snímku selhalo"
 
 msgid "Snapshot upload - Field Papers"
-msgstr "Przesyłanie zrzutu - Field Papers"
+msgstr "Nahrávání Snímku - Field Papers"
 
 msgid "Snapshots"
-msgstr "Zrzuty"
+msgstr "Snímky"
 
 msgid "Snapshots - Field Papers"
-msgstr "Zrzuty - Field Papers"
+msgstr "Snímky - Field Papers"
 
 msgid ""
 "Something went wrong! Please review the <strong>rules</strong> below and try"
 " again."
 msgstr ""
-"Coś poszło nie tak! Przejrzyj <strong>zasady</strong> poniżej i spróbuj "
-"ponownie."
+"Něco se pokazilo! Přečtěte si níže uvedená <strong>pravidla</strong> a "
+"zkuste to znovu."
 
 msgid "Stamen Design"
 msgstr "Stamen Design"
 
 msgid "Submit"
-msgstr "Wyślij"
+msgstr "Odeslat"
 
 msgid "Take it into the field"
-msgstr "Zabierz go w teren"
+msgstr "Vezměte to do terénu"
 
 msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
 "back later."
 msgstr ""
-"To potrwa kilka minut. Nie musisz trzymać tego okna otwartego; możesz <a "
-"href='%{atlas_url}'>dodać tę stronę do zakładek</a> i wrócić później."
+"Může to chvíli trvat, obvykle několik minut. Toto okno nemusíte mít "
+"otevřené; můžete si tuto stránku <a href='%{atlas_url}'>uložit jako "
+"záložku</a> a vrátit se k ní později."
 
 msgid ""
 "This may take a while, generally a few minutes. You don't need to keep this "
 "window open; you can <a href='%{url}'>bookmark this page</a> and come back "
 "later."
 msgstr ""
-"To potrwa kilka minut. Nie musisz trzymać tego okna otwartego; możesz <a "
-"href='%{url}'>dodać tę stronę do zakładek</a> i wrócić później."
+"Může to chvíli trvat, obvykle několik minut. Toto okno nemusíte mít "
+"otevřené; můžete si tuto stránku <a href='%{url}'>uložit jako záložku</a> a "
+"vrátit se později."
 
 msgid "This process has been running for %{time}"
-msgstr "Proces trwa już %{time}"
+msgstr "Tento proces běží %{time}"
 
 msgid "Tile URL template"
-msgstr "Szablon URL kafelków"
+msgstr "Šablona URL dlaždic"
 
 msgid "Toner"
 msgstr "Toner"
 
 msgid "Translations"
-msgstr "Tłumaczenia"
+msgstr "Překlady"
 
 msgid "UPLOAD"
-msgstr "PRZEŚLIJ"
+msgstr "NAHRÁT"
 
 msgid "UTM Grid"
-msgstr "Siatka UTM"
+msgstr "UTM Mřížka"
 
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
 "the problem persists, please email %{email_url} with details."
 msgstr ""
-"Niestety renderowanie atlasu nie powiodło się. Możliwe, że to sporadyczny "
-"błąd, więc spróbuj jeszcze raz utworzyć atlas. Jeśli problem się powtarza, "
-"wyślij jego opis na adres %{email_url}."
+"Bohužel se váš atlas nedokázal vykreslit. Je možné, že se jednalo o občasnou"
+" chybu. V takovém případě byste se měli pokusit znovu vytvořit atlas. Pokud "
+"problém přetrvává, pošlete e-mail %{email_url} s podrobnostmi."
 
 msgid ""
 "Unfortunately, your snapshot failed to be processed. It's possible that it "
 "was an intermittent error, in which case you should try re-uploading. If the"
 " problem persists, please email %{email_url} with details."
 msgstr ""
-"Niestety przetwarzanie zrzutu nie powiodło się. Możliwe, że to sporadyczny "
-"błąd, więc spróbuj jeszcze raz przesłać zrzut. Jeśli problem się powtarza, "
-"wyślij jego opis na adres %{email_url}."
+"Snímek se bohužel nepodařilo zpracovat. Je možné, že se jednalo o občasnou "
+"chybu. V takovém případě byste se měli pokusit znovu nahrát. Pokud problém "
+"přetrvává, pošlete e-mail %{email_url} s podrobnostmi."
 
 msgid "Upload"
-msgstr "Prześlij"
+msgstr "Nahrát"
 
 msgid "Upload Failed"
-msgstr "Przesyłanie nieudane"
+msgstr "Nahrání selhalo"
 
 msgid "Uploading"
-msgstr "Przesyłanie"
+msgstr "Nahrávání"
 
 msgid "WATCH"
-msgstr "PRZEGLĄDAJ"
+msgstr "SLEDOVAT"
 
 msgid "Welcome to Field Papers"
-msgstr "Witaj w Field Papers"
+msgstr "Vítejte ve Field Papers"
 
 msgid "Your Atlases"
-msgstr "Twoje atlasy"
+msgstr "Vaše Atlasy"
 
 msgid "Your Snapshots"
-msgstr "Twoje zrzuty"
+msgstr "Vaše Snímky"
 
 msgid "an atlas to print"
-msgstr "atlas do wydrukowania"
+msgstr "atlas k tisku"
 
 msgid "anonymous"
-msgstr "anonim"
+msgstr "anonymní"
 
 msgid "iD"
 msgstr "iD"
 
 msgid "or create an account"
-msgstr "albo utwórz konto"
+msgstr "nebo vytvořte účet"
 
 msgid "pages you've marked"
-msgstr "oznaczone strony"
+msgstr "stránky, které jste označili"
 
 msgid "private"
-msgstr "prywatny"
+msgstr "soukromý"
 
 msgid "recent activity"
-msgstr "ostatnią aktywność"
+msgstr "nedávná aktivita"
 
 msgid "snapshot of page %{tp}"
-msgstr "zrzuty strony: %{tp}"
+msgstr "snímek strany %{tp}"
 
 msgid "with advanced tools"
-msgstr "z zaawansowanymi narzędziami"
+msgstr "s pokročilými nástroji"

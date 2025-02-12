@@ -1,0 +1,517 @@
+# English translations for app package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# 
+# Translators:
+# OmarRi <om_80_m@yahoo.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-02-12 21:56+0000\n"
+"Last-Translator: OmarRi <om_80_m@yahoo.com>, 2025\n"
+"Language-Team: Arabic (https://app.transifex.com/fieldpapers/teams/36392/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "%{FieldPapers} is built by %{StamenDesign}"
+msgstr "%{FieldPapers} مبني بواسطة %{StamenDesign}"
+
+msgid "%{Upload} pages you've photographed."
+msgstr "%{Upload} صفحات قمت بتصويرها."
+
+msgid "%{count} Atlas"
+msgid_plural "%{count} Atlases"
+msgstr[0] "%{count} أطلس"
+msgstr[1] "%{count} أطلس"
+msgstr[2] "%{count} أطلسان"
+msgstr[3] "%{count} أطالس"
+msgstr[4] "%{count} أطلس"
+msgstr[5] "%{count} أطلس"
+
+msgid "%{count} Snapshot"
+msgid_plural "%{count} Snapshots"
+msgstr[0] "%{count} لقطة"
+msgstr[1] "%{count} لقطة"
+msgstr[2] "%{count} لقطتين"
+msgstr[3] "%{count} لقطات"
+msgstr[4] "%{count} لقطة"
+msgstr[5] "%{count} لقطة"
+
+msgid "%{count} page"
+msgid_plural "%{count} pages"
+msgstr[0] "%{count} صفحة"
+msgstr[1] "%{count} صفحة"
+msgstr[2] "%{count} صفحتان"
+msgstr[3] "%{count} صفحات"
+msgstr[4] "%{count} صفحة"
+msgstr[5] "%{count} صفحة"
+
+msgid "%{time_period} ago"
+msgstr "منذ %{time_period}"
+
+msgid "&copy; OpenStreetMap contributors"
+msgstr "&copy; OpenStreetMap contributors"
+
+msgid "@fieldpapers on Twitter"
+msgstr "@fieldpapers على تويتر"
+
+msgid ""
+"A GeoJSON file can posted as an attached file to <a "
+"href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
+msgstr ""
+"بإمكان نشر ملف GeoJSON على أنه ملف مرفق إلى <a "
+"href=\"/\">fieldpapers.org</a>، بالاسم “geojson_file”:"
+
+msgid "About"
+msgstr "حول"
+
+msgid "About the Project"
+msgstr "حول المشروع"
+
+msgid "Activity"
+msgstr "النشاطات"
+
+msgid "Add-ons"
+msgstr "الإضافات"
+
+msgid "Advanced - Field Papers"
+msgstr "متقدم - فيلد بايْبِرز"
+
+msgid "All Atlases"
+msgstr "جميع الأطالس"
+
+msgid "All Snapshots"
+msgstr "جميع اللقطات"
+
+msgid ""
+"Alternatively, raw GeoJSON content can be posted to <a "
+"href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
+msgstr ""
+"بدلا من ذلك، بإمكان نشر محتوى GeoJSON الخام إلى <a "
+"href=\"/\">fieldpapers.org</a> على أنه قيمة نموذج، بالاسم “geojson_data”:"
+
+msgid "Atlas - Field Papers"
+msgstr "أطلس - فيلد بايْبِرز"
+
+msgid "Atlas Creation Failed"
+msgstr "فشل إنشاء أطلس"
+
+msgid "Atlas Rendering"
+msgstr "جاري تصيير الأطلس"
+
+msgid "Atlas Title"
+msgstr "عنوان الأطلس"
+
+msgid "Atlas description"
+msgstr "توصيف الأطلس"
+
+msgid "Atlas information"
+msgstr "معلومات الأطلس"
+
+msgid "Atlas location"
+msgstr "موقع الأطلس"
+
+msgid "Atlas page - Field Papers"
+msgstr "صفحة الأطلس - فيلد بايْبِرز"
+
+msgid "Atlas provider"
+msgstr "موفر الأطلس"
+
+msgid "Atlas text"
+msgstr "نص الأطلس"
+
+msgid "Atlas title"
+msgstr "عنوان الأطلس"
+
+msgid "Atlases"
+msgstr "الأطالس"
+
+msgid "Atlases - Field Papers"
+msgstr "الأطالس - فيلد بايْبِرز"
+
+msgid "Basemap"
+msgstr "الخريطة الأساس"
+
+msgid "Bing"
+msgstr "Bing"
+
+msgid "Cancel"
+msgstr "ألغِ"
+
+msgid "Capture your notes"
+msgstr "التقط ملاحظاتك"
+
+msgid "Check out the OSM help wiki."
+msgstr "تفقد مساعدة ويكي OSM."
+
+msgid ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
+msgstr "اتختر صفحة أطلس لرفعها. سنعمل من أين تذهب (باستخدام كود QR)."
+
+msgid "Click for more information."
+msgstr "انقر لمعلومات أكثر"
+
+msgid "Copy this atlas"
+msgstr "انسخ هذا الأطلس"
+
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
+msgstr ""
+"تعذر الاتصال بـJOSM. تأكد بأن JOSM يعمل وأن وظيفة التحكم من بعد مفعّلة في "
+"التفضيلات."
+
+msgid "Development Blog"
+msgstr "مدونة التطوير"
+
+msgid "Don't upload things that aren't Field Papers maps, please."
+msgstr "لا تقم برفع أشياء ليست بخرائط فيلد بايْبِرز، رجاءً."
+
+msgid "Download GeoTIFF"
+msgstr "حمّل GeoTIFF"
+
+msgid "Download PDF"
+msgstr "تنزيل PDF"
+
+msgid "EXTEND"
+msgstr "مدّد"
+
+msgid ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+"من الممكن نشر أي إعداد بالأسفل عن طريق شكل HTML عادي  إلى <a "
+"href=\"%s\">fieldpapers.org</a>. <i>الجميع اختياري.</i>"
+
+msgid "Edit in..."
+msgstr "حرّر في..."
+
+msgid "Examples:"
+msgstr "أمثلة:"
+
+msgid "Export Data"
+msgstr "صدّر البيانات"
+
+msgid "Field Papers"
+msgstr "فيلد بايْبِرز"
+
+msgid "From"
+msgstr "من"
+
+msgid "GeoJSON"
+msgstr "GeoJSON"
+
+msgid "Geojson Data"
+msgstr "بيانات Geojson"
+
+msgid "Geojson File"
+msgstr "ملف Geojson"
+
+msgid "GitHub Issues"
+msgstr "مشاكل GitHub"
+
+msgid "Grid layout"
+msgstr ""
+
+msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
+msgstr "مخطط مرسوم باليد يمثل أطلس فيلد بايْبِرز في البرية"
+
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "مخطط مرسوم باليد يمثل تصوير صفحة في أطلس من فيلد بايْبِرز"
+
+msgid "Hand-drawn graphic to represent making a Field Papers atlas"
+msgstr "مخطط مرسوم باليد ليمثل صناعة أطلس فيلد بايْبِرز"
+
+msgid "Help"
+msgstr "مساعدة"
+
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
+msgstr ""
+"إذا استهلكت العملية أكثر من ساعة، راجع %{twitter_link} لتحديثات حالة النظام،"
+" وقم بإرسال بريد إلكتروني إلينا على %{email_url} إذا علق أطلسك."
+
+msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
+msgstr ""
+"إذا اخترت تضمين الملاحظات، ستُطبع خريطتك على النصف العلوي من الصفحة مع "
+"الملاحظات ظاهرة في النصف السفلي منها. وإلا، ستظهر خريطتك على كامل الصفحة."
+
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
+msgstr ""
+"من السهل إنشاء أطالس فيلد بايْبِرز \"معلبة\" عن طريق توفير تفاصيل إضافية "
+"مقدما التي هي قيم افتراضية مستخدمة طوال عملية <a href=\"%s\">الصناعة</a>."
+
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
+msgstr ""
+"من الممكن إنتاج أطالس من ملفات GeoJSON خامة. يمكن حدوث بواحدة من الطريقتين:"
+
+msgid "JOSM"
+msgstr "JOSM"
+
+msgid "Keep atlas private"
+msgstr "أبقِ الأطلس خاصًّا"
+
+msgid "LOG IN"
+msgstr "سجّل الدخول"
+
+msgid "LOG OUT"
+msgstr "سجّل الخروج"
+
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+"خط العرض، خط الطول، والتقريب الاختياري. استخدم <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a لإنشاء جدد."
+
+msgid "Location and zoom"
+msgstr "الموقع والتقريب"
+
+msgid "MAKE"
+msgstr "اصنع"
+
+msgid "Make - Field Papers"
+msgstr "اصنع - فيلد بايْبِرز"
+
+msgid "Make Atlas"
+msgstr "صنع أطلس"
+
+msgid "Make sure the scan/photo/image is at least 200dpi."
+msgstr "تأكد من أن الصورة على الأقل 200 نقطة لكل البوصة."
+
+msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
+msgstr "تأكد من أنك تقوم برفع JPG، PNG، TIF، أو GIF. (لن يعمل الـPDF.)"
+
+msgid "Make your notes and observations."
+msgstr "اصنع ملاحظاتك و رصدك."
+
+msgid "Make yourself an atlas"
+msgstr "اصنع بنفسك أطلساً"
+
+msgid "Making Atlases From GeoJSON"
+msgstr "صنع أطالس من GeoJSON"
+
+msgid "Making Canned Atlases"
+msgstr "صناعة أطالس معلبة"
+
+msgid ""
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr ""
+"بيانات الخريطة %{OSMCopyright}، %{Toner} بواسطة Stamen، %{Bing} بواسطة "
+"Microsoft، %{Mapbox}، أو دمج منها."
+
+msgid "Mapbox"
+msgstr "Mapbox"
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "No atlases."
+msgstr "لا يوجد أطالس"
+
+msgid "No snapshots."
+msgstr "لا توجد لقطات"
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "Orientation"
+msgstr "الاتّجاه"
+
+msgid "Paper size"
+msgstr "مقاس الصفحة"
+
+msgid "Pin grid to map"
+msgstr "ثبت الشبكة على الخريطة"
+
+msgid "Plain Text (CSV)"
+msgstr "نص عادي (CSV)"
+
+msgid "Potlatch"
+msgstr "بوتلاتش"
+
+msgid "Print notes"
+msgstr "اطبع الملاحظات"
+
+msgid "Print out anywhere in the world."
+msgstr "اطبع في أي مكان في العالم"
+
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
+msgstr ""
+"الأطالس الخاصة يمكنك الوصول إليها فقط في حالة تسجيلك للدخول، أو عن طريق مسار"
+" تم توفيره لك في الخطوة الأخيرة."
+
+msgid "Refresh"
+msgstr "تنشيط"
+
+msgid "Rules"
+msgstr "الشروط"
+
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+"بما أن هذا الأطلس <span class='private'>خاص</span>، على الأرجح عليك أن تضع "
+"عليه <a href='%{url}'>علامة</a>."
+
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+"بما أن هذه اللقطة <span class='private'>خاصة</span>، على الأرجح عليك أن تضع "
+"عليها <a href='%{url}'>علامة</a>."
+
+msgid "Snapshot - Field Papers"
+msgstr "لقطة - فيلد بايْبِرز"
+
+msgid "Snapshot Processing"
+msgstr "جاري معالجة اللقطة"
+
+msgid "Snapshot Processing Failed"
+msgstr "فشل معالجة اللقطة"
+
+msgid "Snapshot upload - Field Papers"
+msgstr "رفع لقطة - فيلد بايْبِرز"
+
+msgid "Snapshots"
+msgstr "اللقطات"
+
+msgid "Snapshots - Field Papers"
+msgstr "اللقطات - فيلد بايْبِرز"
+
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
+msgstr ""
+"حدث خطأ ما! الرجاء مراجعة <strong>الشروط</strong> بالأسفل والمحاولة مجدّدا"
+
+msgid "Stamen Design"
+msgstr "Stamen Design"
+
+msgid "Submit"
+msgstr "إرسال"
+
+msgid "Take it into the field"
+msgstr "خذه إلى الساحة"
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr ""
+"من الممكن أن تأخذ هذه العملية وقتاً، في العموم بضع دقائق. أنت لست مرغماً "
+"بإبقاء هذه النافذة مفتوحة؛ بإمكانك أن <a href='%{atlas_url}'>تضع علامة على "
+"هذه الصفحة</a> ثم الرجوع إليها لاحقا."
+
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+"من الممكن أن تأخذ هذه العملية وقتاً، في العموم بضع دقائق. أنت لست مرغماً "
+"بإبقاء هذه النافذة مفتوحة؛ بإمكانك أن <a href='%{url}'>تضع علامة على هذه "
+"الصفحة</a> ثم الرجوع إليها لاحقا."
+
+msgid "This process has been running for %{time}"
+msgstr "هذا الإجراء ظل جارٍ لـ%{time}"
+
+msgid "Tile URL template"
+msgstr "قم بتغطية قالب المسار"
+
+msgid "Toner"
+msgstr "Toner"
+
+msgid "Translations"
+msgstr "الترجمات"
+
+msgid "UPLOAD"
+msgstr "ارفع"
+
+msgid "UTM Grid"
+msgstr "شبكة UTM"
+
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please email %{email_url} with details."
+msgstr ""
+"مع الأسف، فشل تصيير أطلسك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة "
+"من المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء "
+"إرسال بريدا إلكترونيا إلى %{email_url} مع التفاصيل."
+
+msgid ""
+"Unfortunately, your snapshot failed to be processed. It's possible that it "
+"was an intermittent error, in which case you should try re-uploading. If the"
+" problem persists, please email %{email_url} with details."
+msgstr ""
+"مع الأسف، فشل معالجة لقطتك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة"
+" من المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء "
+"إرسال بريدا إلكترونيا إلى %{email_url} مع التفاصيل."
+
+msgid "Upload"
+msgstr "رفع"
+
+msgid "Upload Failed"
+msgstr "فشل الرفع"
+
+msgid "Uploading"
+msgstr "جاري الرفع"
+
+msgid "WATCH"
+msgstr "شاهد"
+
+msgid "Welcome to Field Papers"
+msgstr "مرحبا بك في فيلْد بايْبِرْز"
+
+msgid "Your Atlases"
+msgstr "أطالسك"
+
+msgid "Your Snapshots"
+msgstr "لقطاتك"
+
+msgid "an atlas to print"
+msgstr "أطلساً لطباعته"
+
+msgid "anonymous"
+msgstr "مجهول"
+
+msgid "iD"
+msgstr "iD"
+
+msgid "or create an account"
+msgstr "أو قم بإنشاء حساب"
+
+msgid "pages you've marked"
+msgstr "الصفحات التي حددتها"
+
+msgid "private"
+msgstr "خاص"
+
+msgid "recent activity"
+msgstr "النشاط الأخير"
+
+msgid "snapshot of page %{tp}"
+msgstr "لقطة لصفحة %{tp}"
+
+msgid "with advanced tools"
+msgstr "بأدوات متقدمة"
