@@ -150,7 +150,7 @@ msgid "Click for more information."
 msgstr "További információkért kattints ide."
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "Magatartási kódex"
 
 msgid "Copy this atlas"
 msgstr "Atlasz másolása"
@@ -167,7 +167,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
 
 msgid "Donate"
-msgstr ""
+msgstr "Adományozás"
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF letöltése"
@@ -507,7 +507,7 @@ msgid "now a project"
 msgstr "projektje"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "issue (probléma) nyitása a GitHubon"
 
 msgid "or create an account"
 msgstr "vagy hozz létre fiókot"
