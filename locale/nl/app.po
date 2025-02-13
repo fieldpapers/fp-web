@@ -498,7 +498,7 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "nu een project"
 
 msgid "open a GitHub issue"
 msgstr ""
