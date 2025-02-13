@@ -55,6 +55,9 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"Een GeoJSON-bestand (zoals die hieronder) kan <code>VERZONDEN</code> worden "
+"als een bijlage naar <code>%{link}</code>, met als naam "
+"<code>geojson_file</code>:"
 
 msgid "About"
 msgstr "Over"
@@ -75,7 +78,7 @@ msgid "All Atlases"
 msgstr "Alle atlassen"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "Alle snapshots"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
