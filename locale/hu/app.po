@@ -82,6 +82,8 @@ msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"Másik megoldásként <code>geojson_data</code> néven nyers GeoJSON tartalom is"
+"  <code>elküldhető</code> a <code>%{link}</code> címre űrlapértékként:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlasz – Field Papers"
@@ -203,10 +205,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "GeoJSON adatok"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "GeoJSON fájl"
 
 msgid "GitHub Issues"
 msgstr "GitHub – problémák"
