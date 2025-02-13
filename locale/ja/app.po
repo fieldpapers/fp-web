@@ -2,7 +2,7 @@
 # Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# 
 # Translators:
 # MISA NAKAI <misasnsregis@gmail.com>, 2025
 # imachan0224 <imachan.piccolo@gmail.com>, 2025
@@ -18,15 +18,14 @@
 # Misa7716 <ten.kh.fantasia@gmail.com>, 2025
 # mapconcierge <mapconcierge@gmail.com>, 2025
 # k_zoar <zoar@k-side.net>, 2025
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
 "Last-Translator: k_zoar <zoar@k-side.net>, 2025\n"
-"Language-Team: Japanese (https://app.transifex.com/fieldpapers/teams/36392/ja/"
-")\n"
+"Language-Team: Japanese (https://app.transifex.com/fieldpapers/teams/36392/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,9 +59,10 @@ msgstr "&copy; OpenStreetMap contributors"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers on Twitter"
 
-#, fuzzy
-msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgid ""
+"A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
+"attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr ""
 
 msgid "About"
 msgstr "概要"
@@ -85,9 +85,10 @@ msgstr "すべての地図"
 msgid "All Snapshots"
 msgstr "すべてのスナップショット"
 
-#, fuzzy
-msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgid ""
+"Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
+"<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "地図帳 - Field Papers"
@@ -143,7 +144,9 @@ msgstr "ノートを撮影"
 msgid "Check out the OSM help wiki."
 msgstr "OpenStreetMapのヘルプwikiをご確認ください。"
 
-msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgid ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
 msgstr "メモした地図の画像ファイルを選択してアップロードしてください。記載されたQRコードを使ってその位置を判別します。"
 
 msgid "Click for more information."
@@ -155,7 +158,9 @@ msgstr ""
 msgid "Copy this atlas"
 msgstr "この地図帳をコピー"
 
-msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
 msgstr ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.\n"
 "%{JOSM}に接続できなかった場合。%{JOSM}が機能していて、%{the Remote Control functionality}が優先的に有効になっているか確認してください。"
@@ -175,8 +180,12 @@ msgstr "PDFのダウンロード"
 msgid "EXTEND"
 msgstr "拡張機能"
 
-msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr "それぞれの設定は平文のHTMLフォームとして <a href=\"%s\">fieldpapers.org</a>に保存されます。 <i>必須となる設定はありません。</i>"
+msgid ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+"それぞれの設定は平文のHTMLフォームとして <a href=\"%s\">fieldpapers.org</a>に保存されます。 "
+"<i>必須となる設定はありません。</i>"
 
 msgid "Edit in..."
 msgstr "編集する"
@@ -196,13 +205,11 @@ msgstr "From"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
-#, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "GitHub Issue"
@@ -213,7 +220,8 @@ msgstr "グリッドレイアウト"
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "野外で書き込んだフィールドペーパー地図帳"
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr "手書きの図が表す野外で書いた地図"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
@@ -222,16 +230,29 @@ msgstr "フィールドペーパー地図帳の作成を表す手書きの図"
 msgid "Help"
 msgstr "ヘルプ"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  をチェックしてください。そしてもし地図帳がスタックしたら, %{email_url} にEmail してください。"
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
+msgstr ""
+"もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  "
+"をチェックしてください。そしてもし地図帳がスタックしたら, %{email_url} にEmail してください。"
 
-msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
-msgstr "もしノートを含むものを選んだのであれば、あなたの地図は下半分に表示されているノートとともに上半分に印刷されます。そうでなければ地図は全体に表示されます。"
+msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
+msgstr ""
+"もしノートを含むものを選んだのであれば、あなたの地図は下半分に表示されているノートとともに上半分に印刷されます。そうでなければ地図は全体に表示されます。"
 
-msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
 msgstr ""
 
-msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr "地図帳はGeoJSONファイルから作成することが可能です。これは二つの方法のうちの一つです。"
 
 msgid "JOSM"
@@ -246,7 +267,9 @@ msgstr "ログイン"
 msgid "LOG OUT"
 msgstr "ログアウト"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Location and zoom"
@@ -279,8 +302,12 @@ msgstr "GeoJSONで地図帳を作る"
 msgid "Making Canned Atlases"
 msgstr "既存の地図帳を作る"
 
-msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
-msgstr "地図データ %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, もしくはその組み合わせです。"
+msgid ""
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
+msgstr ""
+"地図データ %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, "
+"もしくはその組み合わせです。"
 
 msgid "Mapbox"
 msgstr "Mapbox"
@@ -321,7 +348,9 @@ msgstr "ノートを印刷する"
 msgid "Print out anywhere in the world."
 msgstr "世界中どこでも印刷"
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
 msgstr "個人が作成した地図帳はログイン時、あるいは最終段階で表示されるURLを通じてしかアクセスすることができません。"
 
 msgid "Refresh"
@@ -330,22 +359,26 @@ msgstr "更新"
 msgid "Rules"
 msgstr "ルール"
 
-msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
 
-msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
-msgstr "このスナップショットは<span class='private'>プライベート</span>なので、たぶんあなたはリンクを<a href='%{url}'>ブックマーク</a>するべきです。"
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+"このスナップショットは<span class='private'>プライベート</span>なので、たぶんあなたはリンクを<a "
+"href='%{url}'>ブックマーク</a>するべきです。"
 
 msgid "Snapshot - Field Papers"
 msgstr "スナップショット - Field Papers"
 
-#, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "スナップショットを処理"
+msgstr ""
 
-#, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "スナップショットの処理が失敗しました。"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -359,7 +392,9 @@ msgstr "スナップショット"
 msgid "Snapshots - Field Papers"
 msgstr "スナップショット - Field Papers"
 
-msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
 msgstr "エラーが生じました。以下の項目 <strong>rules</strong> を確認し、やり直してください。"
 
 msgid "Submit"
@@ -368,11 +403,21 @@ msgstr "登録"
 msgid "Take it into the field"
 msgstr "フィールドで情報収集"
 
-msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
-msgstr "数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a href='%{atlas_url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr ""
+"数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a "
+"href='%{atlas_url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
 
-msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
-msgstr "数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a href='%{url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+"数分時間がかかります。そのあいだこのウィンドウを開いておく必要はありません。 <a "
+"href='%{url}'>をブックマークしておけば、いつでもこのページ</a> に戻ってこれます。"
 
 msgid "This process has been running for %{time}"
 msgstr "このプロセスは実行中 %{time} "
@@ -392,13 +437,19 @@ msgstr "アップロード"
 msgid "UTM Grid"
 msgstr "UTM グリッド"
 
-#, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{email_url} にメールを送ってください。 "
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please %{open_issue} or email %{email_url} with "
+"details."
+msgstr ""
 
-#, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳細と一緒に %{email_url} へメールをしてください。"
+msgid ""
+"Unfortunately, your snapshot for image %{image_filename} failed to be "
+"processed. It's possible that it was an intermittent error, in which case "
+"you should try re-uploading. If the problem persists, please %{open_issue} "
+"or email %{email_url} with details."
+msgstr ""
 
 msgid "Upload"
 msgstr "アップロード"

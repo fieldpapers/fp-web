@@ -2,22 +2,21 @@
 # Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
+# 
 # Translators:
 # 沈家正 <shen.jia.zheng@gmail.com>, 2025
 # mcdlee <mcdlee@gmail.com>, 2025
 # Supaplex <bejokeup@gmail.com>, 2025
 # woei <woei0101@gmail.com>, 2025
 # Sean Young <assanges@icloud.com>, 2025
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
 "Last-Translator: Sean Young <assanges@icloud.com>, 2025\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/fieldpapers/teams/3"
-"6392/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/fieldpapers/teams/36392/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,9 +50,10 @@ msgstr "&copy; 開放街圖貢獻者"
 msgid "@fieldpapers on Twitter"
 msgstr "推特上的 @fieldpapers"
 
-#, fuzzy
-msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgid ""
+"A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
+"attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr ""
 
 msgid "About"
 msgstr "關於"
@@ -76,9 +76,10 @@ msgstr "所有地圖集"
 msgid "All Snapshots"
 msgstr "所有快照"
 
-#, fuzzy
-msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgid ""
+"Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
+"<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "地圖集 - Field Papers"
@@ -134,7 +135,9 @@ msgstr "抓取你的註解"
 msgid "Check out the OSM help wiki."
 msgstr "查閱OSMwiki幫助頁面"
 
-msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgid ""
+"Choose an atlas page to upload. We'll work out where it goes (using the QR "
+"code)."
 msgstr "選擇一份地圖集頁上傳。我們會掝出它的位置(使用QR碼)"
 
 msgid "Click for more information."
@@ -146,7 +149,9 @@ msgstr ""
 msgid "Copy this atlas"
 msgstr "複製這份地圖集"
 
-msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
+msgid ""
+"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
+"Control functionality is enabled in Preferences."
 msgstr "無法連結至JOSM。請確保JOSM經已運行，並已開啓遠端操控功能。"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -164,8 +169,12 @@ msgstr "下載PDF檔"
 msgid "EXTEND"
 msgstr "擴充"
 
-msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr "以下的每一個設定可以經由簡單的HTML表格傳送到<a href=\"%s\">fieldpapers.org</a>.<i>所有的選項都是選填的。</i>"
+msgid ""
+"Each setting below can be posted via plain HTML form to <a "
+"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr ""
+"以下的每一個設定可以經由簡單的HTML表格傳送到<a "
+"href=\"%s\">fieldpapers.org</a>.<i>所有的選項都是選填的。</i>"
 
 msgid "Edit in..."
 msgstr "在...編輯"
@@ -185,13 +194,11 @@ msgstr "從"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
-#, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "GitHub 問題"
@@ -202,7 +209,8 @@ msgstr "格線布局"
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "手畫地圖代表在野外的一份Field Papers地圖集"
 
-msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgid ""
+"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr "在一份Field Papers地圖集裡拍照一個頁面代表的手畫圖"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
@@ -211,16 +219,30 @@ msgstr "手畫地圖來代表製作一份Field Papers地圖集"
 msgid "Help"
 msgstr "幫助"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "如果這要花超過一個小時的話，那麼替系統狀態更新來檢查%{twitter_link}，並且如果你的地圖集被卡住的話，那麼以%{email_url} 寄電子郵件給我們。"
+msgid ""
+"If it takes more than an hour, check %{twitter_link} for system status "
+"updates, and email us at %{email_url} if your atlas is stuck."
+msgstr ""
+"如果這要花超過一個小時的話，那麼替系統狀態更新來檢查%{twitter_link}，並且如果你的地圖集被卡住的話，那麼以%{email_url} "
+"寄電子郵件給我們。"
 
-msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
+msgid ""
+"If you choose to include notes, your map will be printed on the top half a "
+"page with notes displayed on the bottom half. Otherwise, maps will be "
+"displayed on a full page."
 msgstr "如果你選擇同時列印註解，你的地圖將會列印於紙張的上半部，註解則緊接顯示於下半部。反之，地圖會顯示在整版紙張。"
 
-msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
-msgstr "以提供額外細節的前期來製做\"制式的\"Field Papers地圖集是容易的，這些前期是用來作為<a href=\"%s\">Make</a>所有過程中的預設值。"
+msgid ""
+"It’s easy to create “canned” Field Papers atlases by providing extra details"
+" up-front that are used as default values throughout the <a "
+"href=\"%s\">Make</a> process."
+msgstr ""
+"以提供額外細節的前期來製做\"制式的\"Field Papers地圖集是容易的，這些前期是用來作為<a "
+"href=\"%s\">Make</a>所有過程中的預設值。"
 
-msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
+msgid ""
+"It’s possible to generate atlases from raw GeoJSON files. This can be done "
+"in one of two ways:"
 msgstr "從原始GeoJSON檔案產生地圖集是可能的。這可能從兩種方法其中之一被處理完畢。"
 
 msgid "JOSM"
@@ -235,8 +257,12 @@ msgstr "登入"
 msgid "LOG OUT"
 msgstr "登出"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "緯度、經度與自選的縮放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>來製作新的。"
+msgid ""
+"Latitude, longitude, and optional zoom. Use <a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+"緯度、經度與自選的縮放。使用<a "
+"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>來製作新的。"
 
 msgid "Location and zoom"
 msgstr "地點與縮放"
@@ -268,7 +294,9 @@ msgstr "從GeoJSON製作地圖集"
 msgid "Making Canned Atlases"
 msgstr "製作制式的地圖集"
 
-msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgid ""
+"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
+"%{Mapbox}, or a combination thereof."
 msgstr "地圖資料%{OSMCopyright}：Stamen %{Toner} 、微軟 %{Bing}、%{Mapbox}、或他們的混搭。"
 
 msgid "Mapbox"
@@ -310,7 +338,9 @@ msgstr "列印註解"
 msgid "Print out anywhere in the world."
 msgstr "印出世界上任一地點"
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
+msgid ""
+"Private atlases can only be accessed if you're logged in, or via a URL "
+"provided to you in the final step."
 msgstr "非公開地圖集只有在你登入時，或利用在最後一步提供的連結才能存取。"
 
 msgid "Refresh"
@@ -319,22 +349,27 @@ msgstr "重新整理"
 msgid "Rules"
 msgstr "規則"
 
-msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr "因為這份地圖集是<span class='private'>私人的</span>，所以你可能應該 <a href='%{atlas_url}'>以書籤標註它</a>。"
+msgid ""
+"Since this atlas is <span class='private'>private</span>, you probably "
+"should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr ""
+"因為這份地圖集是<span class='private'>私人的</span>，所以你可能應該 <a "
+"href='%{atlas_url}'>以書籤標註它</a>。"
 
-msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
-msgstr "因為這個快照是<span class='private'>私人的</span>，所以你可能應該 <a href='%{url}'>以書籤標註它</a>。"
+msgid ""
+"Since this snapshot is <span class='private'>private</span>, you probably "
+"should <a href='%{url}'>bookmark it</a>."
+msgstr ""
+"因為這個快照是<span class='private'>私人的</span>，所以你可能應該 <a href='%{url}'>以書籤標註它</a>。"
 
 msgid "Snapshot - Field Papers"
 msgstr "快照 - Field Papers"
 
-#, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "快照處理"
+msgstr ""
 
-#, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "快照處理失敗"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -348,7 +383,9 @@ msgstr "快照"
 msgid "Snapshots - Field Papers"
 msgstr "快照 - Field Papers"
 
-msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
+msgid ""
+"Something went wrong! Please review the <strong>rules</strong> below and try"
+" again."
 msgstr "出了些問題！請檢查以下<strong>規則</strong>並且再試一次。"
 
 msgid "Submit"
@@ -357,11 +394,20 @@ msgstr "送出"
 msgid "Take it into the field"
 msgstr "帶它入欄位中"
 
-msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
-msgstr "這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以<a href='%{atlas_url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
+"back later."
+msgstr ""
+"這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以<a "
+"href='%{atlas_url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
 
-msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
-msgstr "這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以 <a href='%{url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
+msgid ""
+"This may take a while, generally a few minutes. You don't need to keep this "
+"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
+"later."
+msgstr ""
+"這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以 <a href='%{url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
 
 msgid "This process has been running for %{time}"
 msgstr "這個程序已經跑了%{time}"
@@ -381,13 +427,19 @@ msgstr "上傳"
 msgid "UTM Grid"
 msgstr "UTM 網格"
 
-#, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "可惜你的地圖集無法由模型生成圖像。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新製作地圖集。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"
+msgid ""
+"Unfortunately, your atlas failed to render. It's possible that it was an "
+"intermittent error, in which case you should try re-creating the atlas. If "
+"the problem persists, please %{open_issue} or email %{email_url} with "
+"details."
+msgstr ""
 
-#, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "可惜你的快照集無法被處理。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新上傳。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"
+msgid ""
+"Unfortunately, your snapshot for image %{image_filename} failed to be "
+"processed. It's possible that it was an intermittent error, in which case "
+"you should try re-uploading. If the problem persists, please %{open_issue} "
+"or email %{email_url} with details."
+msgstr ""
 
 msgid "Upload"
 msgstr "上傳"
