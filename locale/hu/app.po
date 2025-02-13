@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr "A %{FieldPapers} most már az %{OpenStreetMapUS} egyik %{NowAProject}"
+msgstr "A %{FieldPapers} most már az %{OpenStreetMapUS} %{NowAProject}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} lefényképezett oldalakat."
@@ -500,7 +500,7 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr "egyik projektje"
+msgstr "projektje"
 
 msgid "open a GitHub issue"
 msgstr ""
