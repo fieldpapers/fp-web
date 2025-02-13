@@ -167,7 +167,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
 
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF downloaden"
@@ -204,10 +204,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "GeoJSON-gegevens"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "GeoJSON-bestand"
 
 msgid "GitHub Issues"
 msgstr ""
