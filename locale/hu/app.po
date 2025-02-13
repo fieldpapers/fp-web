@@ -54,6 +54,8 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"Egy (az alábbihoz hasonló) GeoJSON fájl <code>geojson_file</code> néven "
+"csatolt fájlként <code>elküldhető</code> a <code>%{link}</code> címre:"
 
 msgid "About"
 msgstr "Névjegy"
