@@ -4,15 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 # 
 # Translators:
-# Gábor Babos <gabor.babos@gmail.com>, 2025
 # Quincy Morgan, 2025
+# Gábor Babos <gabor.babos@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Quincy Morgan, 2025\n"
+"Last-Translator: Gábor Babos <gabor.babos@gmail.com>, 2025\n"
 "Language-Team: Hungarian (https://app.transifex.com/fieldpapers/teams/36392/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "A %{FieldPapers} most már az %{OpenStreetMapUS} %{NowAProject}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} lefényképezett oldalakat."
@@ -54,6 +54,8 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"Egy (az alábbihoz hasonló) GeoJSON fájl <code>geojson_file</code> néven "
+"csatolt fájlként <code>elküldhető</code> a <code>%{link}</code> címre:"
 
 msgid "About"
 msgstr "Névjegy"
@@ -80,6 +82,8 @@ msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"Másik megoldásként <code>geojson_data</code> néven nyers GeoJSON tartalom is"
+"  <code>elküldhető</code> a <code>%{link}</code> címre űrlapértékként:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlasz – Field Papers"
@@ -146,7 +150,7 @@ msgid "Click for more information."
 msgstr "További információkért kattints ide."
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "Magatartási kódex"
 
 msgid "Copy this atlas"
 msgstr "Atlasz másolása"
@@ -163,7 +167,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
 
 msgid "Donate"
-msgstr ""
+msgstr "Adományozás"
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF letöltése"
@@ -201,10 +205,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "GeoJSON adatok"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "GeoJSON fájl"
 
 msgid "GitHub Issues"
 msgstr "GitHub – problémák"
@@ -335,7 +339,7 @@ msgid "Notes"
 msgstr "Jegyzetek"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "OpenStreetMap US"
 
 msgid "Orientation"
 msgstr "Tájolás"
@@ -500,10 +504,10 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "projektje"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "issue (probléma) nyitása a GitHubon"
 
 msgid "or create an account"
 msgstr "vagy hozz létre fiókot"
