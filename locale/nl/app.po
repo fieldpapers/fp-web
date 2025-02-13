@@ -84,6 +84,9 @@ msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"Als alternatief kan onbewerkte GeoJSON-inhoud <code>VERZONDEN</code> worden "
+"naar <code>%{link}</code> als een formulierwaarde, met als naam "
+"<code>geojson_data</code>:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -125,13 +128,13 @@ msgid "Atlases - Field Papers"
 msgstr "Atlassen - Field Papers"
 
 msgid "Basemap"
-msgstr ""
+msgstr "Basiskaart"
 
 msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 msgid "Capture your notes"
 msgstr "Leg uw notities vast"
