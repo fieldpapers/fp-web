@@ -43,6 +43,7 @@ test:
 # If DATABASE_URL is provided, that will also work
 
 production:
+  adapter: mysql2
   database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
