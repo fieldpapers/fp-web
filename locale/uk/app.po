@@ -24,8 +24,8 @@ msgstr ""
 ") ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >="
 "11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} створено у %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} сторінки, які Ви сфотографували."
@@ -60,8 +60,9 @@ msgstr "&copy; Учасники OpenStreetMap"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers у Twitter"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Файл GeoJSON може бути розміщений як прикріплений файл  на <a href=\"/\">fieldpapers.org</a> з назвою „geojson_file“: "
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "Про проєкт"
@@ -84,8 +85,9 @@ msgstr "Усі атласи"
 msgid "All Snapshots"
 msgstr "Усі знімки"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Альтернативно, вміст у вигляді GeoJSON може бути доданий на <a href=\"/\">fieldpapers.org</a> як значення у формі з назвою „geojson_data“: "
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Атлас — Польові дослідження"
@@ -147,17 +149,20 @@ msgstr "Оберіть сторінку атласу для надсилання
 msgid "Click for more information."
 msgstr "Натисніть для отримання додаткової інформації."
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Зробити копію"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Помилка з’єднання із JOSM. Переконайтеся, що JOSM працює і що Дистанційне керування увімкнено в налаштуваннях."
 
-msgid "Development Blog"
-msgstr "Блог розробників"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Будь ласка, не надсилайте зображення, які не є сторінками Польових досліджень."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "Завантажити GeoTIFF"
@@ -189,11 +194,13 @@ msgstr "Від"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Дані Geojson"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Файл Geojson"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Повідомлення на GitHub"
@@ -288,6 +295,9 @@ msgstr "Немає знімків."
 msgid "Notes"
 msgstr "Нотатки"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Орієнтація"
 
@@ -327,11 +337,16 @@ msgstr "Через те, що це знімок <span class='private'>прива
 msgid "Snapshot - Field Papers"
 msgstr "Знімок — Польові дослідження"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Обробка знімків"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Обробити знімки не вдалося"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Надсилання знімка — Польові дослідження"
@@ -344,9 +359,6 @@ msgstr "Знімки — Польові дослідження"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Щось пішло не так! Будь ласка, ознайомтеся з <strong>правилами</strong> нижче та спробуйте знову."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Надіслати"
@@ -378,10 +390,12 @@ msgstr "НАДІСЛАТИ"
 msgid "UTM Grid"
 msgstr "Сітка координат UTM"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "На жаль, Ваш атлас не вдалося створити. Цілком можливо, що це була тимчасова помилка, в такому випадку Вам слід спробувати заново створити атлас. Якщо проблема лишається, будь ласка, напишіть на адресу %{email_url} повідомивши докладну інформацію."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "На жаль, не вдалося обробити Ваш знімок. Цілком можливо, що це була тимчасова помилка, в цьому випадку Ви повинні спробувати завантажити знов. Якщо проблема не зникає, будь ласка, напишіть на пошту %{email_url}, вказавши подробиці."
 
 msgid "Upload"
@@ -413,6 +427,12 @@ msgstr "анонімно"
 
 msgid "iD"
 msgstr "iD"
+
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
 
 msgid "or create an account"
 msgstr "або ж створити обліковий запис"

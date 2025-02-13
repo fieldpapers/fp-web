@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= "
 "4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} je vytvořen %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} stránky, které jste vyfotografovali."
@@ -56,8 +56,9 @@ msgstr "&copy; OpenStreetMap přispěvatelé"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers na Twitteru"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Soubor GeoJSON může být zveřejněn jako připojený soubor k <a href=\"/\">fieldpapers.org</a> s názvem „geojson_file“:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "O nás"
@@ -80,8 +81,9 @@ msgstr "Všechny Atlasy"
 msgid "All Snapshots"
 msgstr "Všechny Snímky"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Alternativně lze surový obsah GeoJSON zapsat na <a href=\"/\">fieldpapers.org</a> jako hodnotu formuláře s názvem „geojson_data“:"
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -143,17 +145,20 @@ msgstr "Vyberte stránku Atlasu, kterou chcete nahrát. Uvidíme, kam to půjde 
 msgid "Click for more information."
 msgstr "Klikněte pro více informací."
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Zkopírovat tento atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Nelze se připojit k JOSM. Ujistěte se, že je spuštěn JOSM a zda je v předvolbách povolena funkce dálkového ovládání."
 
-msgid "Development Blog"
-msgstr "Vývojářský blog"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Nenahrávejte prosím věci, které nejsou mapami Field Papers."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "Stáhnout GeoTIFF"
@@ -185,11 +190,13 @@ msgstr "Od"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Geojson Data"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Geojson soubor"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
@@ -284,6 +291,9 @@ msgstr "Žádné snímky"
 msgid "Notes"
 msgstr "Poznámky"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Orientace"
 
@@ -323,11 +333,16 @@ msgstr "Protože je tento snímek <span class='private'>soukromý</span>, pravd�
 msgid "Snapshot - Field Papers"
 msgstr "Snímek - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Zpracování Snímku"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Zpracování Snímku selhalo"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Nahrávání Snímku - Field Papers"
@@ -340,9 +355,6 @@ msgstr "Snímky - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Něco se pokazilo! Přečtěte si níže uvedená <strong>pravidla</strong> a zkuste to znovu."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Odeslat"
@@ -374,10 +386,12 @@ msgstr "NAHRÁT"
 msgid "UTM Grid"
 msgstr "UTM Mřížka"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Bohužel se váš atlas nedokázal vykreslit. Je možné, že se jednalo o občasnou chybu. V takovém případě byste se měli pokusit znovu vytvořit atlas. Pokud problém přetrvává, pošlete e-mail %{email_url} s podrobnostmi."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Snímek se bohužel nepodařilo zpracovat. Je možné, že se jednalo o občasnou chybu. V takovém případě byste se měli pokusit znovu nahrát. Pokud problém přetrvává, pošlete e-mail %{email_url} s podrobnostmi."
 
 msgid "Upload"
@@ -410,6 +424,12 @@ msgstr "anonymní"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "nebo vytvořte účet"
 
@@ -427,3 +447,46 @@ msgstr "snímek strany %{tp}"
 
 msgid "with advanced tools"
 msgstr "s pokročilými nástroji"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "%{FieldPapers} je vytvořen %{StamenDesign}"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr ""
+#~ "Soubor GeoJSON může být zveřejněn jako připojený soubor k <a href=\"/\">fieldpap"
+#~ "ers.org</a> s názvem „geojson_file“:"
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr ""
+#~ "Alternativně lze surový obsah GeoJSON zapsat na <a href=\"/\">fieldpapers.org</a"
+#~ "> jako hodnotu formuláře s názvem „geojson_data“:"
+#~ msgid "Development Blog"
+#~ msgstr "Vývojářský blog"
+#~ msgid "Geojson Data"
+#~ msgstr "Geojson Data"
+#~ msgid "Geojson File"
+#~ msgstr "Geojson soubor"
+#~ msgid "Snapshot Processing"
+#~ msgstr "Zpracování Snímku"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "Zpracování Snímku selhalo"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen Design"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Bohužel se váš atlas nedokázal vykreslit. Je možné, že se jednalo o občasnou c"
+#~ "hybu. V takovém případě byste se měli pokusit znovu vytvořit atlas. Pokud prob"
+#~ "lém přetrvává, pošlete e-mail %{email_url} s podrobnostmi."
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Snímek se bohužel nepodařilo zpracovat. Je možné, že se jednalo o občasnou chy"
+#~ "bu. V takovém případě byste se měli pokusit znovu nahrát. Pokud problém přetrv"
+#~ "ává, pošlete e-mail %{email_url} s podrobnostmi."

@@ -24,8 +24,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 :"
 " 2;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} è un progetto di %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} delle pagine che hai fotografato."
@@ -57,8 +57,9 @@ msgstr "&copy; contributori di OpenStreetMap"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers su Twitter"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Un GeoJSON può essere aggiungo come file allegato a <a href=\"/\">fieldpapers.org</a> usando il nome “geojson_file”:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "Informazioni"
@@ -81,8 +82,9 @@ msgstr "Tutti gli atlanti"
 msgid "All Snapshots"
 msgstr "Tutti gli snapshot"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "In alternativa i contenuti dei file GeoJSON possono essere inviati a <a href=\"/\">fieldpapers.org</a> come form di testo usando il nome “geojson_data”:"
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlante - Field Papers"
@@ -144,17 +146,20 @@ msgstr "Scegli una pagina dell'atlante da caricare. Capiremo noi dove andrà pos
 msgid "Click for more information."
 msgstr "Clicca per maggiori informazioni."
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Copia questo atlante"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Non è possibile connettersi a JOSM. Assicurati che JOSM sia in esecuzione e che la funzionalità Remote Control nelle Preferenze sia abilitata. "
 
-msgid "Development Blog"
-msgstr "Blog sullo sviluppo"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Non caricare nulla che non siano mappe di Field Papers, per favore."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "Scarica il GeoTIFF"
@@ -186,11 +191,13 @@ msgstr "Da"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Dati Geojson"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "File Geojson"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Segnalazioni di GitHub"
@@ -285,6 +292,9 @@ msgstr "Nessuno snapshot,"
 msgid "Notes"
 msgstr "Note"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Orientamento"
 
@@ -324,11 +334,16 @@ msgstr "Fino a che questo snapshot è in stato <span class='private'>privato</sp
 msgid "Snapshot - Field Papers"
 msgstr "Snapshot - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Elaborazione dello Snapshot"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Elaborazione dello Snapshot non riuscita"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Snapshot upload - Field Papers"
@@ -341,9 +356,6 @@ msgstr "Snapshot - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Qualcosa è andato storto! Per piacere verifica le <strong>regole</strong> qui sotto e prova ancora."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Invia"
@@ -375,10 +387,12 @@ msgstr "CARICA"
 msgid "UTM Grid"
 msgstr "Reticolo UTM"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Purtroppo non è stato possibile creare il tuo atlante. È possibile che si sia verficato un errore, in questo caso dovrest provare a ri-creare l'atlante. Se il problema persiste, allora ti chiediamo di spedire una email %{email_url} con i dettagli. Grazie."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Purtroppo,  non è stato possibile elaborare lo snapshot. Può darsi si tratti di un errore accidentale, in questo caso si consiglia di riprovare a caricare il file. Se il problema rimane, allo si consiglia di inviare una email a %{email_url}"
 
 msgid "Upload"
@@ -410,6 +424,12 @@ msgstr "anonimo"
 
 msgid "iD"
 msgstr "iD"
+
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
 
 msgid "or create an account"
 msgstr "o crea un account"

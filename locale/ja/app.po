@@ -33,8 +33,8 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています。"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "写真を撮って %{Upload} "
@@ -60,8 +60,9 @@ msgstr "&copy; OpenStreetMap contributors"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers on Twitter"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "添付された GeoJSON ファイルを <a href=\"/\">fieldpapers.org</a> に投稿することができます。ファイル名 “geojson_file”:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "概要"
@@ -84,8 +85,9 @@ msgstr "すべての地図"
 msgid "All Snapshots"
 msgstr "すべてのスナップショット"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr ""
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "地図帳 - Field Papers"
@@ -147,6 +149,9 @@ msgstr "メモした地図の画像ファイルを選択してアップロード
 msgid "Click for more information."
 msgstr "クリックで詳細を見られます"
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "この地図帳をコピー"
 
@@ -155,11 +160,11 @@ msgstr ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.\n"
 "%{JOSM}に接続できなかった場合。%{JOSM}が機能していて、%{the Remote Control functionality}が優先的に有効になっているか確認してください。"
 
-msgid "Development Blog"
-msgstr "開発ブログ"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "すみません、アップロードできませんでした。ファイルはField Papersの地図ではないようです。"
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFFのダウンロード"
@@ -191,11 +196,13 @@ msgstr "From"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Geojsonデータ"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Geojsonファイル"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "GitHub Issue"
@@ -290,6 +297,9 @@ msgstr "スナップショットがありません。"
 msgid "Notes"
 msgstr "ノート"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "用紙の向き"
 
@@ -329,11 +339,16 @@ msgstr "このスナップショットは<span class='private'>プライベー�
 msgid "Snapshot - Field Papers"
 msgstr "スナップショット - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "スナップショットを処理"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "スナップショットの処理が失敗しました。"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "スナップショットをアップロード - Field Papers"
@@ -346,9 +361,6 @@ msgstr "スナップショット - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "エラーが生じました。以下の項目 <strong>rules</strong> を確認し、やり直してください。"
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "登録"
@@ -380,10 +392,12 @@ msgstr "アップロード"
 msgid "UTM Grid"
 msgstr "UTM グリッド"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{email_url} にメールを送ってください。 "
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳細と一緒に %{email_url} へメールをしてください。"
 
 msgid "Upload"
@@ -415,6 +429,12 @@ msgstr "anonymous"
 
 msgid "iD"
 msgstr "iD"
+
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
 
 msgid "or create an account"
 msgstr "or アカウントの新規作成"

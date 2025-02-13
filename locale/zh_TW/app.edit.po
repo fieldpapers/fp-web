@@ -24,8 +24,8 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} 由 %{StamenDesign} 所建立"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} 你已經照相的頁面."
@@ -51,8 +51,9 @@ msgstr "&copy; 開放街圖貢獻者"
 msgid "@fieldpapers on Twitter"
 msgstr "推特上的 @fieldpapers"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "可以將GeoJSON檔案以附件方式放在<a href=\"/\">fieldpapers.org</a>，稱為“geojson_file”："
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "關於"
@@ -75,8 +76,9 @@ msgstr "所有地圖集"
 msgid "All Snapshots"
 msgstr "所有快照"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "另一種情況是，原始GeoJSON內容可以被送給<a href=\"/\">fieldpapers.org</a> 作為表格值，稱為“geojson_data”："
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "地圖集 - Field Papers"
@@ -138,17 +140,20 @@ msgstr "選擇一份地圖集頁上傳。我們會掝出它的位置(使用QR碼
 msgid "Click for more information."
 msgstr "點撃以獲取更多資訊。"
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "複製這份地圖集"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "無法連結至JOSM。請確保JOSM經已運行，並已開啓遠端操控功能。"
 
-msgid "Development Blog"
-msgstr "程式開發部落格"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "請不要上傳不是由Field Papers產生的地圖。"
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "下載GeoTIFF檔"
@@ -180,11 +185,13 @@ msgstr "從"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Geojson資料"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Geojson檔案"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "GitHub 問題"
@@ -279,6 +286,9 @@ msgstr "沒有快照"
 msgid "Notes"
 msgstr "註解"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "頁面方向"
 
@@ -318,11 +328,16 @@ msgstr "因為這個快照是<span class='private'>私人的</span>，所以你�
 msgid "Snapshot - Field Papers"
 msgstr "快照 - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "快照處理"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "快照處理失敗"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "快照上傳 - Field Papers"
@@ -335,9 +350,6 @@ msgstr "快照 - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "出了些問題！請檢查以下<strong>規則</strong>並且再試一次。"
-
-msgid "Stamen Design"
-msgstr "Stamen設計"
 
 msgid "Submit"
 msgstr "送出"
@@ -369,10 +381,12 @@ msgstr "上傳"
 msgid "UTM Grid"
 msgstr "UTM 網格"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "可惜你的地圖集無法由模型生成圖像。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新製作地圖集。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "可惜你的快照集無法被處理。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新上傳。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"
 
 msgid "Upload"
@@ -405,6 +419,12 @@ msgstr "匿名"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "或者建立一個帳號"
 
@@ -422,3 +442,38 @@ msgstr "頁面 %{tp} 的快照"
 
 msgid "with advanced tools"
 msgstr "具先進的工具"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "%{FieldPapers} 由 %{StamenDesign} 所建立"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr "可以將GeoJSON檔案以附件方式放在<a href=\"/\">fieldpapers.org</a>，稱為“geojson_file”："
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr "另一種情況是，原始GeoJSON內容可以被送給<a href=\"/\">fieldpapers.org</a> 作為表格值，稱為“geojson_data”："
+#~ msgid "Development Blog"
+#~ msgstr "程式開發部落格"
+#~ msgid "Geojson Data"
+#~ msgstr "Geojson資料"
+#~ msgid "Geojson File"
+#~ msgstr "Geojson檔案"
+#~ msgid "Snapshot Processing"
+#~ msgstr "快照處理"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "快照處理失敗"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen設計"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "可惜你的地圖集無法由模型生成圖像。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新製作地圖集。如果問題持續發生，請將細節郵寄到這個%{email_url}"
+#~ "信箱。"
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr "可惜你的快照集無法被處理。可能發生了一個斷斷續續的錯誤，這種狀況下你應該重新上傳。如果問題持續發生，請將細節郵寄到這個%{email_url}信箱。"

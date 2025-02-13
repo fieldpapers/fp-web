@@ -24,8 +24,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 100000"
 "0 == 0 ? 1 : 2;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} est développé par %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} les pages que vous avez photographiées ou scannées"
@@ -57,8 +57,9 @@ msgstr "&copy; les contributeurs OpenStreetMap "
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers sur Twitter"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Un fichier GeoJSON peut être ajouté comme pièces jointe à <a href=\"/\">fieldpapers.org</a>,"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "À propos"
@@ -81,8 +82,9 @@ msgstr "Tous les atlas"
 msgid "All Snapshots"
 msgstr "Tous les aperçus"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Une alternative est de transmettre le GeoJSON brut à <a href=\"/\">fieldpapers.org</a> "
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -144,17 +146,20 @@ msgstr "Choisir une page d'atlas à charger. Nous nous chargerons de la placer c
 msgid "Click for more information."
 msgstr "Cliquez pour des renseignements supplémentaires."
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Faire une copie de l'atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Pas de connexion à JOSM. Assurez-vous que JOSM est lancé est que la télécommande est activée dans les Préférences"
 
-msgid "Development Blog"
-msgstr "Blog du développement"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Ne chargez pas d'éléments autres que des cartes Field Papers, s'il vous plait."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "Télécharger au format GeoTIF"
@@ -186,11 +191,13 @@ msgstr "Par"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Donnée GeoJSON"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Fichier GeoJSON"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Listes des bugs dans GitHub"
@@ -285,6 +292,9 @@ msgstr "Pas d'aperçus."
 msgid "Notes"
 msgstr "Notes"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Orientation"
 
@@ -324,11 +334,16 @@ msgstr "Dans la mesure où cet aperçu est <span class='private'>privé</span>,,
 msgid "Snapshot - Field Papers"
 msgstr "Aperçu - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Création de l'aperçu en cours"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "La création de l'aperçu a échoué"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Transfert du cliché - Field Papers "
@@ -341,9 +356,6 @@ msgstr "Clichés - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Une erreur est survenue ! Vérifiez SVP les <strong>règles</strong> ci-dessous et essayez à nouveau."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Envoyer"
@@ -375,10 +387,12 @@ msgstr "TRANSFÉREZ"
 msgid "UTM Grid"
 msgstr "Grille UTM"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Malheureusement, le rendu de votre atlas a échoué. Il est possible que cela soit dû à une erreur intermittente, dans quel cas vous pouvez tenter de recréer votre atlas. Si le problème persiste, envoyez SVP un courrier à %{email_url} en fournissant des détails. "
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Malheureusement, la création de votre aperçu a échoué. Il est possible que cela soit dû à une erreur intermittente, en quel cas vous devriez réessayer le transfert. Si le problème persiste, SVP envoyez un email à %{email_url} avec les détails. "
 
 msgid "Upload"
@@ -411,6 +425,12 @@ msgstr "anonyme"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "ou créez votre compte"
 
@@ -428,3 +448,48 @@ msgstr "Aperçu de la page %{tp}"
 
 msgid "with advanced tools"
 msgstr "avec les outils avancés"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "%{FieldPapers} est développé par %{StamenDesign}"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr ""
+#~ "Un fichier GeoJSON peut être ajouté comme pièces jointe à <a href=\"/\">fieldpap"
+#~ "ers.org</a>,"
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr ""
+#~ "Une alternative est de transmettre le GeoJSON brut à <a href=\"/\">fieldpapers.o"
+#~ "rg</a> "
+#~ msgid "Development Blog"
+#~ msgstr "Blog du développement"
+#~ msgid "Geojson Data"
+#~ msgstr "Donnée GeoJSON"
+#~ msgid "Geojson File"
+#~ msgstr "Fichier GeoJSON"
+#~ msgid "Snapshot Processing"
+#~ msgstr "Création de l'aperçu en cours"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "La création de l'aperçu a échoué"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen Design"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Malheureusement, le rendu de votre atlas a échoué. Il est possible que cela so"
+#~ "it dû à une erreur intermittente, dans quel cas vous pouvez tenter de recréer "
+#~ "votre atlas. Si le problème persiste, envoyez SVP un courrier à %{email_url} e"
+#~ "n fournissant des détails. "
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Malheureusement, la création de votre aperçu a échoué. Il est possible que cel"
+#~ "a soit dû à une erreur intermittente, en quel cas vous devriez réessayer le tr"
+#~ "ansfert. Si le problème persiste, SVP envoyez un email à %{email_url} avec les"
+#~ " détails. "

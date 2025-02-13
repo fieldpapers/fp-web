@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
 "n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} مبني بواسطة %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} صفحات قمت بتصويرها."
@@ -62,8 +62,9 @@ msgstr "&copy; OpenStreetMap contributors"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers على تويتر"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "بإمكان نشر ملف GeoJSON على أنه ملف مرفق إلى <a href=\"/\">fieldpapers.org</a>، بالاسم “geojson_file”:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "حول"
@@ -86,8 +87,9 @@ msgstr "جميع الأطالس"
 msgid "All Snapshots"
 msgstr "جميع اللقطات"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "بدلا من ذلك، بإمكان نشر محتوى GeoJSON الخام إلى <a href=\"/\">fieldpapers.org</a> على أنه قيمة نموذج، بالاسم “geojson_data”:"
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "أطلس - فيلد بايْبِرز"
@@ -149,17 +151,20 @@ msgstr "اتختر صفحة أطلس لرفعها. سنعمل من أين تذه
 msgid "Click for more information."
 msgstr "انقر لمعلومات أكثر"
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "انسخ هذا الأطلس"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "تعذر الاتصال بـJOSM. تأكد بأن JOSM يعمل وأن وظيفة التحكم من بعد مفعّلة في التفضيلات."
 
-msgid "Development Blog"
-msgstr "مدونة التطوير"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "لا تقم برفع أشياء ليست بخرائط فيلد بايْبِرز، رجاءً."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "حمّل GeoTIFF"
@@ -191,11 +196,13 @@ msgstr "من"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "بيانات Geojson"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "ملف Geojson"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "مشاكل GitHub"
@@ -290,6 +297,9 @@ msgstr "لا توجد لقطات"
 msgid "Notes"
 msgstr "ملاحظات"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "الاتّجاه"
 
@@ -329,11 +339,16 @@ msgstr "بما أن هذه اللقطة <span class='private'>خاصة</span>، 
 msgid "Snapshot - Field Papers"
 msgstr "لقطة - فيلد بايْبِرز"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "جاري معالجة اللقطة"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "فشل معالجة اللقطة"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "رفع لقطة - فيلد بايْبِرز"
@@ -346,9 +361,6 @@ msgstr "اللقطات - فيلد بايْبِرز"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "حدث خطأ ما! الرجاء مراجعة <strong>الشروط</strong> بالأسفل والمحاولة مجدّدا"
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "إرسال"
@@ -380,10 +392,12 @@ msgstr "ارفع"
 msgid "UTM Grid"
 msgstr "شبكة UTM"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "مع الأسف، فشل تصيير أطلسك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة من المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء إرسال بريدا إلكترونيا إلى %{email_url} مع التفاصيل."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "مع الأسف، فشل معالجة لقطتك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة من المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء إرسال بريدا إلكترونيا إلى %{email_url} مع التفاصيل."
 
 msgid "Upload"
@@ -416,6 +430,12 @@ msgstr "مجهول"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "أو قم بإنشاء حساب"
 
@@ -433,3 +453,46 @@ msgstr "لقطة لصفحة %{tp}"
 
 msgid "with advanced tools"
 msgstr "بأدوات متقدمة"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "%{FieldPapers} مبني بواسطة %{StamenDesign}"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr ""
+#~ "بإمكان نشر ملف GeoJSON على أنه ملف مرفق إلى <a href=\"/\">fieldpapers.org</a>، ب"
+#~ "الاسم “geojson_file”:"
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr ""
+#~ "بدلا من ذلك، بإمكان نشر محتوى GeoJSON الخام إلى <a href=\"/\">fieldpapers.org</a"
+#~ "> على أنه قيمة نموذج، بالاسم “geojson_data”:"
+#~ msgid "Development Blog"
+#~ msgstr "مدونة التطوير"
+#~ msgid "Geojson Data"
+#~ msgstr "بيانات Geojson"
+#~ msgid "Geojson File"
+#~ msgstr "ملف Geojson"
+#~ msgid "Snapshot Processing"
+#~ msgstr "جاري معالجة اللقطة"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "فشل معالجة اللقطة"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen Design"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "مع الأسف، فشل تصيير أطلسك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة من"
+#~ " المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء إرسال"
+#~ " بريدا إلكترونيا إلى %{email_url} مع التفاصيل."
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "مع الأسف، فشل معالجة لقطتك. من الممكن كون هذا الأمر خطأ متقطع، في هذه الحالة م"
+#~ "ن المفترض عليك محاولة أعادة الرفع. إذا كانت المشكلة ما زالت قائمة، الرجاء إرسا"
+#~ "ل بريدا إلكترونيا إلى %{email_url} مع التفاصيل."

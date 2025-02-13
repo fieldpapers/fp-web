@@ -20,8 +20,8 @@ msgstr ""
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "A %{FieldPapers}t a %{StamenDesign} készítette"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Tölts fel} lefényképezett oldalakat."
@@ -50,8 +50,9 @@ msgstr "&copy; OpenStreetMap-szerkesztők"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers a Twitteren"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "GeoJSON-fájl csatolmányként feltölthető a <a href=\"/\">fieldpapers.org</a>-ra, „geojson_file” néven:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "Névjegy"
@@ -74,8 +75,9 @@ msgstr "Minden atlasz"
 msgid "All Snapshots"
 msgstr "Minden pillanatkép"
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "Más megoldásként a nyers GeoJSON-tartalom űrlapértékként bemásolható a <a href=\"/\">fieldpapers.org</a> oldalra, „geojson_data” néven:"
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlasz – Field Papers"
@@ -137,17 +139,20 @@ msgstr "Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítsé
 msgid "Click for more information."
 msgstr "További információkért kattints ide."
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Atlasz másolása"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Nem sikerült a JOSM-hoz kapcsolódni. Győződj meg róla, hogy a JOSM fut, és be vannak kapcsolva a távirányítási (Remote Control) funkciók a Beállításoknál."
 
-msgid "Development Blog"
-msgstr "Fejlesztői blog"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF letöltése"
@@ -179,11 +184,13 @@ msgstr "Ettől:"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "GeoJSON-adatok"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "GeoJSON-fájl"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "GitHub – problémák"
@@ -278,6 +285,9 @@ msgstr "Nincs pillanatkép."
 msgid "Notes"
 msgstr "Jegyzetek"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Tájolás"
 
@@ -317,11 +327,16 @@ msgstr "Mivel ez a pillanatkép <span class='private'>privát</span>, valószín
 msgid "Snapshot - Field Papers"
 msgstr "Pillanatkép – Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Pillanatkép feldolgozása"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "A pillanatkép feldolgozása nem sikerült"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Pillanatkép feltöltése – Field Papers"
@@ -334,9 +349,6 @@ msgstr "Pillanatképek – Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Valami nem sikerült… Nézd át lent a <strong>szabályokat</strong> és próbáld meg újra."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Küldés"
@@ -368,10 +380,12 @@ msgstr "TÖLTS FÖL"
 msgid "UTM Grid"
 msgstr "UTM-rács"
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létrehozni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra feltölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
 
 msgid "Upload"
@@ -404,6 +418,12 @@ msgstr "névtelen"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "vagy hozz létre fiókot"
 
@@ -421,3 +441,48 @@ msgstr "a(z) %{tp} oldal pillanatképe"
 
 msgid "with advanced tools"
 msgstr "speciális eszközökkel"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "A %{FieldPapers}t a %{StamenDesign} készítette"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr ""
+#~ "GeoJSON-fájl csatolmányként feltölthető a <a href=\"/\">fieldpapers.org</a>-ra, "
+#~ "„geojson_file” néven:"
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr ""
+#~ "Más megoldásként a nyers GeoJSON-tartalom űrlapértékként bemásolható a <a href"
+#~ "=\"/\">fieldpapers.org</a> oldalra, „geojson_data” néven:"
+#~ msgid "Development Blog"
+#~ msgstr "Fejlesztői blog"
+#~ msgid "Geojson Data"
+#~ msgstr "GeoJSON-adatok"
+#~ msgid "Geojson File"
+#~ msgstr "GeoJSON-fájl"
+#~ msgid "Snapshot Processing"
+#~ msgstr "Pillanatkép feldolgozása"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "A pillanatkép feldolgozása nem sikerült"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen Design"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan f"
+#~ "ellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létreho"
+#~ "zni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-ma"
+#~ "il címre: %{email_url}."
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosa"
+#~ "n fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra felt"
+#~ "ölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e"
+#~ "-mail címre: %{email_url}."

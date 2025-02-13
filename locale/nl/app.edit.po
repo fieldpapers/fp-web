@@ -20,8 +20,8 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "%{FieldPapers} is built by %{StamenDesign}"
-msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
+msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
+msgstr ""
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} pagina's die u gefotografeerd heeft."
@@ -50,8 +50,9 @@ msgstr "&copy; OpenStreetMap-bijdragers"
 msgid "@fieldpapers on Twitter"
 msgstr "@fieldpapers op Twitter"
 
-msgid "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</a>, named “geojson_file”:"
-msgstr "Een GeoJSON-bestand kan worden geplaatst als een bijlage op <a href=\"/\">fieldpapers.org</a>, onder de naam “geojson_bestand”:"
+#, fuzzy
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON"
 
 msgid "About"
 msgstr "Over"
@@ -74,8 +75,9 @@ msgstr "Alle atlassen"
 msgid "All Snapshots"
 msgstr ""
 
-msgid "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.org</a> as a form value, named “geojson_data”:"
-msgstr "U kunt ook raw GeoJSON-inhoud plaatsen op <a href=\"/\">fieldpapers.org</a> als een formulierwaarde genaamd \"geojson_data\":"
+#, fuzzy
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "GeoJSON"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -137,17 +139,20 @@ msgstr "Kies een atlaspagina om te uploaden. Wij zullen ervoor zorgen dat hij op
 msgid "Click for more information."
 msgstr "Klik hier voor meer informatie"
 
+msgid "Code of Conduct"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Deze atlas kopiëren"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
 
-msgid "Development Blog"
-msgstr "Ontwikkelingsblog"
-
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
+
+msgid "Donate"
+msgstr ""
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF downloaden"
@@ -179,11 +184,13 @@ msgstr "Van"
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-msgid "Geojson Data"
-msgstr "Geojson-gegevens"
+#, fuzzy
+msgid "GeoJSON Data"
+msgstr "GeoJSON"
 
-msgid "Geojson File"
-msgstr "Geojson-bestand"
+#, fuzzy
+msgid "GeoJSON File"
+msgstr "GeoJSON"
 
 msgid "GitHub Issues"
 msgstr ""
@@ -278,6 +285,9 @@ msgstr "Geen snapshots."
 msgid "Notes"
 msgstr "Notities"
 
+msgid "OpenStreetMap US"
+msgstr ""
+
 msgid "Orientation"
 msgstr "Oriëntatie "
 
@@ -317,11 +327,16 @@ msgstr "Omdat dit snapshot <span class='private'>privé</span> is, zult u hem mo
 msgid "Snapshot - Field Papers"
 msgstr "Snapshot - Field Papers"
 
-msgid "Snapshot Processing"
+#, fuzzy
+msgid "Snapshot Processing (%{image_filename})"
 msgstr "Bezig met verwerken van snapshot"
 
-msgid "Snapshot Processing Failed"
+#, fuzzy
+msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Het verwerken van het snapshot is mislukt"
+
+msgid "Snapshot URL Grid (CSV)"
+msgstr ""
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Snapshot-upload - Field Papers"
@@ -334,9 +349,6 @@ msgstr "Snapshots - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "Er ging iets mis! Lees de onderstaande <strong>regels</strong> en probeer het opniuew."
-
-msgid "Stamen Design"
-msgstr "Stamen Design"
 
 msgid "Submit"
 msgstr "Indienen"
@@ -368,10 +380,12 @@ msgstr "UPLOADEN"
 msgid "UTM Grid"
 msgstr ""
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Het is niet gelukt om uw atlas te genereren. Het kan zijn dat dit een aanhoudende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de details."
 
-msgid "Unfortunately, your snapshot failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please email %{email_url} with details."
+#, fuzzy
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
 msgstr "Het is niet gelukt om uw snapshot te verwerken. Het kan zijn dat dit een aanhoudende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de details."
 
 msgid "Upload"
@@ -404,6 +418,12 @@ msgstr "Anoniem"
 msgid "iD"
 msgstr "iD"
 
+msgid "now a project"
+msgstr ""
+
+msgid "open a GitHub issue"
+msgstr ""
+
 msgid "or create an account"
 msgstr "of creëer een account"
 
@@ -421,3 +441,48 @@ msgstr "snapshot van pagina %{tp}"
 
 msgid "with advanced tools"
 msgstr "met geavanceerde hulpmiddelen"
+
+#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
+#~ msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
+#~ msgid ""
+#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
+#~ "a>, named “geojson_file”:"
+#~ msgstr ""
+#~ "Een GeoJSON-bestand kan worden geplaatst als een bijlage op <a href=\"/\">fieldp"
+#~ "apers.org</a>, onder de naam “geojson_bestand”:"
+#~ msgid ""
+#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
+#~ "g</a> as a form value, named “geojson_data”:"
+#~ msgstr ""
+#~ "U kunt ook raw GeoJSON-inhoud plaatsen op <a href=\"/\">fieldpapers.org</a> als "
+#~ "een formulierwaarde genaamd \"geojson_data\":"
+#~ msgid "Development Blog"
+#~ msgstr "Ontwikkelingsblog"
+#~ msgid "Geojson Data"
+#~ msgstr "Geojson-gegevens"
+#~ msgid "Geojson File"
+#~ msgstr "Geojson-bestand"
+#~ msgid "Snapshot Processing"
+#~ msgstr "Bezig met verwerken van snapshot"
+#~ msgid "Snapshot Processing Failed"
+#~ msgstr "Het verwerken van het snapshot is mislukt"
+#~ msgid "Stamen Design"
+#~ msgstr "Stamen Design"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Het is niet gelukt om uw atlas te genereren. Het kan zijn dat dit een aanhoude"
+#~ "nde fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creër"
+#~ "en. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de d"
+#~ "etails."
+#~ msgid ""
+#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
+#~ " an intermittent error, in which case you should try re-uploading. If the prob"
+#~ "lem persists, please email %{email_url} with details."
+#~ msgstr ""
+#~ "Het is niet gelukt om uw snapshot te verwerken. Het kan zijn dat dit een aanho"
+#~ "udende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te cr"
+#~ "eëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met d"
+#~ "e details."
