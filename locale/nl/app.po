@@ -6,13 +6,14 @@
 # Translators:
 # Heimen Stoffels <vistausss@fastmail.com>, 2025
 # Jorieke, 2025
+# danieldegroot2 <danieldegroot18@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Jorieke, 2025\n"
+"Last-Translator: danieldegroot2 <danieldegroot18@gmail.com>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/fieldpapers/teams/36392/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} is %{NowAProject} van %{OpenStreetMapUS}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} pagina's die u gefotografeerd heeft."
@@ -38,8 +39,8 @@ msgstr[1] "%{count} snapshots"
 
 msgid "%{count} page"
 msgid_plural "%{count} pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} pagina"
+msgstr[1] "%{count} pagina's"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} geleden"
@@ -54,6 +55,9 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"Een GeoJSON-bestand (zoals die hieronder) kan <code>VERZONDEN</code> worden "
+"als een bijlage naar <code>%{link}</code>, met als naam "
+"<code>geojson_file</code>:"
 
 msgid "About"
 msgstr "Over"
@@ -74,12 +78,15 @@ msgid "All Atlases"
 msgstr "Alle atlassen"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "Alle snapshots"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"Als alternatief kan onbewerkte GeoJSON-inhoud <code>VERZONDEN</code> worden "
+"naar <code>%{link}</code> als een formulierwaarde, met als naam "
+"<code>geojson_data</code>:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -121,13 +128,13 @@ msgid "Atlases - Field Papers"
 msgstr "Atlassen - Field Papers"
 
 msgid "Basemap"
-msgstr ""
+msgstr "Basiskaart"
 
 msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 msgid "Capture your notes"
 msgstr "Leg uw notities vast"
@@ -160,7 +167,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
 
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF downloaden"
@@ -197,10 +204,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "GeoJSON-gegevens"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "GeoJSON-bestand"
 
 msgid "GitHub Issues"
 msgstr ""
@@ -491,7 +498,7 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "nu een project"
 
 msgid "open a GitHub issue"
 msgstr ""
