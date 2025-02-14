@@ -253,7 +253,7 @@ msgid ""
 "page with notes displayed on the bottom half. Otherwise, maps will be "
 "displayed on a full page."
 msgstr ""
-"Si elige un atlas para tomar notas, su mapa aparecerá en la mitad superior "
+"Si eliges un atlas para tomar notas, tu mapa aparecerá en la mitad superior "
 "de la página, y las notas en la mitad inferior. En otro caso, el mapa "
 "ocupará la página entera."
 
