@@ -173,10 +173,10 @@ msgstr ""
 " función de control remoto está activada en las preferencias."
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr "No suba cosas que no son mapas Field Papers."
+msgstr "No subas cosas que no son mapas Field Papers."
 
 msgid "Donate"
-msgstr ""
+msgstr "Donar"
 
 msgid "Download GeoTIFF"
 msgstr "Descargar GeoTIFF"
@@ -214,10 +214,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "Datos GeoJSON"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "Archivo GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Informes de fallos en GitHub"
