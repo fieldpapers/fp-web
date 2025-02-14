@@ -223,7 +223,7 @@ msgid "GitHub Issues"
 msgstr "Informes de fallos en GitHub"
 
 msgid "Grid layout"
-msgstr "Colocación en rejilla"
+msgstr "Disposición de rejilla"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "Dibujo a mano para mostrar un atlas Field Papers sobre el terreno"
