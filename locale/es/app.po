@@ -99,7 +99,7 @@ msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
 
 msgid "Atlas Creation Failed"
-msgstr "Fallo en la creación del atlas"
+msgstr "Creación del atlas fallida"
 
 msgid "Atlas Rendering"
 msgstr "Renderizando el atlas"
@@ -141,10 +141,10 @@ msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr "Anular"
+msgstr "Cancelar"
 
 msgid "Capture your notes"
-msgstr "Apunte sus notas"
+msgstr "Apunta tus notas"
 
 msgid "Check out the OSM help wiki."
 msgstr "Eche un vistazo a la wiki de ayuda OSM."
