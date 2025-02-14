@@ -388,20 +388,20 @@ msgid ""
 "should <a href='%{atlas_url}'>bookmark it</a>."
 msgstr ""
 "Puesto que este atlas es <span class='private'>privado</span>, probablemente"
-" debería guardarlo como <a href='%{atlas_url}'>marcador</a>."
+" deberías guardarlo como <a href='%{atlas_url}'>marcador</a>."
 
 msgid ""
 "Since this snapshot is <span class='private'>private</span>, you probably "
 "should <a href='%{url}'>bookmark it</a>."
 msgstr ""
 "Puesto que esta es una captura <span class='private'>privada</span>, "
-"probablemente debería guardarla como <a href='%{url}'>marcador</a>."
+"probablemente deberías guardarla como <a href='%{url}'>marcador</a>."
 
 msgid "Snapshot - Field Papers"
 msgstr "Captura - Field Papers"
 
 msgid "Snapshot Processing (%{image_filename})"
-msgstr ""
+msgstr "Procesando captura (%{image_filename})"
 
 msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr ""
