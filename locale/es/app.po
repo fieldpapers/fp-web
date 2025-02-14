@@ -226,11 +226,13 @@ msgid "Grid layout"
 msgstr "Disposición de rejilla"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr "Dibujo a mano para mostrar un atlas Field Papers sobre el terreno"
+msgstr "Dibujo a mano que representa un atlas Field Papers sobre el terreno"
 
 msgid ""
 "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr "Dibujo a mano, fotografiando una página de un atlas Field Papers"
+msgstr ""
+"Dibujo a mano que representa la toma de foto de una página de un atlas Field"
+" Papers"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
 msgstr "Dibujo a mano, haciendo un atlas Field Papers"
