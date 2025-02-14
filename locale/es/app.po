@@ -375,7 +375,7 @@ msgid ""
 "provided to you in the final step."
 msgstr ""
 "Los atlas privados son accesibles solo si estás conectado, o a través de una"
-" URL que recibirá en el último paso."
+" URL que recibirás en el último paso."
 
 msgid "Refresh"
 msgstr "Recargar"
