@@ -306,7 +306,7 @@ msgid "Make Atlas"
 msgstr "Hacer un atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr "Asegúrese de que el escaneado/foto/imagen sea de al menos 200 dpi."
+msgstr "Asegúrate de que el escaneado/foto/imagen sea de al menos 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr ""
