@@ -7,7 +7,6 @@
 # Humberto Y <hyances@gmail.com>, 2025
 # Eduardo Mayorga <e@mayorgalinux.com>, 2025
 # Carmen, 2025
-# Alberto Chung Vazquez <isc.chungvazquez@gmail.com>, 2025
 # 3c4f354c26c2c190ba28f9c2666d7fdb_003e9d1 <b28923423b98dace80389ae64c99bf93_129697>, 2025
 # danielcallejassevilla <daniel.callejas.sevilla@gmail.com>, 2025
 # Andres Gomez Casanova <angoca@yahoo.com>, 2025
@@ -310,14 +309,14 @@ msgstr "Asegúrate de que el escaneado/foto/imagen sea de al menos 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr ""
-"Asegúrese de cargar un archivo JPG, PNG, TIF o GIF (el formato PDF no "
+"Asegúrate de cargar un archivo JPG, PNG, TIF o GIF (el formato PDF no "
 "funciona)."
 
 msgid "Make your notes and observations."
-msgstr "Tome sus notas y observaciones."
+msgstr "Toma tus notas y observaciones."
 
 msgid "Make yourself an atlas"
-msgstr "Haga usted mismo un atlas"
+msgstr "Has tu mismo un atlas"
 
 msgid "Making Atlases From GeoJSON"
 msgstr "Cómo hacer un atlas desde GeoJSON"
