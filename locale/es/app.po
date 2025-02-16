@@ -484,9 +484,13 @@ msgid ""
 "you should try re-uploading. If the problem persists, please %{open_issue} "
 "or email %{email_url} with details."
 msgstr ""
+"Lamentablemente, no se ha podido procesar la instantánea de la imagen "
+"%{image_filename}. Es posible que se trate de un error intermitente, en cuyo"
+" caso deberías intentar volver a cargarla. Si el problema persiste, "
+"%{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
 
 msgid "Upload"
-msgstr ""
+msgstr "Subir"
 
 msgid "Upload Failed"
 msgstr "Fallo al subir"
@@ -501,10 +505,10 @@ msgid "Welcome to Field Papers"
 msgstr "Bienvenido a Field Papers"
 
 msgid "Your Atlases"
-msgstr "Sus atlas"
+msgstr "Tus atlas"
 
 msgid "Your Snapshots"
-msgstr "Sus capturas"
+msgstr "Tus capturas"
 
 msgid "an atlas to print"
 msgstr "un atlas para imprimir"
@@ -516,13 +520,13 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "ahora un proyecto"
 
 msgid "open a GitHub issue"
 msgstr "abre una incidencia en GitHub"
 
 msgid "or create an account"
-msgstr "o crear una cuenta"
+msgstr "o crea una cuenta"
 
 msgid "pages you've marked"
 msgstr "páginas que marcó"
