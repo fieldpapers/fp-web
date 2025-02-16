@@ -529,7 +529,7 @@ msgid "or create an account"
 msgstr "o crea una cuenta"
 
 msgid "pages you've marked"
-msgstr "páginas que marcó"
+msgstr "páginas que marcaste"
 
 msgid "private"
 msgstr "privado"
