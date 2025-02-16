@@ -407,7 +407,7 @@ msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Falló el procesamiento de captura (%{image_filename})"
 
 msgid "Snapshot URL Grid (CSV)"
-msgstr ""
+msgstr "URL de Captura de Rejilla (CSV)"
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Subir captura - Field Papers"
