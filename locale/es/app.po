@@ -309,7 +309,7 @@ msgstr "Asegúrate de que el escaneado/foto/imagen sea de al menos 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
 msgstr ""
-"Asegúrate de cargar un archivo JPG, PNG, TIF o GIF (el formato PDF no "
+"Asegúrate de subir un archivo JPG, PNG, TIF o GIF (el formato PDF no "
 "funciona)."
 
 msgid "Make your notes and observations."
@@ -407,7 +407,7 @@ msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Falló el procesamiento de captura (%{image_filename})"
 
 msgid "Snapshot URL Grid (CSV)"
-msgstr "URL de Captura de Rejilla (CSV)"
+msgstr "URL de captura de rejilla (CSV)"
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Subir captura - Field Papers"
@@ -486,7 +486,7 @@ msgid ""
 msgstr ""
 "Lamentablemente, no se ha podido procesar la instantánea de la imagen "
 "%{image_filename}. Es posible que se trate de un error intermitente, en cuyo"
-" caso deberías intentar volver a cargarla. Si el problema persiste, "
+" caso deberías intentar volver a subirla. Si el problema persiste, "
 "%{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
 
 msgid "Upload"
