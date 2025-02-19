@@ -8,33 +8,6 @@
     "minzoom": 0,
     "maxzoom": 19
   },
-  "toner": {
-    "label": "Black & White",
-    "template": "https://{S}.tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 20
-  },
-  "satellite-labels": {
-    "label": "Satellite + Labels",
-    "template": "https://{S}.tile.stamen.com/boner/{Z}/{X}/{Y}.jpg",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 19
-  },
-  "satellite-only": {
-    "label": "Satellite Only",
-    "template": "https://{S}.tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 19
-  },
   "humanitarian": {
     "label": "Humanitarian",
     "template": "https://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png",
@@ -43,41 +16,5 @@
     },
     "minzoom": 0,
     "maxzoom": 20
-  },
-  "humanitarian-nepal": {
-    "label": "Humanitarian-Nepal",
-    "template": "https://{S}.tiles.mapbox.com/v4/kll.ptthjjor/{Z}/{X}/{Y}@2x.png?access_token=pk.eyJ1Ijoia2xsIiwiYSI6IktVRUtfQnMifQ.GJAHJPvusgK_f0NsSXS8QA",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 20
-  },
-  "mapbox-satellite": {
-    "label": "Mapbox Satellite",
-    "template": "https://{S}.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 19
-  },
-  "opencyclemap": {
-    "label": "OpenCycleMap",
-    "template": "https://{S}.tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png",
-    "options": {
-      "attribution": ""
-    },
-    "minzoom": 0,
-    "maxzoom": 20
-  },
-  "sputnik.ru": {
-    "label": "Sputnik.RU",
-    "template": "https://{S}.tiles.maps.sputnik.ru/{z}/{x}/{y}.png",
-    "options": {
-      "attribution": " © <a href=\"https://sputnik.ru\">Спутник</a> | © <a href=\"https://www.openstreetmap.org/copyright\">Openstreetmap</a> | © <a href=\"https://www.naturalearthdata.com/about/terms-of-use/\">Natural Earth</a> "
-    },
-    "minzoom": 0,
-    "maxzoom": 19
   }
 }

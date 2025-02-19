@@ -277,7 +277,7 @@ they are available to the environment in which Rails is running.
   moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
 * `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](https://leafletjs.com/reference.html#tilelayer). Optional.
-  Providing this url will override the header basemaps for the atlas index pages. Defaults to `https://tile.stamen.com/toner/{Z}/{X}/{Y}.png`
+  Providing this url will override the header basemaps for the atlas index pages. Defaults to `https://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png`
 * `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
   users to confirm their accounts after registration and will not send confirmation emails.
   Optional. Defaults to `false` -- registration confirmations are required

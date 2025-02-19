@@ -96,7 +96,7 @@
         atlasOrientation = $('#atlas_orientation'),
         atlasTitle = $('#atlas_title'),
         atlasText = $('#atlas_text'),
-        atlasUTMGrid = $('#atlas_utm_grid'),
+        // atlasUTMGrid = $('#atlas_utm_grid'),
         atlasTitlePlaceHolder = $("#atlas-title-placeholder-text");
 
     if (intitle) atlasTitle.val(intitle);
@@ -149,7 +149,7 @@
     atlasProvider.on('change', function(){
       validateTileLayer(this.value);
     });
-
+    /*
     atlasUTMGrid.on('change', function() {
       var utmGridTemplate = 'https://tile.stamen.com/utm/{z}/{x}/{y}.png';
       if (atlasUTMGrid.prop('checked')) {
@@ -161,6 +161,7 @@
         map.removeLayer(utmGridLayer);
       }
     });
+    */
 
     // sync up the fields
     map.fire("move");

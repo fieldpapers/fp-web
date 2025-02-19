@@ -38,8 +38,7 @@
   <script>
     $(function(){
       var providerTemplate = "<%= FieldPapers::ATLAS_INDEX_HEADER_TILELAYER.html_safe %>";
-      var providerAttribution = (providerTemplate.search("tile.stamen.com") === -1) ? '' :
-        'Map tiles by <a href="https://stamen.com/">Stamen Design</a>, under <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="https://openstreetmap.org/">OpenStreetMap</a>, under <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
+      var providerAttribution = '<a href="https://openstreetmap.org/">© OpenStreetMap</a>';
       FP.map.boundingBoxes('map',{
         provider: providerTemplate,
         providerSettings: [{options:{
