@@ -3,7 +3,7 @@
     "label": "OpenStreetMap",
     "template": "https://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png",
     "options": {
-      "attribution": ""
+      "attribution": "<a href='https://openstreetmap.org/copyright' target='_blank'>© OpenStreetMap</a>"
     },
     "minzoom": 0,
     "maxzoom": 19
@@ -12,9 +12,18 @@
     "label": "Humanitarian",
     "template": "https://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png",
     "options": {
-      "attribution": ""
+      "attribution": "<a href='https://openstreetmap.org/copyright' target='_blank'>© OpenStreetMap</a>"
     },
     "minzoom": 0,
     "maxzoom": 20
+  },
+  "EsriImagery": {
+    "label": "Esri World Imagery",
+    "template": "https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{Z}/{Y}/{X}.png",
+    "options": {
+      "attribution": "<a href='https://wiki.openstreetmap.org/wiki/Esri' target='_blank'>Terms & Feedback</a>"
+    },
+    "minzoom": 0,
+    "maxzoom": 22
   }
 }
