@@ -7,7 +7,7 @@
 
   map.options = {
     scrollWheelZoom: true,
-    attributionControl: false
+    attributionControl: true
   };
 
   var utils = map.utils = {};
