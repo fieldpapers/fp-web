@@ -37,7 +37,7 @@
   }
 
   var locatorMapOptions = {
-    attributionControl: false
+    attributionControl: true
   };
 
   Map.atlas = function(selector, settings) {
