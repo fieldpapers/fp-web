@@ -5,7 +5,7 @@ require "json"
 class Providers
   # Use layers <key>
   def self.default
-    'openstreetmap'
+    self.layers.keys.first
   end
 
   def self.options()
@@ -14,6 +14,8 @@ class Providers
     end
   end
 
+  # Get the ID of the provider that corresponds to the
+  # given URL (which may be saved in the database).
   # TODO: is there a better way?
   def self.derive(url)
     if url.include? 'openstreetmap.org'
