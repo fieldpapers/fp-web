@@ -1,7 +1,7 @@
 {
   "openstreetmap": {
     "label": "OpenStreetMap",
-    "template": "http://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png",
+    "template": "https://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": ""
     },
@@ -10,7 +10,7 @@
   },
   "toner": {
     "label": "Black & White",
-    "template": "http://{S}.tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png",
+    "template": "https://{S}.tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": ""
     },
@@ -19,7 +19,7 @@
   },
   "satellite-labels": {
     "label": "Satellite + Labels",
-    "template": "http://{S}.tile.stamen.com/boner/{Z}/{X}/{Y}.jpg",
+    "template": "https://{S}.tile.stamen.com/boner/{Z}/{X}/{Y}.jpg",
     "options": {
       "attribution": ""
     },
@@ -28,7 +28,7 @@
   },
   "satellite-only": {
     "label": "Satellite Only",
-    "template": "http://{S}.tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg",
+    "template": "https://{S}.tile.stamen.com/bing-lite/{Z}/{X}/{Y}.jpg",
     "options": {
       "attribution": ""
     },
@@ -37,7 +37,7 @@
   },
   "humanitarian": {
     "label": "Humanitarian",
-    "template": "http://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png",
+    "template": "https://{S}.tile.openstreetmap.fr/hot/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": ""
     },
@@ -55,7 +55,7 @@
   },
   "mapbox-satellite": {
     "label": "Mapbox Satellite",
-    "template": "http://{S}.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png",
+    "template": "https://{S}.tiles.mapbox.com/v3/stamen.i808gmk6/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": ""
     },
@@ -64,7 +64,7 @@
   },
   "opencyclemap": {
     "label": "OpenCycleMap",
-    "template": "http://{S}.tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png",
+    "template": "https://{S}.tile.opencyclemap.org/cycle/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": ""
     },
@@ -73,9 +73,9 @@
   },
   "sputnik.ru": {
     "label": "Sputnik.RU",
-    "template": "http://{S}.tiles.maps.sputnik.ru/{z}/{x}/{y}.png",
+    "template": "https://{S}.tiles.maps.sputnik.ru/{z}/{x}/{y}.png",
     "options": {
-      "attribution": " © <a href=\"http://sputnik.ru\">Спутник</a> | © <a href=\"http://www.openstreetmap.org/copyright\">Openstreetmap</a> | © <a href=\"http://www.naturalearthdata.com/about/terms-of-use/\">Natural Earth</a> "
+      "attribution": " © <a href=\"https://sputnik.ru\">Спутник</a> | © <a href=\"https://www.openstreetmap.org/copyright\">Openstreetmap</a> | © <a href=\"https://www.naturalearthdata.com/about/terms-of-use/\">Natural Earth</a> "
     },
     "minzoom": 0,
     "maxzoom": 19

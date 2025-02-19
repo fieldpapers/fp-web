@@ -151,7 +151,7 @@
     });
 
     atlasUTMGrid.on('change', function() {
-      var utmGridTemplate = 'http://tile.stamen.com/utm/{z}/{x}/{y}.png';
+      var utmGridTemplate = 'https://tile.stamen.com/utm/{z}/{x}/{y}.png';
       if (atlasUTMGrid.prop('checked')) {
         if (!utmGridLayer) {
           utmGridLayer = L.tileLayer(FP.map.utils.conformTemplate(utmGridTemplate), {})

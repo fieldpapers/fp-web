@@ -1,15 +1,15 @@
 require 'socket'
 
 module FieldPapers
-  BASE_URL = ENV["BASE_URL"] || "http://fieldpapers.org"
+  BASE_URL = ENV["BASE_URL"] || "https://fieldpapers.org"
   STATIC_URI_PREFIX = ENV["STATIC_URI_PREFIX"] || BASE_URL
   STATIC_PATH = ENV["STATIC_PATH"] || "./public"
   TASK_BASE_URL = ENV["TASK_BASE_URL"] || "https://tasks.fieldpapers.org"
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "https://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
-  OSM_BASE_URL = ENV["OSM_BASE_URL"] || "http://www.openstreetmap.org"
+  OSM_BASE_URL = ENV["OSM_BASE_URL"] || "https://www.openstreetmap.org"
   ATLAS_COMPLETE_WEBHOOKS = ENV["ATLAS_COMPLETE_WEBHOOKS"] || ""
-  ATLAS_INDEX_HEADER_TILELAYER = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
+  ATLAS_INDEX_HEADER_TILELAYER = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "https://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
 
   if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]

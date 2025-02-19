@@ -48,7 +48,7 @@ class Atlas < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   INDEX_BUFFER_FACTOR = 0.1
-  OVERLAY_UTM = "http://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
+  OVERLAY_UTM = "https://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
   BASE_ZOOM = 22 # zoom level to use for pixel calculations
   TARGET_RESOLUTION_PPI = 150 # target resolution for printing
 

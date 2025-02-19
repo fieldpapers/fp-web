@@ -24,15 +24,15 @@ In the opened text editor, add variables per [Environment Variables](https://git
 ### Using docker-compose
 
 [compose](https://docs.docker.com/compose/) is
-a [Docker](http://www.docker.com/)-based tool for orchestrating development
+a [Docker](https://www.docker.com/)-based tool for orchestrating development
 environments. Rather than using `foreman` to manage multiple processes locally,
 `compose` runs each component process in a separate container, built up from
 local `Dockerfile`s or from remote repositories.
 
 #### Prerequisites
 
-* A working instance of [Docker](http://www.docker.com/), via
-  [boot2docker](http://boot2docker.io/), [docker
+* A working instance of [Docker](https://www.docker.com/), via
+  [boot2docker](https://boot2docker.io/), [docker
   machine](https://docs.docker.com/machine/), or another mechanism
 * mDNS, built-in on OS X, via `libnss-mdns` on Linux or [Bonjour Print Services
   fpr Windows](https://support.apple.com/kb/DL999?locale=en_US)
@@ -65,7 +65,7 @@ docker-compose up
 ```
 
 The app will now be running on port 3000 on the Docker host. If you're lucky, it will be available
-at [`docker.local:3000`](http://docker.local:3000), otherwise you'll need to determine the IP of
+at [`docker.local:3000`](https://docker.local:3000), otherwise you'll need to determine the IP of
 your Docker host (`localhost` on Linux) and use that in place of `docker.local`.
 
 If `docker.local` doesn't work, you'll need to update `docker-compose.yml` to set `TILE_BASE_URL`
@@ -198,7 +198,7 @@ rake db:schema:load        # initialize your database
 bundle exec foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
 ```
 
-The app will now be running on [localhost:3000](http://localhost:3000/) and
+The app will now be running on [localhost:3000](https://localhost:3000/) and
 will also be available as `<you>.local` (which is what should be used for
 `BASE_URL`).
 
@@ -257,7 +257,7 @@ they are available to the environment in which Rails is running.
   bucket(s).
 * `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
 * `AWS_REGION` - AWS region to use for services.
-* `BASE_URL` - Base URL, e.g. `http://fieldpapers.org`.
+* `BASE_URL` - Base URL, e.g. `https://fieldpapers.org`.
 * `TASK_BASE_URL` - Base URL for the task server (probably an instance of
   [fp-tasks](https://github.com/fieldpapers/fp-tasks)).
 * `TILE_BASE_URL` - Base URL for the snapshot tiler (probably an instance of
@@ -268,7 +268,7 @@ they are available to the environment in which Rails is running.
 * `STATIC_PATH` - Path to write static files to. Must be HTTP-accessible.
   Defaults to `./public`.
 * `STATIC_URI_PREFIX` - Prefix to apply to static paths (e.g.
-  http://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
+  https://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
 * `PERSIST` - File persistence. Can be `local` or `s3`. Defaults to `s3`.
 * `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
   unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
@@ -276,8 +276,8 @@ they are available to the environment in which Rails is running.
 * `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
   moves to the state 'complete', fp-web will `POST` the JSON representation
   of the atlas to each URL.
-* `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](http://leafletjs.com/reference.html#tilelayer). Optional.
-  Providing this url will override the header basemaps for the atlas index pages. Defaults to `http://tile.stamen.com/toner/{Z}/{X}/{Y}.png`
+* `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](https://leafletjs.com/reference.html#tilelayer). Optional.
+  Providing this url will override the header basemaps for the atlas index pages. Defaults to `https://tile.stamen.com/toner/{Z}/{X}/{Y}.png`
 * `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
   users to confirm their accounts after registration and will not send confirmation emails.
   Optional. Defaults to `false` -- registration confirmations are required
