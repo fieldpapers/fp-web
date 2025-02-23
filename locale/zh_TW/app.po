@@ -82,6 +82,8 @@ msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"另外，原始 GeoJSON "
+"內容可以用表格數值型式<code>發佈</code>到<code>%{link}</code>的命名為<code>geojson_data</code>："
 
 msgid "Atlas - Field Papers"
 msgstr "地圖集 - Field Papers"
@@ -146,7 +148,7 @@ msgid "Click for more information."
 msgstr "點撃以獲取更多資訊。"
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "行為準則"
 
 msgid "Copy this atlas"
 msgstr "複製這份地圖集"
@@ -160,7 +162,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "請不要上傳不是由Field Papers產生的地圖。"
 
 msgid "Donate"
-msgstr ""
+msgstr "捐款"
 
 msgid "Download GeoTIFF"
 msgstr "下載GeoTIFF檔"
@@ -197,10 +199,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "GeoJSON 資料"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "GeoJSON 檔案"
 
 msgid "GitHub Issues"
 msgstr "GitHub 問題"
@@ -317,7 +319,7 @@ msgid "Notes"
 msgstr "註解"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "開放街圖美國"
 
 msgid "Orientation"
 msgstr "頁面方向"
@@ -368,13 +370,13 @@ msgid "Snapshot - Field Papers"
 msgstr "快照 - Field Papers"
 
 msgid "Snapshot Processing (%{image_filename})"
-msgstr ""
+msgstr "快照處理 (%{image_filename})"
 
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr ""
+msgstr "快照處理失敗 (%{image_filename})"
 
 msgid "Snapshot URL Grid (CSV)"
-msgstr ""
+msgstr "快照網址格線 (CSV)"
 
 msgid "Snapshot upload - Field Papers"
 msgstr "快照上傳 - Field Papers"
