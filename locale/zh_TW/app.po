@@ -6,16 +6,16 @@
 # Translators:
 # 沈家正 <shen.jia.zheng@gmail.com>, 2025
 # mcdlee <mcdlee@gmail.com>, 2025
-# Supaplex <bejokeup@gmail.com>, 2025
 # woei <woei0101@gmail.com>, 2025
 # Sean Young <assanges@icloud.com>, 2025
+# Supaplex <bejokeup@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Sean Young <assanges@icloud.com>, 2025\n"
+"Last-Translator: Supaplex <bejokeup@gmail.com>, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/fieldpapers/teams/36392/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} 是 %{OpenStreetMapUS} 的 %{NowAProject} 專案"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} 你已經照相的頁面."
@@ -54,6 +54,8 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"GeoJSON 檔案 "
+"(如同以下所說的)，可以用附加檔案<code>發佈</code>到<code>%{link}</code>，叫做<code>geojson_file</code>："
 
 msgid "About"
 msgstr "關於"
