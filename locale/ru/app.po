@@ -348,7 +348,7 @@ msgid "Notes"
 msgstr "Заметки"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "OpenStreetMap США"
 
 msgid "Orientation"
 msgstr "Ориентация"
@@ -474,6 +474,10 @@ msgid ""
 "the problem persists, please %{open_issue} or email %{email_url} with "
 "details."
 msgstr ""
+"К сожалению, Ваш атлас не смог закончить прорисовку. Возможно это была "
+"временная проблема, в этом случае попробуйте пересоздать атлас. Если ошибка "
+"происходит все время, пожалуйста %{open_issue} или отправьте письмо "
+"%{email_url} с подробностями."
 
 msgid ""
 "Unfortunately, your snapshot for image %{image_filename} failed to be "
@@ -513,10 +517,10 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "уже проект"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "открыть тикет на GitHub"
 
 msgid "or create an account"
 msgstr "или создать учетную запись"
