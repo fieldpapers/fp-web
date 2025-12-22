@@ -1,7 +1,7 @@
 {
   "openstreetmap": {
     "label": "OpenStreetMap",
-    "template": "https://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png",
+    "template": "https://tile.openstreetmap.org/{Z}/{X}/{Y}.png",
     "options": {
       "attribution": "<a href='https://openstreetmap.org/copyright' target='_blank'>© OpenStreetMap</a>"
     },
