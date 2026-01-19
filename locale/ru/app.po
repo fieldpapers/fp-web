@@ -7,15 +7,15 @@
 # Trubin Konstantin <takutoatmorgue@gmail.com>, 2025
 # Alexey Frolov <uryevich@gmail.com>, 2025
 # Andrey Karmatsky <karmatsky@gmail.com>, 2025
-# Michael <m1@tut.by>, 2025
 # Nikolay Parukhin <parukhin@gmail.com>, 2025
+# Michael <m1@tut.by>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Nikolay Parukhin <parukhin@gmail.com>, 2025\n"
+"Last-Translator: Michael <m1@tut.by>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/fieldpapers/teams/36392/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} - это %{NowAProject} в %{OpenStreetMapUS}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} страницы, которые вы сняли."
@@ -63,6 +63,9 @@ msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
+"Файл в формате GeoJSON (такой как ниже) может быть отправлен через "
+"<code>POST</code> как вложенный файл на <code>%{link}</code>, с "
+"именем<code>geojson_file</code>: "
 
 msgid "About"
 msgstr "О..."
@@ -89,6 +92,9 @@ msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
 "<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr ""
+"Другая возможность, содержимое GeoJSON может быть отправлено через "
+"<code>POST</code> на <code>%{link}</code> как значение формы, с именем "
+"<code>geojson_data</code>\\: "
 
 msgid "Atlas - Field Papers"
 msgstr "Атлас - Полевые Материалы"
@@ -155,7 +161,7 @@ msgid "Click for more information."
 msgstr "Нажмите для подробной информации"
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "Кодекс поведения"
 
 msgid "Copy this atlas"
 msgstr "Скопировать этот атлас"
@@ -171,7 +177,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Не загружайте ничего кроме карт Полевых Материалов, пожалуйста."
 
 msgid "Donate"
-msgstr ""
+msgstr "Пожертвовать"
 
 msgid "Download GeoTIFF"
 msgstr "Скачать GeoTIFF"
@@ -209,10 +215,10 @@ msgid "GeoJSON"
 msgstr "GeoJSON"
 
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "Данные GeoJSON"
 
 msgid "GeoJSON File"
-msgstr ""
+msgstr "Файл GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Проблемы на GitHub"
@@ -342,7 +348,7 @@ msgid "Notes"
 msgstr "Заметки"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "OpenStreetMap США"
 
 msgid "Orientation"
 msgstr "Ориентация"
@@ -468,6 +474,10 @@ msgid ""
 "the problem persists, please %{open_issue} or email %{email_url} with "
 "details."
 msgstr ""
+"К сожалению, Ваш атлас не смог закончить прорисовку. Возможно это была "
+"временная проблема, в этом случае попробуйте пересоздать атлас. Если ошибка "
+"происходит все время, пожалуйста %{open_issue} или отправьте письмо на "
+"%{email_url} с подробностями."
 
 msgid ""
 "Unfortunately, your snapshot for image %{image_filename} failed to be "
@@ -507,10 +517,10 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "уже проект"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "создайте тикет на GitHub"
 
 msgid "or create an account"
 msgstr "или создать учетную запись"
