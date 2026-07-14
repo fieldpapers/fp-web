@@ -1,6 +1,5 @@
 require "paper"
 require "providers"
-require "sentry-ruby"
 require "json"
 
 # == Schema Information
@@ -244,7 +243,6 @@ class Atlas < ActiveRecord::Base
 
       if rsp.status < 200 || rsp.status >= 300
         logger.warn("Got #{rsp.status}: #{rsp.body}")
-        Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
         fail!
       end
     end
@@ -269,7 +267,6 @@ class Atlas < ActiveRecord::Base
       rsp = http_client.post "#{url}", { atlas: atlas_json }
       if rsp.status < 200 || rsp.status >= 300
         logger.error("Got #{rsp.status}: #{rsp.body}")
-        Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
       end
     end
   end
@@ -289,7 +286,6 @@ class Atlas < ActiveRecord::Base
 
     if rsp.status < 200 || rsp.status >= 300
       logger.warn("Got #{rsp.status}: #{rsp.body}")
-      Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
       fail!
     end
   end

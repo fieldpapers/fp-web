@@ -1,5 +1,3 @@
-require "sentry-ruby"
-
 class PagesController < ApplicationController
   # allow API usage
   skip_before_action :verify_authenticity_token, only: :update
@@ -16,11 +14,6 @@ class PagesController < ApplicationController
     if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
-      Sentry.capture_message(params[:error][:message], extra: {
-        stack: params[:error][:stack],
-        atlas: atlas.slug,
-        page: page.page_number,
-      })
 
       page.atlas.fail!
       page.atlas.save!

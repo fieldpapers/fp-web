@@ -1,6 +1,5 @@
 require "csv"
 require "providers"
-require "sentry-ruby"
 
 class AtlasesController < ApplicationController
   # filters
@@ -46,10 +45,6 @@ class AtlasesController < ApplicationController
     if params[:task] && params[:error]
       logger.warn(params[:error][:message])
       logger.warn(params[:error][:stack])
-      Sentry.capture_message(params[:error][:message], extra: {
-        stack: params[:error][:stack],
-        atlas: atlas.slug,
-      })
 
       atlas.fail!
       atlas.save!

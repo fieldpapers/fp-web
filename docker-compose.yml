@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:latest
+    image: mysql:8.0
     environment:
       - MYSQL_ROOT_PASSWORD=fp
       - MYSQL_DATABASE=fieldpapers_development
@@ -17,12 +17,13 @@ services:
       - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
       - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
       - BASE_URL=http://web:3000
-      # needs to be publicly addressable
-      - TILE_BASE_URL=http://tiler:8080
+      - PERSIST=local
+      - DISABLE_LOGIN_CONFIRMATIONS=true
+      # local snapshot tiles won't render (fp-tiler v2 is Lambda-only, see below), but this
+      # needs to be a real, publicly reachable tile server for map display to work at all
+      - TILE_BASE_URL=https://tiles.fieldpapers.org
       - TASK_BASE_URL=http://tasks:8081
     hostname: fieldpapers
-    links:
-      - db
     ports:
       - 3000:3000
     volumes:
@@ -34,21 +35,31 @@ services:
       - ./public:/app/public
       - ./test:/app/test
   tasks:
-    image: quay.io/fieldpapers/tasks:v0.12.0
+    build: ../fp-tasks
     env_file: .env
     environment:
       # this will cause generated URLs in the PDFs to look suspicious, but it will work
       - API_BASE_URL=http://web:3000/
       - NODE_ENV=production
       - PORT=8081
+      - PERSIST=local
+      - STATIC_PATH=/data
+      - STATIC_URI_PREFIX=http://web:3000
     ports:
       - 8081:8081
-  tiler:
-    image: quay.io/fieldpapers/tiler:v0.2.0
-    env_file: .env
-    environment:
-      - API_BASE_URL=http://web:3000/
-      - NODE_ENV=production
-      - PORT=8080
-    ports:
-      - 8080:8080
+    volumes:
+      # rendered PDFs land in fp-web's public dir, served by the Rails app itself
+      - ./public:/data
+  # fp-tiler v2 is Lambda-only (no HTTP server mode), so it cannot run as a
+  # compose service. Map tiles are pointed at the production tile server
+  # (TILE_BASE_URL above) instead; locally-created snapshot tiles will not
+  # render, which is a known limitation of this dev setup.
+  # tiler:
+  #   image: quay.io/fieldpapers/tiler:v0.2.0
+  #   env_file: .env
+  #   environment:
+  #     - API_BASE_URL=http://web:3000/
+  #     - NODE_ENV=production
+  #     - PORT=8080
+  #   ports:
+  #     - 8080:8080

@@ -262,7 +262,6 @@ they are available to the environment in which Rails is running.
   [fp-tasks](https://github.com/fieldpapers/fp-tasks)).
 * `TILE_BASE_URL` - Base URL for the snapshot tiler (probably an instance of
   [fp-tiler](https://github.com/fieldpapers/fp-tiler)).
-* `SENTRY_DSN` - Sentry DSN for exception logging. Optional.
 * `MAPZEN_SEARCH_KEY` - A Mapzen Search API key, obtained from
   [mapzen.com/developers](https://mapzen.com/developers).
 * `STATIC_PATH` - Path to write static files to. Must be HTTP-accessible.
