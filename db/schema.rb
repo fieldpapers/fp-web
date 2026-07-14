@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2015_05_28_055308) do
+ActiveRecord::Schema[7.0].define(version: 2026_07_14_120000) do
   create_table "atlases", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "slug", limit: 8, null: false
@@ -50,21 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2015_05_28_055308) do
     t.index ["slug"], name: "index_atlases_on_slug", unique: true
     t.index ["slug"], name: "slug"
     t.index ["user_id"], name: "index_atlases_on_user_id"
-  end
-
-  create_table "mbtiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.boolean "private", default: false, null: false
-    t.string "url"
-    t.string "uploaded_file"
-    t.integer "min_zoom"
-    t.integer "max_zoom"
-    t.integer "center_zoom"
-    t.integer "center_x_coord"
-    t.integer "center_y_coord"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["user_id"], name: "user_id"
   end
 
   create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
