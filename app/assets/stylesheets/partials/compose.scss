@@ -376,11 +376,15 @@ FULL-SCREEN MAP
     // top: 50px;
   }
 
-  .leaflet-pelias-control {
+  .fp-geocoder-input {
     position: absolute;
-    top: 80px;
-    left: 10px;
+    top: 5px;
+    left: 260px;
+    z-index: 999;
+    width: 200px;
+    height: 40px;
     margin: 0px;
+    padding: 4px 6px;
   }
 
   .col-row-modifiers {
@@ -519,19 +523,6 @@ FULL-SCREEN MAP
     }
   }
 }
-
-/************
-SEARCH
-*************/
-
-.leaflet-pelias-search-icon {
-  width: 23px !important;
-
-  &:hover {
-    width: 23px !important;
-  }
-}
-
 
 /*******************
 LARGER THAN A TABLET

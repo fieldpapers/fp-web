@@ -1,4 +1,3 @@
-require "geocoder"
 require "providers"
 require "json"
 require "geo"
