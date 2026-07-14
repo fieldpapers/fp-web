@@ -9,7 +9,9 @@ services:
     ports:
       - 3306:3306
   web:
-    build: .
+    build:
+      context: .
+      target: development
     env_file: .env
     environment:
       - RAILS_ENV=development
@@ -36,6 +38,10 @@ services:
       - ./test:/app/test
   tasks:
     build: ../fp-tasks
+    # The prod image runs as the "node" user, which cannot write to bind mount
+    # volumes like ./public on the host when run under podman in rootless mode.
+    # As a workaround, set user to root in dev mode.
+    user: root
     env_file: .env
     environment:
       # this will cause generated URLs in the PDFs to look suspicious, but it will work
