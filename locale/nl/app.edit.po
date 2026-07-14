@@ -6,13 +6,14 @@
 # Translators:
 # Heimen Stoffels <vistausss@fastmail.com>, 2025
 # Jorieke, 2025
+# danieldegroot2 <danieldegroot18@gmail.com>, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Jorieke, 2025\n"
+"Last-Translator: danieldegroot2 <danieldegroot18@gmail.com>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/fieldpapers/teams/36392/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} is %{NowAProject} van %{OpenStreetMapUS}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} pagina's die u gefotografeerd heeft."
@@ -38,8 +39,8 @@ msgstr[1] "%{count} snapshots"
 
 msgid "%{count} page"
 msgid_plural "%{count} pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} pagina"
+msgstr[1] "%{count} pagina's"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} geleden"
@@ -47,12 +48,9 @@ msgstr "%{time_period} geleden"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-bijdragers"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers op Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr "Een GeoJSON-bestand (zoals die hieronder) kan <code>VERZONDEN</code> worden als een bijlage naar <code>%{link}</code>, met als naam <code>geojson_file</code>:"
 
 msgid "About"
 msgstr "Over"
@@ -73,11 +71,11 @@ msgid "All Atlases"
 msgstr "Alle atlassen"
 
 msgid "All Snapshots"
-msgstr ""
+msgstr "Alle snapshots"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr "Als alternatief kan onbewerkte GeoJSON-inhoud <code>VERZONDEN</code> worden naar <code>%{link}</code> als een formulierwaarde, met als naam <code>geojson_data</code>:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -119,13 +117,13 @@ msgid "Atlases - Field Papers"
 msgstr "Atlassen - Field Papers"
 
 msgid "Basemap"
-msgstr ""
+msgstr "Basiskaart"
 
 msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 msgid "Capture your notes"
 msgstr "Leg uw notities vast"
@@ -152,7 +150,7 @@ msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Upload alstublieft geen dingen die geen Field Papers-kaarten zijn."
 
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 msgid "Download GeoTIFF"
 msgstr "GeoTIFF downloaden"
@@ -186,11 +184,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr "GeoJSON-gegevens"
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr "GeoJSON-bestand"
 
 msgid "GitHub Issues"
 msgstr ""
@@ -210,8 +208,11 @@ msgstr "Handgetekende grafische kunst die een Field Papers-atlas creëren"
 msgid "Help"
 msgstr "Hulp"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "Als het meer dan één uur duurt, kijk dan op %{twitter_link} voor updates aangaande de systeemstatus en stuur ons een e-mail op %{email_url} als de atlas bevroren is."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr ""
@@ -234,7 +235,8 @@ msgstr "INLOGGEN"
 msgid "LOG OUT"
 msgstr "UITLOGGEN"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Lengtegraad, breedtegraad en optionele zoom. Gebruik <a href \"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> om nieuwe te creëren."
 
 msgid "Location and zoom"
@@ -329,11 +331,11 @@ msgstr "Snapshot - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "Bezig met verwerken van snapshot"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "Het verwerken van het snapshot is mislukt"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -381,11 +383,11 @@ msgid "UTM Grid"
 msgstr ""
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Het is niet gelukt om uw atlas te genereren. Het kan zijn dat dit een aanhoudende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de details."
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Het is niet gelukt om uw snapshot te verwerken. Het kan zijn dat dit een aanhoudende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de details."
 
 msgid "Upload"
@@ -419,7 +421,7 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "nu een project"
 
 msgid "open a GitHub issue"
 msgstr ""
@@ -442,6 +444,40 @@ msgstr "snapshot van pagina %{tp}"
 msgid "with advanced tools"
 msgstr "met geavanceerde hulpmiddelen"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers op Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "Als het meer dan één uur duurt, kijk dan op %{twitter_link} voor updates aanga"
+#~ "ande de systeemstatus en stuur ons een e-mail op %{email_url} als de atlas bev"
+#~ "roren is."
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr ""
+#~ "Lengtegraad, breedtegraad en optionele zoom. Gebruik <a href \"http://dbsgeo.co"
+#~ "m/latlon/\">dbsgeo.com/latlon/</a> om nieuwe te creëren."
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "Het is niet gelukt om uw atlas te genereren. Het kan zijn dat dit een aanhoude"
+#~ "nde fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te creër"
+#~ "en. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met de d"
+#~ "etails."
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "Het is niet gelukt om uw snapshot te verwerken. Het kan zijn dat dit een aanho"
+#~ "udende fout is, wat betekent dat u zult moeten proberen de atlas opnieuw te cr"
+#~ "eëren. Als het probleem aanhoudt, stuur dan een e-mail naar %{email_url} met d"
+#~ "e details."
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} is ontwikkeld door %{StamenDesign}"
 #~ msgid ""

@@ -48,12 +48,9 @@ msgstr "%{time_period} passados"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; contribuidores do OpenStreetMap"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers no Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "Sobre"
@@ -78,7 +75,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -187,11 +184,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr ""
@@ -211,8 +208,11 @@ msgstr ""
 msgid "Help"
 msgstr "Ajuda"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "Se demorar mais de uma hora, consulte %{twitter_link} para atualização do status do sistema, e envie um email para %{email_url} se o seu atlas ficar travado."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Se você decidir incluir notas, seu mapa vai ser impresso na metade superior da página com as notas na metade inferior.   Senão os mapas serão impressos usando toda a página."
@@ -235,7 +235,8 @@ msgstr "Entrar"
 msgid "LOG OUT"
 msgstr "Sair"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Latitude, longitude e zoom opcional.  Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> para criar novos."
 
 msgid "Location and zoom"
@@ -330,11 +331,11 @@ msgstr "Instantâneo - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "Processamento do Instantâneo"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "Processamento do Instantâneo falhou"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -382,11 +383,11 @@ msgid "UTM Grid"
 msgstr "Grade UTM"
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente seu atlas falhou na renderização.  É possível que seja um erro intermitente, nesse caso você deve tentar recriar o atlas.  Se o problema persistir, por favor envie um email para %{email_url} detalhando o problema."
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente o processamento do ser instantâneo falhou. É possível que seja um erro intermitente, nesse caso você deve tentar reenviar. Se o problema persistir, por favor envie um email para %{email_url} detalhando o problema. "
 
 msgid "Upload"
@@ -443,6 +444,38 @@ msgstr "instantâneo da página %{tp}"
 msgid "with advanced tools"
 msgstr "com ferramentas avançadas"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers no Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "Se demorar mais de uma hora, consulte %{twitter_link} para atualização do stat"
+#~ "us do sistema, e envie um email para %{email_url} se o seu atlas ficar travado"
+#~ "."
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr ""
+#~ "Latitude, longitude e zoom opcional.  Use <a href=\"http://dbsgeo.com/latlon/\">"
+#~ "dbsgeo.com/latlon/</a> para criar novos."
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "Infelizmente seu atlas falhou na renderização.  É possível que seja um erro in"
+#~ "termitente, nesse caso você deve tentar recriar o atlas.  Se o problema persis"
+#~ "tir, por favor envie um email para %{email_url} detalhando o problema."
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "Infelizmente o processamento do ser instantâneo falhou. É possível que seja um"
+#~ " erro intermitente, nesse caso você deve tentar reenviar. Se o problema persis"
+#~ "tir, por favor envie um email para %{email_url} detalhando o problema. "
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} é desenvolvido por %{StamenDesign}"
 #~ msgid ""

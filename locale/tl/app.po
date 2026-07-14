@@ -45,9 +45,6 @@ msgstr ""
 msgid "&copy; OpenStreetMap contributors"
 msgstr ""
 
-msgid "@fieldpapers on Twitter"
-msgstr ""
-
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
 
@@ -204,7 +201,10 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
 msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
@@ -228,7 +228,7 @@ msgstr ""
 msgid "LOG OUT"
 msgstr ""
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Location and zoom"
@@ -372,10 +372,10 @@ msgstr ""
 msgid "UTM Grid"
 msgstr ""
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
 msgid "Upload"

@@ -57,12 +57,9 @@ msgstr "%{time_period} 日前"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap contributors"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers on Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "概要"
@@ -87,7 +84,7 @@ msgstr "すべてのスナップショット"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "地図帳 - Field Papers"
@@ -198,11 +195,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "GitHub Issue"
@@ -222,8 +219,11 @@ msgstr "フィールドペーパー地図帳の作成を表す手書きの図"
 msgid "Help"
 msgstr "ヘルプ"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  をチェックしてください。そしてもし地図帳がスタックしたら, %{email_url} にEmail してください。"
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "もしノートを含むものを選んだのであれば、あなたの地図は下半分に表示されているノートとともに上半分に印刷されます。そうでなければ地図は全体に表示されます。"
@@ -246,7 +246,7 @@ msgstr "ログイン"
 msgid "LOG OUT"
 msgstr "ログアウト"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Location and zoom"
@@ -341,11 +341,11 @@ msgstr "スナップショット - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "スナップショットを処理"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "スナップショットの処理が失敗しました。"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -393,11 +393,11 @@ msgid "UTM Grid"
 msgstr "UTM グリッド"
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{email_url} にメールを送ってください。 "
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳細と一緒に %{email_url} へメールをしてください。"
 
 msgid "Upload"
@@ -454,6 +454,29 @@ msgstr "ページのスナップショット %{tp}"
 msgid "with advanced tools"
 msgstr "高度な機能"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers on Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  をチェックしてください。そしてもし地図帳がスタッ"
+#~ "クしたら, %{email_url} にEmail してください。"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{"
+#~ "email_url} にメールを送ってください。 "
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳"
+#~ "細と一緒に %{email_url} へメールをしてください。"
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています。"
 #~ msgid ""

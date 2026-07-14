@@ -7,17 +7,16 @@
 # Humberto Y <hyances@gmail.com>, 2025
 # Eduardo Mayorga <e@mayorgalinux.com>, 2025
 # Carmen, 2025
-# Alberto Chung Vazquez <isc.chungvazquez@gmail.com>, 2025
 # 3c4f354c26c2c190ba28f9c2666d7fdb_003e9d1 <b28923423b98dace80389ae64c99bf93_129697>, 2025
 # danielcallejassevilla <daniel.callejas.sevilla@gmail.com>, 2025
+# Andres Gomez Casanova <angoca@yahoo.com>, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: danielcallejassevilla <daniel.callejas.sevilla@gmail.com>, 20"
-"25\n"
+"Last-Translator: Andres Gomez Casanova <angoca@yahoo.com>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/fieldpapers/teams/36392/es/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -28,10 +27,10 @@ msgstr ""
 " 2;\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} es %{NowAProject} de %{OpenStreetMapUS}"
 
 msgid "%{Upload} pages you've photographed."
-msgstr "%{Upload} páginas que ha fotografiado."
+msgstr "%{Upload} páginas que has fotografiado."
 
 msgid "%{count} Atlas"
 msgid_plural "%{count} Atlases"
@@ -57,12 +56,9 @@ msgstr "hace %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; Contribuidores de OpenStreetMap"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers en Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr "Un archivo GeoJSON (parecido al de abajo) puede ser <code>PUBLICADO</code> como un archivo adjunto en <code>%{link}</code>, llamado <code>geojson_file</code>:"
 
 msgid "About"
 msgstr "Acerca de"
@@ -87,13 +83,13 @@ msgstr "Todas las capturas"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr "De manera alternativa, el contenido del raw GeoJSON puede ser <code>PUBLICADO</code> en <code>%{link}</code> como un valor formulario, llamado <code>geojson_data</code>:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
 
 msgid "Atlas Creation Failed"
-msgstr "Fallo en la creación del atlas"
+msgstr "Creación del atlas fallida"
 
 msgid "Atlas Rendering"
 msgstr "Renderizando el atlas"
@@ -135,34 +131,34 @@ msgid "Bing"
 msgstr "Bing"
 
 msgid "Cancel"
-msgstr "Anular"
+msgstr "Cancelar"
 
 msgid "Capture your notes"
-msgstr "Apunte sus notas"
+msgstr "Apunta tus notas"
 
 msgid "Check out the OSM help wiki."
-msgstr "Eche un vistazo a la wiki de ayuda OSM."
+msgstr "Echa un vistazo a la wiki de ayuda OSM."
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
-msgstr "Escoja una página del atlas para subir. Nosotros encontraremos su sitio (usando el código QR)."
+msgstr "Escoge una página del atlas para subir. Nosotros encontraremos dónde va (usando el código QR)."
 
 msgid "Click for more information."
 msgstr "Haga clic para más información"
 
 msgid "Code of Conduct"
-msgstr ""
+msgstr "Código de conducta"
 
 msgid "Copy this atlas"
 msgstr "Copiar este atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
-msgstr "La conexión con JOSM ha fallado. Compruebe que JOSM está ejecutándose y que la función de control remoto está activada en las preferencias."
+msgstr "No se puede conectar con JOSM. Comprueba que JOSM está ejecutándose y que la función de control remoto está activada en las preferencias."
 
 msgid "Don't upload things that aren't Field Papers maps, please."
-msgstr "No suba cosas que no son mapas Field Papers."
+msgstr "No subas cosas que no son mapas Field Papers."
 
 msgid "Donate"
-msgstr ""
+msgstr "Donar"
 
 msgid "Download GeoTIFF"
 msgstr "Descargar GeoTIFF"
@@ -196,38 +192,41 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr "Datos GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr "Archivo GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Informes de fallos en GitHub"
 
 msgid "Grid layout"
-msgstr "Colocación en rejilla"
+msgstr "Disposición de rejilla"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr "Dibujo a mano para mostrar un atlas Field Papers sobre el terreno"
+msgstr "Dibujo a mano que representa un atlas Field Papers sobre el terreno"
 
 msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr "Dibujo a mano, fotografiando una página de un atlas Field Papers"
+msgstr "Dibujo a mano que representa la toma de foto de una página de un atlas Field Papers"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr "Dibujo a mano, haciendo un atlas Field Papers"
+msgstr "Dibujo a mano que representa la creación de un atlas Field Papers"
 
 msgid "Help"
 msgstr "Ayuda"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "Si tomara más de una hora, compruebe %{twitter_link} si hay actualizaciones del estado del sistema, y envíenos un correo electrónico a %{email_url} si su atlas está atascado."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
-msgstr "Si elige un atlas para tomar notas, su mapa aparecerá en la mitad superior de la página, y las notas en la mitad inferior. En otro caso, el mapa ocupará la página entera."
+msgstr "Si eliges un atlas para tomar notas, tu mapa aparecerá en la mitad superior de la página, y las notas en la mitad inferior. En otro caso, el mapa ocupará la página entera."
 
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
-msgstr "Es fácil crear atlas «enlatados» Field Papers proporcionando detalles adicionales por adelantado que se utilizarán como valores predeterminados en todo el proceso de <a href=\"%s\">Hacer un atlas</a>"
+msgstr "Es fácil crear atlas Field Papers «enlatados»  proporcionando detalles adicionales por adelantado que se utilizarán como valores predeterminados en todo el proceso de <a href=\"%s\">Hacer un atlas</a>."
 
 msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
 msgstr "Es posible crear atlas desde archivos GeoJSON en bruto. Esto se puede hacer de dos maneras:"
@@ -236,7 +235,7 @@ msgid "JOSM"
 msgstr "JOSM"
 
 msgid "Keep atlas private"
-msgstr "Atlas privado"
+msgstr "Mantener Atlas privado"
 
 msgid "LOG IN"
 msgstr "INICIAR SESIÓN"
@@ -244,8 +243,9 @@ msgstr "INICIAR SESIÓN"
 msgid "LOG OUT"
 msgstr "CERRAR SESIÓN"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "Latitud, longitud, y un acercamiento opcional. Utilice <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> para hacer uno nuevo."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr "Latitud, longitud, y un acercamiento opcional. Utiliza <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> para hacer uno nuevo."
 
 msgid "Location and zoom"
 msgstr "Ubicación y acercamiento"
@@ -260,16 +260,16 @@ msgid "Make Atlas"
 msgstr "Hacer un atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
-msgstr "Asegúrese de que el escaneado/foto/imagen sea de al menos 200 dpi."
+msgstr "Asegúrate de que el escaneado/foto/imagen sea de al menos 200 dpi."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr "Asegúrese de cargar un archivo JPG, PNG, TIF o GIF (el formato PDF no funciona)."
+msgstr "Asegúrate de subir un archivo JPG, PNG, TIF o GIF (el formato PDF no funciona)."
 
 msgid "Make your notes and observations."
-msgstr "Tome sus notas y observaciones."
+msgstr "Toma tus notas y observaciones."
 
 msgid "Make yourself an atlas"
-msgstr "Haga usted mismo un atlas"
+msgstr "Has tu mismo un atlas"
 
 msgid "Making Atlases From GeoJSON"
 msgstr "Cómo hacer un atlas desde GeoJSON"
@@ -287,7 +287,7 @@ msgid "Menu"
 msgstr "Menú"
 
 msgid "No atlases."
-msgstr ""
+msgstr "Sin atlas."
 
 msgid "No snapshots."
 msgstr "Sin capturas."
@@ -296,7 +296,7 @@ msgid "Notes"
 msgstr "Notas"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "OpenStreetMap US"
 
 msgid "Orientation"
 msgstr "Orientación"
@@ -317,10 +317,10 @@ msgid "Print notes"
 msgstr "Imprimir notas"
 
 msgid "Print out anywhere in the world."
-msgstr "Imprima cualquier lugar del mundo."
+msgstr "Imprimir en cualquier lugar del mundo."
 
 msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "Los atlas privados son accesibles solo si está conectado, o a través de una URL que recibirá en el último paso."
+msgstr "Los atlas privados son accesibles solo si estás conectado, o a través de una URL que recibirás en el último paso."
 
 msgid "Refresh"
 msgstr "Recargar"
@@ -329,24 +329,24 @@ msgid "Rules"
 msgstr "Reglas"
 
 msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr "Puesto que este atlas es <span class='private'>privado</span>, probablemente debería guardarlo como <a href='%{atlas_url}'>marcador</a>."
+msgstr "Puesto que este atlas es <span class='private'>privado</span>, probablemente deberías guardarlo como <a href='%{atlas_url}'>marcador</a>."
 
 msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
-msgstr "Puesto que esta es una captura <span class='private'>privada</span>, probablemente debería guardarla como <a href='%{url}'>marcador</a>."
+msgstr "Puesto que esta es una captura <span class='private'>privada</span>, probablemente deberías guardarla como <a href='%{url}'>marcador</a>."
 
 msgid "Snapshot - Field Papers"
 msgstr "Captura - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "Procesando captura"
+msgstr "Procesando captura (%{image_filename})"
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "Fallo al procesar la captura"
+msgstr "Falló el procesamiento de captura (%{image_filename})"
 
 msgid "Snapshot URL Grid (CSV)"
-msgstr ""
+msgstr "URL de captura de rejilla (CSV)"
 
 msgid "Snapshot upload - Field Papers"
 msgstr "Subir captura - Field Papers"
@@ -358,19 +358,19 @@ msgid "Snapshots - Field Papers"
 msgstr "Capturas - Field Papers"
 
 msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
-msgstr "¡Algo salió mal! Revise las <strong>reglas</strong> a continuación e intente de nuevo."
+msgstr "¡Algo salió mal! Revisa las <strong>reglas</strong> a continuación e intenta de nuevo."
 
 msgid "Submit"
 msgstr "Enviar"
 
 msgid "Take it into the field"
-msgstr "Llévelo al terreno"
+msgstr "Llévalo al terreno"
 
 msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
-msgstr "Esto puede tomar un tiempo, generalmente unos minutos. No es necesario mantener esta ventana abierta, puede <a href='%{atlas_url}'>marcar esta página</a> y volver más tarde."
+msgstr "Esto puede tomar un tiempo, generalmente unos minutos. No es necesario mantener esta ventana abierta, puedes <a href='%{atlas_url}'>marcar esta página</a> y volver más tarde."
 
 msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
-msgstr "Esto puede tomar un tiempo, generalmente unos minutos. No es necesario mantener esta ventana abierta, puede <a href='%{url}'>marcar esta página</a> y volver más tarde."
+msgstr "Esto puede tomar un tiempo, generalmente unos minutos. No es necesario mantener esta ventana abierta, puedes <a href='%{url}'>marcar esta página</a> y volver más tarde."
 
 msgid "This process has been running for %{time}"
 msgstr "Este proceso ha estado ejecutándose durante %{time}"
@@ -391,15 +391,15 @@ msgid "UTM Grid"
 msgstr "Rejilla UTM"
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "Desafortunadamente, su atlas falló al ser procesado. Es posible que haya sido un error intermitente, en cuyo caso debe intentar hacerlo de nuevo. Si el problema persiste, envíe un correo electrónico a %{email_url} con los detalles."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
+msgstr "Desgraciadamente, tu atlas no se ha renderizado. Es posible que se trate de un error intermitente, en cuyo caso deberías intentar volver a crear el atlas. Si el problema persiste, %{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr "Desafortunadamente, su captura falló al ser procesada. Es posible que haya sido un error intermitente, en cuyo caso debe intentar subirla de nuevo. Si el problema persiste, envíe un correo electrónico a %{email_url} con los detalles."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
+msgstr "Lamentablemente, no se ha podido procesar la instantánea de la imagen %{image_filename}. Es posible que se trate de un error intermitente, en cuyo caso deberías intentar volver a subirla. Si el problema persiste, %{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
 
 msgid "Upload"
-msgstr ""
+msgstr "Subir"
 
 msgid "Upload Failed"
 msgstr "Fallo al subir"
@@ -414,10 +414,10 @@ msgid "Welcome to Field Papers"
 msgstr "Bienvenido a Field Papers"
 
 msgid "Your Atlases"
-msgstr "Sus atlas"
+msgstr "Tus atlas"
 
 msgid "Your Snapshots"
-msgstr "Sus capturas"
+msgstr "Tus capturas"
 
 msgid "an atlas to print"
 msgstr "un atlas para imprimir"
@@ -429,16 +429,16 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "ahora un proyecto"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "abre una incidencia en GitHub"
 
 msgid "or create an account"
-msgstr "o crear una cuenta"
+msgstr "o crea una cuenta"
 
 msgid "pages you've marked"
-msgstr "páginas que marcó"
+msgstr "páginas que marcaste"
 
 msgid "private"
 msgstr "privado"
@@ -452,6 +452,38 @@ msgstr "captura de la página %{tp}"
 msgid "with advanced tools"
 msgstr "con herramientas avanzadas"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers en Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "Si tomara más de una hora, compruebe %{twitter_link} si hay actualizaciones de"
+#~ "l estado del sistema, y envíenos un correo electrónico a %{email_url} si su at"
+#~ "las está atascado."
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr ""
+#~ "Latitud, longitud, y un acercamiento opcional. Utilice <a href=\"http://dbsgeo."
+#~ "com/latlon/\">dbsgeo.com/latlon/</a> para hacer uno nuevo."
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "Desafortunadamente, su atlas falló al ser procesado. Es posible que haya sido "
+#~ "un error intermitente, en cuyo caso debe intentar hacerlo de nuevo. Si el prob"
+#~ "lema persiste, envíe un correo electrónico a %{email_url} con los detalles."
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "Desafortunadamente, su captura falló al ser procesada. Es posible que haya sid"
+#~ "o un error intermitente, en cuyo caso debe intentar subirla de nuevo. Si el pr"
+#~ "oblema persiste, envíe un correo electrónico a %{email_url} con los detalles."
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} hecho por %{StamenDesign}"
 #~ msgid ""

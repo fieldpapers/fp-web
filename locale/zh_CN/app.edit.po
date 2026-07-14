@@ -45,12 +45,9 @@ msgstr "%{time_period} 之前"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap贡献者"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers 在Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "关于"
@@ -75,7 +72,7 @@ msgstr "所有快照"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "地图集 - Field Papers"
@@ -184,11 +181,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
@@ -208,8 +205,11 @@ msgstr "手绘图形代表制作的一份Field Papers地图集"
 msgid "Help"
 msgstr "帮助"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "如果超过一个小时，检查 %{twitter_link} 系统状态更新，如果你的地图集卡住了，请发邮件到 %{email_url} 。"
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "如果您选择加入注记，你的地图将打印在上半页，下半页显示注记。否则，地图将显示在整个页面上。"
@@ -232,7 +232,8 @@ msgstr "登录"
 msgid "LOG OUT"
 msgstr "登出"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "纬度，经度和可选的缩放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>来制作新的。"
 
 msgid "Location and zoom"
@@ -327,11 +328,11 @@ msgstr "快照 - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "处理快照"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "快照处理失败"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -379,11 +380,11 @@ msgid "UTM Grid"
 msgstr "UTM网格"
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "不幸的是，你的地图集无法渲染。这可能是间歇性错误，在这种情况下，你应该尝试重新创建地图集。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url} 。"
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "不幸的是，你的快照处理失败。这可能是间歇性错误，在这种情况下，你应该尝试重新上传。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url} 。"
 
 msgid "Upload"
@@ -440,6 +441,31 @@ msgstr "第 %{tp} 页的快照"
 msgid "with advanced tools"
 msgstr "使用高级工具"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers 在Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr "如果超过一个小时，检查 %{twitter_link} 系统状态更新，如果你的地图集卡住了，请发邮件到 %{email_url} 。"
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr "纬度，经度和可选的缩放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>来制作新的。"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "不幸的是，你的地图集无法渲染。这可能是间歇性错误，在这种情况下，你应该尝试重新创建地图集。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_"
+#~ "url} 。"
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "不幸的是，你的快照处理失败。这可能是间歇性错误，在这种情况下，你应该尝试重新上传。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url}"
+#~ " 。"
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} 由 %{StamenDesign} 创建"
 #~ msgid ""

@@ -54,12 +54,9 @@ msgstr "il y a %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; les contributeurs OpenStreetMap "
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers sur Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "À propos"
@@ -84,7 +81,7 @@ msgstr "Tous les aperçus"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "Atlas - Field Papers"
@@ -193,11 +190,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "Listes des bugs dans GitHub"
@@ -217,8 +214,11 @@ msgstr "Croquis pour représenter l'élaboration d'un atlas Field Papers"
 msgid "Help"
 msgstr "Aide"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "Si cela prend plus d'une heure, vérifiez %{twitter_link} pour les mises à jour du système, et envoyez-nous un courriel à %{email_url}  si votre atlas ne se crée pas. "
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Si vous choisissez d'inclure des notes, votre carte sera imprimé sur la moitié supérieure de la page, avec les notes afficheés sur la moitié inférieure.  Sinon, la carte occupera la page entière."
@@ -241,7 +241,8 @@ msgstr "CONNECTEZ-VOUS"
 msgid "LOG OUT"
 msgstr "DÉCONNEXION"
 
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Latitude, longitude et zoom optionnel. Utiliser <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> pour en faire des nouveaux. "
 
 msgid "Location and zoom"
@@ -336,11 +337,11 @@ msgstr "Aperçu - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "Création de l'aperçu en cours"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "La création de l'aperçu a échoué"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -388,11 +389,11 @@ msgid "UTM Grid"
 msgstr "Grille UTM"
 
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Malheureusement, le rendu de votre atlas a échoué. Il est possible que cela soit dû à une erreur intermittente, dans quel cas vous pouvez tenter de recréer votre atlas. Si le problème persiste, envoyez SVP un courrier à %{email_url} en fournissant des détails. "
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Malheureusement, la création de votre aperçu a échoué. Il est possible que cela soit dû à une erreur intermittente, en quel cas vous devriez réessayer le transfert. Si le problème persiste, SVP envoyez un email à %{email_url} avec les détails. "
 
 msgid "Upload"
@@ -449,6 +450,40 @@ msgstr "Aperçu de la page %{tp}"
 msgid "with advanced tools"
 msgstr "avec les outils avancés"
 
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers sur Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "Si cela prend plus d'une heure, vérifiez %{twitter_link} pour les mises à jour"
+#~ " du système, et envoyez-nous un courriel à %{email_url}  si votre atlas ne se "
+#~ "crée pas. "
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr ""
+#~ "Latitude, longitude et zoom optionnel. Utiliser <a href=\"http://dbsgeo.com/lat"
+#~ "lon/\">dbsgeo.com/latlon/</a> pour en faire des nouveaux. "
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "Malheureusement, le rendu de votre atlas a échoué. Il est possible que cela so"
+#~ "it dû à une erreur intermittente, dans quel cas vous pouvez tenter de recréer "
+#~ "votre atlas. Si le problème persiste, envoyez SVP un courrier à %{email_url} e"
+#~ "n fournissant des détails. "
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "Malheureusement, la création de votre aperçu a échoué. Il est possible que cel"
+#~ "a soit dû à une erreur intermittente, en quel cas vous devriez réessayer le tr"
+#~ "ansfert. Si le problème persiste, SVP envoyez un email à %{email_url} avec les"
+#~ " détails. "
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} est développé par %{StamenDesign}"
 #~ msgid ""
