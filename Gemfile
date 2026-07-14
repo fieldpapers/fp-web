@@ -51,12 +51,6 @@ gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
 gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
 
-## production-only dependencies
-
-group :production do
-  gem "rails_12factor" # Heroku compatibility
-end
-
 ## development-only dependencies
 
 group :development do
