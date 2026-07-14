@@ -116,7 +116,7 @@ class Atlas < ActiveRecord::Base
 
   has_many :pages,
     -> {
-      order Arel.sql("FIELD(#{Page.table_name}.page_number, 'i') DESC, #{Page.table_name}.page_number ASC")
+      order Arel.sql("CASE WHEN #{Page.table_name}.page_number = 'i' THEN 0 ELSE 1 END, #{Page.table_name}.page_number ASC")
     },
     dependent: :destroy,
     inverse_of: :atlas
@@ -153,12 +153,13 @@ class Atlas < ActiveRecord::Base
 
   scope :date,
     -> date {
-      where("DATE(#{self.table_name}.created_at) = ?", date)
+      where(created_at: date.to_date.all_day)
     }
 
   scope :month,
     -> month {
-      where("CONCAT(YEAR(#{self.table_name}.created_at), '-', LPAD(MONTH(#{self.table_name}.created_at), 2, '0')) = ?", month)
+      start = Date.strptime(month, "%Y-%m")
+      where(created_at: start...(start >> 1))
     }
 
   scope :place,

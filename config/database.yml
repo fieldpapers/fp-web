@@ -26,26 +26,10 @@ test:
 #
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
 #
-# You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 
-# This "production" environment is specialised for deployment on
-# Amazon Web Services using the AWS Elastic Beanstalk service, with
-# resources set up by the aws-quick-start.py script in the
-# fieldpapers/fieldpapers repository.  The RDS_* environment variables
-# used here are provided with values by the AWS environment on the EC2
-# instance where the web app runs, i.e. they are not explicitly
-# assigned values anywhere the web app code, but are set up
-# automatically by AWS.
-# If DATABASE_URL is provided, that will also work
-
+# Production is driven entirely by DATABASE_URL. Rails derives the adapter
+# from the URL scheme, so the same code runs against MySQL (mysql2://) on
+# Heroku and Postgres (postgres://) on DigitalOcean.
 production:
-  adapter: mysql2
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] || 3306 %>
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("MAX_THREADS", 5) %>

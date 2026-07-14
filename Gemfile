@@ -76,3 +76,5 @@ group :development, :test do
 
   gem "rake"
 end
+
+gem "pg", "~> 1.6"
