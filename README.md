@@ -278,6 +278,14 @@ they are available to the environment in which Rails is running.
 * `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
   users to confirm their accounts after registration and will not send confirmation emails.
   Optional. Defaults to `false` -- registration confirmations are required
+* `ANALYTICS_HEAD_FILE` - Path to an HTML file whose contents are injected into
+  the `<head>` of every page (e.g. a Plausible or other analytics snippet). Read
+  once at boot. Optional. Defaults to `/etc/fieldpapers/analytics.html`, so
+  bind-mounting a snippet there is picked up without setting this variable.
+* `ANALYTICS_HEAD_HTML` - HTML injected into the `<head>` of every page, as an
+  alternative to `ANALYTICS_HEAD_FILE` for short one-line snippets. Ignored if
+  `ANALYTICS_HEAD_FILE` is set. Optional. When neither is set, no analytics
+  markup is emitted.
 
 ### Running Tests
 
