@@ -37,7 +37,10 @@ RUN bundle install -j4
 
 COPY . .
 
-RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile
+# set dummy values for some config vars here (otherwise Rails will error)
+RUN SECRET_KEY_BASE=placeholder \
+    DATABASE_URL=postgres://user:pass@localhost:5432/db \
+    bundle exec rails assets:precompile
 
 RUN useradd --create-home app && chown -R app:app /app
 USER app
