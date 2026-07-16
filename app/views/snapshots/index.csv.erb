@@ -17,7 +17,8 @@ else
         page_number = "#{row_names[x]}#{y}"
         @atlas.pages.find_by_page_number(page_number).snapshots.pluck(:slug)
       elsif y == 0 && x == 0
-        @atlas.pages.find_by_page_number("i").snapshots.pluck(:slug)
+        index_page = @atlas.pages.find_by_page_number("i")
+        index_page&.snapshots.pluck(:slug)
       end
 
       grid << "\"" + slugs.map { |slug| snapshot_url(slug) }.join(",") + "\"" if slugs
