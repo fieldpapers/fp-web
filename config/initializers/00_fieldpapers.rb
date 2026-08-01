@@ -24,6 +24,11 @@ module FieldPapers
       ENV["ANALYTICS_HEAD_HTML"]
     end.presence
 
+  AWS_ACCESS_KEY_ID = ENV["AWS_ACCESS_KEY_ID"]
+  AWS_SECRET_ACCESS_KEY = ENV["AWS_SECRET_ACCESS_KEY"]
+  S3_BUCKET_NAME = ENV["S3_BUCKET_NAME"] || "files.fieldpapers.org"
+  AWS_REGION = ENV["AWS_REGION"] || "us-east-1"
+
   if ENV["DEFAULT_CENTER"].present?
     DEFAULT_CENTER = ENV["DEFAULT_CENTER"]
     zoom, DEFAULT_LATITUDE, DEFAULT_LONGITUDE = ENV["DEFAULT_CENTER"].split("/").map(&:to_f)

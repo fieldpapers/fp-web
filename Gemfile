@@ -5,7 +5,7 @@ ruby "3.1.3"
 ## standard dependencies
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "7.0.4.3"
+gem "rails", "7.2.3.2"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 6.0.0"
 gem 'font-awesome-sass'
@@ -25,7 +25,6 @@ gem "aws-sdk-core", "~> 3"
 gem "aws-sdk-s3", '~> 1.120'
 gem 'aws-sdk-rails', '~> 3.7', '>= 3.7.1'
 gem "bootstrap-sass", "~> 3.4.1"
-gem "composite_primary_keys", "~> 14.0.6"
 gem "devise", "~> 4.9.2" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
@@ -38,11 +37,12 @@ gem "http_accept_language"
 gem "kaminari" # pagination
 gem "kaminari-i18n"
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
-gem "paperclip", "~> 6.1.0" # file attachments
+gem "kt-paperclip", "~> 8.0" # file attachments
 gem "puma", "~> 6.6.0" # app server
+gem "rack", "~> 2.2" # rack 3 breaks rack-rewrite
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
-gem "rails-i18n", "~> 7.0.6"
+gem "rails-i18n", "~> 7.0"
 gem "s3_direct_upload", git: 'https://github.com/waynehoover/s3_direct_upload'
 gem "mysql2", "~> 0.5.6"
 gem "workflow", "~> 3.0.0"

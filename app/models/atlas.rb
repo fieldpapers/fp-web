@@ -431,7 +431,7 @@ class Atlas < ActiveRecord::Base
         rows: rows,
         cols: cols,
         pages: atlas_pages,
-        created: created_at.to_s(:iso8601),
+        created: created_at.iso8601,
         url: atlas_url(self),
         url_pdf: pdf_url,
         url_user: creator ? user_url(creator) : nil

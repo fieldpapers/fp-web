@@ -82,7 +82,7 @@ class Page < ActiveRecord::Base
         provider: provider,
         page_number: page_number,
         zoom: zoom,
-        created: created_at.to_s(:iso8601),
+        created: created_at.iso8601,
         url: atlas_url(atlas) + "/" + page_number,
       },
       geometry: {
