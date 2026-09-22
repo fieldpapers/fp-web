@@ -4,6 +4,7 @@ RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
       build-essential \
       git \
+      curl \
       nodejs \
       default-libmysqlclient-dev \
       libpq-dev \
