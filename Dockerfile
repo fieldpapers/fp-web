@@ -9,6 +9,8 @@ RUN apt-get update -qq && \
       libpq-dev \
       zlib1g-dev \
       libssl-dev \
+      libffi-dev \
+      libyaml-dev \
       shared-mime-info && \
     rm -rf /var/lib/apt/lists/*
 
