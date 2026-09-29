@@ -23,6 +23,9 @@ module App
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
 
+    require_relative '../lib/route_header'
+    config.middleware.insert_before 0, RouteHeader
+
     # rewrite URLs for backward-compatibility
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       # handle both encoded and non-encoded /s
