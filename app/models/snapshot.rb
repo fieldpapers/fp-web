@@ -358,8 +358,8 @@ class Snapshot < ActiveRecord::Base
         max_zoom: max_zoom,
         base_url: base_url,
         url: snapshot_url(self),
-        url_page: snapshot_url(self) + "/" + page.page_number,
-        url_uploader: uploader ? user_url(uploader) : nil,
+        url_page: atlas_page_atlas_url(atlas, page.page_number),
+        url_uploader: uploader ? snapshots_url(username: uploader.username) : nil,
       },
       geometry: {
         type: 'Polygon',

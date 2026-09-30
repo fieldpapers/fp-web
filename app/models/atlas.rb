@@ -434,7 +434,7 @@ class Atlas < ActiveRecord::Base
         created: created_at.iso8601,
         url: atlas_url(self),
         url_pdf: pdf_url,
-        url_user: creator ? user_url(creator) : nil
+        url_user: creator ? atlases_url(username: creator.username) : nil
       },
       geometry: {
         type: 'MultiPolygon',
