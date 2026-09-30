@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
-  create_table "atlases", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.2].define(version: 2026_09_29_120000) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "atlases", force: :cascade do |t|
     t.integer "user_id"
     t.string "slug", limit: 8, null: false
-    t.text "title", size: :long
-    t.text "text", size: :long
-    t.float "west", limit: 53, null: false
-    t.float "south", limit: 53, null: false
-    t.float "east", limit: 53, null: false
-    t.float "north", limit: 53, null: false
-    t.integer "zoom", limit: 1
-    t.integer "rows", limit: 1, null: false
-    t.integer "cols", limit: 1, null: false
+    t.text "title"
+    t.text "text"
+    t.float "west", null: false
+    t.float "south", null: false
+    t.float "east", null: false
+    t.float "north", null: false
+    t.integer "zoom", limit: 2
+    t.integer "rows", limit: 2, null: false
+    t.integer "cols", limit: 2, null: false
     t.string "provider"
     t.string "paper_size", limit: 6, default: "letter", null: false
     t.string "orientation", limit: 9, default: "portrait", null: false
@@ -53,13 +56,13 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.index ["user_id"], name: "index_atlases_on_user_id"
   end
 
-  create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "notes", force: :cascade do |t|
     t.integer "snapshot_id", null: false
     t.integer "user_id"
     t.integer "note_number", default: 0, null: false
-    t.text "note", size: :long
-    t.float "latitude", limit: 53
-    t.float "longitude", limit: 53
+    t.text "note"
+    t.float "latitude"
+    t.float "longitude"
     t.text "geometry"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,14 +70,14 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
-  create_table "pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pages", force: :cascade do |t|
     t.integer "atlas_id", null: false
     t.string "page_number", limit: 5, null: false
-    t.float "west", limit: 53, null: false
-    t.float "south", limit: 53, null: false
-    t.float "east", limit: 53, null: false
-    t.float "north", limit: 53, null: false
-    t.integer "zoom", limit: 1
+    t.float "west", null: false
+    t.float "south", null: false
+    t.float "east", null: false
+    t.float "north", null: false
+    t.integer "zoom", limit: 2
     t.string "provider"
     t.string "preview_url"
     t.string "country_name", limit: 64
@@ -90,7 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.index ["atlas_id"], name: "print_id"
   end
 
-  create_table "snapshots", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "snapshots", force: :cascade do |t|
     t.string "slug", limit: 8, null: false
     t.integer "user_id"
     t.integer "page_id"
@@ -101,7 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.float "max_column"
     t.integer "min_zoom"
     t.integer "max_zoom"
-    t.text "description", size: :long
+    t.text "description"
     t.boolean "private", default: false, null: false
     t.string "has_geotiff", limit: 3, default: "no"
     t.string "has_geojpeg", limit: 3, default: "no"
@@ -137,7 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.index ["user_id"], name: "user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username", limit: 32
     t.string "legacy_password", limit: 40
     t.string "email"
@@ -156,5 +159,4 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
     t.index ["reset_password_token"], name: "reset_password_token", unique: true
     t.index ["username"], name: "username", unique: true
   end
-
 end

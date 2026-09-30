@@ -1,13 +1,12 @@
 services:
   db:
-    image: mysql:8.0
+    image: postgres:18
     environment:
-      - MYSQL_ROOT_PASSWORD=fp
-      - MYSQL_DATABASE=fieldpapers_development
-      - MYSQL_USER=fieldpapers
-      - MYSQL_PASSWORD=fieldpapers
+      - POSTGRES_DB=fieldpapers_development
+      - POSTGRES_USER=fieldpapers
+      - POSTGRES_PASSWORD=hunter2
     ports:
-      - 3306:3306
+      - 5432:5432
   web:
     build:
       context: .
@@ -16,8 +15,9 @@ services:
     environment:
       - RAILS_ENV=development
       - RAILS_DEVELOPMENT_HOSTS=web
-      - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
-      - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
+      - PGHOST=db
+      - PGUSER=fieldpapers
+      - PGPASSWORD=hunter2
       - BASE_URL=http://web:3000
       - PERSIST=local
       - DISABLE_LOGIN_CONFIRMATIONS=true

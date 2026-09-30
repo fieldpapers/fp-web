@@ -355,8 +355,6 @@ GEM
       ruby-progressbar
     multi_json (1.19.1)
     multipart-post (2.4.1)
-    mysql2 (0.5.7)
-      bigdecimal
     nenv (0.3.0)
     net-imap (0.5.15)
       date
@@ -557,7 +555,6 @@ DEPENDENCIES
   mapbox-rails!
   meta_request
   minitest-reporters
-  mysql2 (~> 0.5.6)
   pg (~> 1.6)
   puma (~> 6.6.0)
   rack (~> 2.2)

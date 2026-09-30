@@ -46,10 +46,11 @@ This will fetch and build images as appropriate, logging `STDOUT` from all conta
 docker-compose build
 ```
 
-If this is the first time you're running this, you'll need to load the schema into MySQL:
+If this is the first time you're running this, you'll need to create the
+development and test databases and load the schema into them:
 
 ```bash
-docker-compose run web rake db:schema:load
+docker-compose run web bin/rails db:create db:schema:load
 ```
 
 If you have pending migrations, run:
@@ -90,7 +91,7 @@ Some helpful `docker` and `docker-compose` commands to know:
     REPOSITORY                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
     fpweb_web                   latest              e2cafa474299        58 minutes ago      940.4 MB
     quay.io/fieldpapers/tiler   v0.2.0              b2683b4d606d        3 days ago          855.9 MB
-    mysql                       latest              c607d9b50dfa        13 days ago         374.1 MB
+    postgres                    18                  c607d9b50dfa        13 days ago         374.1 MB
     ruby                        2.2.4               9168c99105ac        2 weeks ago         719.3 MB
     quay.io/fieldpapers/tasks   v0.10.2             f637d9257755        8 weeks ago         843 MB
     ```
@@ -101,7 +102,7 @@ Some helpful `docker` and `docker-compose` commands to know:
     $ docker-compose ps
         Name                   Command               State                       Ports
     -------------------------------------------------------------------------------------------------------
-    fpweb_db_1      docker-entrypoint.sh mysqld      Up      3306/tcp
+    fpweb_db_1      docker-entrypoint.sh postgres    Up      5432/tcp
     fpweb_tasks_1   /bin/sh -c npm start             Up
     fpweb_tiler_1   /bin/sh -c npm start             Up
     fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp, 0.0.0.0:8080->8080/tcp
@@ -112,9 +113,9 @@ Some helpful `docker` and `docker-compose` commands to know:
 
 Given the potential complexity of the above, or the need to make changes to the
 peripheral services, it may make more sense to run the application locally (you
-can still use `docker-compose` to run supplementary services like MySQL, etc.).
-If not using `docker-compose`, be sure MySQL is installed (`$``brew install mysql`
-if not) and running (`$``mysql.server start` if not).
+can still use `docker-compose` to run supplementary services like Postgres, etc.).
+If not using `docker-compose`, be sure Postgres is installed (`brew install
+postgresql@18` if not) and running (`brew services start postgresql@18` if not).
 
 On OS X, you'll want to use `rbenv` (and `ruby-build`) in order to isolate the
 version of Ruby used here (and to prevent it from conflicting with other
@@ -224,7 +225,7 @@ When updating, the following should be sufficient to sync your working copy:
 
 ```bash
 bundle
-rake db:migrate RAILS_ENV=development
+bin/rails db:migrate
 ```
 
 There are probably additional Homebrew dependencies I'm missing because they
@@ -238,14 +239,13 @@ first.
 If using `direnv` or `foreman`, add these to `.env`. Otherwise, ensure that
 they are available to the environment in which Rails is running.
 
-* `DATABASE_URL` - development database URL. Probably similar to
-  `mysql2://root@localhost/fieldpapers_development`
-* `TEST_DATABASE_URL` - test database URL.
-* `RDS_DB_NAME` - production database name.
-* `RDS_HOSTNAME` - production database hostname.
-* `RDS_PASSWORD` - production database password.
-* `RDS_PORT` - production database port.
-* `RDS_USERNAME` - production database username.
+* `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD` - development/test Postgres
+  connection settings (standard libpq variables). Unset, Rails connects to the
+  local Postgres socket as the current user.
+* `DATABASE_URL` - production database URL, e.g.
+  `postgres://user:password@host:5432/fieldpapers_production`. If set, it
+  overrides `config/database.yml` for whichever environment is running,
+  including `test`, so tests would run against that database.
 * `MAIL_ORIGIN` - From address to use for automated system emails.
 * `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
   be granted access to send from this)
@@ -392,27 +392,13 @@ To bootstrap a database for development or on a new instance, run:
 rake db:create db:schema:load
 ```
 
-By default, it will create a `fieldpapers_development` (and `fieldpapers_test`)
-database on a local MySQL instance. To override this, set `DATABASE_URL` (in
-your environment, either directly or via `.env`), e.g.:
+In development, this creates `fieldpapers_development` and `fieldpapers_test`
+databases on the Postgres server given by the `PG*` environment variables (see
+above), or the local one by default.
 
-```bash
-DATABASE_URL=mysql2://vagrant@somewhere/fieldpapers_development
-```
-
-To migrate an existing Field Papers database, first back it up. Then, set
-`DATABASE_URL` to point to it and run (with an appropriate `RAILS_ENV` if
-needed):
-
-```bash
-rake db:migrate
-```
-
-This will produce a database schema that is no longer compatible with the PHP
-version. Part of the migration involves cleaning up encoding errors (UTF-8 text
-stored as latin1 in UTF-8 columns)--your database may include some invalid
-characters, causing the migration to fail. To work-around that, identify the
-affected rows and clear their values before retrying the migration.
+`db/schema.rb` is the source of truth for the schema. `db/migrate` only holds
+recent migrations, so new databases must be created with `db:schema:load`
+rather than by running all migrations.
 
 
 ### AWS Deployment
@@ -428,11 +414,9 @@ details.
 
 A couple of things to note about this production environment:
 
- * The database configuration (in `config/database.yaml`) is taken
-   from a set of `RDS_*` environment variables which are set up
-   automatically by AWS within the Docker container where the Rails
-   web app runs.  The AWS Relational Database Service (RDS) database
-   is set up automatically by the `aws-quick-start.py` script.
+ * The database configuration (in `config/database.yml`) is taken
+   from the `DATABASE_URL` environment variable, which must point to a
+   Postgres database.
 
  * Access to AWS resources (the S3 bucket used to store atlas pages
    and snapshots, the database, the SES mail service) is managed using

@@ -31,10 +31,12 @@ to survive DHCP renewals.
 Assuming you're also using `direnv`, the easiest way to do this is to exit the
 directory and reenter: `cd ..; cd -`.
 
-# ActiveRecord::AdapterNotSpecified: database configuration does not specify adapter
+# ActiveRecord::ConnectionNotEstablished: connection to server failed
 
-`DATABASE_URL` probably isn't set. It should look like
-`mysql2://root@localhost/fieldpapers_development`.
+Postgres probably isn't running, or the `PGHOST`/`PGUSER`/`PGPASSWORD`
+environment variables don't point at it. Also check that `DATABASE_URL` isn't
+set (e.g. by an old `.env`): if set, it overrides `config/database.yml` for
+whichever environment is running.
 
 # `rails` won't start after complaining about missing gems
 

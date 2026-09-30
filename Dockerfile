@@ -6,7 +6,6 @@ RUN apt-get update -qq && \
       git \
       curl \
       nodejs \
-      default-libmysqlclient-dev \
       libpq-dev \
       zlib1g-dev \
       libssl-dev \
