@@ -8,17 +8,21 @@ if @atlas.cols == 0 && @atlas.rows == 0
 
   grid << "\"" + slugs.map { |slug| snapshot_url(slug) }.join(",") + "\"" if slugs
 else
+  page_numbers = @atlas.pages.pluck(:id, :page_number).to_h
+  slugs_by_page = page_numbers.values.index_with { [] }
+  @atlas.snapshots.pluck(:page_id, :slug).each do |page_id, slug|
+    slugs_by_page[page_numbers[page_id]] << slug
+  end
+
   (@atlas.cols + 1).times do |y|
     (@atlas.rows + 1).times do |x|
       grid << row_names[x] if y == 0
       grid << y.to_s if x == 0 && y > 0
 
       slugs = if y > 0 && x > 0
-        page_number = "#{row_names[x]}#{y}"
-        @atlas.pages.find_by_page_number(page_number).snapshots.pluck(:slug)
+        slugs_by_page["#{row_names[x]}#{y}"]
       elsif y == 0 && x == 0
-        index_page = @atlas.pages.find_by_page_number("i")
-        index_page&.snapshots&.pluck(:slug)
+        slugs_by_page["i"]
       end
 
       grid << "\"" + slugs.map { |slug| snapshot_url(slug) }.join(",") + "\"" if slugs
