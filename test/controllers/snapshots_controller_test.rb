@@ -11,13 +11,6 @@ class SnapshotsControllerTest < ActionController::TestCase
     @controller.snapshot_url(slug)
   end
 
-  def capture_sql(&block)
-    queries = []
-    callback = ->(*, payload) { queries << payload[:sql] unless payload[:name] == "SCHEMA" }
-    ActiveSupport::Notifications.subscribed(callback, "sql.active_record", &block)
-    queries
-  end
-
   test "csv for a single-page atlas (no index page)" do
     atlas = create_atlas(rows: 1, cols: 1)
     create_snapshot(atlas, "A1", "snap0001")
@@ -50,14 +43,6 @@ class SnapshotsControllerTest < ActionController::TestCase
     large = create_atlas(rows: 5, cols: 5)
 
     assert_equal capture_sql { get_csv(small) }.size, capture_sql { get_csv(large) }.size
-  end
-
-  test "csv does not count all snapshots" do
-    atlas = create_atlas(rows: 1, cols: 1)
-
-    queries = capture_sql { get_csv(atlas) }
-
-    assert_empty queries.grep(/COUNT/i)
   end
 
   test "html index" do

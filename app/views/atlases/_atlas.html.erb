@@ -37,7 +37,8 @@
   </div>
 
   <div>
-    <span class="map-card-pages small"><%= n_("%{count} page", "%{count} pages", atlas.atlas_pages) % {count: number_with_delimiter(atlas.atlas_pages)} %>,</span>
+    <% page_count = page_counts.fetch(atlas.id, 0) %>
+    <span class="map-card-pages small"><%= n_("%{count} page", "%{count} pages", page_count) % {count: number_with_delimiter(page_count)} %>,</span>
     <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(params.permit(:date, :month, :place, :user, :username).slice(:date, :month, :place, :user, :username).merge(month: atlas.created_at.strftime("%Y-%m"))) %></span>
   </div>
 </li>

@@ -13,6 +13,13 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def capture_sql(&block)
+    queries = []
+    callback = ->(*, payload) { queries << payload[:sql] unless payload[:name] == "SCHEMA" }
+    ActiveSupport::Notifications.subscribed(callback, "sql.active_record", &block)
+    queries
+  end
+
   def create_user(username)
     User.create!(username: username, email: "#{username}@example.com", password: "password123")
   end

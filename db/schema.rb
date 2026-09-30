@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_09_22_060000) do
+ActiveRecord::Schema[7.0].define(version: 2026_09_29_120000) do
   create_table "atlases", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "slug", limit: 8, null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_22_060000) do
     t.datetime "failed_at"
     t.string "workflow_state"
     t.index ["cloned_from"], name: "index_atlases_on_cloned_from"
+    t.index ["created_at"], name: "index_atlases_on_created_at"
     t.index ["private"], name: "private"
     t.index ["refreshed_from"], name: "index_atlases_on_refreshed_from"
     t.index ["slug"], name: "index_atlases_on_slug", unique: true
@@ -130,6 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_22_060000) do
     t.string "geotiff_url"
     t.datetime "failed_at"
     t.string "workflow_state"
+    t.index ["created_at"], name: "index_snapshots_on_created_at"
     t.index ["page_id"], name: "index_snapshots_on_page_id"
     t.index ["slug"], name: "index_snapshots_on_slug", unique: true
     t.index ["user_id"], name: "user_id"

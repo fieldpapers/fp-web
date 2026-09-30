@@ -24,8 +24,8 @@ class SnapshotsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page])
-        @counts = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).count('id')
+        @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page]).load
+        @counts = @snapshots.total_count
       end
 
       # the grid CSV only makes sense if this is scoped beneath an atlas

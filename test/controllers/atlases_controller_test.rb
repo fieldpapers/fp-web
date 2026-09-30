@@ -7,6 +7,27 @@ class AtlasesControllerTest < ActionController::TestCase
     Rails.application.routes.url_helpers
   end
 
+  test "index shows page counts" do
+    create_atlas(rows: 1, cols: 1)
+    create_atlas(rows: 2, cols: 3)
+
+    get :index
+
+    assert_response :success
+    assert_includes response.body, "1 page"
+    assert_includes response.body, "7 pages"
+  end
+
+  test "index query count does not grow with number of atlases" do
+    create_atlas(rows: 1, cols: 1, creator: create_user("mapper"))
+    few = capture_sql { get :index }
+
+    3.times { |i| create_atlas(rows: 2, cols: 2, creator: create_user("mapper#{i}")) }
+    many = capture_sql { get :index }
+
+    assert_equal few.size, many.size
+  end
+
   test "geojson with creator and snapshot uploader" do
     user = create_user("mapper")
     atlas = create_atlas(rows: 1, cols: 2, creator: user)

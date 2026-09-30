@@ -14,8 +14,9 @@ class AtlasesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :update
 
   def index
-    @atlases = apply_scopes(Atlas.unscoped).default.by_creator(current_user).page(params[:page])
-    @counts = apply_scopes(Atlas.unscoped).default.by_creator(current_user).count('id')
+    @atlases = apply_scopes(Atlas.unscoped).default.by_creator(current_user).page(params[:page]).load
+    @counts = @atlases.total_count
+    @page_counts = Page.where(atlas_id: @atlases.map(&:id)).group(:atlas_id).count
   end
 
   def show
