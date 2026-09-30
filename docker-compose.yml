@@ -11,7 +11,9 @@ services:
     build:
       context: .
       target: development
-    env_file: .env
+    env_file:
+      - path: .env
+        required: false
     environment:
       - RAILS_ENV=development
       - RAILS_DEVELOPMENT_HOSTS=web
@@ -42,7 +44,9 @@ services:
     # volumes like ./public on the host when run under podman in rootless mode.
     # As a workaround, set user to root in dev mode.
     user: root
-    env_file: .env
+    env_file:
+      - path: .env
+        required: false
     environment:
       # this will cause generated URLs in the PDFs to look suspicious, but it will work
       - API_BASE_URL=http://web:3000/
