@@ -41,6 +41,9 @@ module App
       r301 %r{^/files/scans/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/snapshots/$1"
     end
 
+    # jobs run in a separate process (bin/jobs), with the queue in the primary database
+    config.active_job.queue_adapter = :solid_queue
+
     # this allows us to use url_helpers in models without passing all the args
     config.after_initialize do
       Rails.application.routes.default_url_options[:host] = FieldPapers::BASE_URL

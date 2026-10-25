@@ -34,7 +34,6 @@
 #  updated_at     :datetime
 #  composed_at    :datetime
 #  failed_at      :datetime
-#  workflow_state :string(255)
 #
 
 require 'test_helper'
@@ -82,5 +81,29 @@ class AtlasTest < ActiveSupport::TestCase
     buffered_north = north + ((north - south) * 0.1).abs
 
     assert_bounds atlas.pages[0], buffered_west, buffered_south, buffered_east, buffered_north
+  end
+
+  test "status comes from timestamps" do
+    atlas = create_atlas(rows: 1, cols: 1)
+    assert_equal :pending, atlas.status
+
+    assert atlas.mark_complete!(pdf_url: "https://example.com/atlas.pdf")
+    assert_equal :complete, atlas.status
+    assert_equal "https://example.com/atlas.pdf", atlas.pdf_url
+  end
+
+  test "only the first terminal transition wins" do
+    completed = create_atlas(rows: 1, cols: 1)
+    assert completed.mark_complete!(pdf_url: "https://example.com/atlas.pdf")
+    refute completed.mark_failed!
+    refute completed.mark_complete!(pdf_url: "https://example.com/other.pdf")
+    assert_equal "https://example.com/atlas.pdf", completed.reload.pdf_url
+    assert completed.complete?
+
+    failed = create_atlas(rows: 1, cols: 1)
+    assert failed.mark_failed!
+    refute failed.mark_complete!(pdf_url: "https://example.com/atlas.pdf")
+    assert failed.reload.failed?
+    assert_nil failed.pdf_url
   end
 end

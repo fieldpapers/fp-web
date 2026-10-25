@@ -11,7 +11,7 @@ fp-web is a Ruby on Rails app. It lets users create _atlases_ (printable maps) a
 - [fp-tasks](https://github.com/fieldpapers/fp-tasks) renders atlas pages to PDF, merges them, and georeferences uploaded snapshots.
 - [fp-tiler](https://github.com/fieldpapers/fp-tiler) serves map tiles created from those georeferenced uploads.
 
-When an atlas or snapshot needs processing, fp-web sends fp-tasks a request containing a callback URL; fp-tasks does the work and reports progress and results back to that URL. fp-tasks must therefore be able to reach fp-web at its configured `BASE_URL`.
+When an atlas or snapshot needs processing, fp-web enqueues a background job ([Solid Queue](https://github.com/rails/solid_queue), stored in the same Postgres database). The job calls fp-tasks, which does the work synchronously and responds with the URL of the result, and retries if fp-tasks fails or times out. Atlases and snapshots still unfinished after two hours are marked as failed.
 
 For development setup, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
@@ -20,7 +20,7 @@ For development setup, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 [fieldpapers.org](https://fieldpapers.org/) is the only public deployment, but the application can be run independently. An instance requires:
 
 - Postgres (fieldpapers.org runs version 18)
-- An [fp-tasks](https://github.com/fieldpapers/fp-tasks) instance
+- An [fp-tasks](https://github.com/fieldpapers/fp-tasks) instance, reachable from the job worker
 - An [fp-tiler](https://github.com/fieldpapers/fp-tiler) deployment, for displaying snapshots on the map
 - File storage for uploaded snapshots: either an S3 bucket, or local disk served over HTTP
 - AWS SES, for account confirmation and password reset emails
@@ -45,6 +45,10 @@ bin/rails db:migrate
 
 Both commands can be run in a one-off container from the same image, with the same environment variables as the web server.
 
+### Job worker
+
+Background jobs (rendering atlases, processing snapshots, and periodic cleanup) run in a separate process from the web server. Run `bin/jobs` from the same image, with the same environment variables as the web server.
+
 ## Configuration
 
 All configuration is read from environment variables. Most have defaults suited to fieldpapers.org, which other deployments must override.
@@ -56,7 +60,7 @@ Two variables are required in production:
 
 The following variables configure where the application and its sibling services are reachable:
 
-- `BASE_URL`: public URL of this application, used in generated links and in callback URLs sent to fp-tasks (default `https://fieldpapers.org`)
+- `BASE_URL`: public URL of this application, used in generated links (default `https://fieldpapers.org`). QR codes on printed atlases pointing to this host (or to `fieldpapers.org`) are recognized when snapshots are processed.
 - `URL_HOST`: host name used for links in emails, in production only (default `fieldpapers.org`)
 - `TASK_BASE_URL`: base URL of the fp-tasks service (default `https://tasks.fieldpapers.org`)
 - `TILE_BASE_URL`: base URL of the fp-tiler service (default `https://tiles.fieldpapers.org`)
@@ -85,6 +89,10 @@ The web server is configured with:
 - `RAILS_SERVE_STATIC_FILES`: if set to any value, Rails serves precompiled assets and locally persisted files from `public/`; required unless a reverse proxy serves them
 - `RAILS_LOG_TO_STDOUT`: if set to any value, logs go to standard output instead of `log/production.log`
 - `RAILS_LOG_LEVEL`: log level in production (default `info`)
+
+The job worker is configured with:
+
+- `JOB_THREADS`: number of jobs run concurrently, which bounds the number of concurrent requests to fp-tasks (default `3`); must be at most `MAX_THREADS` minus 2, since the worker also needs database connections of its own
 
 Miscellaneous other settings:
 

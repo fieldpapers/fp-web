@@ -6,7 +6,7 @@ class SnapshotsController < ApplicationController
   has_scope :username, only: :index
 
   # allow API usage
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     @snapshot = Snapshot.new
@@ -16,7 +16,7 @@ class SnapshotsController < ApplicationController
   # @url /snapshots
   def create
     @snapshot = Snapshot.create!(snapshot_upload_params)
-    @snapshot.process!
+    ProcessSnapshotJob.perform_later(@snapshot.id)
 
     redirect_to snapshot_url(@snapshot) unless request.xhr?
   end
@@ -42,40 +42,6 @@ class SnapshotsController < ApplicationController
     @snapshot = Snapshot.unscoped.friendly.find(params[:id])
   end
 
-  def update
-    snapshot = Snapshot.unscoped.friendly.find(params[:id])
-
-    if params[:task] && params[:error]
-      logger.warn(params[:error][:message])
-      logger.warn(params[:error][:stack])
-
-      snapshot.fail!
-      snapshot.save!
-    elsif params[:task] == "process_snapshot"
-      # this is a callback from our renderer
-      snapshot.update!(snapshot_update_params)
-      snapshot.processed!
-      snapshot.save!
-    elsif params[:task] == "fetch_snapshot_metadata"
-      # this is a callback from our renderer
-      snapshot.update!(snapshot_update_params)
-      snapshot.metadata_fetched!
-      snapshot.save!
-    else
-      snapshot.update!(snapshot_update_params)
-    end
-
-    respond_to do |format|
-      format.html {
-        redirect_to snapshot_url(snapshot)
-      }
-
-      format.json {
-        render status: 201, json: true
-      }
-    end
-  end
-
   private
 
   def snapshot_upload_params
@@ -92,10 +58,5 @@ class SnapshotsController < ApplicationController
                scene_file_size: params.permit(:filesize)[:filesize])
         .merge(uploader: current_user)
     end
-  end
-
-  def snapshot_update_params
-    params.require(:snapshot)
-      .permit(:geotiff_url, :page_url, :private, :zoom, bbox: [])
   end
 end

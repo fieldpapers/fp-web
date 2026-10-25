@@ -55,7 +55,7 @@ class ComposeController < ApplicationController
 
     if @atlas.valid?
       @atlas.save!
-      @atlas.render!
+      RenderAtlasJob.perform_later(@atlas.id)
       return redirect_to atlas_path(@atlas)
     end
 
@@ -70,7 +70,7 @@ class ComposeController < ApplicationController
 
     if @atlas.valid?
       @atlas.save!
-      @atlas.render!
+      RenderAtlasJob.perform_later(@atlas.id)
       return redirect_to atlas_path(@atlas)
     end
 

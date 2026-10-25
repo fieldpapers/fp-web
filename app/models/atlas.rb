@@ -38,18 +38,19 @@ require "json"
 #  updated_at     :datetime
 #  composed_at    :datetime
 #  failed_at      :datetime
-#  workflow_state :string(255)
 #
 
 class Atlas < ActiveRecord::Base
   include FriendlyId
-  include Workflow
+  include Processable
   include Rails.application.routes.url_helpers
 
   INDEX_BUFFER_FACTOR = 0.1
   OVERLAY_UTM = "https://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
   BASE_ZOOM = 22 # zoom level to use for pixel calculations
   TARGET_RESOLUTION_PPI = 150 # target resolution for printing
+
+  completed_at_column :composed_at
 
   # virtual attributes
 
@@ -178,119 +179,6 @@ class Atlas < ActiveRecord::Base
       .where(users: {username: username})
     }
 
-  # workflow states
-
-  workflow do
-    state :new do
-      event :render, transitions_to: :rendering
-
-      # TODO: figure out why we're getting `rendered` and `merged` events here
-      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
-      event :rendered, transitions_to: :rendering
-      event :merged, transitions_to: :complete
-      
-      event :fail, transitions_to: :failed
-    end
-
-    state :rendering do
-      event :rendered, transitions_to: :merging, if: :all_pages_rendered?
-      event :rendered, transitions_to: :rendering
-      event :fail, transitions_to: :failed
-    end
-
-    state :merging do
-      event :merged, transitions_to: :complete
-      event :fail, transitions_to: :failed
-    end
-
-    state :complete
-    state :failed do
-      event :rendered, transitions_to: :failed
-      event :merged, transitions_to: :failed
-      event :fail, transitions_to: :failed
-    end
-  end
-
-  # workflow transition event handlers
-
-  def increment_progress
-    # 2 = started, merged
-    update(progress: self.progress += 1.0 / (pages.size + 2))
-  end
-
-  def merged
-    increment_progress
-  end
-
-  def render
-    increment_progress
-
-    pages.each do |page|
-      task = "render_page"
-      task = "render_index" if page.page_number == "i"
-
-      rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-        task: task,
-        callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}/#{page.page_number}",
-        page: page.as_json(include: {
-          atlas: {
-            only: [:slug, :title, :layout, :orientation, :paper_size, :text, :cols, :rows],
-            methods: [:bbox]
-          }
-        },
-        methods: [:bbox],
-        only: [:page_number, :provider, :zoom]),
-      }
-
-      if rsp.status < 200 || rsp.status >= 300
-        logger.warn("Got #{rsp.status}: #{rsp.body}")
-        fail!
-      end
-    end
-  end
-
-  def rendered
-    increment_progress
-  end
-
-  def on_complete_entry(previous_state, event)
-    update(composed_at: Time.now, progress: 1)
-
-    for url in FieldPapers::ATLAS_COMPLETE_WEBHOOKS.split(/\s*,\s*/) do
-      begin
-        atlas_json = self.as_json(geojson: true)
-      rescue Exception => e
-        logger.error(e)
-        next
-      end
-
-      #logger.debug("[ JSON ]: #{atlas_json}")
-      rsp = http_client.post "#{url}", { atlas: atlas_json }
-      if rsp.status < 200 || rsp.status >= 300
-        logger.error("Got #{rsp.status}: #{rsp.body}")
-      end
-    end
-  end
-
-  def on_failed_entry(previous_state, event)
-    update(failed_at: Time.now)
-  end
-
-  def on_merging_entry(previous_state, event)
-    task = "merge_pages"
-
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-      task: task,
-      callback_url: "#{FieldPapers::BASE_URL}/atlases/#{slug}",
-      atlas: as_json(include: {pages: { only: [:page_number, :pdf_url] }}, only: [:slug]),
-    }
-
-    if rsp.status < 200 || rsp.status >= 300
-      logger.warn("Got #{rsp.status}: #{rsp.body}")
-      fail!
-    end
-  end
-
   # instance methods
 
   def atlas_pages
@@ -391,18 +279,6 @@ class Atlas < ActiveRecord::Base
     return positions.enum_for(:each_with_index).map { |x,i| provider[x..((positions[i+1] || 0)-1)] }
   end
 
-  def complete?
-    !composed_at.nil?
-  end
-
-  def incomplete?
-    composed_at.nil? && failed_at.nil?
-  end
-
-  def failed?
-    !failed_at.nil?
-  end
-
   def page_coordinates
     self.pages.map{ |p| p.as_polygon }
   end
@@ -458,12 +334,6 @@ class Atlas < ActiveRecord::Base
   end
 
 private
-
-  def all_pages_rendered?
-    pages.all? do |page|
-      page.complete?
-    end
-  end
 
   def apply_defaults
     self.progress ||= 0
@@ -568,14 +438,4 @@ private
   def pick_zoom
     self.zoom = calculate_zoom(west, east)
   end
-
-  def http_client
-    @http_client ||= Faraday.new do |faraday|
-      faraday.request :json
-      faraday.response :json, content_type: /\bjson$/
-
-      faraday.adapter Faraday.default_adapter
-    end
-  end
-
 end

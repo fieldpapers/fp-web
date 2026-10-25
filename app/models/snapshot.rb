@@ -48,8 +48,10 @@ require "uri"
 
 class Snapshot < ActiveRecord::Base
   include FriendlyId
-  include Workflow
+  include Processable
   include Rails.application.routes.url_helpers
+
+  completed_at_column :decoded_at
 
   # friendly_id configuration
 
@@ -155,103 +157,29 @@ class Snapshot < ActiveRecord::Base
       .where(users: {username: username})
     }
     
-  # workflow states
+  # class methods
 
-  workflow do
-    state :new do
-      event :process, transitions_to: :processing
-      event :processed, transitions_to: :fetching_metadata
-      event :metadata_fetched, transitions_to: :complete
-      event :fail, transitions_to: :failed
+  # Hosts in the QR codes of printed atlases, besides BASE_URL's
+  PRINT_HOSTS = ["fieldpapers.org", "www.fieldpapers.org", "fieldpapers-web.herokuapp.com"]
+
+  # The page that the URL in a printed page's QR code refers to, or nil.
+  # These are <base>/atlases/<slug>/<page>?bbox=... or, on older prints,
+  # <base>/...?id=<slug>/<page>. Printed atlases are permanent, so every form
+  # that has ever been printed must keep working.
+  def self.page_for_href(href)
+    uri = URI.parse(href)
+    hosts = PRINT_HOSTS + [URI.parse(FieldPapers::BASE_URL).host]
+    return unless uri.is_a?(URI::HTTP) && hosts.include?(uri.host&.downcase)
+
+    slug, page_number = if uri.query&.include?("id=")
+      CGI.parse(uri.query)["id"].first.to_s.split("/")
+    else
+      uri.path.split("/").last(2)
     end
 
-    state :processing do
-      event :processed, transitions_to: :fetching_metadata
-      event :fail, transitions_to: :failed
-    end
-
-    state :fetching_metadata do
-      event :metadata_fetched, transitions_to: :complete
-      event :fail, transitions_to: :failed
-    end
-
-    state :complete
-    state :failed
-  end
-
-  # workflow transition event handlers
-
-  def increment_progress
-    update(progress: self.progress += 1.0 / 4)
-  end
-
-  def process
-    increment_progress
-
-    task = "process_snapshot"
-
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-      task: task,
-      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
-      snapshot: as_json(methods: [:image_url], only: [:slug]),
-    }
-
-    if rsp.status < 200 || rsp.status >= 300
-      logger.warn("Got #{rsp.status}: #{rsp.body}")
-      fail!
-    end
-  end
-
-  def processed
-    increment_progress
-
-    task = "fetch_snapshot_metadata"
-
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-      task: task,
-      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
-      snapshot: as_json(methods: [:image_url], only: [:slug]),
-    }
-
-    if rsp.status < 200 || rsp.status >= 300
-      logger.warn("Got #{rsp.status}: #{rsp.body}")
-      fail!
-    end
-  end
-
-  def on_complete_entry(previous_state, event)
-    updates = {
-      decoded_at: Time.now,
-      progress: 1,
-    }
-
-    uri = URI.parse(page_url)
-    base_uri = URI.parse(FieldPapers::BASE_URL)
-
-    if uri.hostname == base_uri.hostname && uri.port == base_uri.port
-      (atlas_slug, page_number) = if uri.query =~ /id=/
-        CGI.parse(uri.query)["id"][0].split("/")
-      else
-        uri.path.split("/").slice(-2, 2)
-      end
-
-      if atlas_slug && page_number
-        begin
-          updates[:page] = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
-        rescue ActiveRecord::RecordNotFound
-        end
-      end
-    end
-
-    update(updates)
-  end
-
-  def on_failed_entry(previous_state, event)
-    update(failed_at: Time.now)
-  end
-
-  def metadata_fetched
-    increment_progress
+    Atlas.unscoped.find_by(slug: slug)&.pages&.find_by(page_number: page_number)
+  rescue URI::InvalidURIError
+    nil
   end
 
   # instance methods
@@ -315,14 +243,6 @@ class Snapshot < ActiveRecord::Base
 
   def geometry_string
     return "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
-  end
-
-  def incomplete?
-    decoded_at.nil? && failed_at.nil?
-  end
-
-  def failed?
-    !failed_at.nil?
   end
 
   # store an unescaped version of the URL that Amazon returns from direct
@@ -389,15 +309,6 @@ private
       -> {
         rand(2**256).to_s(36).ljust(8,'a')[0..7]
       }
-    end
-  end
-
-  def http_client
-    @http_client ||= Faraday.new do |faraday|
-      faraday.request :json
-      faraday.response :json, content_type: /\bjson$/
-
-      faraday.adapter Faraday.default_adapter
     end
   end
 end

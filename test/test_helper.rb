@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'minitest/mock'
 
 require 'minitest/reporters'
 Minitest::Reporters.use!(
@@ -40,5 +41,22 @@ class ActiveSupport::TestCase
     attrs = page.slice(:west, :south, :east, :north, :zoom)
       .merge(page: page, slug: slug, created_at: created_at, uploader: uploader)
     Snapshot.new(attrs).save!(validate: false)
+  end
+
+  # a snapshot that hasn't been processed yet
+  def create_pending_snapshot(slug)
+    snapshot = Snapshot.new(slug: slug)
+    snapshot.save!(validate: false)
+    snapshot
+  end
+
+  # Replaces FpTasks methods with callables (name: callable) while running
+  # block. (Minitest's stub yields the stubbed object, hence the procs.)
+  def stub_fp_tasks(stubs, &block)
+    stubs.reduce(block) { |inner, (name, fn)| proc { FpTasks.stub(name, fn, &inner) } }.call
+  end
+
+  def fp_tasks_error(klass, status)
+    klass.new("fp-tasks returned #{status}", { status: status, body: { "detail" => "nope" } })
   end
 end
