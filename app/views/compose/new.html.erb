@@ -84,31 +84,24 @@
       <%= image_tag "logo-header.png" %>
     </div>
 
-    <div class='col-row-modifiers'>
+    <div class="col-row-modifiers">
+      <div class="col-row-modifier-box-2"></div>
+      <div class="col-row-modifier-box-3"></div>
 
-        <div class="col-row-modifier-box-1"></div>
-        <div class="col-row-modifier-box-2"></div>
-        <div class="col-row-modifier-box-3"></div>
+      <div class="grid-modifier-group">
+        <%= icon "menu", "rotate-90" %>
+        <div class="grid-modifier minus">-</div>
+        <div class="grid-modifier number">2</div>
+        <div class="grid-modifier plus">+</div>
+      </div>
 
-        <div class="col-row-modifiers-group col-row-modifiers-group-1">
-          <div class="grid-modifier-group">
-            <i class="fa fa-navicon fa-rotate-90"></i>
-            <div class="grid-modifier minus">-</div>
-            <div class="grid-modifier number">2</div>
-            <div class="grid-modifier plus">+</div>
-          </div> <!-- grid-modifier-group -->
-        </div> <!-- col-row-modifier-group -->
-
-        <div class="col-row-modifiers-group col-row-modifiers-group-2">
-          <div class="grid-modifier-group">
-            <i class="fa fa-navicon"></i>
-            <div class="grid-modifier minus">-</div>
-            <div class="grid-modifier number">1</div>
-            <div class="grid-modifier plus">+</div>
-          </div> <!-- grid-modifier-group -->
-        </div> <!-- col-row-modifier-group -->
-
-      </div> <!-- col-row-modifiers -->
+      <div class="grid-modifier-group">
+        <%= icon "menu" %>
+        <div class="grid-modifier minus">-</div>
+        <div class="grid-modifier number">1</div>
+        <div class="grid-modifier plus">+</div>
+      </div>
+    </div>
   </div>
 
 <% content_for :foot do %>

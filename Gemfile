@@ -8,7 +8,6 @@ ruby "3.1.7"
 gem "rails", "7.2.3.2"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 6.0.0"
-gem 'font-awesome-sass'
 # Use terser-ruby as compressor for JavaScript assets
 gem "terser", ">= 1.1.14"
 # Use jquery as the JavaScript library

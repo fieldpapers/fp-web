@@ -24,6 +24,13 @@ module ApplicationHelper
     zh_TW: "國語",
   }
 
+  # Inlines an SVG from app/assets/images/icons, so that it takes on the
+  # surrounding text color and font size.
+  def icon(name, extra_class = nil)
+    svg = Rails.root.join("app/assets/images/icons/#{name}.svg").read[/<svg.*/m]
+    svg.sub("<svg", %(<svg class="#{["icon", extra_class].compact.join(" ")}" aria-hidden="true")).html_safe
+  end
+
   def locale_options
     options = LOCALE_NAMES.map { |code, name| [name, code, { lang: code.to_s.tr("_", "-") }] }
     options_for_select(options, I18n.locale)

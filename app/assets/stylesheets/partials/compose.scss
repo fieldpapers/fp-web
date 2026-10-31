@@ -387,138 +387,95 @@ FULL-SCREEN MAP
     padding: 4px 6px;
   }
 
+  // The white panel is .col-row-modifiers itself, sized by its content; boxes
+  // 2 and 3 extend it leftward to wrap around the Leaflet zoom control. Keep
+  // its right edge clear of .fp-geocoder-input.
   .col-row-modifiers {
-    width: 240px;
-    align-items: right;
-    margin-left: 5px;
-    z-index: 999;
     position: absolute;
-    top: 10px;
-    left: 40px;
-    display: inline-block;
+    top: 5px;
+    left: 43px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 6px 0 2px;
+    background-color: white;
+    border: 1px solid black;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
 
-    .col-row-modifier-box-1 {
-      z-index: -1;
-      background-color: white;
-      position: absolute;
-      top: -5px;
-      left: -2px;
-      width: 208px;
-      height: 40px;
-      border: 1px solid black;
-      border-radius: 5px;
-      border-left: none;
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
+    // Offsets are relative to the padding box, i.e. inside the top border.
     .col-row-modifier-box-2 {
       z-index: -1;
       background-color: white;
       position: absolute;
-      top: -5px;
-      left: -40px;
+      top: -1px;
+      left: -38px;
       width: 38px;
       height: 40px;
       border: 1px solid black;
-      border-radius: 5px;
+      border-radius: 5px 0 0 0;
       border-right: none;
       border-bottom: none;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
     }
     .col-row-modifier-box-3 {
       z-index: -1;
       background-color: white;
       position: absolute;
-      top: 34px;
-      left: -40px;
+      top: 38px;
+      left: -38px;
       width: 38px;
       height: 26px;
       border: 1px solid black;
-      border-radius: 5px;
+      border-radius: 0 0 5px 5px;
       border-top: none;
-      border-top-right-radius: 0px;
-      border-top-left-radius: 0px;
+    }
+  }
+
+  .grid-modifier-group {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+
+    .icon {
+      flex: none;
+      margin-right: 6px;
     }
 
-    .col-row-modifiers-group-1 {
-      .grid-modifier-group {
+    .grid-modifier {
+      width: 24px;
+      height: 100%;
+      padding-top: 2.5px;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid rgba($dark-grey, 0.7);
+    }
+
+    .minus {
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+
+      &:hover {
+        background-color: $hover-color;
       }
     }
 
-    .col-row-modifiers-group-2 {
-      margin-left: 5px;
-      .grid-modifier-group {
-      }
+    .number {
+      border-right: none;
+      border-left-color: rgba($dark-grey, 0.2);
     }
 
-    .col-row-modifiers-group {
-      display: inline-block;
+    .plus {
+      border-left-color: rgba($dark-grey, 0.2);
+      border-radius: 0 4px 4px 0;
 
-      .grid-modifier-group {
-        height: 30px;
-        width: 97px;
-        font-size: 16px;
-        font-weight: 600;
-        display: inline-block;
-
-        cursor: pointer;
-        -webkit-user-select: none;  /* Chrome all / Safari all */
-        -moz-user-select: none;     /* Firefox all */
-        -ms-user-select: none;
-        user-select: none;
-
-        div {
-          display: inline-block;
-          width: calc(85px/3);
-          height: 30px;
-          margin: 0;
-          margin-left: -5px;
-          padding-top: 2.5px;
-
-          background-color: #fff;
-          border: 1px solid rgba($dark-grey, 0.7);
-          box-shadow: none;
-          text-align: center;
-        }
-
-        i {
-          z-index: 999;
-          margin-right: 5px;
-
-        }
-
-        .minus {
-          width: 26px;
-          background-color: #fff;
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-          border-right: none;
-
-          &:hover {
-            background-color: $hover-color;
-          }
-        }
-
-        .plus {
-          width: 26px;
-          background-color: #fff;
-          border-top-right-radius: 4px;
-          border-bottom-right-radius: 4px;
-          border-left: 1px solid rgba($dark-grey, 0.2);
-
-          &:hover {
-            background-color: $hover-color;
-          }
-        }
-
-        .number {
-          width: 26px;
-          text-align: center;
-          border-right: none;
-          border-left: 1px solid rgba($dark-grey, 0.2);
-        }
+      &:hover {
+        background-color: $hover-color;
       }
     }
   }
@@ -611,23 +568,6 @@ LARGER THAN A TABLET
         padding-right: 30px;
       }
       z-index: 999;
-    }
-
-    /**************
-    LARGER ROW AND COL MODIFIERS
-    ***************/
-    .col-row-modifiers {
-      left: 550px;
-
-      .col-row-modifiers-group {
-        width: 100%;
-
-        .grid-modifier-group {
-          height: 20px;
-          width: 90%;
-          font-size: 13px;
-        }
-      }
     }
 
     /**************

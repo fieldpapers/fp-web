@@ -2,6 +2,17 @@
   Misc classes that provide some sort of minor embellishment
  */
 
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.icon.rotate-90 {
+  transform: rotate(90deg);
+}
+
 .relative {
   position: relative;
 }
