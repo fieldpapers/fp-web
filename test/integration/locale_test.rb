@@ -12,7 +12,7 @@ class LocaleTest < ActionDispatch::IntegrationTest
     assert_equal "es", cookies[:locale]
 
     get about_path
-    assert_select "select#locale option[selected][value=es]"
+    assert_select "#locale-menu button[aria-current][value=es]"
   end
 
   test "locale picker ignores offsite referer" do
@@ -35,6 +35,13 @@ class LocaleTest < ActionDispatch::IntegrationTest
     get about_path, headers: { "Accept-Language" => "ja" }
 
     assert_response :success
-    assert_select "select#locale option[selected][value=ja]"
+    assert_select "#locale-menu button[aria-current][value=ja]"
+  end
+
+  test "default locale is used when nothing matches" do
+    get about_path, headers: { "Accept-Language" => "ja" }
+    get about_path, headers: { "Accept-Language" => "xx" }
+
+    assert_select "#locale-menu button[aria-current][value=en]"
   end
 end

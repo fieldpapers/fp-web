@@ -13,46 +13,86 @@
   position: absolute;
   top: 18px;
   right: 0;
+}
+
+// Skeleton styles every <button> as a bordered uppercase pill, so the picker's
+// buttons reset most of that.
+.locale-toggle,
+.locale-menu button {
+  display: block;
+  height: auto;
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
 
-  label {
-    position: relative;
-    margin: 0;
-    font-size: 24px;
-    line-height: 1;
-    color: #666;
-    cursor: pointer;
-  }
-
-  label:hover,
-  label:focus-within {
-    color: $link-color;
-  }
-
-  label:focus-within {
+  &:focus-visible {
     outline: 2px solid $link-color;
     outline-offset: 2px;
   }
+}
 
-  // Invisible select stretched over the icon, so that clicking the icon
-  // opens the native picker.
-  select {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    cursor: pointer;
+.locale-toggle {
+  font-size: 24px;
+  line-height: 1;
+  color: #666;
+  anchor-name: --locale-toggle;
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+}
+
+// Without anchor positioning, the popover falls back to the UA default of
+// being centered in the viewport.
+.locale-menu {
+  margin: 0;
+  padding: 0.5rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  // Only when open, since display would override the UA's hiding of closed
+  // popovers.
+  &:popover-open {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0 0.5rem;
   }
 
-  input[type="submit"] {
-    margin: 0;
+  button {
+    width: 100%;
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: start;
+    color: $font-color;
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+      background-color: #f2f2f2;
+    }
+
+    &[aria-current] {
+      font-weight: bold;
+    }
+  }
+}
+
+@supports (anchor-name: --x) {
+  .locale-menu {
+    position-anchor: --locale-toggle;
+    inset: auto;
+    top: anchor(bottom);
+    right: anchor(right);
+    margin-top: 6px;
   }
 }
 

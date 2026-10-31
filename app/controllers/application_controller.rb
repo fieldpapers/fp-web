@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
 
     http_accept_language.user_preferred_languages.unshift cookies[:locale] if cookies[:locale]
 
-    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    # Inside an action, ActionView's I18n proxy ignores `I18n.locale = nil`, so
+    # without the fallback a request would keep whatever locale the previous
+    # request on this thread used.
+    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale
   end
 
   def redirect_www

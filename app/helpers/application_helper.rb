@@ -31,11 +31,6 @@ module ApplicationHelper
     svg.sub("<svg", %(<svg class="#{["icon", extra_class].compact.join(" ")}" aria-hidden="true")).html_safe
   end
 
-  def locale_options
-    options = LOCALE_NAMES.map { |code, name| [name, code, { lang: code.to_s.tr("_", "-") }] }
-    options_for_select(options, I18n.locale)
-  end
-
   # Used to set the active navbar item
   def current_nav_target
     target = ""

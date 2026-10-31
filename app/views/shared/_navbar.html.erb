@@ -3,13 +3,16 @@
     <div class="row">
         <div class="logo twelve columns">
             <a href="<%= root_path %>"><img src="<%= asset_path "logo-header.png" %>" alt="Field Papers" height="58" width="200"></a>
-            <%= form_tag change_locale_path, class: "locale-picker" do %>
-                <label title="<%= _("Language") %>">
+            <div class="locale-picker">
+                <button type="button" class="locale-toggle" popovertarget="locale-menu" title="<%= _("Language") %>" aria-label="<%= _("Language") %>">
                     <%= icon "language" %>
-                    <%= select_tag :locale, locale_options, "aria-label": _("Language"), onchange: "this.form.submit()" %>
-                </label>
-                <noscript><%= submit_tag _("Change language"), name: nil %></noscript>
-            <% end %>
+                </button>
+                <%= form_tag change_locale_path, id: "locale-menu", class: "locale-menu", popover: "" do %>
+                    <% ApplicationHelper::LOCALE_NAMES.each do |code, name| %>
+                        <%= button_tag name, name: "locale", value: code, lang: code.to_s.tr("_", "-"), "aria-current": ("true" if code == I18n.locale) %>
+                    <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
 
