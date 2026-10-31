@@ -1,4 +1,33 @@
 module ApplicationHelper
+  LOCALE_NAMES = {
+    ar: "اَلْعَرَبِيَّةُ",
+    cs: "Čeština",
+    da: "Dansk",
+    de: "Deutsch",
+    en: "English",
+    es: "Español",
+    fr: "Français",
+    hu: "Magyar nyelv",
+    id: "Bahasa Indonesia",
+    it: "Italiano",
+    ja: "日本語",
+    ku: "کوردی",
+    nl: "Nederlands",
+    pl: "Polski",
+    pt: "Português",
+    ru: "ру́сский",
+    sw: "Kiswahili",
+    tl: "Tagalog",
+    uk: "Українська",
+    vi: "tiếng Việt",
+    zh_CN: "普通话",
+    zh_TW: "國語",
+  }
+
+  def locale_options
+    options = LOCALE_NAMES.map { |code, name| [name, code, { lang: code.to_s.tr("_", "-") }] }
+    options_for_select(options, I18n.locale)
+  end
 
   # Used to set the active navbar item
   def current_nav_target

@@ -3,9 +3,57 @@
  */
 
 .logo {
+  position: relative;
   text-align: left;
   padding-top: 5px;
   border: none;
+}
+
+.locale-picker {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  label {
+    position: relative;
+    margin: 0;
+    font-size: 24px;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+  }
+
+  label:hover,
+  label:focus-within {
+    color: $link-color;
+  }
+
+  label:focus-within {
+    outline: 2px solid $link-color;
+    outline-offset: 2px;
+  }
+
+  // Invisible select stretched over the icon, so that clicking the icon
+  // opens the native picker.
+  select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  input[type="submit"] {
+    margin: 0;
+  }
 }
 
 #nav {

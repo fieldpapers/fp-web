@@ -18,8 +18,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
+  # Locale comes from the cookie set by LocalesController, falling back to
+  # Accept-Language. Legacy ?locale= links still work, but redirect to the
+  # canonical URL so crawlers don't see a copy of every page per locale.
   def set_locale
-    cookies[:locale] = params[:locale] if params[:locale]
+    if (locale = request.query_parameters["locale"])
+      cookies.permanent[:locale] = locale
+      query = request.query_parameters.except("locale").to_query
+      return redirect_to [request.path, query.presence].compact.join("?")
+    end
 
     http_accept_language.user_preferred_languages.unshift cookies[:locale] if cookies[:locale]
 

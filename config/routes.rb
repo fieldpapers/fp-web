@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/locale' => 'locales#update', as: :change_locale
+
   get '/compose' => 'compose#new', as: :compose
   post '/compose' => 'compose#create'
   put '/compose' => 'compose#update'
