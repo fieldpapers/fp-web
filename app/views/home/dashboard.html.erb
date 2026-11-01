@@ -8,13 +8,13 @@
   <%= render "onboarding" %>
 <% else %>
   <h4><%= _("Your atlases") %></h4>
-  <ul class="map-cards row">
+  <ul class="map-cards">
     <%= render "new_card", path: compose_path, image: "atlases-large.gif", label: _("Make an atlas") %>
     <%= render partial: "atlases/atlas", collection: @atlases, locals: { page_counts: @page_counts } %>
   </ul>
 
   <h4><%= _("Your snapshots") %></h4>
-  <ul class="map-cards row">
+  <ul class="map-cards">
     <%= render "new_card", path: new_snapshot_path, image: "snapshots-large.gif", label: _("Upload a snapshot") %>
     <%= render partial: "snapshots/snapshot", collection: @snapshots %>
   </ul>

@@ -37,7 +37,11 @@ class SnapshotsController < ApplicationController
   end
 
   def show
-    @snapshot = Snapshot.unscoped.friendly.find(params[:id])
+    # Within the block, Snapshot#atlas skips Atlas's default scope, which would
+    # hide private and failed atlases.
+    @snapshot = Atlas.unscoped do
+      Snapshot.unscoped.includes(:atlas).friendly.find(params[:id])
+    end
   end
 
   private

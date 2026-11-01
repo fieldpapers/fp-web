@@ -32,11 +32,6 @@ $header-height: 56px;
   font-weight: normal;
   letter-spacing: normal;
   text-transform: none;
-
-  &:focus-visible {
-    outline: 2px solid $link-color;
-    outline-offset: 2px;
-  }
 }
 
 .nav-toggle {
