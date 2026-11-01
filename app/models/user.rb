@@ -31,15 +31,15 @@ class User < ActiveRecord::Base
   end
   devise *devise_mods
 
-  # relations
+  # callbacks
 
-  has_many :atlases,
-    -> {
-      order "created_at DESC"
-    },
-    dependent: :destroy,
-    inverse_of: :creator,
-    foreign_key: "user_id"
+  # Content outlives its owner's account (private data remains private, so it
+  # becomes unreachable). This is a temporary precaution to make sure account
+  # merges don't accidentally delete content during the OSM OAuth migration.
+  before_destroy do
+    Atlas.unscoped.where(user_id: id).update_all(user_id: nil)
+    Snapshot.unscoped.where(user_id: id).update_all(user_id: nil)
+  end
 
   # validations
 
