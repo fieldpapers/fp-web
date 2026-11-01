@@ -16,11 +16,10 @@ services:
         required: false
     environment:
       - RAILS_ENV=development
-      - RAILS_DEVELOPMENT_HOSTS=web
       - PGHOST=db
       - PGUSER=fieldpapers
       - PGPASSWORD=hunter2
-      - BASE_URL=http://web:3000
+      - BASE_URL=http://127.0.0.1:3000
       - PERSIST=local
       - DISABLE_LOGIN_CONFIRMATIONS=true
       # local snapshot tiles won't render (fp-tiler v2 is Lambda-only, see below), but this
@@ -52,7 +51,7 @@ services:
       - PGHOST=db
       - PGUSER=fieldpapers
       - PGPASSWORD=hunter2
-      - BASE_URL=http://web:3000
+      - BASE_URL=http://127.0.0.1:3000
       - PERSIST=local
       - TASK_BASE_URL=http://tasks:8081
     volumes:
@@ -73,12 +72,12 @@ services:
       - path: .env
         required: false
     environment:
-      # this will cause generated URLs in the PDFs to look suspicious, but it will work
-      - API_BASE_URL=http://web:3000/
+      - API_BASE_URL=http://127.0.0.1:3000/
       - PORT=8081
       - PERSIST=local
       - STATIC_PATH=/data
-      - STATIC_URI_PREFIX=http://web:3000
+      # fp-tasks reads URLs under this prefix from STATIC_PATH rather than fetching them
+      - STATIC_URI_PREFIX=http://127.0.0.1:3000
     ports:
       - 8081:8081
     volumes:

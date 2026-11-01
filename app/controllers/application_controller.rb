@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_www
+  before_action :redirect_localhost, if: -> { Rails.env.development? }
 
   before_action :set_locale
 
@@ -39,6 +40,14 @@ class ApplicationController < ActionController::Base
   def redirect_www
     if request.host.starts_with?('www.')
       redirect_to "https://#{request.host.sub('www.', '')}#{request.fullpath}", status: 301
+    end
+  end
+
+  # Cookies are per-host, and OSM only allows plain-http OAuth redirects on
+  # 127.0.0.1, so we redirect requests to localhost there.
+  def redirect_localhost
+    if request.host == 'localhost'
+      redirect_to "#{request.protocol}127.0.0.1:#{request.port}#{request.fullpath}"
     end
   end
 end
