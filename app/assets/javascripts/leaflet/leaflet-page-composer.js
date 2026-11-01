@@ -252,9 +252,6 @@ L.PageComposer = L.Class.extend({
 
     _updateToolDimensions: function() {
       var size = this.map.getSize();
-      //to update the numbers displayed in the side menu
-      var count = document.getElementsByClassName("number");
-
       var width = this.dimensions.width / this.refs.prevCols;
       var height = this.dimensions.height / this.refs.prevRows;
 
@@ -275,8 +272,8 @@ L.PageComposer = L.Class.extend({
       this.refs.prevCols = this.refs.cols;
       this.refs.prevRows = this.refs.rows;
 
-      count[0].textContent = this.refs.cols;
-      count[1].textContent = this.refs.rows;
+      document.getElementById("cols-count").textContent = this.refs.cols;
+      document.getElementById("rows-count").textContent = this.refs.rows;
 
       this.bounds = this.refs.locked ? this._getBoundsPinToNorthWest() : this._getBoundsPinToCenter();
 
@@ -347,11 +344,10 @@ L.PageComposer = L.Class.extend({
 
         //adds +/-
     _createPageModifiers: function() {
-      var gridModifiers = document.getElementsByClassName("grid-modifier");
-      this._addRow = gridModifiers[5];
-      this._minusRow = gridModifiers[3];
-      this._addCol = gridModifiers[2];
-      this._subCol = gridModifiers[0];
+      this._addRow = document.getElementById("rows-plus");
+      this._minusRow = document.getElementById("rows-minus");
+      this._addCol = document.getElementById("cols-plus");
+      this._subCol = document.getElementById("cols-minus");
 
       L.DomEvent.addListener(this._addRow, "click", this._onAddRow, this);
       L.DomEvent.disableClickPropagation(this._addRow);
@@ -486,7 +482,7 @@ L.PageComposer = L.Class.extend({
       function unlockGrid(){
         if (self.refs.locked){
           //uncheck the "pin to nw corner" box
-          document.getElementById('map-lock-box').childNodes[1].checked = false;
+          document.getElementById('pin-grid').checked = false;
 
           self.refs.locked = false;
           self._render();
@@ -549,7 +545,7 @@ L.PageComposer = L.Class.extend({
     },
 
     _onMapLock: function(){
-      var mapLockStatus = document.getElementById('map-lock-box').childNodes[1];
+      var mapLockStatus = document.getElementById('pin-grid');
       var self = this;
 
       L.DomEvent.addListener(mapLockStatus, "change", function(){

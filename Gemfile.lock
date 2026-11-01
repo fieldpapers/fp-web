@@ -461,7 +461,6 @@ GEM
     sdoc (2.6.5)
       rdoc (>= 5.0)
     securerandom (0.4.1)
-    selectize-rails (0.12.6)
     shellany (0.0.1)
     singleton (0.3.0)
     solid_queue (1.4.0)
@@ -556,7 +555,6 @@ DEPENDENCIES
   s3_direct_upload!
   sass-rails (~> 6.0.0)
   sdoc (~> 2.6.1)
-  selectize-rails
   solid_queue (~> 1.4)
   terser (>= 1.1.14)
   web-console (~> 4.2.0)
