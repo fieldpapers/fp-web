@@ -18,20 +18,15 @@ $header-height: 56px;
   line-height: 0;
 }
 
-// Skeleton styles every <button> as a bordered uppercase pill, so the header's
-// buttons reset most of that.
+// The header's buttons are plain text or icons, without the default button
+// look.
 .nav-button,
 .nav-menu button {
   display: block;
-  height: auto;
-  margin: 0;
   padding: 0;
   border: none;
-  border-radius: 3px;
   background: none;
   font-weight: normal;
-  letter-spacing: normal;
-  text-transform: none;
 }
 
 .nav-toggle {
@@ -55,6 +50,7 @@ $header-height: 56px;
   display: none;
   gap: 2.4rem;
   margin: 0;
+  padding: 0;
 
   @media (#{$bp-larger-than-tablet}) {
     display: flex;

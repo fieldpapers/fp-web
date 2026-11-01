@@ -1,0 +1,57 @@
+// TODO: remove. The parts of Skeleton's grid (http://getskeleton.com, MIT)
+// that views still use, until they're converted to flexbox and grid layouts.
+
+$column-margin: 4%;
+
+@function grid-column-width($n) {
+  @return 100% / 12 * $n - $column-margin * (12 - $n) / 12;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.column,
+.columns {
+  width: 100%;
+  float: left;
+}
+
+@media (#{$bp-larger-than-phablet}) {
+  .column,
+  .columns {
+    margin-left: $column-margin;
+  }
+
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0;
+  }
+
+  .four.columns { width: grid-column-width(4); }
+  .six.columns { width: grid-column-width(6); }
+  .eight.columns { width: grid-column-width(8); }
+  .eleven.columns { width: grid-column-width(11); }
+  .twelve.columns { width: 100%; margin-left: 0; }
+}
+
+.container::after,
+.row::after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.u-full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.u-pull-right {
+  float: right;
+}
