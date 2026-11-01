@@ -14,11 +14,15 @@
   </div>
 </div>
 
+<% if @atlases.empty? %>
 <div class="row">
   <div class="twelve columns">
-    <% if @atlases.empty? %>
-    <p class="alert"><%= _("No atlases.") %></p>
-    <% else %>
+    <p class="empty-state"><%= _("No atlases.") %></p>
+  </div>
+</div>
+<% else %>
+<div class="row">
+  <div class="twelve columns">
     <%= paginate @atlases %>
   </div>
 </div>
