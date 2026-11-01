@@ -144,14 +144,6 @@ class Atlas < ActiveRecord::Base
       .order("#{self.table_name}.created_at DESC")
   }
 
-  scope :by_creator, -> (creator) {
-    if creator
-      where("#{self.table_name}.private = false OR (#{self.table_name}.private = true AND #{self.table_name}.user_id = ?)", creator.id)
-    else
-      where("#{self.table_name}.private = false")
-    end
-  }
-
   scope :date,
     -> date {
       where(created_at: date.to_date.all_day)
@@ -166,17 +158,6 @@ class Atlas < ActiveRecord::Base
   scope :place,
     -> place {
       where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
-    }
-
-  scope :user,
-    -> user {
-      where(user_id: user)
-    }
-
-  scope :username,
-    -> username {
-      joins(:creator)
-      .where(users: {username: username})
     }
 
   # instance methods
@@ -309,8 +290,7 @@ class Atlas < ActiveRecord::Base
         pages: atlas_pages,
         created: created_at.iso8601,
         url: atlas_url(self),
-        url_pdf: pdf_url,
-        url_user: creator ? atlases_url(username: creator.username) : nil
+        url_pdf: pdf_url
       },
       geometry: {
         type: 'MultiPolygon',

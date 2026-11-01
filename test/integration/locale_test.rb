@@ -22,9 +22,9 @@ class LocaleTest < ActionDispatch::IntegrationTest
   end
 
   test "locale query param sets cookie and redirects to canonical url" do
-    get "/atlases?locale=fr&username=mapper"
+    get "/atlases?locale=fr&month=2026-01"
 
-    assert_redirected_to "/atlases?username=mapper"
+    assert_redirected_to "/atlases?month=2026-01"
     assert_equal "fr", cookies[:locale]
 
     get root_path("locale" => "de")

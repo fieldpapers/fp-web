@@ -7,11 +7,9 @@ class AtlasesController < ApplicationController
   has_scope :date,      only: :index
   has_scope :month,     only: :index
   has_scope :place,     only: :index
-  has_scope :user,      only: :index
-  has_scope :username,  only: :index
 
   def index
-    @atlases = apply_scopes(Atlas.unscoped).default.by_creator(current_user).page(params[:page]).load
+    @atlases = apply_scopes(Atlas.unscoped).default.where(private: false).page(params[:page]).load
     @counts = @atlases.total_count
     @page_counts = Page.where(atlas_id: @atlases.map(&:id)).group(:atlas_id).count
   end

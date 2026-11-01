@@ -121,15 +121,6 @@ class Snapshot < ActiveRecord::Base
       .order("#{self.table_name}.created_at DESC")
   }
 
-  scope :by_creator, -> (creator) {
-    if creator
-      where("#{self.table_name}.private = false OR (#{self.table_name}.private = true AND #{self.table_name}.user_id = ?)", creator.id)
-    else
-      where("#{self.table_name}.private = false")
-        .where("#{Atlas.table_name}.private = false")
-    end
-  }
-
   scope :date,
     -> date {
       where(created_at: date.to_date.all_day)
@@ -146,16 +137,6 @@ class Snapshot < ActiveRecord::Base
       where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
     }
 
-  scope :user,
-    -> user {
-      where(user_id: user)
-    }
-
-  scope :username,
-    -> username {
-      joins(:uploader)
-      .where(users: {username: username})
-    }
     
   # class methods
 
@@ -279,7 +260,6 @@ class Snapshot < ActiveRecord::Base
         base_url: base_url,
         url: snapshot_url(self),
         url_page: atlas_page_atlas_url(atlas, page.page_number),
-        url_uploader: uploader ? snapshots_url(username: uploader.username) : nil,
       },
       geometry: {
         type: 'Polygon',

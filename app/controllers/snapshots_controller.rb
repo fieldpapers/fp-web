@@ -2,8 +2,6 @@ class SnapshotsController < ApplicationController
   has_scope :date, only: :index
   has_scope :month, only: :index
   has_scope :place, only: :index
-  has_scope :user, only: :index
-  has_scope :username, only: :index
 
   # allow API usage
   skip_before_action :verify_authenticity_token, only: :create
@@ -24,7 +22,7 @@ class SnapshotsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page]).load
+        @snapshots = apply_scopes(Snapshot.unscoped).default.page(params[:page]).load
         @counts = @snapshots.total_count
       end
 
