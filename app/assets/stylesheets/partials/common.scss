@@ -2,61 +2,6 @@
   Site wide styles
 */
 
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-body {
-  margin: 10px;
-}
-
-// Full width up to Skeleton's max-width, instead of its 80-85% on mid-size
-// screens.
-.container {
-  width: 100%;
-  padding: 0 1rem;
-}
-
-// Skeleton removes focus outlines; these selectors match its :focus rules so
-// they win by source order.
-a,
-button,
-.button,
-input[type=submit],
-input[type=button],
-input[type=reset],
-input[type=checkbox],
-input[type=radio],
-[tabindex] {
-  &:focus-visible {
-    outline: 2px solid $primary-color;
-    outline-offset: 2px;
-  }
-}
-
-// Skeleton's primary button hover color ($link-color) is too light for white
-// text.
-.button.button-primary,
-button.button-primary,
-input[type=submit].button-primary {
-  &:hover,
-  &:focus {
-    background-color: darken($primary-color, 8%);
-    border-color: darken($primary-color, 8%);
-  }
-}
-
-a:visited {
-  color: $link-visited-color;
-  text-decoration: underline;
-}
-
-ul {
-  list-style: disc;
-}
-
 #footer {
   margin-top: 60px;
 }
@@ -91,10 +36,7 @@ ul {
   border-left: 4px solid #31708f;
   border-radius: 0 3px 3px 0;
 
-  > *,
-  .button,
-  button,
-  input[type=submit] {
+  > * {
     margin: 0;
   }
 
@@ -156,6 +98,7 @@ ul {
 }
 .form-example ul{
   margin-left: 0;
+  padding: 0;
   list-style: none;
   width: 1px;
 }
@@ -201,10 +144,6 @@ ul {
   .inline-linkbar a:hover {
     text-decoration: none;
   }
-
-label > .label-body {
-  vertical-align: middle;
-}
 
 .form-helper {
   font-size: 1.2rem;
