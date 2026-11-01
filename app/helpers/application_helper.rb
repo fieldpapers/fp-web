@@ -33,19 +33,15 @@ module ApplicationHelper
 
   # Used to set the active navbar item
   def current_nav_target
-    target = ""
     if controller_name == "compose"
-      target = "compose"
-    elsif controller_name == 'snapshots' && action_name == 'new'
-      target = 'upload'
-    elsif ["snapshots", "atlases"].include? controller_name
-      target = 'watch'
-    elsif controller_name == 'home' && action_name == 'advanced'
-      target = 'extend'
-    elsif ["sessions","registrations","confirmations"].include? controller_name
-      target = 'sessions'
+      "make"
+    elsif controller_name == "snapshots" && action_name == "new"
+      "upload"
+    elsif ["atlases", "pages", "snapshots"].include? controller_name
+      "browse"
+    elsif devise_controller?
+      "account"
     end
-    return target
   end
 
   def id_link(zoom, lon, lat, slug = nil)

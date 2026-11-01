@@ -2,23 +2,26 @@
   Navbar
  */
 
+$header-height: 56px;
+
+#nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 2.4rem;
+  min-height: $header-height;
+  margin-bottom: 2.5rem;
+}
+
 .logo {
-  position: relative;
-  text-align: left;
-  padding-top: 5px;
-  border: none;
+  display: block;
+  line-height: 0;
 }
 
-.locale-picker {
-  position: absolute;
-  top: 18px;
-  right: 0;
-}
-
-// Skeleton styles every <button> as a bordered uppercase pill, so the picker's
+// Skeleton styles every <button> as a bordered uppercase pill, so the header's
 // buttons reset most of that.
-.locale-toggle,
-.locale-menu button {
+.nav-button,
+.nav-menu button {
   display: block;
   height: auto;
   margin: 0;
@@ -36,6 +39,64 @@
   }
 }
 
+.nav-toggle {
+  font-size: 24px;
+  line-height: 1;
+  color: #666;
+  anchor-name: --nav-toggle;
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+
+  @media (#{$bp-larger-than-tablet}) {
+    display: none;
+  }
+}
+
+// On narrow screens these are hidden in favor of .sections-menu.
+.nav-links {
+  display: none;
+  gap: 2.4rem;
+  margin: 0;
+
+  @media (#{$bp-larger-than-tablet}) {
+    display: flex;
+  }
+
+  li {
+    margin: 0;
+    list-style: none;
+  }
+
+  a,
+  a:visited {
+    display: inline-block;
+    padding: 0.4rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $font-color;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: $link-color;
+    }
+
+    &[aria-current] {
+      border-bottom-color: currentColor;
+    }
+  }
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-left: auto;
+}
+
 .locale-toggle {
   font-size: 24px;
   line-height: 1;
@@ -48,9 +109,58 @@
   }
 }
 
-// Without anchor positioning, the popover falls back to the UA default of
+.login-link,
+.account-toggle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.login-link,
+.login-link:visited {
+  display: inline-block;
+  padding: 0.3rem 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  line-height: 1.6;
+  color: $font-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+.account-toggle {
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: $font-color;
+  anchor-name: --account-toggle;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: 0.2em;
+    border: 0.35em solid transparent;
+    border-top-color: currentColor;
+    border-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+
+  &.active {
+    text-decoration: underline;
+  }
+}
+
+// Without anchor positioning, the popovers fall back to the UA default of
 // being centered in the viewport.
-.locale-menu {
+.nav-menu {
   margin: 0;
   padding: 0.5rem;
   border: 1px solid $border-color;
@@ -58,20 +168,20 @@
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
-  // Only when open, since display would override the UA's hiding of closed
-  // popovers.
-  &:popover-open {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 0 0.5rem;
+  form {
+    margin: 0;
   }
 
-  button {
+  button,
+  a,
+  a:visited {
+    display: block;
     width: 100%;
     padding: 0.4rem 0.8rem;
     font-size: 14px;
     line-height: 1.4;
     text-align: start;
+    text-decoration: none;
     color: $font-color;
 
     &:hover,
@@ -79,113 +189,44 @@
       color: $link-color;
       background-color: #f2f2f2;
     }
-
-    &[aria-current] {
-      font-weight: bold;
-    }
   }
 }
 
+// Only when open, since display would override the UA's hiding of closed
+// popovers.
+.locale-menu:popover-open {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0 0.5rem;
+}
+
+.locale-menu button[aria-current],
+.sections-menu a[aria-current] {
+  font-weight: bold;
+}
+
+.account-menu,
+.sections-menu {
+  min-width: 14rem;
+}
+
 @supports (anchor-name: --x) {
-  .locale-menu {
-    position-anchor: --locale-toggle;
+  .nav-menu {
     inset: auto;
     top: anchor(bottom);
     right: anchor(right);
     margin-top: 6px;
   }
-}
 
-#nav {
-  margin-bottom: 2.5rem;
-}
-
-#nav-toggle {
-  display: block;
-  margin-top: 10px;
-
-  @media (#{$bp-larger-than-tablet}) {
-    display: none;
+  .locale-menu {
+    position-anchor: --locale-toggle;
   }
-}
 
-.navbar-container {
-  position: relative;
-}
-
-.navbar {
-  display: none;
-  list-style: none;
-  margin-top: 10px;
-  margin-bottom: 0;
-
-  position: absolute;
-  background: white;
-  width: 100%;
-  top: 50px;
-  left: 0;
-  z-index: 1;
-
-  @media (#{$bp-larger-than-tablet}) {
-    position: relative;
-    display: table;
-    width: auto;
-    top: 0;
-    left: 0;
+  .account-menu {
+    position-anchor: --account-toggle;
   }
-}
 
-.open .navbar {
-  display: table !important;
-}
-
-.nav-item {
-  display: block;
-  margin-right: 0;
-  float: none;
-  width: 100%;
-  line-height: 20px;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 2px;
-
-  @media (#{$bp-larger-than-tablet}) {
-    margin-right: 30px;
-    float: left;
-    width: auto;
+  .sections-menu {
+    position-anchor: --nav-toggle;
   }
-}
-.nav-item.active {
-  border-bottom-color: #000;
-}
-
-.nav-item:last-child {
-  margin-right: 0;
-}
-
-.nav-item.in {
-  border-bottom: 2px solid black;
-}
-
-.nav-item a,
-.nav-item a:link,
-.nav-item a:visited {
-  color: #000;
-  text-decoration: none;
-}
-
-.nav-item a:hover {
-  text-decoration: none;
-  color: $link-color;
-}
-
-.nav-item .section {
-  font-weight: bold;
-  font-style:italic;
-  font-size: 14px;
-}
-
-.nav-item .desc {
-  margin-top: 0;
-  font-size: 11px;
-  color: #666;
 }
