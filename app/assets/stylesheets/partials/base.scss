@@ -124,6 +124,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 1.5rem;
   font-weight: normal;
 }
 
@@ -151,6 +152,7 @@ body {
 }
 
 :where(textarea) {
+  max-width: 64rem;
   min-height: 6.5rem;
   resize: vertical;
 }

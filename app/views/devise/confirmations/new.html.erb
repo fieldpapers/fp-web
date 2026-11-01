@@ -3,12 +3,8 @@
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="row">
-    <div class="six columns field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, class: 'u-full-width' %>
-    </div>
-  </div>
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true %>
 
   <div class="actions">
     <%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %>

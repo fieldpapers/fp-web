@@ -1,8 +1,6 @@
 <% content_for :title, _("Dashboard - Field Papers") %>
 
-<div class="row">
-  <h2 class="twelve columns"><%= _("Welcome, %{username}") % { username: current_user.username } %></h2>
-</div>
+<h2><%= _("Welcome, %{username}") % { username: current_user.username } %></h2>
 
 <% if @atlases.empty? && @snapshots.empty? %>
   <%= render "onboarding" %>

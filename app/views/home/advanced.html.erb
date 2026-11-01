@@ -1,37 +1,32 @@
 <% content_for :title, _("Advanced - Field Papers") %>
 
-<div class="row">
-    <div class="twelve columns">
-        <h2>Advanced Tools</h2>
-        <p>
-            Field Papers offers several automation and map customization tools. These tools and workflows are provided for technical users and limited to no support is provided.
-        </p>
-        <ol>
-            <li>
-            <p>
-                <strong><a href="<%= make_canned_atlas_path() %>">Atlas Template Tool</a></strong> - Field Papers includes a HTML form based template API that you can host anywhere and populate with preset values for each use case. The form posts those parameters to Field Papers and populates each phase of the make atlas process with those values, while allowing the user to modify the area of interest, etc.
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong><a href="<%= make_geojson_atlas_path() %>">Incident Maps</a></strong> - Field checking a list of feature locations? Upload a list of locations in GeoJSON format and we'll center an atlas page on each incident to give you a head start and liberate you from the atlas page grid.
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong>Custom Map Styles</strong> - <a href="<%= make_canned_atlas_path() %>">TMS endpoints</a> - Already published your basemap online as a tiled map service? Use our template tool detailed above to point to the TMS endpoint. Example: <a href="https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong>Edit in OSM</strong> - Field Papers plays well with others. If you upload a snapshot of your map at <a href="https://fieldpapers.org/snapshots/new">Field Papers</a>, you can use the tools there to edit OpenStreetMap in Potlatch and JOSM using your snapshot as a reference layer. Common tasks include adding streets, parks, building outlines, addresses, business names, and more.
-            </p>
-            </li>
-        <li>
-            <p>
-                <strong><a href="https://github.com/fieldpapers">Fork us on GitHub</a></strong> - Field Papers in an open source project hosted at GitHub.
-            </p></li>
-
-        </ol>
-    </div>
-</div>
+<h2>Advanced Tools</h2>
+<p>
+    Field Papers offers several automation and map customization tools. These tools and workflows are provided for technical users and limited to no support is provided.
+</p>
+<ol>
+    <li>
+    <p>
+        <strong><a href="<%= make_canned_atlas_path() %>">Atlas Template Tool</a></strong> - Field Papers includes a HTML form based template API that you can host anywhere and populate with preset values for each use case. The form posts those parameters to Field Papers and populates each phase of the make atlas process with those values, while allowing the user to modify the area of interest, etc.
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong><a href="<%= make_geojson_atlas_path() %>">Incident Maps</a></strong> - Field checking a list of feature locations? Upload a list of locations in GeoJSON format and we'll center an atlas page on each incident to give you a head start and liberate you from the atlas page grid.
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong>Custom Map Styles</strong> - <a href="<%= make_canned_atlas_path() %>">TMS endpoints</a> - Already published your basemap online as a tiled map service? Use our template tool detailed above to point to the TMS endpoint. Example: <a href="https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong>Edit in OSM</strong> - Field Papers plays well with others. If you upload a snapshot of your map at <a href="https://fieldpapers.org/snapshots/new">Field Papers</a>, you can use the tools there to edit OpenStreetMap in Potlatch and JOSM using your snapshot as a reference layer. Common tasks include adding streets, parks, building outlines, addresses, business names, and more.
+    </p>
+    </li>
+<li>
+    <p>
+        <strong><a href="https://github.com/fieldpapers">Fork us on GitHub</a></strong> - Field Papers in an open source project hosted at GitHub.
+    </p></li>
+</ol>

@@ -1,5 +1,4 @@
-<div class="row">
-  <div class="eight columns">
+  <div class="narrow">
     <h2><%= _("Making Atlases From GeoJSON") %></h2>
     <p><%= _("It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:") %></p>
     <ol>
@@ -7,17 +6,9 @@
       <p><%= _("A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:") % { link: compose_url } %></p>
 
     <%= form_tag compose_path, method: :post, multipart: true do %>
-      <div class="row">
-        <div class="twelve columns">
-          <label for="geojson_file"><%= _("GeoJSON File") %></label>
-          <%= file_field_tag :geojson_file, accept: "application/vnd.geo+json,application/json" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <%= button_tag _("Submit") %>
-        </div>
-      </div>
+      <label for="geojson_file"><%= _("GeoJSON File") %></label>
+      <%= file_field_tag :geojson_file, accept: "application/vnd.geo+json,application/json" %>
+      <%= button_tag _("Submit") %>
     <% end %>
     </li>
 
@@ -25,8 +16,6 @@
     <p><%= _("Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:") % { link: compose_url } %></p>
 
     <%= form_tag compose_path, method: :post, multipart: true do %>
-      <div class="row">
-        <div class="twelve columns">
           <label for="geojson_data"><%= _("GeoJSON Data") %></label>
           <%= text_area_tag :geojson_data, '{
   "properties": {
@@ -58,17 +47,10 @@
       }
     }
   ]
-}', rows: "10", class: "u-full-width auto-height" %>
+}', rows: "10", class: "auto-height" %>
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <%= button_tag _("Submit") %>
-        </div>
-      </div>
+      <%= button_tag _("Submit") %>
     <% end %>
     </li>
     </ol>
   </div>
-</div>

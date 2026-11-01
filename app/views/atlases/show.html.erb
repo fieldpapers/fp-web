@@ -5,9 +5,9 @@
 <% elsif @atlas.failed? %>
   <%= render partial: "atlas_failed", locals: {atlas: @atlas} %>
 <% else %>
-  <div class="row pad-bottom">
-    <div id="locator-map" class="twelve columns"></div>
-    <div class="twelve columns relative">
+  <div class="pad-bottom">
+    <div id="locator-map"></div>
+    <div class="relative">
 
       <div class="map-overlay top-left stacked">
         <h5 class="overlay-item"><%= @atlas.title %><%= badge(:private) if @atlas.private? %></h5>
@@ -65,9 +65,7 @@
     </div>
   </div>
 
-  <div class="row">
-    <%= render partial: "atlas_activity", locals: {atlas: @atlas} %>
-  </div>
+  <%= render partial: "atlas_activity", locals: {atlas: @atlas} %>
 
   <% content_for :foot do %>
   <script>
