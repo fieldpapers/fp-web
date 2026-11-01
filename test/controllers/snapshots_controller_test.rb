@@ -11,6 +11,18 @@ class SnapshotsControllerTest < ActionController::TestCase
     @controller.snapshot_url(slug)
   end
 
+  test "show names the atlas of a snapshot, even if it's private" do
+    atlas = create_atlas(rows: 1, cols: 2)
+    atlas.update_column(:private, true)
+    create_snapshot(atlas, "A1", "snapprv1")
+    Snapshot.unscoped.find_by!(slug: "snapprv1").update_columns(decoded_at: Time.now, uploaded_file: "scan.jpg")
+
+    get :show, params: { id: "snapprv1" }
+
+    assert_response :success
+    assert_select ".overlay-item a[href=?]", Rails.application.routes.url_helpers.atlas_path(atlas.slug), text: "Untitled"
+  end
+
   test "csv for a single-page atlas (no index page)" do
     atlas = create_atlas(rows: 1, cols: 1)
     create_snapshot(atlas, "A1", "snap0001")

@@ -12,6 +12,42 @@ body {
   margin: 10px;
 }
 
+// Full width up to Skeleton's max-width, instead of its 80-85% on mid-size
+// screens.
+.container {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+// Skeleton removes focus outlines; these selectors match its :focus rules so
+// they win by source order.
+a,
+button,
+.button,
+input[type=submit],
+input[type=button],
+input[type=reset],
+input[type=checkbox],
+input[type=radio],
+[tabindex] {
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// Skeleton's primary button hover color ($link-color) is too light for white
+// text.
+.button.button-primary,
+button.button-primary,
+input[type=submit].button-primary {
+  &:hover,
+  &:focus {
+    background-color: darken($primary-color, 8%);
+    border-color: darken($primary-color, 8%);
+  }
+}
+
 a:visited {
   color: $link-visited-color;
   text-decoration: underline;
