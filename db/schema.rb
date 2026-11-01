@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_25_120200) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_31_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -260,7 +260,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_25_120200) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", limit: 32
+    t.string "username", limit: 255
     t.string "legacy_password", limit: 40
     t.string "email"
     t.string "encrypted_password", default: "", null: false
@@ -273,8 +273,10 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_25_120200) do
     t.string "unconfirmed_email"
     t.datetime "updated_at"
     t.datetime "created_at"
+    t.bigint "osm_id"
     t.index ["confirmation_token"], name: "confirmation_token", unique: true
     t.index ["email"], name: "email", unique: true
+    t.index ["osm_id"], name: "index_users_on_osm_id", unique: true
     t.index ["reset_password_token"], name: "reset_password_token", unique: true
     t.index ["username"], name: "username", unique: true
   end
