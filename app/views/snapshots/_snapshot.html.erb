@@ -1,35 +1,40 @@
 <li class="map-card four columns">
-  <a href="<%= snapshot_url(snapshot) %>" class="map-card-preview static-map">
-    <%= map(
-      :container_id => "static-map-#{snapshot.slug}",
-      :center => {
-        :latlng => [snapshot.latitude, snapshot.longitude],
-        :zoom => snapshot.zoom - 3
-      },
-      :map_options => {
-        :attribution_control => false,
-        :zoom_control => false,
-        :dragging => false,
-        :touchZoom => false,
-        :scrollWheelZoom => false,
-        :doubleClickZoom => false,
-        :boxZoom => false,
-        :tap => false,
-        :keyboard => false
-      },
+  <%# Unprocessed snapshots (pending, or the QR code wasn't found) have no page or bbox. %>
+  <% if snapshot.page %>
+    <a href="<%= snapshot_url(snapshot) %>" class="map-card-preview static-map">
+      <%= map(
+        :container_id => "static-map-#{snapshot.slug}",
+        :center => {
+          :latlng => [snapshot.latitude, snapshot.longitude],
+          :zoom => snapshot.zoom - 3
+        },
+        :map_options => {
+          :attribution_control => false,
+          :zoom_control => false,
+          :dragging => false,
+          :touchZoom => false,
+          :scrollWheelZoom => false,
+          :doubleClickZoom => false,
+          :boxZoom => false,
+          :tap => false,
+          :keyboard => false
+        },
 
-      :tile_layer => "#{FieldPapers::TILE_BASE_URL}/snapshots/#{snapshot.slug}/{z}/{x}/{y}.png",
-      :attribution => nil,
-      :max_zoom => 18,
-      :subdomains => ["a", "b", "c", "d"]
-    ) %>
-  </a>
+        :tile_layer => "#{FieldPapers::TILE_BASE_URL}/snapshots/#{snapshot.slug}/{z}/{x}/{y}.png",
+        :attribution => nil,
+        :max_zoom => 18,
+        :subdomains => ["a", "b", "c", "d"]
+      ) %>
+    </a>
+  <% else %>
+    <a href="<%= snapshot_path(snapshot) %>" class="map-card-preview placeholder"></a>
+  <% end %>
 
   <div class="no-wrap">
-    <%= link_to snapshot.title, snapshot_path(snapshot), {:class=>"map-card-title embolden"} %><br>
+    <%= link_to snapshot.page ? snapshot.title : _("Unprocessed snapshot"), snapshot_path(snapshot), {:class=>"map-card-title embolden"} %><br>
     <span class="map-card-creator small">
       <%= snapshot.uploader ? snapshot.uploader.username : _("anonymous") %>
-    </span>
+    </span><% if snapshot.private? || snapshot.atlas&.private? %><span class="private"><%= _("private") %></span><% end %><% if snapshot.failed? %><span class="private"><%= _("failed") %></span><% end %>
   </div>
 
   <div>

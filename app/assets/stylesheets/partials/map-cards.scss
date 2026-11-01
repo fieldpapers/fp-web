@@ -25,6 +25,10 @@ $column-counts: 3;
   margin-left: 0 !important;
 }
 
+.map-card:nth-child(3n+1) {
+  clear: left;
+}
+
 .map-card .no-wrap {
   overflow: hidden !important;
 }
@@ -60,6 +64,11 @@ $column-counts: 3;
     cursor: pointer;
   }
 
+  .map-card-preview.placeholder {
+    height: 240px;
+    background-color: #f2f2f2;
+  }
+
 
 .map-card-pages,
 .map-card-title {
@@ -81,4 +90,38 @@ $column-counts: 3;
 
 .atlas-status.incomplete {
   background: yellow;
+}
+
+.new-card {
+  background: none;
+  border: 2px dashed #ccc;
+  box-shadow: none;
+
+  &:hover {
+    border-color: $link-color;
+  }
+
+  a,
+  a:visited {
+    display: block;
+    color: $font-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $link-color;
+  }
+
+  .map-card-preview img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.new-card-label {
+  display: block;
+  min-height: 7.2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
 }

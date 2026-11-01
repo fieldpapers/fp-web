@@ -32,7 +32,7 @@
     <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %><br>
     <span class="map-card-creator small">
       <%= atlas.creator ? atlas.creator.username : _("anonymous") %>
-    </span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
+    </span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %><% if atlas.failed? %><span class="private"><%= _("failed") %></span><% end %>
   </div>
 
   <div>
