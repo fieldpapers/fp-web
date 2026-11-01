@@ -303,3 +303,13 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+
+Warden::Manager.after_set_user except: :fetch do |user, auth, opts|
+  strategy = auth.winning_strategy
+  method = strategy&.successful? ? strategy.class.name.demodulize.underscore : auth.request.path
+  Rails.logger.info("auth event=login outcome=success method=#{method} user_id=#{user.id}")
+end
+
+Warden::Manager.before_failure do |env, opts|
+  Rails.logger.info("auth event=login outcome=failure reason=#{opts[:message]}")
+end
