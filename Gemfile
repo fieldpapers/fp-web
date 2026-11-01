@@ -22,7 +22,6 @@ gem "sdoc", "~> 2.6.1", group: :doc
 gem "aws-sdk-core", "~> 3"
 gem "aws-sdk-s3", '~> 1.120'
 gem 'aws-sdk-rails', '~> 3.7', '>= 3.7.1'
-gem "bootstrap-sass", "~> 3.4.1"
 gem "devise", "~> 4.9.2" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
