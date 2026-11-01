@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key, auto_increment
-#  username               :string(32)
+#  username               :string(255)
 #  legacy_password        :string(40)
 #  email                  :string(255)
 #  encrypted_password     :string(255)      default(""), not null
@@ -16,6 +16,7 @@
 #  unconfirmed_email      :string(255)
 #  updated_at             :datetime
 #  created_at             :datetime
+#  osm_id                 :bigint
 #
 
 class User < ActiveRecord::Base
