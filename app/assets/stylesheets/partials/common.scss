@@ -26,24 +26,50 @@ ul {
 }
 
 
-// alerts & notices
-.alert, .notice {
-  display: none;
-  padding: 10px;
+// Flash messages (one-off results of an action) and banners (persistent
+// prompts with an action button).
+.flash,
+.banner {
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 3px;
 }
 
-.alert.active , .notice.active { display: block; }
-
-.alert {
-  background-color: #f2dede;
-  border-color: #f2dede;
-  color: #a94442;
+.flash.notice {
+  color: #2b542c;
+  background-color: $success-color;
 }
 
-.notice {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+.flash.alert {
+  color: #843534;
+  background-color: $error-color;
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  color: #245269;
+  background-color: $info-color;
+  border-left: 4px solid #31708f;
+  border-radius: 0 3px 3px 0;
+
+  > *,
+  .button,
+  button,
+  input[type=submit] {
+    margin: 0;
+  }
+
+  // Shares a row with the button when there's room for both.
+  p {
+    flex: 1 1 30rem;
+  }
+}
+
+.empty-state {
+  color: #666;
 }
 
 .private {

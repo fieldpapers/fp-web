@@ -13,11 +13,15 @@
   </div>
 </div>
 
+<% if @snapshots.empty? %>
 <div class="row">
   <div class="twelve columns">
-    <% if @snapshots.empty? %>
-    <p class="alert"><%= _("No snapshots.") %></p>
-    <% else %>
+    <p class="empty-state"><%= _("No snapshots.") %></p>
+  </div>
+</div>
+<% else %>
+<div class="row">
+  <div class="twelve columns">
     <%= paginate @snapshots %>
   </div>
 </div>

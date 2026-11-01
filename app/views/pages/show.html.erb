@@ -1,7 +1,7 @@
 <% content_for :title, _("Atlas page - Field Papers") %>
 
 <% if !defined? @page.atlas.id %>
-  <p class="alert">No atlas</p>
+  <p class="empty-state"><%= _("No atlas") %></p>
 <% elsif @atlas.incomplete? %>
   <%= render partial: "atlases/atlas_incomplete", locals: {atlas: @page.atlas} %>
 <% elsif @atlas.failed?%>
