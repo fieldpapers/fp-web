@@ -1,379 +1,156 @@
-/*************
-MIX-INS
-*************/
-
-@mixin flexbox-cb($prefix, $option) {
-    -webkit-box-flex#{$prefix}: #{$option};      /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex#{$prefix}: #{$option};         /* OLD - Firefox 19- */
-    -webkit-flex#{$prefix}: #{$option};          /* Chrome */
-    -ms-flex#{$prefix}: #{$option};              /* IE 10 */
-    flex#{$prefix}: #{$option};
-}
-
-@mixin display-flex(){
-  display: flex;
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  // display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;
-}
-
-$menu-width: 180px;
-
-/**********
-GENERAL FOR COMPOSE
-***********/
-
-
-body .big-map {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.big-map-container {
-  position: relative;
-  top: -10px;
-  left: -10px;
-
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-/***************
-SIDE MENU
-**************/
-
-#big-map-menu {
-  @include display-flex();
-  @include flexbox-cb(-flow, column);
-  @include flexbox-cb(-wrap, nowrap);
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: $menu-width;
+// The header spans the top of the window; the form and map fill the rest.
+body.compose {
+  display: grid;
+  grid-template: auto minmax(0, 1fr) / 225px minmax(0, 1fr);
   height: 100vh;
-
   margin: 0;
-  padding: 0;
+  padding-top: 10px;
 
-  border: 2px solid #eee;
-  border-top: none;
+  > #nav {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 0 10px;
+  }
+}
 
-  form {
-    margin-bottom: 0;
+// A column of full-width controls, with the submit button at the bottom (or
+// after the controls, scrolling, if the window is too short).
+#compose-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 10px;
+  overflow-y: auto;
+
+  fieldset {
+    min-width: 0;
+    margin: 0;
+  }
+
+  legend {
+    margin: 0 0 0.5rem;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.05rem;
   }
 
   label {
-    font-size: 1.1rem;
-    margin-bottom: 2px;
+    margin: 0.6rem 0 0.2rem;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #444;
   }
 
-  input[type=text] {
-    width: 97%;
-    height: 25px;
+  input[type=text],
+  textarea,
+  select {
+    width: 100%;
+    margin: 0;
+  }
+
+  input[type=text],
+  select {
+    height: 30px;
+    padding: 0 6px;
     font-size: 1.2rem;
   }
 
   textarea {
-    width: 97%;
-    max-width: 97%;
-    resize: vertical;
-    max-height:100px;
-    min-height:30px
-  }
-
-  input {
-    &[type="checkbox"],
-    &[type='text'] {
-      margin: 0;
-    }
-  }
-
-  select {
-    width: 90%;
-    padding: 0;
-    margin: 0;
-    height: 25px;
-    font-size: 1.1rem;
-    box-shadow: none;
-  }
-
-  /****************
-  TOOLTIP
-  *****************/
-  .tooltips-container {
-    position: relative;
-    display: inline-block;
-    margin-left: 0;
-    font-size: 1rem;
-
-    .tooltips {
-      cursor: pointer;
-      display: inline;
-
-      &:hover {
-        transition: opacity 0.5s ease-in;
-        -webkit-transition: opacity 0.5s ease-in; /* Safari */;
-
-        &:before {
-          margin-left: 0;
-          opacity: 1;
-        }
-      }
-
-      &:before {
-        position: fixed;
-        max-width: 300px;
-        margin-top: 10px;
-        margin-left: -2000px; /* IE fix for incompatability with pointer-events: none */
-        padding: 8px;
-
-        background: white;
-        border: $light-grey 1px solid;
-        border-radius: 3px;
-
-        color: $dark-grey;
-        font-weight: bold;
-        content: attr(data-tooltip);
-
-        opacity: 0;
-        transition: opacity 0.3s;
-        -webkit-transition: opacity 0.3s; /* Safari */
-
-        z-index: 8;
-        pointer-events: none;
-      }
-    }
-  }
-
-  /****************
-  MENU LABELS AND GROUP
-  *****************/
-  h5 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-    margin-top: -5px;
-  }
-
-  label {
-      color: #444;
-      font-weight: 400;
-  }
-
-  .menu-group-container{
-    overflow: hidden;
-    min-height: 0;
-    min-width: 0;
-    width: 100%;
-
-    .menu-group {
-      padding: 10px;
-      min-height: 0;
-      min-width: 0;
-      border-bottom: $light-grey 2px solid;
-    }
-  }
-
-  /**************
-  NOTES + CHECKBOX
-  ***************/
-
-  #atlas_title {
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-
-  .notes-textarea {
-    width: 0;
-    height: 0;
-    margin-left: -900px;
-    opacity: 0;
-    transition: height 0.3s, opacity 0.3s;
-    -webkit-transition: height 0.3s, opacity 0.3s;
-    -moz-transition: height 0.3s, opacity 0.3s;
-    -o-transition: height 0.3s, opacity 0.3s;
-  }
-
-  .notes-textarea-visible {
-    width: 100%;
     height: 70px;
-    margin-left: 0;
-    opacity: 1;
-    }
-
-  .include-notes,
-  .private-map,
-  #map-lock-box,
-  .add-ons {
-    color: #666;
-
-    label {
-      display: inline;
-      font-size: 1.2rem;
-    }
+    min-height: 30px;
+    max-height: 100px;
+    resize: vertical;
   }
 
-  .include-notes,
-  .private-map {
-    line-height: 1.4;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    label {
-      font-size: 1.2rem;
-    }
+  input[type=checkbox] {
+    margin: 0 0.4rem 0 0;
+    vertical-align: middle;
   }
 
-  /**************
-  PAGE ORIENTATION AND PAPER SIZE
-  ***************/
-
-  .page-sizing-and-orientation {
-    @include display-flex();
-    @include flexbox-cb(-flow, row);
-    @include flexbox-cb(-wrap, nowrap);
-    width: 160px;
-    position: relative;
-
-   .page-layout-group {
-      width: 70px;
-    }
-
-    .orientation {
-      width: 85px;
-      margin-right: 0;
-      position: absolute;
-      bottom: 0;
-      left: 75px;
-    }
-  }
-
-  /**************
-  BASEMAP OPTIONS
-  ***************/
-
-  .selectize-control {
-    width: 96%;
-
-    .selectize-input {
-      height: 25px;
-      font-size: 1.2rem;
-      box-shadow: none;
-      padding: 2px 8px;
-
-      input {
-        position: relative !important;
-      }
-    }
-    .selectize-dropdown {
-      height: 100px;
-
-      .selectize-dropdown-content {
-        max-height: 100px;
-      }
-    }
-  }
-
-  /**************
-  ADD-ONS
-  ***************/
-
-  .add-ons {
-    color: #666;
-
-    label {
-      display: inline;
-      line-height: 1.4;
-      margin-right: 2px;
-    }
-  }
-
-  /**************
-  PRINT ATLAS BUTTON
-  ***************/
-
-  #final-step {
-    position: absolute;
-    bottom: 20px;
-    margin-top: 10px;
-    width: 86%;
-    height: 40px;
-    margin-left: 10px;
-    margin-bottom: 5px;
+  input[type=submit] {
+    flex: none;
+    width: 100%;
+    height: 50px;
+    margin: auto 0 0;
     padding: 0;
     background-color: #444;
-    border-color: 1px solid #d1d1d1;
-
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     color: $light-grey;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: #fff;
     }
   }
+}
 
-  .cancel {
-    position: absolute;
-    bottom: 0;
-    float: right;
-    width: 100%;
-    height: 20px;
-    padding-right: 10%;
-    text-align: right;
-    text-decoration: none;
+.checkbox {
+  margin-top: 0.6rem;
+  line-height: 1.4;
+  color: #666;
+
+  label {
+    display: inline;
+    margin: 0;
   }
+}
 
-  @media screen and ( max-height: 567px ){
-    #final-step {
-      position: relative;
-      margin-top: 30px;
-    }
+.notes {
+  display: none;
 
-    .cancel {
-      position: relative;
-      margin-top: -10px;
-      margin-bottom: 10px;
-    }
+  #compose-form:has(#atlas_layout:checked) & {
+    display: block;
   }
-} //end menu
+}
 
-/**************
-FULL-SCREEN MAP
-***************/
+.paper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
 
-#big-map {
-  width: calc(100vw - #{$menu-width});
-  height: 100vh;
-  margin: 0;
-  margin-left: $menu-width;
-  padding: 0;
+// Fixed, so that it isn't clipped by the scrolling form.
+.help {
+  font-size: 1.2rem;
+  cursor: help;
 
- .field-papers-logo {
+  &::before {
+    content: attr(data-tooltip);
     position: fixed;
-    top: 5px;
-    right: 10px;
-    width: 125px;
-    z-index: 2;
-
-    img {
-      width: 125px;
-    }
+    z-index: 1;
+    max-width: 300px;
+    margin-top: 10px;
+    padding: 8px;
+    background: white;
+    border: 1px solid $light-grey;
+    border-radius: 3px;
+    color: $dark-grey;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
   }
 
-  /**************
-  ROW AND COL MODIFIERS
-  ***************/
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+}
+
+// Isolated so that Leaflet's z-indexes don't put the map above the form's
+// tooltips.
+#compose-map {
+  margin: 10px 10px 10px 0;
+  isolation: isolate;
+
   .leaflet-control-zoom {
     position: absolute;
     top: 10px;
     left: 10px;
-    margin: 0px;
-    // top: 50px;
+    margin: 0;
   }
 
   .fp-geocoder-input {
@@ -383,232 +160,129 @@ FULL-SCREEN MAP
     z-index: 999;
     width: 200px;
     height: 40px;
-    margin: 0px;
+    margin: 0;
     padding: 4px 6px;
-  }
-
-  // The white panel is .col-row-modifiers itself, sized by its content; boxes
-  // 2 and 3 extend it leftward to wrap around the Leaflet zoom control. Keep
-  // its right edge clear of .fp-geocoder-input.
-  .col-row-modifiers {
-    position: absolute;
-    top: 5px;
-    left: 43px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 40px;
-    padding: 0 6px 0 2px;
-    background-color: white;
-    border: 1px solid black;
-    border-left: none;
-    border-radius: 0 5px 5px 0;
-
-    // Offsets are relative to the padding box, i.e. inside the top border.
-    .col-row-modifier-box-2 {
-      z-index: -1;
-      background-color: white;
-      position: absolute;
-      top: -1px;
-      left: -38px;
-      width: 38px;
-      height: 40px;
-      border: 1px solid black;
-      border-radius: 5px 0 0 0;
-      border-right: none;
-      border-bottom: none;
-    }
-    .col-row-modifier-box-3 {
-      z-index: -1;
-      background-color: white;
-      position: absolute;
-      top: 38px;
-      left: -38px;
-      width: 38px;
-      height: 26px;
-      border: 1px solid black;
-      border-radius: 0 0 5px 5px;
-      border-top: none;
-    }
-  }
-
-  .grid-modifier-group {
-    display: flex;
-    align-items: center;
-    height: 30px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    user-select: none;
-
-    .icon {
-      flex: none;
-      margin-right: 6px;
-    }
-
-    .grid-modifier {
-      width: 24px;
-      height: 100%;
-      padding-top: 2.5px;
-      text-align: center;
-      background-color: #fff;
-      border: 1px solid rgba($dark-grey, 0.7);
-    }
-
-    .minus {
-      border-right: none;
-      border-radius: 4px 0 0 4px;
-
-      &:hover {
-        background-color: $hover-color;
-      }
-    }
-
-    .number {
-      border-right: none;
-      border-left-color: rgba($dark-grey, 0.2);
-    }
-
-    .plus {
-      border-left-color: rgba($dark-grey, 0.2);
-      border-radius: 0 4px 4px 0;
-
-      &:hover {
-        background-color: $hover-color;
-      }
-    }
   }
 }
 
-/*******************
-LARGER THAN A TABLET
-********************/
+// The white panel is .grid-controls itself; its ::before and ::after extend it
+// leftward to wrap around the Leaflet zoom control. Keep its right edge clear
+// of .fp-geocoder-input.
+.grid-controls {
+  position: absolute;
+  top: 5px;
+  left: 43px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 6px 0 2px;
+  background-color: white;
+  border: 1px solid black;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
 
-@media (#{$bp-larger-than-tablet}) {
-  /**************
-  LARGER SIDE MENU
-  ***************/
-  #big-map-menu {
-    width: 225px;
+  // Offsets are relative to the padding box, i.e. inside the top border.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -38px;
+    width: 38px;
+    background-color: white;
+    border: 1px solid black;
+  }
 
-    /***********
-    LARGER GENERIC
-    ************/
+  &::before {
+    top: -1px;
+    height: 40px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 5px 0 0 0;
+  }
 
-    label {
-      font-size: 1.4rem;
-      margin-bottom: 0px;
-      margin-top: 5px;
+  &::after {
+    top: 38px;
+    height: 26px;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+  }
+}
+
+.grid-control {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  user-select: none;
+
+  .icon {
+    flex: none;
+    margin-right: 6px;
+  }
+
+  button,
+  output {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    letter-spacing: normal;
+    color: $font-color;
+    background-color: #fff;
+    border: 1px solid rgba($dark-grey, 0.7);
+    border-radius: 0;
+  }
+
+  button {
+    &:hover {
+      background-color: $hover-color;
     }
 
-    input[type=text] {
-      height: 30px;
+    &:first-of-type {
+      border-right: none;
+      border-radius: 4px 0 0 4px;
     }
 
-    textarea {
-      margin-bottom: 0px;
-
-    }
-
-    input {
-      &[type="checkbox"],
-      &[type='text'] {
-        position: relative;
-        vertical-align: middle;
-        margin-bottom: 0px;
-      }
-    }
-
-    select {
-      margin-bottom: 0px;
-      height: 30px;
-    }
-
-    h5 {
-      font-size: 1.8rem;
-    }
-
-    .tooltips-container {
-      font-size: 1.2rem;
-    }
-
-    /**************
-    LARGER PAGE ORIENTATION AND PAPER SIZE
-    ***************/
-
-    .page-sizing-and-orientation {
-      @include display-flex();
-      @include flexbox-cb(-flow, row);
-      @include flexbox-cb(-wrap, wrap);
-      width: 210px;
-
-     .page-layout-group {
-        width: 95px;
-      }
-
-      .orientation {
-        width: 110px;
-        margin-right: 0;
-        left: 95px;
-      }
-    }
-
-    /**************
-    BASEMAP OPTIONS
-    ***************/
-
-    .selectize-control {
-      .selectize-input {
-        height: 30px;
-        padding: 1px 8px;
-      }
-
-      .selectize-input.input-active {
-        padding-right: 30px;
-      }
-      z-index: 999;
-    }
-
-    /**************
-    LARGER PRINT ATLAS BUTTON
-    ***************/
-    #final-step {
-      bottom: 30px;
-      width: 87%;
-      margin-left: 10px;
-      height: 50px;
-    }
-
-    @media screen and ( max-height: 690px ){
-      #final-step {
-        position: relative;
-        margin-top: 50px;
-      }
-
-      .cancel {
-        position: relative;
-        margin-top: -10px;
-        margin-bottom: 10px;
-      }
-    }
-
-    .cancel {
-      height: 30px;
-    }
-
-    #final-step,
-    .cancel {
-      font-size: 1.7rem;
+    &:last-of-type {
+      border-left-color: rgba($dark-grey, 0.2);
+      border-radius: 0 4px 4px 0;
     }
   }
 
-  #big-map {
-    margin-left: 225px;
-    width: calc(100vw - 225px);
+  output {
+    border-right: none;
+    border-left-color: rgba($dark-grey, 0.2);
+  }
+}
 
-    .field-papers-logo, .field-papers-logo img {
-      width: 175px;
-    }
+// The page grid overlay drawn by L.PageComposer.
+.leaflet-areaselect-container {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-areaselect-grid {
+  position: absolute;
+
+  .page {
+    position: absolute;
+    border: 1px solid #000;
+
+    &.outer-top { border-top-width: 3px; }
+    &.outer-bottom { border-bottom-width: 3px; }
+    &.outer-left { border-left-width: 3px; }
+    &.outer-right { border-right-width: 3px; }
+    &.no-top { border-top: 0; }
+    &.no-left { border-left: 0; }
   }
 }

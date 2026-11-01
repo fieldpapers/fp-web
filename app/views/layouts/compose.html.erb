@@ -11,12 +11,9 @@
   <%= javascript_include_tag 'application' %>
   <%= yield :head %>
 </head>
-<body class="big-map" data-controller="<%= controller_name %>" data-action="<%= action_name %>">
-  <div class="big-map-container">
-    <%= yield %>
-  </div>
-
+<body class="compose" data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <%= render partial: "shared/navbar" %>
+  <%= yield %>
   <%= yield :foot %>
-
 </body>
 </html>

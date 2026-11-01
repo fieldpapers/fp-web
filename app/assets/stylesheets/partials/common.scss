@@ -8,6 +8,10 @@
   -webkit-box-sizing: border-box;
 }
 
+body {
+  margin: 10px;
+}
+
 a:visited {
   color: $link-visited-color;
   text-decoration: underline;

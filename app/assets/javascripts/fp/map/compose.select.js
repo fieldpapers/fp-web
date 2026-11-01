@@ -95,13 +95,10 @@
         atlasPaperSize = $('#atlas_paper_size'),
         atlasOrientation = $('#atlas_orientation'),
         atlasTitle = $('#atlas_title'),
-        atlasText = $('#atlas_text'),
-        // atlasUTMGrid = $('#atlas_utm_grid'),
-        atlasTitlePlaceHolder = $("#atlas-title-placeholder-text");
+        atlasText = $('#atlas_text');
 
     if (intitle) atlasTitle.val(intitle);
     if (atlasTitle.val() === "Untitled") atlasTitle.val("");
-    $('#atlas_title').attr("placeholder",atlasTitlePlaceHolder.text().trim());
 
     if (intext) atlasText.val(intext);
 

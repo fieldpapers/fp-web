@@ -6,8 +6,6 @@ require "csv"
 class ComposeController < ApplicationController
   @@cities = nil
 
-  layout "big_map"
-
   # allow existing forms (w/o CSRF projection) to create canned atlases
   skip_before_action :verify_authenticity_token, only: :create
 
