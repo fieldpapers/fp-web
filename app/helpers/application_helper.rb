@@ -24,6 +24,22 @@ module ApplicationHelper
     zh_TW: "國語",
   }
 
+  # A small label for a record's state: :private, :failed or :processing.
+  def badge(kind)
+    label = { private: _("private"), failed: _("failed"), processing: _("processing") }.fetch(kind)
+    tag.span(label, class: "badge #{kind}")
+  end
+
+  # Badges for a processable (Atlas or Snapshot) record's visibility and
+  # status. Nothing is shown for a public, complete record.
+  def status_badges(record, private: record.private?)
+    safe_join([
+      (badge(:private) if private),
+      (badge(:failed) if record.failed?),
+      (badge(:processing) if record.incomplete?),
+    ].compact)
+  end
+
   # Inlines an SVG from app/assets/images/icons, so that it takes on the
   # surrounding text color and font size.
   def icon(name, extra_class = nil)

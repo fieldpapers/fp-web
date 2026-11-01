@@ -34,7 +34,7 @@
     <%= link_to snapshot.page ? snapshot.title : _("Unprocessed snapshot"), snapshot_path(snapshot), {:class=>"map-card-title embolden"} %><br>
     <span class="map-card-creator small">
       <%= snapshot.uploader ? snapshot.uploader.username : _("anonymous") %>
-    </span><% if snapshot.private? || snapshot.atlas&.private? %><span class="private"><%= _("private") %></span><% end %><% if snapshot.failed? %><span class="private"><%= _("failed") %></span><% end %>
+    </span><%= status_badges(snapshot, private: snapshot.private? || snapshot.atlas&.private?) %>
   </div>
 
   <div>

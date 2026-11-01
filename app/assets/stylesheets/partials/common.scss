@@ -72,10 +72,34 @@ ul {
   color: #666;
 }
 
+// A small label for a record's state. Some translated strings embed a bare
+// <span class='private'>, so that class alone is styled as a badge too.
+.badge,
 .private {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.6rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: 0.1em;
   color: #fff;
-  background-color: #ff3333;
-  padding: 2px 5px;
+}
+
+.private {
+  background-color: #555;
+}
+
+.badge.failed {
+  background-color: #a12622;
+}
+
+.badge.processing {
+  color: #555;
+  border-color: currentColor;
 }
 
 // forms

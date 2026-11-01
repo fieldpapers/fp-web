@@ -56,5 +56,10 @@ class HomeControllerTest < ActionController::TestCase
     assert_select ".map-card-title[href=?]", urls.snapshot_path("snapprv1"), text: "Page A1 of Untitled"
     assert_select ".map-card-title[href=?]", urls.snapshot_path("snappnd1"), text: "Unprocessed snapshot"
     assert_select ".map-card-title[href=?]", urls.snapshot_path("snapothr"), 0
+
+    # Atlases made by create_atlas haven't been rendered, so they're processing.
+    assert_select ".map-card .badge.private", 2
+    assert_select ".map-card .badge.failed", 1
+    assert_select ".map-card .badge.processing", 4
   end
 end
