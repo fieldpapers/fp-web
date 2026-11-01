@@ -1,34 +1,20 @@
 <% content_for :title, _("Snapshots - Field Papers") %>
 
-<div class="row">
-  <div class="twelve columns map-container">
-    <p class="inline-linkbar">
-      <%= link_to _("Atlases"), atlases_path %> | <%= n_("%{count} Snapshot", "%{count} Snapshots", @counts) % { count: number_with_delimiter(@counts) } %>
-    </p>
-  </div>
+<div class="map-container">
+  <p class="inline-linkbar">
+    <%= link_to _("Atlases"), atlases_path %> | <%= n_("%{count} Snapshot", "%{count} Snapshots", @counts) % { count: number_with_delimiter(@counts) } %>
+  </p>
 </div>
 
 <% if @snapshots.empty? %>
-<div class="row">
-  <div class="twelve columns">
-    <p class="empty-state"><%= _("No snapshots.") %></p>
-  </div>
-</div>
+<p class="empty-state"><%= _("No snapshots.") %></p>
 <% else %>
-<div class="row">
-  <div class="twelve columns">
-    <%= paginate @snapshots %>
-  </div>
-</div>
+<%= paginate @snapshots %>
 
 <ul class="map-cards">
   <%= render partial: "snapshot", collection: @snapshots %>
 </ul>
 
-<div class="row">
-  <div class="twelve columns">
-    <%= paginate @snapshots %>
-  </div>
-</div>
+<%= paginate @snapshots %>
 
 <% end %>

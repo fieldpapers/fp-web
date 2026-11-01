@@ -1,17 +1,14 @@
-<div id="footer" class="row align-center">
-  <div class="twelve columns">
+<footer id="footer" class="align-center">
+  <p>
     <%= _("%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}") % { FieldPapers: content_tag(:b, link_to(_("Field Papers"), "https://fieldpapers.org/")), OpenStreetMapUS: link_to(_("OpenStreetMap US"), "https://openstreetmap.us/"), NowAProject: link_to(_("now a project"), "https://www.openstreetmap.us/2023/03/a-new-home-for-field-papers/") } %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <%= link_to _("About the Project"), about_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
     <a href="https://wiki.openstreetmap.org/wiki/Field_Papers" title="<%= _("Check out the OSM help wiki.") %>"><%= _("Help") %></a>&nbsp;&nbsp;/&nbsp;&nbsp;
     <a href="https://openstreetmap.app.neoncrm.com/forms/field-papers"><%= _("Donate") %></a>
-    <br>
-    <small><%= _("Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof.") % { OSMCopyright: link_to(_("&copy; OpenStreetMap contributors"), "https://www.openstreetmap.org/copyright"), Toner: link_to(_("Toner"), "https://maps.stamen.com/toner/"), Bing: link_to(_("Bing"), "https://www.bing.com/maps/"), Mapbox: link_to(_("Mapbox"), "https://www.mapbox.com") } %></small>
-  </div>
-  <div class="twelve columns">
-    <small>
-      <%= link_to _("GitHub Issues"), "https://github.com/fieldpapers/fieldpapers/issues/" %> / 
-      <%= link_to _("Translations"), "https://app.transifex.com/fieldpapers/" %> / 
-      <%= link_to _("Code of Conduct"), "https://wiki.openstreetmap.org/wiki/Foundation/Local_Chapters/United_States/Code_of_Conduct_Committee/OSM_US_Code_of_Conduct" %>
-    </small>
-  </div>
-</div>
+  </p>
+  <p><small><%= _("Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof.") % { OSMCopyright: link_to(_("&copy; OpenStreetMap contributors"), "https://www.openstreetmap.org/copyright"), Toner: link_to(_("Toner"), "https://maps.stamen.com/toner/"), Bing: link_to(_("Bing"), "https://www.bing.com/maps/"), Mapbox: link_to(_("Mapbox"), "https://www.mapbox.com") } %></small></p>
+  <p><small>
+    <%= link_to _("GitHub Issues"), "https://github.com/fieldpapers/fieldpapers/issues/" %> /
+    <%= link_to _("Translations"), "https://app.transifex.com/fieldpapers/" %> /
+    <%= link_to _("Code of Conduct"), "https://wiki.openstreetmap.org/wiki/Foundation/Local_Chapters/United_States/Code_of_Conduct_Committee/OSM_US_Code_of_Conduct" %>
+  </small></p>
+</footer>

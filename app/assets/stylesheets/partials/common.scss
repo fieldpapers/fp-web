@@ -2,8 +2,23 @@
   Site wide styles
 */
 
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 #footer {
   margin-top: 60px;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Keeps prose at a readable line length.
+.narrow {
+  max-width: 64rem;
 }
 
 
@@ -157,10 +172,26 @@
   list-style: none;
 }
 
-// Options list
-.options-list ul {
-  list-style: disc;
-  margin: 0 0 3rem 3rem;
+// An atlas's activity, with export and editing links beside it.
+.atlas-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+
+  .atlases-activity {
+    flex: 1 1 40rem;
+  }
+}
+
+// A right-aligned list of links, e.g. to edit in OSM editors.
+.options-list {
+  width: fit-content;
+  margin-left: auto;
+  white-space: nowrap;
+
+  ul {
+    margin: 0 0 3rem;
+  }
 }
 
 .options-list .options-list-title {

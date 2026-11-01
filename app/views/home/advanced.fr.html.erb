@@ -1,37 +1,32 @@
 <% content_for :title, _("Advanced - Field Papers") %>
 
-<div class="row">
-    <div class="twelve columns">
-        <h2>Outils avancés</h2>
-        <p>
-            Field Papers propose plusieurs outils d'automatisation et de personnalisation des cartes. Ces outils et processus sont mis à disposition pour des utilisateurs d'un bon niveau technique et aucun support (ou limité) n'est fourni.
-        </p>
-        <ol>
-            <li>
-            <p>
-                <strong><a href="<%= make_canned_atlas_path() %>">Outil de Modèle d'Atlas</a></strong> - Field Papers incorpore une modèle d'API sous la forme d'un formulaire HTML que vous pouvez héberger où vous le souhaitez et le remplir avec des valeurs prédéfinies pour chaque cas d'utilisation. Le formulaire publie ces paramètres aux Field Papers et renseigne chaque étape de la création de l'atlas avec ces valeurs, tout en permettant à l'utilisateur de modifier la zone d'intérêt et le fond d'imagerie utilisé pour l'atlas.
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong><a href="<%= make_geojson_atlas_path() %>">Cartes d'incidents</a></strong> - Besoin de contrôler sur le terrain une liste de d'objets localisés ? Transférez une liste de lieux au format GeoJSON et une page d'atlas sera centrée autour de chaque incident pour vous permettre de vous passer de l'atlas classique sous forme de grille continue. 
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong>Personnaliser des styles de carte</strong> - <a href="<%= make_canned_atlas_path() %>">TMS spécifiques</a> - Vous avez déjà publié votre fond de carte en ligne en tant que tms (tiled map service) ? Utilisez cet outil pour indiquer le chemin vers ce tms spécifique. Exemple : <a href="https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
-            </p>
-            </li>
-            <li>
-            <p>
-                <strong>Editer la base OSM</strong> - Si vous transférez un aperçu de votre carte vers <a href="https://walking-papers.org">Walking Papers</a>, vous pouvez utiliser les outils qui s'y trouvent pour ;editer la base OpenStreetMap dans Potlatch ou JOSM en tuilisant votre aperçu comme couche de référence. Les éditions les plus fréquentes concernent les rues, les bâtiments, les équipements de toutes sortes, les parcs, les adresses, les commerces, etc.
-            </p>
-            </li>
-        <li>
-            <p>
-                <strong><a href="https://github.com/fieldpapers">Créer une fork sur GitHub</a></strong> - Field Papers est un projet open source hébergé sur GitHub.
-            </p></li>
-
-        </ol>
-    </div>
-</div>
+<h2>Outils avancés</h2>
+<p>
+    Field Papers propose plusieurs outils d'automatisation et de personnalisation des cartes. Ces outils et processus sont mis à disposition pour des utilisateurs d'un bon niveau technique et aucun support (ou limité) n'est fourni.
+</p>
+<ol>
+    <li>
+    <p>
+        <strong><a href="<%= make_canned_atlas_path() %>">Outil de Modèle d'Atlas</a></strong> - Field Papers incorpore une modèle d'API sous la forme d'un formulaire HTML que vous pouvez héberger où vous le souhaitez et le remplir avec des valeurs prédéfinies pour chaque cas d'utilisation. Le formulaire publie ces paramètres aux Field Papers et renseigne chaque étape de la création de l'atlas avec ces valeurs, tout en permettant à l'utilisateur de modifier la zone d'intérêt et le fond d'imagerie utilisé pour l'atlas.
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong><a href="<%= make_geojson_atlas_path() %>">Cartes d'incidents</a></strong> - Besoin de contrôler sur le terrain une liste de d'objets localisés ? Transférez une liste de lieux au format GeoJSON et une page d'atlas sera centrée autour de chaque incident pour vous permettre de vous passer de l'atlas classique sous forme de grille continue. 
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong>Personnaliser des styles de carte</strong> - <a href="<%= make_canned_atlas_path() %>">TMS spécifiques</a> - Vous avez déjà publié votre fond de carte en ligne en tant que tms (tiled map service) ? Utilisez cet outil pour indiquer le chemin vers ce tms spécifique. Exemple : <a href="https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg">https://tile.stamen.com/watercolor/{Z}/{X}/{Y}.jpg</a>.
+    </p>
+    </li>
+    <li>
+    <p>
+        <strong>Editer la base OSM</strong> - Si vous transférez un aperçu de votre carte vers <a href="https://walking-papers.org">Walking Papers</a>, vous pouvez utiliser les outils qui s'y trouvent pour ;editer la base OpenStreetMap dans Potlatch ou JOSM en tuilisant votre aperçu comme couche de référence. Les éditions les plus fréquentes concernent les rues, les bâtiments, les équipements de toutes sortes, les parcs, les adresses, les commerces, etc.
+    </p>
+    </li>
+<li>
+    <p>
+        <strong><a href="https://github.com/fieldpapers">Créer une fork sur GitHub</a></strong> - Field Papers est un projet open source hébergé sur GitHub.
+    </p></li>
+</ol>

@@ -5,11 +5,11 @@
 <% elsif @snapshot.failed? %>
   <%= render partial: "failed", locals: { snapshot: @snapshot } %>
 <% else %>
-<div class="row pad-bottom">
+<div class="pad-bottom">
 <% if @snapshot.bbox && @snapshot.provider %>
-  <div id="locator-map" class="twelve columns"></div>
+  <div id="locator-map"></div>
 <% end %>
-  <div class="twelve columns relative">
+  <div class="relative">
     <div class="map-overlay top-left stacked">
 <% if @snapshot.atlas %>
       <h5 class="overlay-item"><%= link_to(@snapshot.atlas.title, atlas_path(@snapshot.atlas.slug)) %><%= badge(:private) if @snapshot.private? %></h5>
@@ -31,18 +31,13 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="eleven columns">
-    <div class="u-pull-right no-wrap options-list">
-      <h6 class="options-list-title">Edit in...</h6>
-      <ul>
-        <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
-        <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
-        <li><a id='josm_link' <%= josm_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.north, @snapshot.south, @snapshot.east, @snapshot.west, @snapshot.provider, @snapshot.slug) %> href="#"><%= _("JOSM") %></a></li>
-      </ul>
-    </div>
-  </div>
-
+<div class="options-list">
+  <h6 class="options-list-title">Edit in...</h6>
+  <ul>
+    <li><a href=<%= id_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("iD") %></a></li>
+    <li><a href=<%= potlatch_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.slug) %> target="_blank"><%= _("Potlatch") %></a></li>
+    <li><a id='josm_link' <%= josm_link(@snapshot.zoom, @snapshot.longitude, @snapshot.latitude, @snapshot.north, @snapshot.south, @snapshot.east, @snapshot.west, @snapshot.provider, @snapshot.slug) %> href="#"><%= _("JOSM") %></a></li>
+  </ul>
 </div>
 
 <% content_for :foot do %>
