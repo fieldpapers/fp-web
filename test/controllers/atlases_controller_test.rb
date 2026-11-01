@@ -18,6 +18,21 @@ class AtlasesControllerTest < ActionController::TestCase
     assert_includes response.body, "7 pages"
   end
 
+  test "index lists only public atlases, even for their creator" do
+    user = create_user("mapper")
+    public_atlas = create_atlas(rows: 1, cols: 1, creator: user)
+    private_atlas = create_atlas(rows: 1, cols: 1, creator: user)
+    private_atlas.update_column(:private, true)
+    sign_in user
+
+    get :index
+
+    assert_select ".map-card-title[href=?]", urls.atlas_path(public_atlas)
+    assert_select ".map-card-title[href=?]", urls.atlas_path(private_atlas), 0
+    assert_select ".map-card-creator", text: "mapper"
+    assert_select ".map-card-creator a", 0
+  end
+
   test "index query count does not grow with number of atlases" do
     create_atlas(rows: 1, cols: 1, creator: create_user("mapper"))
     few = capture_sql { get :index }
@@ -39,10 +54,10 @@ class AtlasesControllerTest < ActionController::TestCase
     features = JSON.parse(response.body)["features"]
 
     atlas_props = features.find { |f| f["properties"]["type"] == "atlas" }["properties"]
-    assert_equal urls.atlases_url(username: "mapper"), atlas_props["url_user"]
+    assert_equal "mapper", atlas_props["creator"]
 
     snapshot_props = features.find { |f| f["properties"]["type"] == "snapshot" }["properties"]
-    assert_equal urls.snapshots_url(username: "mapper"), snapshot_props["url_uploader"]
+    assert_equal "mapper", snapshot_props["uploader"]
     assert_equal urls.atlas_page_atlas_url(atlas, "A2"), snapshot_props["url_page"]
   end
 
@@ -53,6 +68,6 @@ class AtlasesControllerTest < ActionController::TestCase
 
     assert_response :success
     atlas_props = JSON.parse(response.body)["features"].first["properties"]
-    assert_nil atlas_props["url_user"]
+    assert_equal "anonymous", atlas_props["creator"]
   end
 end

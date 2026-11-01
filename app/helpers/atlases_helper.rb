@@ -1,12 +1,5 @@
 module AtlasesHelper
 
-  # Used in CSV & GeoJSON output
-  def atlas_person_href(atlas)
-    if atlas.user_id
-      atlas_url(user: atlas.user_id)
-    end
-  end
-
   # TODO: rewrite this mess
   def atlas_to_geojson(atlas)
     out = {type: 'FeatureCollection', features: []}
@@ -29,8 +22,7 @@ module AtlasesHelper
         pages: atlas.atlas_pages,
         created: atlas.created_at.strftime('%a, %e %b %Y %H:%M:%S %z'),
         url: atlas_url(atlas),
-        url_pdf: atlas.pdf_url,
-        url_user: atlas_person_href(atlas)
+        url_pdf: atlas.pdf_url
       },
       geometry: {
         type: 'MultiPolygon',
@@ -101,7 +93,6 @@ module AtlasesHelper
           base_url: snapshot.base_url,
           url: snapshot_url(snapshot),
           url_page: atlas_url(atlas) + "/" + snapshot.page.page_number,
-          url_uploader: snapshot_person_href(snapshot),
         },
         geometry: {
           type: 'Polygon',
