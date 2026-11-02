@@ -74,3 +74,7 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.6"
+
+gem "omniauth", "~> 2.3"
+gem "omniauth-rails_csrf_protection", "~> 2.0"
+gem "omniauth_openid_connect", "~> 0.8.0"

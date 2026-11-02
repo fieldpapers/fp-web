@@ -8,6 +8,9 @@ module FieldPapers
   TILE_BASE_URL = ENV["TILE_BASE_URL"] || "https://tiles.fieldpapers.org"
   PERSIST = ENV["PERSIST"] || "s3"
   OSM_BASE_URL = ENV["OSM_BASE_URL"] || "https://www.openstreetmap.org"
+  OSM_OAUTH_CLIENT_ID = ENV["OSM_OAUTH_CLIENT_ID"]
+  OSM_OAUTH_CLIENT_SECRET = ENV["OSM_OAUTH_CLIENT_SECRET"]
+  PASSWORD_LOGIN_END = Date.new(2027, 3, 1)
   ATLAS_COMPLETE_WEBHOOKS = ENV["ATLAS_COMPLETE_WEBHOOKS"] || ""
   ATLAS_INDEX_HEADER_TILELAYER = ENV['ATLAS_INDEX_HEADER_TILELAYER'] || "https://tile.openstreetmap.org/{Z}/{X}/{Y}.png"
 

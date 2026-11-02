@@ -21,8 +21,13 @@ class ActiveSupport::TestCase
     queries
   end
 
+  # a legacy (password) account
   def create_user(username)
     User.create!(username: username, email: "#{username}@example.com", password: "password123")
+  end
+
+  def create_osm_user(username, osm_id)
+    User.create!(username: username, osm_id: osm_id)
   end
 
   def create_atlas(rows:, cols:, creator: nil)
