@@ -55,7 +55,7 @@ module ApplicationHelper
       "upload"
     elsif ["atlases", "pages", "snapshots"].include? controller_name
       "browse"
-    elsif devise_controller?
+    elsif devise_controller? || controller_name == "accounts"
       "account"
     end
   end

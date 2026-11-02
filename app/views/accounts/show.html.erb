@@ -1,0 +1,34 @@
+<% content_for :title, _("Your account - Field Papers") %>
+
+<div class="narrow">
+  <h2><%= _("Account") %></h2>
+
+  <p>
+    <% username = content_tag(:b, current_user.username) %>
+    <% if current_user.email.present? %>
+      <%= _("Logged in as %{username} (%{email})") % { username: username, email: current_user.email } %><br>
+    <% else %>
+      <%= _("Logged in as %{username}") % { username: username } %><br>
+    <% end %>
+    <% created = current_user.created_at.utc.iso8601 %>
+    <%= _("Field Papers account, created %{time}") % { time: content_tag(:time, _("%{time_period} ago") % { time_period: time_ago_in_words(current_user.created_at) }, datetime: created, title: created) } %>
+  </p>
+
+  <h4><%= _("Your content") %></h4>
+  <% if @atlas_count == 0 && @snapshot_count == 0 %>
+    <p><%= _("You haven't made any atlases or uploaded any snapshots yet.") %></p>
+  <% else %>
+    <% atlases = n_("%{count} atlas", "%{count} atlases", @atlas_count) % { count: number_with_delimiter(@atlas_count) } %>
+    <% snapshots = n_("%{count} snapshot", "%{count} snapshots", @snapshot_count) % { count: number_with_delimiter(@snapshot_count) } %>
+    <p>
+      <%= _("You have %{atlases} and %{snapshots}.") % { atlases: atlases, snapshots: snapshots } %>
+      <%= link_to _("View them on your dashboard"), root_path %>
+    </p>
+  <% end %>
+
+  <hr>
+
+  <h4><%= _("Delete account") %></h4>
+  <p><%= _("Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone.") %></p>
+  <%= button_to _("Delete account"), account_path, method: :delete, class: "button-danger", data: { confirm: _("Delete your Field Papers account? This can't be undone.") } %>
+</div>

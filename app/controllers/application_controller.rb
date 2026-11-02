@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
+  # Logs account events (logins are logged by the Warden hooks in
+  # config/initializers/devise.rb)
+  def log_auth(event, **fields)
+    Rails.logger.info(["auth event=#{event}", *fields.map { |k, v| "#{k}=#{v}" }].join(" "))
+  end
+
   # Locale comes from the cookie set by LocalesController, falling back to
   # Accept-Language. Legacy ?locale= links still work, but redirect to the
   # canonical URL so crawlers don't see a copy of every page per locale.
