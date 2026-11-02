@@ -21,7 +21,6 @@ services:
       - PGPASSWORD=hunter2
       - BASE_URL=http://127.0.0.1:3000
       - PERSIST=local
-      - DISABLE_LOGIN_CONFIRMATIONS=true
       # local snapshot tiles won't render (fp-tiler v2 is Lambda-only, see below), but this
       # needs to be a real, publicly reachable tile server for map display to work at all
       - TILE_BASE_URL=https://tiles.fieldpapers.org

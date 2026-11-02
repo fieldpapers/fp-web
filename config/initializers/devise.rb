@@ -11,7 +11,6 @@ module Devise
 
         if legacy?(resource) && legacy_authenticates?(resource, password)
           # update the resource's password and clear out its legacy one
-          resource.skip_confirmation!
           resource.password = password
           resource.password_confirmation = password
           resource.legacy_password = nil
