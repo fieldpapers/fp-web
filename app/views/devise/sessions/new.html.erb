@@ -1,22 +1,43 @@
-<h2><%= t('.sign_in', default: "Sign in") %></h2>
+<h2><%= _("Log in") %></h2>
+<p><%= _("You don't need an account to make atlases or upload snapshots, but with one you can find them again later.") %></p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.label :login %>
-  <%= f.text_field :login, autofocus: true, required: true, placeholder: "..." %>
+<div class="login-options">
+  <section>
+    <h4><%= _("OpenStreetMap account") %></h4>
+    <p>
+      <%= _("You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf.") %>
+    </p>
+    <%= button_to _("Log in with OpenStreetMap"), user_osm_omniauth_authorize_path %>
+    <p>
+      <%= _("Don't have an OpenStreetMap account?") %>
+      <%= link_to _("Create one for free on openstreetmap.org."), "#{FieldPapers::OSM_BASE_URL}/user/new" %>
+    </p>
+  </section>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, autocomplete: "off", required: true %>
+  <section>
+    <h4><%= _("Legacy account") %></h4>
+    <p><%= _("If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}.") % { date: l(FieldPapers::PASSWORD_LOGIN_END, format: :long) } %></p>
+    <p><%= _("After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends.") %></p>
 
-  <% if devise_mapping.rememberable? -%>
-    <%= f.label :remember_me do %>
-      <%= f.check_box :remember_me %>
-      <%= t(".remember_me", default: "Remember Me") %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.label :login, _("Username or email") %>
+      <%= f.text_field :login, required: true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", required: true %>
+
+      <% if devise_mapping.rememberable? -%>
+        <%= f.label :remember_me do %>
+          <%= f.check_box :remember_me %>
+          <%= _("Remember me") %>
+        <% end %>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit _("Log in with password"), class: "button-secondary" %>
+      </div>
     <% end %>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit t('.sign_in', :default => "Sign in") %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </section>
+</div>

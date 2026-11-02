@@ -278,6 +278,23 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  # OpenStreetMap login, via OpenID Connect.
+  if FieldPapers::OSM_OAUTH_CLIENT_ID.blank? && Rails.env.development?
+    config.omniauth :developer, name: :osm, fields: [:uid, :nickname], uid_field: :uid
+  else
+    config.omniauth :openid_connect,
+      name: :osm,
+      issuer: FieldPapers::OSM_BASE_URL,
+      discovery: true,
+      scope: [:openid],
+      pkce: true,
+      client_options: {
+        identifier: FieldPapers::OSM_OAUTH_CLIENT_ID,
+        secret: FieldPapers::OSM_OAUTH_CLIENT_SECRET,
+        redirect_uri: "#{FieldPapers::BASE_URL}/users/auth/osm/callback",
+      }
+  end
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -312,3 +329,5 @@ end
 Warden::Manager.before_failure do |env, opts|
   Rails.logger.info("auth event=login outcome=failure reason=#{opts[:message]}")
 end
+
+OmniAuth.config.logger = Rails.logger

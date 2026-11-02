@@ -95,6 +95,17 @@
   border-color: currentColor;
 }
 
+.button-secondary {
+  color: $font-color;
+  background-color: #fff;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: #fff;
+    border-color: $font-color;
+  }
+}
+
 // For destructive actions
 .button-danger {
   color: #fff;
@@ -104,6 +115,26 @@
   &:hover {
     background-color: darken($danger-color, 8%);
     border-color: darken($danger-color, 8%);
+  }
+}
+
+.login-options {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+
+  @media (#{$bp-larger-than-tablet}) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+
+    > section:first-child {
+      padding-right: 3rem;
+    }
+
+    > section + section {
+      padding-left: 3rem;
+      border-left: 1px solid $light-grey;
+    }
   }
 }
 

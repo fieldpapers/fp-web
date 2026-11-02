@@ -61,4 +61,16 @@ class UserTest < ActiveSupport::TestCase
     assert_nil Snapshot.unscoped.find_by!(slug: "pubsnap1").user_id
     assert_equal ["others01", "pubsnap1"], Snapshot.unscoped.order(:slug).pluck(:slug)
   end
+
+  test "users created via OSM need no email or password" do
+    user = User.new(username: "mapper", osm_id: 42)
+
+    assert user.valid?
+  end
+
+  test "usernames needn't be unique" do
+    create_user("mapper")
+
+    assert create_osm_user("mapper", 42).persisted?
+  end
 end

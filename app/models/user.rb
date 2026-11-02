@@ -24,8 +24,10 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
-  # devise configuration (authentication)
-  devise :database_authenticatable, :recoverable, :rememberable, :validatable
+  # Password login (database_authenticatable, recoverable, rememberable) is only
+  # for legacy accounts that haven't been connected to OSM yet.
+  devise :database_authenticatable, :recoverable, :rememberable, :validatable,
+    :omniauthable, omniauth_providers: [:osm]
 
   # callbacks
 
@@ -38,25 +40,44 @@ class User < ActiveRecord::Base
 
   # validations
 
-  validates :username,
-    presence: true,
-    uniqueness: {
-      case_sensitive: false
-    }
+  # Usernames mirror OSM display names, which can collide with legacy usernames
+  # (and with stale names of users who renamed on OSM), so they are not unique.
+  validates :username, presence: true
 
   # class methods
 
-  # override to support logins with both username and email
+  # override to support logins with both username and email. Only accounts not
+  # yet connected to OSM can log in with a password; their usernames are unique
+  # among the other legacy accounts (but not necessarily among all accounts).
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
+    users = where(osm_id: nil)
     if login = conditions.delete(:login)
-      where(conditions.to_h).where(["LOWER(username) = :value OR LOWER(email) = :value", { :value => login.downcase }]).first
+      users.where(conditions.to_h).where(["LOWER(username) = :value OR LOWER(email) = :value", { :value => login.downcase }]).first
     else
-      where(conditions.to_h).first
+      users.where(conditions.to_h).first
     end
   end
 
   # instance methods
+
+  # OSM users have no email or password
+  def email_required?
+    osm_id.nil?
+  end
+
+  def password_required?
+    osm_id.nil? && super
+  end
+
+  # Moves other's atlases and snapshots to this user and deletes other.
+  def absorb!(other)
+    transaction do
+      Atlas.unscoped.where(user_id: other.id).update_all(user_id: id)
+      Snapshot.unscoped.where(user_id: other.id).update_all(user_id: id)
+      other.delete
+    end
+  end
 
   # Deletes this account along with its private atlases and snapshots. Public
   # ones are kept (they get disowned in before_destroy).
