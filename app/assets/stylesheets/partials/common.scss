@@ -87,12 +87,24 @@
 }
 
 .badge.failed {
-  background-color: #a12622;
+  background-color: $danger-color;
 }
 
 .badge.processing {
   color: #555;
   border-color: currentColor;
+}
+
+// For destructive actions
+.button-danger {
+  color: #fff;
+  background-color: $danger-color;
+  border-color: $danger-color;
+
+  &:hover {
+    background-color: darken($danger-color, 8%);
+    border-color: darken($danger-color, 8%);
+  }
 }
 
 // forms

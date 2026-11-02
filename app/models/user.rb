@@ -33,9 +33,8 @@ class User < ActiveRecord::Base
 
   # callbacks
 
-  # Content outlives its owner's account (private data remains private, so it
-  # becomes unreachable). This is a temporary precaution to make sure account
-  # merges don't accidentally delete content during the OSM OAuth migration.
+  # Public atlases and snapshots are disowned when an account is deleted.
+  # (delete_account! runs first and deletes private content)
   before_destroy do
     Atlas.unscoped.where(user_id: id).update_all(user_id: nil)
     Snapshot.unscoped.where(user_id: id).update_all(user_id: nil)
@@ -58,6 +57,27 @@ class User < ActiveRecord::Base
       where(conditions.to_h).where(["LOWER(username) = :value OR LOWER(email) = :value", { :value => login.downcase }]).first
     else
       where(conditions.to_h).first
+    end
+  end
+
+  # instance methods
+
+  # Deletes this account along with its private atlases and snapshots. Public
+  # ones are kept (they get disowned in before_destroy).
+  #
+  # TODO: also delete the deleted atlases' and snapshots' files (atlas and
+  # page PDFs, which are public-read in S3, and snapshot GeoTIFFs)
+  def delete_account!
+    transaction do
+      others = Snapshot.unscoped.where("user_id IS DISTINCT FROM ?", id)
+      shared = Page.where(id: others.select(:page_id)).select(:atlas_id)
+      atlases = Atlas.unscoped.where(user_id: id, private: true).where.not(id: shared)
+      pages = Page.where(atlas_id: atlases.select(:id))
+
+      mine = Snapshot.unscoped.where(user_id: id)
+      mine.where(private: true).or(mine.where(page_id: pages.select(:id))).destroy_all
+      atlases.destroy_all
+      destroy!
     end
   end
 

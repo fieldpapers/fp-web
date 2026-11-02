@@ -23,7 +23,7 @@
                 <%= current_user.username %>
             </button>
             <div id="account-menu" class="nav-menu account-menu" popover>
-                <%= link_to _("Account"), edit_user_registration_path %>
+                <%= link_to _("Account"), account_path %>
                 <%= button_to destroy_user_session_path, method: :delete do %><%= _("Log out") %><% end %>
             </div>
         <% else %>

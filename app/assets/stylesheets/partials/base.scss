@@ -11,6 +11,7 @@ $dark-grey: #333;
 $link-color: #09F;
 $link-visited-color: #339;
 $primary-color: #0070c0;
+$danger-color: #a12622;
 
 $success-color: #dff0d8;
 $info-color: #d9edf7;
@@ -92,6 +93,12 @@ body {
   background: lighten($light-grey, 6.4%);
   border: 1px solid $light-grey;
   border-radius: 3px;
+}
+
+:where(abbr[title], time[title]) {
+  text-decoration: underline dashed;
+  text-underline-offset: 0.2em;
+  cursor: help;
 }
 
 :where(hr) {
