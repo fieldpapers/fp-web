@@ -25,11 +25,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   # devise configuration (authentication)
-  devise_mods = [:database_authenticatable, :registerable, :recoverable, :rememberable, :validatable]
-  if !Rails.application.config.disable_login_confirmations
-    devise_mods.push(:confirmable)
-  end
-  devise *devise_mods
+  devise :database_authenticatable, :recoverable, :rememberable, :validatable
 
   # callbacks
 
