@@ -44,9 +44,6 @@ msgstr "%{time_period} ago"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap contributors"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers on Twitter"
-
 msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
@@ -60,20 +57,20 @@ msgstr "About"
 msgid "About the Project"
 msgstr "About the Project"
 
+msgid "Account"
+msgstr "Account"
+
 msgid "Activity"
 msgstr "Activity"
 
-msgid "Add-ons"
-msgstr "Add-ons"
+msgid "Add column"
+msgstr "Add column"
+
+msgid "Add row"
+msgstr "Add row"
 
 msgid "Advanced - Field Papers"
 msgstr "Advanced - Field Papers"
-
-msgid "All Atlases"
-msgstr "All Atlases"
-
-msgid "All Snapshots"
-msgstr "All Snapshots"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
@@ -127,8 +124,8 @@ msgstr "Basemap"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Cancel"
+msgid "Browse"
+msgstr "Browse"
 
 msgid "Capture your notes"
 msgstr "Capture your notes"
@@ -143,9 +140,6 @@ msgstr ""
 "Choose an atlas page to upload. We'll work out where it goes (using the QR "
 "code)."
 
-msgid "Click for more information."
-msgstr "Click for more information."
-
 msgid "Code of Conduct"
 msgstr "Code of Conduct"
 
@@ -159,6 +153,9 @@ msgstr ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote "
 "Control functionality is enabled in Preferences."
 
+msgid "Dashboard - Field Papers"
+msgstr "Dashboard - Field Papers"
+
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Don't upload things that aren't Field Papers maps, please."
 
@@ -170,9 +167,6 @@ msgstr "Download GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Download PDF"
-
-msgid "EXTEND"
-msgstr "EXTEND"
 
 msgid ""
 "Each setting below can be posted via plain HTML form to <a "
@@ -226,11 +220,18 @@ msgid "Help"
 msgstr "Help"
 
 msgid ""
-"If it takes more than an hour, check %{twitter_link} for system status "
-"updates, and email us at %{email_url} if your atlas is stuck."
+"If it's been much longer than that, processing may have stalled; try re-"
+"uploading."
 msgstr ""
-"If it takes more than an hour, check %{twitter_link} for system status "
-"updates, and email us at %{email_url} if your atlas is stuck."
+"If it's been much longer than that, processing may have stalled; try re-"
+"uploading."
+
+msgid ""
+"If it's been much longer than that, the render may have stalled; try re-"
+"creating it."
+msgstr ""
+"If it's been much longer than that, the render may have stalled; try re-"
+"creating it."
 
 msgid ""
 "If you choose to include notes, your map will be printed on the top half a "
@@ -263,30 +264,36 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Keep atlas private"
 
-msgid "LOG IN"
-msgstr "LOG IN"
-
-msgid "LOG OUT"
-msgstr "LOG OUT"
+msgid "Language"
+msgstr "Language"
 
 msgid ""
 "Latitude, longitude, and optional zoom. Use <a "
-"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+"href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 "Latitude, longitude, and optional zoom. Use <a "
-"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+"href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 
 msgid "Location and zoom"
 msgstr "Location and zoom"
 
-msgid "MAKE"
-msgstr "MAKE"
+msgid "Log in"
+msgstr "Log in"
+
+msgid "Log out"
+msgstr "Log out"
+
+msgid "Make"
+msgstr "Make"
 
 msgid "Make - Field Papers"
 msgstr "Make - Field Papers"
 
 msgid "Make Atlas"
 msgstr "Make Atlas"
+
+msgid "Make an atlas"
+msgstr "Make an atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Make sure the scan/photo/image is at least 200dpi."
@@ -319,6 +326,9 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menu"
+
+msgid "No atlas"
+msgstr "No atlas"
 
 msgid "No atlases."
 msgstr "No atlases."
@@ -354,14 +364,20 @@ msgid "Print out anywhere in the world."
 msgstr "Print out anywhere in the world."
 
 msgid ""
-"Private atlases can only be accessed if you're logged in, or via a URL "
-"provided to you in the final step."
+"Private atlases aren't listed on Field Papers, but anyone with the link can "
+"open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
-"Private atlases can only be accessed if you're logged in, or via a URL "
-"provided to you in the final step."
+"Private atlases aren't listed on Field Papers, but anyone with the link can "
+"open them. When you're logged in, you'll find them on your dashboard."
 
 msgid "Refresh"
 msgstr "Refresh"
+
+msgid "Remove column"
+msgstr "Remove column"
+
+msgid "Remove row"
+msgstr "Remove row"
 
 msgid "Rules"
 msgstr "Rules"
@@ -444,33 +460,28 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Translations"
 
-msgid "UPLOAD"
-msgstr "UPLOAD"
-
-msgid "UTM Grid"
-msgstr "UTM Grid"
-
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
-"the problem persists, please %{open_issue} or email %{email_url} with "
-"details."
+"the problem persists, please %{open_issue} with details."
 msgstr ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
-"the problem persists, please %{open_issue} or email %{email_url} with "
-"details."
+"the problem persists, please %{open_issue} with details."
 
 msgid ""
 "Unfortunately, your snapshot for image %{image_filename} failed to be "
 "processed. It's possible that it was an intermittent error, in which case "
 "you should try re-uploading. If the problem persists, please %{open_issue} "
-"or email %{email_url} with details."
+"with details."
 msgstr ""
 "Unfortunately, your snapshot for image %{image_filename} failed to be "
 "processed. It's possible that it was an intermittent error, in which case "
 "you should try re-uploading. If the problem persists, please %{open_issue} "
-"or email %{email_url} with details."
+"with details."
+
+msgid "Unprocessed snapshot"
+msgstr "Unprocessed snapshot"
 
 msgid "Upload"
 msgstr "Upload"
@@ -478,26 +489,29 @@ msgstr "Upload"
 msgid "Upload Failed"
 msgstr "Upload Failed"
 
+msgid "Upload a snapshot"
+msgstr "Upload a snapshot"
+
 msgid "Uploading"
 msgstr "Uploading"
-
-msgid "WATCH"
-msgstr "WATCH"
 
 msgid "Welcome to Field Papers"
 msgstr "Welcome to Field Papers"
 
-msgid "Your Atlases"
-msgstr "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr "Welcome, %{username}"
 
-msgid "Your Snapshots"
-msgstr "Your Snapshots"
+msgid "Your atlases"
+msgstr "Your atlases"
 
-msgid "an atlas to print"
-msgstr "an atlas to print"
+msgid "Your snapshots"
+msgstr "Your snapshots"
 
 msgid "anonymous"
 msgstr "anonymous"
+
+msgid "failed"
+msgstr "failed"
 
 msgid "iD"
 msgstr "iD"
@@ -508,20 +522,11 @@ msgstr "now a project"
 msgid "open a GitHub issue"
 msgstr "open a GitHub issue"
 
-msgid "or create an account"
-msgstr "or create an account"
-
-msgid "pages you've marked"
-msgstr "pages you've marked"
-
 msgid "private"
 msgstr "private"
 
-msgid "recent activity"
-msgstr "recent activity"
+msgid "processing"
+msgstr "processing"
 
 msgid "snapshot of page %{tp}"
 msgstr "snapshot of page %{tp}"
-
-msgid "with advanced tools"
-msgstr "with advanced tools"
