@@ -62,4 +62,20 @@ class HomeControllerTest < ActionController::TestCase
     assert_select ".map-card .badge.failed", 1
     assert_select ".map-card .badge.processing", 4
   end
+
+  test "legacy accounts see the connect banner" do
+    sign_in create_user("mapper")
+
+    get :index
+
+    assert_select ".banner form[action=?]", "/users/auth/osm"
+  end
+
+  test "OSM accounts don't see the connect banner" do
+    sign_in create_osm_user("Mapper", 42)
+
+    get :index
+
+    assert_select ".banner", 0
+  end
 end

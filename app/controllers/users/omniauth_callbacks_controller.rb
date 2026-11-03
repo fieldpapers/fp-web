@@ -31,7 +31,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       user = User.create!(osm_id: osm_id, username: name)
       log_auth("signup", user_id: user.id, osm_id: osm_id)
-      sign_in_and_redirect user
+      sign_in user
+      redirect_to account_path, notice: _("Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below.")
     end
   end
 
