@@ -81,11 +81,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Moves other's atlases and snapshots to this user and deletes other.
+  # Merge another user account into this one: adopt its atlases and snapshots,
+  # take the older of the two creation times, then delete the other account.
   def absorb!(other)
     transaction do
       Atlas.unscoped.where(user_id: other.id).update_all(user_id: id)
       Snapshot.unscoped.where(user_id: other.id).update_all(user_id: id)
+      update_columns(created_at: [created_at, other.created_at].compact.min)
       other.delete
     end
   end
