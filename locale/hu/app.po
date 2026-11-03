@@ -47,9 +47,6 @@ msgstr "ennyi idővel ezelőtt: %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-szerkesztők"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers a Twitteren"
-
 msgid ""
 "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
 "attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
@@ -63,20 +60,20 @@ msgstr "Névjegy"
 msgid "About the Project"
 msgstr "A projektről"
 
+msgid "Account"
+msgstr ""
+
 msgid "Activity"
 msgstr "Tevékenység"
 
-msgid "Add-ons"
-msgstr "Bővítmények"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Speciális – Field Papers"
-
-msgid "All Atlases"
-msgstr "Minden atlasz"
-
-msgid "All Snapshots"
-msgstr "Minden pillanatkép"
 
 msgid ""
 "Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
@@ -130,8 +127,8 @@ msgstr "Alaptérkép"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Mégsem"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "Rögzítsd a jegyzeteidet"
@@ -145,9 +142,6 @@ msgid ""
 msgstr ""
 "Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítségével) "
 "kitaláljuk, hová kerüljön."
-
-msgid "Click for more information."
-msgstr "További információkért kattints ide."
 
 msgid "Code of Conduct"
 msgstr "Magatartási kódex"
@@ -163,6 +157,9 @@ msgstr ""
 "be vannak kapcsolva a távirányítási (Remote Control) funkciók a "
 "Beállításoknál."
 
+msgid "Dashboard - Field Papers"
+msgstr ""
+
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
 
@@ -174,9 +171,6 @@ msgstr "GeoTIFF letöltése"
 
 msgid "Download PDF"
 msgstr "PDF letöltése"
-
-msgid "EXTEND"
-msgstr "BŐVÍTSD A LEHETŐSÉGEKET"
 
 msgid ""
 "Each setting below can be posted via plain HTML form to <a "
@@ -234,12 +228,14 @@ msgid "Help"
 msgstr "Súgó"
 
 msgid ""
-"If it takes more than an hour, check %{twitter_link} for system status "
-"updates, and email us at %{email_url} if your atlas is stuck."
+"If it's been much longer than that, processing may have stalled; try re-"
+"uploading."
 msgstr ""
-"Ha egy óránál is tovább tart, akkor nézd meg a %{twitter_link} oldalon a "
-"rendszer állapotát, és írj egy e-mailt (ide: %{email_url}), ha az atlaszod "
-"készülése elakadt."
+
+msgid ""
+"If it's been much longer than that, the render may have stalled; try re-"
+"creating it."
+msgstr ""
 
 msgid ""
 "If you choose to include notes, your map will be printed on the top half a "
@@ -271,30 +267,34 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Privát atlasz"
 
-msgid "LOG IN"
-msgstr "LÉPJ BE"
-
-msgid "LOG OUT"
-msgstr "LÉPJ KI"
+msgid "Language"
+msgstr ""
 
 msgid ""
 "Latitude, longitude, and optional zoom. Use <a "
-"href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+"href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
-"Szélesség, hosszúság és esetleges nagyítás. Új készítéséhez használd a <a "
-"href=\"http://dbsgeo.com/latlon/”>dbsgeo.com/latlon/</a> szolgáltatását."
 
 msgid "Location and zoom"
 msgstr "Helyszín és nagyítás"
 
-msgid "MAKE"
-msgstr "KÉSZÍTS"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Készítés – Field Papers"
 
 msgid "Make Atlas"
 msgstr "Atlaszkészítés"
+
+msgid "Make an atlas"
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "A scannelt kép/fénykép/egyéb kép felbontása legalább 200 DPI legyen."
@@ -328,6 +328,9 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menü"
+
+msgid "No atlas"
+msgstr ""
 
 msgid "No atlases."
 msgstr "Nincs atlasz."
@@ -363,14 +366,18 @@ msgid "Print out anywhere in the world."
 msgstr "Nyomtasd ki bárhol a világon"
 
 msgid ""
-"Private atlases can only be accessed if you're logged in, or via a URL "
-"provided to you in the final step."
+"Private atlases aren't listed on Field Papers, but anyone with the link can "
+"open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
-"A privát atlaszok csak akkor érhetők el ha be vagy lépve vagy ha megadod a "
-"legutolsó lépésben kapott URL-t."
 
 msgid "Refresh"
 msgstr "Frissítés"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Szabályok"
@@ -453,24 +460,20 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Fordítások"
 
-msgid "UPLOAD"
-msgstr "TÖLTS FÖL"
-
-msgid "UTM Grid"
-msgstr "UTM-rács"
-
 msgid ""
 "Unfortunately, your atlas failed to render. It's possible that it was an "
 "intermittent error, in which case you should try re-creating the atlas. If "
-"the problem persists, please %{open_issue} or email %{email_url} with "
-"details."
+"the problem persists, please %{open_issue} with details."
 msgstr ""
 
 msgid ""
 "Unfortunately, your snapshot for image %{image_filename} failed to be "
 "processed. It's possible that it was an intermittent error, in which case "
 "you should try re-uploading. If the problem persists, please %{open_issue} "
-"or email %{email_url} with details."
+"with details."
+msgstr ""
+
+msgid "Unprocessed snapshot"
 msgstr ""
 
 msgid "Upload"
@@ -479,26 +482,29 @@ msgstr "Feltöltés"
 msgid "Upload Failed"
 msgstr "A feltöltés nem sikerült"
 
+msgid "Upload a snapshot"
+msgstr ""
+
 msgid "Uploading"
 msgstr "Feltöltés"
-
-msgid "WATCH"
-msgstr "NÉZD MEG"
 
 msgid "Welcome to Field Papers"
 msgstr "Isten hozott a Field Papersen"
 
-msgid "Your Atlases"
-msgstr "Atlaszaid"
+msgid "Welcome, %{username}"
+msgstr ""
 
-msgid "Your Snapshots"
-msgstr "Pillanatképeid"
+msgid "Your atlases"
+msgstr ""
 
-msgid "an atlas to print"
-msgstr "nyomtatható atlaszt"
+msgid "Your snapshots"
+msgstr ""
 
 msgid "anonymous"
 msgstr "névtelen"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -509,20 +515,11 @@ msgstr "projektje"
 msgid "open a GitHub issue"
 msgstr "issue (probléma) nyitása a GitHubon"
 
-msgid "or create an account"
-msgstr "vagy hozz létre fiókot"
-
-msgid "pages you've marked"
-msgstr "általad megjelölt oldalakat"
-
 msgid "private"
 msgstr "privát"
 
-msgid "recent activity"
-msgstr "a legutóbbi tevékenységeket"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "a(z) %{tp} oldal pillanatképe"
-
-msgid "with advanced tools"
-msgstr "speciális eszközökkel"
