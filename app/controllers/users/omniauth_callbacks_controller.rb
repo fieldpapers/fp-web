@@ -9,23 +9,28 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user = User.find_by(osm_id: osm_id)
     legacy = current_user if current_user && current_user.osm_id.nil?
 
-    if user && legacy
-      # two user entries exist (one for the OSM identity and another for the
-      # legacy user) so merge them together
-      user.absorb!(legacy)
-      user.update!(username: name)
-      log_auth("merge", from_user_id: legacy.id, user_id: user.id)
+    if legacy
+      # the user logged in with their password to a legacy account
+      if user
+        # ... and another account already exists for the OSM account they
+        # just proved that they own, so find it and merge the two together
+        user.absorb!(legacy)
+        user.update!(username: name)
+        log_auth("merge", from_user_id: legacy.id, user_id: user.id)
+        notice = _("Your old account %{username} has been merged into this one.") % { username: legacy.username }
+      else
+        # ... and no account for the OSM user exists yet, so create one
+        # and then merge this legacy user into it
+        user = User.create!(osm_id: osm_id, username: name)
+        user.absorb!(legacy)
+        log_auth("link", from_user_id: legacy.id, user_id: user.id, osm_id: osm_id)
+        notice = _("Your Field Papers account is now connected to OpenStreetMap.")
+      end
       sign_in user
-      redirect_to account_path, notice: _("Your old account %{username} has been merged into this one.") % { username: legacy.username }
+      redirect_to account_path, notice: notice
     elsif user
       user.update!(username: name)
       sign_in_and_redirect user
-    elsif legacy
-      # the user was already logged in with username and password before the
-      # OSM OAuth flow; link their account to their OSM identity
-      legacy.update!(osm_id: osm_id, username: name)
-      log_auth("link", user_id: legacy.id, osm_id: osm_id)
-      redirect_to account_path, notice: _("Your Field Papers account is now connected to OpenStreetMap.")
     elsif current_user
       redirect_to account_path, alert: _("Your Field Papers account is already connected to a different OpenStreetMap account.")
     else

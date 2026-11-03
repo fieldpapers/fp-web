@@ -66,16 +66,33 @@ class OsmLoginTest < ActionDispatch::IntegrationTest
     assert_equal b, signed_in_user
   end
 
-  test "connecting OSM while logged in with a password links the account" do
-    user = create_user("legacy")
+  test "connecting OSM while logged in with a password moves the account to OSM" do
+    legacy = create_user("legacy")
+    legacy.update_column(:created_at, 10.years.ago)
+    atlas = create_atlas(rows: 1, cols: 1, creator: legacy)
+    atlas.update_column(:private, true)
     password_login("legacy")
 
     osm_login(42, "Mapper")
 
     assert_redirected_to account_path
-    assert_equal 42, user.reload.osm_id
+    user = User.find_by!(osm_id: 42)
     assert_equal "Mapper", user.username
+    assert_in_delta legacy.created_at, user.created_at, 1
+    assert_equal user.id, Atlas.unscoped.find(atlas.id).user_id
+    assert_not User.exists?(legacy.id)
     assert_equal user, signed_in_user
+  end
+
+  test "a connected account's old email can't be used to reset a password" do
+    create_user("legacy")
+    password_login("legacy")
+    osm_login(42, "Mapper")
+    delete destroy_user_session_path
+
+    assert_no_emails do
+      post user_password_path, params: { user: { email: "legacy@example.com" } }
+    end
   end
 
   test "an OSM-connected account can't be connected to another OSM account" do
