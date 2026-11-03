@@ -5,14 +5,25 @@
 
   <p>
     <% username = content_tag(:b, current_user.username) %>
-    <% if current_user.email.present? %>
-      <%= _("Logged in as %{username} (%{email})") % { username: username, email: current_user.email } %><br>
+    <% if current_user.osm_id %>
+      <%= _("Logged in as %{username} with OpenStreetMap") % { username: username } %>
+      (<%= link_to _("profile"), "#{FieldPapers::OSM_BASE_URL}/user/#{ERB::Util.url_encode(current_user.username)}" %>)<br>
+    <% elsif current_user.email.present? %>
+      <%= _("Logged in as %{username} (%{email}) with a Field Papers password") % { username: username, email: current_user.email } %><br>
     <% else %>
-      <%= _("Logged in as %{username}") % { username: username } %><br>
+      <%= _("Logged in as %{username} with a Field Papers password") % { username: username } %><br>
     <% end %>
     <% created = current_user.created_at.utc.iso8601 %>
-    <%= _("Field Papers account, created %{time}") % { time: content_tag(:time, _("%{time_period} ago") % { time_period: time_ago_in_words(current_user.created_at) }, datetime: created, title: created) } %>
+    <%= _("Your Field Papers account was created %{time}") % { time: content_tag(:time, _("%{time_period} ago") % { time_period: time_ago_in_words(current_user.created_at) }, datetime: created, title: created) } %>
   </p>
+  <% if current_user.osm_id %>
+    <p class="form-help"><%= _("Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in.") %></p>
+  <% end %>
+
+  <% unless current_user.osm_id %>
+    <p><%= _("You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access.") % { date: l(FieldPapers::PASSWORD_LOGIN_END, format: :long) } %></p>
+    <%= button_to _("Connect your OpenStreetMap account"), user_osm_omniauth_authorize_path %>
+  <% end %>
 
   <h4><%= _("Your content") %></h4>
   <% if @atlas_count == 0 && @snapshot_count == 0 %>
@@ -24,6 +35,21 @@
       <%= _("You have %{atlases} and %{snapshots}.") % { atlases: atlases, snapshots: snapshots } %>
       <%= link_to _("View them on your dashboard"), root_path %>
     </p>
+  <% end %>
+
+  <% if current_user.osm_id %>
+    <h4><%= _("Merge an old Field Papers account") %></h4>
+    <p><%= _("Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}.") % { date: l(FieldPapers::PASSWORD_LOGIN_END, format: :long) } %></p>
+    <%= form_tag merge_account_path do %>
+      <%= label_tag :login, _("Username or email") %>
+      <%= text_field_tag :login, nil, required: true %>
+
+      <%= label_tag :password, _("Password") %>
+      <%= password_field_tag :password, nil, required: true, autocomplete: "off" %>
+
+      <%= submit_tag _("Merge account") %>
+    <% end %>
+    <p class="form-help"><%= _("Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account.") %></p>
   <% end %>
 
   <hr>

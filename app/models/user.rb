@@ -70,6 +70,17 @@ class User < ActiveRecord::Base
     osm_id.nil? && super
   end
 
+  # Whether password is this legacy account's password, which may be bcrypt
+  # or (pre-2015) unsalted SHA1. Password login upgrades SHA1 hashes (see
+  # Devise::Strategies::Legacy); this doesn't.
+  def legacy_password_valid?(password)
+    if legacy_password.present?
+      legacy_password == Digest::SHA1.hexdigest(password)
+    else
+      valid_password?(password)
+    end
+  end
+
   # Moves other's atlases and snapshots to this user and deletes other.
   def absorb!(other)
     transaction do

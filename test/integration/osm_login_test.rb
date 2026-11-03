@@ -29,7 +29,7 @@ class OsmLoginTest < ActionDispatch::IntegrationTest
   test "new OSM user gets an account right away" do
     osm_login(42, "Mapper")
 
-    assert_redirected_to root_path
+    assert_redirected_to account_path
     user = User.find_by!(osm_id: 42)
     assert_equal "Mapper", user.username
     assert_nil user.email

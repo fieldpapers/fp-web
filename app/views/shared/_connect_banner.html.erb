@@ -1,0 +1,4 @@
+<div class="banner">
+  <p><%= _("Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account.") % { date: l(FieldPapers::PASSWORD_LOGIN_END, format: :long) } %></p>
+  <%= button_to _("Connect your OpenStreetMap account"), user_osm_omniauth_authorize_path %>
+</div>

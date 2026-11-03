@@ -22,6 +22,9 @@
 <% if alert %>
 <div class="flash alert" role="alert"><%= alert %></div>
 <% end %>
+<% if user_signed_in? && current_user.osm_id.nil? && controller_name != "accounts" %>
+<%= render partial: "shared/connect_banner" %>
+<% end %>
 
 <%= yield %>
 
