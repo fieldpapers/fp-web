@@ -1,20 +1,63 @@
 module ApplicationHelper
+  LOCALE_NAMES = {
+    ar: "اَلْعَرَبِيَّةُ",
+    cs: "Čeština",
+    da: "Dansk",
+    de: "Deutsch",
+    en: "English",
+    es: "Español",
+    fr: "Français",
+    hu: "Magyar nyelv",
+    id: "Bahasa Indonesia",
+    it: "Italiano",
+    ja: "日本語",
+    ku: "کوردی",
+    nl: "Nederlands",
+    pl: "Polski",
+    pt: "Português",
+    ru: "ру́сский",
+    sw: "Kiswahili",
+    tl: "Tagalog",
+    uk: "Українська",
+    vi: "tiếng Việt",
+    zh_CN: "普通话",
+    zh_TW: "國語",
+  }
+
+  # A small label for a record's state: :private, :failed or :processing.
+  def badge(kind)
+    label = { private: _("private"), failed: _("failed"), processing: _("processing") }.fetch(kind)
+    tag.span(label, class: "badge #{kind}")
+  end
+
+  # Badges for a processable (Atlas or Snapshot) record's visibility and
+  # status. Nothing is shown for a public, complete record.
+  def status_badges(record, private: record.private?)
+    safe_join([
+      (badge(:private) if private),
+      (badge(:failed) if record.failed?),
+      (badge(:processing) if record.incomplete?),
+    ].compact)
+  end
+
+  # Inlines an SVG from app/assets/images/icons, so that it takes on the
+  # surrounding text color and font size.
+  def icon(name, extra_class = nil)
+    svg = Rails.root.join("app/assets/images/icons/#{name}.svg").read[/<svg.*/m]
+    svg.sub("<svg", %(<svg class="#{["icon", extra_class].compact.join(" ")}" aria-hidden="true")).html_safe
+  end
 
   # Used to set the active navbar item
   def current_nav_target
-    target = ""
     if controller_name == "compose"
-      target = "compose"
-    elsif controller_name == 'snapshots' && action_name == 'new'
-      target = 'upload'
-    elsif ["snapshots", "atlases"].include? controller_name
-      target = 'watch'
-    elsif controller_name == 'home' && action_name == 'advanced'
-      target = 'extend'
-    elsif ["sessions","registrations","confirmations"].include? controller_name
-      target = 'sessions'
+      "make"
+    elsif controller_name == "snapshots" && action_name == "new"
+      "upload"
+    elsif ["atlases", "pages", "snapshots"].include? controller_name
+      "browse"
+    elsif devise_controller?
+      "account"
     end
-    return target
   end
 
   def id_link(zoom, lon, lat, slug = nil)

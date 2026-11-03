@@ -1,18 +1,18 @@
 <% content_for :title, _("Atlas page - Field Papers") %>
 
 <% if !defined? @page.atlas.id %>
-  <p class="alert">No atlas</p>
+  <p class="empty-state"><%= _("No atlas") %></p>
 <% elsif @atlas.incomplete? %>
   <%= render partial: "atlases/atlas_incomplete", locals: {atlas: @page.atlas} %>
 <% elsif @atlas.failed?%>
   <%= render partial: "atlases/atlas_failed", locals: {atlas: @page.atlas} %>
 <% else %>
-  <div class="row pad-bottom">
-      <div id="locator-map" class="twelve columns"></div>
-      <div class="twelve columns relative">
+  <div class="pad-bottom">
+      <div id="locator-map"></div>
+      <div class="relative">
 
         <div class="map-overlay top-left stacked">
-          <h5 class="overlay-item"> <%= _("From") %> <%= link_to @page.atlas.title, atlas_path(@page.atlas) %><% if @page.atlas.private? %><span class="private"><%= _("private") %></span><% end %></h5>
+          <h5 class="overlay-item"> <%= _("From") %> <%= link_to @page.atlas.title, atlas_path(@page.atlas) %><%= badge(:private) if @page.atlas.private? %></h5>
           <p class="overlay-item page-number"><%=h @page.page_number %></p>
         </div>
 
@@ -41,9 +41,7 @@
       </div>
   </div>
 
-  <div class="row">
-    <%= render partial: "atlases/atlas_activity", locals: {atlas: @page.atlas} %>
-  </div>
+  <%= render partial: "atlases/atlas_activity", locals: {atlas: @page.atlas} %>
 
 
   <% content_for :foot do %>

@@ -1,28 +1,33 @@
 services:
   db:
-    image: mysql:latest
+    image: postgres:18
     environment:
-      - MYSQL_ROOT_PASSWORD=fp
-      - MYSQL_DATABASE=fieldpapers_development
-      - MYSQL_USER=fieldpapers
-      - MYSQL_PASSWORD=fieldpapers
+      - POSTGRES_DB=fieldpapers_development
+      - POSTGRES_USER=fieldpapers
+      - POSTGRES_PASSWORD=hunter2
     ports:
-      - 3306:3306
+      - 5432:5432
   web:
-    build: .
-    env_file: .env
+    build:
+      context: .
+      target: development
+    env_file:
+      - path: .env
+        required: false
     environment:
       - RAILS_ENV=development
       - RAILS_DEVELOPMENT_HOSTS=web
-      - DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_development
-      - TEST_DATABASE_URL=mysql2://fieldpapers:fieldpapers@db/fieldpapers_test
+      - PGHOST=db
+      - PGUSER=fieldpapers
+      - PGPASSWORD=hunter2
       - BASE_URL=http://web:3000
-      # needs to be publicly addressable
-      - TILE_BASE_URL=http://tiler:8080
+      - PERSIST=local
+      - DISABLE_LOGIN_CONFIRMATIONS=true
+      # local snapshot tiles won't render (fp-tiler v2 is Lambda-only, see below), but this
+      # needs to be a real, publicly reachable tile server for map display to work at all
+      - TILE_BASE_URL=https://tiles.fieldpapers.org
       - TASK_BASE_URL=http://tasks:8081
     hostname: fieldpapers
-    links:
-      - db
     ports:
       - 3000:3000
     volumes:
@@ -33,22 +38,62 @@ services:
       - ./locale:/app/locale
       - ./public:/app/public
       - ./test:/app/test
+  # Solid Queue worker: runs RenderAtlasJob/ProcessSnapshotJob, which call tasks
+  jobs:
+    build:
+      context: .
+      target: development
+    command: bin/jobs
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - RAILS_ENV=development
+      - PGHOST=db
+      - PGUSER=fieldpapers
+      - PGPASSWORD=hunter2
+      - BASE_URL=http://web:3000
+      - PERSIST=local
+      - TASK_BASE_URL=http://tasks:8081
+    volumes:
+      - ./app:/app/app
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./public:/app/public
   tasks:
-    image: quay.io/fieldpapers/tasks:v0.12.0
-    env_file: .env
+    build:
+      context: ../fp-tasks
+      target: production
+    # The image runs as the "app" user, which cannot write to bind mount
+    # volumes like ./public on the host when run under podman in rootless mode.
+    # As a workaround, set user to root in dev mode.
+    user: root
+    env_file:
+      - path: .env
+        required: false
     environment:
       # this will cause generated URLs in the PDFs to look suspicious, but it will work
       - API_BASE_URL=http://web:3000/
-      - NODE_ENV=production
       - PORT=8081
+      - PERSIST=local
+      - STATIC_PATH=/data
+      - STATIC_URI_PREFIX=http://web:3000
     ports:
       - 8081:8081
-  tiler:
-    image: quay.io/fieldpapers/tiler:v0.2.0
-    env_file: .env
-    environment:
-      - API_BASE_URL=http://web:3000/
-      - NODE_ENV=production
-      - PORT=8080
-    ports:
-      - 8080:8080
+    volumes:
+      # rendered PDFs land in fp-web's public dir, served by the Rails app itself
+      - ./public:/data
+  # fp-tiler v2 is Lambda-only (no HTTP server mode), so it cannot run as a
+  # compose service. Map tiles are pointed at the production tile server
+  # (TILE_BASE_URL above) instead; locally-created snapshot tiles will not
+  # render, which is a known limitation of this dev setup.
+  # tiler:
+  #   image: quay.io/fieldpapers/tiler:v0.2.0
+  #   env_file: .env
+  #   environment:
+  #     - API_BASE_URL=http://web:3000/
+  #     - NODE_ENV=production
+  #     - PORT=8080
+  #   ports:
+  #     - 8080:8080

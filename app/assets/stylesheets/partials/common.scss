@@ -2,50 +2,97 @@
   Site wide styles
 */
 
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-a:visited {
-  color: $link-visited-color;
-  text-decoration: underline;
-}
-
-ul {
-  list-style: disc;
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 #footer {
   margin-top: 60px;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Keeps prose at a readable line length.
+.narrow {
+  max-width: 64rem;
 }
 
 
-// alerts & notices
-.alert, .notice {
-  display: none;
-  padding: 10px;
+// Flash messages (one-off results of an action) and banners (persistent
+// prompts with an action button).
+.flash,
+.banner {
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 3px;
 }
 
-.alert.active , .notice.active { display: block; }
-
-.alert {
-  background-color: #f2dede;
-  border-color: #f2dede;
-  color: #a94442;
+.flash.notice {
+  color: #2b542c;
+  background-color: $success-color;
 }
 
-.notice {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+.flash.alert {
+  color: #843534;
+  background-color: $error-color;
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  color: #245269;
+  background-color: $info-color;
+  border-left: 4px solid #31708f;
+  border-radius: 0 3px 3px 0;
+
+  > * {
+    margin: 0;
+  }
+
+  // Shares a row with the button when there's room for both.
+  p {
+    flex: 1 1 30rem;
+  }
+}
+
+.empty-state {
+  color: #666;
+}
+
+// A small label for a record's state. Some translated strings embed a bare
+// <span class='private'>, so that class alone is styled as a badge too.
+.badge,
+.private {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.6rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: 0.1em;
+  color: #fff;
 }
 
 .private {
-  color: #fff;
-  background-color: #ff3333;
-  padding: 2px 5px;
+  background-color: #555;
+}
+
+.badge.failed {
+  background-color: #a12622;
+}
+
+.badge.processing {
+  color: #555;
+  border-color: currentColor;
 }
 
 // forms
@@ -66,6 +113,7 @@ ul {
 }
 .form-example ul{
   margin-left: 0;
+  padding: 0;
   list-style: none;
   width: 1px;
 }
@@ -112,10 +160,6 @@ ul {
     text-decoration: none;
   }
 
-label > .label-body {
-  vertical-align: middle;
-}
-
 .form-helper {
   font-size: 1.2rem;
   margin-top: -1.2rem;
@@ -128,10 +172,26 @@ label > .label-body {
   list-style: none;
 }
 
-// Options list
-.options-list ul {
-  list-style: disc;
-  margin: 0 0 3rem 3rem;
+// An atlas's activity, with export and editing links beside it.
+.atlas-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+
+  .atlases-activity {
+    flex: 1 1 40rem;
+  }
+}
+
+// A right-aligned list of links, e.g. to edit in OSM editors.
+.options-list {
+  width: fit-content;
+  margin-left: auto;
+  white-space: nowrap;
+
+  ul {
+    margin: 0 0 3rem;
+  }
 }
 
 .options-list .options-list-title {

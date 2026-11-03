@@ -46,7 +46,46 @@
 require 'test_helper'
 
 class SnapshotTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @atlas = create_atlas(rows: 2, cols: 2)
+    @atlas.update_column(:private, true)
+    @page = @atlas.pages.find_by!(page_number: "B2")
+  end
+
+  test "page_for_href finds pages from printed QR codes" do
+    slug = @atlas.slug
+    base = URI.parse(FieldPapers::BASE_URL)
+
+    [
+      "https://fieldpapers.org/atlases/#{slug}/B2?bbox=-122.25,37.7,-122.2,37.75",
+      "http://fieldpapers.org/atlases/#{slug}/B2?bbox=-122.25,37.7,-122.2,37.75",
+      "https://www.fieldpapers.org/atlases/#{slug}/B2",
+      "http://fieldpapers-web.herokuapp.com/atlases/#{slug}/B2?bbox=-122.25,37.7,-122.2,37.75",
+      "#{base.scheme}://#{base.host}:#{base.port}/atlases/#{slug}/B2",
+      "http://fieldpapers.org/atlas.php?id=#{slug}/B2",
+      "http://fieldpapers.org/atlas.php?id=#{slug}%2FB2",
+    ].each do |href|
+      assert_equal @page, Snapshot.page_for_href(href), href
+    end
+
+    assert_equal @atlas.pages.find_by!(page_number: "i"), Snapshot.page_for_href("https://fieldpapers.org/atlases/#{slug}/i")
+  end
+
+  test "page_for_href ignores unknown pages and hosts" do
+    slug = @atlas.slug
+
+    [
+      "https://example.com/atlases/#{slug}/B2",
+      "ftp://fieldpapers.org/atlases/#{slug}/B2",
+      "https://fieldpapers.org/atlases/#{slug}/C9",
+      "https://fieldpapers.org/atlases/nope1234/B2",
+      "https://fieldpapers.org/atlases/#{slug}",
+      "https://fieldpapers.org/",
+      "http://fieldpapers.org/atlas.php?id=#{slug}",
+      "not a url",
+      "",
+    ].each do |href|
+      assert_nil Snapshot.page_for_href(href), href
+    end
+  end
 end

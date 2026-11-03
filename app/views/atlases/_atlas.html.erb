@@ -1,4 +1,4 @@
-<li class="map-card four columns">
+<li class="map-card">
   <a href="<%= atlas_path(atlas) %>" class="map-card-preview static-map">
     <%= map(
       :container_id => "static-map-#{atlas.slug}",
@@ -28,16 +28,15 @@
 
 
   <div class="no-wrap">
-    <span class="atlas-status <% if atlas.failed? %>failed<% elsif atlas.incomplete? %>incomplete<% end %>"></span>
     <%= link_to atlas.title, atlas_path(atlas), {:class => "map-card-title embolden"} %><br>
     <span class="map-card-creator small">
-      <%= link_to atlas.creator_name, atlases_path(username: atlas.creator.username) if atlas.creator %>
-      <%= _("anonymous") unless atlas.creator %>
-    </span><% if atlas.private? %><span class="private"><%= _("private") %></span><% end %>
+      <%= atlas.creator ? atlas.creator.username : _("anonymous") %>
+    </span><%= status_badges(atlas) %>
   </div>
 
   <div>
-    <span class="map-card-pages small"><%= n_("%{count} page", "%{count} pages", atlas.atlas_pages) % {count: number_with_delimiter(atlas.atlas_pages)} %>,</span>
-    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(params.permit(:date, :month, :place, :user, :username).slice(:date, :month, :place, :user, :username).merge(month: atlas.created_at.strftime("%Y-%m"))) %></span>
+    <% page_count = page_counts.fetch(atlas.id, 0) %>
+    <span class="map-card-pages small"><%= n_("%{count} page", "%{count} pages", page_count) % {count: number_with_delimiter(page_count)} %>,</span>
+    <span class="map-card-created small"><%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(params.permit(:date, :month, :place).slice(:date, :month, :place).merge(month: atlas.created_at.strftime("%Y-%m"))) %></span>
   </div>
 </li>

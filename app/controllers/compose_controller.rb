@@ -1,4 +1,3 @@
-require "geocoder"
 require "providers"
 require "json"
 require "geo"
@@ -6,8 +5,6 @@ require "csv"
 
 class ComposeController < ApplicationController
   @@cities = nil
-
-  layout "big_map"
 
   # allow existing forms (w/o CSRF projection) to create canned atlases
   skip_before_action :verify_authenticity_token, only: :create
@@ -56,7 +53,7 @@ class ComposeController < ApplicationController
 
     if @atlas.valid?
       @atlas.save!
-      @atlas.render!
+      RenderAtlasJob.perform_later(@atlas.id)
       return redirect_to atlas_path(@atlas)
     end
 
@@ -71,7 +68,7 @@ class ComposeController < ApplicationController
 
     if @atlas.valid?
       @atlas.save!
-      @atlas.render!
+      RenderAtlasJob.perform_later(@atlas.id)
       return redirect_to atlas_path(@atlas)
     end
 

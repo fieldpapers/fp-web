@@ -45,9 +45,6 @@ msgstr ""
 msgid "&copy; OpenStreetMap contributors"
 msgstr ""
 
-msgid "@fieldpapers on Twitter"
-msgstr ""
-
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr ""
 
@@ -57,19 +54,19 @@ msgstr ""
 msgid "About the Project"
 msgstr ""
 
+msgid "Account"
+msgstr ""
+
 msgid "Activity"
 msgstr ""
 
-msgid "Add-ons"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
 msgstr ""
 
 msgid "Advanced - Field Papers"
-msgstr ""
-
-msgid "All Atlases"
-msgstr ""
-
-msgid "All Snapshots"
 msgstr ""
 
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -120,7 +117,7 @@ msgstr ""
 msgid "Bing"
 msgstr ""
 
-msgid "Cancel"
+msgid "Browse"
 msgstr ""
 
 msgid "Capture your notes"
@@ -132,9 +129,6 @@ msgstr ""
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr ""
 
-msgid "Click for more information."
-msgstr ""
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -142,6 +136,9 @@ msgid "Copy this atlas"
 msgstr ""
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
+msgstr ""
+
+msgid "Dashboard - Field Papers"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -154,9 +151,6 @@ msgid "Download GeoTIFF"
 msgstr ""
 
 msgid "Download PDF"
-msgstr ""
-
-msgid "EXTEND"
 msgstr ""
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
@@ -204,7 +198,10 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
 msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
@@ -222,25 +219,31 @@ msgstr ""
 msgid "Keep atlas private"
 msgstr ""
 
-msgid "LOG IN"
+msgid "Language"
 msgstr ""
 
-msgid "LOG OUT"
-msgstr ""
-
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
 msgid "Location and zoom"
 msgstr ""
 
-msgid "MAKE"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
 msgstr ""
 
 msgid "Make - Field Papers"
 msgstr ""
 
 msgid "Make Atlas"
+msgstr ""
+
+msgid "Make an atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -268,6 +271,9 @@ msgid "Mapbox"
 msgstr ""
 
 msgid "Menu"
+msgstr ""
+
+msgid "No atlas"
 msgstr ""
 
 msgid "No atlases."
@@ -303,10 +309,16 @@ msgstr ""
 msgid "Print out anywhere in the world."
 msgstr ""
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
 
 msgid "Refresh"
+msgstr ""
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
 msgstr ""
 
 msgid "Rules"
@@ -366,16 +378,13 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-msgid "UPLOAD"
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
-msgid "UTM Grid"
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
-msgstr ""
-
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unprocessed snapshot"
 msgstr ""
 
 msgid "Upload"
@@ -384,25 +393,28 @@ msgstr ""
 msgid "Upload Failed"
 msgstr ""
 
-msgid "Uploading"
+msgid "Upload a snapshot"
 msgstr ""
 
-msgid "WATCH"
+msgid "Uploading"
 msgstr ""
 
 msgid "Welcome to Field Papers"
 msgstr ""
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
 msgstr ""
 
-msgid "Your Snapshots"
+msgid "Your atlases"
 msgstr ""
 
-msgid "an atlas to print"
+msgid "Your snapshots"
 msgstr ""
 
 msgid "anonymous"
+msgstr ""
+
+msgid "failed"
 msgstr ""
 
 msgid "iD"
@@ -414,20 +426,11 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr ""
-
-msgid "pages you've marked"
-msgstr ""
-
 msgid "private"
 msgstr ""
 
-msgid "recent activity"
+msgid "processing"
 msgstr ""
 
 msgid "snapshot of page %{tp}"
-msgstr ""
-
-msgid "with advanced tools"
 msgstr ""

@@ -1,471 +1,108 @@
-# Field Papers
+# Field Papers (fp-web)
 
-## Quick links
-- [🔗 fieldpapers.org](https://fieldpapers.org)
-- [📋 Project overview](https://github.com/fieldpapers)
-- [🐞 Issues and bug reports](https://github.com/fieldpapers/fieldpapers/issues)
-- [🌐 Translations](https://explore.transifex.com/fieldpapers/fieldpapers/)
-- [🤝 Code of Conduct](https://wiki.openstreetmap.org/wiki/Foundation/Local_Chapters/United_States/Code_of_Conduct_Committee/OSM_US_Code_of_Conduct)
+This is the web application behind [fieldpapers.org](https://fieldpapers.org), a pen-and-paper workflow for mapping with OpenStreetMap. Users can print out a paper atlas, mark it up in the field, and the scan or photograph it and upload the result, which will be automatically georeferenced so it can be used as a basemap to trace from or reference in OpenStreetMap editing software like iD or JOSM.
 
-## Development
+See the [Field Papers organization page](https://github.com/fieldpapers) for more about the project and useful links for reporting a bug, asking for help, or ways to get involved.
 
-### Setting environment variables
+## Overview
 
-The following is required to run Field Papers, whether locally or via Docker / `docker-compose`:
+fp-web is a Ruby on Rails app. It lets users create _atlases_ (printable maps) and upload _snapshots_ (scans or photos of their printouts with handwritten annotations on them), and handles other details like login.Rendering PDF maps and georeferencing uploaded images are delegated to other services:
 
-```bash
-cp sample.env .env
-# provide some AWS credentials, etc.
-open -t .env
-```
+- [fp-tasks](https://github.com/fieldpapers/fp-tasks) renders atlas pages to PDF, merges them, and georeferences uploaded snapshots.
+- [fp-tiler](https://github.com/fieldpapers/fp-tiler) serves map tiles created from those georeferenced uploads.
 
-In the opened text editor, add variables per [Environment Variables](https://github.com/fieldpapers/fp-web#environment-variables). Contact another Field Papers contributor for any required values not present in `sample.env`.
+When an atlas or snapshot needs processing, fp-web enqueues a background job ([Solid Queue](https://github.com/rails/solid_queue), stored in the same Postgres database). The job calls fp-tasks, which does the work synchronously and responds with the URL of the result, and retries if fp-tasks fails or times out. Atlases and snapshots still unfinished after two hours are marked as failed.
 
-### Using docker-compose
+For development setup, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-[compose](https://docs.docker.com/compose/) is
-a [Docker](https://www.docker.com/)-based tool for orchestrating development
-environments. Rather than using `foreman` to manage multiple processes locally,
-`compose` runs each component process in a separate container, built up from
-local `Dockerfile`s or from remote repositories.
+## Running an Instance
 
-#### Prerequisites
+[fieldpapers.org](https://fieldpapers.org/) is the only public deployment, but the application can be run independently. An instance requires:
 
-* A working instance of [Docker](https://www.docker.com/), via
-  [boot2docker](https://boot2docker.io/), [docker
-  machine](https://docs.docker.com/machine/), or another mechanism
-* mDNS, built-in on OS X, via `libnss-mdns` on Linux or [Bonjour Print Services
-  fpr Windows](https://support.apple.com/kb/DL999?locale=en_US)
-* [Docker compose](https://docs.docker.com/compose/)
+- Postgres (fieldpapers.org runs version 18)
+- An [fp-tasks](https://github.com/fieldpapers/fp-tasks) instance, reachable from the job worker
+- An [fp-tiler](https://github.com/fieldpapers/fp-tiler) deployment, for displaying snapshots on the map
+- File storage for uploaded snapshots: either an S3 bucket, or local disk served over HTTP
+- AWS SES, for account confirmation and password reset emails
 
-#### Starting
+### Container Image
 
-This will fetch and build images as appropriate, logging `STDOUT` from all containers.
+fp-web is published as a container image at `ghcr.io/fieldpapers/fp-web`; new image versions are published automatically on each commit to `main`, and you can pin a specific image by its commit hash or version number. Running the application from this container is the easiest way to deploy, since the image includes a compatible version of Ruby and all of the necessary gems.
+
+### Database setup
+
+To initialize an empty database, run:
 
 ```bash
-docker-compose build
+bin/rails db:schema:load
 ```
 
-If this is the first time you're running this, you'll need to load the schema into MySQL:
+When upgrading to a newer image, apply any new migrations. Migrations are not run automatically on startup.
 
 ```bash
-docker-compose run web rake db:schema:load
+bin/rails db:migrate
 ```
 
-If you have pending migrations, run:
+Both commands can be run in a one-off container from the same image, with the same environment variables as the web server.
 
-```bash
-docker-compose run web rake db:migrate
-```
+### Job worker
 
-To start the stack, logging `STDOUT` from all containers:
+Background jobs (rendering atlases, processing snapshots, and periodic cleanup) run in a separate process from the web server. Run `bin/jobs` from the same image, with the same environment variables as the web server.
 
-```bash
-docker-compose up
-```
+## Configuration
 
-The app will now be running on port 3000 on the Docker host. If you're lucky, it will be available
-at [`docker.local:3000`](https://docker.local:3000), otherwise you'll need to determine the IP of
-your Docker host (`localhost` on Linux) and use that in place of `docker.local`.
+All configuration is read from environment variables. Most have defaults suited to fieldpapers.org, which other deployments must override.
 
-If `docker.local` doesn't work, you'll need to update `docker-compose.yml` to set `TILE_BASE_URL`
-(in the `environment` section of `web`) to reflect your Docker host's IP. In my case, it's
-`192.168.64.6`. You should be able to determine appropriate values using:
+Two variables are required in production:
 
-```bash
-docker-compose port web 8080
-```
+- `SECRET_KEY_BASE`: secret used to sign sessions and cookies. Generate one with `bin/rails secret`.
+- `DATABASE_URL`: Postgres connection URL, e.g. `postgres://user:password@host:5432/fieldpapers`. If set, it overrides `config/database.yml` for whichever environment is running, including `test`, so only production should set it.
 
-Note, adding system dependencies to the `Dockerfile` requires you to
-`docker-compose build` in order to recreate the base `web` image.
-If you've just made changes to `Gemfile`, run `docker-compose run web bundle`.
+The following variables configure where the application and its sibling services are reachable:
 
+- `BASE_URL`: public URL of this application, used in generated links (default `https://fieldpapers.org`). QR codes on printed atlases pointing to this host (or to `fieldpapers.org`) are recognized when snapshots are processed.
+- `URL_HOST`: host name used for links in emails, in production only (default `fieldpapers.org`)
+- `TASK_BASE_URL`: base URL of the fp-tasks service (default `https://tasks.fieldpapers.org`)
+- `TILE_BASE_URL`: base URL of the fp-tiler service (default `https://tiles.fieldpapers.org`)
+- `OSM_BASE_URL`: OpenStreetMap instance used for "edit in OSM" links (default `https://www.openstreetmap.org`)
 
-Some helpful `docker` and `docker-compose` commands to know:
+Uploaded snapshots are stored either in S3 or on local disk. The AWS credentials are also used for sending email through SES.
 
-0. To get a list of docker images ( and versions ) that the containers are running:
+- `PERSIST`: where to store uploaded snapshots, `s3` or `local` (default `s3`)
+- `S3_BUCKET_NAME`: S3 bucket for file storage (default `files.fieldpapers.org`)
+- `AWS_REGION`: AWS region for S3 and SES (default `us-east-1`)
+- `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`: AWS credentials with access to the S3 bucket and SES
+- `STATIC_PATH`: directory that locally persisted files are written to (default `./public`)
+- `STATIC_URI_PREFIX`: URL prefix under which locally persisted files are served (default the value of `BASE_URL`)
 
-    ```bash
-    $ docker images
-    REPOSITORY                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-    fpweb_web                   latest              e2cafa474299        58 minutes ago      940.4 MB
-    quay.io/fieldpapers/tiler   v0.2.0              b2683b4d606d        3 days ago          855.9 MB
-    mysql                       latest              c607d9b50dfa        13 days ago         374.1 MB
-    ruby                        2.2.4               9168c99105ac        2 weeks ago         719.3 MB
-    quay.io/fieldpapers/tasks   v0.10.2             f637d9257755        8 weeks ago         843 MB
-    ```
+Account confirmation and password reset emails are configured with:
 
-0. To see a list of the containers and their state that are running under `docker-compose`:
+- `MAIL_ORIGIN`: from address for account emails (default `help@fieldpapers.org`)
+- `MAIL_SOURCE_ARN`: SES source identity ARN, sent with each message if set
+- `DISABLE_LOGIN_CONFIRMATIONS`: if `true`, new accounts are usable immediately and no confirmation email is sent (default `false`)
 
-    ```bash
-    $ docker-compose ps
-        Name                   Command               State                       Ports
-    -------------------------------------------------------------------------------------------------------
-    fpweb_db_1      docker-entrypoint.sh mysqld      Up      3306/tcp
-    fpweb_tasks_1   /bin/sh -c npm start             Up
-    fpweb_tiler_1   /bin/sh -c npm start             Up
-    fpweb_web_1     /bin/sh -c rm -f tmp/pids/ ...   Up      0.0.0.0:3000->3000/tcp, 0.0.0.0:8080->8080/tcp
-    ```
+The web server is configured with:
 
+- `PORT`: port Puma listens on (default `3000`)
+- `WEB_CONCURRENCY`: number of Puma worker processes (default `2`)
+- `MAX_THREADS`: threads per worker, and the size of each worker's database connection pool (default `5`)
+- `RAILS_SERVE_STATIC_FILES`: if set to any value, Rails serves precompiled assets and locally persisted files from `public/`; required unless a reverse proxy serves them
+- `RAILS_LOG_TO_STDOUT`: if set to any value, logs go to standard output instead of `log/production.log`
+- `RAILS_LOG_LEVEL`: log level in production (default `info`)
 
-### Running Locally
+The job worker is configured with:
 
-Given the potential complexity of the above, or the need to make changes to the
-peripheral services, it may make more sense to run the application locally (you
-can still use `docker-compose` to run supplementary services like MySQL, etc.).
-If not using `docker-compose`, be sure MySQL is installed (`$``brew install mysql`
-if not) and running (`$``mysql.server start` if not).
+- `JOB_THREADS`: number of jobs run concurrently, which bounds the number of concurrent requests to fp-tasks (default `3`); must be at most `MAX_THREADS` minus 2, since the worker also needs database connections of its own
 
-On OS X, you'll want to use `rbenv` (and `ruby-build`) in order to isolate the
-version of Ruby used here (and to prevent it from conflicting with other
-projects). `bundler` is similarly used to localize gem dependencies.
+Miscellaneous other settings:
 
-[`direnv`](https://github.com/zimbatm/direnv) is a handy way to set
-project-specific environment variables (such as `PATH` or `DATABASE_URL`).
-A default `.envrc` has been provided that adds `bin/` to your `PATH`
-(`$(pwd)/bin`, technically, to prevent abuse) so that bundler binstubs can be
-used. It's opt-in, so you'll need to enable it with `direnv allow .`.
+- `DEFAULT_CENTER`: initial map view for atlas composition, as `<zoom>/<latitude>/<longitude>`
+- `ATLAS_COMPLETE_WEBHOOKS`: comma-separated URLs; when an atlas finishes rendering, its JSON representation is `POST`ed to each
+- `ATLAS_INDEX_HEADER_TILELAYER`: tile URL template for the map at the top of the atlas list (default `https://tile.openstreetmap.org/{Z}/{X}/{Y}.png`)
+- `ANALYTICS_HEAD_FILE`: path to an HTML file (e.g. an analytics snippet) injected into the `<head>` of every page; read once at startup, and ignored if the file does not exist (default `/etc/fieldpapers/analytics.html`)
+- `ANALYTICS_HEAD_HTML`: inline alternative to `ANALYTICS_HEAD_FILE`, used only if that file does not exist
 
-Ghostscript is used to merge atlas pages together into a single PDF, so you'll
-need that (and `boot2docker` generate individual pages) to generate atlases.
+## License
 
-#### OS X
+This code is available under the ISC license; see the [LICENSE](./LICENSE) file for details.
 
-```bash
-brew install rbenv ruby-build direnv ghostscript boot2docker
-
-boot2docker init         # create the Docker host if necessary
-boot2docker up           # start the Docker host
-$(boot2docker shellinit) # set the necessary Docker environment vars
-
-eval "$(rbenv init -)"     # initialize rbenv
-eval "$(direnv hook bash)" # initialize direnv
-rbenv install $(< .ruby-version) # install the desired ruby version
-
-gem install bundler        # install bundler using rbenv-installed ruby
-
-xcode-select --install     # install Xcode command line utilities
-
-# on 10.11, openssl headers aren't easily findable
-bundle config build.eventmachine --with-opt-dir=/usr/local/opt/openssl
-
-bundle install -j4 --path vendor/bundle # install dependencies
-
-direnv allow .             # whitelist the local .envrc
-
-echo $DATABASE_URL         # ensure that your environment is prepared
-
-rake db:create             # create a database if one doesn't already exist
-rake db:schema:load        # initialize your database
-
-rails server -b 0.0.0.0 # start the app, listening on all interfaces
-```
-
-#### Ubuntu
-
-[Install Docker](https://docs.docker.com/installation/ubuntulinux/).
-
-```bash
-sudo apt-get install ghostscript git-core curl zlib1g-dev \
-  build-essential libssl-dev libreadline-dev libyaml-dev \
-  libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev \
-  python-software-properties libffi-dev
-
-# install rbenv + ruby-build
-git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
-
-eval "$(direnv hook bash)" # initialize direnv
-rbenv install $(< .ruby-version) # install the desired ruby version
-
-gem install bundler        # install bundler using rbenv-installed ruby
-
-bundle install -j4 --path vendor/bundle # install dependencies
-
-cp sample.env .env
-sensible-editor .env
-
-bundle exec foreman run echo $DATABASE_URL # ensure that your environment is prepared
-
-rake db:create             # create a database if one doesn't already exist
-rake db:schema:load        # initialize your database
-
-bundle exec foreman run rails server -b 0.0.0.0 # start the app, listening on all interfaces
-```
-
-The app will now be running on [localhost:3000](https://localhost:3000/) and
-will also be available as `<you>.local` (which is what should be used for
-`BASE_URL`).
-
-You'll probably want to add the following to the end of your `.bash_profile`
-(or equivalent):
-
-```bash
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi`
-eval "$(direnv hook bash)"
-```
-
-If you choose not to use `direnv`, you'll need to ensure that the contents
-of `.env` are exported in your environment.
-
-[foreman](https://github.com/ddollar/foreman) is an alternative, in which
-case you'll prefix all commands with `foreman run <cmd>` in order to expose
-environment variables to them.
-
-Barring that, `export <VAR>=<VAL>` for each pair in each shell instance
-you're using.
-
-When updating, the following should be sufficient to sync your working copy:
-
-```bash
-bundle
-rake db:migrate RAILS_ENV=development
-```
-
-There are probably additional Homebrew dependencies I'm missing because they
-were already installed.
-
-NOTE: If you later decide to use `fig`, you'll need to delete `vendor/bundle`
-first.
-
-### Environment Variables
-
-If using `direnv` or `foreman`, add these to `.env`. Otherwise, ensure that
-they are available to the environment in which Rails is running.
-
-* `DATABASE_URL` - development database URL. Probably similar to
-  `mysql2://root@localhost/fieldpapers_development`
-* `TEST_DATABASE_URL` - test database URL.
-* `RDS_DB_NAME` - production database name.
-* `RDS_HOSTNAME` - production database hostname.
-* `RDS_PASSWORD` - production database password.
-* `RDS_PORT` - production database port.
-* `RDS_USERNAME` - production database username.
-* `MAIL_ORIGIN` - From address to use for automated system emails.
-* `MAIL_SOURCE_ARN` - AWS SES mail source identity. (Associated credentials must
-  be granted access to send from this)
-* `BASE_URL` - Site base URL (Network-accessible, i.e. from a Docker container).
-* `S3_BUCKET_NAME` - S3 bucket for file storage. Required. Some endpoints might be
-  `dev.files.fieldpapers.org` (development), `test.files.fieldpapers.org`
-  (test), and `files.fieldpapers.org` (production).
-* `AWS_ACCESS_KEY_ID` - AWS key with read/write access to the configured S3
-  bucket(s).
-* `AWS_SECRET_ACCESS_KEY` - Corresponding secret.
-* `AWS_REGION` - AWS region to use for services.
-* `BASE_URL` - Base URL, e.g. `https://fieldpapers.org`.
-* `TASK_BASE_URL` - Base URL for the task server (probably an instance of
-  [fp-tasks](https://github.com/fieldpapers/fp-tasks)).
-* `TILE_BASE_URL` - Base URL for the snapshot tiler (probably an instance of
-  [fp-tiler](https://github.com/fieldpapers/fp-tiler)).
-* `SENTRY_DSN` - Sentry DSN for exception logging. Optional.
-* `MAPZEN_SEARCH_KEY` - A Mapzen Search API key, obtained from
-  [mapzen.com/developers](https://mapzen.com/developers).
-* `STATIC_PATH` - Path to write static files to. Must be HTTP-accessible.
-  Defaults to `./public`.
-* `STATIC_URI_PREFIX` - Prefix to apply to static paths (e.g.
-  https://example.org/path) to allow them to resolve. Defaults to `BASE_URL`.
-* `PERSIST` - File persistence. Can be `local` or `s3`. Defaults to `s3`.
-* `DEFAULT_CENTER` - Default center for atlas composition (when a geocoder is
-  unavailable). Expected to be in the form `<zoom>/<latitude>/<longitude>`.
-  Optional.
-* `ATLAS_COMPLETE_WEBHOOKS` - A comma separated string of URLs. Optional. When an atlas
-  moves to the state 'complete', fp-web will `POST` the JSON representation
-  of the atlas to each URL.
-* `ATLAS_INDEX_HEADER_TILELAYER` - A [Leaflet TileLayer urlTemplate](https://leafletjs.com/reference.html#tilelayer). Optional.
-  Providing this url will override the header basemaps for the atlas index pages. Defaults to `https://{S}.tile.openstreetmap.org/{Z}/{X}/{Y}.png`
-* `DISABLE_LOGIN_CONFIRMATIONS` - A value of `true` will not require
-  users to confirm their accounts after registration and will not send confirmation emails.
-  Optional. Defaults to `false` -- registration confirmations are required
-
-### Running Tests
-
-```bash
-rake
-```
-
-Alternately, you can use [Guard](https://github.com/guard/guard) to
-automatically run tests when related files change:
-
-```bash
-guard
-```
-
-### Translation and Localization
-
-To mark a string as one that should be localized, wrap it in `_()`.
-
-E.g. in an ERB template,
-
-`<% content_for :title, "Atlas - Field Papers" %>`
-
-becomes
-
-`<% content_for :title, _("Atlas - Field Papers") %>`.
-
-E.g. in Javascript within an ERB template,
-
-`window.alert("Hello Field Papers!")`
-
-becomes
-
-`window.alert(_('<%=escape_javascript _("Hello Field Papers!") %>'))`.
-
-Install the [Transifex](https://www.transifex.com/) client (`tx`):
-
-```bash
-# optionally create a virtualenv
-virtualenv venv
-source venv/bin/activate
-
-# install Python dependencies
-pip install -r requirements.txt
-```
-
-To extract strings from the app (and update pending translations):
-
-```bash
-rake gettext:find
-```
-
-To see the current translation status:
-
-```bash
-tx status
-```
-
-To push updated strings:
-
-```bash
-tx push -s
-```
-
-While it's possible to push updated translations, don't; Transifex is the
-source of truth for non-English strings.
-
-To pull pending translations:
-
-```bash
-tx pull -af
-```
-
-To initialize a new language:
-
-```bash
-locale=es
-mkdir -p locale/${locale}
-cp locale/en/* locale/${locale}/
-tx set -r fieldpapers.www -l ${locale} locale/${locale}/app.po
-```
-
-You'll also need to add the new locales to
-`config/initializers/fast_gettext.rb` and to the footer
-(`app/views/shared/_footer.html.erb`).
-
-### Heroku Deployment
-
-Due to the presence of both `Gemfile` and `requirements.txt`, Heroku reports
-the ability to build this app using both the Ruby and Python buildpacks. The
-current [buildpack detection
-order](https://devcenter.heroku.com/articles/buildpacks#buildpack-detect-order)
-puts Ruby first, but explicit is better than implicit, so you can force the
-Ruby buildpack to be used:
-
-```bash
-heroku buildpack:set https://github.com/heroku/heroku-buildpack-ruby
-```
-
-### Data
-
-To bootstrap a database for development or on a new instance, run:
-
-```bash
-rake db:create db:schema:load
-```
-
-By default, it will create a `fieldpapers_development` (and `fieldpapers_test`)
-database on a local MySQL instance. To override this, set `DATABASE_URL` (in
-your environment, either directly or via `.env`), e.g.:
-
-```bash
-DATABASE_URL=mysql2://vagrant@somewhere/fieldpapers_development
-```
-
-To migrate an existing Field Papers database, first back it up. Then, set
-`DATABASE_URL` to point to it and run (with an appropriate `RAILS_ENV` if
-needed):
-
-```bash
-rake db:migrate
-```
-
-This will produce a database schema that is no longer compatible with the PHP
-version. Part of the migration involves cleaning up encoding errors (UTF-8 text
-stored as latin1 in UTF-8 columns)--your database may include some invalid
-characters, causing the migration to fail. To work-around that, identify the
-affected rows and clear their values before retrying the migration.
-
-
-### AWS Deployment
-
-The Rails `production` environment is set up to allow a "quick start"
-deployment on Amazon Web Services using the [`aws-quick-start.py`
-script](https://github.com/fieldpapers/fieldpapers/blob/master/aws-quick-start/aws-quick-start.py)
-in the
-[`fieldpapers/fieldpapers` repository](https://github.com/fieldpapers/fieldpapers).
-See the documentation
-[here](https://github.com/fieldpapers/fieldpapers/tree/master/aws-quick-start)
-details.
-
-A couple of things to note about this production environment:
-
- * The database configuration (in `config/database.yaml`) is taken
-   from a set of `RDS_*` environment variables which are set up
-   automatically by AWS within the Docker container where the Rails
-   web app runs.  The AWS Relational Database Service (RDS) database
-   is set up automatically by the `aws-quick-start.py` script.
-
- * Access to AWS resources (the S3 bucket used to store atlas pages
-   and snapshots, the database, the SES mail service) is managed using
-   AWS Identity and Access Management (IAM) roles, policies and
-   instance profiles.
-
- * Obviously the relevant IAM roles, policies and instance profiles
-   have to exist with the appropriate permissions.  The easiest (and
-   only recommended) way to do this is to use the `aws-quick-start.py`
-   script to set everything up.  It's kind of complicated and there
-   are no guarantees that it will work if you try to do it by hand...
-
- * No AWS credentials appear anywhere in the code and no credentials
-   are loaded from environment variables (such as `AWS_ACCESS_KEY_ID`
-   or `AWS_SECRET_ACCESS_KEY`) when running on an EC2 instance;
-   instead, temporary AWS credentials are made available by the
-   infrastructure on the EC2 instance and are accessed via the
-   instance metadata (the Ruby AWS SDK deals with this transparently).
-
- * There are some cases where extra authentication information is
-   required to perform AWS actions from within an EC2 instance.  In
-   particular, a session token is needed to validate temporary AWS
-   credentials (a case handled transparently by the AWS Ruby SDK), and
-   a "source ARN" is required for sending email (which needs to be
-   handled explicitly).  This source ARN is needed to associate the
-   EC2 instance with a mail identity policy so that the web app can
-   send email using the AWS SES email service.
-
-
-#### Extra environment variables
-
-These are all set up by the `aws-quick-start.py` script, but are
-documented here for reference.  They should *not* need to be set
-explicitly!
-
-* `MAIL_ORIGIN` - the originating email address used for sending
-  account confirmation, password reset, etc. emails.
-* `MAIL_SOURCE_ARN` - AWS resource identifier used to associate EC2
-   instance with a mail identity policy, allowing email to be sent
-   from within an EC2 instance using the AWS Simple Email Service
-   (SES).

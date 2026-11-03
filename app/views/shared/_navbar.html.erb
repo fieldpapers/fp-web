@@ -1,56 +1,43 @@
-<!-- Static navbar -->
-<div id="nav">
-    <div class="row">
-        <div class="logo twelve columns">
-            <a href="<%= root_path %>"><img src="<%= asset_path "logo-header.png" %>" alt="Field Papers" height="58" width="200"></a>
+<% sections = [[_("Make"), compose_path, "make"], [_("Upload"), new_snapshot_path, "upload"], [_("Browse"), atlases_path, "browse"]] %>
+<header id="nav">
+    <a class="logo" href="<%= root_path %>"><img src="<%= asset_path "logo-header.png" %>" alt="<%= _("Field Papers") %>" height="48" width="160"></a>
+
+    <ul class="nav-links">
+        <% sections.each do |label, path, target| %>
+            <li><%= link_to label, path, "aria-current": ("page" if current_nav_target == target) %></li>
+        <% end %>
+    </ul>
+
+    <div class="nav-controls">
+        <button type="button" class="nav-button locale-toggle" popovertarget="locale-menu" title="<%= _("Language") %>" aria-label="<%= _("Language") %>">
+            <%= icon "language" %>
+        </button>
+        <%= form_tag change_locale_path, id: "locale-menu", class: "nav-menu locale-menu", popover: "" do %>
+            <% ApplicationHelper::LOCALE_NAMES.each do |code, name| %>
+                <%= button_tag name, name: "locale", value: code, lang: code.to_s.tr("_", "-"), "aria-current": ("true" if code == I18n.locale) %>
+            <% end %>
+        <% end %>
+
+        <% if user_signed_in? %>
+            <button type="button" class="nav-button account-toggle<%= " active" if current_nav_target == "account" %>" popovertarget="account-menu">
+                <%= current_user.username %>
+            </button>
+            <div id="account-menu" class="nav-menu account-menu" popover>
+                <%= link_to _("Account"), edit_user_registration_path %>
+                <%= button_to destroy_user_session_path, method: :delete do %><%= _("Log out") %><% end %>
+            </div>
+        <% else %>
+            <%= link_to _("Log in"), new_user_session_path, class: "login-link", "aria-current": ("page" if current_nav_target == "account") %>
+        <% end %>
+
+        <button type="button" class="nav-button nav-toggle" popovertarget="nav-menu" title="<%= _("Menu") %>" aria-label="<%= _("Menu") %>">
+            <%= icon "menu" %>
+        </button>
+        <div id="nav-menu" class="nav-menu sections-menu" popover>
+            <% sections.each do |label, path, target| %>
+                <%= link_to label, path, "aria-current": ("page" if current_nav_target == target) %>
+            <% end %>
         </div>
     </div>
+</header>
 
-    <div class="row navbar-container">
-        <div class="twelve columns">
-            <button id="nav-toggle"><%= _("Menu") %></button>
-            <ul class="navbar u-cf">
-
-                <li class="nav-item<%= " active" if ["compose"].include? current_nav_target %>">
-                    <a href="<%= compose_path %>">
-                        <div class="section"><%= _("MAKE") %></div>
-                        <div class="desc"><%= _("an atlas to print") %></div>
-                    </a>
-                </li>
-                <li class="nav-item <%= " active" if ["upload"].include? current_nav_target %>">
-                    <a href="<%= new_snapshot_path %>">
-                        <div class="section"><%= _("UPLOAD") %></div>
-                        <div class="desc"><%= _("pages you've marked") %></div>
-                    </a>
-                </li>
-                <li class="nav-item<%= " active" if ["watch"].include? current_nav_target %>">
-                    <a href="<%= atlases_path(username: current_user.try(:username)) %>">
-                        <div class="section"><%= _("WATCH") %></div>
-                        <div class="desc"><%= _("recent activity") %></div>
-                    </a>
-                </li>
-                <li class="nav-item<%= " active" if ["extend"].include? current_nav_target %>">
-                    <a href="<%= advanced_path %>">
-                        <div class="section"><%= _("EXTEND") %></div>
-                        <div class="desc"><%= _("with advanced tools") %></div>
-                    </a>
-                </li>
-                <li class="nav-item<%= " active" if ["sessions"].include? current_nav_target %>">
-                    <div class="section"><%= user_signed_in? && link_to(_("LOG OUT"), destroy_user_session_path, method: :delete) || link_to(_("LOG IN"), new_user_session_path) %></div>
-                    <% unless user_signed_in? %>
-                    <div class="desc"><%= link_to _("or create an account"), new_user_registration_path %></div>
-                    <% end %>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</div>
-
-<% content_for :foot do %>
-    <script>
-        $(function(){
-          FP.nav();
-        });
-    </script>
-<% end %>

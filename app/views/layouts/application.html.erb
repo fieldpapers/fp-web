@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% if Rails.env.production? %>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WRXKXEEKN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1WRXKXEEKN');
-    </script>
-  <% end %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= yield(:title).presence || _("Field Papers") %></title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
-
+  <%= render partial: "shared/analytics" %>
   <%= javascript_include_tag 'application' %>
   <%= yield :head %>
 </head>
@@ -26,13 +16,11 @@
 <div class="container">
 
 <%= render partial: "shared/navbar" %>
-<% if notice || alert %>
-<div class="row">
-  <div class="twelve columns">
-    <p class="notice<% if notice %> active<% end %>"><%= notice %></p>
-    <p class="alert<% if alert %> active<% end %>"><%= alert %></p>
-  </div>
-</div>
+<% if notice %>
+<div class="flash notice" role="status"><%= notice %></div>
+<% end %>
+<% if alert %>
+<div class="flash alert" role="alert"><%= alert %></div>
 <% end %>
 
 <%= yield %>

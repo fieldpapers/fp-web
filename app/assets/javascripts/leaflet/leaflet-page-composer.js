@@ -252,9 +252,6 @@ L.PageComposer = L.Class.extend({
 
     _updateToolDimensions: function() {
       var size = this.map.getSize();
-      //to update the numbers displayed in the side menu
-      var count = document.getElementsByClassName("number");
-
       var width = this.dimensions.width / this.refs.prevCols;
       var height = this.dimensions.height / this.refs.prevRows;
 
@@ -275,8 +272,8 @@ L.PageComposer = L.Class.extend({
       this.refs.prevCols = this.refs.cols;
       this.refs.prevRows = this.refs.rows;
 
-      count[0].textContent = this.refs.cols;
-      count[1].textContent = this.refs.rows;
+      document.getElementById("cols-count").textContent = this.refs.cols;
+      document.getElementById("rows-count").textContent = this.refs.rows;
 
       this.bounds = this.refs.locked ? this._getBoundsPinToNorthWest() : this._getBoundsPinToCenter();
 
@@ -347,11 +344,10 @@ L.PageComposer = L.Class.extend({
 
         //adds +/-
     _createPageModifiers: function() {
-      var gridModifiers = document.getElementsByClassName("grid-modifier");
-      this._addRow = gridModifiers[5];
-      this._minusRow = gridModifiers[3];
-      this._addCol = gridModifiers[2];
-      this._subCol = gridModifiers[0];
+      this._addRow = document.getElementById("rows-plus");
+      this._minusRow = document.getElementById("rows-minus");
+      this._addCol = document.getElementById("cols-plus");
+      this._subCol = document.getElementById("cols-minus");
 
       L.DomEvent.addListener(this._addRow, "click", this._onAddRow, this);
       L.DomEvent.disableClickPropagation(this._addRow);
@@ -476,44 +472,80 @@ L.PageComposer = L.Class.extend({
         this.fire("change");
     },
 
+    // Minimal Leaflet 0.7 compatible search control backed by Nominatim.
+    // Leaflet 0.7 predates L.Evented, so the maintained geocoder plugins
+    // (leaflet-control-geocoder 2.x/3.x) can't be used until Leaflet is upgraded.
     _onSearch: function(){
-      try {
-        var geocoder = L.control.geocoder('search-w9J1EjM', {
-            markers: false
-          }).addTo(this.map);
+      var self = this;
+      var map = this.map;
 
-        var self = this;
-
-        function unlockGrid(self){
-          if (self.refs.locked){
+      function unlockGrid(){
+        if (self.refs.locked){
           //uncheck the "pin to nw corner" box
-            document.getElementById('map-lock-box').childNodes[1].checked = false;
+          document.getElementById('pin-grid').checked = false;
 
-            self.refs.locked = false;
-            self._render();
-          }
-
-          self.refs.was_locked = false;
-          self.refs.lock_change = false;
-
-          self._updateToolDimensions();
-          self.fire("change");
+          self.refs.locked = false;
+          self._render();
         }
 
-        L.DomEvent.addListener(geocoder, 'select', function(){
-          unlockGrid(self);
-        }, self);
+        self.refs.was_locked = false;
+        self.refs.lock_change = false;
 
-        L.DomEvent.addListener(geocoder, 'highlight', function(){
-          unlockGrid(self);
-        }, self);
-      } catch (err) {
-        console.warn(err.stack);
+        self._updateToolDimensions();
+        self.fire("change");
       }
+
+      function geocode(query){
+        var url = "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=" +
+          encodeURIComponent(query);
+
+        fetch(url, { headers: { "Accept": "application/json" } })
+          .then(function(rsp){ return rsp.json(); })
+          .then(function(results){
+            if (!results || !results.length) return;
+
+            var r = results[0];
+            unlockGrid();
+
+            if (r.boundingbox) {
+              // Nominatim boundingbox is [south, north, west, east]
+              var b = r.boundingbox;
+              map.fitBounds([[+b[0], +b[2]], [+b[1], +b[3]]]);
+            } else {
+              map.setView([+r.lat, +r.lon], 12);
+            }
+          })
+          .catch(function(err){ console.warn(err); });
+      }
+
+      var SearchControl = L.Control.extend({
+        options: { position: "topleft" },
+
+        onAdd: function(){
+          var input = L.DomUtil.create("input", "fp-geocoder-input");
+          input.type = "text";
+          input.placeholder = "Search for a place";
+
+          L.DomEvent.disableClickPropagation(input);
+
+          L.DomEvent.on(input, "keydown", function(e){
+            L.DomEvent.stopPropagation(e);
+            if (e.keyCode === 13) {
+              L.DomEvent.preventDefault(e);
+              var query = input.value.trim();
+              if (query) geocode(query);
+            }
+          });
+
+          return input;
+        }
+      });
+
+      map.addControl(new SearchControl());
     },
 
     _onMapLock: function(){
-      var mapLockStatus = document.getElementById('map-lock-box').childNodes[1];
+      var mapLockStatus = document.getElementById('pin-grid');
       var self = this;
 
       L.DomEvent.addListener(mapLockStatus, "change", function(){

@@ -1,33 +1,21 @@
 <h2><%= t('.sign_in', default: "Sign in") %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="row">
-    <div class="six columns field">
-      <%= f.label :login %>
-      <%= f.text_field :login, autofocus: true, required: true, placeholder: "...", class: 'u-full-width' %>
-    </div>
-  </div>
+  <%= f.label :login %>
+  <%= f.text_field :login, autofocus: true, required: true, placeholder: "..." %>
 
-  <div class="row">
-    <div class="six columns field">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off", required: true, class: 'u-full-width' %>
-    </div>
-  </div>
+  <%= f.label :password %>
+  <%= f.password_field :password, autocomplete: "off", required: true %>
 
-  <div class="row">
-    <% if devise_mapping.rememberable? -%>
-      <div class="twelve columns field">
-        <%= f.label :remember_me do %>
-          <%= f.check_box :remember_me %>
-          <span class="label-body"><%= t(".remember_me", default: "Remember Me") %></span>
-        <% end %>
-      </div>
-    <% end -%>
+  <% if devise_mapping.rememberable? -%>
+    <%= f.label :remember_me do %>
+      <%= f.check_box :remember_me %>
+      <%= t(".remember_me", default: "Remember Me") %>
+    <% end %>
+  <% end -%>
 
-    <div class="actions">
-      <%= f.submit t('.sign_in', :default => "Sign in") %>
-    </div>
+  <div class="actions">
+    <%= f.submit t('.sign_in', :default => "Sign in") %>
   </div>
 <% end %>
 

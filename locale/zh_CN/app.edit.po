@@ -45,12 +45,9 @@ msgstr "%{time_period} 之前"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap贡献者"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers 在Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "关于"
@@ -58,24 +55,25 @@ msgstr "关于"
 msgid "About the Project"
 msgstr "关于该项目"
 
+#, fuzzy
+msgid "Account"
+msgstr "关于"
+
 msgid "Activity"
 msgstr "活动"
 
-msgid "Add-ons"
-msgstr "附加组件"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "高级 - Field Papers"
 
-msgid "All Atlases"
-msgstr "所有地图集"
-
-msgid "All Snapshots"
-msgstr "所有快照"
-
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "地图集 - Field Papers"
@@ -122,8 +120,8 @@ msgstr "底图"
 msgid "Bing"
 msgstr "必应"
 
-msgid "Cancel"
-msgstr "取消"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "采集你的注记"
@@ -134,9 +132,6 @@ msgstr "查看OSM维基百科帮助"
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "选择要上传的地图集页面。我们会找出它的位置 （使用QR码）。"
 
-msgid "Click for more information."
-msgstr "点击以获取信息。"
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -145,6 +140,10 @@ msgstr "复制这份地图集"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "无法连接到JOSM。确保JOSM正在运行，并且已在“首选项”中启用了“远程控制”功能。"
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "请不要上传不是Field Papers地图的内容。"
@@ -157,9 +156,6 @@ msgstr "下载 GeoTIFF"
 
 msgid "Download PDF"
 msgstr "下载 PDF"
-
-msgid "EXTEND"
-msgstr "延伸"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "以下每个设置都可以通过纯HTML形式发布到 <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
@@ -184,11 +180,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
@@ -208,8 +204,11 @@ msgstr "手绘图形代表制作的一份Field Papers地图集"
 msgid "Help"
 msgstr "帮助"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "如果超过一个小时，检查 %{twitter_link} 系统状态更新，如果你的地图集卡住了，请发邮件到 %{email_url} 。"
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "如果您选择加入注记，你的地图将打印在上半页，下半页显示注记。否则，地图将显示在整个页面上。"
@@ -226,25 +225,33 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "将地图集设为非公开"
 
-msgid "LOG IN"
-msgstr "登录"
+msgid "Language"
+msgstr ""
 
-msgid "LOG OUT"
-msgstr "登出"
-
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "纬度，经度和可选的缩放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>来制作新的。"
 
 msgid "Location and zoom"
 msgstr "地点和放大"
 
-msgid "MAKE"
-msgstr "制作"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "制作 - Field Papers"
 
 msgid "Make Atlas"
+msgstr "制作地图集"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "制作地图集"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -273,6 +280,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "目录"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "没有地图集。"
 
 msgid "No atlases."
 msgstr "没有地图集。"
@@ -307,11 +318,18 @@ msgstr "打印注记"
 msgid "Print out anywhere in the world."
 msgstr "打印出任何地点"
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "只有当你登录后或通过最后一步中提供的URL才能访问非公开地图集。"
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "刷新"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "规则"
@@ -327,11 +345,11 @@ msgstr "快照 - Field Papers"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "处理快照"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "快照处理失败"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -372,19 +390,16 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "翻译"
 
-msgid "UPLOAD"
-msgstr "上传"
-
-msgid "UTM Grid"
-msgstr "UTM网格"
-
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "不幸的是，你的地图集无法渲染。这可能是间歇性错误，在这种情况下，你应该尝试重新创建地图集。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url} 。"
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "不幸的是，你的快照处理失败。这可能是间歇性错误，在这种情况下，你应该尝试重新上传。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url} 。"
+
+msgid "Unprocessed snapshot"
+msgstr ""
 
 msgid "Upload"
 msgstr "上传"
@@ -392,26 +407,32 @@ msgstr "上传"
 msgid "Upload Failed"
 msgstr "上传失败"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "上传"
+
 msgid "Uploading"
 msgstr "上传中"
-
-msgid "WATCH"
-msgstr "观察"
 
 msgid "Welcome to Field Papers"
 msgstr "欢迎来到 Field Papers"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "你的地图集"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "你的快照"
-
-msgid "an atlas to print"
-msgstr "要打印的地图集"
 
 msgid "anonymous"
 msgstr "匿名的"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -422,24 +443,82 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "或者创建一个账号"
-
-msgid "pages you've marked"
-msgstr "你已经标记的页面"
-
 msgid "private"
 msgstr "非公开"
 
-msgid "recent activity"
-msgstr "最近的活动"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "第 %{tp} 页的快照"
 
-msgid "with advanced tools"
-msgstr "使用高级工具"
-
+#~ msgid "Add-ons"
+#~ msgstr "附加组件"
+#~ msgid "All Atlases"
+#~ msgstr "所有地图集"
+#~ msgid "All Snapshots"
+#~ msgstr "所有快照"
+#~ msgid "Cancel"
+#~ msgstr "取消"
+#~ msgid "Click for more information."
+#~ msgstr "点击以获取信息。"
+#~ msgid "EXTEND"
+#~ msgstr "延伸"
+#~ msgid "LOG IN"
+#~ msgstr "登录"
+#~ msgid "LOG OUT"
+#~ msgstr "登出"
+#~ msgid "MAKE"
+#~ msgstr "制作"
+#~ msgid ""
+#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
+#~ "d to you in the final step."
+#~ msgstr "只有当你登录后或通过最后一步中提供的URL才能访问非公开地图集。"
+#~ msgid "UPLOAD"
+#~ msgstr "上传"
+#~ msgid "UTM Grid"
+#~ msgstr "UTM网格"
+#~ msgid "WATCH"
+#~ msgstr "观察"
+#~ msgid "Your Atlases"
+#~ msgstr "你的地图集"
+#~ msgid "Your Snapshots"
+#~ msgstr "你的快照"
+#~ msgid "an atlas to print"
+#~ msgstr "要打印的地图集"
+#~ msgid "or create an account"
+#~ msgstr "或者创建一个账号"
+#~ msgid "pages you've marked"
+#~ msgstr "你已经标记的页面"
+#~ msgid "recent activity"
+#~ msgstr "最近的活动"
+#~ msgid "with advanced tools"
+#~ msgstr "使用高级工具"
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers 在Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr "如果超过一个小时，检查 %{twitter_link} 系统状态更新，如果你的地图集卡住了，请发邮件到 %{email_url} 。"
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr "纬度，经度和可选的缩放。使用<a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>来制作新的。"
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "不幸的是，你的地图集无法渲染。这可能是间歇性错误，在这种情况下，你应该尝试重新创建地图集。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_"
+#~ "url} 。"
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "不幸的是，你的快照处理失败。这可能是间歇性错误，在这种情况下，你应该尝试重新上传。如果问题仍然存在，请将详细信息通过电子邮件发送到 %{email_url}"
+#~ " 。"
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} 由 %{StamenDesign} 创建"
 #~ msgid ""

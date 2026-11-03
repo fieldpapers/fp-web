@@ -1,5 +1,4 @@
 require "providers"
-require "sentry-ruby"
 require "uri"
 
 # == Schema Information
@@ -49,8 +48,10 @@ require "uri"
 
 class Snapshot < ActiveRecord::Base
   include FriendlyId
-  include Workflow
+  include Processable
   include Rails.application.routes.url_helpers
+
+  completed_at_column :decoded_at
 
   # friendly_id configuration
 
@@ -77,8 +78,8 @@ class Snapshot < ActiveRecord::Base
     end
 
     # Environment-specific direct upload url verifier screens for malicious posted upload locations.
-    S3_UPLOAD_URL_FORMAT = s3_url(Rails.application.secrets[:aws][:s3_bucket_name],
-                                  Rails.application.secrets[:aws][:s3_bucket_region])
+    S3_UPLOAD_URL_FORMAT = s3_url(FieldPapers::S3_BUCKET_NAME,
+                                  FieldPapers::AWS_REGION)
 
     has_attached_file :scene
 
@@ -120,23 +121,15 @@ class Snapshot < ActiveRecord::Base
       .order("#{self.table_name}.created_at DESC")
   }
 
-  scope :by_creator, -> (creator) {
-    if creator
-      where("#{self.table_name}.private = false OR (#{self.table_name}.private = true AND #{self.table_name}.user_id = ?)", creator.id)
-    else
-      where("#{self.table_name}.private = false")
-        .where("#{Atlas.table_name}.private = false")
-    end
-  }
-
   scope :date,
     -> date {
-      where("DATE(#{self.table_name}.created_at) = ?", date)
+      where(created_at: date.to_date.all_day)
     }
 
   scope :month,
     -> month {
-      where("CONCAT(YEAR(#{self.table_name}.created_at), '-', LPAD(MONTH(#{self.table_name}.created_at), 2, '0')) = ?", month)
+      start = Date.strptime(month, "%Y-%m")
+      where(created_at: start...(start >> 1))
     }
 
   scope :place,
@@ -144,116 +137,30 @@ class Snapshot < ActiveRecord::Base
       where("#{self.table_name}.place_woeid = ? OR #{self.table_name}.region_woeid = ? OR #{self.table_name}.country_woeid = ?", place, place, place)
     }
 
-  scope :user,
-    -> user {
-      where(user_id: user)
-    }
-
-  scope :username,
-    -> username {
-      joins(:uploader)
-      .where(users: {username: username})
-    }
     
-  # workflow states
+  # class methods
 
-  workflow do
-    state :new do
-      event :process, transitions_to: :processing
-      event :processed, transitions_to: :fetching_metadata
-      event :metadata_fetched, transitions_to: :complete
-      event :fail, transitions_to: :failed
+  # Hosts in the QR codes of printed atlases, besides BASE_URL's
+  PRINT_HOSTS = ["fieldpapers.org", "www.fieldpapers.org", "fieldpapers-web.herokuapp.com"]
+
+  # The page that the URL in a printed page's QR code refers to, or nil.
+  # These are <base>/atlases/<slug>/<page>?bbox=... or, on older prints,
+  # <base>/...?id=<slug>/<page>. Printed atlases are permanent, so every form
+  # that has ever been printed must keep working.
+  def self.page_for_href(href)
+    uri = URI.parse(href)
+    hosts = PRINT_HOSTS + [URI.parse(FieldPapers::BASE_URL).host]
+    return unless uri.is_a?(URI::HTTP) && hosts.include?(uri.host&.downcase)
+
+    slug, page_number = if uri.query&.include?("id=")
+      CGI.parse(uri.query)["id"].first.to_s.split("/")
+    else
+      uri.path.split("/").last(2)
     end
 
-    state :processing do
-      event :processed, transitions_to: :fetching_metadata
-      event :fail, transitions_to: :failed
-    end
-
-    state :fetching_metadata do
-      event :metadata_fetched, transitions_to: :complete
-      event :fail, transitions_to: :failed
-    end
-
-    state :complete
-    state :failed
-  end
-
-  # workflow transition event handlers
-
-  def increment_progress
-    update(progress: self.progress += 1.0 / 4)
-  end
-
-  def process
-    increment_progress
-
-    task = "process_snapshot"
-
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-      task: task,
-      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
-      snapshot: as_json(methods: [:image_url], only: [:slug]),
-    }
-
-    if rsp.status < 200 || rsp.status >= 300
-      logger.warn("Got #{rsp.status}: #{rsp.body}")
-      Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
-      fail!
-    end
-  end
-
-  def processed
-    increment_progress
-
-    task = "fetch_snapshot_metadata"
-
-    rsp = http_client.put "#{FieldPapers::TASK_BASE_URL}/#{task}", {
-      task: task,
-      callback_url: "#{FieldPapers::BASE_URL}/snapshots/#{slug}",
-      snapshot: as_json(methods: [:image_url], only: [:slug]),
-    }
-
-    if rsp.status < 200 || rsp.status >= 300
-      logger.warn("Got #{rsp.status}: #{rsp.body}")
-      Sentry.capture_exception(Exception.new("Got #{rsp.status}: #{rsp.body}"))
-      fail!
-    end
-  end
-
-  def on_complete_entry(previous_state, event)
-    updates = {
-      decoded_at: Time.now,
-      progress: 1,
-    }
-
-    uri = URI.parse(page_url)
-    base_uri = URI.parse(FieldPapers::BASE_URL)
-
-    if uri.hostname == base_uri.hostname && uri.port == base_uri.port
-      (atlas_slug, page_number) = if uri.query =~ /id=/
-        CGI.parse(uri.query)["id"][0].split("/")
-      else
-        uri.path.split("/").slice(-2, 2)
-      end
-
-      if atlas_slug && page_number
-        begin
-          updates[:page] = Atlas.unscoped.friendly.find(atlas_slug).pages.find_by_page_number(page_number)
-        rescue ActiveRecord::RecordNotFound
-        end
-      end
-    end
-
-    update(updates)
-  end
-
-  def on_failed_entry(previous_state, event)
-    update(failed_at: Time.now)
-  end
-
-  def metadata_fetched
-    increment_progress
+    Atlas.unscoped.find_by(slug: slug)&.pages&.find_by(page_number: page_number)
+  rescue URI::InvalidURIError
+    nil
   end
 
   # instance methods
@@ -319,14 +226,6 @@ class Snapshot < ActiveRecord::Base
     return "POLYGON((%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f,%.6f %.6f))" % [west, south, west, north, east, north, east, south, west, south]
   end
 
-  def incomplete?
-    decoded_at.nil? && failed_at.nil?
-  end
-
-  def failed?
-    !failed_at.nil?
-  end
-
   # store an unescaped version of the URL that Amazon returns from direct
   # upload
   def s3_scene_url=(escaped_url)
@@ -351,7 +250,7 @@ class Snapshot < ActiveRecord::Base
         title: title,
         description: description,
         uploader: uploader_name,
-        created: created_at.to_s(:iso8601),
+        created: created_at.iso8601,
         min_row: min_row,
         max_row: max_row,
         min_column: min_column,
@@ -360,8 +259,7 @@ class Snapshot < ActiveRecord::Base
         max_zoom: max_zoom,
         base_url: base_url,
         url: snapshot_url(self),
-        url_page: snapshot_url(self) + "/" + page.page_number,
-        url_uploader: uploader ? user_url(uploader) : nil,
+        url_page: atlas_page_atlas_url(atlas, page.page_number),
       },
       geometry: {
         type: 'Polygon',
@@ -391,15 +289,6 @@ private
       -> {
         rand(2**256).to_s(36).ljust(8,'a')[0..7]
       }
-    end
-  end
-
-  def http_client
-    @http_client ||= Faraday.new do |faraday|
-      faraday.request :json
-      faraday.response :json, content_type: /\bjson$/
-
-      faraday.adapter Faraday.default_adapter
     end
   end
 end

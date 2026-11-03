@@ -23,7 +23,8 @@ module App
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
 
-    config.active_record.legacy_connection_handling = false
+    require_relative '../lib/route_header'
+    config.middleware.insert_before 0, RouteHeader
 
     # rewrite URLs for backward-compatibility
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
@@ -39,6 +40,9 @@ module App
       r301 %r{^/files/prints/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/atlases/$1"
       r301 %r{^/files/scans/(.*)}, "http://s3.amazonaws.com/files.fieldpapers.org/snapshots/$1"
     end
+
+    # jobs run in a separate process (bin/jobs), with the queue in the primary database
+    config.active_job.queue_adapter = :solid_queue
 
     # this allows us to use url_helpers in models without passing all the args
     config.after_initialize do

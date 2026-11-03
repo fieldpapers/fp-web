@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get '(page/:page)' => :index, on: :collection, as: ''
   end
 
-  resources :atlases, :concerns => :pageable do
+  resources :atlases, only: [:index, :show], :concerns => :pageable do
     resources :snapshots, only: [:index]
     member do
       get ':page_number' => 'pages#show',
@@ -26,20 +26,16 @@ Rails.application.routes.draw do
                                # *except* page (necessary because concerns
                                # are prioritized lower)
         }
-      patch ':page_number' => 'pages#update',
-        constraints: {
-          id: /(?:(?!page).)+/ # use negative lookaheads to match anything
-                               # *except* page (necessary because concerns
-                               # are prioritized lower)
-        }
     end
   end
+
+  post '/locale' => 'locales#update', as: :change_locale
 
   get '/compose' => 'compose#new', as: :compose
   post '/compose' => 'compose#create'
   put '/compose' => 'compose#update'
 
-  resources :snapshots, :concerns => :pageable
+  resources :snapshots, only: [:index, :show, :new, :create], :concerns => :pageable
 
   mount Rack::NotFound.new("public/404.html") => "activity.php"
 end

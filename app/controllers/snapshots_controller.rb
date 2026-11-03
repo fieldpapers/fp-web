@@ -1,14 +1,10 @@
-require "sentry-ruby"
-
 class SnapshotsController < ApplicationController
   has_scope :date, only: :index
   has_scope :month, only: :index
   has_scope :place, only: :index
-  has_scope :user, only: :index
-  has_scope :username, only: :index
 
   # allow API usage
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     @snapshot = Snapshot.new
@@ -18,17 +14,17 @@ class SnapshotsController < ApplicationController
   # @url /snapshots
   def create
     @snapshot = Snapshot.create!(snapshot_upload_params)
-    @snapshot.process!
+    ProcessSnapshotJob.perform_later(@snapshot.id)
 
     redirect_to snapshot_url(@snapshot) unless request.xhr?
   end
 
   def index
-    @snapshots = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).page(params[:page])
-    @counts = apply_scopes(Snapshot.unscoped).default.by_creator(current_user).count('id')
-
     respond_to do |format|
-      format.html
+      format.html do
+        @snapshots = apply_scopes(Snapshot.unscoped).default.page(params[:page]).load
+        @counts = @snapshots.total_count
+      end
 
       # the grid CSV only makes sense if this is scoped beneath an atlas
       if params[:atlas_id]
@@ -41,44 +37,10 @@ class SnapshotsController < ApplicationController
   end
 
   def show
-    @snapshot = Snapshot.unscoped.friendly.find(params[:id])
-  end
-
-  def update
-    snapshot = Snapshot.unscoped.friendly.find(params[:id])
-
-    if params[:task] && params[:error]
-      logger.warn(params[:error][:message])
-      logger.warn(params[:error][:stack])
-      Sentry.capture_message(params[:error][:message], extra: {
-        stack: params[:error][:stack],
-        snapshot: snapshot.slug,
-      })
-
-      snapshot.fail!
-      snapshot.save!
-    elsif params[:task] == "process_snapshot"
-      # this is a callback from our renderer
-      snapshot.update!(snapshot_update_params)
-      snapshot.processed!
-      snapshot.save!
-    elsif params[:task] == "fetch_snapshot_metadata"
-      # this is a callback from our renderer
-      snapshot.update!(snapshot_update_params)
-      snapshot.metadata_fetched!
-      snapshot.save!
-    else
-      snapshot.update!(snapshot_update_params)
-    end
-
-    respond_to do |format|
-      format.html {
-        redirect_to snapshot_url(snapshot)
-      }
-
-      format.json {
-        render status: 201, json: true
-      }
+    # Within the block, Snapshot#atlas skips Atlas's default scope, which would
+    # hide private and failed atlases.
+    @snapshot = Atlas.unscoped do
+      Snapshot.unscoped.includes(:atlas).friendly.find(params[:id])
     end
   end
 
@@ -98,10 +60,5 @@ class SnapshotsController < ApplicationController
                scene_file_size: params.permit(:filesize)[:filesize])
         .merge(uploader: current_user)
     end
-  end
-
-  def snapshot_update_params
-    params.require(:snapshot)
-      .permit(:geotiff_url, :page_url, :private, :zoom, bbox: [])
   end
 end

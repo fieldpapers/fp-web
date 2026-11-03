@@ -57,12 +57,9 @@ msgstr "%{time_period} тому назад"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; Учасники OpenStreetMap"
 
-msgid "@fieldpapers on Twitter"
-msgstr "@fieldpapers у Twitter"
-
 #, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "About"
 msgstr "Про проєкт"
@@ -70,24 +67,25 @@ msgstr "Про проєкт"
 msgid "About the Project"
 msgstr "Про проєкт"
 
+#, fuzzy
+msgid "Account"
+msgstr "Про проєкт"
+
 msgid "Activity"
 msgstr "Активність"
 
-msgid "Add-ons"
-msgstr "Додатки"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Додаткові інструменти — Польові дослідження"
 
-msgid "All Atlases"
-msgstr "Усі атласи"
-
-msgid "All Snapshots"
-msgstr "Усі знімки"
-
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "Atlas - Field Papers"
 msgstr "Атлас — Польові дослідження"
@@ -134,8 +132,8 @@ msgstr "Базова мапа"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Скасовувати"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "Оцифруйте Ваші нотатки"
@@ -146,9 +144,6 @@ msgstr "Переглянути довідку на OSM-вікі."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Оберіть сторінку атласу для надсилання. Ми з'ясуємо де її треба показувати (використовуючи QR-код)."
 
-msgid "Click for more information."
-msgstr "Натисніть для отримання додаткової інформації."
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -157,6 +152,10 @@ msgstr "Зробити копію"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Помилка з’єднання із JOSM. Переконайтеся, що JOSM працює і що Дистанційне керування увімкнено в налаштуваннях."
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Польові дослідження"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Будь ласка, не надсилайте зображення, які не є сторінками Польових досліджень."
@@ -169,9 +168,6 @@ msgstr "Завантажити GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Звантажити PDF"
-
-msgid "EXTEND"
-msgstr "ВДОСКОНАЛИТИ"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "Кожне налаштування нижче може бути опубліковане через просту HTML-форму на сайт <a href=\"%s\">fieldpapers.org</a>. <i>Усе є факультативним</i>."
@@ -196,11 +192,11 @@ msgstr "GeoJSON"
 
 #, fuzzy
 msgid "GeoJSON Data"
-msgstr "GeoJSON"
+msgstr ""
 
 #, fuzzy
 msgid "GeoJSON File"
-msgstr "GeoJSON"
+msgstr ""
 
 msgid "GitHub Issues"
 msgstr "Повідомлення на GitHub"
@@ -220,8 +216,11 @@ msgstr "Вручну намальоване креслення представ�
 msgid "Help"
 msgstr "Довідка"
 
-msgid "If it takes more than an hour, check %{twitter_link} for system status updates, and email us at %{email_url} if your atlas is stuck."
-msgstr "Якщо це займає більше ніж годину, гляньте у %{twitter_link}  щоб дізнатись новини про стан системи, та напишіть нам на адресу %{email_url} якщо Ваш атлас застряг."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
+msgstr ""
+
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
+msgstr ""
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Якщо Ви бажаєте додати примітки, Ваша мапа буде надрукована на верхній половині сторінки з примітками у нижній половині. В іншому випадку, мапа буде займати всю сторінку."
@@ -238,25 +237,33 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Залишити атлас приватним"
 
-msgid "LOG IN"
-msgstr "УВІЙТИ"
+msgid "Language"
+msgstr ""
 
-msgid "LOG OUT"
-msgstr "ВИЙТИ"
-
-msgid "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+#, fuzzy
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Широта, довгота та факультативно масштаб. Скористайтеся сайтом <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, щоб зробити нові."
 
 msgid "Location and zoom"
 msgstr "Координати та масштаб"
 
-msgid "MAKE"
-msgstr "СТВОРИТИ"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Створення — Польові дослідження"
 
 msgid "Make Atlas"
+msgstr "Створити атлас"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "Створити атлас"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -285,6 +292,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Меню"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Немає атласів."
 
 msgid "No atlases."
 msgstr "Немає атласів."
@@ -319,11 +330,18 @@ msgstr "Друкувати нотатки"
 msgid "Print out anywhere in the world."
 msgstr "Роздрукуйте будь-яке місце світу."
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "Приватні атласи доступні лише, якщо Ви увійшли в систему, або через URL, наданий Вам на кінцевій стадії."
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Польові дослідження"
 
 msgid "Refresh"
 msgstr "Оновити"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Правила"
@@ -339,11 +357,11 @@ msgstr "Знімок — Польові дослідження"
 
 #, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
-msgstr "Обробка знімків"
+msgstr ""
 
 #, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
-msgstr "Обробити знімки не вдалося"
+msgstr ""
 
 msgid "Snapshot URL Grid (CSV)"
 msgstr ""
@@ -384,19 +402,16 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Переклади"
 
-msgid "UPLOAD"
-msgstr "НАДІСЛАТИ"
-
-msgid "UTM Grid"
-msgstr "Сітка координат UTM"
-
 #, fuzzy
-msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "На жаль, Ваш атлас не вдалося створити. Цілком можливо, що це була тимчасова помилка, в такому випадку Вам слід спробувати заново створити атлас. Якщо проблема лишається, будь ласка, напишіть на адресу %{email_url} повідомивши докладну інформацію."
 
 #, fuzzy
-msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "На жаль, не вдалося обробити Ваш знімок. Цілком можливо, що це була тимчасова помилка, в цьому випадку Ви повинні спробувати завантажити знов. Якщо проблема не зникає, будь ласка, напишіть на пошту %{email_url}, вказавши подробиці."
+
+msgid "Unprocessed snapshot"
+msgstr ""
 
 msgid "Upload"
 msgstr "Надішліть"
@@ -404,26 +419,32 @@ msgstr "Надішліть"
 msgid "Upload Failed"
 msgstr "Збій надсилання"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "Надішліть"
+
 msgid "Uploading"
 msgstr "Надсилається"
-
-msgid "WATCH"
-msgstr "ПЕРЕГЛЯНУТИ"
 
 msgid "Welcome to Field Papers"
 msgstr "Ласкаво просимо у „Польові дослідження“"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "Твої атласи"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "Твої знімки"
-
-msgid "an atlas to print"
-msgstr "атлас для друку"
 
 msgid "anonymous"
 msgstr "анонімно"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -434,24 +455,92 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "або ж створити обліковий запис"
-
-msgid "pages you've marked"
-msgstr "опрацьовані Вами сторінки"
-
 msgid "private"
 msgstr "приватний"
 
-msgid "recent activity"
-msgstr "останні дії"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "знімок сторінки %{tp}"
 
-msgid "with advanced tools"
-msgstr "додаткові інструменти"
-
+#~ msgid "Add-ons"
+#~ msgstr "Додатки"
+#~ msgid "All Atlases"
+#~ msgstr "Усі атласи"
+#~ msgid "All Snapshots"
+#~ msgstr "Усі знімки"
+#~ msgid "Cancel"
+#~ msgstr "Скасовувати"
+#~ msgid "Click for more information."
+#~ msgstr "Натисніть для отримання додаткової інформації."
+#~ msgid "EXTEND"
+#~ msgstr "ВДОСКОНАЛИТИ"
+#~ msgid "LOG IN"
+#~ msgstr "УВІЙТИ"
+#~ msgid "LOG OUT"
+#~ msgstr "ВИЙТИ"
+#~ msgid "MAKE"
+#~ msgstr "СТВОРИТИ"
+#~ msgid ""
+#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
+#~ "d to you in the final step."
+#~ msgstr ""
+#~ "Приватні атласи доступні лише, якщо Ви увійшли в систему, або через URL, надан"
+#~ "ий Вам на кінцевій стадії."
+#~ msgid "UPLOAD"
+#~ msgstr "НАДІСЛАТИ"
+#~ msgid "UTM Grid"
+#~ msgstr "Сітка координат UTM"
+#~ msgid "WATCH"
+#~ msgstr "ПЕРЕГЛЯНУТИ"
+#~ msgid "Your Atlases"
+#~ msgstr "Твої атласи"
+#~ msgid "Your Snapshots"
+#~ msgstr "Твої знімки"
+#~ msgid "an atlas to print"
+#~ msgstr "атлас для друку"
+#~ msgid "or create an account"
+#~ msgstr "або ж створити обліковий запис"
+#~ msgid "pages you've marked"
+#~ msgstr "опрацьовані Вами сторінки"
+#~ msgid "recent activity"
+#~ msgstr "останні дії"
+#~ msgid "with advanced tools"
+#~ msgstr "додаткові інструменти"
+#~ msgid "@fieldpapers on Twitter"
+#~ msgstr "@fieldpapers у Twitter"
+#~ msgid ""
+#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
+#~ ", and email us at %{email_url} if your atlas is stuck."
+#~ msgstr ""
+#~ "Якщо це займає більше ніж годину, гляньте у %{twitter_link}  щоб дізнатись нов"
+#~ "ини про стан системи, та напишіть нам на адресу %{email_url} якщо Ваш атлас за"
+#~ "стряг."
+#~ msgid ""
+#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
+#~ "\">dbsgeo.com/latlon/</a> to make new ones."
+#~ msgstr ""
+#~ "Широта, довгота та факультативно масштаб. Скористайтеся сайтом <a href=\"http:/"
+#~ "/dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, щоб зробити нові."
+#~ msgid ""
+#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
+#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
+#~ "lem persists, please %{open_issue} or email %{email_url} with details."
+#~ msgstr ""
+#~ "На жаль, Ваш атлас не вдалося створити. Цілком можливо, що це була тимчасова п"
+#~ "омилка, в такому випадку Вам слід спробувати заново створити атлас. Якщо пробл"
+#~ "ема лишається, будь ласка, напишіть на адресу %{email_url} повідомивши докладн"
+#~ "у інформацію."
+#~ msgid ""
+#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
+#~ "d. It's possible that it was an intermittent error, in which case you should t"
+#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
+#~ "l_url} with details."
+#~ msgstr ""
+#~ "На жаль, не вдалося обробити Ваш знімок. Цілком можливо, що це була тимчасова "
+#~ "помилка, в цьому випадку Ви повинні спробувати завантажити знов. Якщо проблема"
+#~ " не зникає, будь ласка, напишіть на пошту %{email_url}, вказавши подробиці."
 #~ msgid "%{FieldPapers} is built by %{StamenDesign}"
 #~ msgstr "%{FieldPapers} створено у %{StamenDesign}"
 #~ msgid ""
