@@ -23,7 +23,8 @@ For development setup, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 - An [fp-tasks](https://github.com/fieldpapers/fp-tasks) instance, reachable from the job worker
 - An [fp-tiler](https://github.com/fieldpapers/fp-tiler) deployment, for displaying snapshots on the map
 - File storage for uploaded snapshots: either an S3 bucket, or local disk served over HTTP
-- AWS SES, for account confirmation and password reset emails
+- AWS SES, for password reset emails
+- An OAuth 2 application on OpenStreetMap, for login (see `OSM_OAUTH_CLIENT_ID` below)
 
 ### Container Image
 
@@ -64,7 +65,8 @@ The following variables configure where the application and its sibling services
 - `URL_HOST`: host name used for links in emails, in production only (default `fieldpapers.org`)
 - `TASK_BASE_URL`: base URL of the fp-tasks service (default `https://tasks.fieldpapers.org`)
 - `TILE_BASE_URL`: base URL of the fp-tiler service (default `https://tiles.fieldpapers.org`)
-- `OSM_BASE_URL`: OpenStreetMap instance used for "edit in OSM" links (default `https://www.openstreetmap.org`)
+- `OSM_BASE_URL`: OpenStreetMap instance used for "edit in OSM" links and as the OpenID Connect issuer for login (default `https://www.openstreetmap.org`)
+- `OSM_OAUTH_CLIENT_ID`, `OSM_OAUTH_CLIENT_SECRET`: credentials of an OAuth 2 application registered on that OpenStreetMap instance (confidential, with only the `openid` scope, and a redirect URI of `BASE_URL` + `/users/auth/osm/callback`). In development, if these aren't set, login uses a fake OSM provider that asks for an OSM user id and name.
 
 Uploaded snapshots are stored either in S3 or on local disk. The AWS credentials are also used for sending email through SES.
 
@@ -75,11 +77,10 @@ Uploaded snapshots are stored either in S3 or on local disk. The AWS credentials
 - `STATIC_PATH`: directory that locally persisted files are written to (default `./public`)
 - `STATIC_URI_PREFIX`: URL prefix under which locally persisted files are served (default the value of `BASE_URL`)
 
-Account confirmation and password reset emails are configured with:
+Password reset emails (for legacy accounts not yet connected to OpenStreetMap) are configured with:
 
 - `MAIL_ORIGIN`: from address for account emails (default `help@fieldpapers.org`)
 - `MAIL_SOURCE_ARN`: SES source identity ARN, sent with each message if set
-- `DISABLE_LOGIN_CONFIRMATIONS`: if `true`, new accounts are usable immediately and no confirmation email is sent (default `false`)
 
 The web server is configured with:
 

@@ -24,7 +24,9 @@ Contributions to Field Papers are welcome. This document covers setting up a dev
 
 The application is then available at <http://127.0.0.1:3000> (requests to `localhost` are redirected there). The `app`, `config`, `db`, `lib`, `locale`, `public`, and `test` directories are mounted into the container, so code changes take effect without rebuilding. Changes to the `Gemfile` or `Dockerfile` require `podman compose build web`.
 
-`docker-compose.yml` sets the configuration needed for development: uploads are stored on local disk, email confirmation is disabled, and the database connection is preconfigured. To add or override environment variables (for example, AWS credentials to test S3 or email), put them in a `.env` file, which is passed to the `web`, `jobs`, and `tasks` services if it exists.
+`docker-compose.yml` sets the configuration needed for development: uploads are stored on local disk and the database connection is preconfigured. To add or override environment variables (for example, AWS credentials to test S3 or email), put them in a `.env` file, which is passed to the `web`, `jobs`, and `tasks` services if it exists.
+
+"Log in with OpenStreetMap" uses a fake OSM provider in development, which asks for an OSM user id and display name. To test against openstreetmap.org instead, register an OAuth 2 application there (confidential, `openid` scope only, redirect URI `http://127.0.0.1:3000/users/auth/osm/callback`) and set `OSM_OAUTH_CLIENT_ID` and `OSM_OAUTH_CLIENT_SECRET` in `.env`.
 
 The compose setup has some limitations:
 
