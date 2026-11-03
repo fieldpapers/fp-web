@@ -53,18 +53,17 @@ msgstr "About"
 msgid "About the Project"
 msgstr "About the Project"
 
-#, fuzzy
 msgid "Account"
-msgstr "About"
+msgstr "Account"
 
 msgid "Activity"
 msgstr "Activity"
 
 msgid "Add column"
-msgstr ""
+msgstr "Add column"
 
 msgid "Add row"
-msgstr ""
+msgstr "Add row"
 
 msgid "Advanced - Field Papers"
 msgstr "Advanced - Field Papers"
@@ -118,7 +117,7 @@ msgid "Bing"
 msgstr "Bing"
 
 msgid "Browse"
-msgstr ""
+msgstr "Browse"
 
 msgid "Capture your notes"
 msgstr "Capture your notes"
@@ -138,9 +137,8 @@ msgstr "Copy this atlas"
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 
-#, fuzzy
 msgid "Dashboard - Field Papers"
-msgstr "Field Papers"
+msgstr "Dashboard - Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Don't upload things that aren't Field Papers maps, please."
@@ -200,10 +198,10 @@ msgid "Help"
 msgstr "Help"
 
 msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
-msgstr ""
+msgstr "If it's been much longer than that, processing may have stalled; try re-uploading."
 
 msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
-msgstr ""
+msgstr "If it's been much longer than that, the render may have stalled; try re-creating it."
 
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
@@ -221,23 +219,22 @@ msgid "Keep atlas private"
 msgstr "Keep atlas private"
 
 msgid "Language"
-msgstr ""
+msgstr "Language"
 
-#, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 
 msgid "Location and zoom"
 msgstr "Location and zoom"
 
 msgid "Log in"
-msgstr ""
+msgstr "Log in"
 
 msgid "Log out"
-msgstr ""
+msgstr "Log out"
 
 msgid "Make"
-msgstr ""
+msgstr "Make"
 
 msgid "Make - Field Papers"
 msgstr "Make - Field Papers"
@@ -245,9 +242,8 @@ msgstr "Make - Field Papers"
 msgid "Make Atlas"
 msgstr "Make Atlas"
 
-#, fuzzy
 msgid "Make an atlas"
-msgstr "Make Atlas"
+msgstr "Make an atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Make sure the scan/photo/image is at least 200dpi."
@@ -276,9 +272,8 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Menu"
 
-#, fuzzy
 msgid "No atlas"
-msgstr "No atlases."
+msgstr "No atlas"
 
 msgid "No atlases."
 msgstr "No atlases."
@@ -313,18 +308,17 @@ msgstr "Print notes"
 msgid "Print out anywhere in the world."
 msgstr "Print out anywhere in the world."
 
-#, fuzzy
 msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
-msgstr "Field Papers"
+msgstr "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
 
 msgid "Refresh"
 msgstr "Refresh"
 
 msgid "Remove column"
-msgstr ""
+msgstr "Remove column"
 
 msgid "Remove row"
-msgstr ""
+msgstr "Remove row"
 
 msgid "Rules"
 msgstr "Rules"
@@ -383,16 +377,14 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Translations"
 
-#, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
-msgstr "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgstr "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 
-#, fuzzy
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
-msgstr "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} or email %{email_url} with details."
+msgstr "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 
 msgid "Unprocessed snapshot"
-msgstr ""
+msgstr "Unprocessed snapshot"
 
 msgid "Upload"
 msgstr "Upload"
@@ -400,9 +392,8 @@ msgstr "Upload"
 msgid "Upload Failed"
 msgstr "Upload Failed"
 
-#, fuzzy
 msgid "Upload a snapshot"
-msgstr "Upload"
+msgstr "Upload a snapshot"
 
 msgid "Uploading"
 msgstr "Uploading"
@@ -411,21 +402,19 @@ msgid "Welcome to Field Papers"
 msgstr "Welcome to Field Papers"
 
 msgid "Welcome, %{username}"
-msgstr ""
+msgstr "Welcome, %{username}"
 
-#, fuzzy
 msgid "Your atlases"
-msgstr "Your Atlases"
+msgstr "Your atlases"
 
-#, fuzzy
 msgid "Your snapshots"
-msgstr "Your Snapshots"
+msgstr "Your snapshots"
 
 msgid "anonymous"
 msgstr "anonymous"
 
 msgid "failed"
-msgstr ""
+msgstr "failed"
 
 msgid "iD"
 msgstr "iD"
@@ -440,7 +429,7 @@ msgid "private"
 msgstr "private"
 
 msgid "processing"
-msgstr ""
+msgstr "processing"
 
 msgid "snapshot of page %{tp}"
 msgstr "snapshot of page %{tp}"
