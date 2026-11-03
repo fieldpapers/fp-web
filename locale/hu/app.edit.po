@@ -58,20 +58,21 @@ msgstr "Névjegy"
 msgid "About the Project"
 msgstr "A projektről"
 
+#, fuzzy
+msgid "Account"
+msgstr "Névjegy"
+
 msgid "Activity"
 msgstr "Tevékenység"
 
-msgid "Add-ons"
-msgstr "Bővítmények"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Speciális – Field Papers"
-
-msgid "All Atlases"
-msgstr "Minden atlasz"
-
-msgid "All Snapshots"
-msgstr "Minden pillanatkép"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -122,8 +123,8 @@ msgstr "Alaptérkép"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Mégsem"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "Rögzítsd a jegyzeteidet"
@@ -134,9 +135,6 @@ msgstr "Nézz utána az OSM súgówikijén."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítségével) kitaláljuk, hová kerüljön."
 
-msgid "Click for more information."
-msgstr "További információkért kattints ide."
-
 msgid "Code of Conduct"
 msgstr "Magatartási kódex"
 
@@ -145,6 +143,10 @@ msgstr "Atlasz másolása"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Nem sikerült a JOSM-hoz kapcsolódni. Győződj meg róla, hogy a JOSM fut, és be vannak kapcsolva a távirányítási (Remote Control) funkciók a Beállításoknál."
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
@@ -157,9 +159,6 @@ msgstr "GeoTIFF letöltése"
 
 msgid "Download PDF"
 msgstr "PDF letöltése"
-
-msgid "EXTEND"
-msgstr "BŐVÍTSD A LEHETŐSÉGEKET"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "Minden alábbi beállítás megadható egyszerű HTML-formában is a <a href=\"%s\">fieldpapers.org</a> oldalon. <i>Mindegyik szabadon választható.</i>"
@@ -229,11 +228,8 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Privát atlasz"
 
-msgid "LOG IN"
-msgstr "LÉPJ BE"
-
-msgid "LOG OUT"
-msgstr "LÉPJ KI"
+msgid "Language"
+msgstr ""
 
 #, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
@@ -242,13 +238,23 @@ msgstr "Szélesség, hosszúság és esetleges nagyítás. Új készítéséhez 
 msgid "Location and zoom"
 msgstr "Helyszín és nagyítás"
 
-msgid "MAKE"
-msgstr "KÉSZÍTS"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Készítés – Field Papers"
 
 msgid "Make Atlas"
+msgstr "Atlaszkészítés"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "Atlaszkészítés"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -277,6 +283,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menü"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Nincs atlasz."
 
 msgid "No atlases."
 msgstr "Nincs atlasz."
@@ -311,11 +321,18 @@ msgstr "Jegyzetek nyomtatása"
 msgid "Print out anywhere in the world."
 msgstr "Nyomtasd ki bárhol a világon"
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "A privát atlaszok csak akkor érhetők el ha be vagy lépve vagy ha megadod a legutolsó lépésben kapott URL-t."
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "Frissítés"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Szabályok"
@@ -376,12 +393,6 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Fordítások"
 
-msgid "UPLOAD"
-msgstr "TÖLTS FÖL"
-
-msgid "UTM Grid"
-msgstr "UTM-rács"
-
 #, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létrehozni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
@@ -390,32 +401,41 @@ msgstr "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy idős
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra feltölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
 
+msgid "Unprocessed snapshot"
+msgstr ""
+
 msgid "Upload"
 msgstr "Feltöltés"
 
 msgid "Upload Failed"
 msgstr "A feltöltés nem sikerült"
 
-msgid "Uploading"
+#, fuzzy
+msgid "Upload a snapshot"
 msgstr "Feltöltés"
 
-msgid "WATCH"
-msgstr "NÉZD MEG"
+msgid "Uploading"
+msgstr "Feltöltés"
 
 msgid "Welcome to Field Papers"
 msgstr "Isten hozott a Field Papersen"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "Atlaszaid"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "Pillanatképeid"
-
-msgid "an atlas to print"
-msgstr "nyomtatható atlaszt"
 
 msgid "anonymous"
 msgstr "névtelen"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -426,24 +446,59 @@ msgstr "projektje"
 msgid "open a GitHub issue"
 msgstr "issue (probléma) nyitása a GitHubon"
 
-msgid "or create an account"
-msgstr "vagy hozz létre fiókot"
-
-msgid "pages you've marked"
-msgstr "általad megjelölt oldalakat"
-
 msgid "private"
 msgstr "privát"
 
-msgid "recent activity"
-msgstr "a legutóbbi tevékenységeket"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "a(z) %{tp} oldal pillanatképe"
 
-msgid "with advanced tools"
-msgstr "speciális eszközökkel"
-
+#~ msgid "Add-ons"
+#~ msgstr "Bővítmények"
+#~ msgid "All Atlases"
+#~ msgstr "Minden atlasz"
+#~ msgid "All Snapshots"
+#~ msgstr "Minden pillanatkép"
+#~ msgid "Cancel"
+#~ msgstr "Mégsem"
+#~ msgid "Click for more information."
+#~ msgstr "További információkért kattints ide."
+#~ msgid "EXTEND"
+#~ msgstr "BŐVÍTSD A LEHETŐSÉGEKET"
+#~ msgid "LOG IN"
+#~ msgstr "LÉPJ BE"
+#~ msgid "LOG OUT"
+#~ msgstr "LÉPJ KI"
+#~ msgid "MAKE"
+#~ msgstr "KÉSZÍTS"
+#~ msgid ""
+#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
+#~ "d to you in the final step."
+#~ msgstr ""
+#~ "A privát atlaszok csak akkor érhetők el ha be vagy lépve vagy ha megadod a leg"
+#~ "utolsó lépésben kapott URL-t."
+#~ msgid "UPLOAD"
+#~ msgstr "TÖLTS FÖL"
+#~ msgid "UTM Grid"
+#~ msgstr "UTM-rács"
+#~ msgid "WATCH"
+#~ msgstr "NÉZD MEG"
+#~ msgid "Your Atlases"
+#~ msgstr "Atlaszaid"
+#~ msgid "Your Snapshots"
+#~ msgstr "Pillanatképeid"
+#~ msgid "an atlas to print"
+#~ msgstr "nyomtatható atlaszt"
+#~ msgid "or create an account"
+#~ msgstr "vagy hozz létre fiókot"
+#~ msgid "pages you've marked"
+#~ msgstr "általad megjelölt oldalakat"
+#~ msgid "recent activity"
+#~ msgstr "a legutóbbi tevékenységeket"
+#~ msgid "with advanced tools"
+#~ msgstr "speciális eszközökkel"
 #~ msgid "@fieldpapers on Twitter"
 #~ msgstr "@fieldpapers a Twitteren"
 #~ msgid ""

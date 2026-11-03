@@ -56,20 +56,20 @@ msgstr ""
 msgid "About the Project"
 msgstr "Tentang Proyek"
 
+msgid "Account"
+msgstr ""
+
 msgid "Activity"
 msgstr "Aktivitas"
 
-msgid "Add-ons"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
 msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Ahli - Field Papers"
-
-msgid "All Atlases"
-msgstr ""
-
-msgid "All Snapshots"
-msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
+msgid "Browse"
 msgstr ""
 
 msgid "Capture your notes"
@@ -132,9 +132,6 @@ msgstr "Memeriksa bantuan OSM wiki."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Pilih halaman atlas untuk meng-upload . Kami akan memutuskan di mana untuk menempatkan (menggunakan kode QR) ."
 
-msgid "Click for more information."
-msgstr ""
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -143,6 +140,10 @@ msgstr "Salin atlas ini"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Mohon, jangan meng-upload hal-hal yang bukan merupakan peta Field Papers."
@@ -155,9 +156,6 @@ msgstr "Men-download GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Men-download PDF"
-
-msgid "EXTEND"
-msgstr "Memperpanjang"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "Setiap pengaturan di bawah ini dapat diposting melalui formulir HTML <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
@@ -227,11 +225,8 @@ msgstr ""
 msgid "Keep atlas private"
 msgstr ""
 
-msgid "LOG IN"
-msgstr "MASUK"
-
-msgid "LOG OUT"
-msgstr "KELUAR"
+msgid "Language"
+msgstr ""
 
 #, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
@@ -240,13 +235,22 @@ msgstr "Lintang, bujur, dan lever perbesaran. Gunakan <a href=\"http://dbsgeo.co
 msgid "Location and zoom"
 msgstr "Lokasi dan zoom"
 
-msgid "MAKE"
-msgstr "MEMBUAT"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Membuat - Field Papers"
 
 msgid "Make Atlas"
+msgstr ""
+
+msgid "Make an atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -275,6 +279,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menu"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Tidak ada atlas"
 
 msgid "No atlases."
 msgstr "Tidak ada atlas"
@@ -309,11 +317,18 @@ msgstr ""
 msgid "Print out anywhere in the world."
 msgstr "Mencetak di mana saja di dunia."
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr ""
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "Memuat ulang"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Aturan"
@@ -374,12 +389,6 @@ msgstr "Warna"
 msgid "Translations"
 msgstr ""
 
-msgid "UPLOAD"
-msgstr "UNGGAH"
-
-msgid "UTM Grid"
-msgstr ""
-
 #, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Sayang sekali, atlas anda gagal di gambar. Ini mungkin adalah kesalah sesaat, yang jika hal ini terjadi, anda harus membuat ulang atlas. Jika masalah ini tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."
@@ -388,31 +397,40 @@ msgstr "Sayang sekali, atlas anda gagal di gambar. Ini mungkin adalah kesalah se
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Sayang sekali, foto anda gagal di proses. Ini mungkin adalah kesalah sesaat, yang jika hal ini terjadi, anda harus mengunggah ulang gambar. Jika masalah ini tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."
 
+msgid "Unprocessed snapshot"
+msgstr ""
+
 msgid "Upload"
 msgstr "Unggah"
 
 msgid "Upload Failed"
 msgstr "Gagal mengunggah"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "Unggah"
+
 msgid "Uploading"
 msgstr "Sedang mengunggah"
-
-msgid "WATCH"
-msgstr "PANTAU"
 
 msgid "Welcome to Field Papers"
 msgstr "Selamat datang di Field Papers"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
 msgstr ""
 
-msgid "Your Snapshots"
-msgstr ""
+#, fuzzy
+msgid "Your atlases"
+msgstr "Tidak ada atlas"
 
-msgid "an atlas to print"
-msgstr ""
+#, fuzzy
+msgid "Your snapshots"
+msgstr "Tidak ada foto."
 
 msgid "anonymous"
+msgstr ""
+
+msgid "failed"
 msgstr ""
 
 msgid "iD"
@@ -424,20 +442,11 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "atau membuat akun"
-
-msgid "pages you've marked"
-msgstr "halaman yang anda tandai"
-
 msgid "private"
 msgstr "pribadi"
 
-msgid "recent activity"
-msgstr "aktifitas saat ini"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "foto dari halaman %{tp}"
-
-msgid "with advanced tools"
-msgstr "dengan alat lebih mahir"

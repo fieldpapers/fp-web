@@ -64,20 +64,21 @@ msgstr "Sobre"
 msgid "About the Project"
 msgstr "Acerca do Projeto"
 
+#, fuzzy
+msgid "Account"
+msgstr "Sobre"
+
 msgid "Activity"
 msgstr "Atividade"
 
-msgid "Add-ons"
-msgstr "Extensões"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Avançado - Field Papers"
-
-msgid "All Atlases"
-msgstr "Todos os Atlas"
-
-msgid "All Snapshots"
-msgstr "Todas as Capturas"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -128,8 +129,8 @@ msgstr "Mapa base"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Cancelar"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "Capture as suas notas"
@@ -140,9 +141,6 @@ msgstr "Dê uma vista de olhos no wiki de ajuda do OSM."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Escolha uma página do atlas para carregar. Nós descobriremos de onde ela é (utilizando o código QR)."
 
-msgid "Click for more information."
-msgstr "Clique para mais informações"
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -151,6 +149,10 @@ msgstr "Copiar este atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Não foi possível estabelecer a ligação ao JOSM. Certifique-se que o JOSM está a ser executado e que a opção Controlo Remoto está ativada nas Preferências."
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Por favor não envie coisas que não sejam mapas do \"Field Papers\"."
@@ -163,9 +165,6 @@ msgstr "Descarregar GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Descarregar PDF"
-
-msgid "EXTEND"
-msgstr "EXTENDA"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "Cada configuração abaixo pode ser publicada via formulário HTML simples em <a href=\"%s\">fieldpapers.org</a>. <i>Todos são opcionais.</i>"
@@ -235,11 +234,8 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Manter o atlas privado"
 
-msgid "LOG IN"
-msgstr "AUTENTIQUE-SE"
-
-msgid "LOG OUT"
-msgstr "SAIR"
+msgid "Language"
+msgstr ""
 
 #, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
@@ -248,13 +244,23 @@ msgstr "Latitude, longitude e zoom opcional. Utilize <a href=\"http://dbsgeo.com
 msgid "Location and zoom"
 msgstr "Localização e zoom"
 
-msgid "MAKE"
-msgstr "CRIE"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Criação - Field Papers"
 
 msgid "Make Atlas"
+msgstr "Criar Atlas"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "Criar Atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -283,6 +289,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menu"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Nenhum atlas."
 
 msgid "No atlases."
 msgstr "Nenhum atlas."
@@ -317,11 +327,18 @@ msgstr "Imprimir notas"
 msgid "Print out anywhere in the world."
 msgstr "Imprima em qualquer parte do mundo."
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "Atlas privados apenas podem ser acedidos se estiver autenticado ou através de um URL fornecido no último passo de geração do atlas."
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "Atualizar"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Regras"
@@ -382,12 +399,6 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Traduções"
 
-msgid "UPLOAD"
-msgstr "ENVIE"
-
-msgid "UTM Grid"
-msgstr "Grelha UTM"
-
 #, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente, o seu atlas não pôde ser gerado. É possível que tenha ocorrido um problema intermitente, neste caso deve tentar criá-lo novamente. Se o problema persistir, por favor envie um email para %{email_url} com uma descrição pormenorizada do problema."
@@ -396,32 +407,41 @@ msgstr "Infelizmente, o seu atlas não pôde ser gerado. É possível que tenha 
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente a sua captura não pôde ser processada. É possível que tenha ocorrido um problema intermitente, neste caso deve tentar enviá-la novamente. Se o problema persistir, por favor envie um email para %{email_url} com uma descrição pormenorizada do problema."
 
+msgid "Unprocessed snapshot"
+msgstr ""
+
 msgid "Upload"
 msgstr "Enviar"
 
 msgid "Upload Failed"
 msgstr "O Envio Falhou"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "Enviar"
+
 msgid "Uploading"
 msgstr "A Enviar"
-
-msgid "WATCH"
-msgstr "OBSERVE"
 
 msgid "Welcome to Field Papers"
 msgstr "Bem-vindo ao Field Papers"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "Os Seus Atlas"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "As Suas Capturas"
-
-msgid "an atlas to print"
-msgstr "um atlas para imprimir"
 
 msgid "anonymous"
 msgstr "anónimo"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -432,20 +452,11 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "ou crie uma conta"
-
-msgid "pages you've marked"
-msgstr "páginas que marcou"
-
 msgid "private"
 msgstr "privado"
 
-msgid "recent activity"
-msgstr "atividade recente"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "captura da página %{tp}"
-
-msgid "with advanced tools"
-msgstr "com ferramentas avançadas"

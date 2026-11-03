@@ -54,19 +54,19 @@ msgstr ""
 msgid "About the Project"
 msgstr "Giới thiệu về Dự án"
 
+msgid "Account"
+msgstr ""
+
 msgid "Activity"
 msgstr "Hoạt động"
 
-msgid "Add-ons"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
 msgstr ""
 
 msgid "Advanced - Field Papers"
-msgstr ""
-
-msgid "All Atlases"
-msgstr ""
-
-msgid "All Snapshots"
 msgstr ""
 
 #, fuzzy
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
+msgid "Browse"
 msgstr ""
 
 msgid "Capture your notes"
@@ -130,9 +130,6 @@ msgstr "Ghé vào wiki trợ giúp của OSM."
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr ""
 
-msgid "Click for more information."
-msgstr ""
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -140,6 +137,9 @@ msgid "Copy this atlas"
 msgstr "Sao chép tập bản đồ nà"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
+msgstr ""
+
+msgid "Dashboard - Field Papers"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -153,9 +153,6 @@ msgstr "Tải về GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Tải về PDF"
-
-msgid "EXTEND"
-msgstr "MỞ RỘNG"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr ""
@@ -225,11 +222,8 @@ msgstr ""
 msgid "Keep atlas private"
 msgstr ""
 
-msgid "LOG IN"
-msgstr "ĐĂNG NHẬP"
-
-msgid "LOG OUT"
-msgstr "ĐĂNG XUẤT"
+msgid "Language"
+msgstr ""
 
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
@@ -237,13 +231,22 @@ msgstr ""
 msgid "Location and zoom"
 msgstr "Địa điểm và mức thu phóng"
 
-msgid "MAKE"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
 msgstr ""
 
 msgid "Make - Field Papers"
 msgstr ""
 
 msgid "Make Atlas"
+msgstr ""
+
+msgid "Make an atlas"
 msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -272,6 +275,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Trình đơn"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Không có tập bản đồ."
 
 msgid "No atlases."
 msgstr "Không có tập bản đồ."
@@ -306,11 +313,17 @@ msgstr ""
 msgid "Print out anywhere in the world."
 msgstr "In ra ở mọi nơi trên thế giới."
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
 
 msgid "Refresh"
 msgstr "Làm mới"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr ""
@@ -369,16 +382,13 @@ msgstr "Toner"
 msgid "Translations"
 msgstr ""
 
-msgid "UPLOAD"
-msgstr "TẢI LÊN"
-
-msgid "UTM Grid"
-msgstr ""
-
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
+msgstr ""
+
+msgid "Unprocessed snapshot"
 msgstr ""
 
 msgid "Upload"
@@ -387,25 +397,30 @@ msgstr "Tải lên"
 msgid "Upload Failed"
 msgstr "Tải lên Thất bại"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "Tải lên"
+
 msgid "Uploading"
 msgstr "Đang tải lên"
-
-msgid "WATCH"
-msgstr "THEO DÕI"
 
 msgid "Welcome to Field Papers"
 msgstr ""
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
 msgstr ""
 
-msgid "Your Snapshots"
-msgstr ""
+#, fuzzy
+msgid "Your atlases"
+msgstr "Không có tập bản đồ."
 
-msgid "an atlas to print"
-msgstr "tập bản đồ để in ra"
+msgid "Your snapshots"
+msgstr ""
 
 msgid "anonymous"
+msgstr ""
+
+msgid "failed"
 msgstr ""
 
 msgid "iD"
@@ -417,20 +432,11 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "hoặc tạo tài khoản"
-
-msgid "pages you've marked"
-msgstr ""
-
 msgid "private"
 msgstr "riêng tư"
 
-msgid "recent activity"
-msgstr "hoạt động gần đây"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr ""
-
-msgid "with advanced tools"
-msgstr "có công cụ nâng cao"

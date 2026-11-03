@@ -58,20 +58,21 @@ msgstr "Sobre"
 msgid "About the Project"
 msgstr "Sobre o Projeto"
 
+#, fuzzy
+msgid "Account"
+msgstr "Sobre"
+
 msgid "Activity"
 msgstr "Atividade"
 
-msgid "Add-ons"
-msgstr "Complementos"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Avançado - Field Papers"
-
-msgid "All Atlases"
-msgstr "Todos os Atlas"
-
-msgid "All Snapshots"
-msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -122,8 +123,8 @@ msgstr "Mapa Base"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "Cancelar"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "Capturar suas notas"
@@ -134,9 +135,6 @@ msgstr "Verifique o wiki de ajuda do OSM"
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "Selecione uma página do atlas para envio; Nós vamos descobrir para onde ela vai (usando o código QR)."
 
-msgid "Click for more information."
-msgstr "Clique para mais informações"
-
 msgid "Code of Conduct"
 msgstr ""
 
@@ -145,6 +143,10 @@ msgstr "Copiar esse atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Não conseguimos conectar ao JOSM.  Certifique-se que o JOSM está ativo e que a funcionalidade de Controle Remoto está ativo nas preferências"
+
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Por favor, não envie nada que não seja mapa do Field Paper."
@@ -157,9 +159,6 @@ msgstr "Baixar GeoTIFF"
 
 msgid "Download PDF"
 msgstr "Baixar PDF"
-
-msgid "EXTEND"
-msgstr "EXTENDER"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "Cada configuração abaixo pode ser publicada através de um formulário em HTML puro para o <a href=\"%s\">fieldpapers.org</a>. <i>Todos são opcionais.</i>"
@@ -229,11 +228,8 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "Manter atlas privado"
 
-msgid "LOG IN"
-msgstr "Entrar"
-
-msgid "LOG OUT"
-msgstr "Sair"
+msgid "Language"
+msgstr ""
 
 #, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
@@ -242,13 +238,23 @@ msgstr "Latitude, longitude e zoom opcional.  Use <a href=\"http://dbsgeo.com/la
 msgid "Location and zoom"
 msgstr "Localização e zoom"
 
-msgid "MAKE"
-msgstr "CRIAR"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "Criar - Field Papers"
 
 msgid "Make Atlas"
+msgstr "Criar Atlas"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "Criar Atlas"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -277,6 +283,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menu"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "Sem atlas."
 
 msgid "No atlases."
 msgstr "Sem atlas."
@@ -311,11 +321,18 @@ msgstr "Imprimir notas"
 msgid "Print out anywhere in the world."
 msgstr "Imprima em qualquer lugar do mundo."
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "Atlas privados só podem ser acessados se você estiver logado, ou via URL fornecida a você no passo final."
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "Atualizar"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "Regras"
@@ -376,12 +393,6 @@ msgstr ""
 msgid "Translations"
 msgstr "Traduções"
 
-msgid "UPLOAD"
-msgstr "Enviar"
-
-msgid "UTM Grid"
-msgstr "Grade UTM"
-
 #, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente seu atlas falhou na renderização.  É possível que seja um erro intermitente, nesse caso você deve tentar recriar o atlas.  Se o problema persistir, por favor envie um email para %{email_url} detalhando o problema."
@@ -390,32 +401,41 @@ msgstr "Infelizmente seu atlas falhou na renderização.  É possível que seja 
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "Infelizmente o processamento do ser instantâneo falhou. É possível que seja um erro intermitente, nesse caso você deve tentar reenviar. Se o problema persistir, por favor envie um email para %{email_url} detalhando o problema. "
 
+msgid "Unprocessed snapshot"
+msgstr ""
+
 msgid "Upload"
 msgstr "Enviar"
 
 msgid "Upload Failed"
 msgstr "Envio falhou"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "Enviar"
+
 msgid "Uploading"
 msgstr "Enviando"
-
-msgid "WATCH"
-msgstr "VIGIAR"
 
 msgid "Welcome to Field Papers"
 msgstr "Bem-vindo ao Field Papers"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "Seus Atlas"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "Seus Instantâneos"
-
-msgid "an atlas to print"
-msgstr "um atlas para imprimir"
 
 msgid "anonymous"
 msgstr "anônimo"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -426,24 +446,57 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "ou crie uma conta"
-
-msgid "pages you've marked"
-msgstr "Páginas que você marcou"
-
 msgid "private"
 msgstr "privado"
 
-msgid "recent activity"
-msgstr "atividade recente"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "instantâneo da página %{tp}"
 
-msgid "with advanced tools"
-msgstr "com ferramentas avançadas"
-
+#~ msgid "Add-ons"
+#~ msgstr "Complementos"
+#~ msgid "All Atlases"
+#~ msgstr "Todos os Atlas"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+#~ msgid "Click for more information."
+#~ msgstr "Clique para mais informações"
+#~ msgid "EXTEND"
+#~ msgstr "EXTENDER"
+#~ msgid "LOG IN"
+#~ msgstr "Entrar"
+#~ msgid "LOG OUT"
+#~ msgstr "Sair"
+#~ msgid "MAKE"
+#~ msgstr "CRIAR"
+#~ msgid ""
+#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
+#~ "d to you in the final step."
+#~ msgstr ""
+#~ "Atlas privados só podem ser acessados se você estiver logado, ou via URL forne"
+#~ "cida a você no passo final."
+#~ msgid "UPLOAD"
+#~ msgstr "Enviar"
+#~ msgid "UTM Grid"
+#~ msgstr "Grade UTM"
+#~ msgid "WATCH"
+#~ msgstr "VIGIAR"
+#~ msgid "Your Atlases"
+#~ msgstr "Seus Atlas"
+#~ msgid "Your Snapshots"
+#~ msgstr "Seus Instantâneos"
+#~ msgid "an atlas to print"
+#~ msgstr "um atlas para imprimir"
+#~ msgid "or create an account"
+#~ msgstr "ou crie uma conta"
+#~ msgid "pages you've marked"
+#~ msgstr "Páginas que você marcou"
+#~ msgid "recent activity"
+#~ msgstr "atividade recente"
+#~ msgid "with advanced tools"
+#~ msgstr "com ferramentas avançadas"
 #~ msgid "@fieldpapers on Twitter"
 #~ msgstr "@fieldpapers no Twitter"
 #~ msgid ""

@@ -67,20 +67,21 @@ msgstr "概要"
 msgid "About the Project"
 msgstr "このプロジェクトについて"
 
+#, fuzzy
+msgid "Account"
+msgstr "概要"
+
 msgid "Activity"
 msgstr "活動"
 
-msgid "Add-ons"
-msgstr "アドオン"
+msgid "Add column"
+msgstr ""
+
+msgid "Add row"
+msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "高度な機能 - Field Papers"
-
-msgid "All Atlases"
-msgstr "すべての地図"
-
-msgid "All Snapshots"
-msgstr "すべてのスナップショット"
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -131,8 +132,8 @@ msgstr "ベースマップ"
 msgid "Bing"
 msgstr "Bing"
 
-msgid "Cancel"
-msgstr "キャンセル"
+msgid "Browse"
+msgstr ""
 
 msgid "Capture your notes"
 msgstr "ノートを撮影"
@@ -142,9 +143,6 @@ msgstr "OpenStreetMapのヘルプwikiをご確認ください。"
 
 msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "メモした地図の画像ファイルを選択してアップロードしてください。記載されたQRコードを使ってその位置を判別します。"
-
-msgid "Click for more information."
-msgstr "クリックで詳細を見られます"
 
 msgid "Code of Conduct"
 msgstr ""
@@ -157,6 +155,10 @@ msgstr ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.\n"
 "%{JOSM}に接続できなかった場合。%{JOSM}が機能していて、%{the Remote Control functionality}が優先的に有効になっているか確認してください。"
 
+#, fuzzy
+msgid "Dashboard - Field Papers"
+msgstr "Field Papers"
+
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "すみません、アップロードできませんでした。ファイルはField Papersの地図ではないようです。"
 
@@ -168,9 +170,6 @@ msgstr "GeoTIFFのダウンロード"
 
 msgid "Download PDF"
 msgstr "PDFのダウンロード"
-
-msgid "EXTEND"
-msgstr "拡張機能"
 
 msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
 msgstr "それぞれの設定は平文のHTMLフォームとして <a href=\"%s\">fieldpapers.org</a>に保存されます。 <i>必須となる設定はありません。</i>"
@@ -240,11 +239,8 @@ msgstr "JOSM"
 msgid "Keep atlas private"
 msgstr "この地図帳の非公開設定を維持する。"
 
-msgid "LOG IN"
-msgstr "ログイン"
-
-msgid "LOG OUT"
-msgstr "ログアウト"
+msgid "Language"
+msgstr ""
 
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
@@ -252,13 +248,23 @@ msgstr ""
 msgid "Location and zoom"
 msgstr "対象範囲と縮尺"
 
-msgid "MAKE"
-msgstr "作る"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Make"
+msgstr ""
 
 msgid "Make - Field Papers"
 msgstr "作る - Field Papers"
 
 msgid "Make Atlas"
+msgstr "地図を作成"
+
+#, fuzzy
+msgid "Make an atlas"
 msgstr "地図を作成"
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
@@ -287,6 +293,10 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "メニュー"
+
+#, fuzzy
+msgid "No atlas"
+msgstr "地図帳がありません。"
 
 msgid "No atlases."
 msgstr "地図帳がありません。"
@@ -321,11 +331,18 @@ msgstr "ノートを印刷する"
 msgid "Print out anywhere in the world."
 msgstr "世界中どこでも印刷"
 
-msgid "Private atlases can only be accessed if you're logged in, or via a URL provided to you in the final step."
-msgstr "個人が作成した地図帳はログイン時、あるいは最終段階で表示されるURLを通じてしかアクセスすることができません。"
+#, fuzzy
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
+msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "更新"
+
+msgid "Remove column"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
 
 msgid "Rules"
 msgstr "ルール"
@@ -386,12 +403,6 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "翻訳"
 
-msgid "UPLOAD"
-msgstr "アップロード"
-
-msgid "UTM Grid"
-msgstr "UTM グリッド"
-
 #, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{email_url} にメールを送ってください。 "
@@ -400,32 +411,41 @@ msgstr "残念ながら、レンダリングに失敗しました。断続的エ
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳細と一緒に %{email_url} へメールをしてください。"
 
+msgid "Unprocessed snapshot"
+msgstr ""
+
 msgid "Upload"
 msgstr "アップロード"
 
 msgid "Upload Failed"
 msgstr "アップロードに失敗しました。"
 
+#, fuzzy
+msgid "Upload a snapshot"
+msgstr "アップロード"
+
 msgid "Uploading"
 msgstr "アップロード中"
-
-msgid "WATCH"
-msgstr "見る"
 
 msgid "Welcome to Field Papers"
 msgstr "ようこそ Field Papers へ"
 
-msgid "Your Atlases"
+msgid "Welcome, %{username}"
+msgstr ""
+
+#, fuzzy
+msgid "Your atlases"
 msgstr "あなたの地図"
 
-msgid "Your Snapshots"
+#, fuzzy
+msgid "Your snapshots"
 msgstr "あなたのスナップショット"
-
-msgid "an atlas to print"
-msgstr "地図帳を印刷"
 
 msgid "anonymous"
 msgstr "anonymous"
+
+msgid "failed"
+msgstr ""
 
 msgid "iD"
 msgstr "iD"
@@ -436,24 +456,57 @@ msgstr ""
 msgid "open a GitHub issue"
 msgstr ""
 
-msgid "or create an account"
-msgstr "or アカウントの新規作成"
-
-msgid "pages you've marked"
-msgstr "あなたがマークしたページ"
-
 msgid "private"
 msgstr "プライベート"
 
-msgid "recent activity"
-msgstr "現在の活動状況"
+msgid "processing"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "ページのスナップショット %{tp}"
 
-msgid "with advanced tools"
-msgstr "高度な機能"
-
+#~ msgid "Add-ons"
+#~ msgstr "アドオン"
+#~ msgid "All Atlases"
+#~ msgstr "すべての地図"
+#~ msgid "All Snapshots"
+#~ msgstr "すべてのスナップショット"
+#~ msgid "Cancel"
+#~ msgstr "キャンセル"
+#~ msgid "Click for more information."
+#~ msgstr "クリックで詳細を見られます"
+#~ msgid "EXTEND"
+#~ msgstr "拡張機能"
+#~ msgid "LOG IN"
+#~ msgstr "ログイン"
+#~ msgid "LOG OUT"
+#~ msgstr "ログアウト"
+#~ msgid "MAKE"
+#~ msgstr "作る"
+#~ msgid ""
+#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
+#~ "d to you in the final step."
+#~ msgstr "個人が作成した地図帳はログイン時、あるいは最終段階で表示されるURLを通じてしかアクセスすることができません。"
+#~ msgid "UPLOAD"
+#~ msgstr "アップロード"
+#~ msgid "UTM Grid"
+#~ msgstr "UTM グリッド"
+#~ msgid "WATCH"
+#~ msgstr "見る"
+#~ msgid "Your Atlases"
+#~ msgstr "あなたの地図"
+#~ msgid "Your Snapshots"
+#~ msgstr "あなたのスナップショット"
+#~ msgid "an atlas to print"
+#~ msgstr "地図帳を印刷"
+#~ msgid "or create an account"
+#~ msgstr "or アカウントの新規作成"
+#~ msgid "pages you've marked"
+#~ msgstr "あなたがマークしたページ"
+#~ msgid "recent activity"
+#~ msgstr "現在の活動状況"
+#~ msgid "with advanced tools"
+#~ msgstr "高度な機能"
 #~ msgid "@fieldpapers on Twitter"
 #~ msgstr "@fieldpapers on Twitter"
 #~ msgid ""
