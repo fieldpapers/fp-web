@@ -22,7 +22,7 @@ gem "sdoc", "~> 2.6.1", group: :doc
 gem "aws-sdk-core", "~> 3"
 gem "aws-sdk-s3", '~> 1.120'
 gem 'aws-sdk-rails', '~> 3.7', '>= 3.7.1'
-gem "devise", "~> 4.9.2" # authentication
+gem "devise", "~> 5.0" # authentication
 gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
@@ -34,7 +34,7 @@ gem "kaminari" # pagination
 gem "kaminari-i18n"
 gem "leaflet-rails", git: 'https://github.com/stamen/leaflet-rails'
 gem "kt-paperclip", "~> 8.0" # file attachments
-gem "puma", "~> 6.6.0" # app server
+gem "puma", "~> 7.2" # app server
 gem "rack", "~> 2.2" # rack 3 breaks rack-rewrite
 gem "rack-contrib"
 gem "rack-rewrite" # URL rewriting middleware
