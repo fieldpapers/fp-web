@@ -5,7 +5,7 @@ ruby "3.4.12"
 ## standard dependencies
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "7.2.3.2"
+gem "rails", "7.2.4"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 6.0.0"
 # Use terser-ruby as compressor for JavaScript assets
