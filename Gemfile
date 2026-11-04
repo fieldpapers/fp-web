@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.1.7"
+ruby "3.4.12"
 
 ## standard dependencies
 
@@ -41,7 +41,8 @@ gem "rack-rewrite" # URL rewriting middleware
 gem "rails-i18n", "~> 7.0"
 gem "s3_direct_upload", git: 'https://github.com/waynehoover/s3_direct_upload'
 gem "solid_queue", "~> 1.4" # background jobs
-gem "json", "~> 2.6.3"
+gem "csv" # no longer a default gem as of Ruby 3.4
+gem "json", "~> 2.21"
 gem 'geo', git: 'https://github.com/ollie/geo-mercator.git'
 gem 'actionview-encoded_mail_to'
 gem 'mapbox-rails', git: 'https://github.com/aai/mapbox-rails'
