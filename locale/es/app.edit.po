@@ -44,11 +44,25 @@ msgstr[0] "%{count} captura"
 msgstr[1] "%{count} capturas"
 msgstr[2] "%{count} capturas"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} atlas"
+msgstr[1] "%{count} atlas"
+msgstr[2] "%{count} atlas"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} página"
 msgstr[1] "%{count} páginas"
 msgstr[2] "%{count} páginas"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} captura"
+msgstr[1] "%{count} capturas"
+msgstr[2] "%{count} capturas"
 
 msgid "%{time_period} ago"
 msgstr "hace %{time_period}"
@@ -56,7 +70,6 @@ msgstr "hace %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; Contribuidores de OpenStreetMap"
 
-#, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr "Un archivo GeoJSON (parecido al de abajo) puede ser <code>PUBLICADO</code> como un archivo adjunto en <code>%{link}</code>, llamado <code>geojson_file</code>:"
 
@@ -66,9 +79,8 @@ msgstr "Acerca de"
 msgid "About the Project"
 msgstr "Acerca del proyecto"
 
-#, fuzzy
 msgid "Account"
-msgstr "Acerca de"
+msgstr ""
 
 msgid "Activity"
 msgstr "Actividad"
@@ -82,7 +94,9 @@ msgstr ""
 msgid "Advanced - Field Papers"
 msgstr "Avanzado - Field Papers"
 
-#, fuzzy
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
+
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr "De manera alternativa, el contenido del raw GeoJSON puede ser <code>PUBLICADO</code> en <code>%{link}</code> como un valor formulario, llamado <code>geojson_data</code>:"
 
@@ -128,6 +142,10 @@ msgstr "Atlas - Field Papers"
 msgid "Basemap"
 msgstr "Mapa base"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -146,15 +164,34 @@ msgstr "Escoge una página del atlas para subir. Nosotros encontraremos dónde v
 msgid "Code of Conduct"
 msgstr "Código de conducta"
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Copiar este atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "No se puede conectar con JOSM. Comprueba que JOSM está ejecutándose y que la función de control remoto está activada en las preferencias."
 
-#, fuzzy
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "No subas cosas que no son mapas Field Papers."
@@ -183,17 +220,25 @@ msgstr "Exportar datos"
 msgid "Field Papers"
 msgstr "Field Papers"
 
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
+
 msgid "From"
 msgstr "Desde"
 
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON Data"
 msgstr "Datos GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON File"
 msgstr "Archivo GeoJSON"
 
@@ -224,6 +269,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Si eliges un atlas para tomar notas, tu mapa aparecerá en la mitad superior de la página, y las notas en la mitad inferior. En otro caso, el mapa ocupará la página entera."
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "Es fácil crear atlas Field Papers «enlatados»  proporcionando detalles adicionales por adelantado que se utilizarán como valores predeterminados en todo el proceso de <a href=\"%s\">Hacer un atlas</a>."
 
@@ -239,9 +288,11 @@ msgstr "Mantener Atlas privado"
 msgid "Language"
 msgstr ""
 
-#, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "Latitud, longitud, y un acercamiento opcional. Utiliza <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> para hacer uno nuevo."
+msgstr ""
+
+msgid "Legacy account"
+msgstr ""
 
 msgid "Location and zoom"
 msgstr "Ubicación y acercamiento"
@@ -249,7 +300,27 @@ msgstr "Ubicación y acercamiento"
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -261,9 +332,8 @@ msgstr "Hacer - Field Papers"
 msgid "Make Atlas"
 msgstr "Hacer un atlas"
 
-#, fuzzy
 msgid "Make an atlas"
-msgstr "Hacer un atlas"
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Asegúrate de que el escaneado/foto/imagen sea de al menos 200 dpi."
@@ -292,9 +362,15 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Menú"
 
+msgid "Merge account"
+msgstr ""
+
 #, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
+
 msgid "No atlas"
-msgstr "Sin atlas."
+msgstr ""
 
 msgid "No atlases."
 msgstr "Sin atlas."
@@ -308,11 +384,18 @@ msgstr "Notas"
 msgid "OpenStreetMap US"
 msgstr "OpenStreetMap US"
 
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "OpenStreetMap US"
+
 msgid "Orientation"
 msgstr "Orientación"
 
 msgid "Paper size"
 msgstr "Tamaño de papel"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "Mover la rejilla con el mapa"
@@ -329,12 +412,14 @@ msgstr "Imprimir notas"
 msgid "Print out anywhere in the world."
 msgstr "Imprimir en cualquier lugar del mundo."
 
-#, fuzzy
 msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
-msgstr "Field Papers"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Recargar"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -354,11 +439,9 @@ msgstr "Puesto que esta es una captura <span class='private'>privada</span>, pro
 msgid "Snapshot - Field Papers"
 msgstr "Captura - Field Papers"
 
-#, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
 msgstr "Procesando captura (%{image_filename})"
 
-#, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr "Falló el procesamiento de captura (%{image_filename})"
 
@@ -401,13 +484,11 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Traducciones"
 
-#, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
-msgstr "Desgraciadamente, tu atlas no se ha renderizado. Es posible que se trate de un error intermitente, en cuyo caso deberías intentar volver a crear el atlas. Si el problema persiste, %{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
+msgstr ""
 
-#, fuzzy
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
-msgstr "Lamentablemente, no se ha podido procesar la instantánea de la imagen %{image_filename}. Es posible que se trate de un error intermitente, en cuyo caso deberías intentar volver a subirla. Si el problema persiste, %{open_issue} o envía un correo electrónico a %{email_url} con los detalles."
+msgstr ""
 
 msgid "Unprocessed snapshot"
 msgstr ""
@@ -418,26 +499,82 @@ msgstr "Subir"
 msgid "Upload Failed"
 msgstr "Fallo al subir"
 
-#, fuzzy
 msgid "Upload a snapshot"
-msgstr "Subir"
+msgstr ""
 
 msgid "Uploading"
 msgstr "Subiendo"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Bienvenido a Field Papers"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Bienvenido a Field Papers"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
-#, fuzzy
-msgid "Your atlases"
-msgstr "Tus atlas"
+msgid "Wrong username or password."
+msgstr ""
 
 #, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
+msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
+
 msgid "Your snapshots"
-msgstr "Tus capturas"
+msgstr ""
 
 msgid "anonymous"
 msgstr "anónimo"
@@ -460,125 +597,8 @@ msgstr "privado"
 msgid "processing"
 msgstr ""
 
+msgid "profile"
+msgstr ""
+
 msgid "snapshot of page %{tp}"
 msgstr "captura de la página %{tp}"
-
-#~ msgid "Add-ons"
-#~ msgstr "Complementos"
-#~ msgid "All Atlases"
-#~ msgstr "Todos los atlas"
-#~ msgid "All Snapshots"
-#~ msgstr "Todas las capturas"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-#~ msgid "Click for more information."
-#~ msgstr "Haga clic para más información"
-#~ msgid "EXTEND"
-#~ msgstr "AMPLIAR"
-#~ msgid "LOG IN"
-#~ msgstr "INICIAR SESIÓN"
-#~ msgid "LOG OUT"
-#~ msgstr "CERRAR SESIÓN"
-#~ msgid "MAKE"
-#~ msgstr "HACER"
-#~ msgid ""
-#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
-#~ "d to you in the final step."
-#~ msgstr ""
-#~ "Los atlas privados son accesibles solo si estás conectado, o a través de una U"
-#~ "RL que recibirás en el último paso."
-#~ msgid "UPLOAD"
-#~ msgstr "SUBIR"
-#~ msgid "UTM Grid"
-#~ msgstr "Rejilla UTM"
-#~ msgid "WATCH"
-#~ msgstr "VER"
-#~ msgid "Your Atlases"
-#~ msgstr "Tus atlas"
-#~ msgid "Your Snapshots"
-#~ msgstr "Tus capturas"
-#~ msgid "an atlas to print"
-#~ msgstr "un atlas para imprimir"
-#~ msgid "or create an account"
-#~ msgstr "o crea una cuenta"
-#~ msgid "pages you've marked"
-#~ msgstr "páginas que marcaste"
-#~ msgid "recent activity"
-#~ msgstr "actividad reciente"
-#~ msgid "with advanced tools"
-#~ msgstr "con herramientas avanzadas"
-#~ msgid "@fieldpapers on Twitter"
-#~ msgstr "@fieldpapers en Twitter"
-#~ msgid ""
-#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
-#~ ", and email us at %{email_url} if your atlas is stuck."
-#~ msgstr ""
-#~ "Si tomara más de una hora, compruebe %{twitter_link} si hay actualizaciones de"
-#~ "l estado del sistema, y envíenos un correo electrónico a %{email_url} si su at"
-#~ "las está atascado."
-#~ msgid ""
-#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-#~ "\">dbsgeo.com/latlon/</a> to make new ones."
-#~ msgstr ""
-#~ "Latitud, longitud, y un acercamiento opcional. Utilice <a href=\"http://dbsgeo."
-#~ "com/latlon/\">dbsgeo.com/latlon/</a> para hacer uno nuevo."
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please %{open_issue} or email %{email_url} with details."
-#~ msgstr ""
-#~ "Desafortunadamente, su atlas falló al ser procesado. Es posible que haya sido "
-#~ "un error intermitente, en cuyo caso debe intentar hacerlo de nuevo. Si el prob"
-#~ "lema persiste, envíe un correo electrónico a %{email_url} con los detalles."
-#~ msgid ""
-#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
-#~ "d. It's possible that it was an intermittent error, in which case you should t"
-#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
-#~ "l_url} with details."
-#~ msgstr ""
-#~ "Desafortunadamente, su captura falló al ser procesada. Es posible que haya sid"
-#~ "o un error intermitente, en cuyo caso debe intentar subirla de nuevo. Si el pr"
-#~ "oblema persiste, envíe un correo electrónico a %{email_url} con los detalles."
-#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
-#~ msgstr "%{FieldPapers} hecho por %{StamenDesign}"
-#~ msgid ""
-#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-#~ "a>, named “geojson_file”:"
-#~ msgstr ""
-#~ "Un archivo GeoJSON puede ser publicado como archivo adjunto en <a href=\"/\">fie"
-#~ "ldpapers.org</a>, con nombre «geojson_file»:"
-#~ msgid ""
-#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-#~ "g</a> as a form value, named “geojson_data”:"
-#~ msgstr ""
-#~ "Alternativamente, el contenido GeoJSON en bruto puede ser publicado en <a href"
-#~ "=\"/\">fieldpapers.org</a> como un valor de formulario, con nombre «geojson_data"
-#~ "»:"
-#~ msgid "Development Blog"
-#~ msgstr "Blog de desarrollo"
-#~ msgid "Geojson Data"
-#~ msgstr "Datos GeoJSON"
-#~ msgid "Geojson File"
-#~ msgstr "Archivo GeoJSON"
-#~ msgid "Snapshot Processing"
-#~ msgstr "Procesando captura"
-#~ msgid "Snapshot Processing Failed"
-#~ msgstr "Fallo al procesar la captura"
-#~ msgid "Stamen Design"
-#~ msgstr "Stamen Design"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Desafortunadamente, su atlas falló al ser procesado. Es posible que haya sido "
-#~ "un error intermitente, en cuyo caso debe intentar hacerlo de nuevo. Si el prob"
-#~ "lema persiste, envíe un correo electrónico a %{email_url} con los detalles."
-#~ msgid ""
-#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
-#~ " an intermittent error, in which case you should try re-uploading. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Desafortunadamente, su captura falló al ser procesada. Es posible que haya sid"
-#~ "o un error intermitente, en cuyo caso debe intentar subirla de nuevo. Si el pr"
-#~ "oblema persiste, envíe un correo electrónico a %{email_url} con los detalles."

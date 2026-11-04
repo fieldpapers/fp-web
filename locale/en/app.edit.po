@@ -33,10 +33,22 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} Snapshot"
 msgstr[1] "%{count} Snapshots"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} Atlas"
+msgstr[1] "%{count} Atlases"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} page"
 msgstr[1] "%{count} pages"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} Snapshot"
+msgstr[1] "%{count} Snapshots"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} ago"
@@ -67,6 +79,9 @@ msgstr "Add row"
 
 msgid "Advanced - Field Papers"
 msgstr "Advanced - Field Papers"
+
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
 
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -113,6 +128,10 @@ msgstr "Atlases - Field Papers"
 msgid "Basemap"
 msgstr "Basemap"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -131,14 +150,34 @@ msgstr "Choose an atlas page to upload. We'll work out where it goes (using the 
 msgid "Code of Conduct"
 msgstr "Code of Conduct"
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Copy this atlas"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
 msgstr "Dashboard - Field Papers"
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Don't upload things that aren't Field Papers maps, please."
@@ -166,6 +205,17 @@ msgstr "Export Data"
 
 msgid "Field Papers"
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+#, fuzzy
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr "Log out"
 
 msgid "From"
 msgstr "From"
@@ -206,6 +256,10 @@ msgstr "If it's been much longer than that, the render may have stalled; try re-
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 
@@ -224,14 +278,40 @@ msgstr "Language"
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 
+msgid "Legacy account"
+msgstr ""
+
 msgid "Location and zoom"
 msgstr "Location and zoom"
 
 msgid "Log in"
 msgstr "Log in"
 
+#, fuzzy
+msgid "Log in with OpenStreetMap"
+msgstr "Log in"
+
+#, fuzzy
+msgid "Log in with password"
+msgstr "Log in"
+
 msgid "Log out"
 msgstr "Log out"
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Logging in with OpenStreetMap failed (%{reason})."
+msgstr "failed"
 
 msgid "Make"
 msgstr "Make"
@@ -272,6 +352,13 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Menu"
 
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
+
 msgid "No atlas"
 msgstr "No atlas"
 
@@ -287,11 +374,18 @@ msgstr "Notes"
 msgid "OpenStreetMap US"
 msgstr "OpenStreetMap US"
 
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "OpenStreetMap US"
+
 msgid "Orientation"
 msgstr "Orientation"
 
 msgid "Paper size"
 msgstr "Paper size"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "Pin grid to map"
@@ -313,6 +407,9 @@ msgstr "Private atlases aren't listed on Field Papers, but anyone with the link 
 
 msgid "Refresh"
 msgstr "Refresh"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr "Remove column"
@@ -398,14 +495,73 @@ msgstr "Upload a snapshot"
 msgid "Uploading"
 msgstr "Uploading"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Welcome to Field Papers"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Welcome to Field Papers"
 
 msgid "Welcome, %{username}"
 msgstr "Welcome, %{username}"
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 msgid "Your atlases"
 msgstr "Your atlases"
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
 
 msgid "Your snapshots"
 msgstr "Your snapshots"
@@ -430,6 +586,9 @@ msgstr "private"
 
 msgid "processing"
 msgstr "processing"
+
+msgid "profile"
+msgstr ""
 
 msgid "snapshot of page %{tp}"
 msgstr "snapshot of page %{tp}"

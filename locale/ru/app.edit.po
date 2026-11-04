@@ -4,18 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 # Translators:
-# Trubin Konstantin <takutoatmorgue@gmail.com>, 2025
 # Alexey Frolov <uryevich@gmail.com>, 2025
 # Andrey Karmatsky <karmatsky@gmail.com>, 2025
-# Michael <m1@tut.by>, 2025
 # Nikolay Parukhin <parukhin@gmail.com>, 2025
+# Michael <m1@tut.by>, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
-"Last-Translator: Nikolay Parukhin <parukhin@gmail.com>, 2025\n"
+"Last-Translator: Michael <m1@tut.by>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/fieldpapers/teams/36392/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +26,7 @@ msgstr ""
 "1 && n%100<=14)? 2 : 3);\n"
 
 msgid "%{FieldPapers} is %{NowAProject} of %{OpenStreetMapUS}"
-msgstr ""
+msgstr "%{FieldPapers} - это %{NowAProject} в %{OpenStreetMapUS}"
 
 msgid "%{Upload} pages you've photographed."
 msgstr "%{Upload} страницы, которые вы сняли."
@@ -46,6 +45,14 @@ msgstr[1] "%{count} Снимка"
 msgstr[2] "%{count} Снимков"
 msgstr[3] "%{count} Снимков"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} Атлас"
+msgstr[1] "%{count} Атласов"
+msgstr[2] "%{count} Атласов"
+msgstr[3] "%{count} Атласов"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} страница"
@@ -53,15 +60,22 @@ msgstr[1] "%{count} страницы"
 msgstr[2] "%{count} страниц"
 msgstr[3] "%{count} страниц"
 
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} Снимок"
+msgstr[1] "%{count} Снимка"
+msgstr[2] "%{count} Снимков"
+msgstr[3] "%{count} Снимков"
+
 msgid "%{time_period} ago"
 msgstr "%{time_period} назад"
 
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; Участники OpenStreetMap"
 
-#, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr ""
+msgstr "Файл в формате GeoJSON (такой как ниже) может быть отправлен через <code>POST</code> как вложенный файл на <code>%{link}</code>, с именем<code>geojson_file</code>: "
 
 msgid "About"
 msgstr "О..."
@@ -69,9 +83,8 @@ msgstr "О..."
 msgid "About the Project"
 msgstr "О проекте"
 
-#, fuzzy
 msgid "Account"
-msgstr "О..."
+msgstr ""
 
 msgid "Activity"
 msgstr "Активность"
@@ -85,9 +98,11 @@ msgstr ""
 msgid "Advanced - Field Papers"
 msgstr "Расширенные инструменты - Полевые Материалы"
 
-#, fuzzy
-msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
 msgstr ""
+
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "Другая возможность, содержимое GeoJSON может быть отправлено через <code>POST</code> на <code>%{link}</code> как значение формы, с именем <code>geojson_data</code>\\: "
 
 msgid "Atlas - Field Papers"
 msgstr "Атлас - Полевые Материалы"
@@ -131,6 +146,10 @@ msgstr "Атласы - Полевые Материалы"
 msgid "Basemap"
 msgstr "Базовая карта"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Полевые Материалы"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -147,6 +166,9 @@ msgid "Choose an atlas page to upload. We'll work out where it goes (using the Q
 msgstr "Выберите страницу атласа для загрузки. Мы узнаем это место (с помощью QR-кода)."
 
 msgid "Code of Conduct"
+msgstr "Кодекс поведения"
+
+msgid "Connect your OpenStreetMap account"
 msgstr ""
 
 msgid "Copy this atlas"
@@ -155,15 +177,31 @@ msgstr "Скопировать этот атлас"
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Не удалось подключиться к JOSM. Убедитесь, что JOSM запущен и что функция дистанционного управления включена в настройках."
 
-#, fuzzy
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
 msgstr "Полевые Материалы"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Полевые Материалы"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Не загружайте ничего кроме карт Полевых Материалов, пожалуйста."
 
 msgid "Donate"
-msgstr ""
+msgstr "Пожертвовать"
 
 msgid "Download GeoTIFF"
 msgstr "Скачать GeoTIFF"
@@ -186,19 +224,27 @@ msgstr "Экспорт данных"
 msgid "Field Papers"
 msgstr "Полевые Материалы"
 
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Полевые Материалы"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
+
 msgid "From"
 msgstr "От"
 
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON Data"
-msgstr ""
+msgstr "Данные GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON File"
-msgstr ""
+msgstr "Файл GeoJSON"
 
 msgid "GitHub Issues"
 msgstr "Проблемы на GitHub"
@@ -227,6 +273,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Если вы решите включить заметки, ваша карта будет напечатана на верхней половине страницы с заметками, выведенными в нижней половине. В противном случае, карты будут отображаться на всю страницу."
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Полевые Материалы"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "Создать \"консервированные\" атласы Полевых материалов легко, предоставляя дополнительные детали к тем, что используются в качестве значений по умолчанию в течение  процесса <a href=\"%s\">создания</a>."
 
@@ -242,9 +292,11 @@ msgstr "Сохранить как частный"
 msgid "Language"
 msgstr ""
 
-#, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "Широта, долгота и необязателный масштаб. Используйте  <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a>, чтобы создать новые."
+msgstr ""
+
+msgid "Legacy account"
+msgstr ""
 
 msgid "Location and zoom"
 msgstr "Координаты и масштаб"
@@ -252,7 +304,27 @@ msgstr "Координаты и масштаб"
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Полевые Материалы"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Полевые Материалы"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -264,9 +336,8 @@ msgstr "Создать - Полевые материалы"
 msgid "Make Atlas"
 msgstr "Создать атлас"
 
-#, fuzzy
 msgid "Make an atlas"
-msgstr "Создать атлас"
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "Убедитесь, что скан/фотография/изображение имеют разрешение как минимум 200 точек на дюйм."
@@ -295,9 +366,15 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Меню"
 
+msgid "Merge account"
+msgstr ""
+
 #, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Полевые Материалы"
+
 msgid "No atlas"
-msgstr "Нет атласов."
+msgstr ""
 
 msgid "No atlases."
 msgstr "Нет атласов."
@@ -309,13 +386,20 @@ msgid "Notes"
 msgstr "Заметки"
 
 msgid "OpenStreetMap US"
-msgstr ""
+msgstr "OpenStreetMap США"
+
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "OpenStreetMap США"
 
 msgid "Orientation"
 msgstr "Ориентация"
 
 msgid "Paper size"
 msgstr "Размер бумаги"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "Закрепить сетку на карте"
@@ -332,12 +416,14 @@ msgstr "Печатать заметки"
 msgid "Print out anywhere in the world."
 msgstr "Распечатайте в любой точке мира."
 
-#, fuzzy
 msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
-msgstr "Полевые Материалы"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Обновить"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -357,11 +443,9 @@ msgstr "Поскольку этот атлас -  <span class='private'>част
 msgid "Snapshot - Field Papers"
 msgstr "Снимок - Полевые Материалы"
 
-#, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
 msgstr ""
 
-#, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr ""
 
@@ -404,13 +488,11 @@ msgstr "Тонер"
 msgid "Translations"
 msgstr "Переводы"
 
-#, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
-msgstr "К сожалению, Ваш атлас не удалось отрисовать. Возможно это была временная ошибка, в таком случае нужно попробовать пересоздать атлас. Если проблема остается, то сообщите нам %{email_url} подробности."
+msgstr ""
 
-#, fuzzy
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
-msgstr "К сожалению, Ваш снимок не удалось обработать. Возможно это была временная ошибка, в таком случае нужно попробовать загрузить снимок снова. Если проблема остается, то сообщите нам %{email_url} подробности."
+msgstr ""
 
 msgid "Unprocessed snapshot"
 msgstr ""
@@ -421,26 +503,82 @@ msgstr "Загрузите"
 msgid "Upload Failed"
 msgstr "Не удалось загрузить"
 
-#, fuzzy
 msgid "Upload a snapshot"
-msgstr "Загрузите"
+msgstr ""
 
 msgid "Uploading"
 msgstr "Загрузка"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Добро пожаловать в Полевые Материалы"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Добро пожаловать в Полевые Материалы"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
-#, fuzzy
-msgid "Your atlases"
-msgstr "Ваши атласы"
+msgid "Wrong username or password."
+msgstr ""
 
 #, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Полевые Материалы"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Полевые Материалы"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Полевые Материалы"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Полевые Материалы"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Полевые Материалы"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Полевые Материалы"
+
+msgid "Your account has been deleted."
+msgstr ""
+
+msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Полевые Материалы"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
+
 msgid "Your snapshots"
-msgstr "Ваши снимки"
+msgstr ""
 
 msgid "anonymous"
 msgstr "аноним"
@@ -452,10 +590,10 @@ msgid "iD"
 msgstr "iD"
 
 msgid "now a project"
-msgstr ""
+msgstr "уже проект"
 
 msgid "open a GitHub issue"
-msgstr ""
+msgstr "создайте тикет на GitHub"
 
 msgid "private"
 msgstr "частный"
@@ -463,123 +601,8 @@ msgstr "частный"
 msgid "processing"
 msgstr ""
 
+msgid "profile"
+msgstr ""
+
 msgid "snapshot of page %{tp}"
 msgstr "снимок страницы %{tp}"
-
-#~ msgid "Add-ons"
-#~ msgstr "Дополнительно"
-#~ msgid "All Atlases"
-#~ msgstr "Все атласы"
-#~ msgid "All Snapshots"
-#~ msgstr "Все снимки"
-#~ msgid "Cancel"
-#~ msgstr "Отменить"
-#~ msgid "Click for more information."
-#~ msgstr "Нажмите для подробной информации"
-#~ msgid "EXTEND"
-#~ msgstr "РАСШИРИТЬ"
-#~ msgid "LOG IN"
-#~ msgstr "ВОЙТИ"
-#~ msgid "LOG OUT"
-#~ msgstr "ВЫЙТИ"
-#~ msgid "MAKE"
-#~ msgstr "СОЗДАТЬ"
-#~ msgid ""
-#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
-#~ "d to you in the final step."
-#~ msgstr ""
-#~ "Частные атласы  доступны только если вы вошли в систему или через URL, предост"
-#~ "авленный вам на последнем этапе."
-#~ msgid "UPLOAD"
-#~ msgstr "ЗАГРУЗИТЬ"
-#~ msgid "UTM Grid"
-#~ msgstr "Сетка UTM"
-#~ msgid "WATCH"
-#~ msgstr "ПОСМОТРЕТЬ"
-#~ msgid "Your Atlases"
-#~ msgstr "Ваши атласы"
-#~ msgid "Your Snapshots"
-#~ msgstr "Ваши снимки"
-#~ msgid "an atlas to print"
-#~ msgstr "атлас для печати"
-#~ msgid "or create an account"
-#~ msgstr "или создать учетную запись"
-#~ msgid "pages you've marked"
-#~ msgstr "страницы, которые Вы отметили"
-#~ msgid "recent activity"
-#~ msgstr "последние действия"
-#~ msgid "with advanced tools"
-#~ msgstr "с продвинутыми инструментами"
-#~ msgid "@fieldpapers on Twitter"
-#~ msgstr "@fieldpapers в Twitter"
-#~ msgid ""
-#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
-#~ ", and email us at %{email_url} if your atlas is stuck."
-#~ msgstr ""
-#~ "Если процесс длится больше часа, проверьте статус системы на %{twitter_link} и"
-#~ " напишите нам на %{email_url}, если ваш атлас \"завис\"."
-#~ msgid ""
-#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-#~ "\">dbsgeo.com/latlon/</a> to make new ones."
-#~ msgstr ""
-#~ "Широта, долгота и необязателный масштаб. Используйте  <a href=\"http://dbsgeo.c"
-#~ "om/latlon/\">dbsgeo.com/latlon/</a>, чтобы создать новые."
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please %{open_issue} or email %{email_url} with details."
-#~ msgstr ""
-#~ "К сожалению, Ваш атлас не удалось отрисовать. Возможно это была временная ошиб"
-#~ "ка, в таком случае нужно попробовать пересоздать атлас. Если проблема остается"
-#~ ", то сообщите нам %{email_url} подробности."
-#~ msgid ""
-#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
-#~ "d. It's possible that it was an intermittent error, in which case you should t"
-#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
-#~ "l_url} with details."
-#~ msgstr ""
-#~ "К сожалению, Ваш снимок не удалось обработать. Возможно это была временная оши"
-#~ "бка, в таком случае нужно попробовать загрузить снимок снова. Если проблема ос"
-#~ "тается, то сообщите нам %{email_url} подробности."
-#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
-#~ msgstr "Сайт %{FieldPapers} создан в %{StamenDesign}"
-#~ msgid ""
-#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-#~ "a>, named “geojson_file”:"
-#~ msgstr ""
-#~ "GeoJSON файл может быть приаттачен к <a href=\"/\">fieldpapers.org</a>, если его"
-#~ " назвать “geojson_file”:"
-#~ msgid ""
-#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-#~ "g</a> as a form value, named “geojson_data”:"
-#~ msgstr ""
-#~ "Кроме того, содержимое GeoJSON может быть отправлено на  <a href=\"/\">fieldpape"
-#~ "rs.org</a> как значение формы под названием „geojson_data“: "
-#~ msgid "Development Blog"
-#~ msgstr "Блог разработки"
-#~ msgid "Geojson Data"
-#~ msgstr "Данные Geojson"
-#~ msgid "Geojson File"
-#~ msgstr "Файл Geojson"
-#~ msgid "Snapshot Processing"
-#~ msgstr "Обработка снимка"
-#~ msgid "Snapshot Processing Failed"
-#~ msgstr "Обработка снимка не удалась"
-#~ msgid "Stamen Design"
-#~ msgstr "Stamen Design"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "К сожалению, Ваш атлас не удалось отрисовать. Возможно это была временная ошиб"
-#~ "ка, в таком случае нужно попробовать пересоздать атлас. Если проблема остается"
-#~ ", то сообщите нам %{email_url} подробности."
-#~ msgid ""
-#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
-#~ " an intermittent error, in which case you should try re-uploading. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "К сожалению, Ваш снимок не удалось обработать. Возможно это была временная оши"
-#~ "бка, в таком случае нужно попробовать загрузить снимок снова. Если проблема ос"
-#~ "тается, то сообщите нам %{email_url} подробности."

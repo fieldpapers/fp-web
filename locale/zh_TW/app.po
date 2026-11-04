@@ -2,21 +2,22 @@
 # Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-# 
+#
 # Translators:
 # 沈家正 <shen.jia.zheng@gmail.com>, 2025
 # mcdlee <mcdlee@gmail.com>, 2025
 # woei <woei0101@gmail.com>, 2025
 # Sean Young <assanges@icloud.com>, 2025
 # Supaplex <bejokeup@gmail.com>, 2025
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
 "Last-Translator: Supaplex <bejokeup@gmail.com>, 2025\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/fieldpapers/teams/36392/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/fieldpapers/teams/3"
+"6392/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,9 +38,19 @@ msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} 快照"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} 地圖集"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} 頁"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} 快照"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} 之前"
@@ -47,12 +58,8 @@ msgstr "%{time_period} 之前"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; 開放街圖貢獻者"
 
-msgid ""
-"A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
-"attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr ""
-"GeoJSON 檔案 "
-"(如同以下所說的)，可以用附加檔案<code>發佈</code>到<code>%{link}</code>，叫做<code>geojson_file</code>："
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "GeoJSON 檔案 (如同以下所說的)，可以用附加檔案<code>發佈</code>到<code>%{link}</code>，叫做<code>geojson_file</code>："
 
 msgid "About"
 msgstr "關於"
@@ -75,12 +82,11 @@ msgstr ""
 msgid "Advanced - Field Papers"
 msgstr "進階 - Field Papers"
 
-msgid ""
-"Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
-"<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
 msgstr ""
-"另外，原始 GeoJSON "
-"內容可以用表格數值型式<code>發佈</code>到<code>%{link}</code>的命名為<code>geojson_data</code>："
+
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "另外，原始 GeoJSON 內容可以用表格數值型式<code>發佈</code>到<code>%{link}</code>的命名為<code>geojson_data</code>："
 
 msgid "Atlas - Field Papers"
 msgstr "地圖集 - Field Papers"
@@ -124,6 +130,10 @@ msgstr "多份地圖集 - Field Papers"
 msgid "Basemap"
 msgstr "底圖"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -136,23 +146,39 @@ msgstr "抓取你的註解"
 msgid "Check out the OSM help wiki."
 msgstr "查閱OSMwiki幫助頁面"
 
-msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR "
-"code)."
+msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
 msgstr "選擇一份地圖集頁上傳。我們會掝出它的位置(使用QR碼)"
 
 msgid "Code of Conduct"
 msgstr "行為準則"
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "複製這份地圖集"
 
-msgid ""
-"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
-"Control functionality is enabled in Preferences."
+msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "無法連結至JOSM。請確保JOSM經已運行，並已開啓遠端操控功能。"
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -167,12 +193,8 @@ msgstr "下載GeoTIFF檔"
 msgid "Download PDF"
 msgstr "下載PDF檔"
 
-msgid ""
-"Each setting below can be posted via plain HTML form to <a "
-"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr ""
-"以下的每一個設定可以經由簡單的HTML表格傳送到<a "
-"href=\"%s\">fieldpapers.org</a>.<i>所有的選項都是選填的。</i>"
+msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr "以下的每一個設定可以經由簡單的HTML表格傳送到<a href=\"%s\">fieldpapers.org</a>.<i>所有的選項都是選填的。</i>"
 
 msgid "Edit in..."
 msgstr "在...編輯"
@@ -185,6 +207,16 @@ msgstr "輸出資料"
 
 msgid "Field Papers"
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
 
 msgid "From"
 msgstr "從"
@@ -207,8 +239,7 @@ msgstr "格線布局"
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
 msgstr "手畫地圖代表在野外的一份Field Papers地圖集"
 
-msgid ""
-"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
 msgstr "在一份Field Papers地圖集裡拍照一個頁面代表的手畫圖"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
@@ -217,33 +248,23 @@ msgstr "手畫地圖來代表製作一份Field Papers地圖集"
 msgid "Help"
 msgstr "幫助"
 
-msgid ""
-"If it's been much longer than that, processing may have stalled; try re-"
-"uploading."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
 msgstr ""
 
-msgid ""
-"If it's been much longer than that, the render may have stalled; try re-"
-"creating it."
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
 msgstr ""
 
-msgid ""
-"If you choose to include notes, your map will be printed on the top half a "
-"page with notes displayed on the bottom half. Otherwise, maps will be "
-"displayed on a full page."
+msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "如果你選擇同時列印註解，你的地圖將會列印於紙張的上半部，註解則緊接顯示於下半部。反之，地圖會顯示在整版紙張。"
 
-msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details"
-" up-front that are used as default values throughout the <a "
-"href=\"%s\">Make</a> process."
-msgstr ""
-"以提供額外細節的前期來製做\"制式的\"Field Papers地圖集是容易的，這些前期是用來作為<a "
-"href=\"%s\">Make</a>所有過程中的預設值。"
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
 
-msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done "
-"in one of two ways:"
+msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgstr "以提供額外細節的前期來製做\"制式的\"Field Papers地圖集是容易的，這些前期是用來作為<a href=\"%s\">Make</a>所有過程中的預設值。"
+
+msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
 msgstr "從原始GeoJSON檔案產生地圖集是可能的。這可能從兩種方法其中之一被處理完畢。"
 
 msgid "JOSM"
@@ -255,9 +276,10 @@ msgstr "將地圖集設為非公開"
 msgid "Language"
 msgstr ""
 
-msgid ""
-"Latitude, longitude, and optional zoom. Use <a "
-"href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
+msgid "Legacy account"
 msgstr ""
 
 msgid "Location and zoom"
@@ -266,7 +288,27 @@ msgstr "地點與縮放"
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -299,9 +341,7 @@ msgstr "從GeoJSON製作地圖集"
 msgid "Making Canned Atlases"
 msgstr "製作制式的地圖集"
 
-msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
-"%{Mapbox}, or a combination thereof."
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
 msgstr "地圖資料%{OSMCopyright}：Stamen %{Toner} 、微軟 %{Bing}、%{Mapbox}、或他們的混搭。"
 
 msgid "Mapbox"
@@ -309,6 +349,13 @@ msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "選單"
+
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
 
 msgid "No atlas"
 msgstr ""
@@ -325,11 +372,18 @@ msgstr "註解"
 msgid "OpenStreetMap US"
 msgstr "開放街圖美國"
 
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "開放街圖美國"
+
 msgid "Orientation"
 msgstr "頁面方向"
 
 msgid "Paper size"
 msgstr "紙張大小"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "鎖定網格至地圖位置"
@@ -346,13 +400,14 @@ msgstr "列印註解"
 msgid "Print out anywhere in the world."
 msgstr "印出世界上任一地點"
 
-msgid ""
-"Private atlases aren't listed on Field Papers, but anyone with the link can "
-"open them. When you're logged in, you'll find them on your dashboard."
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
 
 msgid "Refresh"
 msgstr "重新整理"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -363,18 +418,11 @@ msgstr ""
 msgid "Rules"
 msgstr "規則"
 
-msgid ""
-"Since this atlas is <span class='private'>private</span>, you probably "
-"should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr ""
-"因為這份地圖集是<span class='private'>私人的</span>，所以你可能應該 <a "
-"href='%{atlas_url}'>以書籤標註它</a>。"
+msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr "因為這份地圖集是<span class='private'>私人的</span>，所以你可能應該 <a href='%{atlas_url}'>以書籤標註它</a>。"
 
-msgid ""
-"Since this snapshot is <span class='private'>private</span>, you probably "
-"should <a href='%{url}'>bookmark it</a>."
-msgstr ""
-"因為這個快照是<span class='private'>私人的</span>，所以你可能應該 <a href='%{url}'>以書籤標註它</a>。"
+msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
+msgstr "因為這個快照是<span class='private'>私人的</span>，所以你可能應該 <a href='%{url}'>以書籤標註它</a>。"
 
 msgid "Snapshot - Field Papers"
 msgstr "快照 - Field Papers"
@@ -397,9 +445,7 @@ msgstr "快照"
 msgid "Snapshots - Field Papers"
 msgstr "快照 - Field Papers"
 
-msgid ""
-"Something went wrong! Please review the <strong>rules</strong> below and try"
-" again."
+msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
 msgstr "出了些問題！請檢查以下<strong>規則</strong>並且再試一次。"
 
 msgid "Submit"
@@ -408,20 +454,11 @@ msgstr "送出"
 msgid "Take it into the field"
 msgstr "帶它入欄位中"
 
-msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this "
-"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
-"back later."
-msgstr ""
-"這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以<a "
-"href='%{atlas_url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
+msgstr "這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以<a href='%{atlas_url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
 
-msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this "
-"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
-"later."
-msgstr ""
-"這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以 <a href='%{url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
+msgstr "這可能要花一點時間，通常是幾分鐘。你不需要一直開啟這個視窗；你可以 <a href='%{url}'>以書籤標註這個頁面</a>並且稍晚再回來。"
 
 msgid "This process has been running for %{time}"
 msgstr "這個程序已經跑了%{time}"
@@ -435,17 +472,10 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "翻譯"
 
-msgid ""
-"Unfortunately, your atlas failed to render. It's possible that it was an "
-"intermittent error, in which case you should try re-creating the atlas. If "
-"the problem persists, please %{open_issue} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
-msgid ""
-"Unfortunately, your snapshot for image %{image_filename} failed to be "
-"processed. It's possible that it was an intermittent error, in which case "
-"you should try re-uploading. If the problem persists, please %{open_issue} "
-"with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
 msgid "Unprocessed snapshot"
@@ -463,13 +493,72 @@ msgstr ""
 msgid "Uploading"
 msgstr "上傳中"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "歡迎來到Field Papers"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "歡迎來到Field Papers"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
 msgstr ""
 
 msgid "Your snapshots"
@@ -494,6 +583,9 @@ msgid "private"
 msgstr "私人的"
 
 msgid "processing"
+msgstr ""
+
+msgid "profile"
 msgstr ""
 
 msgid "snapshot of page %{tp}"

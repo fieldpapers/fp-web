@@ -2,18 +2,19 @@
 # Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the app package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-# 
+#
 # Translators:
 # Quincy Morgan, 2025
 # Gábor Babos <gabor.babos@gmail.com>, 2025
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2025-02-12 21:56+0000\n"
 "Last-Translator: Gábor Babos <gabor.babos@gmail.com>, 2025\n"
-"Language-Team: Hungarian (https://app.transifex.com/fieldpapers/teams/36392/hu/)\n"
+"Language-Team: Hungarian (https://app.transifex.com/fieldpapers/teams/36392/hu"
+"/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,10 +37,22 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} pillanatkép"
 msgstr[1] "%{count} pillanatkép"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} atlasz"
+msgstr[1] "%{count} atlasz"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} oldal"
 msgstr[1] "%{count} oldal"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} pillanatkép"
+msgstr[1] "%{count} pillanatkép"
 
 msgid "%{time_period} ago"
 msgstr "ennyi idővel ezelőtt: %{time_period}"
@@ -47,12 +60,8 @@ msgstr "ennyi idővel ezelőtt: %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-szerkesztők"
 
-msgid ""
-"A GeoJSON file (similar to the below) can be <code>POST</code>ed as an "
-"attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
-msgstr ""
-"Egy (az alábbihoz hasonló) GeoJSON fájl <code>geojson_file</code> néven "
-"csatolt fájlként <code>elküldhető</code> a <code>%{link}</code> címre:"
+msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
+msgstr "Egy (az alábbihoz hasonló) GeoJSON fájl <code>geojson_file</code> néven csatolt fájlként <code>elküldhető</code> a <code>%{link}</code> címre:"
 
 msgid "About"
 msgstr "Névjegy"
@@ -75,12 +84,11 @@ msgstr ""
 msgid "Advanced - Field Papers"
 msgstr "Speciális – Field Papers"
 
-msgid ""
-"Alternatively, raw GeoJSON content can be <code>POST</code>ed to "
-"<code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
 msgstr ""
-"Másik megoldásként <code>geojson_data</code> néven nyers GeoJSON tartalom is"
-"  <code>elküldhető</code> a <code>%{link}</code> címre űrlapértékként:"
+
+msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
+msgstr "Másik megoldásként <code>geojson_data</code> néven nyers GeoJSON tartalom is  <code>elküldhető</code> a <code>%{link}</code> címre űrlapértékként:"
 
 msgid "Atlas - Field Papers"
 msgstr "Atlasz – Field Papers"
@@ -124,6 +132,10 @@ msgstr "Atlaszok – Field Papers"
 msgid "Basemap"
 msgstr "Alaptérkép"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -136,28 +148,39 @@ msgstr "Rögzítsd a jegyzeteidet"
 msgid "Check out the OSM help wiki."
 msgstr "Nézz utána az OSM súgówikijén."
 
-msgid ""
-"Choose an atlas page to upload. We'll work out where it goes (using the QR "
-"code)."
-msgstr ""
-"Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítségével) "
-"kitaláljuk, hová kerüljön."
+msgid "Choose an atlas page to upload. We'll work out where it goes (using the QR code)."
+msgstr "Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítségével) kitaláljuk, hová kerüljön."
 
 msgid "Code of Conduct"
 msgstr "Magatartási kódex"
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Atlasz másolása"
 
-msgid ""
-"Could not connect to JOSM. Make sure JOSM is running and that the Remote "
-"Control functionality is enabled in Preferences."
+msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
+msgstr "Nem sikerült a JOSM-hoz kapcsolódni. Győződj meg róla, hogy a JOSM fut, és be vannak kapcsolva a távirányítási (Remote Control) funkciók a Beállításoknál."
+
+msgid "Create one for free on openstreetmap.org."
 msgstr ""
-"Nem sikerült a JOSM-hoz kapcsolódni. Győződj meg róla, hogy a JOSM fut, és "
-"be vannak kapcsolva a távirányítási (Remote Control) funkciók a "
-"Beállításoknál."
 
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -172,13 +195,8 @@ msgstr "GeoTIFF letöltése"
 msgid "Download PDF"
 msgstr "PDF letöltése"
 
-msgid ""
-"Each setting below can be posted via plain HTML form to <a "
-"href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
-msgstr ""
-"Minden alábbi beállítás megadható egyszerű HTML-formában is a <a "
-"href=\"%s\">fieldpapers.org</a> oldalon. <i>Mindegyik szabadon "
-"választható.</i>"
+msgid "Each setting below can be posted via plain HTML form to <a href=\"%s\">fieldpapers.org</a>. <i>All are optional.</i>"
+msgstr "Minden alábbi beállítás megadható egyszerű HTML-formában is a <a href=\"%s\">fieldpapers.org</a> oldalon. <i>Mindegyik szabadon választható.</i>"
 
 msgid "Edit in..."
 msgstr "Szerkesztés a következővel…"
@@ -191,6 +209,16 @@ msgstr "Adatexportálás"
 
 msgid "Field Papers"
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
 
 msgid "From"
 msgstr "Ettől:"
@@ -211,54 +239,34 @@ msgid "Grid layout"
 msgstr "Rács elrendezése"
 
 msgid "Hand-drawn graphic representing a Field Papers atlas in the wild"
-msgstr ""
-"Kézzel rajzolt grafika, amely egy Field Papers-atlaszt ábrázol a vadonban"
+msgstr "Kézzel rajzolt grafika, amely egy Field Papers-atlaszt ábrázol a vadonban"
 
-msgid ""
-"Hand-drawn graphic representing photographing a page in a Field Papers atlas"
-msgstr ""
-"Kézzel rajzolt grafika, amely egy Field Papers-atlasz egy oldalának "
-"lefényképezését ábrázolja"
+msgid "Hand-drawn graphic representing photographing a page in a Field Papers atlas"
+msgstr "Kézzel rajzolt grafika, amely egy Field Papers-atlasz egy oldalának lefényképezését ábrázolja"
 
 msgid "Hand-drawn graphic to represent making a Field Papers atlas"
-msgstr ""
-"Kézzel rajzolt grafika, amely egy Field Papers-atlasz készítését ábrázolja"
+msgstr "Kézzel rajzolt grafika, amely egy Field Papers-atlasz készítését ábrázolja"
 
 msgid "Help"
 msgstr "Súgó"
 
-msgid ""
-"If it's been much longer than that, processing may have stalled; try re-"
-"uploading."
+msgid "If it's been much longer than that, processing may have stalled; try re-uploading."
 msgstr ""
 
-msgid ""
-"If it's been much longer than that, the render may have stalled; try re-"
-"creating it."
+msgid "If it's been much longer than that, the render may have stalled; try re-creating it."
 msgstr ""
 
-msgid ""
-"If you choose to include notes, your map will be printed on the top half a "
-"page with notes displayed on the bottom half. Otherwise, maps will be "
-"displayed on a full page."
-msgstr ""
-"Ha azt választod, hogy a térkép megjegyzéseket is tartalmazzon, akkor a "
-"térkép az oldal felső felén, a megjegyzések pedig az alsó felén lesznek. "
-"Egyébként a teljes oldalt a térkép fogja elfoglalni."
+msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
+msgstr "Ha azt választod, hogy a térkép megjegyzéseket is tartalmazzon, akkor a térkép az oldal felső felén, a megjegyzések pedig az alsó felén lesznek. Egyébként a teljes oldalt a térkép fogja elfoglalni."
 
-msgid ""
-"It’s easy to create “canned” Field Papers atlases by providing extra details"
-" up-front that are used as default values throughout the <a "
-"href=\"%s\">Make</a> process."
-msgstr ""
-"Egyszerűen készíthetünk előregyártott Field Papers atlaszokat is, amelyeknél"
-" az elején megadunk bizonyos további részleteket, amelyek aztán a <a "
-"href=”%s”>Készítési</a> folyamat során alapértelmezett értékként vétetnek "
-"figyelembe."
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
 
-msgid ""
-"It’s possible to generate atlases from raw GeoJSON files. This can be done "
-"in one of two ways:"
+msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
+msgstr "Egyszerűen készíthetünk előregyártott Field Papers atlaszokat is, amelyeknél az elején megadunk bizonyos további részleteket, amelyek aztán a <a href=”%s”>Készítési</a> folyamat során alapértelmezett értékként vétetnek figyelembe."
+
+msgid "It’s possible to generate atlases from raw GeoJSON files. This can be done in one of two ways:"
 msgstr "Nyers GeoJSON-fájlból is generálható atlasz, mégpedig két módon:"
 
 msgid "JOSM"
@@ -270,9 +278,10 @@ msgstr "Privát atlasz"
 msgid "Language"
 msgstr ""
 
-msgid ""
-"Latitude, longitude, and optional zoom. Use <a "
-"href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
+msgstr ""
+
+msgid "Legacy account"
 msgstr ""
 
 msgid "Location and zoom"
@@ -281,7 +290,27 @@ msgstr "Helyszín és nagyítás"
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -300,9 +329,7 @@ msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "A scannelt kép/fénykép/egyéb kép felbontása legalább 200 DPI legyen."
 
 msgid "Make sure you're uploading a JPG, PNG, TIF, or GIF. (PDFs won't work.)"
-msgstr ""
-"A feltöltendő fájl kiterjesztése JPG, PNG, TIF vagy GIF legyen. (A PDF nem "
-"működik.)"
+msgstr "A feltöltendő fájl kiterjesztése JPG, PNG, TIF vagy GIF legyen. (A PDF nem működik.)"
 
 msgid "Make your notes and observations."
 msgstr "Készíts feljegyzéseket és megfigyeléseket."
@@ -316,18 +343,21 @@ msgstr "Atlasz készítése GeoJSON-ból"
 msgid "Making Canned Atlases"
 msgstr "Előregyártott atlasz készítése"
 
-msgid ""
-"Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, "
-"%{Mapbox}, or a combination thereof."
-msgstr ""
-"Térképadatok: %{OSMCopyright}, %{Toner} a Stamentől, %{Bing} a Microsofttól,"
-" %{Mapbox}, vagy ezek kombinációja."
+msgid "Map data %{OSMCopyright}, %{Toner} by Stamen, %{Bing} by Microsoft, %{Mapbox}, or a combination thereof."
+msgstr "Térképadatok: %{OSMCopyright}, %{Toner} a Stamentől, %{Bing} a Microsofttól, %{Mapbox}, vagy ezek kombinációja."
 
 msgid "Mapbox"
 msgstr "Mapbox"
 
 msgid "Menu"
 msgstr "Menü"
+
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
 
 msgid "No atlas"
 msgstr ""
@@ -344,11 +374,18 @@ msgstr "Jegyzetek"
 msgid "OpenStreetMap US"
 msgstr "OpenStreetMap US"
 
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "OpenStreetMap US"
+
 msgid "Orientation"
 msgstr "Tájolás"
 
 msgid "Paper size"
 msgstr "Papírméret"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "Rács térképre rögzítése"
@@ -365,13 +402,14 @@ msgstr "Jegyzetek nyomtatása"
 msgid "Print out anywhere in the world."
 msgstr "Nyomtasd ki bárhol a világon"
 
-msgid ""
-"Private atlases aren't listed on Field Papers, but anyone with the link can "
-"open them. When you're logged in, you'll find them on your dashboard."
+msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
 msgstr ""
 
 msgid "Refresh"
 msgstr "Frissítés"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -382,19 +420,11 @@ msgstr ""
 msgid "Rules"
 msgstr "Szabályok"
 
-msgid ""
-"Since this atlas is <span class='private'>private</span>, you probably "
-"should <a href='%{atlas_url}'>bookmark it</a>."
-msgstr ""
-"Mivel ez az atlasz <span class='private'>privát</span>, valószínűleg érdemes"
-" lenne <a href='%{atlas_url}'>eltárolni a könyvjelzők közé</a>."
+msgid "Since this atlas is <span class='private'>private</span>, you probably should <a href='%{atlas_url}'>bookmark it</a>."
+msgstr "Mivel ez az atlasz <span class='private'>privát</span>, valószínűleg érdemes lenne <a href='%{atlas_url}'>eltárolni a könyvjelzők közé</a>."
 
-msgid ""
-"Since this snapshot is <span class='private'>private</span>, you probably "
-"should <a href='%{url}'>bookmark it</a>."
-msgstr ""
-"Mivel ez a pillanatkép <span class='private'>privát</span>, valószínűleg "
-"érdemes lenne <a href='%{url}'>eltárolni a könyvjelzők közé</a>."
+msgid "Since this snapshot is <span class='private'>private</span>, you probably should <a href='%{url}'>bookmark it</a>."
+msgstr "Mivel ez a pillanatkép <span class='private'>privát</span>, valószínűleg érdemes lenne <a href='%{url}'>eltárolni a könyvjelzők közé</a>."
 
 msgid "Snapshot - Field Papers"
 msgstr "Pillanatkép – Field Papers"
@@ -417,12 +447,8 @@ msgstr "Pillanatképek"
 msgid "Snapshots - Field Papers"
 msgstr "Pillanatképek – Field Papers"
 
-msgid ""
-"Something went wrong! Please review the <strong>rules</strong> below and try"
-" again."
-msgstr ""
-"Valami nem sikerült… Nézd át lent a <strong>szabályokat</strong> és próbáld "
-"meg újra."
+msgid "Something went wrong! Please review the <strong>rules</strong> below and try again."
+msgstr "Valami nem sikerült… Nézd át lent a <strong>szabályokat</strong> és próbáld meg újra."
 
 msgid "Submit"
 msgstr "Küldés"
@@ -430,23 +456,11 @@ msgstr "Küldés"
 msgid "Take it into the field"
 msgstr "Vidd magaddal a terepre"
 
-msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this "
-"window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come "
-"back later."
-msgstr ""
-"Ez eltarthat egy darabig, általában pár percig. Eközben ezt az ablakot nem "
-"kell nyitva tartani: az <a href='%{atlas_url}’>oldal webcíme</a> eltárolható"
-" a könyvjelzők közé, és később is felkereshető."
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{atlas_url}'>bookmark this page</a> and come back later."
+msgstr "Ez eltarthat egy darabig, általában pár percig. Eközben ezt az ablakot nem kell nyitva tartani: az <a href='%{atlas_url}’>oldal webcíme</a> eltárolható a könyvjelzők közé, és később is felkereshető."
 
-msgid ""
-"This may take a while, generally a few minutes. You don't need to keep this "
-"window open; you can <a href='%{url}'>bookmark this page</a> and come back "
-"later."
-msgstr ""
-"Ez eltarthat egy darabig, általában pár percig. Eközben ezt az ablakot nem "
-"kell nyitva tartani: az <a href='%{url}’>oldal webcíme</a> eltárolható a "
-"könyvjelzők közé, és később is felkereshető."
+msgid "This may take a while, generally a few minutes. You don't need to keep this window open; you can <a href='%{url}'>bookmark this page</a> and come back later."
+msgstr "Ez eltarthat egy darabig, általában pár percig. Eközben ezt az ablakot nem kell nyitva tartani: az <a href='%{url}’>oldal webcíme</a> eltárolható a könyvjelzők közé, és később is felkereshető."
 
 msgid "This process has been running for %{time}"
 msgstr "A folyamat ennyi ideje fut: %{time}"
@@ -460,17 +474,10 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Fordítások"
 
-msgid ""
-"Unfortunately, your atlas failed to render. It's possible that it was an "
-"intermittent error, in which case you should try re-creating the atlas. If "
-"the problem persists, please %{open_issue} with details."
+msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
-msgid ""
-"Unfortunately, your snapshot for image %{image_filename} failed to be "
-"processed. It's possible that it was an intermittent error, in which case "
-"you should try re-uploading. If the problem persists, please %{open_issue} "
-"with details."
+msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
 msgstr ""
 
 msgid "Unprocessed snapshot"
@@ -488,13 +495,72 @@ msgstr ""
 msgid "Uploading"
 msgstr "Feltöltés"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Isten hozott a Field Papersen"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Isten hozott a Field Papersen"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
 msgstr ""
 
 msgid "Your snapshots"
@@ -519,6 +585,9 @@ msgid "private"
 msgstr "privát"
 
 msgid "processing"
+msgstr ""
+
+msgid "profile"
 msgstr ""
 
 msgid "snapshot of page %{tp}"

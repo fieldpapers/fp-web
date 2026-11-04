@@ -44,6 +44,16 @@ msgstr[3] "%{count} لقطات"
 msgstr[4] "%{count} لقطة"
 msgstr[5] "%{count} لقطة"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} أطلس"
+msgstr[1] "%{count} أطلس"
+msgstr[2] "%{count} أطلسان"
+msgstr[3] "%{count} أطالس"
+msgstr[4] "%{count} أطلس"
+msgstr[5] "%{count} أطلس"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} صفحة"
@@ -52,6 +62,16 @@ msgstr[2] "%{count} صفحتان"
 msgstr[3] "%{count} صفحات"
 msgstr[4] "%{count} صفحة"
 msgstr[5] "%{count} صفحة"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} لقطة"
+msgstr[1] "%{count} لقطة"
+msgstr[2] "%{count} لقطتين"
+msgstr[3] "%{count} لقطات"
+msgstr[4] "%{count} لقطة"
+msgstr[5] "%{count} لقطة"
 
 msgid "%{time_period} ago"
 msgstr "منذ %{time_period}"
@@ -84,6 +104,9 @@ msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "متقدم - فيلد بايْبِرز"
+
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -131,6 +154,10 @@ msgstr "الأطالس - فيلد بايْبِرز"
 msgid "Basemap"
 msgstr "الخريطة الأساس"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "فيلد بايْبِرز"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -149,15 +176,35 @@ msgstr "اتختر صفحة أطلس لرفعها. سنعمل من أين تذه
 msgid "Code of Conduct"
 msgstr ""
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "انسخ هذا الأطلس"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "تعذر الاتصال بـJOSM. تأكد بأن JOSM يعمل وأن وظيفة التحكم من بعد مفعّلة في التفضيلات."
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 #, fuzzy
 msgid "Dashboard - Field Papers"
 msgstr "فيلد بايْبِرز"
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "فيلد بايْبِرز"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "لا تقم برفع أشياء ليست بخرائط فيلد بايْبِرز، رجاءً."
@@ -185,6 +232,16 @@ msgstr "صدّر البيانات"
 
 msgid "Field Papers"
 msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "فيلد بايْبِرز"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
 
 msgid "From"
 msgstr "من"
@@ -227,6 +284,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "إذا اخترت تضمين الملاحظات، ستُطبع خريطتك على النصف العلوي من الصفحة مع الملاحظات ظاهرة في النصف السفلي منها. وإلا، ستظهر خريطتك على كامل الصفحة."
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "فيلد بايْبِرز"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "من السهل إنشاء أطالس فيلد بايْبِرز \"معلبة\" عن طريق توفير تفاصيل إضافية مقدما التي هي قيم افتراضية مستخدمة طوال عملية <a href=\"%s\">الصناعة</a>."
 
@@ -246,13 +307,36 @@ msgstr ""
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "خط العرض، خط الطول، والتقريب الاختياري. استخدم <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a لإنشاء جدد."
 
+msgid "Legacy account"
+msgstr ""
+
 msgid "Location and zoom"
 msgstr "الموقع والتقريب"
 
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "فيلد بايْبِرز"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "فيلد بايْبِرز"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -295,6 +379,13 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "القائمة"
 
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "فيلد بايْبِرز"
+
 #, fuzzy
 msgid "No atlas"
 msgstr "لا يوجد أطالس"
@@ -311,11 +402,17 @@ msgstr "ملاحظات"
 msgid "OpenStreetMap US"
 msgstr ""
 
+msgid "OpenStreetMap account"
+msgstr ""
+
 msgid "Orientation"
 msgstr "الاتّجاه"
 
 msgid "Paper size"
 msgstr "مقاس الصفحة"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "ثبت الشبكة على الخريطة"
@@ -338,6 +435,9 @@ msgstr "فيلد بايْبِرز"
 
 msgid "Refresh"
 msgstr "تنشيط"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -428,15 +528,74 @@ msgstr "رفع"
 msgid "Uploading"
 msgstr "جاري الرفع"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "مرحبا بك في فيلْد بايْبِرْز"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "مرحبا بك في فيلْد بايْبِرْز"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "فيلد بايْبِرز"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "فيلد بايْبِرز"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "فيلد بايْبِرز"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 #, fuzzy
 msgid "Your atlases"
 msgstr "أطالسك"
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "فيلد بايْبِرز"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
 
 #, fuzzy
 msgid "Your snapshots"
@@ -461,6 +620,9 @@ msgid "private"
 msgstr "خاص"
 
 msgid "processing"
+msgstr ""
+
+msgid "profile"
 msgstr ""
 
 msgid "snapshot of page %{tp}"

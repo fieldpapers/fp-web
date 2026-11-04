@@ -37,10 +37,22 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} pillanatkép"
 msgstr[1] "%{count} pillanatkép"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} atlasz"
+msgstr[1] "%{count} atlasz"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} oldal"
 msgstr[1] "%{count} oldal"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} pillanatkép"
+msgstr[1] "%{count} pillanatkép"
 
 msgid "%{time_period} ago"
 msgstr "ennyi idővel ezelőtt: %{time_period}"
@@ -48,7 +60,6 @@ msgstr "ennyi idővel ezelőtt: %{time_period}"
 msgid "&copy; OpenStreetMap contributors"
 msgstr "&copy; OpenStreetMap-szerkesztők"
 
-#, fuzzy
 msgid "A GeoJSON file (similar to the below) can be <code>POST</code>ed as an attached file to <code>%{link}</code>, named <code>geojson_file</code>:"
 msgstr "Egy (az alábbihoz hasonló) GeoJSON fájl <code>geojson_file</code> néven csatolt fájlként <code>elküldhető</code> a <code>%{link}</code> címre:"
 
@@ -58,9 +69,8 @@ msgstr "Névjegy"
 msgid "About the Project"
 msgstr "A projektről"
 
-#, fuzzy
 msgid "Account"
-msgstr "Névjegy"
+msgstr ""
 
 msgid "Activity"
 msgstr "Tevékenység"
@@ -74,7 +84,9 @@ msgstr ""
 msgid "Advanced - Field Papers"
 msgstr "Speciális – Field Papers"
 
-#, fuzzy
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
+
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
 msgstr "Másik megoldásként <code>geojson_data</code> néven nyers GeoJSON tartalom is  <code>elküldhető</code> a <code>%{link}</code> címre űrlapértékként:"
 
@@ -120,6 +132,10 @@ msgstr "Atlaszok – Field Papers"
 msgid "Basemap"
 msgstr "Alaptérkép"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -138,15 +154,34 @@ msgstr "Válassz ki egy feltöltendő atlaszoldalt. Mi majd (a QR-kód segítsé
 msgid "Code of Conduct"
 msgstr "Magatartási kódex"
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Atlasz másolása"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr "Nem sikerült a JOSM-hoz kapcsolódni. Győződj meg róla, hogy a JOSM fut, és be vannak kapcsolva a távirányítási (Remote Control) funkciók a Beállításoknál."
 
-#, fuzzy
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Légy szíves, ne tölts fel olyasmit, ami nem Field Papers-térkép."
@@ -175,17 +210,25 @@ msgstr "Adatexportálás"
 msgid "Field Papers"
 msgstr "Field Papers"
 
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
+
 msgid "From"
 msgstr "Ettől:"
 
 msgid "GeoJSON"
 msgstr "GeoJSON"
 
-#, fuzzy
 msgid "GeoJSON Data"
 msgstr "GeoJSON adatok"
 
-#, fuzzy
 msgid "GeoJSON File"
 msgstr "GeoJSON fájl"
 
@@ -216,6 +259,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "Ha azt választod, hogy a térkép megjegyzéseket is tartalmazzon, akkor a térkép az oldal felső felén, a megjegyzések pedig az alsó felén lesznek. Egyébként a teljes oldalt a térkép fogja elfoglalni."
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "Egyszerűen készíthetünk előregyártott Field Papers atlaszokat is, amelyeknél az elején megadunk bizonyos további részleteket, amelyek aztán a <a href=”%s”>Készítési</a> folyamat során alapértelmezett értékként vétetnek figyelembe."
 
@@ -231,9 +278,11 @@ msgstr "Privát atlasz"
 msgid "Language"
 msgstr ""
 
-#, fuzzy
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
-msgstr "Szélesség, hosszúság és esetleges nagyítás. Új készítéséhez használd a <a href=\"http://dbsgeo.com/latlon/”>dbsgeo.com/latlon/</a> szolgáltatását."
+msgstr ""
+
+msgid "Legacy account"
+msgstr ""
 
 msgid "Location and zoom"
 msgstr "Helyszín és nagyítás"
@@ -241,7 +290,27 @@ msgstr "Helyszín és nagyítás"
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -253,9 +322,8 @@ msgstr "Készítés – Field Papers"
 msgid "Make Atlas"
 msgstr "Atlaszkészítés"
 
-#, fuzzy
 msgid "Make an atlas"
-msgstr "Atlaszkészítés"
+msgstr ""
 
 msgid "Make sure the scan/photo/image is at least 200dpi."
 msgstr "A scannelt kép/fénykép/egyéb kép felbontása legalább 200 DPI legyen."
@@ -284,9 +352,15 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Menü"
 
+msgid "Merge account"
+msgstr ""
+
 #, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
+
 msgid "No atlas"
-msgstr "Nincs atlasz."
+msgstr ""
 
 msgid "No atlases."
 msgstr "Nincs atlasz."
@@ -300,11 +374,18 @@ msgstr "Jegyzetek"
 msgid "OpenStreetMap US"
 msgstr "OpenStreetMap US"
 
+#, fuzzy
+msgid "OpenStreetMap account"
+msgstr "OpenStreetMap US"
+
 msgid "Orientation"
 msgstr "Tájolás"
 
 msgid "Paper size"
 msgstr "Papírméret"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "Rács térképre rögzítése"
@@ -321,12 +402,14 @@ msgstr "Jegyzetek nyomtatása"
 msgid "Print out anywhere in the world."
 msgstr "Nyomtasd ki bárhol a világon"
 
-#, fuzzy
 msgid "Private atlases aren't listed on Field Papers, but anyone with the link can open them. When you're logged in, you'll find them on your dashboard."
-msgstr "Field Papers"
+msgstr ""
 
 msgid "Refresh"
 msgstr "Frissítés"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -346,11 +429,9 @@ msgstr "Mivel ez a pillanatkép <span class='private'>privát</span>, valószín
 msgid "Snapshot - Field Papers"
 msgstr "Pillanatkép – Field Papers"
 
-#, fuzzy
 msgid "Snapshot Processing (%{image_filename})"
 msgstr ""
 
-#, fuzzy
 msgid "Snapshot Processing Failed (%{image_filename})"
 msgstr ""
 
@@ -393,13 +474,11 @@ msgstr "Toner"
 msgid "Translations"
 msgstr "Fordítások"
 
-#, fuzzy
 msgid "Unfortunately, your atlas failed to render. It's possible that it was an intermittent error, in which case you should try re-creating the atlas. If the problem persists, please %{open_issue} with details."
-msgstr "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létrehozni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
+msgstr ""
 
-#, fuzzy
 msgid "Unfortunately, your snapshot for image %{image_filename} failed to be processed. It's possible that it was an intermittent error, in which case you should try re-uploading. If the problem persists, please %{open_issue} with details."
-msgstr "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosan fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra feltölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-mail címre: %{email_url}."
+msgstr ""
 
 msgid "Unprocessed snapshot"
 msgstr ""
@@ -410,26 +489,82 @@ msgstr "Feltöltés"
 msgid "Upload Failed"
 msgstr "A feltöltés nem sikerült"
 
-#, fuzzy
 msgid "Upload a snapshot"
-msgstr "Feltöltés"
+msgstr ""
 
 msgid "Uploading"
 msgstr "Feltöltés"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Isten hozott a Field Papersen"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Isten hozott a Field Papersen"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
-#, fuzzy
-msgid "Your atlases"
-msgstr "Atlaszaid"
+msgid "Wrong username or password."
+msgstr ""
 
 #, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
+msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
+
 msgid "Your snapshots"
-msgstr "Pillanatképeid"
+msgstr ""
 
 msgid "anonymous"
 msgstr "névtelen"
@@ -452,128 +587,8 @@ msgstr "privát"
 msgid "processing"
 msgstr ""
 
+msgid "profile"
+msgstr ""
+
 msgid "snapshot of page %{tp}"
 msgstr "a(z) %{tp} oldal pillanatképe"
-
-#~ msgid "Add-ons"
-#~ msgstr "Bővítmények"
-#~ msgid "All Atlases"
-#~ msgstr "Minden atlasz"
-#~ msgid "All Snapshots"
-#~ msgstr "Minden pillanatkép"
-#~ msgid "Cancel"
-#~ msgstr "Mégsem"
-#~ msgid "Click for more information."
-#~ msgstr "További információkért kattints ide."
-#~ msgid "EXTEND"
-#~ msgstr "BŐVÍTSD A LEHETŐSÉGEKET"
-#~ msgid "LOG IN"
-#~ msgstr "LÉPJ BE"
-#~ msgid "LOG OUT"
-#~ msgstr "LÉPJ KI"
-#~ msgid "MAKE"
-#~ msgstr "KÉSZÍTS"
-#~ msgid ""
-#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
-#~ "d to you in the final step."
-#~ msgstr ""
-#~ "A privát atlaszok csak akkor érhetők el ha be vagy lépve vagy ha megadod a leg"
-#~ "utolsó lépésben kapott URL-t."
-#~ msgid "UPLOAD"
-#~ msgstr "TÖLTS FÖL"
-#~ msgid "UTM Grid"
-#~ msgstr "UTM-rács"
-#~ msgid "WATCH"
-#~ msgstr "NÉZD MEG"
-#~ msgid "Your Atlases"
-#~ msgstr "Atlaszaid"
-#~ msgid "Your Snapshots"
-#~ msgstr "Pillanatképeid"
-#~ msgid "an atlas to print"
-#~ msgstr "nyomtatható atlaszt"
-#~ msgid "or create an account"
-#~ msgstr "vagy hozz létre fiókot"
-#~ msgid "pages you've marked"
-#~ msgstr "általad megjelölt oldalakat"
-#~ msgid "recent activity"
-#~ msgstr "a legutóbbi tevékenységeket"
-#~ msgid "with advanced tools"
-#~ msgstr "speciális eszközökkel"
-#~ msgid "@fieldpapers on Twitter"
-#~ msgstr "@fieldpapers a Twitteren"
-#~ msgid ""
-#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
-#~ ", and email us at %{email_url} if your atlas is stuck."
-#~ msgstr ""
-#~ "Ha egy óránál is tovább tart, akkor nézd meg a %{twitter_link} oldalon a rends"
-#~ "zer állapotát, és írj egy e-mailt (ide: %{email_url}), ha az atlaszod készülés"
-#~ "e elakadt."
-#~ msgid ""
-#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-#~ "\">dbsgeo.com/latlon/</a> to make new ones."
-#~ msgstr ""
-#~ "Szélesség, hosszúság és esetleges nagyítás. Új készítéséhez használd a <a href"
-#~ "=\"http://dbsgeo.com/latlon/”>dbsgeo.com/latlon/</a> szolgáltatását."
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please %{open_issue} or email %{email_url} with details."
-#~ msgstr ""
-#~ "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan f"
-#~ "ellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létreho"
-#~ "zni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-ma"
-#~ "il címre: %{email_url}."
-#~ msgid ""
-#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
-#~ "d. It's possible that it was an intermittent error, in which case you should t"
-#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
-#~ "l_url} with details."
-#~ msgstr ""
-#~ "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosa"
-#~ "n fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra felt"
-#~ "ölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e"
-#~ "-mail címre: %{email_url}."
-#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
-#~ msgstr "A %{FieldPapers}t a %{StamenDesign} készítette"
-#~ msgid ""
-#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-#~ "a>, named “geojson_file”:"
-#~ msgstr ""
-#~ "GeoJSON-fájl csatolmányként feltölthető a <a href=\"/\">fieldpapers.org</a>-ra, "
-#~ "„geojson_file” néven:"
-#~ msgid ""
-#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-#~ "g</a> as a form value, named “geojson_data”:"
-#~ msgstr ""
-#~ "Más megoldásként a nyers GeoJSON-tartalom űrlapértékként bemásolható a <a href"
-#~ "=\"/\">fieldpapers.org</a> oldalra, „geojson_data” néven:"
-#~ msgid "Development Blog"
-#~ msgstr "Fejlesztői blog"
-#~ msgid "Geojson Data"
-#~ msgstr "GeoJSON-adatok"
-#~ msgid "Geojson File"
-#~ msgstr "GeoJSON-fájl"
-#~ msgid "Snapshot Processing"
-#~ msgstr "Pillanatkép feldolgozása"
-#~ msgid "Snapshot Processing Failed"
-#~ msgstr "A pillanatkép feldolgozása nem sikerült"
-#~ msgid "Stamen Design"
-#~ msgstr "Stamen Design"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Sajnos nem sikerült megjeleníteni az atlaszt. Lehet, hogy ez egy időszakosan f"
-#~ "ellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra létreho"
-#~ "zni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e-ma"
-#~ "il címre: %{email_url}."
-#~ msgid ""
-#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
-#~ " an intermittent error, in which case you should try re-uploading. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Sajnos nem sikerült feldolgozni a pillanatképet. Lehet, hogy ez egy időszakosa"
-#~ "n fellépő hiba miatt történt, ebben az esetben meg kellene próbálnod újra felt"
-#~ "ölteni. Ha a probléma továbbra is fennáll, írd meg a részleteket a következő e"
-#~ "-mail címre: %{email_url}."

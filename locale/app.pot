@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 06:39+0000\n"
-"PO-Revision-Date: 2026-11-03 06:39+0000\n"
+"POT-Creation-Date: 2026-11-04 07:43+0000\n"
+"PO-Revision-Date: 2026-11-04 07:43+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -34,8 +34,18 @@ msgid_plural "%{count} Snapshots"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -67,6 +77,9 @@ msgid "Add row"
 msgstr ""
 
 msgid "Advanced - Field Papers"
+msgstr ""
+
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
 msgstr ""
 
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -114,6 +127,9 @@ msgstr ""
 msgid "Basemap"
 msgstr ""
 
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr ""
+
 msgid "Bing"
 msgstr ""
 
@@ -132,13 +148,31 @@ msgstr ""
 msgid "Code of Conduct"
 msgstr ""
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr ""
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 msgid "Dashboard - Field Papers"
+msgstr ""
+
+msgid "Delete account"
+msgstr ""
+
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr ""
+
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr ""
+
+msgid "Don't have an OpenStreetMap account?"
 msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
@@ -166,6 +200,15 @@ msgid "Export Data"
 msgstr ""
 
 msgid "Field Papers"
+msgstr ""
+
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr ""
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
 msgstr ""
 
 msgid "From"
@@ -207,6 +250,9 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr ""
 
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr ""
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr ""
 
@@ -225,13 +271,34 @@ msgstr ""
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
+msgid "Legacy account"
+msgstr ""
+
 msgid "Location and zoom"
 msgstr ""
 
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr ""
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr ""
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -273,6 +340,12 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
+msgid "Merge account"
+msgstr ""
+
+msgid "Merge an old Field Papers account"
+msgstr ""
+
 msgid "No atlas"
 msgstr ""
 
@@ -288,10 +361,16 @@ msgstr ""
 msgid "OpenStreetMap US"
 msgstr ""
 
+msgid "OpenStreetMap account"
+msgstr ""
+
 msgid "Orientation"
 msgstr ""
 
 msgid "Paper size"
+msgstr ""
+
+msgid "Password"
 msgstr ""
 
 msgid "Pin grid to map"
@@ -313,6 +392,9 @@ msgid "Private atlases aren't listed on Field Papers, but anyone with the link c
 msgstr ""
 
 msgid "Refresh"
+msgstr ""
+
+msgid "Remember me"
 msgstr ""
 
 msgid "Remove column"
@@ -399,13 +481,64 @@ msgstr ""
 msgid "Uploading"
 msgstr ""
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr ""
+
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr ""
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr ""
+
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr ""
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr ""
+
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr ""
+
+msgid "Your Field Papers account was created %{time}"
+msgstr ""
+
+msgid "Your account - Field Papers"
+msgstr ""
+
+msgid "Your account has been deleted."
+msgstr ""
+
 msgid "Your atlases"
+msgstr ""
+
+msgid "Your content"
+msgstr ""
+
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr ""
+
+msgid "Your old account %{username} has been merged into this one."
 msgstr ""
 
 msgid "Your snapshots"
@@ -430,6 +563,9 @@ msgid "private"
 msgstr ""
 
 msgid "processing"
+msgstr ""
+
+msgid "profile"
 msgstr ""
 
 msgid "snapshot of page %{tp}"

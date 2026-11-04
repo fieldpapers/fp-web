@@ -35,10 +35,20 @@ msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} Foto"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} Atlas"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} Foto"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} silam"
@@ -70,6 +80,9 @@ msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "Ahli - Field Papers"
+
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -117,6 +130,10 @@ msgstr "Atlas - Field Papers"
 msgid "Basemap"
 msgstr ""
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -135,15 +152,35 @@ msgstr "Pilih halaman atlas untuk meng-upload . Kami akan memutuskan di mana unt
 msgid "Code of Conduct"
 msgstr ""
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "Salin atlas ini"
 
 msgid "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences."
 msgstr ""
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 #, fuzzy
 msgid "Dashboard - Field Papers"
 msgstr "Field Papers"
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "Mohon, jangan meng-upload hal-hal yang bukan merupakan peta Field Papers."
@@ -171,6 +208,16 @@ msgstr "Ekspor Data"
 
 msgid "Field Papers"
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
 
 msgid "From"
 msgstr "Dari"
@@ -213,6 +260,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr ""
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr "Sangatlah mudah untuk membuat atlas Field yang sudah ter\"definiskan\" dengan memberikan detail ekstra di depan yang digunakan sebagai nilai standar melalui proses <a href=\"%s\">Membuat</a>"
 
@@ -232,13 +283,36 @@ msgstr ""
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr "Lintang, bujur, dan lever perbesaran. Gunakan <a href=\"http://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> untuk mendapatkannya."
 
+msgid "Legacy account"
+msgstr ""
+
 msgid "Location and zoom"
 msgstr "Lokasi dan zoom"
 
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -280,6 +354,13 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "Menu"
 
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
+
 #, fuzzy
 msgid "No atlas"
 msgstr "Tidak ada atlas"
@@ -296,10 +377,16 @@ msgstr ""
 msgid "OpenStreetMap US"
 msgstr ""
 
+msgid "OpenStreetMap account"
+msgstr ""
+
 msgid "Orientation"
 msgstr ""
 
 msgid "Paper size"
+msgstr ""
+
+msgid "Password"
 msgstr ""
 
 msgid "Pin grid to map"
@@ -323,6 +410,9 @@ msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "Memuat ulang"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -413,15 +503,74 @@ msgstr "Unggah"
 msgid "Uploading"
 msgstr "Sedang mengunggah"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "Selamat datang di Field Papers"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "Selamat datang di Field Papers"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 #, fuzzy
 msgid "Your atlases"
 msgstr "Tidak ada atlas"
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
 
 #, fuzzy
 msgid "Your snapshots"
@@ -448,100 +597,8 @@ msgstr "pribadi"
 msgid "processing"
 msgstr ""
 
+msgid "profile"
+msgstr ""
+
 msgid "snapshot of page %{tp}"
 msgstr "foto dari halaman %{tp}"
-
-#~ msgid "EXTEND"
-#~ msgstr "Memperpanjang"
-#~ msgid "LOG IN"
-#~ msgstr "MASUK"
-#~ msgid "LOG OUT"
-#~ msgstr "KELUAR"
-#~ msgid "MAKE"
-#~ msgstr "MEMBUAT"
-#~ msgid "UPLOAD"
-#~ msgstr "UNGGAH"
-#~ msgid "WATCH"
-#~ msgstr "PANTAU"
-#~ msgid "or create an account"
-#~ msgstr "atau membuat akun"
-#~ msgid "pages you've marked"
-#~ msgstr "halaman yang anda tandai"
-#~ msgid "recent activity"
-#~ msgstr "aktifitas saat ini"
-#~ msgid "with advanced tools"
-#~ msgstr "dengan alat lebih mahir"
-#~ msgid "@fieldpapers on Twitter"
-#~ msgstr "@fieldpapers di Twitter"
-#~ msgid ""
-#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
-#~ ", and email us at %{email_url} if your atlas is stuck."
-#~ msgstr ""
-#~ "Jika memakan waktu lebih dari sejam, cek %{twitter_link} untuk status update d"
-#~ "ari sistem, and email kami di %{email_url} jika atlas proses atlas Anda tidak "
-#~ "berjalan."
-#~ msgid ""
-#~ "Latitude, longitude, and optional zoom. Use <a href=\"http://dbsgeo.com/latlon/"
-#~ "\">dbsgeo.com/latlon/</a> to make new ones."
-#~ msgstr ""
-#~ "Lintang, bujur, dan lever perbesaran. Gunakan <a href=\"http://dbsgeo.com/latlo"
-#~ "n/\">dbsgeo.com/latlon/</a> untuk mendapatkannya."
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please %{open_issue} or email %{email_url} with details."
-#~ msgstr ""
-#~ "Sayang sekali, atlas anda gagal di gambar. Ini mungkin adalah kesalah sesaat, "
-#~ "yang jika hal ini terjadi, anda harus membuat ulang atlas. Jika masalah ini te"
-#~ "tap berlanjut, harap email %{email_url} dengan detil permasalahannya."
-#~ msgid ""
-#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
-#~ "d. It's possible that it was an intermittent error, in which case you should t"
-#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
-#~ "l_url} with details."
-#~ msgstr ""
-#~ "Sayang sekali, foto anda gagal di proses. Ini mungkin adalah kesalah sesaat, y"
-#~ "ang jika hal ini terjadi, anda harus mengunggah ulang gambar. Jika masalah ini"
-#~ " tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."
-#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
-#~ msgstr "%{FieldPapers} dibangun oleh %{StamenDesign}"
-#~ msgid ""
-#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-#~ "a>, named “geojson_file”:"
-#~ msgstr ""
-#~ "Sebuah file GeoJSON dapat diposting sebagai file yang melekat ke <a href=\"/\"> "
-#~ "fieldpapers.org </a> , bernama \" geojson_file \" :"
-#~ msgid ""
-#~ "Alternatively, raw GeoJSON content can be posted to <a href=\"/\">fieldpapers.or"
-#~ "g</a> as a form value, named “geojson_data”:"
-#~ msgstr ""
-#~ "Alternatifnya, konten GeoJSON baku dapat diposting ke <a href=\"/\">fieldpapers."
-#~ "org</a> sebagai bentuk nilai, bernama \"geojson_data\":"
-#~ msgid "Development Blog"
-#~ msgstr "Blog Pengembangan"
-#~ msgid "Geojson Data"
-#~ msgstr "Data Geojson"
-#~ msgid "Geojson File"
-#~ msgstr "File Geojson"
-#~ msgid "Snapshot Processing"
-#~ msgstr "Pengolahan Foto"
-#~ msgid "Snapshot Processing Failed"
-#~ msgstr "Pengolahan Foto Gagal"
-#~ msgid "Stamen Design"
-#~ msgstr "Stamen Design"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Sayang sekali, atlas anda gagal di gambar. Ini mungkin adalah kesalah sesaat, "
-#~ "yang jika hal ini terjadi, anda harus membuat ulang atlas. Jika masalah ini te"
-#~ "tap berlanjut, harap email %{email_url} dengan detil permasalahannya."
-#~ msgid ""
-#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
-#~ " an intermittent error, in which case you should try re-uploading. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "Sayang sekali, foto anda gagal di proses. Ini mungkin adalah kesalah sesaat, y"
-#~ "ang jika hal ini terjadi, anda harus mengunggah ulang gambar. Jika masalah ini"
-#~ " tetap berlanjut, harap email %{email_url} dengan detil permasalahannya."

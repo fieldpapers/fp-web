@@ -47,9 +47,19 @@ msgid "%{count} Snapshot"
 msgid_plural "%{count} Snapshots"
 msgstr[0] "%{count} 枚の写真"
 
+#, fuzzy
+msgid "%{count} atlas"
+msgid_plural "%{count} atlases"
+msgstr[0] "%{count} 枚の地図"
+
 msgid "%{count} page"
 msgid_plural "%{count} pages"
 msgstr[0] "%{count} ページ"
+
+#, fuzzy
+msgid "%{count} snapshot"
+msgid_plural "%{count} snapshots"
+msgstr[0] "%{count} 枚の写真"
 
 msgid "%{time_period} ago"
 msgstr "%{time_period} 日前"
@@ -82,6 +92,9 @@ msgstr ""
 
 msgid "Advanced - Field Papers"
 msgstr "高度な機能 - Field Papers"
+
+msgid "After logging in, connect your account to OpenStreetMap from your account page. That keeps your atlases and snapshots with you after password login ends."
+msgstr ""
 
 #, fuzzy
 msgid "Alternatively, raw GeoJSON content can be <code>POST</code>ed to <code>%{link}</code> as a form value, named <code>geojson_data</code>:"
@@ -129,6 +142,10 @@ msgstr "地図帳 - Field Papers"
 msgid "Basemap"
 msgstr "ベースマップ"
 
+#, fuzzy
+msgid "Before OpenStreetMap login, Field Papers had its own accounts. If you had one, enter its username (or email) and password to move its atlases and snapshots into this account. This is possible until %{date}."
+msgstr "Field Papers"
+
 msgid "Bing"
 msgstr "Bing"
 
@@ -147,6 +164,9 @@ msgstr "メモした地図の画像ファイルを選択してアップロード
 msgid "Code of Conduct"
 msgstr ""
 
+msgid "Connect your OpenStreetMap account"
+msgstr ""
+
 msgid "Copy this atlas"
 msgstr "この地図帳をコピー"
 
@@ -155,9 +175,26 @@ msgstr ""
 "Could not connect to JOSM. Make sure JOSM is running and that the Remote Control functionality is enabled in Preferences.\n"
 "%{JOSM}に接続できなかった場合。%{JOSM}が機能していて、%{the Remote Control functionality}が優先的に有効になっているか確認してください。"
 
+msgid "Create one for free on openstreetmap.org."
+msgstr ""
+
 #, fuzzy
 msgid "Dashboard - Field Papers"
 msgstr "Field Papers"
+
+msgid "Delete account"
+msgstr ""
+
+#, fuzzy
+msgid "Delete your Field Papers account? This can't be undone."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Deleting your account removes your private atlases and snapshots. Public ones stay on Field Papers, credited to \"anonymous\". This can't be undone."
+msgstr "Field Papers"
+
+msgid "Don't have an OpenStreetMap account?"
+msgstr ""
 
 msgid "Don't upload things that aren't Field Papers maps, please."
 msgstr "すみません、アップロードできませんでした。ファイルはField Papersの地図ではないようです。"
@@ -185,6 +222,16 @@ msgstr "データの出力"
 
 msgid "Field Papers"
 msgstr "Field Papers"
+
+#, fuzzy
+msgid "Field Papers is switching to OpenStreetMap login. Connect your OpenStreetMap account before %{date} to keep access to this account."
+msgstr "Field Papers"
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Forgotten its password? Log out, use \"Forgot your password?\" on the login page, and once you're logged in to the old account, connect it to OpenStreetMap from its account page; it will be merged into this account."
+msgstr ""
 
 msgid "From"
 msgstr "From"
@@ -227,6 +274,10 @@ msgstr ""
 msgid "If you choose to include notes, your map will be printed on the top half a page with notes displayed on the bottom half. Otherwise, maps will be displayed on a full page."
 msgstr "もしノートを含むものを選んだのであれば、あなたの地図は下半分に表示されているノートとともに上半分に印刷されます。そうでなければ地図は全体に表示されます。"
 
+#, fuzzy
+msgid "If you created a Field Papers account before OpenStreetMap login was available, you can still log in with your password until %{date}."
+msgstr "Field Papers"
+
 msgid "It’s easy to create “canned” Field Papers atlases by providing extra details up-front that are used as default values throughout the <a href=\"%s\">Make</a> process."
 msgstr ""
 
@@ -245,13 +296,36 @@ msgstr ""
 msgid "Latitude, longitude, and optional zoom. Use <a href=\"https://dbsgeo.com/latlon/\">dbsgeo.com/latlon/</a> to make new ones."
 msgstr ""
 
+msgid "Legacy account"
+msgstr ""
+
 msgid "Location and zoom"
 msgstr "対象範囲と縮尺"
 
 msgid "Log in"
 msgstr ""
 
+msgid "Log in with OpenStreetMap"
+msgstr ""
+
+msgid "Log in with password"
+msgstr ""
+
 msgid "Log out"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} (%{email}) with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logged in as %{username} with OpenStreetMap"
+msgstr ""
+
+#, fuzzy
+msgid "Logged in as %{username} with a Field Papers password"
+msgstr "Field Papers"
+
+msgid "Logging in with OpenStreetMap failed (%{reason})."
 msgstr ""
 
 msgid "Make"
@@ -294,6 +368,13 @@ msgstr "Mapbox"
 msgid "Menu"
 msgstr "メニュー"
 
+msgid "Merge account"
+msgstr ""
+
+#, fuzzy
+msgid "Merge an old Field Papers account"
+msgstr "Field Papers"
+
 #, fuzzy
 msgid "No atlas"
 msgstr "地図帳がありません。"
@@ -310,11 +391,17 @@ msgstr "ノート"
 msgid "OpenStreetMap US"
 msgstr ""
 
+msgid "OpenStreetMap account"
+msgstr ""
+
 msgid "Orientation"
 msgstr "用紙の向き"
 
 msgid "Paper size"
 msgstr "用紙サイズ"
+
+msgid "Password"
+msgstr ""
 
 msgid "Pin grid to map"
 msgstr "グリッドを地図に固定する"
@@ -337,6 +424,9 @@ msgstr "Field Papers"
 
 msgid "Refresh"
 msgstr "更新"
+
+msgid "Remember me"
+msgstr ""
 
 msgid "Remove column"
 msgstr ""
@@ -427,15 +517,74 @@ msgstr "アップロード"
 msgid "Uploading"
 msgstr "アップロード中"
 
+msgid "Username or email"
+msgstr ""
+
+msgid "View them on your dashboard"
+msgstr ""
+
 msgid "Welcome to Field Papers"
+msgstr "ようこそ Field Papers へ"
+
+#, fuzzy
+msgid "Welcome to Field Papers! If you had a Field Papers account before logging in with OpenStreetMap, you can merge it into this one below."
 msgstr "ようこそ Field Papers へ"
 
 msgid "Welcome, %{username}"
 msgstr ""
 
+msgid "Wrong username or password."
+msgstr ""
+
+#, fuzzy
+msgid "You are currently logged in with a legacy account. Field Papers is switching to OpenStreetMap login, and <strong>legacy password logins will be disabled on %{date}</strong>. Please link this account to an OpenStreetMap account before then, otherwise you will lose access."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "You can log in to Field Papers with your OpenStreetMap account. Field Papers only sees your OSM username, but it can't edit the map or post anything on your behalf."
+msgstr "Field Papers"
+
+msgid "You don't need an account to make atlases or upload snapshots, but with one you can find them again later."
+msgstr ""
+
+msgid "You have %{atlases} and %{snapshots}."
+msgstr ""
+
+msgid "You haven't made any atlases or uploaded any snapshots yet."
+msgstr ""
+
+#, fuzzy
+msgid "Your Field Papers account is already connected to a different OpenStreetMap account."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account is now connected to OpenStreetMap."
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your Field Papers account was created %{time}"
+msgstr "Field Papers"
+
+#, fuzzy
+msgid "Your account - Field Papers"
+msgstr "Field Papers"
+
+msgid "Your account has been deleted."
+msgstr ""
+
 #, fuzzy
 msgid "Your atlases"
 msgstr "あなたの地図"
+
+msgid "Your content"
+msgstr ""
+
+#, fuzzy
+msgid "Your name on Field Papers is your OpenStreetMap display name. If you change it there, it changes here the next time you log in."
+msgstr "Field Papers"
+
+msgid "Your old account %{username} has been merged into this one."
+msgstr ""
 
 #, fuzzy
 msgid "Your snapshots"
@@ -462,105 +611,8 @@ msgstr "プライベート"
 msgid "processing"
 msgstr ""
 
+msgid "profile"
+msgstr ""
+
 msgid "snapshot of page %{tp}"
 msgstr "ページのスナップショット %{tp}"
-
-#~ msgid "Add-ons"
-#~ msgstr "アドオン"
-#~ msgid "All Atlases"
-#~ msgstr "すべての地図"
-#~ msgid "All Snapshots"
-#~ msgstr "すべてのスナップショット"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-#~ msgid "Click for more information."
-#~ msgstr "クリックで詳細を見られます"
-#~ msgid "EXTEND"
-#~ msgstr "拡張機能"
-#~ msgid "LOG IN"
-#~ msgstr "ログイン"
-#~ msgid "LOG OUT"
-#~ msgstr "ログアウト"
-#~ msgid "MAKE"
-#~ msgstr "作る"
-#~ msgid ""
-#~ "Private atlases can only be accessed if you're logged in, or via a URL provide"
-#~ "d to you in the final step."
-#~ msgstr "個人が作成した地図帳はログイン時、あるいは最終段階で表示されるURLを通じてしかアクセスすることができません。"
-#~ msgid "UPLOAD"
-#~ msgstr "アップロード"
-#~ msgid "UTM Grid"
-#~ msgstr "UTM グリッド"
-#~ msgid "WATCH"
-#~ msgstr "見る"
-#~ msgid "Your Atlases"
-#~ msgstr "あなたの地図"
-#~ msgid "Your Snapshots"
-#~ msgstr "あなたのスナップショット"
-#~ msgid "an atlas to print"
-#~ msgstr "地図帳を印刷"
-#~ msgid "or create an account"
-#~ msgstr "or アカウントの新規作成"
-#~ msgid "pages you've marked"
-#~ msgstr "あなたがマークしたページ"
-#~ msgid "recent activity"
-#~ msgstr "現在の活動状況"
-#~ msgid "with advanced tools"
-#~ msgstr "高度な機能"
-#~ msgid "@fieldpapers on Twitter"
-#~ msgstr "@fieldpapers on Twitter"
-#~ msgid ""
-#~ "If it takes more than an hour, check %{twitter_link} for system status updates"
-#~ ", and email us at %{email_url} if your atlas is stuck."
-#~ msgstr ""
-#~ "もし１時間以上かかるようなら、システムステータスアップデートのために,  %{twitter_link}  をチェックしてください。そしてもし地図帳がスタッ"
-#~ "クしたら, %{email_url} にEmail してください。"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please %{open_issue} or email %{email_url} with details."
-#~ msgstr ""
-#~ "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{"
-#~ "email_url} にメールを送ってください。 "
-#~ msgid ""
-#~ "Unfortunately, your snapshot for image %{image_filename} failed to be processe"
-#~ "d. It's possible that it was an intermittent error, in which case you should t"
-#~ "ry re-uploading. If the problem persists, please %{open_issue} or email %{emai"
-#~ "l_url} with details."
-#~ msgstr ""
-#~ "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳"
-#~ "細と一緒に %{email_url} へメールをしてください。"
-#~ msgid "%{FieldPapers} is built by %{StamenDesign}"
-#~ msgstr "%{FieldPapers} は %{StamenDesign} によって構築されています。"
-#~ msgid ""
-#~ "A GeoJSON file can posted as an attached file to <a href=\"/\">fieldpapers.org</"
-#~ "a>, named “geojson_file”:"
-#~ msgstr ""
-#~ "添付された GeoJSON ファイルを <a href=\"/\">fieldpapers.org</a> に投稿することができます。ファイル名 “geojso"
-#~ "n_file”:"
-#~ msgid "Development Blog"
-#~ msgstr "開発ブログ"
-#~ msgid "Geojson Data"
-#~ msgstr "Geojsonデータ"
-#~ msgid "Geojson File"
-#~ msgstr "Geojsonファイル"
-#~ msgid "Snapshot Processing"
-#~ msgstr "スナップショットを処理"
-#~ msgid "Snapshot Processing Failed"
-#~ msgstr "スナップショットの処理が失敗しました。"
-#~ msgid "Stamen Design"
-#~ msgstr "Stamen Design"
-#~ msgid ""
-#~ "Unfortunately, your atlas failed to render. It's possible that it was an inter"
-#~ "mittent error, in which case you should try re-creating the atlas. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "残念ながら、レンダリングに失敗しました。断続的エラーの可能性があります。その場合は再度地図帳作成をしてください。もし問題が解決されない場合は詳細ともに %{"
-#~ "email_url} にメールを送ってください。 "
-#~ msgid ""
-#~ "Unfortunately, your snapshot failed to be processed. It's possible that it was"
-#~ " an intermittent error, in which case you should try re-uploading. If the prob"
-#~ "lem persists, please email %{email_url} with details."
-#~ msgstr ""
-#~ "残念ながらスナップショットを処理することに失敗しました。断続的エラーの可能性がありますので再アップロードしてみてください。もしこの問題が解決されない場合は詳"
-#~ "細と一緒に %{email_url} へメールをしてください。"
