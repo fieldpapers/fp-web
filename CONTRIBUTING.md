@@ -102,6 +102,12 @@ To extract marked strings into `locale/*/app.po`:
 bin/rake gettext:find
 ```
 
+You may also have to run this to set msgstr = msgid for newly added strings.
+
+```bash
+msgattrib --clear-fuzzy --empty locale/en/app.po | msgen -o locale/en/app.po -
+```
+
 Translations are managed on Transifex, which is the source of truth for all non-English strings. Syncing with it requires the [Transifex CLI](https://developers.transifex.com/docs/cli) (`tx`) and project maintainer credentials:
 
 ```bash
