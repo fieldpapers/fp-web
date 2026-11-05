@@ -6,11 +6,11 @@
         <p><%= atlas.creator_name %> made this atlas <%= link_to _("%{time_period} ago") % { time_period: time_ago_in_words(atlas.created_at) }, atlases_path(month: atlas.created_at.strftime("%Y-%m")) %></p>
         <p class="details"><%= pluralize(atlas.pages.length, 'page') %> + <%= Providers.derive(atlas.get_provider_without_overlay) %> + <%= atlas.orientation %> + <%= atlas.layout %></p>
       </li>
-      <% if atlas.refreshed_from  %>
-        <li>This atlas is a <i>refresh</i> of <%= link_to(atlas.refreshed_from, atlas_path(atlas.refreshed_from)) %> </li>
+      <% if (source = atlas.refresh_source) %>
+        <li>This atlas is a <i>refresh</i> of <%= link_to(source.slug, atlas_path(source)) %> </li>
       <% end %>
-      <% if atlas.cloned_from  %>
-        <li>This atlas is a <i>copy</i> of <%= link_to(atlas.cloned_from, atlas_path(atlas.cloned_from)) %> </li>
+      <% if (source = atlas.clone_source) %>
+        <li>This atlas is a <i>copy</i> of <%= link_to(source.slug, atlas_path(source)) %> </li>
       <% end %>
       <% if !atlas.snapshots.empty? %>
         <%= render partial: "atlases/atlas_snapshot", collection: atlas.snapshots %>

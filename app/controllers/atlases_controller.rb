@@ -15,7 +15,7 @@ class AtlasesController < ApplicationController
   end
 
   def show
-    @atlas = Atlas.unscoped.friendly.find(params[:id])
+    @atlas = Atlas.unscoped.find_by!(slug: params[:id])
 
     respond_to do |format|
       format.html

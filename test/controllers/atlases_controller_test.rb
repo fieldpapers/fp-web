@@ -70,4 +70,25 @@ class AtlasesControllerTest < ActionController::TestCase
     atlas_props = JSON.parse(response.body)["features"].first["properties"]
     assert_equal "anonymous", atlas_props["creator"]
   end
+
+  test "show doesn't find atlases by numeric id" do
+    atlas = create_atlas(rows: 1, cols: 1)
+
+    assert_raises(ActiveRecord::RecordNotFound) { get :show, params: { id: atlas.id.to_s } }
+  end
+
+  test "show links to a public source atlas by slug, but not to a private one" do
+    public_source = create_atlas(rows: 1, cols: 1)
+    private_source = create_atlas(rows: 1, cols: 1)
+    private_source.update_column(:private, true)
+    atlas = create_atlas(rows: 1, cols: 1)
+    atlas.update_columns(cloned_from: public_source.id, refreshed_from: private_source.id, composed_at: Time.now)
+
+    get :show, params: { id: atlas.slug }
+
+    assert_response :success
+    assert_select "a[href=?]", urls.atlas_path(public_source), text: public_source.slug
+    assert_select "a[href=?]", urls.atlas_path(private_source), 0
+    assert_not_includes response.body, private_source.slug
+  end
 end

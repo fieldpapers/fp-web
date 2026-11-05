@@ -28,7 +28,7 @@ class SnapshotsController < ApplicationController
 
       # the grid CSV only makes sense if this is scoped beneath an atlas
       if params[:atlas_id]
-        @atlas = Atlas.unscoped.friendly.find(params[:atlas_id])
+        @atlas = Atlas.unscoped.find_by!(slug: params[:atlas_id])
         format.csv do
           headers["Content-Type"] ||= "text/csv"
         end
@@ -40,7 +40,7 @@ class SnapshotsController < ApplicationController
     # Within the block, Snapshot#atlas skips Atlas's default scope, which would
     # hide private and failed atlases.
     @snapshot = Atlas.unscoped do
-      Snapshot.unscoped.includes(:atlas).friendly.find(params[:id])
+      Snapshot.unscoped.includes(:atlas).find_by!(slug: params[:id])
     end
   end
 

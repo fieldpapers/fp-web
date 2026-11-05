@@ -115,6 +115,12 @@ class Atlas < ActiveRecord::Base
     class_name: "User",
     foreign_key: "user_id"
 
+  # The atlases this one was refreshed or cloned from. These ids come from user
+  # input, and loading goes through the default scope, so private (and failed)
+  # sources load as nil rather than revealing their slugs.
+  belongs_to :refresh_source, class_name: "Atlas", foreign_key: :refreshed_from, optional: true
+  belongs_to :clone_source, class_name: "Atlas", foreign_key: :cloned_from, optional: true
+
   has_many :pages,
     -> {
       order Arel.sql("CASE WHEN #{Page.table_name}.page_number = 'i' THEN 0 ELSE 1 END, #{Page.table_name}.page_number ASC")

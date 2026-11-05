@@ -66,4 +66,18 @@ class SnapshotsControllerTest < ActionController::TestCase
     assert_response :success
     assert_includes response.body, "static-map-snap0001"
   end
+
+  test "show doesn't find snapshots by numeric id" do
+    atlas = create_atlas(rows: 1, cols: 1)
+    create_snapshot(atlas, "A1", "snap0001")
+    id = Snapshot.unscoped.find_by!(slug: "snap0001").id
+
+    assert_raises(ActiveRecord::RecordNotFound) { get :show, params: { id: id.to_s } }
+  end
+
+  test "csv doesn't find atlases by numeric id" do
+    atlas = create_atlas(rows: 1, cols: 1)
+
+    assert_raises(ActiveRecord::RecordNotFound) { get :index, params: { atlas_id: atlas.id.to_s }, format: :csv }
+  end
 end
