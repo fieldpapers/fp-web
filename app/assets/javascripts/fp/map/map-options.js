@@ -20,13 +20,10 @@
     return matches;
   };
 
-  // Simple check to see if string
-  // fits Leaflet's template requirements
-  // http://leafletjs.com/reference.html#tilelayer
+  // Whether str is an http(s) tile URL template; the same check as
+  // Atlas#provider_valid on the server.
   utils.isTemplateString = function(str) {
-    return true;
-    // var re = /^https?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*(jpg|png)([\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*)?$/gi;
-    // return re.test(str);
+    return /^https?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*(jpg|png)([\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*)?$/i.test(str);
   };
 
   utils.conformTemplate = function(template) {
