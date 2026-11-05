@@ -104,9 +104,9 @@
 
     // set tileLayer
     if (defaultProviderLabel == 'userdefined')
-      atlasProvider.append('<option value="' +
-                           tileProviders[defaultProviderLabel].template +
-                           '">User-provided</option>');
+      atlasProvider.append($('<option>')
+                           .val(tileProviders[defaultProviderLabel].template)
+                           .text('User-provided'));
     validateTileLayer(tileProviders[defaultProviderLabel].template);
     atlasProvider.val(tileProviders[defaultProviderLabel].template);
 
