@@ -27,7 +27,7 @@ gem "devise-i18n" # Devise translations
 gem "devise-i18n-views" # internationalized views for Devise
 gem "faraday" # http client
 gem "friendly_id", "~> 5.5.0" # alphanumeric slugs
-gem "gettext_i18n_rails", "~> 1.13.0" # gettext-style i18n
+gem "gettext_i18n_rails", "~> 2.2.0" # gettext-style i18n
 gem "has_scope" # automatic filter generation
 gem "http_accept_language"
 gem "kaminari" # pagination
