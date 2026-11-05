@@ -74,7 +74,7 @@ class Snapshot < ActiveRecord::Base
     validates_attachment_content_type :scene, content_type: /\Aimage\/.*\Z/
   when "s3"
     def self.s3_url(bucket, region)
-      %r{\Ahttps?:\/\/(?:s3\.)?(?:s3-)?(#{region})?\.?amazonaws\.com\/#{bucket}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
+      %r{\Ahttps?:\/\/(?:s3\.)?(?:s3-)?(#{Regexp.escape(region)})?\.?amazonaws\.com\/#{Regexp.escape(bucket)}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
     end
 
     # Environment-specific direct upload url verifier screens for malicious posted upload locations.
