@@ -49,6 +49,8 @@ class Atlas < ActiveRecord::Base
   OVERLAY_UTM = "https://tile.stamen.com/utm/{Z}/{X}/{Y}.png"
   BASE_ZOOM = 22 # zoom level to use for pixel calculations
   TARGET_RESOLUTION_PPI = 150 # target resolution for printing
+  MAX_ROWS = 26 # rows are lettered A-Z
+  MAX_PAGES = 100
 
   completed_at_column :composed_at
 
@@ -75,7 +77,10 @@ class Atlas < ActiveRecord::Base
 
   validates :slug, presence: true
   validates :west, :south, :east, :north, numericality: true
-  validates :zoom, :rows, :cols, numericality: { only_integer: true }
+  validates :zoom, numericality: { only_integer: true }
+  validates :rows, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: MAX_ROWS }
+  validates :cols, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validate :page_count_valid
   validates :provider, presence: true
   validates :layout, :orientation, :paper_size, presence: true
 
@@ -106,6 +111,12 @@ class Atlas < ActiveRecord::Base
     p = get_provider_without_overlay
     if /\Ahttps?:\/\/(\{[s]\})?[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*\{[zxy]\}\/\{[zxy]\}\/\{[zxy]\}[\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*(jpg|png)([\/\w\.\-\?\+\*_\|~:\[\]@#!\$'\(\),=&]*)?\z/i !~ p
       errors.add(:provider, "Invalid URL template")
+    end
+  end
+
+  def page_count_valid
+    if rows.to_i * cols.to_i > MAX_PAGES
+      errors.add(:base, "An atlas can have at most #{MAX_PAGES} pages")
     end
   end
 

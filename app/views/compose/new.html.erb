@@ -73,7 +73,9 @@
       selector: 'compose-map',
       initialView: [[<%= @initial_lat %>, <%= @initial_lon %>], <%= @initial_zoom %>],
       tileProviders: <%= Providers.layers.to_json.html_safe %>,
-      defaultProvider: "<%= Providers.default %>"
+      defaultProvider: "<%= Providers.default %>",
+      maxRows: <%= Atlas::MAX_ROWS %>,
+      maxPages: <%= Atlas::MAX_PAGES %>
     });
   });
 </script>

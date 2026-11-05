@@ -94,4 +94,17 @@ class RenderAtlasJobTest < ActiveJob::TestCase
 
     assert atlas.reload.failed?
   end
+
+  test "stops rendering when the atlas fails partway through" do
+    atlas = create_atlas(rows: 1, cols: 2)
+    rendered = []
+    render = ->(page) { rendered << page.page_number; atlas.mark_failed!; "x" }
+
+    stub_fp_tasks(render_index: render, render_page: render, merge_pages: ->(*) { flunk }) do
+      RenderAtlasJob.perform_now(atlas.id)
+    end
+
+    assert_equal %w[i], rendered
+    assert atlas.reload.failed?
+  end
 end

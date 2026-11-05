@@ -57,7 +57,7 @@ class ComposeController < ApplicationController
       return redirect_to atlas_path(@atlas)
     end
 
-    redirect_to compose_path
+    redirect_to compose_path, alert: @atlas.errors.full_messages.to_sentence
   end
 
   def update
@@ -72,7 +72,7 @@ class ComposeController < ApplicationController
       return redirect_to atlas_path(@atlas)
     end
 
-    redirect_to compose_path
+    redirect_to compose_path, alert: @atlas.errors.full_messages.to_sentence
   end
 
   private

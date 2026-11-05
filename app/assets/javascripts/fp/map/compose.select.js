@@ -114,7 +114,7 @@
     L.control.scale().addTo(map);
 
     // Area selection tool
-    pageComposer = L.pageComposer({width:200, height:300});
+    pageComposer = L.pageComposer({width:200, height:300, maxRows: settings.maxRows, maxPages: settings.maxPages});
     pageComposer.addTo(map);
 
     // Form listeners

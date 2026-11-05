@@ -106,4 +106,15 @@ class AtlasTest < ActiveSupport::TestCase
     assert failed.reload.failed?
     assert_nil failed.pdf_url
   end
+
+  test "validates the number of rows and pages" do
+    assert create_atlas(rows: 26, cols: 3).valid?
+    assert create_atlas(rows: 1, cols: 100).valid?
+
+    [[0, 1], [1, 0], [-1, 1], [27, 1], [11, 10]].each do |rows, cols|
+      atlas = Atlas.new(rows: rows, cols: cols, west: -122.3, south: 37.7, east: -122.2, north: 37.8, zoom: 14,
+                        provider: "https://tile.openstreetmap.org/{Z}/{X}/{Y}.png")
+      refute atlas.valid?, "#{rows}x#{cols} should be invalid"
+    end
+  end
 end

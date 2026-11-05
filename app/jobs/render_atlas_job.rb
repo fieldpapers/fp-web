@@ -8,6 +8,8 @@ class RenderAtlasJob < FpTasksJob
     pages = atlas.pages.to_a
     pages.each do |page|
       next if page.composed_at
+      # e.g. failed by ReapStuckJob
+      return unless atlas.reload.incomplete?
 
       pdf_url = page.page_number == "i" ? FpTasks.render_index(page) : FpTasks.render_page(page)
       page.update!(pdf_url: pdf_url, composed_at: Time.current)

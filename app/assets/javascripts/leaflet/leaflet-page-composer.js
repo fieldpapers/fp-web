@@ -8,6 +8,8 @@ L.PageComposer = L.Class.extend({
         minHeight: 80,
         paddingToEdge: 30,
         keepAspectRatio: true,
+        maxRows: Infinity,
+        maxPages: Infinity,
     },
 
     offset: new L.Point(0,0),
@@ -274,6 +276,8 @@ L.PageComposer = L.Class.extend({
 
       document.getElementById("cols-count").textContent = this.refs.cols;
       document.getElementById("rows-count").textContent = this.refs.rows;
+      this._addRow.disabled = !this._canAddRow();
+      this._addCol.disabled = !this._canAddCol();
 
       this.bounds = this.refs.locked ? this._getBoundsPinToNorthWest() : this._getBoundsPinToCenter();
 
@@ -392,6 +396,7 @@ L.PageComposer = L.Class.extend({
 
     _onAddRow: function(evt) {
       evt.stopPropagation();
+      if (!this._canAddRow()) return;
       this.refs.rows++;
       this._updatePages();
     },
@@ -405,6 +410,7 @@ L.PageComposer = L.Class.extend({
 
     _onAddCol: function(evt) {
       evt.stopPropagation();
+      if (!this._canAddCol()) return;
       this.refs.cols++;
       this._updatePages();
     },
@@ -414,6 +420,15 @@ L.PageComposer = L.Class.extend({
       if (this.refs.cols === 1) return;
       this.refs.cols--;
       this._updatePages();
+    },
+
+    _canAddRow: function() {
+      return this.refs.rows < this.options.maxRows &&
+             (this.refs.rows + 1) * this.refs.cols <= this.options.maxPages;
+    },
+
+    _canAddCol: function() {
+      return this.refs.rows * (this.refs.cols + 1) <= this.options.maxPages;
     },
 
     _updatePages: function() {
