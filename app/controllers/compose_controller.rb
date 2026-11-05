@@ -9,6 +9,8 @@ class ComposeController < ApplicationController
   # allow existing forms (w/o CSRF projection) to create canned atlases
   skip_before_action :verify_authenticity_token, only: :create
 
+  rate_limit to: 30, within: 10.minutes, only: [:create, :update], with: -> { rate_limited(compose_path) }
+
   def new
     @atlas = Atlas.new
     @initial_lat, @initial_lon, @initial_zoom = initial_center

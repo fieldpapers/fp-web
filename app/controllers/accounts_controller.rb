@@ -1,5 +1,10 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
+  # merging checks a legacy account's password, so this is limited like logins
+  rate_limit to: 10, within: 1.hour, only: :merge,
+    by: -> { "user:#{current_user.id}" }, with: -> { rate_limited(account_path) }
+  rate_limit to: 10, within: 1.hour, only: :merge,
+    by: -> { "login:#{params[:login].to_s.strip.downcase}" }, with: -> { rate_limited(account_path) }
 
   def show
     @atlas_count = Atlas.unscoped.where(user_id: current_user.id).count

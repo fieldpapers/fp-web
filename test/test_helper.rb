@@ -14,6 +14,9 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  # rate limit counters
+  setup { Rails.cache.clear }
+
   def capture_sql(&block)
     queries = []
     callback = ->(*, payload) { queries << payload[:sql] unless payload[:name] == "SCHEMA" }

@@ -6,6 +6,8 @@ class SnapshotsController < ApplicationController
   # allow API usage
   skip_before_action :verify_authenticity_token, only: :create
 
+  rate_limit to: 60, within: 10.minutes, only: :create, with: -> { rate_limited }
+
   def new
     @snapshot = Snapshot.new
   end

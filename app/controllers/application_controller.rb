@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
   end
 
+  # Handler for rate_limit's with: option. Logs the request, then redirects to
+  # path with a "too many attempts" alert, or responds with a 429 if no path
+  # is given.
+  def rate_limited(path = nil)
+    logger.warn("rate limited: #{controller_path}##{action_name} ip=#{request.remote_ip}")
+    return head(:too_many_requests) unless path
+    redirect_to path, alert: _("Too many attempts. Please wait a few minutes and try again.")
+  end
+
   # Logs account events (logins are logged by the Warden hooks in
   # config/initializers/devise.rb)
   def log_auth(event, **fields)
